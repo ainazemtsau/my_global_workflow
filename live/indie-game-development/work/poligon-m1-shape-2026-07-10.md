@@ -3,6 +3,12 @@
 owner_approved: 2026-07-10 — владелец выбрал «А»; history/2026-07-10-s-shape-poligon-m1-001.md
 source_call: work/c-shape-poligon-m1-001-call.md
 
+> Current-state note (2026-07-11): the original 11-leg appetite and rolling-wave section below are a historical
+> approved snapshot. NOW.md carries the later owner-authorized 13-leg gas-law exception. The owner then chose
+> PuppetMaster route A ("в принципе, согласен"): disposable P2a0 opens the existing M1-5 player-tracking leg,
+> while M1-GAS-PROBE leaves the three-slot window until its dependencies clear. See
+> work/player-puppetmaster-p2a0-start-2026-07-11.md. No 14th leg was added.
+
 ## Outcome
 
 Полигон М1 — ближайшее интеграционное доказательство g-9c41: один регулируемый Dungeon Architect

@@ -1,5 +1,5 @@
 # NOW: indie-game-development
-updated: 2026-07-11 by s-research-q-investigation-readiness-001
+updated: 2026-07-11 by s-repair-player-puppetmaster-p2a0-001
 
 bet:
   node: g-9c41
@@ -9,7 +9,8 @@ bet:
   appetite: |
     Максимум 13 product legs, started 2026-07-10; разовая owner-authorized exception 2026-07-11
     для M1-GAS-PROBE + M1-GAS-CORE, дальнейшего автоматического продления нет. Checksum foundation
-    занимает один слот, а будущие M1-9 + M1-10 остаются одним final evidence leg.
+    занимает один слот, а будущие M1-9 + M1-10 остаются одним final evidence leg. P2a0 — risk-first
+    opening уже существующего M1-5 player-tracking leg, не 14-й leg; остаток M1-5 не продлевается молча.
   kill_by: |
     2026-07-24 либо 13 легов, что раньше; immediate review, если M1-GAS-PROBE не даёт
     deterministic mass-exact bounded body/no-tail или M1-A1 не даёт bounded exact/no-pop.
@@ -17,7 +18,8 @@ bet:
   forecast: |
     После Phase 0 MERGED checksum foundation убирает legacy full-scan polling, successor A0 даёт
     дешёвую observability, затем M1-GAS-PROBE выбирает закон, M1-GAS-CORE меняет authority,
-    c-visual-009 разблокируется, и только после этого M1-A1 проверяет S4 handoff.
+    c-visual-009 разблокируется, и только после этого M1-A1 проверяет S4 handoff. Параллельно P2a0
+    в disposable lab проверяет player root authority и сетевую пригодность до production controller.
   against: |
     Packed-body law может не пройти determinism/no-tail или прочитаться как вода; dirty visual BUILD
     потребует fresh rebase. S4, DA-authoring и weak-peer flood всё ещё могут съесть appetite;
@@ -48,16 +50,15 @@ tasks:
       global checksum, проходит owner-approved PLAN, BUILD gates, review, binding fresh G5 и merge.
     status: blocked
     unblock_when: Phase 0 MERGED + checksum foundation DELIVERED/MERGED + fresh owner-approved successor A0 PLAN.
-  - id: M1-GAS-PROBE
+  - id: M1-P2a0
     goal: |
-      Engine-free proof выбирает локальный integer-закон, при котором масса образует packed body
-      с bounded non-self-propagating halo вместо gameplay-релевантного trace по всей комнате.
+      PuppetMaster получает проверенный root-authority маршрут для сетевого игрока, которого могут
+      физически сбивать камни и импульсы, до заморозки production controller.
     done_when: |
-      Owner-approved PLAN и independent RED-first comparison различают current linear, nonlinear-only
-      и packed-body candidates; winner mass-exact, deterministic, traversal-order independent,
-      no-teleport/no-tail и подтверждён диагностическим owner-eye без production Core интеграции.
-    status: blocked
-    unblock_when: Phase 0 + checksum foundation + fresh successor A0 подтверждены DELIVERED/MERGED.
+      c-exec-player-puppetmaster-p2a0-001 возвращает compile/runtime proof текущего допустимого plugin,
+      transition evidence Puppet→Unpinned→GetUp, A/B comparison + C kill-probe, multiplayer authority
+      inventory и fresh independent refutation; без FishNet BUILD, gameplay damage и product merge.
+    status: active
 
 open_calls:
   - id: c-exec-lv-ingest-phase0-001
@@ -75,6 +76,11 @@ open_calls:
     for: g-7e15 / Stage 3.5 movement-data BUILD reconciliation
     issued: 2026-07-10
     note: "BLOCKED on M1-GAS-CORE: approved PLAN @a0db28a2 + dirty BUILD preserved on codex/c-visual-009-build; no continuation/close; history/2026-07-11-s-repair-visual-sim-upstream-001.md."
+  - id: c-exec-player-puppetmaster-p2a0-001
+    to: executor
+    for: M1-P2a0 / PuppetMaster authority suitability spike
+    issued: 2026-07-11
+    note: "READY: lane C disposable lab, base origin/main@a644e5db, no product merge; folded into M1-5; work/c-exec-player-puppetmaster-p2a0-001-call.md."
 recurring: []
 
 decisions:
@@ -87,10 +93,6 @@ decisions:
   - q: "d-level-platform-phasing-001 — how should Lv-ingest be re-phased after the PGG production-pipeline FAIL_STAGE?"
     options: ["Clean rephase: Phase 1 = generic level/module contract + validators; old DA/PGG runtime Phase 1 becomes Phase 2; production extensions/content become Phase 3", "Keep historical numbering as Phase 1A = contract/validators and Phase 1B = adapters/runtime; Phase 2 = production extensions/content", "Keep current Phase 1 unchanged and add the generic standard later"]
     recommendation: "Clean rephase: the generic contract and validators are prerequisites for DA/PGG adapters and must reserve full 3D, module!=room, compound modules with 1:N logical rooms, and six-direction connections before vendor integration; putting the standard after current Phase 1 repeats the spike's build-before-contract failure. Source: work/level-platform-phasing-2026-07-11.md."
-  - q: "d-player-shell-parallel-001 — should PuppetMaster authority be probed before any production controller BUILD?"
-    options: ["A — run a disposable <=half-day P2a0 Puppet Authority Spike now in an isolated lab; production controller waits for the verdict while rig/animation research may continue in parallel", "B — build the code-driven controller first and integrate PuppetMaster later", "C — wait for the sequential M1 player step and the final rig before either spike or controller BUILD"]
-    recommendation: "A. PuppetMaster is active PhysX ragdoll machinery that may move targetRoot during Unpinned/GetUp, so controller-root/collider/feel is no longer a safe first production freeze. The reconciliation must name the existing M1 leg being folded/cut, authorize the disposable lab, and preflight current plugin version/seat, assembly boundary and physics-layer strategy; the spike itself does no network, damage or product merge. Source: work/puppetmaster-player-authority-2026-07-11.md."
-
 next:
   CALL: work/c-exec-lv-ingest-phase0-call.md
 
