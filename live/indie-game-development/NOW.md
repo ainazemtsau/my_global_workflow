@@ -1,5 +1,5 @@
 # NOW: indie-game-development
-updated: 2026-07-11 by s-work-unity65-migration-plan-001
+updated: 2026-07-11 by s-work-player-puppetmaster-p2a0-continuation-route-001
 
 bet:
   node: g-9c41
@@ -55,9 +55,9 @@ tasks:
       PuppetMaster получает проверенный root-authority маршрут для сетевого игрока, которого могут
       физически сбивать камни и импульсы, до заморозки production controller.
     done_when: |
-      c-exec-player-puppetmaster-p2a0-001 возвращает compile/runtime proof текущего допустимого plugin,
-      transition evidence Puppet→Unpinned→GetUp, A/B comparison + C kill-probe, multiplayer authority
-      inventory и fresh independent refutation; без FishNet BUILD, gameplay damage и product merge.
+      c-exec-player-puppetmaster-p2a0-002 freezes an owner-approved live-source proof PLAN; a later separately-issued
+      BUILD under that frozen change returns accepted Puppet→Unpinned→GetUp evidence, A/B comparison + bounded C
+      kill-probe, multiplayer authority inventory and fresh G5, without FishNet BUILD, damage or product merge.
     status: active
 
 open_calls:
@@ -81,11 +81,11 @@ open_calls:
     for: g-7e15 / Stage 3.5 movement-data BUILD reconciliation
     issued: 2026-07-10
     note: "BLOCKED on M1-GAS-CORE: approved PLAN @a0db28a2 + dirty BUILD preserved on codex/c-visual-009-build; no continuation/close; history/2026-07-11-s-repair-visual-sim-upstream-001.md."
-  - id: c-exec-player-puppetmaster-p2a0-001
+  - id: c-exec-player-puppetmaster-p2a0-002
     to: executor
-    for: M1-P2a0 / PuppetMaster authority suitability spike
+    for: M1-P2a0 / trustworthy PuppetMaster live-source authority proof PLAN
     issued: 2026-07-11
-    note: "READY: lane C disposable lab, base origin/main@a644e5db, no product merge; folded into M1-5; work/c-exec-player-puppetmaster-p2a0-001-call.md."
+    note: "PLAN ONLY after checkpoint lab@0a54c884: old frozen artifacts/G5 immutable; fresh owner-present session ends at plan approval, no RED/BUILD; work/c-exec-player-puppetmaster-p2a0-001-continuation-call.md."
   - id: c-repair-canon-post-pilot-route-001
     to: session
     for: g-d3a8 / post-pilot canon process authority repair
@@ -103,6 +103,6 @@ decisions:
     options: ["Ратифицировать все 5", "Ратифицировать выборочно", "Отклонить — критерии не расширяем"]
     recommendation: "Ратифицировать все 5: дёшево и делает final evidence leg доказуемым; min-spec требует owner-выбора конкретного железа. Источник: owner-lane вырезанной лестницы 10.07 — критерии нигде больше не жили (s-repair-board-m1-ladder-purge-001)."
 next:
-  CALL: work/c-exec-unity65-mac-001-call.md
+  CALL: work/c-exec-player-puppetmaster-p2a0-001-continuation-call.md
 
 END_OF_FILE: live/indie-game-development/NOW.md
