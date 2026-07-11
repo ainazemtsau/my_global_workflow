@@ -1,5 +1,5 @@
 # NOW: indie-game-development
-updated: 2026-07-11 by s-repair-minimum-game-frame-001
+updated: 2026-07-11 by s-work-poligon-checksum-foundation-plan-close-001
 
 bet:
   node: g-9c41
@@ -60,11 +60,6 @@ tasks:
     unblock_when: Phase 0 + checksum foundation + fresh successor A0 подтверждены DELIVERED/MERGED.
 
 open_calls:
-  - id: c-exec-poligon-checksum-foundation-plan-001
-    to: executor
-    for: M1-A0 / checksum foundation PLAN
-    issued: 2026-07-11
-    note: "READY PLAN-only in a fresh owner-present GasCoopGame_core session; no RED/BUILD; work/c-exec-poligon-checksum-foundation-plan-001-call.md."
   - id: c-exec-lv-ingest-phase0-001
     to: executor
     for: Lv-ingest
@@ -102,6 +97,6 @@ decisions:
     recommendation: "Fold into Sc-reactions/Sc-damage PLANs; source: work/gas-engine-plan-audit-2026-06-29.md."
 
 next:
-  CALL: work/c-exec-poligon-checksum-foundation-plan-001-call.md
+  CALL: work/c-exec-lv-ingest-phase0-call.md
 
 END_OF_FILE: live/indie-game-development/NOW.md
