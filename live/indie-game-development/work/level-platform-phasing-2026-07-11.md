@@ -91,9 +91,11 @@ A reusable module must carry project-owned, technology-neutral authoring data:
 
 - schema version and stable module id;
 - grid frame: gas 50 cm, structure/placement 25 cm;
-- pivot, envelope, floor datum and allowed rotations;
-- coarse region envelope and exact structural occupancy;
-- connection sockets, role/capacity and reserved clearance zones;
+- a full-3D local coordinate frame, pivot, envelope, floor datums and allowed rotations;
+- `Rooms[]`: one module contains one or many logical rooms/regions, each with a stable local id, local 3D transform,
+  coarse envelope and exact structural occupancy;
+- internal room connections plus external module sockets; every external socket names the internal room it opens into;
+- connection plane/normal on any of the six faces, role/capacity and reserved clearance zones;
 - project portal profile and exact aperture geometry;
 - feature anchors and typed feature declarations;
 - deterministic bake identity and dependency policy.
@@ -106,7 +108,8 @@ After any generator or hand-authored composition, one normalized built-level res
 
 - build identity: schema/profile versions, seed/build key and canonical hash inputs;
 - coarse topology: regions, adjacency, portals and breach surfaces;
-- exact structure: occupied cells/sub-faces and apertures;
+- module-instance hierarchy flattened into stable global room/region identities without losing module provenance;
+- exact 3D structure: occupied cells/sub-faces and apertures on X/Y/Z-normal boundaries;
 - instantiated anchors and typed feature specs;
 - diagnostics needed to explain rejection.
 
@@ -148,6 +151,10 @@ Rejects bad reusable prefabs:
 
 - off-grid pivot/envelope/socket/door profile;
 - wrong socket count for endpoint/pass-through/junction/hub role;
+- a compound module whose logical rooms escape the module envelope, overlap without a declared relationship, or have
+  duplicate/unstable local ids;
+- an external socket that resolves to no internal room, or an internal portal whose two rooms do not share the
+  declared physical boundary;
 - geometry or PGG content inside connection clearance;
 - mismatch between declared 25 cm occupancy/aperture and independently sampled built mesh/colliders;
 - anchors outside legal occupancy or missing required metadata;
@@ -168,6 +175,8 @@ Checks the actual assembled level:
 - no physical gaps, overlaps or mismatched connection profiles;
 - every logical connection has exactly the physical aperture it declares;
 - irregular occupancy remains exact;
+- compound-module internal rooms remain distinct after placement, including rooms at different heights;
+- vertical connections resolve on floor/ceiling faces rather than being coerced into horizontal-wall portals;
 - every feature instance resolves to a valid region/cell/anchor;
 - one/two/three/four-module acceptance configurations build;
 - same normalized input twice yields the same manifest/profile hash.
@@ -205,6 +214,57 @@ The Phase 1 PLAN must choose how coarse irregular rooms map to volumes (exact re
 occupancy mask attached to one logical region, or another deterministic representation) without changing the player's
 room identity merely to satisfy AABB machinery.
 
+## Vertical levels and compound modules — standing owner requirement
+
+Owner requirement (2026-07-11): future levels are vertically arranged; rooms can exist at different heights, a route
+may pass through an upper floor, and a large placed module (illustrative scale up to roughly 80×80 m and 20–40 m high)
+may contain many logical rooms that must be parsed as rooms. This is a future capability, not a request to build that
+content now.
+
+The hierarchy must therefore be explicit:
+
+```text
+Level
+  └─ ModuleInstance (placement/bake unit; one prefab/root)
+       ├─ LogicalRoom / Region [1..N] (gas/topology unit)
+       │    └─ exact 3D structure cells/sub-faces
+       ├─ InternalConnection [0..N] (room↔room inside the module)
+       ├─ ExternalSocket [0..N] (module boundary; references one internal room)
+       └─ FeatureAnchors [0..N] (reference module + room + cell/orientation)
+```
+
+`ModuleInstance` is never synonymous with `RoomSpec`. Dungeon Architect may place one prefab as one SGF module while
+our manifest expands it into several logical rooms and internal portals. DA owns external layout; the project Module
+Contract owns the internal room graph. PGG may populate one or several reserved zones but cannot redefine the graph.
+
+### What must be reserved in Phase 1
+
+- full integer X/Y/Z coordinates and module-local→world transform normalization;
+- stable hierarchical identity: module instance + room-local id → global room id;
+- one module → many rooms/regions;
+- distinct internal connections and external sockets;
+- connection normal/orientation across all six faces (±X, ±Y, ±Z);
+- exact floor/ceiling apertures in the generic representation, even if their runtime implementation is deferred;
+- anchors with full 3D orientation and owning module+room, not only XYZ inside one assumed room;
+- validators that never infer room count from prefab roots or renderer AABBs.
+
+The cheapest non-vacuous Phase 1 contract fixture should be one tiny compound module containing two small logical rooms
+at different Z levels and one internal vertical connection. It needs no art, navigation, stairs or DA runtime build;
+its purpose is to prove that the schema/validator cannot collapse back to `one module = one room` or wall-only portals.
+
+### What remains deferred
+
+- the illustrative huge 80×80×20–40 m content module itself;
+- production stairs, ladders, elevators, shafts, navmesh and traversal gameplay;
+- streaming/occlusion/performance policy for huge modules;
+- runtime floor/ceiling breach mechanics and arbitrary vertical destruction;
+- large multi-storey DA flow graphs and content tooling polish.
+
+This reservation is not speculative generality: X/Y/Z already exist in `TopologyVolume` and the voxel grid already has
+six face directions. The missing contracts are the module→rooms cardinality and Z-normal aperture/connection path.
+Current `StructureVoxelizer` explicitly skips Z-normal apertures, so Phase 1 must make the generic representation
+expressible and name the implementation deferral rather than silently encode a wall-only data model.
+
 ## Recommended phases
 
 ### Phase 0 — close existing proof
@@ -214,18 +274,20 @@ Binding re-review + owner-eye + merge. No expansion into module standards.
 ### Phase 1 — Generic Level/Module Contract + Validation Platform
 
 PLAN first, then bounded BUILDs. Deliver the two normalized contracts, typed feature-extension rule, exact geometry
-truth path, module/built-level validators and hand-authored reference fixtures. No DA/PGG production dependency is
-required to prove the contract.
+truth path, module/built-level validators and hand-authored reference fixtures, including the tiny two-room stacked
+compound-module contract fixture. No DA/PGG production dependency is required to prove the contract.
 
 ### Phase 2 — Technology adapters + real runtime generation
 
 DA SnapGridFlow runtime adapter, PGG editor-time baker, optional library importers, real `LevelBootstrap`, shared seed,
-normalized manifest/ProfileHash handshake, and real 1/2/3/4-module acceptance.
+normalized manifest/ProfileHash handshake, and real 1/2/3/4-module acceptance. The DA adapter maps external module
+sockets; project metadata supplies each compound module's internal room graph.
 
 ### Phase 3 — Production modules and feature expansion
 
 Real room kit/content plus item/machine/spawn/valve/etc. feature types added through the Phase 1 extension contract.
-This phase is not a license for speculative genericity: add a typed feature when a real M1 need appears.
+Actual large multi-storey compound modules also live here or in later content bets. This phase is not a license for
+speculative genericity: add a typed feature when a real M1 need appears.
 
 ## Options for owner verdict
 

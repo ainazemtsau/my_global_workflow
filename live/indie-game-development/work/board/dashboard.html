@@ -182,7 +182,7 @@
         <li class="miss">Gate Q (канон): решение о готовности investigation→operation</li>
         <li class="miss">d-marketing-wake-001 — решить к ~20.07 (страница 31.08!)</li>
         <li class="miss">d-coop-interdependence-repin-001 — куда положить обязательство «газ заставляет кооперироваться»</li>
-        <li class="miss">d-level-platform-phasing-001 — Phase 1 = generic contract, Phase 2 = adapters/runtime (рекомендация) или сохранить 1A/1B</li>
+        <li class="miss">d-level-platform-phasing-001 — Phase 1 = generic 3D Module→Rooms contract + validators, Phase 2 = adapters/runtime (рекомендация) или сохранить 1A/1B</li>
       </ul>
     </div>
     <div class="track">
@@ -203,13 +203,14 @@
   <h3 style="margin:26px 0 10px; font-size:18px">Журнал — последние 3 дня</h3>
   <p class="note" style="margin:0 0 10px">Рендер из LOG.md (полный архив — там); старше трёх дней с панели уходит. Сегодняшний день раскрыт.</p>
   <details class="day" open>
-    <summary>11 июля <span class="cnt">· канон FRAME READY · PLAN чексума заморожен · PGG FAIL_STAGE · level-platform развилка</span></summary>
+    <summary>11 июля <span class="cnt">· канон FRAME READY · PLAN чексума заморожен · PGG FAIL_STAGE · level-platform + verticality</span></summary>
     <ul>
       <li><b>Ремонт маршрута:</b> аппетит М1 разово поднят до 13 легов (GAS-PROBE + GAS-CORE); S4 уведён ЗА закон газа; c-visual-009 заблокирован на GAS-CORE</li>
       <li><b>M1-A0:</b> выпущен PLAN-only CALL «фундамент чексума» → PLAN одобрен владельцем и заморожен (core@4a43d6e); BUILD ждёт мержа Phase 0; next = Phase 0</li>
       <li><b>Канон:</b> Minimum Game Frame — «FRAME READY»: каркас «проникновение → добыча/операция → эвакуация», почти невидимый газ; открыт Gate Q (готовность investigation→operation)</li>
       <li><b>PGG:</b> спайк закрыт FAIL_STAGE без мержа: static prefab реально проходит SnapGridFlow→BuiltSceneRoomReader, но production-модули ждут project-owned стандарт 0.5 м, сокетов, portal kit, occupancy/aperture и item anchors</li>
       <li><b>Платформа уровня:</b> research нашёл текущую Phase 1 слишком ранней для DA/PGG runtime integration; рекомендована новая Phase 1 = generic Level/Module Contract + validators, прежняя Phase 1 переезжает в Phase 2; не ратифицировано, ждёт решения d-level-platform-phasing-001</li>
+      <li><b>Verticality:</b> owner requirement — будущий module может содержать несколько logical rooms на разных высотах; сейчас резервируем full-3D Module→Rooms hierarchy и internal/external six-direction connections, но не строим огромный вертикальный контент</li>
       <li><b>Контроль-слой:</b> панель переехала в репо (ТОЛЬКО репо — правило владельца); ночной рефакторинг + стартовый бэклог (15 позиций + 8 DO-NOT-TOUCH); пометка «демо-определения сейчас нет»; установлено дневное ревью + этот журнал</li>
     </ul>
   </details>
