@@ -170,10 +170,9 @@
         <li class="done">✓ c-exec-poligon-checksum-foundation-plan-001 — ЗАКРЫТ 11.07: PLAN одобрен и заморожен (core@4a43d6e); BUILD запрещён до Phase 0 MERGED</li>
         <li class="done">✓ Minimum Game Frame — «FRAME READY» 11.07: каркас проникновение → добыча/операция → эвакуация, почти невидимый газ; открыт Gate Q</li>
         <li class="miss">▶ NOW.next: c-exec-lv-ingest-phase0-001 — закрытие + мерж (dev → main), НЕ смержен</li>
-        <li class="miss">c-spike-pgg-001 — checkpoint: scratch дошёл до DA-ready пакета; финальный гейт ждёт продолжения</li>
         <li class="miss">c-visual-009 — BLOCKED на M1-GAS-CORE (PLAN одобрен, dirty BUILD сохранён)</li>
         <li class="miss">c-shape-sc-damage-001 — HELD (по cut-list М1)</li>
-        <li class="miss">c-repair-minimum-game-frame-001 — ждёт owner-present сессию (канон, text-only)</li>
+        <li class="miss">c-repair-gate-q-investigation-readiness-001 — Gate Q: owner-present решение о готовности investigation→operation</li>
       </ul>
     </div>
     <div class="track">
@@ -181,7 +180,6 @@
       <ul>
         <li class="miss">Мерж-гейт Phase 0 (dev → main) — теперь верх очереди</li>
         <li class="miss">Gate Q (канон): решение о готовности investigation→operation</li>
-        <li class="miss">Owner-present c-repair-minimum-game-frame-001</li>
         <li class="miss">d-marketing-wake-001 — решить к ~20.07 (страница 31.08!)</li>
         <li class="miss">d-coop-interdependence-repin-001 — куда положить обязательство «газ заставляет кооперироваться»</li>
       </ul>
@@ -204,11 +202,12 @@
   <h3 style="margin:26px 0 10px; font-size:18px">Журнал — последние 3 дня</h3>
   <p class="note" style="margin:0 0 10px">Рендер из LOG.md (полный архив — там); старше трёх дней с панели уходит. Сегодняшний день раскрыт.</p>
   <details class="day" open>
-    <summary>11 июля <span class="cnt">·  канон FRAME READY · PLAN чексума заморожен · контроль-слой установлен</span></summary>
+    <summary>11 июля <span class="cnt">· канон FRAME READY · PLAN чексума заморожен · PGG FAIL_STAGE · контроль-слой установлен</span></summary>
     <ul>
       <li><b>Ремонт маршрута:</b> аппетит М1 разово поднят до 13 легов (GAS-PROBE + GAS-CORE); S4 уведён ЗА закон газа; c-visual-009 заблокирован на GAS-CORE</li>
       <li><b>M1-A0:</b> выпущен PLAN-only CALL «фундамент чексума» → PLAN одобрен владельцем и заморожен (core@4a43d6e); BUILD ждёт мержа Phase 0; next = Phase 0</li>
       <li><b>Канон:</b> Minimum Game Frame — «FRAME READY»: каркас «проникновение → добыча/операция → эвакуация», почти невидимый газ; открыт Gate Q (готовность investigation→operation)</li>
+      <li><b>PGG:</b> спайк закрыт FAIL_STAGE без мержа: static prefab реально проходит SnapGridFlow→BuiltSceneRoomReader, но production-модули ждут project-owned стандарт 0.5 м, сокетов, portal kit, occupancy/aperture и item anchors</li>
       <li><b>Контроль-слой:</b> панель переехала в репо (ТОЛЬКО репо — правило владельца); ночной рефакторинг + стартовый бэклог (15 позиций + 8 DO-NOT-TOUCH); пометка «демо-определения сейчас нет»; установлено дневное ревью + этот журнал</li>
     </ul>
   </details>
