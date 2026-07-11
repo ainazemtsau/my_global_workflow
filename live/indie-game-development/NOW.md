@@ -1,5 +1,5 @@
 # NOW: indie-game-development
-updated: 2026-07-11 by s-repair-board-m1-ladder-purge-001
+updated: 2026-07-11 by s-research-q-investigation-readiness-canon-admission-001
 
 bet:
   node: g-9c41
@@ -81,11 +81,11 @@ open_calls:
     for: M1-P2a0 / PuppetMaster authority suitability spike
     issued: 2026-07-11
     note: "READY: lane C disposable lab, base origin/main@a644e5db, no product merge; folded into M1-5; work/c-exec-player-puppetmaster-p2a0-001-call.md."
-  - id: c-research-q-investigation-readiness-canon-admission-001
+  - id: c-repair-canon-post-pilot-route-001
     to: session
-    for: g-d3a8 / q-investigation-readiness paper-answer canon admission
+    for: g-d3a8 / post-pilot canon process authority repair
     issued: 2026-07-11
-    note: "Canon Forge v3 revised pilot ACCEPTED; separate owner verdict required for ADMIT TO CANON / HOLD PAPER-ONLY / REJECT AS CANON CANDIDATE; no design expansion or implementation; work/c-research-q-investigation-readiness-canon-admission-001-call.md. После вердикта очередной Gate Q обязан рассмотреть кандидатов из work/canon-question-candidates-2026-07-11.md (кооп-взаимозависимость; первый публично показываемый срез)."
+    note: "READY repair after owner instruction «если есть конфликт или какие-то проблемы, то сначала их исправить и потом уже определять остальное». Canon Forge v2 was suspended for one pilot; Canon Forge v3 pilot was ACCEPTED process-only but not installed; q-investigation-readiness admission is BLOCKED until the active post-pilot canon route and authority are reconciled. work/c-repair-canon-post-pilot-route-001-call.md."
   - id: c-marketing-wake-001
     to: session
     for: g-2f8c / минимальное пробуждение маркетинга
