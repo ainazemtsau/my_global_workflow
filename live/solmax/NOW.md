@@ -8,7 +8,7 @@ project:
 active_bet:
   status: none
 
-route_status: operating_substrate_q7_minimal_bootstrap_direction_confirmed_architecture_forge_ready
+route_status: operating_substrate_q7_routing_procedure_accepted_implementation_readiness_ready
 
 owner_directive: |
   Owner approved umbrella placement for Solmax.
@@ -446,17 +446,58 @@ owner_directive: |
   - Owner confirmation words: "A".
   - This is route steering, not final Q7 card approval.
 
+  Q7 routing/procedure architecture card:
+  - Owner selected Direction B: Route Disposition + Procedure
+    Invocation Contract.
+  - Owner direction words: «Я принимаю твою рекомендацию».
+  - Owner approved operating-substrate-routing-procedure-001.
+  - Owner approval words: «Approve V1.».
+  - Frozen backbone: kernel owns minimal route-disposition, invocation,
+    ownership, uncertainty/no-route, result, continuation and writer/apply
+    semantics.
+  - Concrete procedure catalogues, applicability, domain routing,
+    evidence/effect rules and writer procedure/policy remain
+    process-pack-owned.
+  - Selection, invocation, acceptance, execution, result and continuation
+    remain semantically distinguishable.
+  - Missing input, ambiguity, route conflict, no applicable procedure,
+    missing mandatory capability and process gap remain explicit; no silent
+    nearest-match or fallback.
+  - Writer is a logical validated apply responsibility. Codex and a separate
+    writer agent/chat remain current implementation options, not architecture
+    authority.
+  - Changed procedure definitions give affected active obligations an
+    explicit compatible-resume, revalidation/migration, pin/drain,
+    handoff/replacement, block/rejection or named-unresolved disposition.
+  - Current bootstrap may use ChatGPT Project for read-only owner-facing
+    reasoning/routing and Codex for executor/writer work without hardcoding
+    either into process meaning.
+  - Owner-facing operation returns useful result, bounded decision, clear
+    block or portable continuation rather than routing bureaucracy.
+  - Health-like and game/productive-play pressure tests pass.
+  - No procedure catalogue, schema, router algorithm, provider, framework,
+    carrier, runtime, topology, implementation, consumer template or final
+    service-block list is frozen.
+  - hidden_prerequisite: none.
+  - gap_event: none.
+  - top-level graph rebalance: not needed.
+  - Next route is an implementation-readiness checkpoint classifying Q8-Q14
+    concerns by whether they block the first process creator.
+
 tasks: []
 
 recurring: []
 decisions: []
 
 open_calls:
-  - id: c-solmax-operating-substrate-routing-procedure-architecture-forge-001
+  - id: c-solmax-operating-substrate-minimal-bootstrap-implementation-readiness-001
     to: session
-    for: g-operating-substrate/Q7-routing-procedure
+    for: g-operating-substrate/implementation-readiness
     issued: 2026-07-11
-    note: "Ready Q7 Minimal Stable Bootstrap architecture-forge; work/calls/c-solmax-operating-substrate-routing-procedure-architecture-forge-001.md."
+    note: |
+      Ready implementation-readiness checkpoint after accepted Q1-Q7;
+      classify remaining Q8-Q14 concerns by whether they block the first
+      process creator.
 
 preserved_evidence:
   - live/solmax/CHARTER.md
@@ -548,5 +589,9 @@ preserved_evidence:
   - live/solmax/work/operating-substrate-routing-procedure-minimal-bootstrap-steering-001.md
   - live/solmax/work/calls/c-solmax-operating-substrate-routing-procedure-architecture-forge-001.md
   - live/solmax/history/2026-07-11-s-solmax-operating-substrate-routing-procedure-direction-repair-001.md
-next: work/calls/c-solmax-operating-substrate-routing-procedure-architecture-forge-001.md
+  - live/solmax/work/operating-substrate/cards/operating-substrate-routing-procedure-001.md
+  - live/solmax/history/2026-07-11-s-solmax-operating-substrate-routing-procedure-architecture-forge-001.md
+  - 'owner direction choice in chat: «Я принимаю твою рекомендацию»'
+  - 'owner final approval in chat: «Approve V1.»'
+next: work/calls/c-solmax-operating-substrate-minimal-bootstrap-implementation-readiness-001.md
 END_OF_FILE: live/solmax/NOW.md
