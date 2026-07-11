@@ -81,20 +81,34 @@ RESULT.** The order is strict:
 
 1. Run the play. Produce the RESULT block (state changes described, not yet
    applied).
-2. THEN, as the writer, apply that RESULT's `state_changes` to `live/**`
-   exactly as written, append the LOG line, save the full RESULT to
+2. THEN, as the writer, apply that RESULT's declared `state_changes` intent to
+   fresh current `live/**`, rebasing stale anchors while preserving concurrent
+   edits, append the LOG line, save the full RESULT to
    `history/<date>-<session-id>.md`, maintain every `END_OF_FILE: <path>`
    trailer, and commit (`<direction> <play> <node/task>: <log line>`).
 
-The writer half is mechanical and carries NO judgment. **Do the full Role-1
+The writer half is a bounded semantic integrator: it may resolve stale
+preconditions and compatible parallel edits, but carries no authority to
+change the session outcome, verdicts, gates, or unrelated state. **Do the full Role-1
 validate-before-apply check in `os/adapters/coding-agent.md` (Role 1, G10) —
 that file is the authority; do not rely on this summary alone.** In particular:
 
 - **Never write `live/**` except by applying a RESULT's `state_changes`.** Not
   by direct editing, not invented, not "while I'm here." If you find yourself
   editing a state file before the RESULT exists, stop — that is the violation.
-- If a `state_change` is ambiguous or conflicts with the current files, do NOT
-  improvise — surface the conflict (it routes to `repair`).
+- **Stale is not conflict.** Blob/SHA/old-text preconditions are three-way-merge
+  bases, not freshness locks. On mismatch, re-read current state, derive the
+  explicit delta by stable path/id/key, and rebase it over current files;
+  preserve all concurrent changes outside the named semantic targets.
+  `Preserve unchanged` means preserve the current value after rebase, not roll
+  it back to the packet's base. Never bounce for freshness alone.
+- Bounce only when the RESULT or `next` CALL fails validation, the intended
+  delta is itself ambiguous/incomplete, or both meanings cannot coexist after
+  rebase (for example, base-to-RESULT and base-to-current set the same semantic
+  field to mutually exclusive meanings, or the returning call was consumed by
+  a different RESULT). Shared path/id or whole-object inequality alone is not
+  a collision. Never invent progress, evidence, verdicts, or task changes to
+  make a merge pass.
 - A builder/executor handback, product-repo RESULT, merge/push request, owner
   playtest summary, or "formally closed on dev/dev2" prose is evidence input,
   not a Direction-OS close. Unless the Direction-OS RESULT/checkpoint itself

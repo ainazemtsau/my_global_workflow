@@ -9,7 +9,7 @@ How to run several directions (and several sessions) at once without corrupting 
 | Chat sessions (ChatGPT/Claude, any play) | Unlimited, across and within directions — they don't write, they emit RESULTs |
 | Executor runs in product repos | Parallel per the engineering contour: each run on its own branch/PR, or its own cloud VM (zero-setup option for parallel runs) |
 | Writers across DIFFERENT directions | Fully parallel — `live/<id>/` paths are disjoint; push races resolve mechanically (see protocol) |
-| Applying RESULTs within ONE direction | **One at a time.** Queue them; two RESULTs editing the same NOW.md must not race |
+| Applying RESULTs within ONE direction | **One at a time.** Queue them; when each turn arrives, re-read current state and semantically rebase its explicit delta |
 | Maintenance on os/** | One session at a time (MAINTENANCE.md already enforces one problem per session) |
 
 Parallel sessions inside one direction are legal (G1 still caps ≤3 active tasks; `open_calls` shows who is running) — only their *applies* serialize.
@@ -17,7 +17,7 @@ Parallel sessions inside one direction are legal (G1 still caps ≤3 active task
 **Concurrent sessions within one direction — two hygiene rules** (for a direction running several workstreams at once, e.g. an engine bet plus a parallel visual track):
 
 - **Distinct session-id prefixes per workstream.** Each concurrent workstream numbers its sessions under its OWN prefix (`eng-NNN`, `vis-NNN`, … — the direction lists its prefixes) so two live sessions can never mint the same id or fight one counter. A single-workstream direction keeps its default prefix.
-- **Re-sync before EVERY apply, not just at session start.** A session that writes state more than once re-runs `git fetch && reset --hard origin/main` and re-reads NOW.md before EACH write — a concurrent same-direction apply may have landed since the last read (a stale in-memory NOW is the collision, not the git merge, which resolves disjoint edits fine). Edit only your workstream's own regions; the `updated:` line and the shared decision / pending lists are the hot spots.
+- **Re-sync before EVERY apply, not just at session start.** A session that writes state more than once re-runs `git fetch && reset --hard origin/main` and re-reads NOW.md before EACH write — a concurrent same-direction apply may have landed since the last read. Stale packet bases are expected: the writer rebases the RESULT's explicit delta onto that fresh state and preserves current values outside it. Edit only your workstream's own regions; the `updated:` line and the shared decision / pending lists are the hot spots.
 
 This is concurrency HYGIENE, not a parallel-tracks feature: the OS's first-class way to run parallel work stays SEPARATE directions (one worktree each, fully parallel above). When a track grows its own bet/tree/cadence, prefer a NEW direction over more workstreams in one — many bets in one direction fight G1.
 
@@ -36,15 +36,17 @@ Root `AGENTS.md`/`CLAUDE.md` travel with every worktree — sessions there need 
 
 ## Writer apply protocol (per job, in the direction's worktree)
 
+Semantic merge behavior is defined only by `os/adapters/coding-agent.md` Role 1; this file defines serialization and git transport.
+
 ```bash
 git fetch origin && git reset --hard origin/main   # writer holds no state between jobs
-# ...apply state_changes, update LOG/history, maintain END_OF_FILE trailers...
+# ...semantic-rebase the RESULT delta, update LOG/history, maintain END_OF_FILE trailers...
 git add -A && git commit -m "<direction> <play> <node/task>: <log line>"
 git push origin HEAD:main \
   || (git pull --rebase origin main && git push origin HEAD:main)
 ```
 
-The rebase-retry resolves races between directions automatically (disjoint paths → no conflicts). A conflict during rebase can only mean two applies hit the SAME direction concurrently — stop, don't force: apply one, re-run the other.
+The git rebase-retry resolves races between directions automatically (disjoint paths → no conflicts). If two applies hit the SAME direction, serialize them: finish one, restart the other from fresh main, and semantic-rebase its RESULT delta. Do not resolve stale state by force or by keeping git conflict-marker sides wholesale. Stop only if the fresh-state rebase exposes an irreconcilable logical collision or invalid packet/`next` CALL; commit/blob drift alone is not a failure.
 
 ## Rules
 

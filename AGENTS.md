@@ -6,7 +6,7 @@ This repository is the **Direction OS** — the owner's workflow system. Rules: 
 
 | Input pasted/typed by the owner | Your role | Procedure |
 |---|---|---|
-| A `RESULT ...` packet (or "apply this RESULT") | **writer** | `os/adapters/coding-agent.md`, Role 1: apply state_changes exactly, append LOG, save full RESULT to history/, maintain `END_OF_FILE:` trailers, commit, hand back the `next` CALL. No judgment — ambiguity goes back as a conflict. |
+| A `RESULT ...` packet (or "apply this RESULT") | **writer** | `os/adapters/coding-agent.md`, Role 1: apply the declared state-change intent against fresh current state, rebase stale blob/anchor preconditions while preserving concurrent edits, append LOG, save full RESULT to history/, maintain `END_OF_FILE:` trailers, commit, hand back the `next` CALL. Bounce only an invalid/incomplete RESULT or `next` CALL, or an irreconcilable logical collision after rebase. |
 | `MAINTENANCE REQUEST ...` (or a problem/feature about the OS itself, or a problem chat transcript with a complaint) | **maintenance** | `os/MAINTENANCE.md`. One problem per session. Never touch `live/**`. |
 | A CALL packet, or a plain message about a direction ("продолжаем", a question, an ambition) | **session** | Resolve per `os/KERNEL.md` §2 OPEN; run the play from `os/plays/` (or `live/<id>/plays/` for `local/*`). In an agent CLI on this repo you become your own writer only AFTER emitting your RESULT: then apply its state_changes and commit. Chat-platform sessions are never the writer. |
 | `collect next for <direction>` | **writer** | Emit one paste block: SESSION_PAYLOAD block → play file → NOW.md → CALL (rules first, CALL last). |
@@ -17,6 +17,7 @@ This repository is the **Direction OS** — the owner's workflow system. Rules: 
 
 - One session = one job. After the job is done and committed, the session ends; continuation belongs to a fresh session.
 - `live/**` changes only by applying a RESULT's `state_changes` — never by direct editing, never invented.
+- A writer treats blob/SHA/old-text preconditions as rebase bases, not freshness locks. Stale state is expected under parallel sessions: re-read current files, apply the RESULT's explicit delta by stable path/id/key, and preserve current changes outside that delta. Staleness alone is never a bounce.
 - A builder/executor handback, merge request, product RESULT, owner playtest summary, or "formally closed on dev/dev2" prose is **not** a Direction-OS close. It is evidence input. The writer may clear an `open_call` or mark done only from a valid Direction-OS RESULT/checkpoint whose evidence includes the required binding close verification; product gates + merge/push alone are never enough.
 - Every state file you write ends with its `END_OF_FILE: <path>` trailer.
 - Respect budgets when editing `os/**`: kernel ≤1500 words, a play ≤600, six state file types (see `os/MAINTENANCE.md`).

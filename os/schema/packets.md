@@ -30,7 +30,7 @@ surface: <optional routing hint: chatgpt | claude | cli | any>
 
 Executor CALLs (`to: executor`) add `repo: <org/repo>` and `kind: engineering | mechanical`:
 - `engineering` — a business task in a product repo. The agent owns design and implementation; evidence = commits/PR + check output (tests, build). Conventions and the run contract live in that repo's AGENTS.md/CLAUDE.md, not in the OS. `goal`/`done_when` stay business-level — hygiene extends to architecture; `context` may point to the direction's `work/` design-exploration docs as input evidence for the planner, never as a binding spec. A direction's first engineering CALL while no initialized product repo exists is repo setup — interactive (stack interview), its `context` points to `os/engineering/PROJECT_SETUP.md` and `os/engineering/profiles/`.
-- `mechanical` — apply exact state_changes to `live/**` (the writer role). No judgment, no interpretation: apply, commit, report the commit hash.
+- `mechanical` — apply one complete RESULT's declared state-change intent to fresh `live/**` (the writer role), including semantic rebase of stale bases. A bare `state_changes` section is incomplete. Interpretation is bounded to preserving compatible concurrent state; never invent outcomes or evidence. Apply, commit, report the commit hash.
 
 ## RESULT
 
@@ -45,7 +45,8 @@ evidence: |
 state_changes: |
   <exact edits: NOW.md task statuses, TREE.md node changes, files added to work/.
    Includes CALLs issued by this session, for NOW.md → open_calls.
-   Written so a mechanical executor can apply them without judgment.>
+   Written with stable targets and explicit postconditions so a mechanical
+   executor needs only the bounded merge judgment defined below.>
 captures:
   - <one line each: emergent work/ideas for later triage>
 decisions_needed:
@@ -58,6 +59,16 @@ log: <one line for LOG.md>
 next: |
   <ready CALL for the continuation | awaiting_decision | return-to-parent <id>>
 ```
+
+**State-change rebase semantics.** The authoritative per-operation merge and
+replay rules are `os/adapters/coding-agent.md` Role 1. Optional blob/SHA/commit
+ids, expected old text and exact anchors are bases that let the writer derive a three-way delta;
+they are not freshness locks. The writer re-reads current state, applies only
+the packet's declared intent by stable path/id/key, and preserves concurrent
+changes outside that intent. `Preserve unchanged` refers to the current value
+after rebase. A stale base alone never invalidates a RESULT; an ambiguous delta,
+invalid/incomplete packet or `next` CALL, or mutually exclusive meanings for
+the same semantic field after those merge rules still does.
 
 ## Worked example (compressed)
 
