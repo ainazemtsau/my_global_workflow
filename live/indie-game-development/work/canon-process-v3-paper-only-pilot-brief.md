@@ -1,7 +1,7 @@
 
 # Canon design process v3 — paper-only pilot brief
 
-status: PILOT SPEC — amended after a REVISED/BLOCKED pilot; not an installed process, not a canon decision; candidate pilot deferred until FRAME READY
+status: PILOT ACCEPTED — owner verdict "ACCEPTED" after one completed revised paper-only pilot; not installed; not a canon decision
 
 ## Hard boundary
 
@@ -251,5 +251,30 @@ silently switches to another question.
 
 The pilot does not establish whether an owner-approved paper decision may enter canon; that
 policy requires a separate explicit owner verdict after the pilot.
+
+## Completed revised pilot verdict — 2026-07-11
+
+owner_process_verdict: "ACCEPTED"
+pilot_result: PASSED
+scope: process only
+
+The completed chain was:
+
+`FRAME READY → QUESTION READY → structurally different paper-candidate
+comparison → OWNER-SELECTED PAPER ANSWER`.
+
+All explicit Pilot pass criteria passed, and none of the declared
+pilot-fail conditions occurred.
+
+The corrected process prevented recurrence of the original unsourced
+question/entity-provenance failure.
+
+This verdict does not install the process, alter canon or admit
+q-investigation-readiness-paper-decision-v1 into canon.
+
+Canon admission for that exact paper answer requires the separate
+owner-present CALL:
+
+`c-research-q-investigation-readiness-canon-admission-001`.
 
 END_OF_FILE: live/indie-game-development/work/canon-process-v3-paper-only-pilot-brief.md
