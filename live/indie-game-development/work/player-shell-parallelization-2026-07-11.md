@@ -57,11 +57,39 @@ scenes/prefabs.
 - Parallelize code and headless checks. Serialize merge slots and owner-eye/Editor gates by default. Multiple Editors or
   MCP-controlled instances require a clean-folder/UnityLockfile, RAM and endpoint-addressing smoke check first.
 
+## Refinement after the owner's controller + animation clarification
+
+The underlying intuition is sound, but the quality-preserving parallel unit is narrower than a complete animated
+multiplayer player. Three independent repo inspections found the Input System already installed and active, but no
+product humanoid model, Avatar, locomotion clips, Animator Controller or input-actions asset. Therefore two different
+things should run in parallel instead of being prematurely fused:
+
+1. **Formal P2a — Controller Foundation:** a code-driven CharacterController capsule, walk/look/camera/grounding,
+   an immutable input-command snapshot, injectable local-control gate, asset-neutral motor-state snapshot and quantized
+   pose output. It lives only in a new Player subtree with its own asmdef, prefab, vacuum scene and tests. It does not
+   touch Core, Net, SimInstance, GasView, Topology, Packages, ProjectSettings or any existing scene.
+2. **Read-only asset selection:** choose and license the actual character model/rig and in-place locomotion clips, then
+   prove Avatar/import compatibility. Until that evidence exists, P2a may reserve only a `GraphicsRoot`/presentation
+   socket and motor state; it must not freeze Animator parameter names, a blend tree, Humanoid offsets or final feel.
+
+Animation remains presentation, not movement authority. Root motion would let the selected clip move the GameObject
+every rendered frame, so `applyRootMotion=false` is the safe default for the candidate code-driven path; the final
+animation contract is decided only against the real asset. P2a may claim local/controller foundation and
+multiplayer-shaped seams only. FishNet ownership, prediction/reconcile, spawn, real-level collision, live Sc-sense,
+SimInstance wiring and the two-machine proof remain P2b.
+
+This slice is technically independent of current P0/P1, but not yet operationally authorized. Before BUILD, one short
+owner-present reconciliation must (a) explicitly fold/cut/reallocate P2a within the fixed 13-leg appetite rather than
+creating a fourteenth leg, (b) freeze the exact new-files-only manifest against fresh active diffs, and (c) authorize
+and preflight the dedicated lab/player venue. Editor work may overlap only after clean-worktree, UnityLockfile, RAM and
+MCP endpoint-identity checks; merge and owner-eye slots stay serialized.
+
 ## Owner choice
 
-- **A — fold P2a into current M1 (recommended):** first reconcile/shape, then dispatch only the proven disjoint slice.
-- **B — create a separate player track:** gives its own appetite, but duplicates an M1 obligation and adds governance.
-- **C — wait for the sequential player-tracking step:** safest operationally, but gives up available parallel planning.
+- **A — start the narrow P2a route now (recommended):** reconcile it inside M1, dispatch the proven Controller
+  Foundation, and run rig/animation asset selection separately in parallel.
+- **B — asset research only:** select rig+clips now, but keep controller BUILD sequential.
+- **C — wait:** keep both controller and asset work at the later M1 player-tracking step.
 
 ## Evidence and confidence
 
@@ -75,11 +103,18 @@ External primary sources:
 - Git linked worktrees: https://git-scm.com/docs/git-worktree.html
 - Unity Asset Database / per-project Library cache: https://docs.unity3d.com/kr/current/Manual/AssetDatabase.html
 - Unity YAML Smart Merge: https://docs.unity3d.com/kr/current/Manual/SmartMerge.html
+- Unity CharacterController.Move: https://docs.unity3d.com/jp/current/ScriptReference/CharacterController.Move.html
+- Unity Animator.applyRootMotion: https://docs.unity3d.com/kr/current/ScriptReference/Animator-applyRootMotion.html
 - FishNet basic client-authoritative movement (the easy path, not automatically compatible with this project's
   input-lockstep authority): https://fish-networking.gitbook.io/docs/tutorials/getting-started/moving-your-player-around
+- FishNet predicted controller replicate/reconcile path:
+  https://fish-networking.gitbook.io/docs/guides/features/prediction/creating-code/controlling-an-object
 
-Three independent explorers converged on the same architecture boundary. The first same-family refutation pass exposed
-overclaims about immediate BUILD and automatic worktree permission; the revised pass left governance/venue routing
-standing and scope deliberately inconclusive until PLAN. These are in-session pre-passes, not binding fresh-session G5.
+Three independent explorers converged on the same no-assets / local-controller-only boundary. In the final same-family
+refutation pass, the code-driven isolated controller survived two validators and remained operationally inconclusive in
+one pending the exact manifest; the proposed concrete Animator contract was refuted/narrowed, so only an asset-neutral
+motor-state/presentation socket remains. Multiplayer and governance exclusions survived, while exact 13-leg arithmetic
+remains deliberately unresolved for the owner-present reconciliation. These are in-session pre-passes, not binding
+fresh-session G5.
 
 END_OF_FILE: live/indie-game-development/work/player-shell-parallelization-2026-07-11.md
