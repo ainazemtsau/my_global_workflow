@@ -8,7 +8,7 @@ project:
 active_bet:
   status: none
 
-route_status: operating_substrate_q4_instantiation_research_ready_for_forge
+route_status: operating_substrate_q4_instantiation_accepted_q5_owner_context_research_ready
 
 owner_directive: |
   Owner approved umbrella placement for Solmax.
@@ -243,6 +243,45 @@ owner_directive: |
     downstream.
   - Next route is the Q4 process-pack instantiation architecture-forge.
 
+  Q4 process-pack instantiation architecture card:
+  - Owner selected the recommended architecture direction.
+  - Owner choice words: "принимаю твою рекомендацию".
+  - Owner approved operating-substrate-process-pack-instantiation-001.
+  - Owner approval words: "Approve v1".
+  - Frozen backbone: process-pack instantiation is staged semantic
+    admission and activation, not configuration merge, package download
+    or runtime start.
+  - Ownership-scoped composition is the mandatory conflict rule:
+    atomic effective claims are accepted only from their primary
+    normative owners.
+  - Capability requirement/resolution is the subordinate mechanism for
+    reusable-service and adapter bindings.
+  - Kernel semantics are inherited and non-overridable.
+  - Availability/install, admission/validation, authorization and
+    activation remain distinct.
+  - Missing mandatory capability blocks activation.
+  - Missing optional capability is legitimate only through an explicit
+    pack-declared degraded route preserving kernel and remaining process
+    obligations.
+  - Invalid candidates normally leave the current accepted definition
+    authoritative.
+  - Partial and outcome-unknown lifecycle effects require authoritative
+    reconciliation and named recovery ownership; universal rollback is
+    not assumed.
+  - Upgrade, migration, pin/drain, rebinding, replacement, deprecation
+    and removal preserve or explicitly settle ownership, authority,
+    state interpretation, effect certainty, evidence and continuation.
+  - Health-like and game/productive-play pressures pass without kernel
+    modification, consumer copying or a final service-block list.
+  - No schema, implementation, carrier, provider, repository, topology,
+    consumer template or final reusable-service list is frozen.
+  - hidden_prerequisite: none.
+  - gap_event: none.
+  - top-level graph rebalance: not needed.
+  - Next route is bounded Q5 best-practice/failure-case research on
+    shared owner context, provenance, sharing and the
+    local-versus-owner-wide authority boundary.
+
 tasks: []
 
 recurring: []
@@ -317,5 +356,10 @@ preserved_evidence:
   - live/solmax/work/operating-substrate-process-pack-instantiation-best-practice-research-001.md
   - live/solmax/history/2026-07-10-s-solmax-operating-substrate-process-pack-instantiation-best-practice-research-001.md
   - live/solmax/work/calls/c-solmax-operating-substrate-process-pack-instantiation-architecture-forge-001.md
-next: work/calls/c-solmax-operating-substrate-process-pack-instantiation-architecture-forge-001.md
+  - live/solmax/work/operating-substrate/cards/operating-substrate-process-pack-instantiation-001.md
+  - live/solmax/history/2026-07-10-s-solmax-operating-substrate-process-pack-instantiation-architecture-forge-001.md
+  - 'owner choice in chat: "принимаю твою рекомендацию"'
+  - 'owner approval in chat: "Approve v1"'
+  - live/solmax/work/calls/c-solmax-operating-substrate-shared-owner-context-best-practice-research-001.md
+next: work/calls/c-solmax-operating-substrate-shared-owner-context-best-practice-research-001.md
 END_OF_FILE: live/solmax/NOW.md
