@@ -8,7 +8,7 @@ project:
 active_bet:
   status: none
 
-route_status: operating_substrate_q5_shared_owner_context_accepted_q6_persistence_history_research_ready
+route_status: operating_substrate_q6_persistence_history_research_ready_for_forge
 
 owner_directive: |
   Owner approved umbrella placement for Solmax.
@@ -364,12 +364,36 @@ owner_directive: |
   - top-level graph rebalance: not needed.
   - Next route is bounded Q6 persistence/history best-practice research.
 
+  Q6 persistence/history research checkpoint:
+  - Primary-source comparison across provenance/lineage, event/logging,
+    durable-workflow/recovery, definition/version and privacy/retention
+    sources is complete.
+  - This is research input, not an approved Q6 architecture answer.
+  - Research recommendation: Direction C, responsibility-separated continuity
+    with an authoritative-state anchor, evaluated first while retaining
+    Direction A's single-state-owner and anti-bureaucracy constraints.
+  - Accepted current state, transition/history, audit, evidence, provenance,
+    source, memory, artifact, definition/version, checkpoint/recovery and
+    retention/status remain semantically distinct.
+  - No universal event sourcing, deterministic replay, snapshot, mutable
+    storage, schema, repository, carrier, provider, topology, implementation
+    or final service-block list is selected.
+  - hidden_prerequisite: none.
+  - gap_event: none.
+  - top-level graph rebalance: not needed.
+  - Next route is one bounded Q6 persistence/history architecture-forge.
+
 tasks: []
 
 recurring: []
 decisions: []
 
-open_calls: []
+open_calls:
+  - id: c-solmax-operating-substrate-persistence-history-architecture-forge-001
+    to: session
+    for: g-operating-substrate/Q6-persistence-history
+    issued: 2026-07-11
+    note: "Pending Q6 persistence/history architecture-forge; work/calls/c-solmax-operating-substrate-persistence-history-architecture-forge-001.md."
 
 preserved_evidence:
   - live/solmax/CHARTER.md
@@ -451,5 +475,7 @@ preserved_evidence:
   - 'owner direction choice in chat: "1"'
   - 'owner approval in chat: "Approve v1"'
   - live/solmax/work/calls/c-solmax-operating-substrate-persistence-history-best-practice-research-001.md
-next: work/calls/c-solmax-operating-substrate-persistence-history-best-practice-research-001.md
+  - live/solmax/work/operating-substrate-persistence-history-best-practice-research-001.md
+  - live/solmax/work/calls/c-solmax-operating-substrate-persistence-history-architecture-forge-001.md
+next: work/calls/c-solmax-operating-substrate-persistence-history-architecture-forge-001.md
 END_OF_FILE: live/solmax/NOW.md
