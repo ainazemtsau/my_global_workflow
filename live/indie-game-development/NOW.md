@@ -1,5 +1,5 @@
 # NOW: indie-game-development
-updated: 2026-07-11 by s-spike-pgg-001-close-001
+updated: 2026-07-11 by s-research-level-platform-verticality-001
 
 bet:
   node: g-9c41
@@ -75,11 +75,11 @@ open_calls:
     for: g-7e15 / Stage 3.5 movement-data BUILD reconciliation
     issued: 2026-07-10
     note: "BLOCKED on M1-GAS-CORE: approved PLAN @a0db28a2 + dirty BUILD preserved on codex/c-visual-009-build; no continuation/close; history/2026-07-11-s-repair-visual-sim-upstream-001.md."
-  - id: c-repair-gate-q-investigation-readiness-001
+  - id: c-research-q-investigation-readiness-001
     to: session
-    for: g-d3a8 / Gate Q — investigation-to-operation readiness
+    for: g-d3a8 / q-investigation-readiness paper design comparison
     issued: 2026-07-11
-    note: "FRAME READY; Gate Q only, no question answer or candidates; work/c-repair-gate-q-investigation-readiness-001-call.md."
+    note: "QUESTION READY; post-Gate-Q text-only research on the exact gated question; work/c-research-q-investigation-readiness-001-call.md."
 recurring: []
 
 decisions:
@@ -89,6 +89,9 @@ decisions:
   - q: "d-coop-interdependence-repin-001 — where should the dropped 'gas world forces co-op' obligation live?"
     options: ["Fold into Sc-reactions/Sc-damage PLANs", "Create a separate map node", "Defer to first Steam/playtest slice"]
     recommendation: "Fold into Sc-reactions/Sc-damage PLANs; source: work/gas-engine-plan-audit-2026-06-29.md."
+  - q: "d-level-platform-phasing-001 — how should Lv-ingest be re-phased after the PGG production-pipeline FAIL_STAGE?"
+    options: ["Clean rephase: Phase 1 = generic level/module contract + validators; old DA/PGG runtime Phase 1 becomes Phase 2; production extensions/content become Phase 3", "Keep historical numbering as Phase 1A = contract/validators and Phase 1B = adapters/runtime; Phase 2 = production extensions/content", "Keep current Phase 1 unchanged and add the generic standard later"]
+    recommendation: "Clean rephase: the generic contract and validators are prerequisites for DA/PGG adapters and must reserve full 3D, module!=room, compound modules with 1:N logical rooms, and six-direction connections before vendor integration; putting the standard after current Phase 1 repeats the spike's build-before-contract failure. Source: work/level-platform-phasing-2026-07-11.md."
 
 next:
   CALL: work/c-exec-lv-ingest-phase0-call.md
