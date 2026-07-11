@@ -128,6 +128,13 @@
   .glue .g h3{font-size:15px; margin-bottom:6px}
   .glue .g p{margin:0; font-size:13.5px; color:var(--muted)}
 
+  details.day{border:1px solid var(--line); border-radius:6px; background:var(--panel); margin-bottom:8px}
+  details.day summary{cursor:pointer; padding:10px 16px; font-family:"Bahnschrift","Arial Narrow",sans-serif; font-size:15px; font-weight:700; letter-spacing:.03em}
+  details.day summary .cnt{font-family:"Cascadia Mono",Consolas,monospace; font-size:11.5px; color:var(--muted); font-weight:400; margin-left:8px}
+  details.day ul{margin:0; padding:2px 18px 12px 34px; font-size:13.5px}
+  details.day li{margin:4px 0}
+  details.day li b{color:var(--accent-ink)}
+
   .mtx-wrap{overflow-x:auto; border:1px solid var(--line); border-radius:6px; background:var(--panel)}
   table.mtx{width:100%; border-collapse:collapse; font-size:13px; min-width:760px}
   .mtx th{font-family:"Cascadia Mono",Consolas,monospace; font-size:11px; letter-spacing:.08em; text-transform:uppercase; color:var(--muted); text-align:left; padding:8px 10px; border-bottom:2px solid var(--line); background:var(--panel2)}
@@ -185,10 +192,49 @@
         <li class="done">Карта площадок: knowledge/g9c41-lanes-venues.md (worktree-правило владельца)</li>
         <li class="done">Борд: «что можем делать» в любом чате → plays/lanes-board.md</li>
         <li class="done">Ночной рефакторинг: «делай рефакторинг» → plays/refactor-night.md (бэклог work/refactor/backlog.md)</li>
-        <li class="done">Сторожа NOW восстановлены и запушены 10.07</li>
+        <li class="done">Дневное ревью: plays/daily-review.md → леджер work/review/findings.md (расписание — в Codex)</li>
+        <li class="done">Развилки: «давай пройдёмся по развилкам» в любом чате → решения из NOW</li>
       </ul>
     </div>
   </div>
+
+  <h3 style="margin:26px 0 10px; font-size:18px">Проблемы (дневное ревью)</h3>
+  <div class="callout">Леджер пуст — первое ревью ещё не запускалось. Источник: work/review/findings.md; сюда писарь выносит открытые находки по приоритету (P1 — блокирует/врёт состоянию, P2 — мешает, P3 — гигиена). Находки класса «ночь» ночной рефакторинг разбирает сам; классы repair/day ждут тебя в батче.</div>
+
+  <h3 style="margin:26px 0 10px; font-size:18px">Журнал — последние 3 дня</h3>
+  <p class="note" style="margin:0 0 10px">Рендер из LOG.md (полный архив — там); старше трёх дней с панели уходит. Сегодняшний день раскрыт.</p>
+  <details class="day" open>
+    <summary>11 июля <span class="cnt">·  канон FRAME READY · PLAN чексума заморожен · контроль-слой установлен</span></summary>
+    <ul>
+      <li><b>Ремонт маршрута:</b> аппетит М1 разово поднят до 13 легов (GAS-PROBE + GAS-CORE); S4 уведён ЗА закон газа; c-visual-009 заблокирован на GAS-CORE</li>
+      <li><b>M1-A0:</b> выпущен PLAN-only CALL «фундамент чексума» → PLAN одобрен владельцем и заморожен (core@4a43d6e); BUILD ждёт мержа Phase 0; next = Phase 0</li>
+      <li><b>Канон:</b> Minimum Game Frame — «FRAME READY»: каркас «проникновение → добыча/операция → эвакуация», почти невидимый газ; открыт Gate Q (готовность investigation→operation)</li>
+      <li><b>Контроль-слой:</b> панель переехала в репо (ТОЛЬКО репо — правило владельца); ночной рефакторинг + стартовый бэклог (15 позиций + 8 DO-NOT-TOUCH); пометка «демо-определения сейчас нет»; установлено дневное ревью + этот журнал</li>
+    </ul>
+  </details>
+  <details class="day">
+    <summary>10 июля <span class="cnt">· Полигон М1 стал ставкой · сторожа восстановлены · PGG-спайк · packed-body кандидат</span></summary>
+    <ul>
+      <li><b>Канон:</b> маршрут «А» — Кузница v2 приостановлена, открыт research процесса v3; бумажный пилот вернулся REVISED/BLOCKED (нужен гейт «откуда вопрос и почему сейчас»); открыт ремонт Minimum Game Frame</li>
+      <li><b>Схема линий:</b> установлена карта площадок (правило: трек стартует только с проверенным worktree) + борд-пьеса «что можем делать»</li>
+      <li><b>Ставка:</b> пересобрана в Полигон М1 («А», лестница 0–10, аппетит 11); отдельный core-worktree для A0</li>
+      <li><b>Сторожа:</b> восстановлены «А» — потолок исправлен на ~27,7 тыс. активных клеток @50 мс, три решения перевешены в knowledge, Sc-damage вооружён гейтами; запушено в origin/main</li>
+      <li><b>M1-A0:</b> BUILD-CALL выдан → вернулся STOP/NOT DELIVERED → перероутен через фундамент чексума</li>
+      <li><b>PGG:</b> куплённый пакет проанализирован (редакторный авторинг — подходит, рантайм — отклонён) → спайк: Unity 6.3 поднят, PGG-комната запечена в DA-ready пакет без PGG-зависимостей</li>
+      <li><b>Закон газа:</b> диагноз разбавления облака (линейное растекание + равновесная неподвижность) → кандидат packed-body + bounded-halo (тело держит форму, ореол не саморазмножается)</li>
+      <li><b>Публикации:</b> несколько чистых merge в origin/main в течение дня</li>
+    </ul>
+  </details>
+  <details class="day">
+    <summary>9 июля <span class="cnt">· Sc-sense закрыт · Lv-ingest выбран · канон-ядро приколото · визуал Stage 3 запушен</span></summary>
+    <ul>
+      <li><b>Движок:</b> Sc-sense (доза игрока) закрыт с перекрёстной проверкой — 1525/1525 тестов; подключение к живой симуляции = задача слайса урона</li>
+      <li><b>Маршрут:</b> владелец направил канон-независимый слайс Lv-ingest (уровни через Dungeon Architect); Phase 0 CALL готов</li>
+      <li><b>Канон:</b> Конституция ратифицирована («Б», 7 опор); затем ремонт восстановления ядра — пузырь/3 фазы/разведка приколоты в CORE, очередь переупорядочена (core-0 «состояния газа» первым)</li>
+      <li><b>Визуал:</b> Stage 3 (герой-газ) закрыт и запушен в main; Stage 3.5 (живость/плавность) оформлен</li>
+      <li><b>Концепт:</b> сводный документ принятого/отклонённого/открытого по запросу владельца</li>
+    </ul>
+  </details>
 </section>
 
 <section>
