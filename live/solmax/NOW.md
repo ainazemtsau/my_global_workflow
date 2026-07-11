@@ -8,7 +8,7 @@ project:
 active_bet:
   status: none
 
-route_status: operating_substrate_q6_persistence_history_accepted_q7_routing_procedure_research_ready
+route_status: operating_substrate_q7_minimal_bootstrap_direction_confirmed_architecture_forge_ready
 
 owner_directive: |
   Owner approved umbrella placement for Solmax.
@@ -419,17 +419,44 @@ owner_directive: |
   - top-level graph rebalance: not needed.
   - Next route is bounded Q7 routing/procedure best-practice research.
 
+  Q7 routing/procedure owner steering:
+  - Owner rejected the prior provider/framework-heavy emphasis and
+    confirmed direction A: Minimal Stable Bootstrap.
+  - Immediate priority is a minimal stable substrate capable of creating
+    several concrete processes soon without sacrificing accepted Q1-Q6
+    semantics.
+  - Provider neutrality means process meaning is not bound to the
+    current executor; multi-provider orchestration is not a current
+    requirement.
+  - Current bootstrap expectation is ChatGPT Project for read-only
+    owner-facing reasoning/routing and Codex for local executor/writer
+    work.
+  - Actual procedure catalogues and routing remain process-pack-owned.
+  - Q7 should freeze only the minimal reusable procedure, invocation,
+    ownership, no-route, result, continuation and writer semantics.
+  - Writer procedure/policy is separately preserved inside the
+    applicable process pack; Codex is a current implementation, not
+    architecture authority.
+  - Agents SDK, model selection, provider routing, planner, classifier,
+    policy engine, graph runtime, scheduler, agent mesh and automatic
+    orchestration are deferred.
+  - After Q7 forge, route to an implementation-readiness checkpoint for
+    remaining Q8-Q14 dependencies rather than assuming all must close
+    before bootstrap.
+  - Owner confirmation words: "A".
+  - This is route steering, not final Q7 card approval.
+
 tasks: []
 
 recurring: []
 decisions: []
 
 open_calls:
-  - id: c-solmax-operating-substrate-routing-procedure-best-practice-research-001
+  - id: c-solmax-operating-substrate-routing-procedure-architecture-forge-001
     to: session
     for: g-operating-substrate/Q7-routing-procedure
     issued: 2026-07-11
-    note: "Pending bounded Q7 routing/procedure best-practice research; work/calls/c-solmax-operating-substrate-routing-procedure-best-practice-research-001.md."
+    note: "Ready Q7 Minimal Stable Bootstrap architecture-forge; work/calls/c-solmax-operating-substrate-routing-procedure-architecture-forge-001.md."
 
 preserved_evidence:
   - live/solmax/CHARTER.md
@@ -518,5 +545,8 @@ preserved_evidence:
   - 'owner direction choice in chat: "беру твою рекумендацию"'
   - 'owner approval in chat: "Approve v1"'
   - live/solmax/work/calls/c-solmax-operating-substrate-routing-procedure-best-practice-research-001.md
-next: work/calls/c-solmax-operating-substrate-routing-procedure-best-practice-research-001.md
+  - live/solmax/work/operating-substrate-routing-procedure-minimal-bootstrap-steering-001.md
+  - live/solmax/work/calls/c-solmax-operating-substrate-routing-procedure-architecture-forge-001.md
+  - live/solmax/history/2026-07-11-s-solmax-operating-substrate-routing-procedure-direction-repair-001.md
+next: work/calls/c-solmax-operating-substrate-routing-procedure-architecture-forge-001.md
 END_OF_FILE: live/solmax/NOW.md
