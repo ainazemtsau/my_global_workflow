@@ -1,6 +1,6 @@
 # g9c41 — Параллельные линии: карта площадок и правила запуска
 
-updated: 2026-07-10 (s-shape-poligon-m1-001; owner «А» — отдельный core-worktree, quality-first overlap gate)
+updated: 2026-07-10 (s-shape-poligon-m1-001; owner «А» — отдельный core-worktree, quality-first overlap gate); 2026-07-11 (s-repair-board-m1-ladder-purge-001 — занятость линии C спайком P2a0)
 readers: любая сессия, формирующая или запускающая CALL в g-9c41/g-7e15; play `local/lanes-board`; писарь при заполнении `open_calls`.
 
 ## Линии и площадки
@@ -9,7 +9,7 @@ readers: любая сессия, формирующая или запускаю
 |---|---|---|---|---|
 | A · ядро | `Core/Field/**` (горячие: VoxelField.cs, VoxelFaceFlow.cs) | `C:\projects\Unity\GasCoopGame_core` (core) — создать/проверить в M1-A0 | НЕ нужен (headless dotnet + tools/check.ps1); Unity только owner-eye | ПК; OS/G5-сессии — можно MacBook |
 | B · рендер/визуал | `Assets/GasCoopGame/Adapters/GasView/**`, `Render/**` | `C:\projects\Unity\GasCoopGame_dev_2` (dev2) | нужен (редактор №2) | ПК |
-| C · стенд (прототип-лента) | НОВАЯ lab-сборка (отдельный asmdef; только публичный API ядра) | `C:\projects\Unity\GasCoopGame_lab` (lab) — создаётся при первом старте | нужен (редактор №3) | ПК |
+| C · стенд (прототип-лента) | НОВАЯ lab-сборка (отдельный asmdef; только публичный API ядра) | `C:\projects\Unity\GasCoopGame_lab` (lab) — создаётся при первом старте; **2026-07-11: линию держит P2a0-спайк (c-exec-player-puppetmaster-p2a0-001); c-lab-p0-001 стартует только после его закрытия** | нужен (редактор №3) | ПК |
 | D · уровни / DA | `Adapters/LevelIngestion/**`, сцены | сейчас: `GasCoopGame_dev` (Phase 0 in flight); после мержа Phase 0 → свой worktree `GasCoopGame_levels` (levels) | нужен (DA-авторинг = владелец) | ПК |
 | E · сеть/доза | `Core/Field/Determinism/**`, FishNet-адаптер | headless; спайк = 2 машины | не нужен до спайка | ПК + MacBook/облачная VM |
 | МЕРЖИ + owner-eye | main | `C:\projects\Unity\GasCoopGame` (main) | редактор №1 | ПК |

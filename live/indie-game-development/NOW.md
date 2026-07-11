@@ -1,5 +1,5 @@
 # NOW: indie-game-development
-updated: 2026-07-11 by s-board-walkthrough-decisions-001
+updated: 2026-07-11 by s-repair-board-m1-ladder-purge-001
 
 bet:
   node: g-9c41
@@ -93,7 +93,10 @@ open_calls:
     note: "READY: owner verdict «будить минимально» 2026-07-11; сессия авторит и исполняет substrate-only wake строго по work/marketing/wake-minimal-2026-07-11.md (апп-проверка — owner-run шаг, хэндлы, AI-капсула, текст страницы, письмо Valve); постинг/каналы/каденции НЕ входят; параллельна инженерным линиям."
 recurring: []
 
-decisions: []
+decisions:
+  - q: "d-m1-acceptance-criteria-001 — ратифицировать 5 дополнений к критериям приёмки Полигона М1 (замер на named min-spec железе; лампа детерминизма в HUD; политика выхода пира/хоста; admission ceiling виден в стенде; звук сознательно НЕ в М1)?"
+    options: ["Ратифицировать все 5", "Ратифицировать выборочно", "Отклонить — критерии не расширяем"]
+    recommendation: "Ратифицировать все 5: дёшево и делает final evidence leg доказуемым; min-spec требует owner-выбора конкретного железа. Источник: owner-lane вырезанной лестницы 10.07 — критерии нигде больше не жили (s-repair-board-m1-ladder-purge-001)."
 next:
   CALL: work/c-exec-lv-ingest-phase0-call.md
 
