@@ -8,7 +8,7 @@ project:
 active_bet:
   status: none
 
-route_status: operating_substrate_q5_owner_context_research_ready_for_forge
+route_status: operating_substrate_q5_shared_owner_context_accepted_q6_persistence_history_research_ready
 
 owner_directive: |
   Owner approved umbrella placement for Solmax.
@@ -328,6 +328,42 @@ owner_directive: |
     consumer template or final service-block list is selected.
   - Next route is one bounded Q5 shared-owner-context architecture-forge.
 
+  Q5 shared-owner-context architecture card:
+  - Owner selected direction 1.
+  - Owner approved operating-substrate-shared-owner-context-001.
+  - Owner approval words: "Approve v1".
+  - Frozen backbone: shared owner context is a governed admission and
+    scoped-projection boundary, not a global profile, truth store or
+    generic inherited configuration layer.
+  - Purpose-bound on-demand disclosure is the subordinate access pattern.
+  - Owner/profile responsibility owns owner-wide declaration, admission
+    and sharing scope, not the truth of every source claim or local
+    process conclusion.
+  - Context availability, permission to disclose/use, authority to act
+    and accepted process truth are independent conclusions.
+  - Process-local material remains local unless a separate legitimate
+    promotion transition establishes owner-wide eligibility.
+  - Promotion changes cross-process availability and projection scope;
+    it does not prove truth, transfer source ownership or grant effect
+    authority.
+  - Projection is minimum, purpose-bound, relevant and currently
+    permitted; each receiving process applies its own acceptance,
+    evidence, currentness and safety rules.
+  - Correction, dispute, revocation and retirement are distinct.
+  - Pinning may preserve interpretation and evidence but cannot preserve
+    revoked disclosure permission, use permission or action authority.
+  - Changed context gives every affected obligation and continuation an
+    explicit compatible-resume, revalidation/migration, pin/drain,
+    handoff, block/rejection or named-unresolved-owner disposition.
+  - Health-like and game/productive-play pressure tests pass.
+  - No actual profile, personal content, schema, repository, storage,
+    privacy technology, provider, topology, consumer template or final
+    service-block list is frozen.
+  - hidden_prerequisite: none.
+  - gap_event: none.
+  - top-level graph rebalance: not needed.
+  - Next route is bounded Q6 persistence/history best-practice research.
+
 tasks: []
 
 recurring: []
@@ -410,5 +446,10 @@ preserved_evidence:
   - live/solmax/work/operating-substrate-shared-owner-context-best-practice-research-001.md
   - live/solmax/history/2026-07-11-s-solmax-operating-substrate-shared-owner-context-best-practice-research-001.md
   - live/solmax/work/calls/c-solmax-operating-substrate-shared-owner-context-architecture-forge-001.md
-next: work/calls/c-solmax-operating-substrate-shared-owner-context-architecture-forge-001.md
+  - live/solmax/work/operating-substrate/cards/operating-substrate-shared-owner-context-001.md
+  - live/solmax/history/2026-07-11-s-solmax-operating-substrate-shared-owner-context-architecture-forge-001.md
+  - 'owner direction choice in chat: "1"'
+  - 'owner approval in chat: "Approve v1"'
+  - live/solmax/work/calls/c-solmax-operating-substrate-persistence-history-best-practice-research-001.md
+next: work/calls/c-solmax-operating-substrate-persistence-history-best-practice-research-001.md
 END_OF_FILE: live/solmax/NOW.md
