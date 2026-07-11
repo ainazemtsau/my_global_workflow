@@ -8,7 +8,7 @@ project:
 active_bet:
   status: none
 
-route_status: operating_substrate_q4_instantiation_accepted_q5_owner_context_research_ready
+route_status: operating_substrate_q5_owner_context_research_ready_for_forge
 
 owner_directive: |
   Owner approved umbrella placement for Solmax.
@@ -282,6 +282,52 @@ owner_directive: |
     shared owner context, provenance, sharing and the
     local-versus-owner-wide authority boundary.
 
+  Q5 shared owner context research checkpoint:
+  - Primary-source comparison across W3C VC, PROV and credential-status
+    standards, GDPR, OAuth RFCs, MCP, Cedar, Temporal, Google ADK and
+    Anthropic is complete.
+  - This is research input, not an approved Q5 architecture answer.
+  - Research supports a governed owner-context admission and scoped
+    projection boundary rather than a global owner-profile dump or generic
+    inherited configuration.
+  - Owner-wide preference/policy, approved shared context, process-local
+    state/assumption, source claim, derived memory, authority/consent and
+    credential/secret remain semantically distinguishable.
+  - Context availability, permission to disclose/use, authority to act and
+    accepted process truth are independent conclusions.
+  - Promotion changes cross-process availability and sharing scope. It does
+    not prove truth, transfer source ownership or grant effect authority.
+  - Promotion requires legitimate owner-wide intent, provenance,
+    cross-process relevance, purpose limitation, minimization, privacy/
+    sharing legitimacy, currentness, conflict checks, governed apply and a
+    correction/revocation/retirement route.
+  - Transcript occurrence, repeated behavior, local acceptance, model
+    inference, stale/disputed input, missing provenance, secret material,
+    policy conflict or hidden mutation block automatic promotion.
+  - Correction, dispute, revocation and retirement have different
+    semantics. Revocation blocks prohibited future use but does not
+    fictionalize prior lawful processing or already-applied effects.
+  - Changed owner context re-enters Q4 validation, impact, authority and
+    apply semantics. Every affected active obligation and continuation
+    receives compatible-resume, revalidation/migration, pin/drain,
+    handoff, block/rejection or named-unresolved-owner treatment.
+  - Pinning preserves interpretation only; it cannot preserve revoked
+    disclosure permission or action authority.
+  - Health-like and game/productive-play pressures pass without copying
+    sensitive/local context or domain policy between processes.
+  - Research recommendation: Direction A, governed owner-context admission
+    and scoped projection, as the Q5 backbone; Direction C, on-demand
+    purpose-bound disclosure, as its subordinate access pattern; generic
+    overlay inheritance is not recommended.
+  - Profile completeness is not evidence of useful owner-facing behavior;
+    relevance and anti-bureaucracy remain proof pressures.
+  - hidden_prerequisite: none.
+  - gap_event: none.
+  - top-level graph rebalance: not needed.
+  - No schema, repository, storage, privacy technology, implementation,
+    consumer template or final service-block list is selected.
+  - Next route is one bounded Q5 shared-owner-context architecture-forge.
+
 tasks: []
 
 recurring: []
@@ -361,5 +407,8 @@ preserved_evidence:
   - 'owner choice in chat: "принимаю твою рекомендацию"'
   - 'owner approval in chat: "Approve v1"'
   - live/solmax/work/calls/c-solmax-operating-substrate-shared-owner-context-best-practice-research-001.md
-next: work/calls/c-solmax-operating-substrate-shared-owner-context-best-practice-research-001.md
+  - live/solmax/work/operating-substrate-shared-owner-context-best-practice-research-001.md
+  - live/solmax/history/2026-07-11-s-solmax-operating-substrate-shared-owner-context-best-practice-research-001.md
+  - live/solmax/work/calls/c-solmax-operating-substrate-shared-owner-context-architecture-forge-001.md
+next: work/calls/c-solmax-operating-substrate-shared-owner-context-architecture-forge-001.md
 END_OF_FILE: live/solmax/NOW.md
