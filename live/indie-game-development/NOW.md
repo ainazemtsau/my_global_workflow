@@ -1,5 +1,5 @@
 # NOW: indie-game-development
-updated: 2026-07-11 by s-work-level-platform-phasing-a-001
+updated: 2026-07-11 by s-board-walkthrough-decisions-001
 
 bet:
   node: g-9c41
@@ -65,12 +65,12 @@ open_calls:
     to: executor
     for: Lv-ingest
     issued: 2026-07-09
-    note: "NOT MERGED/NOT DELIVERED: dev@f30e3a3, origin/main@a644e5d; work/c-exec-lv-ingest-phase0-call.md."
+    note: "NOT MERGED/NOT DELIVERED: dev@8fc25d90 (round-8 фиксы закоммичены, запись раунда 8 не закоммичена в dev worktree), origin/main@a644e5d; owner 2026-07-11 «пусть там работает» — цикл ревью продолжается до чистого binding-раунда; work/c-exec-lv-ingest-phase0-call.md."
   - id: c-shape-sc-damage-001
     to: session
     for: Sc-damage
     issued: 2026-07-09
-    note: "Pending owner-present shape CALL; current M1 cut keeps Sc-damage HELD; work/c-shape-sc-damage-call.md."
+    note: "Pending owner-present shape CALL; current M1 cut keeps Sc-damage HELD; owner 2026-07-11: кооп-взаимозависимость обсуждается отдельным вопросом канона (кандидат Gate Q, work/canon-question-candidates-2026-07-11.md), Sc-damage стартует только с готовой канон-спекой; work/c-shape-sc-damage-call.md."
   - id: c-visual-009
     to: executor
     for: g-7e15 / Stage 3.5 movement-data BUILD reconciliation
@@ -81,15 +81,14 @@ open_calls:
     for: M1-P2a0 / PuppetMaster authority suitability spike
     issued: 2026-07-11
     note: "READY: lane C disposable lab, base origin/main@a644e5db, no product merge; folded into M1-5; work/c-exec-player-puppetmaster-p2a0-001-call.md."
+  - id: c-research-q-investigation-readiness-canon-admission-001
+    to: session
+    for: g-d3a8 / q-investigation-readiness paper-answer canon admission
+    issued: 2026-07-11
+    note: "Canon Forge v3 revised pilot ACCEPTED; separate owner verdict required for ADMIT TO CANON / HOLD PAPER-ONLY / REJECT AS CANON CANDIDATE; no design expansion or implementation; work/c-research-q-investigation-readiness-canon-admission-001-call.md."
 recurring: []
 
-decisions:
-  - q: "d-marketing-wake-001 — wake g-2f8c by ~2026-07-20 or explicitly re-date the 2026-08-31 Steam-page prerequisite?"
-    options: ["Wake by ~07-20", "Re-date 08-31 explicitly"]
-    recommendation: "Choose consciously; silently missing 08-31 is the worst branch. Source: work/marketing/questions/q-foundation.md."
-  - q: "d-coop-interdependence-repin-001 — where should the dropped 'gas world forces co-op' obligation live?"
-    options: ["Fold into Sc-reactions/Sc-damage PLANs", "Create a separate map node", "Defer to first Steam/playtest slice"]
-    recommendation: "Fold into Sc-reactions/Sc-damage PLANs; source: work/gas-engine-plan-audit-2026-06-29.md."
+decisions: []
 next:
   CALL: work/c-exec-lv-ingest-phase0-call.md
 
