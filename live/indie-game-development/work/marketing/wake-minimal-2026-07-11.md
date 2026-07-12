@@ -12,7 +12,7 @@ Owner 2026-07-11: «будить минимально». Пробуждение 
 ## Объём (substrate-only)
 
 1. Steamworks-апп: проверить, создан ли (owner помнит оплату $100 → вероятно да; его ~5 минут глазами).
-2. Хэндлы Chinvat (Steam/домен/соцсети): чек + захват; делегируемо помощникам; висит с 20.06.
+2. Хэндлы студии (owner override 2026-07-12: `INOMAND / @inomandgames`, не Chinvat): чек + захват; делегируемо помощникам.
 3. Капсула: бриф + AI-концепты. Политика q-foundation: DIY-AI-first, STYLE-LOCK на реальных скринах
    (capture-материал придёт из М1 к концу июля), VALIDATE на скептиках, DISCLOSE по-картиночно.
    Fallback-художник (~$300, 3–4 недели) — только по доказательствам, не дефолт.
@@ -78,5 +78,10 @@ RESEARCH-мандат — бумага и проектирование, НИКА
 
 Готовый запуск-текст: work/marketing/wake-launch-2026-07-11.md (v2).
 
-END_OF_FILE: live/indie-game-development/work/marketing/wake-minimal-2026-07-11.md
+## Owner override — 2026-07-12
 
+- Имя студии: `INOMAND`; домен `inomand.com`; единый хэндл `@inomandgames`.
+- `Chinvat` отменён как кандидат имени студии и не является названием игры.
+- Название игры ещё не выбрано; Steam App не создавать до отдельного решения.
+
+END_OF_FILE: live/indie-game-development/work/marketing/wake-minimal-2026-07-11.md

@@ -192,4 +192,6 @@ archived: history/LOG-archive-indie-game-development.md — sessions before 2026
 
 2026-07-12 — work/route (g-9c41/M1-P2a0, s-work-player-puppetmaster-p2a0-claude-continuation-route-001): owner “Я хочу продолжить в Claude Code” moved the checkpointed p2a0_002 proof to a fresh Claude builder continuation from @a2d50c2a; completed immutable RED is preserved, the remaining original half-day is capped at two hours with a 60-minute settled-smoke checkpoint, and G5/final verdict stay separate. → history/2026-07-12-s-work-player-puppetmaster-p2a0-claude-continuation-route-001.md
 
+2026-07-12 — local/marketing-forge checkpoint (g-2f8c/c-marketing-wake-001, s-marketing-wake-claude-handoff-001): INOMAND заменил Chinvat как имя студии; домен+accounts@ substrate и B1 strategy checkpoint сохранены для Claude Code, название игры/Steam App/публичные аккаунты остаются открыты, а c-marketing-wake-001 продолжается. → history/2026-07-12-s-marketing-wake-claude-handoff-001.md
+
 END_OF_FILE: live/indie-game-development/LOG.md
