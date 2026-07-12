@@ -1,5 +1,5 @@
 # NOW: indie-game-development
-updated: 2026-07-11 by s-work-unity65-migration-plan-001
+updated: 2026-07-12 by s-work-player-puppetmaster-p2a0-red-timebox-checkpoint-001
 
 bet:
   node: g-9c41
@@ -55,17 +55,17 @@ tasks:
       PuppetMaster получает проверенный root-authority маршрут для сетевого игрока, которого могут
       физически сбивать камни и импульсы, до заморозки production controller.
     done_when: |
-      c-exec-player-puppetmaster-p2a0-001 возвращает compile/runtime proof текущего допустимого plugin,
-      transition evidence Puppet→Unpinned→GetUp, A/B comparison + C kill-probe, multiplayer authority
-      inventory и fresh independent refutation; без FishNet BUILD, gameplay damage и product merge.
+      c-exec-player-puppetmaster-p2a0-002 freezes an owner-approved live-source proof PLAN; a later separately-issued
+      BUILD under that frozen change returns accepted Puppet→Unpinned→GetUp evidence, A/B comparison + bounded C
+      kill-probe, multiplayer authority inventory and fresh G5, without FishNet BUILD, damage or product merge.
     status: active
 
 open_calls:
-  - id: c-exec-unity65-mac-001
+  - id: c-exec-unity65-mac-revision-build-001
     to: executor
-    for: g-9c41 / Unity 6.5 Mac BUILD
-    issued: 2026-07-11
-    note: "Owner-approved frozen PLAN @7969f36; Mac-only BUILD, Windows deferred; work/c-exec-unity65-mac-001-call.md."
+    for: g-9c41 / Unity 6.5 Mac revised BUILD and closeout
+    issued: 2026-07-12
+    note: "READY fresh BUILD from owner-approved successor PLAN `A`: product PLAN commit 8a344e97, candidate parent df1e5ca, approach unity65-coordinated-wire-v2-repair-closeout. Same-version peers use full-width scene handles; mixed protocol versions reject before scene-broadcast decode. Fresh spec-only RED test-author first; builder cannot edit those tests. Repair every close-check class; no merge/push/Windows work. Preserve unstaged .vscode/settings.json and CoopSmallSGF.asset. work/c-exec-unity65-mac-revision-build-001-call.md."
   - id: c-exec-lv-ingest-phase0-001
     to: executor
     for: Lv-ingest
@@ -81,16 +81,16 @@ open_calls:
     for: g-7e15 / Stage 3.5 movement-data BUILD reconciliation
     issued: 2026-07-10
     note: "BLOCKED on M1-GAS-CORE: approved PLAN @a0db28a2 + dirty BUILD preserved on codex/c-visual-009-build; no continuation/close; history/2026-07-11-s-repair-visual-sim-upstream-001.md."
-  - id: c-exec-player-puppetmaster-p2a0-001
+  - id: c-exec-player-puppetmaster-p2a0-002-build-001
     to: executor
-    for: M1-P2a0 / PuppetMaster authority suitability spike
-    issued: 2026-07-11
-    note: "READY: lane C disposable lab, base origin/main@a644e5db, no product merge; folded into M1-5; work/c-exec-player-puppetmaster-p2a0-001-call.md."
-  - id: c-repair-canon-post-pilot-route-001
+    for: M1-P2a0 / trustworthy PuppetMaster live-source authority proof BUILD
+    issued: 2026-07-12
+    note: "CHECKPOINT / NOT DELIVERED at product a2d50c2a: clean venue and independent immutable RED complete (new 23/23, old 65/65 NegativeControls; real Unity 7 EditMode + 21 PlayMode positives intentionally RED only for missing BUILD). Hard 90-minute setup checkpoint fired before package import, builder, rig or settled smoke. No A/B/C, accepted payload, capture, normal check, fresh G5 or owner verdict. Do not auto-resume; any continuation needs a separately issued budget. Product RESULT: C:\projects\Unity\GasCoopGame_p2a0_002\docs\results\c-exec-player-puppetmaster-p2a0-002.md; CALL: work/c-exec-player-puppetmaster-p2a0-002-build-call.md."
+  - id: c-research-q-investigation-readiness-canon-admission-001
     to: session
-    for: g-d3a8 / post-pilot canon process authority repair
-    issued: 2026-07-11
-    note: "READY repair after owner instruction «если есть конфликт или какие-то проблемы, то сначала их исправить и потом уже определять остальное». Canon Forge v2 was suspended for one pilot; Canon Forge v3 pilot was ACCEPTED process-only but not installed; q-investigation-readiness admission is BLOCKED until the active post-pilot canon route and authority are reconciled. work/c-repair-canon-post-pilot-route-001-call.md."
+    for: g-d3a8 / q-investigation-readiness paper-answer canon admission
+    issued: 2026-07-12
+    note: "READY under active Canon Forge v3 installed by owner verdict «УСТАНОВИТЬ V3 КАК ДЕЙСТВУЮЩИЙ ПРОЦЕСС». Evaluate only the exact existing OWNER-SELECTED PAPER ANSWER «Цель стоит запуска» for ADMIT TO CANON / HOLD PAPER-ONLY / REJECT AS CANON CANDIDATE. No answer revision, new design question, implementation or automatic canon change. work/c-research-q-investigation-readiness-canon-admission-001-call.md."
   - id: c-marketing-wake-001
     to: session
     for: g-2f8c / минимальное пробуждение маркетинга
@@ -103,6 +103,6 @@ decisions:
     options: ["Ратифицировать все 5", "Ратифицировать выборочно", "Отклонить — критерии не расширяем"]
     recommendation: "Ратифицировать все 5: дёшево и делает final evidence leg доказуемым; min-spec требует owner-выбора конкретного железа. Источник: owner-lane вырезанной лестницы 10.07 — критерии нигде больше не жили (s-repair-board-m1-ladder-purge-001)."
 next:
-  CALL: work/c-exec-unity65-mac-001-call.md
+  CALL: work/c-exec-unity65-mac-revision-build-001-call.md
 
 END_OF_FILE: live/indie-game-development/NOW.md
