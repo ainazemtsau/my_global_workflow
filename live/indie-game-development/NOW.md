@@ -1,5 +1,5 @@
 # NOW: indie-game-development
-updated: 2026-07-12 by c-exec-unity65-mac-revision-plan-001
+updated: 2026-07-12 by s-repair-canon-post-pilot-route-001
 
 bet:
   node: g-9c41
