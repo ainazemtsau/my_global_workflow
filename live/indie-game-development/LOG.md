@@ -182,4 +182,6 @@ archived: history/LOG-archive-indie-game-development.md — sessions before 2026
 2026-07-11 — work/plan (g-9c41/Unity-6.5, s-work-unity65-migration-plan-001): Unity 6000.5.3f1 и .NET 8 установлены на Mac; clean probe подтвердил шесть корневых групп миграции, owner «ok» утвердил Mac-first PLAN, frozen product PLAN @7969f36 и BUILD CALL c-exec-unity65-mac-001 выпущены; Windows оставлен отдельным post-Mac leg. → history/2026-07-11-s-work-unity65-migration-plan-001.md
 2026-07-11 — work/route (g-9c41/M1-P2a0, s-work-player-puppetmaster-p2a0-continuation-route-001): checkpoint 001 сохранён как доказательство дефектного harness; owner-authorized PLAN-only 002 несёт шесть G5 restart-классов, отдельный RED→BUILD и half-day cap. → history/2026-07-11-s-work-player-puppetmaster-p2a0-continuation-route-001.md
 
+2026-07-12 — work/route (g-9c41/M1-P2a0, s-work-player-puppetmaster-p2a0-build-route-001): owner «УТВЕРЖДАЮ PLAN c-exec-player-puppetmaster-p2a0-002: live-source v1, шесть свойств.» заморозил live-source proof @b90b7205; PLAN-only CALL закрыт, а отдельный BUILD-only c-exec-player-puppetmaster-p2a0-002-build-001 выпущен на clean worktree с independent RED → fresh builder → MCP → fresh G5, checkpoint-only без merge/-Deliver. → history/2026-07-12-s-work-player-puppetmaster-p2a0-build-route-001.md
+
 END_OF_FILE: live/indie-game-development/LOG.md

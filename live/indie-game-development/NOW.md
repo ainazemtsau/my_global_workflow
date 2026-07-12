@@ -1,5 +1,5 @@
 # NOW: indie-game-development
-updated: 2026-07-11 by s-work-player-puppetmaster-p2a0-continuation-route-001
+updated: 2026-07-12 by s-work-player-puppetmaster-p2a0-build-route-001
 
 bet:
   node: g-9c41
@@ -81,11 +81,11 @@ open_calls:
     for: g-7e15 / Stage 3.5 movement-data BUILD reconciliation
     issued: 2026-07-10
     note: "BLOCKED on M1-GAS-CORE: approved PLAN @a0db28a2 + dirty BUILD preserved on codex/c-visual-009-build; no continuation/close; history/2026-07-11-s-repair-visual-sim-upstream-001.md."
-  - id: c-exec-player-puppetmaster-p2a0-002
+  - id: c-exec-player-puppetmaster-p2a0-002-build-001
     to: executor
-    for: M1-P2a0 / trustworthy PuppetMaster live-source authority proof PLAN
-    issued: 2026-07-11
-    note: "PLAN ONLY after checkpoint lab@0a54c884: old frozen artifacts/G5 immutable; fresh owner-present session ends at plan approval, no RED/BUILD; work/c-exec-player-puppetmaster-p2a0-001-continuation-call.md."
+    for: M1-P2a0 / trustworthy PuppetMaster live-source authority proof BUILD
+    issued: 2026-07-12
+    note: "BUILD ONLY from frozen product PLAN @b90b7205 in new clean C:\projects\Unity\GasCoopGame_p2a0_002 / codex/c-exec-player-puppetmaster-p2a0-002-build; independent spec-only RED first, then different fresh builder, real MCP EditMode/one accepted PlayMode proof, normal non-deliver check and fresh G5; CHECKPOINT / NOT DELIVERED, no Core/FishNet/damage/product merge/-Deliver; work/c-exec-player-puppetmaster-p2a0-002-build-call.md."
   - id: c-repair-canon-post-pilot-route-001
     to: session
     for: g-d3a8 / post-pilot canon process authority repair
@@ -103,6 +103,6 @@ decisions:
     options: ["Ратифицировать все 5", "Ратифицировать выборочно", "Отклонить — критерии не расширяем"]
     recommendation: "Ратифицировать все 5: дёшево и делает final evidence leg доказуемым; min-spec требует owner-выбора конкретного железа. Источник: owner-lane вырезанной лестницы 10.07 — критерии нигде больше не жили (s-repair-board-m1-ladder-purge-001)."
 next:
-  CALL: work/c-exec-player-puppetmaster-p2a0-001-continuation-call.md
+  CALL: work/c-exec-player-puppetmaster-p2a0-002-build-call.md
 
 END_OF_FILE: live/indie-game-development/NOW.md
