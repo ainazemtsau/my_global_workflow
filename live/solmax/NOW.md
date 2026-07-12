@@ -8,7 +8,7 @@ project:
 active_bet:
   status: none
 
-route_status: operating_substrate_q7_routing_procedure_accepted_implementation_readiness_ready
+route_status: operating_substrate_minimal_bootstrap_frontier_clear_first_process_creator_shape_ready
 
 owner_directive: |
   Owner approved umbrella placement for Solmax.
@@ -484,20 +484,51 @@ owner_directive: |
   - Next route is an implementation-readiness checkpoint classifying Q8-Q14
     concerns by whether they block the first process creator.
 
+  Minimal-bootstrap implementation-readiness checkpoint:
+  - Q8-Q14 were classified after accepted Q1-Q7.
+  - No full Q8-Q14 architecture card blocks shape of the first
+    process-creation bootstrap.
+  - No new minimal bootstrap architecture claim remains: the required
+    floor is already inherited from Q1-Q7.
+  - Q8 live interface: post_bootstrap_architecture.
+  - Q9 result/handback: post_bootstrap_architecture.
+  - Q10 authority/gates: post_bootstrap_architecture.
+  - Q11 evidence/evolution: post_bootstrap_architecture.
+  - Q12 communication/entity/identity: post_bootstrap_architecture.
+  - Q13 proof/evaluation: proof_before_live_claim.
+  - Q14 artifact/carrier boundary: implementation_specific.
+  - Q8-Q12 remain open and graph-visible; they are not accepted,
+    completed or declared irrelevant.
+  - A downstream concern is pulled forward only by a concrete named
+    semantic gap.
+  - Artifact or protocol completeness does not establish useful live
+    behavior.
+  - Real owner use, fresh-run continuation, relevant adverse-path
+    behavior and conditional effect/evolution evidence are required
+    before their corresponding live claims.
+  - hidden_prerequisite: none.
+  - gap_event: none.
+  - top-level graph rebalance: not needed.
+  - No implementation, active bet, TREE edit, repository, carrier,
+    schema, runtime, provider, framework, topology or final
+    service-block list was selected.
+  - Exact next route: shape g-operating-substrate for one bounded first
+    process-creation bootstrap outcome.
+
 tasks: []
 
 recurring: []
 decisions: []
 
 open_calls:
-  - id: c-solmax-operating-substrate-minimal-bootstrap-implementation-readiness-001
+  - id: c-solmax-operating-substrate-first-process-creator-shape-001
     to: session
-    for: g-operating-substrate/implementation-readiness
+    for: g-operating-substrate/first-process-creation-shape
     issued: 2026-07-11
     note: |
-      Ready implementation-readiness checkpoint after accepted Q1-Q7;
-      classify remaining Q8-Q14 concerns by whether they block the first
-      process creator.
+      Architecture readiness is clear after Q1-Q7 and the Q8-Q14
+      checkpoint. Shape one bounded first process-creation bootstrap
+      without pre-completing Q8-Q12 or claiming live readiness.
 
 preserved_evidence:
   - live/solmax/CHARTER.md
@@ -593,5 +624,7 @@ preserved_evidence:
   - live/solmax/history/2026-07-11-s-solmax-operating-substrate-routing-procedure-architecture-forge-001.md
   - 'owner direction choice in chat: «Я принимаю твою рекомендацию»'
   - 'owner final approval in chat: «Approve V1.»'
-next: work/calls/c-solmax-operating-substrate-minimal-bootstrap-implementation-readiness-001.md
+  - live/solmax/work/operating-substrate-minimal-bootstrap-implementation-readiness-001.md
+  - live/solmax/history/2026-07-11-s-solmax-operating-substrate-minimal-bootstrap-implementation-readiness-001.md
+next: work/calls/c-solmax-operating-substrate-first-process-creator-shape-001.md
 END_OF_FILE: live/solmax/NOW.md

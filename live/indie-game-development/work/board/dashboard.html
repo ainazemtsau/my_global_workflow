@@ -165,14 +165,14 @@
 <div class="wrap">
 
 <header class="hero">
-  <div class="eyebrow">ОНО ДЫШИТ · панель направления · обновлено 12.07: Canon Forge v3 установлен, отдельный допуск бумажного ответа снова READY; PuppetMaster BUILD-only route остаётся текущим следующим шагом</div>
+  <div class="eyebrow">ОНО ДЫШИТ · панель направления · обновлено 12.07: Canon Forge v3 установлен; revised Unity 6.5 PLAN заморожен, fresh BUILD — текущий следующий шаг; PuppetMaster BUILD-only route остаётся открыт</div>
   <h1>Панель: что происходит, что решено, что ждёт тебя</h1>
   <p class="lead">Живой статус — секция «Борд» ниже (истина всегда NOW.md + git; панель — рендер). Дальше по странице — действующее: ставка Полигон М1, инвентарь по трекам, справочник дат фестов, матрица потребностей, стенд. Устаревшие обсуждения с панели вырезаются — их полная история лежит в git, ничего не теряется.</p>
   <div class="stamp"><span>ставка: Полигон М1 · аппетит 13 легов · стоп-линия 24.07</span><span>демо: определения НЕТ — концепт изменился</span><span>канон: Canon Forge v3 ACTIVE; «Цель стоит запуска» — бумажный ответ, отдельный допуск READY</span><span>маркетинг: «будить минимально» — принято 11.07</span></div>
 </header>
 
 <section>
-  <div class="sec-head"><h2>📋 Борд — живой статус</h2><span class="tag">обновлено 12.07 · Canon Forge v3 ACTIVE · canon admission READY · PuppetMaster BUILD-only route — текущий next · Unity 6.5 BUILD остаётся открыт · истина всегда NOW.md + git</span></div>
+  <div class="sec-head"><h2>📋 Борд — живой статус</h2><span class="tag">обновлено 12.07 · Canon Forge v3 ACTIVE · canon admission READY · revised Unity 6.5 PLAN @8a344e9, fresh BUILD — текущий next, merge закрыт · PuppetMaster BUILD-only route открыт · истина всегда NOW.md + git</span></div>
   <div class="callout accent"><b>Единственный дом этой панели — репозиторий:</b> live/indie-game-development/work/board/dashboard.html; открывается в Chrome с диска, обновляется ТОЛЬКО здесь (внешних зеркал не ведём — правило владельца 2026-07-11). Живой статус — эта секция; панель — рендер: решения по ней, противоречащей NOW, не принимаются.</div>
   <div class="callout"><b>⚠ Демо: определения сейчас НЕТ — это открытый пункт, а не план.</b> Концепт изменился (11.07 принята новая рамка игры: расследование почти невидимого газа → план → добыча/операция → эвакуация). Старый октябрьский демо-план (паспорт демо, спринт, волны, развилки, оценки шансов) с панели ВЫРЕЗАН — его полная история в git. Первый бумажный вопрос рамки закрыт ответом «Цель стоит запуска», а исправленный процесс его получения прошёл пилот с дословным вердиктом владельца «ACCEPTED». 12.07 владелец отдельно сказал «УСТАНОВИТЬ V3 КАК ДЕЙСТВУЮЩИЙ ПРОЦЕСС» и разрешил удалить прежние исполняемые поверхности, чтобы не плодить legacy: Canon Forge v3 теперь единственный живой paper-only маршрут, Кузница v2 не fallback. Сам ответ всё ещё не канон и не готовая механика; его отдельный admission CALL снова READY и может дать только ADMIT TO CANON / HOLD PAPER-ONLY / REJECT AS CANON CANDIDATE. Точные правила газа, активации, добычи, экономики, инвентаря и кооперации остаются открыты. Проверенные даты фестов сохранены ниже как справочник, а не как план.</div>
   <div class="callout"><b>Активная ставка: Полигон М1</b> — большой уровень-стенд, доказывающий, что вся симуляция работает вместе: настраиваемый уровень, газовый геймплей, оптимизация дальних комнат, управляемый пролом стены, полная заливка газом, два реальных компьютера, слабое железо. Принята 10.07. Бюджет: <b>13 легов</b> (лег — см. словарь ниже; разовое расширение под шаги 4–5 одобрено тобой). Стоп-линия: <b>24.07 либо 13 легов</b> — что раньше; дальше только осознанное решение, молчаливого продления нет.
@@ -188,11 +188,11 @@
   <h3 class="subhead">Открытые работы</h3>
   <div class="calls">
     <div class="call">
-      <div class="head"><span class="st">BUILD ОТКРЫТ · НУЖНО НЕЗАВИСИМОЕ ЗАКРЫТИЕ</span><b>Mac: переход проекта на Unity 6000.5.3f1</b><span class="id">c-exec-unity65-mac-001 · открыта 11.07</span></div>
-      <p><span class="l">Что это:</span> отдельная Mac-миграция редактора и обязательных интеграций проекта с Unity 6000.4.7f1 на точную версию 6000.5.3f1. Windows в эту работу сознательно не входит.</p>
-      <p><span class="l">Зачем:</span> новая машина должна открывать и собирать настоящий проект без отключения Odin, Unity MCP, FishNet/GameKit или Dungeon Architect; миграция не имеет права менять смысл симуляции, сетевой протокол или визуальное направление.</p>
-      <p><span class="l">Где сейчас:</span> утверждённый владельцем PLAN заморожен в продукте @7969f36. Чистая ветка <b>codex/unity-6.5-migration-plan@df1e5ca</b> основана на актуальном <b>origin/main@a644e5db</b> и содержит пять миграционных коммитов; это ещё не Direction-OS close и не разрешение на merge.</p>
-      <p><span class="l">Что дальше:</span> отдельная свежая сессия сопоставляет handback со всеми восемью обещаниями CALL, пытается опровергнуть доказательства и выносит владельцу понятный merge-вердикт. До точных слов владельца ветка не вливается.</p>
+      <div class="head"><span class="st">▶ СЛЕДУЮЩИЙ ШАГ · FRESH BUILD</span><b>Довести Mac-миграцию Unity 6.5 по исправленному контракту</b><span class="id">c-exec-unity65-mac-revision-build-001 · открыта 12.07</span></div>
+      <p><span class="l">Что это:</span> отдельная BUILD-сессия ремонтирует candidate по замороженному successor-плану: одинаковые версии используют полный 64-битный scene handle, разные версии протокола явно отклоняются до чтения несовместимого сообщения.</p>
+      <p><span class="l">Зачем:</span> PLAN @8a344e9 сохранил старую историю и превратил все находки close-check в обязательный красный ledger. Теперь нужны реальные независимые доказательства на одном финальном tip, а не обещание готовности.</p>
+      <p><span class="l">Где сейчас:</span> PLAN одобрен твоим дословным «A» и заморожен; BUILD ещё не начат. Candidate parent — <b>df1e5ca</b>. Две посторонние незакоммиченные правки редактора/владельца остаются вне работы.</p>
+      <p><span class="l">Что дальше:</span> свежий test-author сначала пишет RED-тесты только по frozen spec, затем отдельный builder чинит все классы находок. Merge, push и Windows запрещены до отдельного delivery review; обязательны review, binding fresh G5 и зелёный Deliver.</p>
     </div>
     <div class="call">
       <div class="head"><span class="st">РЕВЬЮ ИДЁТ · ПАРАЛЛЕЛЬНАЯ ЛИНИЯ</span><b>Источники газа в честном сетевом пути</b><span class="id">c-exec-lv-ingest-phase0-001 · открыта 09.07</span></div>
@@ -265,6 +265,18 @@
       <p><span class="l">Чем кончилось:</span> владелец дословно постановил «УСТАНОВИТЬ V3 КАК ДЕЙСТВУЮЩИЙ ПРОЦЕСС» и разрешил удалить прежние поверхности, чтобы не плодить legacy. Canon Forge v3 — единственный живой маршрут; Кузница v2 не fallback. Исполняемые v2-инструкции заменены в OS play и canon START/README/SESSION/QUEUE, а пустой INDEX больше не обещает карточку из v2.</p>
       <p><span class="l">Граница результата:</span> «Цель стоит запуска» остаётся выбранным бумажным ответом, не каноном; ни ADMIT, ни HOLD, ни REJECT не выдавались.</p>
       <p><span class="l">Что дальше:</span> отдельный c-research-q-investigation-readiness-canon-admission-001 снова READY под v3, не заменяя текущий инженерный next.</p>
+    </div>
+    <div class="call closed">
+      <div class="head"><span class="st">✓ REVISED PLAN ЗАМОРОЖЕН</span><b>Unity 6.5: контракт ремонта после выбора A</b><span class="id">c-exec-unity65-mac-revision-plan-001 · закрыта 12.07</span></div>
+      <p><span class="l">Что было:</span> требовалась новая traceable authority, потому что старый frozen-план запрещал изменение сетевого wire и не мог быть переписан задним числом.</p>
+      <p><span class="l">Чем кончилось:</span> твоё дословное «A» заморожено в successor PLAN @8a344e9: полный scene handle для одинаковых версий, явный отказ разных версий до декодирования, без dual codec и без изменения остальных сетевых инвариантов.</p>
+      <p><span class="l">Что дальше:</span> открыт отдельный fresh BUILD c-exec-unity65-mac-revision-build-001. Он начинает с независимых RED-тестов и не имеет права мержить, пушить или заявлять Windows completion.</p>
+    </div>
+    <div class="call closed">
+      <div class="head"><span class="st">✓ ВЫБРАН ВАРИАНТ A · REVISED</span><b>Unity 6.5: маршрут после опровержения candidate</b><span class="id">d-unity65-mac-revision-route-001 · закрыто 12.07</span></div>
+      <p><span class="l">Что было:</span> решить, доводить ли Unity 6.5 с несовместимым 64-битным сетевым handle, сохранять старый 32-битный wire через дополнительное mapping или остаться на 6.3 LTS.</p>
+      <p><span class="l">Чем кончилось:</span> твой дословный ответ — «A». Продолжаем Unity 6000.5.3f1; новые сборки могут иметь coordinated несовместимость scene-handle wire, но обязаны явно отвергать другую версию протокола до декодирования. Это не разрешение мержить df1e5ca.</p>
+      <p><span class="l">Что дальше:</span> открыт отдельный PLAN-only заказ. После твоего одобрения нового плана BUILD стартует свежей сессией и заново проходит все ворота.</p>
     </div>
     <div class="call closed">
       <div class="head"><span class="st">✓ ПРОЦЕСС ПРИНЯТ</span><b>Исправленный бумажный пилот Canon Forge v3</b><span class="id">c-review-canon-process-v3-revised-pilot-001 · закрыта 11.07</span></div>
@@ -366,16 +378,19 @@
   <h3 style="margin:26px 0 10px; font-size:18px">Журнал — последние 3 дня</h3>
   <p class="note" style="margin:0 0 10px">Рендер из LOG.md (полный архив — там); старше трёх дней с панели уходит. Сегодняшний день раскрыт.</p>
   <details class="day" open>
-    <summary>12 июля <span class="cnt">· Canon Forge v3 установлен, v2 убран из live routing, canon admission снова READY · PuppetMaster live-source v1 утверждён и заморожен · выпущен отдельный BUILD-only route</span></summary>
+    <summary>12 июля <span class="cnt">· Canon Forge v3 установлен · Unity 6.5 route A и revised PLAN @8a344e9 · fresh Unity BUILD — текущий next · PuppetMaster live-source BUILD открыт</span></summary>
     <ul>
-      <li><b>Canon Forge v3 — установка:</b> владелец «УСТАНОВИТЬ V3 КАК ДЕЙСТВУЮЩИЙ ПРОЦЕСС» сделал v3 единственным paper-only design-to-canon маршрутом и разрешил удалить прежние live-поверхности, чтобы не плодить legacy; Кузница v2 заменена в OS play и canon START/README/SESSION/QUEUE, пустой INDEX очищен от v2-routing, «Цель стоит запуска» остаётся неканоническим бумажным ответом, а отдельный admission CALL снова READY без ADMIT/HOLD/REJECT</li>
+      <li><b>Unity 6.5 — решение A:</b> владелец ответил дословно «A»: продолжаем exact 6000.5.3f1, принимаем coordinated несовместимость FishNet scene-handle wire только с явным protocol-version rejection gate. Открыт отдельный PLAN-only c-exec-unity65-mac-revision-plan-001; он обязан сохранить старую frozen историю, восстановить независимые тесты и расписать закрытие всех refutation findings. Исходный BUILD остаётся blocked/unmerged; текущие посторонние dirty-файлы Mac checkout не трогаются</li>
       <li><b>PuppetMaster P2a0 — BUILD-маршрут:</b> владелец «УТВЕРЖДАЮ PLAN c-exec-player-puppetmaster-p2a0-002: live-source v1, шесть свойств.» заморозил live-source proof @b90b7205; PLAN-only CALL закрыт, а отдельный BUILD-only c-exec-player-puppetmaster-p2a0-002-build-001 выпущен на clean worktree с independent RED → fresh builder → MCP → fresh G5, checkpoint-only без merge/-Deliver</li>
+      <li><b>Unity 6.5 — revised PLAN:</b> successor authority заморожена в product commit <b>8a344e9</b>: одинаковые версии передают полный scene handle, разные версии отвергаются до декодирования; старый frozen-план сохранён как история. PLAN-call закрыт, открыт fresh BUILD c-exec-unity65-mac-revision-build-001; BUILD ещё не стартовал, merge/push/Windows запрещены.</li>
+      <li><b>Canon Forge v3 — установка:</b> владелец «УСТАНОВИТЬ V3 КАК ДЕЙСТВУЮЩИЙ ПРОЦЕСС» сделал v3 единственным paper-only design-to-canon маршрутом и разрешил удалить прежние live-поверхности, чтобы не плодить legacy; Кузница v2 заменена в OS play и canon START/README/SESSION/QUEUE, пустой INDEX очищен от v2-routing, «Цель стоит запуска» остаётся неканоническим бумажным ответом, а отдельный admission CALL снова READY без ADMIT/HOLD/REJECT</li>
     </ul>
   </details>
   <details class="day">
-    <summary>11 июля <span class="cnt">· PuppetMaster 001 сохранён CHECKPOINT / NOT DELIVERED, 002 стал PLAN-only next · Unity 6000.5.3f1 Mac BUILD остаётся открыт · Canon Forge v3 pilot ACCEPTED · допуск «Цель стоит запуска» заблокирован до ремонта маршрута канона · кооп до 8 закреплён · первое дневное ревью: 4 находки</span></summary>
+    <summary>11 июля <span class="cnt">· Unity 6000.5.3f1 candidate as-is не merge-ready · PuppetMaster 001 сохранён CHECKPOINT / NOT DELIVERED, 002 получил committed PLAN · Canon Forge v3 pilot ACCEPTED · допуск бумажного ответа был заблокирован до ремонта · кооп до 8 закреплён · Phase 1 платформы ратифицирована · первое дневное ревью: 4 находки</span></summary>
     <ul>
       <li><b>Mac Unity 6.5:</b> установлены точная Unity 6000.5.3f1 и .NET 8; clean probe сгруппировал реальные поломки миграции; владелец «ok» утвердил Mac-first PLAN @7969f36, выпущен отдельный BUILD-CALL, Windows оставлен следующим самостоятельным этапом</li>
+      <li><b>Mac Unity 6.5 — close-check:</b> переход стратегически рекомендован, но clean candidate @df1e5ca не допущен к merge: FishNet wire int→ulong вышел за frozen границу, независимость тестов нарушена, mutation/review/report/G5/Deliver не закрыты, live Mac suite сейчас 1522/1528 из-за PowerShell harness, Unity MCP не обнаруживает target tests, Claude G5 unavailable 401. CALL остаётся открыт; в батче ждёт маршрут A/B/C</li>
       <li><b>Ремонт маршрута:</b> аппетит М1 разово поднят до 13 легов (GAS-PROBE + GAS-CORE); S4 уведён ЗА закон газа; c-visual-009 заблокирован на GAS-CORE</li>
       <li><b>Фундамент контрольной суммы:</b> выпущен план-заказ → план одобрен владельцем и заморожен; стройка ждёт вливания «источников газа»; следующий шаг направления вернулся к ним</li>
       <li><b>Канон:</b> Minimum Game Frame — «FRAME READY»: каркас «проникновение → добыча/операция → эвакуация», почти невидимый газ; затем Gate Q ПРОЙДЕН («QUESTION READY») — первый вопрос легитимен, открыт его бумажный разбор</li>
