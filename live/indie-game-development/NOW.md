@@ -1,5 +1,5 @@
 # NOW: indie-game-development
-updated: 2026-07-12 by c-exec-unity65-mac-revision-plan-001
+updated: 2026-07-12 by s-repair-unity65-mac-revision-002-route-001
 
 bet:
   node: g-9c41
@@ -61,11 +61,11 @@ tasks:
     status: active
 
 open_calls:
-  - id: c-exec-unity65-mac-revision-build-001
+  - id: c-exec-unity65-mac-revision-002-build-001
     to: executor
-    for: g-9c41 / Unity 6.5 Mac revised BUILD and closeout
+    for: g-9c41 / local .NET repository-gate runner prerequisite
     issued: 2026-07-12
-    note: "READY fresh BUILD from owner-approved successor PLAN `A`: product PLAN commit 8a344e97, candidate parent df1e5ca, approach unity65-coordinated-wire-v2-repair-closeout. Same-version peers use full-width scene handles; mixed protocol versions reject before scene-broadcast decode. Fresh spec-only RED test-author first; builder cannot edit those tests. Repair every close-check class; no merge/push/Windows work. Preserve unstaged .vscode/settings.json and CoopSmallSGF.asset. work/c-exec-unity65-mac-revision-build-001-call.md."
+    note: "READY NON-PRIORITY after owner-approved PLAN `Одобряю PLAN c-exec-unity65-mac-revision-002`: product PLAN commit 7a3e747, parent 8a344e97, approach lan-local-dotnet-gates-adapter-only. Build/deliver the local cross-platform .NET 8 gate runner with full parity and independent RED evidence; do not resume revision-001, Unity/FishNet, Windows, merge or push. Preserve unstaged .vscode/settings.json and CoopSmallSGF.asset. work/c-exec-unity65-mac-revision-002-build-001-call.md."
   - id: c-exec-lv-ingest-phase0-001
     to: executor
     for: Lv-ingest
@@ -103,6 +103,6 @@ decisions:
     options: ["Ратифицировать все 5", "Ратифицировать выборочно", "Отклонить — критерии не расширяем"]
     recommendation: "Ратифицировать все 5: дёшево и делает final evidence leg доказуемым; min-spec требует owner-выбора конкретного железа. Источник: owner-lane вырезанной лестницы 10.07 — критерии нигде больше не жили (s-repair-board-m1-ladder-purge-001)."
 next:
-  CALL: work/c-exec-unity65-mac-revision-build-001-call.md
+  CALL: work/c-exec-lv-ingest-phase0-call.md
 
 END_OF_FILE: live/indie-game-development/NOW.md
