@@ -167,4 +167,6 @@ Append-only. Одна строка на случай: дата, направле
 
 2026-07-12 indie-game-development repair: an owner-evaluated process pilot could finish ACCEPTED without a mandatory post-pilot authority transition — install the candidate, resume the prior process, authorize an explicit one-shot bridge, or remain blocked — so a downstream canon-admission CALL opened while no governing design-to-canon process existed.
 
+2026-07-12 indie-game-development repair: a second product-side planning handoff changed the gas authority/route without a Direction receipt, leaving NOW.next and the owner panel on a now-forbidden Phase 0 entrypoint until the owner requested repair — watching: any product PLAN that supersedes a live Direction CALL must return HOME and be registered before further gas/visual dispatch.
+
 END_OF_FILE: os/FRICTION.md

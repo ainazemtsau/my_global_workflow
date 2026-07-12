@@ -204,4 +204,6 @@ archived: history/LOG-archive-indie-game-development.md — sessions before 2026
 
 2026-07-12 — work/lean-spike-rescope (g-9c41/M1-P2a0, s-work-player-puppetmaster-p2a0-lean-spike-001): владелец пересмотрел scope доказательства и выбрал ЛЁГКИЙ спайк («Лёгкий спайк» → «го») — тяжёлый observer/attempt-tree/A-B-C/RED-gate/видео сознательно свёрнут; гейт = owner-eye + живой runtime-прибор (кнопки камень/импульс/сброс; прибор Контроллер/Рэгдолл · Норма/Сбит/Встаёт · коллизия; Кандидат A первым; владелец сам жмёт Play и выносит PASS/FAIL; MP inventory-only). PLAN-amend open_call заменён единственным lean BUILD-CALL c-exec-player-puppetmaster-p2a0-lean-spike-build-001 (переиспользует import+mapper @ b9aea60c; immutable RED c73b0195 read-only и не гейт); M1-P2a0 active, next = lean BUILD. → history/2026-07-12-s-work-player-puppetmaster-p2a0-lean-spike-001.md
 
+2026-07-12 — repair/route (g-9c41/gas-routing, s-repair-near-gas-program-routing-001): владелец выбрал простое ручное статическое gas-dashboard; accepted PROGRAM заменил устаревшие Phase 0/A0 routes, c-visual-009 получил точные locks, а doc-only dashboard BUILD стал next. → history/2026-07-12-s-repair-near-gas-program-routing-001.md
+
 END_OF_FILE: live/indie-game-development/LOG.md

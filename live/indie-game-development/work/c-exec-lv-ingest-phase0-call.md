@@ -1,10 +1,8 @@
 # CALL c-exec-lv-ingest-phase0-001 — Level ingestion + gas-source placement, PHASE 0 (engine-free seam on hand-tagged geometry)
 
-**STATUS: READY.** Fresh GasCoopGame_dev BUILD session. **Canon-INDEPENDENT engine infrastructure**, pulled in while
-Sc-damage is design-blocked (same rolling-wave pattern as Sc-sense). Base = GasCoopGame `origin/main` @defade72
-(§Re-sync at tip). Owner-present PLAN. **MCP rule (owner, hard):** build via Unity-MCP where possible; where Unity-MCP
-cannot do a step, **STOP and hand the owner step-by-step instructions — NO workaround/crutch.** Unity/MCP unavailable
-→ STOP + ask owner. (An owner-run editor step is NOT done until the owner confirms.)
+**STATUS: SUPERSEDED BEFORE BUILD / NOT DELIVERED / NEVER RESUME.** The accepted replacement route is
+`GasCoopGame_dev@f5c1d650:docs/gas-simulation/PROGRAM.md`. This file remains historical evidence only; no section
+below is executable authority. Any request to continue Phase 0 returns to current DirectionS routing in NOW.md.
 
 ## why now / lineage
 Sc-damage is HELD (needs design; canon core is being re-assembled). This is the owner-chosen canon-independent engine
