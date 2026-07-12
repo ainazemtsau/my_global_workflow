@@ -196,4 +196,6 @@ archived: history/LOG-archive-indie-game-development.md — sessions before 2026
 
 2026-07-12 — research/canon-admission (g-d3a8/q-investigation-readiness, s-research-q-investigation-readiness-canon-admission-002): owner admitted «Цель стоит запуска» into canon as the first-ever canon card — preliminary mechanic card c-001 (нужен-грейбокс), verdict «ADMIT TO CANON». No new design question or implementation opened; fun, actual co-op, runtime legibility, pressure pacing, engine cost and commercial proof remain unverified, and exact pressure sources/timing/mechanics stay OPEN. → history/2026-07-12-s-research-q-investigation-readiness-canon-admission-002.md
 
+2026-07-12 — local/daily-review (g-9c41/daily-review, s-daily-review-20260712-001): committed-state факт-сверка подтвердила 4 known-находки и добавила 2 новые repair/P1 — stale marketing checkpoint route и потерянный decision-route требования «до 8 игроков»; «Проблемы»/«Журнал»/«Борд» перегенерированы без исправления проблем, product и canon остались read-only. → history/2026-07-12-s-daily-review-20260712-001.md
+
 END_OF_FILE: live/indie-game-development/LOG.md
