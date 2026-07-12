@@ -111,9 +111,14 @@ Reference cases used during frame:
   `github.com/ainazemtsau/zaratusta`, locally `C:\projects\Zaratusta`.
   Zaratusta is the first Solmax consumer/failure-case/evidence source, not
   the whole scope of Solmax.
-- Operating-substrate repo: none selected. Architecture/spec cartography
-  lives in Direction OS state until a later owner-approved route chooses
-  artifacts, repo boundaries or implementation surfaces.
+- Operating-substrate implementation repo:
+  `github.com/ainazemtsau/solmax-operating-substrate`.
+  The owner selected it on 2026-07-12 as the bounded bootstrap
+  implementation surface for the reusable operating-substrate branch.
+  Repository, layout, stack, tooling, serialization, runtime and topology
+  choices made there remain implementation-specific and do not become
+  substrate architecture. Zaratusta remains the first consumer,
+  failure-case and evidence source rather than substrate authority.
 - The Direction OS repo remains separate. Zaratusta may read it read-only as
   one capability among many; neither Zaratusta nor the operating-substrate
   route writes to it outside Direction OS writer procedure.

@@ -55,9 +55,9 @@ tasks:
       PuppetMaster получает проверенный root-authority маршрут для сетевого игрока, которого могут
       физически сбивать камни и импульсы, до заморозки production controller.
     done_when: |
-      c-exec-player-puppetmaster-p2a0-001 возвращает compile/runtime proof текущего допустимого plugin,
-      transition evidence Puppet→Unpinned→GetUp, A/B comparison + C kill-probe, multiplayer authority
-      inventory и fresh independent refutation; без FishNet BUILD, gameplay damage и product merge.
+      c-exec-player-puppetmaster-p2a0-002 freezes an owner-approved live-source proof PLAN; a later separately-issued
+      BUILD under that frozen change returns accepted Puppet→Unpinned→GetUp evidence, A/B comparison + bounded C
+      kill-probe, multiplayer authority inventory and fresh G5, without FishNet BUILD, damage or product merge.
     status: active
 
 open_calls:
@@ -81,16 +81,16 @@ open_calls:
     for: g-7e15 / Stage 3.5 movement-data BUILD reconciliation
     issued: 2026-07-10
     note: "BLOCKED on M1-GAS-CORE: approved PLAN @a0db28a2 + dirty BUILD preserved on codex/c-visual-009-build; no continuation/close; history/2026-07-11-s-repair-visual-sim-upstream-001.md."
-  - id: c-exec-player-puppetmaster-p2a0-001
+  - id: c-exec-player-puppetmaster-p2a0-002-build-001
     to: executor
-    for: M1-P2a0 / PuppetMaster authority suitability spike
-    issued: 2026-07-11
-    note: "READY: lane C disposable lab, base origin/main@a644e5db, no product merge; folded into M1-5; work/c-exec-player-puppetmaster-p2a0-001-call.md."
-  - id: c-repair-canon-post-pilot-route-001
-    to: session
-    for: g-d3a8 / post-pilot canon process authority repair
-    issued: 2026-07-11
-    note: "READY repair after owner instruction «если есть конфликт или какие-то проблемы, то сначала их исправить и потом уже определять остальное». Canon Forge v2 was suspended for one pilot; Canon Forge v3 pilot was ACCEPTED process-only but not installed; q-investigation-readiness admission is BLOCKED until the active post-pilot canon route and authority are reconciled. work/c-repair-canon-post-pilot-route-001-call.md."
+    for: M1-P2a0 / trustworthy PuppetMaster live-source authority proof BUILD
+    issued: 2026-07-12
+    note: "PARENT BUILD remains open for final fresh G5 and owner verdict. Checkpoint @a2d50c2a proved clean venue + immutable RED and stopped before builder. Owner requested “Я хочу продолжить в Claude Code”; child continuation c-exec-player-puppetmaster-p2a0-002-build-continuation-001 is READY with a two-hour cap and 60-minute settled-smoke checkpoint. Product RESULT: C:\projects\Unity\GasCoopGame_p2a0_002\docs\results\c-exec-player-puppetmaster-p2a0-002.md."
+  - id: c-exec-player-puppetmaster-p2a0-002-build-continuation-001
+    to: executor
+    for: M1-P2a0 / fresh Claude Code PuppetMaster builder continuation
+    issued: 2026-07-12
+    note: "READY from clean product checkpoint a2d50c2a: fresh Claude Code builder, immutable RED c73b0195 must not be edited or repeated; maximum two hours, hard checkpoint at 60 minutes without settled live smoke; no G5/verdict/merge/-Deliver. work/c-exec-player-puppetmaster-p2a0-002-build-continuation-001-call.md."
   - id: c-marketing-wake-001
     to: session
     for: g-2f8c / минимальное пробуждение маркетинга
