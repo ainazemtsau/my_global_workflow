@@ -9,6 +9,7 @@ owner_approved:
     - '2026-07-05: owner approved activating g-zara-operate-state as the full Markdown operating-manager-v1 workspace/state surface bet. Owner words: "A".'
     - '2026-07-06: owner approved pausing Zaratusta live-use/product repair and routing to a new reusable operating-substrate architecture node. Owner words: "Заратустра ставится в блок ... мы переключаемся вот на этот режим ... сначала ... надо вот архитектуру, где она применяется, как там с ней работать ... в новой сессии ... начали ... над новой нодой."'
     - '2026-07-06: owner approved option A for umbrella placement repair. Owner words: "Option A". TREE root becomes g-solmax; existing Zaratusta tree moves under g-zara as first product/application branch; g-operating-substrate is added as a parked sibling architecture/spec route.'
+    - '2026-07-12: owner approved g-operating-substrate-first-process-creator as the complete bounded first Process Creator bootstrap and active bet. Appetite B means 3 focused execution days without cutting mandatory bounded functionality. Owner words: "A".'
 
 tree_validity:
   state: solmax_umbrella_placement_approved
@@ -200,5 +201,112 @@ root:
         Owner approved option B/option A repair: substrate is a separate
         architecture route beside Zaratusta, while Zaratusta remains the
         first consumer/failure-case and evidence source.
+      children:
+        - id: g-operating-substrate-first-process-creator
+          status: active
+          appetite: 3 focused execution days
+          kill_by: |
+            metric: |
+              Independently refuted complete vertical slice from ordinary owner
+              process intent through Process Creator candidate, validation,
+              admission, authoritative activation, first process execution,
+              relevant adverse path, portable continuation and fresh-run resume.
+            threshold: |
+              By 2026-07-17, t-7 must PASS with all of the following:
+
+              1. Process Creator is an admitted and authoritatively activated
+                 process pack.
+              2. One concrete process pack was created through the creator rather
+                 than by modifying kernel semantics or manually bypassing the
+                 creator.
+              3. The concrete pack was validated, admitted and authoritatively
+                 activated.
+              4. A real owner-originated obligation produced a useful result,
+                 bounded decision, clear block/failure or legitimate
+                 continuation without requiring the owner to operate internal
+                 routing, state, audit or child-agent machinery.
+              5. A fresh run resumed from portable continuation without access to
+                 the previous transcript.
+              6. At least one relevant adverse path preserved missing input,
+                 ambiguity, no-route, missing capability or another explicit
+                 failure instead of fabricating input or silently falling back.
+              7. Independent refutation found zero hard Q1-Q7 violations.
+              8. Structural admissibility and useful live behavior received
+                 separate verdicts.
+              9. No carrier, schema, repository, provider, runtime, framework,
+                 application, topology or current adapter was promoted into
+                 substrate architecture.
+              10. No claim of demonstrated universal reuse was made from one
+                  concrete pack.
+            date: 2026-07-17
+          goal: |
+            The owner can use one owner-facing Process Creator to define new
+            concrete AI processes and receive admitted, activated and runnable
+            process packs without modifying kernel semantics and without manually
+            operating internal lifecycle bureaucracy.
+          done_when: |
+            All conditions hold:
+
+            1. Process Creator exists as a complete process definition and has
+               crossed validated admission and authoritative activation.
+
+            2. Starting from an ordinary owner-originated process goal, the
+               creator produces one complete concrete candidate pack whose
+               process-owned semantics cover, where applicable:
+               - objective and applicability;
+               - process boundaries and domain vocabulary;
+               - procedure catalogue and local routing policy;
+               - local state, context, source, memory, history, evidence,
+                 artifact and result distinctions;
+               - authority, effect and escalation policy;
+               - process-specific writer procedure or writer policy;
+               - mandatory and optional semantic capabilities;
+               - legitimate degraded routes;
+               - success, stop, failure and recovery meanings;
+               - continuation and active-work compatibility obligations;
+               - process-specific conformance and live-proof scenarios.
+
+            3. The first concrete candidate preserves inherited Q1-Q7 semantics,
+               passes validation and admission, and becomes authoritative only
+               through governed activation/apply.
+
+            4. The first concrete pack performs a real owner-originated
+               obligation and returns a useful result, bounded decision, clear
+               block/failure or legitimate continuation rather than exposing
+               internal process bureaucracy as the product.
+
+            5. Another fresh run can resume from portable continuation without
+               reconstructing the prior transcript or relying only on opaque
+               runtime identity.
+
+            6. At least one relevant adverse path is exercised without invented
+               input, silent nearest-match routing, hidden scope expansion,
+               authority expansion or false success.
+
+            7. Independent refutation finds no hard conflict with accepted Q1-Q7.
+
+            8. Evidence explicitly distinguishes:
+               - structurally admissible pack;
+               - useful live process behavior;
+               - demonstrated substrate reuse.
+
+               The first two may be proven by this outcome. Demonstrated reuse
+               remains unclaimed until at least a second materially different
+               pack preserves the same kernel semantics without kernel edits or
+               consumer leakage.
+
+            9. Q8-Q12 remain open downstream architecture unless this concrete
+               work exposes a named semantic gap that accepted Q1-Q7 and
+               legitimate process-pack policy cannot resolve.
+
+            10. Repository, carrier, schema, runtime, provider, framework,
+                application and topology choices remain implementation-specific
+                and are not treated as substrate architecture.
+          why: |
+            This is the first transition from accepted operating-substrate
+            architecture to a repeatable owner-usable mechanism that produces
+            concrete process packs. Without it, each new process would still be
+            designed manually from scratch and substrate would remain an
+            architecture collection rather than a working process foundation.
 
 END_OF_FILE: live/solmax/TREE.md
