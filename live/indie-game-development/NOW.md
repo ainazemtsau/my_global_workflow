@@ -1,5 +1,5 @@
 # NOW: indie-game-development
-updated: 2026-07-12 by s-work-player-puppetmaster-p2a0-checkpoint-route-001
+updated: 2026-07-12 by s-work-player-puppetmaster-p2a0-lean-spike-001
 
 bet:
   node: g-9c41
@@ -81,11 +81,11 @@ open_calls:
     for: g-7e15 / Stage 3.5 movement-data BUILD reconciliation
     issued: 2026-07-10
     note: "BLOCKED on M1-GAS-CORE: approved PLAN @a0db28a2 + dirty BUILD preserved on codex/c-visual-009-build; no continuation/close; history/2026-07-11-s-repair-visual-sim-upstream-001.md."
-  - id: c-exec-player-puppetmaster-p2a0-002-plan-amend-001
+  - id: c-exec-player-puppetmaster-p2a0-lean-spike-build-001
     to: executor
-    for: M1-P2a0 / owner-present PLAN amendment (acceptance approach) + fresh BUILD issue
+    for: M1-P2a0 / лёгкий спайк PuppetMaster (owner-eye + живой прибор)
     issued: 2026-07-12
-    note: "READY owner-present PLAN-amend. Прошлые build-CALL'ы (…-build-001 umbrella + вернувшийся …-build-continuation-001) свёрнуты сюда. Continuation вернулась CHECKPOINT / NOT DELIVERED (product codex/c-exec-player-puppetmaster-p2a0-002-build@b9aea60c, verified NOT MERGED vs origin/main@a644e5db; чистый live import + BehaviourPuppet.state{Puppet|Unpinned|GetUp} mapper + closed-world set готовы; rig-bridge/observer/A-B-C/settled-smoke НЕ построены — headless PlayMode loop stall → venue=PlayMode test runner). Owner steer «ок» 12.07 замораживается ЗДЕСЬ дословным «да»: машинное доказательство без изменений; обязательные A/B видео-клипы+контактные листы → живая single-machine Odin-[Button] A/B/C песочница (owner-eye, не гейт); multiplayer inventory-only. Сессия переморозит продуктовый PLAN (амендирует b90b7205) и выпустит отдельный свежий BUILD-only CALL; без owner-слов = checkpoint, open_call остаётся. Без merge/PR/-Deliver/G5/verdict; immutable RED c73b0195 read-only. work/c-exec-player-puppetmaster-p2a0-002-plan-amend-001-call.md."
+    note: "READY lean spike BUILD (владелец 12.07: «Лёгкий спайк» → «го»). Тяжёлый live-source proof подход (observer/attempt-tree/A-B-C-сразу/immutable-RED-как-гейт/видео/openspec/ревью) сознательно свёрнут — прежний …-002-plan-amend-001 заменён этим. Строим на существующем стенде (переиспользуя import + маппер BehaviourPuppet.state{Puppet|Unpinned|GetUp} @ b9aea60c): кнопки камень/импульс/сброс, прибор 3 строки (Контроллер/Рэгдолл · Норма/Сбит/Встаёт · коллизия цела/сломана из РЕАЛЬНОГО runtime), проводка Кандидат A первой (B если A мутный). Гейт = ГЛАЗ ВЛАДЕЛЬЦА + живой прибор: билдер отдаёт готовую сцену + пошаговую инструкцию + смоук (PlayMode runner, НЕ headless) что кнопки/прибор живые; PASS/FAIL выносит владелец, играя. immutable RED c73b0195 read-only и НЕ гейт (тестировал суперседнутый тяжёлый подход). MP inventory-only; без Core/FishNet BUILD/урона/мержа/-Deliver; tool-blocker=STOP+спросить владельца. work/c-exec-player-puppetmaster-p2a0-lean-spike-build-001-call.md."
   - id: c-marketing-wake-001
     to: session
     for: g-2f8c / минимальное пробуждение маркетинга
@@ -98,6 +98,6 @@ decisions:
     options: ["Ратифицировать все 5", "Ратифицировать выборочно", "Отклонить — критерии не расширяем"]
     recommendation: "Ратифицировать все 5: дёшево и делает final evidence leg доказуемым; min-spec требует owner-выбора конкретного железа. Источник: owner-lane вырезанной лестницы 10.07 — критерии нигде больше не жили (s-repair-board-m1-ladder-purge-001)."
 next:
-  CALL: work/c-exec-player-puppetmaster-p2a0-002-plan-amend-001-call.md
+  CALL: work/c-exec-player-puppetmaster-p2a0-lean-spike-build-001-call.md
 
 END_OF_FILE: live/indie-game-development/NOW.md
