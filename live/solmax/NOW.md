@@ -287,7 +287,7 @@ active_bet:
       kill the bet and shape a new bounded bet; do not extend appetite or
       claim partial success.
 
-route_status: operating_substrate_first_process_creator_active_t1_ready
+route_status: operating_substrate_first_process_creator_t2_repo_bootstrap_ready
 
 owner_directive: |
   Owner approved umbrella placement for Solmax.
@@ -814,7 +814,7 @@ owner_directive: |
 tasks:
   - id: t-1
     kind: session
-    status: active
+    status: done
     budget: 0.25 focused execution day
     goal: |
       Falsify or validate the full owner-facing Process Creator vertical
@@ -858,7 +858,7 @@ tasks:
 
   - id: t-2
     kind: executor
-    status: open
+    status: active
     budget: 0.5 focused execution day
     goal: |
       Materialize the complete Process Creator candidate on a bounded
@@ -1102,13 +1102,15 @@ recurring: []
 decisions: []
 
 open_calls:
-  - id: c-solmax-operating-substrate-first-process-creator-t1-risk-gate-001
-    to: session
-    for: g-operating-substrate-first-process-creator/t-1
+  - id: c-solmax-operating-substrate-first-process-creator-t2-repo-bootstrap-001
+    to: executor
+    for: g-operating-substrate-first-process-creator/t-2
     issued: 2026-07-12
     note: |
-      Run the no-write complete Process Creator vertical-slice risk gate.
-      Implementation work is blocked until this task returns PASS.
+      Initialize the empty dedicated operating-substrate repo as an
+      agent-ready bounded implementation surface. This is a checkpoint
+      inside active t-2; Process Creator materialization and t-2 completion
+      remain pending.
 
 preserved_evidence:
   - live/solmax/CHARTER.md
@@ -1206,5 +1208,5 @@ preserved_evidence:
   - 'owner final approval in chat: «Approve V1.»'
   - live/solmax/work/operating-substrate-minimal-bootstrap-implementation-readiness-001.md
   - live/solmax/history/2026-07-11-s-solmax-operating-substrate-minimal-bootstrap-implementation-readiness-001.md
-next: work/calls/c-solmax-operating-substrate-first-process-creator-t1-risk-gate-001.md
+next: work/calls/c-solmax-operating-substrate-first-process-creator-t2-repo-bootstrap-001.md
 END_OF_FILE: live/solmax/NOW.md
