@@ -1,5 +1,5 @@
 # NOW: indie-game-development
-updated: 2026-07-11 by s-work-unity65-mac-closecheck-001
+updated: 2026-07-12 by s-work-unity65-mac-route-a-001
 
 bet:
   node: g-9c41
@@ -65,7 +65,12 @@ open_calls:
     to: executor
     for: g-9c41 / Unity 6.5 Mac BUILD
     issued: 2026-07-11
-    note: "CHECKPOINT 2026-07-11: стратегически Unity 6000.5.3f1 рекомендована, но clean candidate codex/unity-6.5-migration-plan@df1e5ca НЕ MERGEABLE до owner verdict d-unity65-mac-revision-route-001 и repair/closeout. Найдены non-admin blockers: незаявленный FishNet wire int→ulong, нарушенная test-author independence, нерелевантная mutation, unresolved serialization warnings, отсутствующие closing report/refuted-register/fresh cross-family G5/-Deliver; live Mac rerun 1522/1528 (6 harness failures: PowerShell selector), Unity MCP сейчас не обнаруживает target tests, Claude G5 unavailable 401. Windows deferred; work/c-exec-unity65-mac-001-call.md."
+    note: "BLOCKED on revision PLAN, not merge-ready. Owner 2026-07-12 chose A (actual words «A», owner-ack:owner-chat-2026-07-12-unity65-route-a): continue exact Unity 6000.5.3f1, accept coordinated FishNet scene-handle wire int→ulong only with an explicit protocol-version rejection gate, then repair/closeout and merge only after all original gates are green. Committed candidate remains df1e5ca; current local candidate checkout has unrelated dirty .vscode/settings.json + CoopSmallSGF.asset changes that must be preserved. Windows deferred; work/c-exec-unity65-mac-001-call.md."
+  - id: c-exec-unity65-mac-revision-plan-001
+    to: executor
+    for: g-9c41 / Unity 6.5 Mac revision PLAN
+    issued: 2026-07-12
+    note: "READY PLAN-only after owner «A»: create owner-readable successor/amendment authority for the narrow coordinated FishNet wire break + protocol-version gate and every close-check repair; no BUILD, tests, merge, push or dirty-file touch. MacBook lane E, committed candidate df1e5ca over origin/main@a644e5db; work/c-exec-unity65-mac-revision-plan-001-call.md."
   - id: c-exec-lv-ingest-phase0-001
     to: executor
     for: Lv-ingest
@@ -102,10 +107,7 @@ decisions:
   - q: "d-m1-acceptance-criteria-001 — ратифицировать 5 дополнений к критериям приёмки Полигона М1 (замер на named min-spec железе; лампа детерминизма в HUD; политика выхода пира/хоста; admission ceiling виден в стенде; звук сознательно НЕ в М1)?"
     options: ["Ратифицировать все 5", "Ратифицировать выборочно", "Отклонить — критерии не расширяем"]
     recommendation: "Ратифицировать все 5: дёшево и делает final evidence leg доказуемым; min-spec требует owner-выбора конкретного железа. Источник: owner-lane вырезанной лестницы 10.07 — критерии нигде больше не жили (s-repair-board-m1-ladder-purge-001)."
-  - q: "d-unity65-mac-revision-route-001 — какой маршрут выбрать после refutation Mac-кандидата Unity 6000.5.3f1?"
-    options: ["A — revised: продолжать 6.5, принять coordinated FishNet wire break с обязательным protocol-version gate, затем repair/closeout и merge только по green gates", "B — revised-conservative: продолжать 6.5, но сохранить 32-bit wire через project/FishNet-owned token mapping, затем полный repair/closeout", "C — rejected: остаться на Unity 6.3 LTS и запарковать ветку"]
-    recommendation: "A: проект ещё mid-cycle, Unity считает Update-релизы production-ready, а основная миграция уже сделана; при отсутствии live-клиентов coordinated break дешевле mapping. df1e5ca as-is не принимается и не мержится."
 next:
-  CALL: work/c-exec-unity65-mac-001-call.md
+  CALL: work/c-exec-unity65-mac-revision-plan-001-call.md
 
 END_OF_FILE: live/indie-game-development/NOW.md
