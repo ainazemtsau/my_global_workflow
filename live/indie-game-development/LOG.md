@@ -184,4 +184,6 @@ archived: history/LOG-archive-indie-game-development.md — sessions before 2026
 
 2026-07-12 — work/route (g-9c41/M1-P2a0, s-work-player-puppetmaster-p2a0-build-route-001): owner «УТВЕРЖДАЮ PLAN c-exec-player-puppetmaster-p2a0-002: live-source v1, шесть свойств.» заморозил live-source proof @b90b7205; PLAN-only CALL закрыт, а отдельный BUILD-only c-exec-player-puppetmaster-p2a0-002-build-001 выпущен на clean worktree с independent RED → fresh builder → MCP → fresh G5, checkpoint-only без merge/-Deliver. → history/2026-07-12-s-work-player-puppetmaster-p2a0-build-route-001.md
 
+2026-07-12 — repair/install (g-d3a8/canon-process, s-repair-canon-post-pilot-route-001): owner verdict «УСТАНОВИТЬ V3 КАК ДЕЙСТВУЮЩИЙ ПРОЦЕСС» installed Canon Forge v3 as the sole paper-only design-to-canon route; owner also authorized deleting prior live process surfaces to avoid legacy, so Кузница v2 is replaced in place across OS play and canon START/README/SESSION/QUEUE, with stale v2 claims removed from the empty INDEX. q-investigation-readiness remains an owner-selected non-canon paper answer, and its separate admission CALL is reopened without ADMIT/HOLD/REJECT or any new design topic. → history/2026-07-12-s-repair-canon-post-pilot-route-001.md
+
 END_OF_FILE: live/indie-game-development/LOG.md

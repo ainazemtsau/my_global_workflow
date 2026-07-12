@@ -1,5 +1,5 @@
 # NOW: indie-game-development
-updated: 2026-07-12 by s-work-player-puppetmaster-p2a0-build-route-001
+updated: 2026-07-12 by s-repair-canon-post-pilot-route-001
 
 bet:
   node: g-9c41
@@ -86,11 +86,11 @@ open_calls:
     for: M1-P2a0 / trustworthy PuppetMaster live-source authority proof BUILD
     issued: 2026-07-12
     note: "BUILD ONLY from frozen product PLAN @b90b7205 in new clean C:\projects\Unity\GasCoopGame_p2a0_002 / codex/c-exec-player-puppetmaster-p2a0-002-build; independent spec-only RED first, then different fresh builder, real MCP EditMode/one accepted PlayMode proof, normal non-deliver check and fresh G5; CHECKPOINT / NOT DELIVERED, no Core/FishNet/damage/product merge/-Deliver; work/c-exec-player-puppetmaster-p2a0-002-build-call.md."
-  - id: c-repair-canon-post-pilot-route-001
+  - id: c-research-q-investigation-readiness-canon-admission-001
     to: session
-    for: g-d3a8 / post-pilot canon process authority repair
-    issued: 2026-07-11
-    note: "READY repair after owner instruction «если есть конфликт или какие-то проблемы, то сначала их исправить и потом уже определять остальное». Canon Forge v2 was suspended for one pilot; Canon Forge v3 pilot was ACCEPTED process-only but not installed; q-investigation-readiness admission is BLOCKED until the active post-pilot canon route and authority are reconciled. work/c-repair-canon-post-pilot-route-001-call.md."
+    for: g-d3a8 / q-investigation-readiness paper-answer canon admission
+    issued: 2026-07-12
+    note: "READY under active Canon Forge v3 installed by owner verdict «УСТАНОВИТЬ V3 КАК ДЕЙСТВУЮЩИЙ ПРОЦЕСС». Evaluate only the exact existing OWNER-SELECTED PAPER ANSWER «Цель стоит запуска» for ADMIT TO CANON / HOLD PAPER-ONLY / REJECT AS CANON CANDIDATE. No answer revision, new design question, implementation or automatic canon change. work/c-research-q-investigation-readiness-canon-admission-001-call.md."
   - id: c-marketing-wake-001
     to: session
     for: g-2f8c / минимальное пробуждение маркетинга

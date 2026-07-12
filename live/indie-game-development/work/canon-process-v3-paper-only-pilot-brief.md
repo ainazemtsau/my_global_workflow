@@ -1,7 +1,7 @@
 
 # Canon design process v3 — paper-only pilot brief
 
-status: PILOT ACCEPTED — owner verdict "ACCEPTED" after one completed revised paper-only pilot; not installed; not a canon decision
+status: ACTIVE PROCESS V3 — installed 2026-07-12 by owner verdict "УСТАНОВИТЬ V3 КАК ДЕЙСТВУЮЩИЙ ПРОЦЕСС"; paper-only; owner-selected paper answers require separate canon admission
 
 ## Hard boundary
 
@@ -276,5 +276,30 @@ Canon admission for that exact paper answer requires the separate
 owner-present CALL:
 
 `c-research-q-investigation-readiness-canon-admission-001`.
+
+## Active-process installation — 2026-07-12
+
+owner_installation_verdict:
+  "УСТАНОВИТЬ V3 КАК ДЕЙСТВУЮЩИЙ ПРОЦЕСС"
+
+owner_cleanup_instruction:
+  "Прошлые можно удалить что бы не плодить legacy"
+
+governing_status: ACTIVE
+prior_process: Canon Forge v2 REMOVED FROM LIVE ROUTING
+evidence_mode: PAPER ONLY
+canon_transition: SEPARATE OWNER-PRESENT ADMISSION
+
+The completed revised pilot is the evidence basis for installation.
+The earlier process verdict "ACCEPTED" remains process-pilot evidence;
+installation authority comes from the separate 2026-07-12 owner
+verdict above.
+
+The former v2 process is not preserved as a live fallback, wrapper,
+queue, README instruction or legacy process copy. Its audit record
+remains recoverable from Direction OS history and git history.
+
+An OWNER-SELECTED PAPER ANSWER remains non-canon until a separate
+admission verdict names the exact artifact.
 
 END_OF_FILE: live/indie-game-development/work/canon-process-v3-paper-only-pilot-brief.md
