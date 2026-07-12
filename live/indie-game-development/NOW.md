@@ -1,5 +1,5 @@
 # NOW: indie-game-development
-updated: 2026-07-12 by s-work-unity65-mac-route-a-001
+updated: 2026-07-12 by c-exec-unity65-mac-revision-plan-001
 
 bet:
   node: g-9c41
@@ -61,16 +61,11 @@ tasks:
     status: active
 
 open_calls:
-  - id: c-exec-unity65-mac-001
+  - id: c-exec-unity65-mac-revision-build-001
     to: executor
-    for: g-9c41 / Unity 6.5 Mac BUILD
-    issued: 2026-07-11
-    note: "BLOCKED on revision PLAN, not merge-ready. Owner 2026-07-12 chose A (actual words «A», owner-ack:owner-chat-2026-07-12-unity65-route-a): continue exact Unity 6000.5.3f1, accept coordinated FishNet scene-handle wire int→ulong only with an explicit protocol-version rejection gate, then repair/closeout and merge only after all original gates are green. Committed candidate remains df1e5ca; current local candidate checkout has unrelated dirty .vscode/settings.json + CoopSmallSGF.asset changes that must be preserved. Windows deferred; work/c-exec-unity65-mac-001-call.md."
-  - id: c-exec-unity65-mac-revision-plan-001
-    to: executor
-    for: g-9c41 / Unity 6.5 Mac revision PLAN
+    for: g-9c41 / Unity 6.5 Mac revised BUILD and closeout
     issued: 2026-07-12
-    note: "READY PLAN-only after owner «A»: create owner-readable successor/amendment authority for the narrow coordinated FishNet wire break + protocol-version gate and every close-check repair; no BUILD, tests, merge, push or dirty-file touch. MacBook lane E, committed candidate df1e5ca over origin/main@a644e5db; work/c-exec-unity65-mac-revision-plan-001-call.md."
+    note: "READY fresh BUILD from owner-approved successor PLAN `A`: product PLAN commit 8a344e97, candidate parent df1e5ca, approach unity65-coordinated-wire-v2-repair-closeout. Same-version peers use full-width scene handles; mixed protocol versions reject before scene-broadcast decode. Fresh spec-only RED test-author first; builder cannot edit those tests. Repair every close-check class; no merge/push/Windows work. Preserve unstaged .vscode/settings.json and CoopSmallSGF.asset. work/c-exec-unity65-mac-revision-build-001-call.md."
   - id: c-exec-lv-ingest-phase0-001
     to: executor
     for: Lv-ingest
@@ -108,6 +103,6 @@ decisions:
     options: ["Ратифицировать все 5", "Ратифицировать выборочно", "Отклонить — критерии не расширяем"]
     recommendation: "Ратифицировать все 5: дёшево и делает final evidence leg доказуемым; min-spec требует owner-выбора конкретного железа. Источник: owner-lane вырезанной лестницы 10.07 — критерии нигде больше не жили (s-repair-board-m1-ladder-purge-001)."
 next:
-  CALL: work/c-exec-unity65-mac-revision-plan-001-call.md
+  CALL: work/c-exec-unity65-mac-revision-build-001-call.md
 
 END_OF_FILE: live/indie-game-development/NOW.md
