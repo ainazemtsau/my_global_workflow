@@ -1,5 +1,5 @@
 # NOW: indie-game-development
-updated: 2026-07-12 by s-repair-canon-post-pilot-route-001
+updated: 2026-07-12 by s-work-player-puppetmaster-p2a0-red-timebox-checkpoint-001
 
 bet:
   node: g-9c41
@@ -85,7 +85,7 @@ open_calls:
     to: executor
     for: M1-P2a0 / trustworthy PuppetMaster live-source authority proof BUILD
     issued: 2026-07-12
-    note: "BUILD ONLY from frozen product PLAN @b90b7205 in new clean C:\projects\Unity\GasCoopGame_p2a0_002 / codex/c-exec-player-puppetmaster-p2a0-002-build; independent spec-only RED first, then different fresh builder, real MCP EditMode/one accepted PlayMode proof, normal non-deliver check and fresh G5; CHECKPOINT / NOT DELIVERED, no Core/FishNet/damage/product merge/-Deliver; work/c-exec-player-puppetmaster-p2a0-002-build-call.md."
+    note: "CHECKPOINT / NOT DELIVERED at product a2d50c2a: clean venue and independent immutable RED complete (new 23/23, old 65/65 NegativeControls; real Unity 7 EditMode + 21 PlayMode positives intentionally RED only for missing BUILD). Hard 90-minute setup checkpoint fired before package import, builder, rig or settled smoke. No A/B/C, accepted payload, capture, normal check, fresh G5 or owner verdict. Do not auto-resume; any continuation needs a separately issued budget. Product RESULT: C:\projects\Unity\GasCoopGame_p2a0_002\docs\results\c-exec-player-puppetmaster-p2a0-002.md; CALL: work/c-exec-player-puppetmaster-p2a0-002-build-call.md."
   - id: c-research-q-investigation-readiness-canon-admission-001
     to: session
     for: g-d3a8 / q-investigation-readiness paper-answer canon admission
