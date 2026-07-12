@@ -1,5 +1,5 @@
 # NOW: indie-game-development
-updated: 2026-07-12 by s-work-player-puppetmaster-p2a0-claude-continuation-route-001
+updated: 2026-07-12 by s-research-q-investigation-readiness-canon-admission-002
 
 bet:
   node: g-9c41
@@ -91,11 +91,6 @@ open_calls:
     for: M1-P2a0 / fresh Claude Code PuppetMaster builder continuation
     issued: 2026-07-12
     note: "READY from clean product checkpoint a2d50c2a: fresh Claude Code builder, immutable RED c73b0195 must not be edited or repeated; maximum two hours, hard checkpoint at 60 minutes without settled live smoke; no G5/verdict/merge/-Deliver. work/c-exec-player-puppetmaster-p2a0-002-build-continuation-001-call.md."
-  - id: c-research-q-investigation-readiness-canon-admission-001
-    to: session
-    for: g-d3a8 / q-investigation-readiness paper-answer canon admission
-    issued: 2026-07-12
-    note: "READY under active Canon Forge v3 installed by owner verdict «УСТАНОВИТЬ V3 КАК ДЕЙСТВУЮЩИЙ ПРОЦЕСС». Evaluate only the exact existing OWNER-SELECTED PAPER ANSWER «Цель стоит запуска» for ADMIT TO CANON / HOLD PAPER-ONLY / REJECT AS CANON CANDIDATE. No answer revision, new design question, implementation or automatic canon change. work/c-research-q-investigation-readiness-canon-admission-001-call.md."
   - id: c-marketing-wake-001
     to: session
     for: g-2f8c / минимальное пробуждение маркетинга

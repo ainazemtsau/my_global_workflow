@@ -194,4 +194,6 @@ archived: history/LOG-archive-indie-game-development.md — sessions before 2026
 
 2026-07-12 — local/marketing-forge checkpoint (g-2f8c/c-marketing-wake-001, s-marketing-wake-claude-handoff-001): INOMAND заменил Chinvat как имя студии; домен+accounts@ substrate и B1 strategy checkpoint сохранены для Claude Code, название игры/Steam App/публичные аккаунты остаются открыты, а c-marketing-wake-001 продолжается. → history/2026-07-12-s-marketing-wake-claude-handoff-001.md
 
+2026-07-12 — research/canon-admission (g-d3a8/q-investigation-readiness, s-research-q-investigation-readiness-canon-admission-002): owner admitted «Цель стоит запуска» into canon as the first-ever canon card — preliminary mechanic card c-001 (нужен-грейбокс), verdict «ADMIT TO CANON». No new design question or implementation opened; fun, actual co-op, runtime legibility, pressure pacing, engine cost and commercial proof remain unverified, and exact pressure sources/timing/mechanics stay OPEN. → history/2026-07-12-s-research-q-investigation-readiness-canon-admission-002.md
+
 END_OF_FILE: live/indie-game-development/LOG.md
