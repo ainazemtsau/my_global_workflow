@@ -1,5 +1,5 @@
 # NOW: indie-game-development
-updated: 2026-07-12 by s-research-q-investigation-readiness-canon-admission-002
+updated: 2026-07-12 by s-work-player-puppetmaster-p2a0-checkpoint-route-001
 
 bet:
   node: g-9c41
@@ -81,16 +81,11 @@ open_calls:
     for: g-7e15 / Stage 3.5 movement-data BUILD reconciliation
     issued: 2026-07-10
     note: "BLOCKED on M1-GAS-CORE: approved PLAN @a0db28a2 + dirty BUILD preserved on codex/c-visual-009-build; no continuation/close; history/2026-07-11-s-repair-visual-sim-upstream-001.md."
-  - id: c-exec-player-puppetmaster-p2a0-002-build-001
+  - id: c-exec-player-puppetmaster-p2a0-002-plan-amend-001
     to: executor
-    for: M1-P2a0 / trustworthy PuppetMaster live-source authority proof BUILD
+    for: M1-P2a0 / owner-present PLAN amendment (acceptance approach) + fresh BUILD issue
     issued: 2026-07-12
-    note: "PARENT BUILD remains open for final fresh G5 and owner verdict. Checkpoint @a2d50c2a proved clean venue + immutable RED and stopped before builder. Owner requested “Я хочу продолжить в Claude Code”; child continuation c-exec-player-puppetmaster-p2a0-002-build-continuation-001 is READY with a two-hour cap and 60-minute settled-smoke checkpoint. Product RESULT: C:\projects\Unity\GasCoopGame_p2a0_002\docs\results\c-exec-player-puppetmaster-p2a0-002.md."
-  - id: c-exec-player-puppetmaster-p2a0-002-build-continuation-001
-    to: executor
-    for: M1-P2a0 / fresh Claude Code PuppetMaster builder continuation
-    issued: 2026-07-12
-    note: "READY from clean product checkpoint a2d50c2a: fresh Claude Code builder, immutable RED c73b0195 must not be edited or repeated; maximum two hours, hard checkpoint at 60 minutes without settled live smoke; no G5/verdict/merge/-Deliver. work/c-exec-player-puppetmaster-p2a0-002-build-continuation-001-call.md."
+    note: "READY owner-present PLAN-amend. Прошлые build-CALL'ы (…-build-001 umbrella + вернувшийся …-build-continuation-001) свёрнуты сюда. Continuation вернулась CHECKPOINT / NOT DELIVERED (product codex/c-exec-player-puppetmaster-p2a0-002-build@b9aea60c, verified NOT MERGED vs origin/main@a644e5db; чистый live import + BehaviourPuppet.state{Puppet|Unpinned|GetUp} mapper + closed-world set готовы; rig-bridge/observer/A-B-C/settled-smoke НЕ построены — headless PlayMode loop stall → venue=PlayMode test runner). Owner steer «ок» 12.07 замораживается ЗДЕСЬ дословным «да»: машинное доказательство без изменений; обязательные A/B видео-клипы+контактные листы → живая single-machine Odin-[Button] A/B/C песочница (owner-eye, не гейт); multiplayer inventory-only. Сессия переморозит продуктовый PLAN (амендирует b90b7205) и выпустит отдельный свежий BUILD-only CALL; без owner-слов = checkpoint, open_call остаётся. Без merge/PR/-Deliver/G5/verdict; immutable RED c73b0195 read-only. work/c-exec-player-puppetmaster-p2a0-002-plan-amend-001-call.md."
   - id: c-marketing-wake-001
     to: session
     for: g-2f8c / минимальное пробуждение маркетинга
@@ -103,6 +98,6 @@ decisions:
     options: ["Ратифицировать все 5", "Ратифицировать выборочно", "Отклонить — критерии не расширяем"]
     recommendation: "Ратифицировать все 5: дёшево и делает final evidence leg доказуемым; min-spec требует owner-выбора конкретного железа. Источник: owner-lane вырезанной лестницы 10.07 — критерии нигде больше не жили (s-repair-board-m1-ladder-purge-001)."
 next:
-  CALL: work/c-exec-player-puppetmaster-p2a0-002-build-continuation-001-call.md
+  CALL: work/c-exec-player-puppetmaster-p2a0-002-plan-amend-001-call.md
 
 END_OF_FILE: live/indie-game-development/NOW.md
