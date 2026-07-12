@@ -1,5 +1,5 @@
 # NOW: indie-game-development
-updated: 2026-07-11 by s-research-q-investigation-readiness-canon-admission-001
+updated: 2026-07-11 by s-work-unity65-migration-plan-001
 
 bet:
   node: g-9c41
@@ -61,6 +61,11 @@ tasks:
     status: active
 
 open_calls:
+  - id: c-exec-unity65-mac-001
+    to: executor
+    for: g-9c41 / Unity 6.5 Mac BUILD
+    issued: 2026-07-11
+    note: "Owner-approved frozen PLAN @7969f36; Mac-only BUILD, Windows deferred; work/c-exec-unity65-mac-001-call.md."
   - id: c-exec-lv-ingest-phase0-001
     to: executor
     for: Lv-ingest
@@ -98,6 +103,6 @@ decisions:
     options: ["Ратифицировать все 5", "Ратифицировать выборочно", "Отклонить — критерии не расширяем"]
     recommendation: "Ратифицировать все 5: дёшево и делает final evidence leg доказуемым; min-spec требует owner-выбора конкретного железа. Источник: owner-lane вырезанной лестницы 10.07 — критерии нигде больше не жили (s-repair-board-m1-ladder-purge-001)."
 next:
-  CALL: work/c-exec-lv-ingest-phase0-call.md
+  CALL: work/c-exec-unity65-mac-001-call.md
 
 END_OF_FILE: live/indie-game-development/NOW.md
