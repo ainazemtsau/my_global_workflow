@@ -1,5 +1,5 @@
 # NOW: indie-game-development
-updated: 2026-07-12 by s-work-player-puppetmaster-p2a0-red-timebox-checkpoint-001
+updated: 2026-07-12 by s-work-player-puppetmaster-p2a0-claude-continuation-route-001
 
 bet:
   node: g-9c41
@@ -85,7 +85,12 @@ open_calls:
     to: executor
     for: M1-P2a0 / trustworthy PuppetMaster live-source authority proof BUILD
     issued: 2026-07-12
-    note: "CHECKPOINT / NOT DELIVERED at product a2d50c2a: clean venue and independent immutable RED complete (new 23/23, old 65/65 NegativeControls; real Unity 7 EditMode + 21 PlayMode positives intentionally RED only for missing BUILD). Hard 90-minute setup checkpoint fired before package import, builder, rig or settled smoke. No A/B/C, accepted payload, capture, normal check, fresh G5 or owner verdict. Do not auto-resume; any continuation needs a separately issued budget. Product RESULT: C:\projects\Unity\GasCoopGame_p2a0_002\docs\results\c-exec-player-puppetmaster-p2a0-002.md; CALL: work/c-exec-player-puppetmaster-p2a0-002-build-call.md."
+    note: "PARENT BUILD remains open for final fresh G5 and owner verdict. Checkpoint @a2d50c2a proved clean venue + immutable RED and stopped before builder. Owner requested “Я хочу продолжить в Claude Code”; child continuation c-exec-player-puppetmaster-p2a0-002-build-continuation-001 is READY with a two-hour cap and 60-minute settled-smoke checkpoint. Product RESULT: C:\projects\Unity\GasCoopGame_p2a0_002\docs\results\c-exec-player-puppetmaster-p2a0-002.md."
+  - id: c-exec-player-puppetmaster-p2a0-002-build-continuation-001
+    to: executor
+    for: M1-P2a0 / fresh Claude Code PuppetMaster builder continuation
+    issued: 2026-07-12
+    note: "READY from clean product checkpoint a2d50c2a: fresh Claude Code builder, immutable RED c73b0195 must not be edited or repeated; maximum two hours, hard checkpoint at 60 minutes without settled live smoke; no G5/verdict/merge/-Deliver. work/c-exec-player-puppetmaster-p2a0-002-build-continuation-001-call.md."
   - id: c-research-q-investigation-readiness-canon-admission-001
     to: session
     for: g-d3a8 / q-investigation-readiness paper-answer canon admission
@@ -103,6 +108,6 @@ decisions:
     options: ["Ратифицировать все 5", "Ратифицировать выборочно", "Отклонить — критерии не расширяем"]
     recommendation: "Ратифицировать все 5: дёшево и делает final evidence leg доказуемым; min-spec требует owner-выбора конкретного железа. Источник: owner-lane вырезанной лестницы 10.07 — критерии нигде больше не жили (s-repair-board-m1-ladder-purge-001)."
 next:
-  CALL: work/c-exec-unity65-mac-revision-build-001-call.md
+  CALL: work/c-exec-player-puppetmaster-p2a0-002-build-continuation-001-call.md
 
 END_OF_FILE: live/indie-game-development/NOW.md

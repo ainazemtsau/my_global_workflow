@@ -190,4 +190,6 @@ archived: history/LOG-archive-indie-game-development.md — sessions before 2026
 
 2026-07-12 — work/checkpoint (g-9c41/M1-P2a0, s-work-player-puppetmaster-p2a0-red-timebox-checkpoint-001): clean p2a0_002 reached independent immutable RED (23 new + 65 old NegativeControls; real Unity 7 EditMode + 21 PlayMode intentional failures) and stopped at the hard 90-minute setup checkpoint before package import/builder/rig/settled smoke; product @a2d50c2a remains CHECKPOINT / NOT DELIVERED with no G5/verdict/merge, so the BUILD call stays open pending a separately issued continuation budget. → history/2026-07-12-s-work-player-puppetmaster-p2a0-red-timebox-checkpoint-001.md
 
+2026-07-12 — work/route (g-9c41/M1-P2a0, s-work-player-puppetmaster-p2a0-claude-continuation-route-001): owner “Я хочу продолжить в Claude Code” moved the checkpointed p2a0_002 proof to a fresh Claude builder continuation from @a2d50c2a; completed immutable RED is preserved, the remaining original half-day is capped at two hours with a 60-minute settled-smoke checkpoint, and G5/final verdict stay separate. → history/2026-07-12-s-work-player-puppetmaster-p2a0-claude-continuation-route-001.md
+
 END_OF_FILE: live/indie-game-development/LOG.md
