@@ -1,5 +1,5 @@
 # NOW: indie-game-development
-updated: 2026-07-13 by s-work-near-gas-l1-build-checkpoint-001
+updated: 2026-07-13 by s-map-characters-track-p2a0-close-001
 
 bet:
   node: g-9c41
@@ -23,7 +23,8 @@ bet:
     Следом owner-present PLAN-amend; исходный BUILD остаётся pending. Вариант A — serial concurrency-ready, а реальные
     workers возможны только отдельной будущей легой после delivered L1/L2/C1 и свежего профиля.
     Маршрут идёт L1→L2→C1→M0→L3→I1→L4→L5→L6→I2.
-    Параллельно P2a0 проверяет player root authority до production controller.
+    P2a0 ЗАКРЫТ (Кандидат A, owner 2026-07-13): ядро владеет авторитетной позицией тела, PuppetMaster-рэгдолл косметичен;
+    параллельный трек g-6d4e (Игровые персонажи, презентация) заведён; грид-баллистика = будущий слой ядра g-9c41.
   against: |
     Полная PROGRAM-дорога не считается молча помещённой в старый appetite: предел 13 легов и дата сохраняются.
     L3 пересекается с сохранённым dirty visual BUILD; M1-GAS-PROBE/CORE и engine S4/A1 остаются NEEDS SOURCE
@@ -76,7 +77,17 @@ tasks:
       c-exec-player-puppetmaster-p2a0-002 freezes an owner-approved live-source proof PLAN; a later separately-issued
       BUILD under that frozen change returns accepted Puppet→Unpinned→GetUp evidence, A/B comparison + bounded C
       kill-probe, multiplayer authority inventory and fresh G5, without FishNet BUILD, damage or product merge.
-    status: active
+    status: done
+    note: |
+      DONE 2026-07-13 через owner-eye гейт. Тяжёлый done_when выше СОЗНАТЕЛЬНО заменён owner-authorized
+      лёгким спайком (c-exec-player-puppetmaster-p2a0-lean-spike-build-001): владелец сыграл живой стенд
+      PuppetMaster и вынес вердикт = Кандидат A (ядро/контроллер владеет авторитетной позицией тела;
+      PuppetMaster-рэгдолл = косметический локальный вид, никогда не авторитетен; B отклонён — недетерминированный
+      PhysX на авторитетном пути = рассинхрон между машинами). Слово владельца в сессии 2026-07-13: «Кандидат A — да».
+      Потребность в геймплей-физике закрыта дизайном: детерминированный слой «грид-баллистика» в ЯДРЕ (не физ-движок),
+      маршрутизирован будущим слайсом ядра g-9c41. Сознательно НЕ сделано под лёгким разворотом (owner-acked cut):
+      bounded-C kill-probe и свежий G5 — связывающим гейтом этого ДИЗАЙН-решения был глаз владельца. Канонический
+      источник (single source): GasCoopGame origin/main@0e9eed02 docs/results/c-exec-player-puppetmaster-p2a0-lean-spike-build-001.md.
 
 open_calls:
   - id: c-exec-unity65-mac-revision-002-build-001
@@ -104,11 +115,11 @@ open_calls:
     for: g-7e15 / preserved visual motion work awaiting fresh reconciliation
     issued: 2026-07-10
     note: "LOCKED under PROGRAM.md@f5c1d650; historical PLAN @a0db28a2 and dirty dev_2 BUILD are preserved but non-runnable. Fresh owner-present reconciliation PLAN only after M0+C1+L3+I1 delivered/reviewed; motion BUILD also needs sufficient detached immutable committed-per-Step Flux/history from L3 or delivered c-exec-near-gas-visual-motion-data-seam-001. Moving-source visual waits E1; door/destruction visual waits D1/X1."
-  - id: c-exec-player-puppetmaster-p2a0-lean-spike-build-001
-    to: executor
-    for: M1-P2a0 / лёгкий спайк PuppetMaster (owner-eye + живой прибор)
-    issued: 2026-07-12
-    note: "READY lean spike BUILD (владелец 12.07: «Лёгкий спайк» → «го»). Тяжёлый live-source proof подход (observer/attempt-tree/A-B-C-сразу/immutable-RED-как-гейт/видео/openspec/ревью) сознательно свёрнут — прежний …-002-plan-amend-001 заменён этим. Строим на существующем стенде (переиспользуя import + маппер BehaviourPuppet.state{Puppet|Unpinned|GetUp} @ b9aea60c): кнопки камень/импульс/сброс, прибор 3 строки (Контроллер/Рэгдолл · Норма/Сбит/Встаёт · коллизия цела/сломана из РЕАЛЬНОГО runtime), проводка Кандидат A первой (B если A мутный). Гейт = ГЛАЗ ВЛАДЕЛЬЦА + живой прибор: билдер отдаёт готовую сцену + пошаговую инструкцию + смоук (PlayMode runner, НЕ headless) что кнопки/прибор живые; PASS/FAIL выносит владелец, играя. immutable RED c73b0195 read-only и НЕ гейт (тестировал суперседнутый тяжёлый подход). MP inventory-only; без Core/FishNet BUILD/урона/мержа/-Deliver; tool-blocker=STOP+спросить владельца. work/c-exec-player-puppetmaster-p2a0-lean-spike-build-001-call.md."
+  - id: c-plan-characters-001
+    to: session
+    for: g-6d4e / дорожная карта персонажей + замороженный spec первого drop-in слайса
+    issued: 2026-07-13
+    note: "READY parallel track (owner 2026-07-13 «трек ... ок», «поехали»). PLAN-сессия: выдать owner-approved дорожную карту трека «Игровые персонажи» (персонаж-first ORDER: drop-in префаб + стабильный adapter-API → управление/процедурные реакции/косметический рэгдолл → [ядро] граница грид-баллистики) и builder-ready spec ПЕРВОГО слайса = переиспользуемый префаб игрока + стабильный adapter-API против ЗАГЛУШКИ авторитетной позиции (seam R13/R14, свап на реальное ядро без правки трека). PLAN-only: без продуктового кода/тестов/RED/BUILD/Unity/MCP/мержа/пуша (BUILD идёт отдельной свежей GasCoopGame_dev сессией); independent-test-author RED-план отметить по проектному builder-quality правилу. Грид-баллистика НЕ в build-scope трека — это слайс ядра g-9c41 (input-lockstep, целочисленно, ждёт delivered grid+Step+lockstep), назван для позже; захватить как downstream + обязательный 2-машинный FishNet-proof. Канон вердикта P2a0: GasCoopGame origin/main@0e9eed02 docs/results/c-exec-player-puppetmaster-p2a0-lean-spike-build-001.md. Газовый хребет (next = L1 PLAN-amend) остаётся приоритетом №1. work/c-plan-characters-001-call.md."
   - id: c-marketing-wake-001
     to: session
     for: g-2f8c / минимальное пробуждение маркетинга

@@ -216,4 +216,6 @@ archived: history/LOG-archive-indie-game-development.md — sessions before 2026
 
 2026-07-13 — work/checkpoint (g-9c41/NearGas-L1-BUILD, s-work-near-gas-l1-build-checkpoint-001): mandatory spec-only RED stopped cleanly before test commit at core@b94806de on missing constructible-definition and stable fault-site contracts; BUILD remains pending/not delivered, and an owner-present PLAN-amend is next with option A unchanged. → history/2026-07-13-s-work-near-gas-l1-build-checkpoint-001.md
 
+2026-07-13 — map/close (g-9c41→g-6d4e/M1-P2a0, s-map-characters-track-p2a0-close-001): owner-eye closed P2a0 = Candidate A (core owns the authoritative body position; PuppetMaster ragdoll cosmetic; B rejected — non-deterministic PhysX on the authoritative path); M1-P2a0 done, lean-spike open_call closed, RootMotion vendor asset gitignored@f2f860b7 (no push). Stood up parallel track g-6d4e «Игровые персонажи» (character presentation/embodiment layer, sibling of g-7e15, NOT a 2nd bet); grid-ballistics named as a future g-9c41 core slice; PLAN c-plan-characters-001 opened (drop-in prefab + adapter-API first). Gas spine L1 PLAN-amend stays NOW.next. → history/2026-07-13-s-map-characters-track-p2a0-close-001.md
+
 END_OF_FILE: live/indie-game-development/LOG.md

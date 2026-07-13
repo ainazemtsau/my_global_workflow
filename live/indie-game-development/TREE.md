@@ -55,6 +55,13 @@ root:
     (the gas world must FORCE cooperation, currently unowned before a parked Steam Playtest); routed
     to follow-up c-map-004.
 
+    Parallel track ADDED 2026-07-13 (s-map-characters-track-p2a0-close-001): g-6d4e «Игровые персонажи» =
+    the character presentation/embodiment layer (reusable drop-in player prefab + stable adapter-API + control
+    + procedural reactions + cosmetic PuppetMaster ragdoll), sibling of g-7e15, NOT a 2nd bet (adds no
+    active_tasks; g-9c41 stays the spine). Born from the P2a0 verdict (Candidate A — the core owns the
+    authoritative body position, ragdoll cosmetic). The deterministic "grid-ballistics" physical-interaction
+    layer stays a g-9c41 CORE slice, named for later, NOT part of this track's build scope.
+
   children:
 
   - id: g-9c41
@@ -234,6 +241,42 @@ root:
       executor CALLs in GasCoopGame's render layer (owner-EYE gated), tracked in NOW.parallel_tracks (g-7e15), not
       active_tasks; first = c-visual-001 (P1 = grid→GPU pipe + show where/how-much, reads existing RN1). Node
       goal/done_when (criteria 1-5) UNCHANGED.
+
+  - id: g-6d4e
+    goal: |
+      The player-character embodiment layer exists as a reusable DROP-IN asset: a controllable player
+      prefab that any scene or level — including test scenes built by OTHER threads — can drop in and get
+      a working character, driven through a STABLE adapter-API (spawn; drive the body's authoritative
+      position FROM the core; trigger a procedural reaction / knockdown / get-up), with procedural animation
+      and a cosmetic PuppetMaster ragdoll view. Solo-maintainable. Under the P2a0 verdict (Candidate A):
+      the ragdoll is a COSMETIC local view, never authoritative; the deterministic core owns the
+      authoritative body position.
+    why: the game needs actual characters players inhabit, and every other thread (levels, gas scenes, test scenes) needs a droppable player without rebuilding one — P2a0 proved the network-ownership route, this turns that verdict into a reusable embodiment layer while the deterministic core catches up.
+    done_when: |
+      1. A reusable player prefab + a STABLE, documented adapter-API exist; a scene built by another thread
+         drops the prefab in and gets a controllable player with no character-code duplication.
+      2. The adapter-API works against a PLACEHOLDER authoritative-position source now and swaps to the real
+         g-9c41 core position later with ZERO character-track change (the R13/R14 seam pattern, mirroring
+         g-7e15's read-only view over fake→real data).
+      3. Procedural reactions + a cosmetic PuppetMaster ragdoll blend onto the authoritative position
+         (Candidate A — ragdoll cosmetic, never on the networked authoritative path).
+      4. Owner-eye gate: the owner plays a scene with the drop-in character and accepts the control + reaction
+         feel (the owner's verdict is the acceptance, as with the other presentation track g-7e15).
+      5. BOUNDARY: the deterministic "grid-ballistics" physical-interaction layer is NOT built here — it is a
+         g-9c41 CORE slice (input-lockstep, integer, needs delivered grid+Step+lockstep). This track only
+         defines/consumes the adapter seam where that core authoritative position plugs in.
+    status: active   # owner-approved 2026-07-13 («трек ... ок», «поехали»): PARALLEL TRACK like g-7e15, NOT a 2nd bet — adds NO active_tasks to the g-9c41 bet (G1); work via CALLs at owner-set cadence; g-9c41 engine stays the PRIMARY bet. First step = PLAN c-plan-characters-001.
+    detail: |
+      Born 2026-07-13 from the P2a0 verdict (M1-P2a0 done). Canonical verdict + grid-ballistics design =
+      GasCoopGame product repo origin/main@0e9eed02 docs/results/c-exec-player-puppetmaster-p2a0-lean-spike-build-001.md
+      (single source — NOT duplicated into OS state). Spike stand: branch codex/c-exec-player-puppetmaster-p2a0-002-build@a6d9271f
+      (Assets/_PuppetSpike + OWNER-INSTRUCTION.md); RootMotion vendor asset local-only/gitignored@f2f860b7, disposable (no merge).
+      Ordering (owner-approved): PLAN-first, but the FIRST build target is the drop-in prefab + adapter-API;
+      then control / procedural reactions / cosmetic ragdoll; grid-ballistics (Phase 1 first) lands later as a
+      g-9c41 core slice once the core route (NearGas L1→…→I2) delivers grid+Step+lockstep. Mandatory downstream
+      network leg (captured): a 2-machine FishNet proof that authoritative grid-ballistics + local cosmetic
+      ragdoll stay consistent across machines. Secondary to g-9c41 (no fixed hour quota); BUILD runs in a fresh
+      GasCoopGame_dev session.
 
   - id: g-5b07
     goal: |
