@@ -287,7 +287,7 @@ active_bet:
       kill the bet and shape a new bounded bet; do not extend appetite or
       claim partial success.
 
-route_status: operating_substrate_first_process_creator_t3_recommended_pass_owner_disposition_pending
+route_status: operating_substrate_first_process_creator_t4_owner_intent_pending
 
 owner_directive: |
   Owner approved umbrella placement for Solmax.
@@ -898,11 +898,7 @@ tasks:
 
   - id: t-3
     kind: session
-    status: blocked
-    unblock_when: |
-      The owner gives actual binding structural disposition words after the
-      fresh independent t-3 refutation at product review/result HEAD eefc77e
-      recommends admission and records F-R01 fixed.
+    status: done
     budget: 0.25 focused execution day
     goal: |
       Independently attempt to refute and admit or reject the Process
@@ -938,7 +934,7 @@ tasks:
 
   - id: t-4
     kind: guide
-    status: open
+    status: active
     budget: 0.25 focused execution day
     goal: |
       Use the admitted Process Creator with an ordinary owner-originated
@@ -1106,14 +1102,14 @@ recurring: []
 decisions: []
 
 open_calls:
-  - id: c-solmax-operating-substrate-first-process-creator-t3-owner-disposition-002
+  - id: c-solmax-operating-substrate-first-process-creator-t4-owner-intent-001
     to: session
-    for: g-operating-substrate-first-process-creator/t-3
+    for: g-operating-substrate-first-process-creator/t-4
     issued: 2026-07-13
     note: |
-      Fresh Claude Opus 4.8 G5 evidence at product review/result HEAD eefc77e
-      verifies F-R01 fixed and recommends structural admission. The candidate
-      remains candidate-only until the owner supplies actual disposition words.
+      Owner accepted structural admissibility after fresh G5 review. The next
+      owner-facing leg gathers one ordinary-language first process intent and
+      creates only a candidate, not an activation or useful-live claim.
 # 2026-07-12: c-solmax-operating-substrate-first-process-creator-t2-repo-bootstrap-001
 # cleared — the repo-bootstrap setup checkpoint is complete (commit f3d153d, CI
 # green). t-2 remains ACTIVE; Process Creator materialization is the next work,
@@ -1239,6 +1235,9 @@ preserved_evidence:
   - 'local product review evidence: C:/projects/solmax-operating-substrate/docs/reviews/review-process-creator-v1.md@eefc77edbba5a1a5af8c2656544b06bb6824d922'
   - live/solmax/work/calls/c-solmax-operating-substrate-first-process-creator-t3-owner-disposition-002.md
   - live/solmax/history/2026-07-13-s-solmax-operating-substrate-first-process-creator-t2-autonomous-close-003.md
+  - 'owner structural disposition in chat: "Принимаю структурную допустимость"'
+  - live/solmax/work/calls/c-solmax-operating-substrate-first-process-creator-t4-owner-intent-001.md
+  - live/solmax/history/2026-07-13-s-solmax-operating-substrate-first-process-creator-t3-owner-disposition-004.md
 next: |
-  live/solmax/work/calls/c-solmax-operating-substrate-first-process-creator-t3-owner-disposition-002.md
+  live/solmax/work/calls/c-solmax-operating-substrate-first-process-creator-t4-owner-intent-001.md
 END_OF_FILE: live/solmax/NOW.md
