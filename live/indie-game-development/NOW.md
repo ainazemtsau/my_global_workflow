@@ -1,5 +1,5 @@
 # NOW: indie-game-development
-updated: 2026-07-13 by s-map-characters-track-p2a0-close-001
+updated: 2026-07-13 by s-work-near-gas-l1-plan-amend-binding-close-001
 
 bet:
   node: g-9c41
@@ -17,11 +17,13 @@ bet:
     Финальный профиль: ≤50 ms green; 50–100 ms owner decision; >100 ms/desync/meaning-loss = not done.
   forecast: |
     Обязательный gas-engineering маршрут: GasCoopGame_dev@f5c1d650:docs/gas-simulation/PROGRAM.md.
-    Dashboard-зеркало закрыто; owner-approved L1 PLAN @1e4e78c влит в origin/main@13917123 и выдержал fresh binding-refutation.
-    L1 BUILD дошёл только до mandatory spec-only RED и остановлен на checkpoint @b94806de без test commit и реализации:
-    frozen spec не связывает constructible generation definition/fixture и стабильную адресацию шести fault-sites.
-    Следом owner-present PLAN-amend; исходный BUILD остаётся pending. Вариант A — serial concurrency-ready, а реальные
-    workers возможны только отдельной будущей легой после delivered L1/L2/C1 и свежего профиля.
+    Dashboard-зеркало закрыто; owner-approved L1 PLAN @1e4e78c и PLAN-AMEND @a58ee356 влиты в
+    origin/main@32107343. Fresh Direction binding-refutation приняла public owned Create(...) + operation-local
+    internal semantic fault selector: исходные spec-only construction/fault gaps закрыты без fixture/reflection/
+    controller-костылей. Original BUILD @b94806de остаётся историческим CHECKPOINT / NOT DELIVERED без test commit и
+    реализации; вместо его продолжения открыт fresh EXECUTE c-exec-near-gas-core-authority-001-execute-002 от
+    origin/main@32107343 с новым independent spec-only RED. Вариант A — serial concurrency-ready, реальные workers
+    возможны только отдельной будущей легой после delivered L1/L2/C1 и свежего профиля.
     Маршрут идёт L1→L2→C1→M0→L3→I1→L4→L5→L6→I2.
     P2a0 ЗАКРЫТ (Кандидат A, owner 2026-07-13): ядро владеет авторитетной позицией тела, PuppetMaster-рэгдолл косметичен;
     параллельный трек g-6d4e (Игровые персонажи, презентация) заведён; грид-баллистика = будущий слой ядра g-9c41.
@@ -39,7 +41,7 @@ bet:
     commercial_traction: final evidence leg даёт capture-пакет существующим visual/marketing линиям.
     core_gameplay_depth: M1-5..7 — tracking, reactions, breach.
     coop_first: объединённый M1-9+10 — две реальные машины, sync и owner verdict.
-    technical_feasibility: PROGRAM.md@f5c1d650; L1 PLAN @1e4e78c owner-approved, влит @13917123 и binding-refuted; L1 BUILD checkpoint @b94806de остановлен до test commit/реализации на двух spec-only contract gaps; owner-present PLAN-amend следующий; вариант A неизменен, реальные workers — только после L1/L2/C1 и свежего профиля.
+    technical_feasibility: PROGRAM.md@f5c1d650; L1 PLAN @1e4e78c + owner-approved PLAN-AMEND @a58ee356 влиты в origin/main@32107343 и fresh binding-refuted GREEN; public owned Create + operation-local internal semantic fault selector закрывают два spec-only gap без костылей. Original BUILD @b94806de — historical CHECKPOINT / NOT DELIVERED; fresh EXECUTE c-exec-near-gas-core-authority-001-execute-002 готов от @32107343 с новым independent RED. Вариант A неизменен, реальные workers — только после L1/L2/C1 и свежего профиля.
     scope_production: not_needed — cut_list и один уровень держат solo-scope.
     audience_workflow: final evidence leg; отдельная соцсеть-задача не нужна.
 
@@ -69,6 +71,13 @@ tasks:
       PLAN @1e4e78c: independent RED и binding fresh G5 доказывают атомарность/детерминизм/legacy-audit preservation;
       реализация остаётся serial concurrency-ready без реальных workers, Unity и child-leg scope, а foreign work сохранён.
     status: active
+    note: |
+      PLAN-AMEND @a58ee356 merged in origin/main@32107343 и fresh Direction binding-refuted GREEN: exact public owned
+      Create(...) + literal production recipe и operation-local internal NearGasFaultSite/ForTesting seam закрывают
+      исходный blocker. Original BUILD @b94806de остаётся historical CHECKPOINT / NOT DELIVERED. Fresh execution идёт
+      только по c-exec-near-gas-core-authority-001-execute-002: GasCoopGame_core, new branch
+      codex/c-exec-near-gas-core-authority-001-execute-002, base origin/main@32107343, новый independent spec-only RED;
+      GasCoopGame_dev foreign changes не назначаются/не трогаются. Вариант A и deferred workers неизменны.
   - id: M1-P2a0
     goal: |
       PuppetMaster получает проверенный root-authority маршрут для сетевого игрока, которого могут
@@ -95,16 +104,11 @@ open_calls:
     for: g-9c41 / local .NET repository-gate runner prerequisite
     issued: 2026-07-12
     note: "READY NON-PRIORITY after owner-approved PLAN `Одобряю PLAN c-exec-unity65-mac-revision-002`: product PLAN commit 7a3e747, parent 8a344e97, approach lan-local-dotnet-gates-adapter-only. Build/deliver the local cross-platform .NET 8 gate runner with full parity and independent RED evidence; do not resume revision-001, Unity/FishNet, Windows, merge or push. Preserve unstaged .vscode/settings.json and CoopSmallSGF.asset. work/c-exec-unity65-mac-revision-002-build-001-call.md."
-  - id: c-exec-near-gas-core-authority-001-build-001
+  - id: c-exec-near-gas-core-authority-001-execute-002
     to: executor
-    for: NearGas-L1-BUILD / один dormant engine-free Core-владелец и атомарный Step
+    for: NearGas-L1-BUILD / fresh execution amended frozen L1 от нового independent RED
     issued: 2026-07-13
-    note: "BLOCKED at mandatory fresh spec-only RED checkpoint codex/c-exec-near-gas-core-authority-001-build-001@b94806de (base main@13917123; contract v20 sync @7cb8fbc4). No test commit, implementation, tests, review, G5, Deliver or Unity ran. Frozen spec lacks both a constructible NearGasGenerationDefinition/fixture contract and stable test addressability for six required internal fault-sites. Original BUILD stays pending until owner-approved PLAN-amend plus separate fresh Direction binding-refutation. Option A stays serial concurrency-ready; real concurrency only after delivered L1/L2/C1 and fresh profiling. Preserve all 10 foreign dev paths. work/c-exec-near-gas-core-authority-001-build-001-call.md."
-  - id: c-exec-near-gas-core-authority-001-plan-amend-001
-    to: executor
-    for: NearGas-L1-BUILD / узкая frozen-правка двух spec-only RED-контрактов
-    issued: 2026-07-13
-    note: "READY owner-present PLAN-AMEND from clean checkpoint core@b94806de: bind one constructible generation definition/fixture contract and one stable non-public fault-site test contract, then obtain the owner's actual two verdicts. PLAN-only: no production/tests/RED/BUILD/tools-check/Unity/MCP/child legs/merge/push; original BUILD remains pending and cannot self-resume. Preserve option A, deferred measured concurrency and all 10 foreign dev paths. work/c-exec-near-gas-core-authority-001-plan-amend-001-call.md."
+    note: "READY NEW EXECUTE after fresh Direction binding GREEN: project GasCoopGame; existing clean assigned worktree C:\\projects\\Unity\\GasCoopGame_core; create new branch codex/c-exec-near-gas-core-authority-001-execute-002 from exact origin/main@32107343d75240d6b3bc850d7010bd3f17dc4ca8. Start over with a new independent spec-only RED author; do not resume original build-001@b94806de or reuse its aborted author. Frozen PLAN/proposal/spec/tasks/ADR and independent tests are builder-immutable. Contract v20; option A stays serial concurrency-ready; real workers only after delivered L1/L2/C1 + fresh profile. C:\\projects\\Unity\\GasCoopGame_dev has foreign uncommitted changes: never assign/clean/overwrite it. No Unity/child leg/merge/push. work/c-exec-near-gas-core-authority-001-execute-002-call.md."
   - id: c-shape-sc-damage-001
     to: session
     for: Sc-damage
@@ -119,7 +123,7 @@ open_calls:
     to: session
     for: g-6d4e / дорожная карта персонажей + замороженный spec первого drop-in слайса
     issued: 2026-07-13
-    note: "READY parallel track (owner 2026-07-13 «трек ... ок», «поехали»). PLAN-сессия: выдать owner-approved дорожную карту трека «Игровые персонажи» (персонаж-first ORDER: drop-in префаб + стабильный adapter-API → управление/процедурные реакции/косметический рэгдолл → [ядро] граница грид-баллистики) и builder-ready spec ПЕРВОГО слайса = переиспользуемый префаб игрока + стабильный adapter-API против ЗАГЛУШКИ авторитетной позиции (seam R13/R14, свап на реальное ядро без правки трека). PLAN-only: без продуктового кода/тестов/RED/BUILD/Unity/MCP/мержа/пуша (BUILD идёт отдельной свежей GasCoopGame_dev сессией); independent-test-author RED-план отметить по проектному builder-quality правилу. Грид-баллистика НЕ в build-scope трека — это слайс ядра g-9c41 (input-lockstep, целочисленно, ждёт delivered grid+Step+lockstep), назван для позже; захватить как downstream + обязательный 2-машинный FishNet-proof. Канон вердикта P2a0: GasCoopGame origin/main@0e9eed02 docs/results/c-exec-player-puppetmaster-p2a0-lean-spike-build-001.md. Газовый хребет (next = L1 PLAN-amend) остаётся приоритетом №1. work/c-plan-characters-001-call.md."
+    note: "READY parallel track (owner 2026-07-13 «трек ... ок», «поехали»). PLAN-сессия: выдать owner-approved дорожную карту трека «Игровые персонажи» (персонаж-first ORDER: drop-in префаб + стабильный adapter-API → управление/процедурные реакции/косметический рэгдолл → [ядро] граница грид-баллистики) и builder-ready spec ПЕРВОГО слайса = переиспользуемый префаб игрока + стабильный adapter-API против ЗАГЛУШКИ авторитетной позиции (seam R13/R14, свап на реальное ядро без правки трека). PLAN-only: без продуктового кода/тестов/RED/BUILD/Unity/MCP/мержа/пуша (BUILD идёт отдельной свежей GasCoopGame_dev сессией); independent-test-author RED-план отметить по проектному builder-quality правилу. Грид-баллистика НЕ в build-scope трека — это слайс ядра g-9c41 (input-lockstep, целочисленно, ждёт delivered grid+Step+lockstep), назван для позже; захватить как downstream + обязательный 2-машинный FishNet-proof. Канон вердикта P2a0: GasCoopGame origin/main@0e9eed02 docs/results/c-exec-player-puppetmaster-p2a0-lean-spike-build-001.md. Газовый хребет (next = fresh L1 EXECUTE c-exec-near-gas-core-authority-001-execute-002) остаётся приоритетом №1. work/c-plan-characters-001-call.md."
   - id: c-marketing-wake-001
     to: session
     for: g-2f8c / минимальное пробуждение маркетинга
@@ -132,6 +136,6 @@ decisions:
     options: ["Ратифицировать все 5", "Ратифицировать выборочно", "Отклонить — критерии не расширяем"]
     recommendation: "Ратифицировать все 5: дёшево и делает final evidence leg доказуемым; min-spec требует owner-выбора конкретного железа. Источник: owner-lane вырезанной лестницы 10.07 — критерии нигде больше не жили (s-repair-board-m1-ladder-purge-001)."
 next:
-  CALL: work/c-exec-near-gas-core-authority-001-plan-amend-001-call.md
+  CALL: work/c-exec-near-gas-core-authority-001-execute-002-call.md
 
 END_OF_FILE: live/indie-game-development/NOW.md
