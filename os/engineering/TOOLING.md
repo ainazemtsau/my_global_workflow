@@ -19,6 +19,17 @@ Research-based verdicts for the owner's current and candidate tools. Revisit onl
 
 From three always-on MCP servers (Serena, Taskmaster, Basic Memory) to **zero by default**: OpenSpec initialized per repo (files, not a server), Serena available per-project on demand, knowledge consolidated in git. Fewer tool definitions per run = lower token tax and one source of truth.
 
+## Execution entry guard
+
+Tool discovery is not tool authorization. For a Direction OS engineering CALL, the required runtime
+is defined only by the CALL, the product repo's `AGENTS.md`, its frozen plan/spec, and
+`validation.config`. A globally installed or discoverable skill/tool must not translate a generic
+`to: executor`, `kind: engineering`, PLAN, or BUILD leg into another workflow or inject another
+state substrate. In particular, do not infer S_E `wave_graph_plan` / `wave_execute`, Taskmaster,
+Basic Memory, Serena, a Project Context Packet, or Trail of Bits bindings unless one of those
+authorities explicitly opts in. The required-tool STOP applies only to a tool required by those
+authorities; an unselected global tool being unbound is not a blocker.
+
 ## Native capabilities to use instead (already in the platforms)
 
 - Claude Code: plan mode, Tasks, subagents with per-agent model routing, skills (lazy-loaded procedures), hooks (deterministic enforcement), `/goal` bounded loops, cloud sessions with mobile monitoring, Auto-fix on PRs.
