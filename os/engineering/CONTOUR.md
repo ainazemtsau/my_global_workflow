@@ -26,7 +26,7 @@ Companion files: `PROJECT_SETUP.md` (bootstrap a product repo), `VALIDATION.md` 
 
 ## The cycle
 
-Engineering CALL boundaries are two-stage transactions. Session emits stable intent; writer alone observes current state, runs the phase gate, adds non-self-referential receipts and persists finalized CALL before payload. Collect runs finalized only. SETUP uses create/overlay inventory; PLAN/EXECUTE/BUILD/RE-SYNC retain external base, parent acceptance and trust identities. RE-SYNC is contract-only at HEAD==base. PLAN is author candidate -> fresh binding-validator -> fresh verdict; each arrow is a persisted event plus a fresh mechanical finalizer. EXECUTE is fresh finalized pre-red entry; BUILD is receipt-bound resume. No prose, timestamp, HEAD, plan tip, guessed receipt or historical checkpoint invents authority.
+Engineering CALL boundaries are two-stage. Intent carries literal locator; writer finalization adds only `https://github.com/ainazemtsau/my_global_workflow` + `refs/heads/main`, freshly query/fetches it, and preserves finalized CALL/entry receipt/observation byte-identically. Current/wt/local-main/tracking refs and remote-less fallback never authorize; audit/digest may derive the same resolver ephemerally only. Matching inner marker or the exact-empty absent-SETUP sibling temp-root first-marker exception resumes before matrix. Otherwise absent or proven clean initialized non-bare Git virgin admits SETUP; lower/current-invalid admits matching RE-SYNC; current-valid admits feature; trusted higher stops future; conflicting/unknown corrupt stops. Every existing target, syntactically complete pair included, enumerates reachable product+Direction events, requires one linear nondecreasing chain and selects unique descendant-most/highest. If any trusted event exists, disk ordinal must equal the recovered ordinal; mismatch is corrupt and routes only by recovered lower/equal/future, so disk replacement cannot launder rollback. SETUP is branch-free; RE-SYNC retains exact base/reason, author/review read-only, install alone writes declared rows/Git journal. Advanced-authority terminal recovery returns `MANIFEST-RECONCILED`, consumes the old call with preserved reconcile evidence, emits no receipt, then routes fresh. Stale packets never acquire receipts.
 
 ```
 CALL (business task from a direction)
@@ -126,13 +126,22 @@ CALL (business task from a direction)
     under the same immutable finalized BUILD CALL, not new DELIVER/CLOSE phases: D/A/result/archive facts live only
     in handback while CALL phase, entry HEAD and receipts remain byte-identical. Routing evidence recovers by rerun
     at D or derivation D=A^ at clean A; product report never self-hashes.
-    A read-only `SETUP/interview` RESULT and writer receipt precede adapter work; it may inspect the target/profile
-    but cannot write product files. `SETUP/adapter-author` returns one exact adapter bundle (source plus output manifest); writer commits its RESULT/bundle
-    plus a mechanical finalizer, and that finalizer's fresh RESULT creates strict-descendant `SETUP/adapter-review`.
-    The different read-only reviewer returns the acceptance event; only `SETUP/install` may pin the full ancestral chain
-    and mutate the target. Writer nonce-salts fixture identity,
-    runs challenge -> bootstrap-receipt install cases -> non-install receipt cases -> final receipt + excluded
-    binding smoke, and rejects always-zero/case/order/root/fingerprint-switch/defect-absent fixtures.
+    Adapter preparation is phase-local. Absent or proven clean-Git virgin target uses read-only `SETUP/interview`, then
+    `SETUP/adapter-author` -> fresh `SETUP/adapter-review`; lower/current-invalid uses read-only
+    `RE-SYNC/adapter-author` -> fresh `RE-SYNC/adapter-review` on exact branch/base/reason. Writer finalization supplies
+    canonical remote-main resolver row; reviewer pins equivalent product-native resolver and native-tool identities.
+    Fresh finalizer persists nonce, canonical intent/manifest hashes and exact versioned attempt-id frame; all marker/temp
+    paths derive from it. The RFC8785 ordinary manifest sorts by platform-normalized path then operation and requires each
+    platform-normalized path to be unique across all operations; create+delete, overlay+delete, any cross-operation reuse
+    and case-equivalent duplicates fail. Declared row temps use fsync+atomic replacement and may be regenerated under a
+    matching inner marker; the sole first-marker exception is an exact-empty absent-SETUP sibling temp-root creating that
+    inner marker. Undeclared temp or final third state stops. Delete is exact contract/tool quarantine only. Install journals
+    pre/post ref/HEAD/index/tree, deterministic commit OID, temp index and locks. An existing-repo post commit has exactly
+    one parent equal to pinned pre-HEAD; only absent repo-bootstrap is parentless, and wrong/multi-parent commits fail.
+    Every run emits a separate reconcile observation while entry receipt stays immutable. Absent SETUP uses atomic sibling
+    mkdir as first marker, then inner zero-byte marker; marked partial root may rebuild while target is absent and publishes
+    only an exact clean parentless repo. Advanced
+    authority returns `MANIFEST-RECONCILED`, consumes old call without current/feature receipt, then classifies fresh.
     This is plan testability, not RED authoring: no product or acceptance test is written here.
     The plan the owner approves is a detailed-but-simple OWNER-READABLE
     document — the goal in plain words and EACH technical decision spelled out

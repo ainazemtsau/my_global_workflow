@@ -19,11 +19,13 @@ For every frozen/G0 change:
 3. Writer persists the complete planner RESULT and, through the normal event -> mechanical finalizer -> child sequence,
    creates a fresh finalized `PLAN/binding-validator` CALL for exact `P`.
 4. A different fresh read-only validator independently derives the obligation union from the Direction `done_when`,
-   frozen spec and an adapter-reviewed authority grammar that candidate `P` cannot edit. It must not trust the planner's
-   coverage list, an empty frozen trace or the candidate's own notion of completeness. Exact typed literal values,
-   source/resource path+mode+blob and required owner/observer/delegation edges are authority. The validator never imports
-   product code into its controller; it generates ephemeral probes and runs the real pinned compiler, discovery tool and
-   one-test filtered runner against an exact registry-selected scratch mirror for every obligation and for the union.
+   frozen spec and an adapter-reviewed minimum authority grammar that candidate `P` cannot edit. It must not trust the
+   planner's coverage list, an empty frozen trace or the candidate's own notion of completeness. The frozen change id,
+   exact typed literal values, source/resource path+mode+blob and required owner/observer/delegation edges are authority.
+   The validator reads the product-owned contract stamp, never imports product code into its controller, generates
+   ephemeral probes and runs the real pinned compiler, discovery tool and one-test filtered runner against an exact
+   registry-selected scratch mirror for every obligation and for the union. Product execution is a deeper process with
+   data-only output; only the product-free controller can create a proof or binding sentinel.
 5. Any missing/unresolved binding, skipped command, write to the product, stale candidate, non-unique discovery, PASS or
    wrong sentinel is `PLAN RED`. Writer routes the complete gap list back to `PLAN/author`; no owner-verdict CALL exists.
 6. Only a persisted GREEN validator RESULT and a fresh finalizer may create `PLAN/verdict`. That CALL freezes candidate,
@@ -92,7 +94,8 @@ Every reference resolves exactly once. The permitted kinds are disjoint:
 - constructed object instance with constructor, ownership and lifetime;
 - callable action/observer with the exact owning instance, signature, ordered typed arguments and return;
 - typed single-producer slot with operation/object lifetime;
-- negative control bound to one concrete operation instance and one exact fault phase.
+- negative control bound to one concrete operation instance and exact typed subject sources; a fault phase is one
+  subject shape, not the only permitted injectable control.
 
 A source path cannot stand in for an instance, a method name cannot stand in for its owner, raw bytes cannot stand in
 for a typed value, and `operation:Step` cannot stand in for a concrete operation instance. Literal value as well as type
@@ -101,12 +104,14 @@ type/arity/visibility correct and fully reachable from an obligation.
 
 Each route names, without prose aliases:
 
-- construction of every topology, face, impulse/source input, handler, loopback and golden input;
+- construction of every topology, face, impulse/source input, reaction-rule set, typed custom-kind map, scenario,
+  handler, loopback and golden input;
 - the exact action overload and every ordered argument source;
 - one consistent audit/observer route and every compared field, including counters and hidden state;
 - exact golden loader/codec and comparator argument/return routes;
-- operation-local fault-selector input, returned slot, owner operation and before/during/after controls;
-- ownership/reference/delegation observations;
+- operation-local fault-selector input, returned slot, owner operation and before/during/after controls, plus every
+  separately frozen injectable impulse/handler/source control shape;
+- ownership/reference/delegation observations and at least one normal loopback return with all required result fields;
 - source-isolation inputs and observations;
 - the complete no-implementation skeleton.
 
@@ -122,24 +127,30 @@ outside the product worktree:
 
 1. Verify base/candidate/toolchain/manifest and a clean byte-identical product tree.
 2. Statically resolve the exact source/API closure without importing product code into the controller; reject an empty
-   authority grammar, wrong literal value, source substitution or product attempt to import validator controller state.
+   authority grammar, wrong literal value, source substitution, undeclared runtime dependency, dynamic loader,
+   filesystem/process escape or product attempt to inspect validator/controller state.
 3. Resolve the complete typed DAG and expand each skeleton.
 4. Generate ephemeral binding-only source itself. Planner-supplied source is invalid.
 5. Mirror the pinned product bytes into scratch, select compile/runtime source only through the validated registry and
    invoke the real product compiler with every compile source explicit.
 6. Invoke real discovery and require exactly one unique id per obligation and the exact union.
-7. Invoke isolated real filtered runners with only declared runtime resources and require each exact validator-owned
-   binding proof/sentinel; product-origin text cannot impersonate completion.
-8. Materialize every operation-local fault phase, invoke its exact seam and type-observe the full audit, ownership and
-   delegation surfaces. It makes no rollback, equality, golden-value or other future behavioral assertion; those belong
-   only to the later independent acceptance RED author.
+7. For each filtered run, keep the probe/controller product-free and launch a deeper product-execution process. Validate
+   its data-only step report against the controller's pinned registry before the controller creates the opaque proof and
+   exact sentinel. Product-origin output, frame mutation or copied sentinel text cannot impersonate completion.
+8. Materialize every operation-local fault phase and every frozen heterogeneous negative-control shape, invoke its exact
+   seam, and type-observe the full audit, ownership, normal loopback return and delegation surfaces. It makes no rollback,
+   equality, golden-value or other future behavioral assertion; those belong only to the later independent acceptance
+   RED author.
 9. Return all gaps in one complete sweep, not only the first failure.
-10. Prove `product-writes: []` with content and write-sensitive metadata observations before and after; a transient
-    append/truncate is not hidden by equal final bytes.
+10. Prove `product-writes: []` by keeping original product paths out of runtime RPC, admitting only the pinned scratch
+    mirror and declared resource bytes, rejecting filesystem/process escape in product source, and recording controller
+    materialization events. Content and metadata before/after remain defense-in-depth; equal restored bytes alone are not
+    claimed as a write detector.
 
-The pinned tool identity includes real executable or interpreter path, version and content hash; script path/mode/blob;
-and every loaded dependency. A descriptor string, executable bit, nickname, boolean `compiled: true`, copied expected
-stdout or unlisted dynamic load is not executable evidence.
+The pinned tool identity has an exact closed schema and includes real executable or interpreter path, version and content
+hash; script path/mode/blob; isolation flags; and every admitted runtime dependency with resolvable identity. A descriptor
+string, executable bit, nickname, boolean `compiled: true`, copied expected stdout, ignored extra field or unlisted
+static/dynamic load is not executable evidence.
 
 The PLAN receipt is a canonical hash over candidate/base/acceptance/toolchain/TESTABILITY pins, candidate event,
 validator session, exact per-obligation and union observations, and before/after status. It first appears in the
@@ -162,11 +173,64 @@ author independently decides what the frozen spec means.
 
 ## Product installation and re-sync
 
+The canonical live authority locator is `direction-os://live/os/engineering/CONTRACT_VERSION`. It is literal intent,
+not a filesystem path. Writer finalization adds the resolver row, absent from session intent: the normalized canonical
+remote `https://github.com/ainazemtsau/my_global_workflow`, full `refs/heads/main` and fixed authority path. It freshly
+queries/fetches that ref and reads the path blob from the fetched git object. A current/worktree/local-main/tracking ref,
+packet, environment, product adapter or product file cannot choose or override it. Writer/finalizer/collect and executor
+resolve it independently; audit/digest may derive the same resolver ephemerally but cannot materialize packet authority.
+The stable identity is locator/repo/ref/path/mode/git-blob/current; observed ref SHA and fetch evidence are diagnostics.
+Unavailable or unresolvable authority emits no payload. A disposable remote/main used by this regression witness proves
+resolver mechanics only; a candidate worktree commit activates no product runtime until published on canonical main.
+
+Install recovery is classified before normal routing. An immutable open SETUP/install or RE-SYNC/install CALL resumes
+with its exact acyclic inner marker. The sole pre-inner-marker exception is the exact declared empty absent-SETUP sibling
+temp-root created atomically by that open CALL; it may only receive the zero-byte inner marker. Without that ancestry and
+one of those exact states, installed drift is not recovery.
+Otherwise the phase matrix is closed: an absent target with an accessible pinned parent, or an existing truly virgin,
+clean initialized non-bare Git worktree with pinned branch/HEAD/index/inventory, both run-contract and stamp absent and
+no reachable prior install/trust marker, admits SETUP. Existing non-Git, unborn or dirty state stops. An incomplete/malformed
+pair, or both absent with any prior marker, is initialized-corrupt. Its ordinal may be recovered only from a matching
+trusted install chain: all reachable product/Direction events must be linear with nondecreasing ordinals, and the unique
+descendant-most event wins; conflict or ambiguity stops. Whenever trusted history exists, a syntactically complete
+on-disk ordinal must equal that event; mismatch is corrupt and routes from the recovered ordinal rather than the rewritten
+disk value. Recovered lower routes RE-SYNC reason `lower`, recovered equal
+to `current-invalid`, recovered higher stops as future, and no trusted ordinal stops `CONTRACT STATE CORRUPT` rather
+than SETUP or a guessed stamp. Deleting current files/markers cannot launder that history. A complete lower product
+routes to RE-SYNC `lower`; equal is current-valid only when installed identities and
+accepted conformance event/receipt match, otherwise RE-SYNC `current-invalid`; only current-valid admits feature phases.
+A higher product stops for newer authority and is never downgraded.
+
+RE-SYNC has explicit `adapter-author | adapter-review | install` substages. Author and review are distinct product-read-
+only sessions against the exact lower/current-invalid entry; only install may apply accepted contract/tool
+`create|overlay|delete` rows with one platform-normalized path total across all operations; a cross-operation duplicate
+is invalid. Writer persists a 128-bit hex nonce plus canonical intent and sorted ordinary-manifest
+SHA-256s, derives a versioned framed SHA-256 `attempt-id`, and only then derives marker/temp paths and hashes the
+finalized CALL; marker/temp/finalized-CALL/receipt bytes are excluded from the attempt preimage. The marker is an atomic
+zero-byte create-new file. Every row has a unique declared temp, fsync and atomic rename/replace (delete uses an exact
+quarantine temp and is forbidden for production, feature or independently-authored acceptance-test bytes). With the
+matching marker, a declared torn temp is discarded and regenerated from the pinned postimage; an undeclared temp or
+final-row third state fails.
+
+Absent-repo SETUP uses atomic creation of the unique sibling temp-root as its first marker state, creates the inner
+zero-byte marker before other entries, and may discard/rebuild only that exact owned partial root while target remains
+absent. It publishes only a verified clean exact one-parentless-commit repository; a foreign target or nonempty unmarked
+temp is a collision. Existing installs additionally pin a journaled Git transition: pre/post ref and HEAD, logical
+index/tree, deterministic commit metadata/OID with exactly one parent equal to pre-HEAD, unique temp index and declared
+lock paths; only absent bootstrap may be parentless, and merge/unrelated commits fail. Retry may reconstruct the exact
+commit object/index and compare-and-swap the ref; only pre/post Git states and inactive declared locks are recoverable.
+Third ref/HEAD or protected Git drift fails. Every retry preserves the immutable entry CALL/receipt/observation and
+adds a separate hashed reconcile observation over its session, fresh live, marker/row/Git/protected pre/post and action.
+If live authority advances, exact old-manifest completion closes as a named reconciled checkpoint with no current/feature
+receipt; the writer then freshly resolves and opens lower/current-invalid or stops future/unavailable. It never
+refinalizes or leaves the completed old CALL selected by recovery precedence.
+
 The OS witness does not replace the product-native adapter. SETUP/RE-SYNC must install a read-only
 `plan_handoff_check` that:
 
 - binds the real stack compiler/discovery/runner/interpreter and dependencies;
-- implements `plan-entry`, `plan-binding`, `pre-execution`, `red-boundary`, `resume`, `deliver` and `close` checks;
+- implements `install`, `plan-entry`, `plan-binding`, `pre-execution`, `red-boundary`, `resume`, `deliver` and `close`
+  checks;
 - runs the OS-owned negative classes below against disposable exact-base product fixtures, including empty authority,
   literal-value/source substitution, controller-import, persistent/transient write and stale/future contract replay;
 - stores an independently authored/reviewed adapter bundle (source plus output manifest) and exact conformance receipt;
@@ -187,17 +251,21 @@ The parent pins the resolved interpreter path/version/SHA-256 and script SHA-256
 process, dynamically compiles validator-generated probes, uniquely discovers them, runs each filter and checks exact
 sentinels. The expected terminal field is `"status": "V21_CONFORMANCE_GREEN"`.
 
-The current witness has one positive and 78 negative cases. A parent, per-case child, fresh validator child, real isolated
-CPython compiler child, discovery child, per-filter runner children and union runner child are distinct processes. The
+An exact-ref run emits its positive/negative counts, corpus digest, checker SHA-256 and resolved authority ref SHA; those
+machine-emitted fields, not a hand-written case count, are the review evidence. A parent, per-case child, fresh validator
+child, real isolated CPython compiler child, discovery child, product-free per-filter controller children, deeper
+product-execution children and a union controller are distinct processes. The
 validator consumes immutable external done_when/spec/event bytes and the candidate typed registry/recipes; one generic
 executor is the only path to completion. Every negative has an independent exact `(error-code, path)` oracle plus a
 pre/post mutation fingerprint, so a broken mutator or worker is fatal rather than a successful RED.
 
-The corpus removes the concrete create/topology/face-impulse/owned-handler/audit/loopback/fault-selector/fault-slot/
-operation-slot/golden/codec/source/hidden-state/owner/audit-counter/delegation routes, including same-kind and mixed-class
-two-gap complete sweeps.
+The corpus removes the concrete create/topology/face-impulse/reaction-rule/custom-kind-map/scenario/owned-handler/audit/
+loopback/normal-loopback-return/fault-selector/heterogeneous-negative-control/fault-slot/operation-slot/golden/codec/
+source/hidden-state/owner/audit-counter/delegation routes, including same-kind, mixed-class and broken-source-plus-
+missing-node complete sweeps.
 It also seeds wrong open/sealed and before/after literals, source-path substitution, empty external route grammar,
-controller-import, malformed node schema, signature, owner, ordered argument, same-typed source edge, return/slot type,
+controller/frame escape, unlisted dependency, malformed node/schema container, empty role identity, change-id mismatch,
+signature, owner, ordered argument, same-typed source edge, return/slot type,
 visibility, resource path/mode/size/blob, fault ownership, graph cycle/reachability/producer, candidate/authority/toolchain,
 old finalized-contract replay, future product stamp and changed live contract authority,
 compile/discovery/filter/union, copied-sentinel and persistent/transient product-write failures. The receipt contains

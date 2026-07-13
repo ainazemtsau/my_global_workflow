@@ -34,6 +34,13 @@ Root `AGENTS.md`/`CLAUDE.md` travel with every worktree — sessions there need 
 
 `wt/<id>` branches are plumbing, never authority: **state is what is on main.** Chat connectors read main; a session in a worktree resets to origin/main before working.
 
+**Runtime engineering-contract authority is narrower than worktree transport.** The only resolver is the canonical remote
+`https://github.com/ainazemtsau/my_global_workflow` at `refs/heads/main`: query it fresh, fetch the observed SHA, then read
+`os/engineering/CONTRACT_VERSION` from that exact object. Current HEAD, `wt/*`, local `main`, and remote-tracking refs are
+never authority. A fetched object in the shared common-dir may be read only after its SHA equals the fresh remote query;
+there is no remote-less fallback. `audit`/`digest` with no finalized engineering CALL derive this resolver ephemerally and
+read-only by the same rule, and never materialize packet authority.
+
 ## Writer apply protocol (per job, in the direction's worktree)
 
 Semantic merge behavior is defined only by `os/adapters/coding-agent.md` Role 1; this file defines serialization and git transport.

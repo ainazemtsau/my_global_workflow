@@ -6,10 +6,13 @@ VALIDATION.md + PROJECT_SETUP.md + V21-CONFORMANCE.md + v21_conformance.py + `os
 ESCAPE-CLASSES.md (the ratchet, MAINTENANCE step 6) bumps it too, so the new class propagates to
 product repos instead of protecting only the workflow-repo-side audits. A **MAINTENANCE session bumps it** (current + one
 log line) whenever it hardens or adds a load-bearing gate (os/MAINTENANCE.md step 6). Each product
-repo records the version it last synced to (`validation.config: synced_contract_version`); PROJECT_SETUP
-stamps it at setup; Re-sync updates it. Writer/finalizer/collect/executor require exact equality; audit/digest report
-any mismatch (behind or future), so an os/engineering hardening can no longer silently fail to reach the repo where work
-runs (the root cause behind FRICTION 79/84/88/90/92 — propagation lag with no forcing function).
+repo records the version it last synced to (`validation.config: synced_contract_version`); only SETUP/install or
+RE-SYNC/install stamps it. Writer/finalizer/collect/executor use the phase matrix: normal product phases require exact
+current-valid equality; an initialized lower ordinal or equal-but-current-invalid installation is legal only through the
+read-only RE-SYNC author/review chain and its manifest-limited install. SETUP owns absent/virgin state; corrupt state
+without a trusted recovered ordinal and a future ordinal both stop, and future is never downgraded. Audit/digest report the
+classified state, so an os/engineering hardening can no longer silently fail to reach the repo where work runs (the root
+cause behind FRICTION 79/84/88/90/92 - propagation lag with no forcing function).
 
 current: 21
 
@@ -25,7 +28,12 @@ log:
       read ONLY a spec on the false premise that code did not yet exist; (b) missing gate — no pre-execution artifact
       proved every acceptance/negative/property obligation constructible, invocable, observable and falsifiable;
       plus a witnessed refutation-execution slip (a partial amendment was treated as complete). Explicit owner request
-      is independently sufficient. Fix, STRICTLY ADDITIVE: CONTOUR adds executable-test closure as fourth pre-freeze
+      is independently sufficient.
+      REFUTED WIP - HISTORICAL EVIDENCE ONLY, NON-NORMATIVE, DO NOT IMPLEMENT: every detail from this marker through
+      "Product wiring remains inert" records successive drafts that later adversarial passes disproved. It is retained
+      only to explain the repair history; it is not a schema, mode list, conformance claim or instruction. The sole
+      normative v21 mechanics begin at `FINAL v21 AMENDMENT` below and live concisely in `V21-CONFORMANCE.md`.
+      The first draft, strictly additive in intent, proposed: CONTOUR adds executable-test closure as fourth pre-freeze
       check and defines an exact-base public/test-harness baseline corpus; each obligation owns non-empty
       construct|act|observe|negative|source bindings with no test-bearing n/a. A FRESH read-only validator independently
       derives the whole obligation union, resolves every row, NEVER stops at the first gap, and returns a complete body
@@ -136,19 +144,54 @@ log:
       reviewed non-empty authority grammar, generates scratch-only non-acceptance probes and runs the real pinned
       compiler/discovery/filtered/union contour. Candidate P cannot define completeness: exact literal values,
       source/resource module/path/mode/blob, required owners/observers/delegation and operation fault ownership are frozen.
-      Product code never loads into the validator controller; static source/API closure selects an exact scratch mirror,
-      isolated workers execute it, and content plus write-sensitive original-tree observations detect persistent or
-      transient writes. A generic typed registry/recipe executor is the sole completion path. Only persisted GREEN can lead
+      Product code never loads into the validator or filtered-run controller; static source/API/dependency closure selects
+      an exact scratch mirror and a deeper product-execution process returns only step data. The product-free controller
+      alone creates the proof/sentinel. Original product paths are absent from runtime RPC, filesystem/process/frame escape
+      is rejected, and controller materialization is journaled; equal restored bytes are not treated as proof of no write.
+      A generic typed registry/recipe executor is the sole completion path. Only persisted GREEN can lead
       through a fresh finalizer to owner verdict, and only explicit accepted words for unchanged P/receipt can lead to
       EXECUTE; revised/split revalidates and rejected stops. The later independent RED author receives routes/receipt
       but never probe source and authors fresh spec-derived acceptance tests. `V21-CONFORMANCE.md` is the concise
-      normative rule and `os/engineering/v21_conformance.py` is the executable OS witness (one positive plus 78 exact-
-      oracle negative cases across separate case/validator/compiler/discovery/filter/union child processes, pinned
+      normative rule and `os/engineering/v21_conformance.py` is the executable OS witness (machine-counted positive
+      controls plus an exact-oracle negative corpus across separate case/validator/compiler/discovery/product-free-filter/product-execution/
+      union child processes, pinned
       CPython `-I -S`). Product SETUP/RE-SYNC must bind
       the equivalent cases to its native real toolchain before stamp 21; no prose or OS witness substitutes for that
-      product-native run. Every engineering finalized packet also binds an independently resolved live contract-authority
-      observation and product ordinal; writer/finalizer/collect and executor-before-first-write require exact equality.
-      Behind, future, missing/unreadable, changed live authority or replay of an older finalized CALL stops for RE-SYNC.
+      product-native run. The only locator is `direction-os://live/os/engineering/CONTRACT_VERSION`. Writer finalization,
+      not session intent/product/config, derives its schema-1 resolver from the canonical
+      `https://github.com/ainazemtsau/my_global_workflow` remote and freshly queried/fetched full `refs/heads/main`.
+      Current/wt/local-main/tracking refs are cache only, never authority; audit/digest may derive the same resolver
+      ephemerally but cannot materialize packet authority. Every finalized packet binds
+      locator/repo/ref/path/mode/git-blob/current plus actual product observation; observed ref SHA/fetch evidence is
+      diagnostic. Unavailable authority emits no payload. A disposable remote/main proves the regression witness only;
+      a worktree candidate activates no product runtime until published on canonical main.
+      Matching immutable open install CALL + exact acyclic inner marker is reconciled before normal classification; the
+      sole pre-marker exception is its exact declared empty absent-SETUP sibling root, which may only receive that marker. Otherwise
+      SETUP admits only absent target with pinned accessible parent or a truly virgin clean initialized non-bare Git
+      worktree with pinned branch/HEAD/index/inventory, both run-contract and stamp absent, and no reachable prior
+      install/trust marker. Existing non-Git/unborn/dirty state stops. Partial/malformed state, or both absent after prior
+      history, is initialized-corrupt. Recovery enumerates all reachable matching product/Direction marker+receipt events,
+      requires one linear nondecreasing ordinal chain and selects the unique descendant-most event; ambiguity/conflict
+      stops. A complete on-disk ordinal must agree with that trusted event; mismatch is corrupt and routes from recovered
+      history, so deleting/rewriting current bytes cannot launder equal/future into lower/virgin. Recovered lower routes RE-SYNC `lower`, equal
+      routes `current-invalid`, higher stops future, and no trusted ordinal stops `CONTRACT STATE CORRUPT`. Complete lower routes explicit read-only
+      RE-SYNC/adapter-author then fresh adapter-review then install; equal is current-valid only with matching installed
+      identities and conformance event/receipt, otherwise RE-SYNC `current-invalid`; only current-valid admits normal
+      PLAN/EXECUTE/BUILD; future never downgrades.
+      Install alone writes declared contract/tool create/overlay/delete rows with one platform-normalized path across all
+      operations; cross-operation duplicates fail. Writer persists a 128-bit hex nonce and
+      canonical LF-intent/RFC8785 sorted-manifest SHA-256 identities, computes a versioned framed SHA-256 attempt-id while
+      excluding marker/temp/finalized-CALL/receipt bytes, then derives the zero-byte marker and unique row/Git temp paths.
+      Matching marker permits a declared torn temp to be regenerated from pinned postimage; undeclared temp or final-row
+      third state fails. Contract/tool delete uses exact quarantine; production/feature/independent-test deletion is
+      forbidden. Absent SETUP uses atomic creation of the sibling temp-root as first marker, then inner marker, and publishes
+      only a complete clean exact parentless repo. Existing install journals pre/post ref/HEAD/index/tree, deterministic
+      commit OID (existing install: exactly one parent equal pre-HEAD; only absent bootstrap is parentless), temp index and
+      locks so retry can finish exact commit and compare-and-swap ref; merge/unrelated/third Git state fails.
+      Original CALL/entry receipt/observation remain byte-identical; every execution adds a separate hashed reconcile
+      observation. Authority advance closes completed old manifest as a named checkpoint with no current/feature receipt,
+      consumes that open install, then freshly classifies lower/current-invalid/future/unavailable. It never refinalizes.
+      Only SETUP/install or RE-SYNC/install may stamp current. Old finalized feature packets are never refreshed in place.
       Earlier claims of a complete exact ABI/history/archive mutation model are superseded, not
       evidence. The residual is explicit: this prevents the witnessed elementary binding class from first surfacing
       in BUILD; it does not prove every human semantic judgment correct.
@@ -457,7 +500,8 @@ log:
   2  2026-06-16  independent test-author role: spec-derived RED acceptance tests before build, builder cannot edit them (FRICTION 84)
   1  2026-06-15  report-handback: RESULT.md deliver-gate + non-negotiable #6; builder never authors the next CALL (FRICTION 79)
 
-# A product repo whose synced_contract_version is not exactly current owes RE-SYNC (PROJECT_SETUP Re-sync).
-# Behind and future stamps both fail; finalized packets and executors independently re-resolve live authority.
+# Matching open marker (or exact empty absent-SETUP first-root) reconciles first; authority advance completes old manifest only.
+# SETUP owns absent/proven virgin. Trusted-history/disk mismatch is corrupt; lower/current-invalid owns RE-SYNC; future stops.
+# Runtime authority is fresh canonical remote main; a local candidate activates nothing until published. Feature needs current-valid.
 
 END_OF_FILE: os/engineering/CONTRACT_VERSION
