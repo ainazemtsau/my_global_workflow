@@ -1,5 +1,5 @@
 # NOW: indie-game-development
-updated: 2026-07-12 by s-work-player-puppetmaster-p2a0-lean-spike-001 (merged over s-repair-unity65-mac-revision-002-route-001)
+updated: 2026-07-13 by s-work-near-gas-l1-plan-close-001
 
 bet:
   node: g-9c41
@@ -16,14 +16,15 @@ bet:
     deterministic mass-exact bounded body/no-tail или M1-A1 не даёт bounded exact/no-pop.
     Финальный профиль: ≤50 ms green; 50–100 ms owner decision; >100 ms/desync/meaning-loss = not done.
   forecast: |
-    После Phase 0 MERGED checksum foundation убирает legacy full-scan polling, successor A0 даёт
-    дешёвую observability, затем M1-GAS-PROBE выбирает закон, M1-GAS-CORE меняет authority,
-    c-visual-009 разблокируется, и только после этого M1-A1 проверяет S4 handoff. Параллельно P2a0
-    в disposable lab проверяет player root authority и сетевую пригодность до production controller.
+    Обязательный gas-engineering маршрут: GasCoopGame_dev@f5c1d650:docs/gas-simulation/PROGRAM.md.
+    Dashboard-зеркало закрыто; owner-approved L1 PLAN @1e4e78c влит в origin/main@13917123 и выдержал fresh binding-refutation.
+    Отдельный L1 BUILD CALL готов, но не запущен: вариант A — serial concurrency-ready, а реальные workers возможны только
+    отдельной будущей легой после delivered L1/L2/C1 и свежего профиля. Маршрут идёт L1→L2→C1→M0→L3→I1→L4→L5→L6→I2.
+    Параллельно P2a0 проверяет player root authority до production controller.
   against: |
-    Packed-body law может не пройти determinism/no-tail или прочитаться как вода; dirty visual BUILD
-    потребует fresh rebase. S4, DA-authoring и weak-peer flood всё ещё могут съесть appetite;
-    legacy exact checksum остаётся медленным oracle, а не runtime dirty/sync primitive.
+    Полная PROGRAM-дорога не считается молча помещённой в старый appetite: предел 13 легов и дата сохраняются.
+    L3 пересекается с сохранённым dirty visual BUILD; M1-GAS-PROBE/CORE и engine S4/A1 остаются NEEDS SOURCE
+    после I2/A0. Legacy exact checksum — медленный audit oracle, не runtime dirty/sync primitive.
   cut_list:
     - Sc-damage остаётся HELD; нет damage/consequence.
     - Нет врагов, миссии, production UI/audio/VFX и новой газовой энциклопедии.
@@ -34,22 +35,36 @@ bet:
     commercial_traction: final evidence leg даёт capture-пакет существующим visual/marketing линиям.
     core_gameplay_depth: M1-5..7 — tracking, reactions, breach.
     coop_first: объединённый M1-9+10 — две реальные машины, sync и owner verdict.
-    technical_feasibility: Phase 0 + checksum foundation + successor A0 + M1-GAS-PROBE/CORE, затем A1 и M1-2..4.
+    technical_feasibility: PROGRAM.md@f5c1d650; L1 PLAN @1e4e78c owner-approved, влит @13917123 и binding-refuted; отдельный serial concurrency-ready L1 BUILD готов, но не запущен; реальные workers — только после L1/L2/C1 и свежего профиля.
     scope_production: not_needed — cut_list и один уровень держат solo-scope.
     audience_workflow: final evidence leg; отдельная соцсеть-задача не нужна.
 
 tasks:
-  - id: Lv-ingest
-    goal: Phase 0 завершает deterministic authoritative gas-source seam для hand-tagged уровня.
-    done_when: c-exec-lv-ingest-phase0-001 проходит собственные gates, binding fresh G5 и подтверждён MERGED.
-    status: active
-  - id: M1-A0
-    goal: Ядро отдаёт canonical read-only ActiveCell snapshot и step counters без изменения authority.
+  - id: NearGas-dashboard
+    goal: Владелец видит простую актуальную карту gas-engineering пути, статусов, блокеров, вопросов и недавней работы.
     done_when: |
-      Fresh successor change id (не c-exec-poligon-a0-001) доставляет snapshot без implicit legacy
-      global checksum, проходит owner-approved PLAN, BUILD gates, review, binding fresh G5 и merge.
-    status: blocked
-    unblock_when: Phase 0 MERGED + checksum foundation DELIVERED/MERGED + fresh owner-approved successor A0 PLAN.
+      c-exec-near-gas-dashboard-001 возвращает committed light doc-only RESULT: ручное статическое dashboard-зеркало
+      и product AGENTS always-read/update правило существуют, render/readback green, product code/tests/scenes/Unity/
+      visual/L1 не затронуты; отдельная Direction-сессия после этого может выпустить свежий L1 PLAN.
+    status: done
+  - id: NearGas-L1-PLAN
+    goal: |
+      Владелец понимает и утверждает детальный L1 PLAN для единственного engine-free Core-владельца,
+      атомарной замены generation и одного полного deterministic Step без запуска BUILD.
+    done_when: |
+      c-exec-near-gas-core-authority-001 возвращает committed owner-approved frozen PLAN: простое подробное
+      объяснение технических решений и границ L1, builder-ready spec/tasks/ADR/evidence map, сохранность legacy-audit
+      смыслов и dirty product files; product code, RED tests, Unity и BUILD не начаты, следующий BUILD выдаёт DirectionS.
+    status: done
+  - id: NearGas-L1-BUILD
+    goal: |
+      NearGas получает доставленного dormant engine-free Core-владельца с атомарной заменой generation
+      и одним полным deterministic Step по утверждённому варианту A.
+    done_when: |
+      c-exec-near-gas-core-authority-001-build-001 возвращает reviewed, gate-green DELIVERED L1 по замороженному
+      PLAN @1e4e78c: independent RED и binding fresh G5 доказывают атомарность/детерминизм/legacy-audit preservation;
+      реализация остаётся serial concurrency-ready без реальных workers, Unity и child-leg scope, а foreign work сохранён.
+    status: active
   - id: M1-P2a0
     goal: |
       PuppetMaster получает проверенный root-authority маршрут для сетевого игрока, которого могут
@@ -66,11 +81,11 @@ open_calls:
     for: g-9c41 / local .NET repository-gate runner prerequisite
     issued: 2026-07-12
     note: "READY NON-PRIORITY after owner-approved PLAN `Одобряю PLAN c-exec-unity65-mac-revision-002`: product PLAN commit 7a3e747, parent 8a344e97, approach lan-local-dotnet-gates-adapter-only. Build/deliver the local cross-platform .NET 8 gate runner with full parity and independent RED evidence; do not resume revision-001, Unity/FishNet, Windows, merge or push. Preserve unstaged .vscode/settings.json and CoopSmallSGF.asset. work/c-exec-unity65-mac-revision-002-build-001-call.md."
-  - id: c-exec-lv-ingest-phase0-001
+  - id: c-exec-near-gas-core-authority-001-build-001
     to: executor
-    for: Lv-ingest
-    issued: 2026-07-09
-    note: "NOT MERGED/NOT DELIVERED: dev@8fc25d90 (round-8 фиксы закоммичены, запись раунда 8 не закоммичена в dev worktree), origin/main@a644e5d; owner 2026-07-11 «пусть там работает» — цикл ревью продолжается до чистого binding-раунда; work/c-exec-lv-ingest-phase0-call.md."
+    for: NearGas-L1-BUILD / один dormant engine-free Core-владелец и атомарный Step
+    issued: 2026-07-13
+    note: "READY fresh L1 BUILD after owner-approved PLAN @1e4e78c merged into origin/main@13917123 and Direction binding-refutation MET. Lane A/core/headless, contract v19, exclusive core slot. Implement accepted option A only: serial concurrency-ready authority; no actual threads/workers/scheduler. Real concurrency is a separate future c-exec-near-gas-concurrency-001 after delivered L1/L2/C1 and fresh profiling. Independent spec-only RED, review and binding fresh G5 required; no Unity or child-leg scope; preserve all 10 foreign dirty/untracked dev paths. work/c-exec-near-gas-core-authority-001-build-001-call.md."
   - id: c-shape-sc-damage-001
     to: session
     for: Sc-damage
@@ -78,9 +93,9 @@ open_calls:
     note: "Pending owner-present shape CALL; current M1 cut keeps Sc-damage HELD; owner 2026-07-11: кооп-взаимозависимость обсуждается отдельным вопросом канона (кандидат Gate Q, work/canon-question-candidates-2026-07-11.md), Sc-damage стартует только с готовой канон-спекой; work/c-shape-sc-damage-call.md."
   - id: c-visual-009
     to: executor
-    for: g-7e15 / Stage 3.5 movement-data BUILD reconciliation
+    for: g-7e15 / preserved visual motion work awaiting fresh reconciliation
     issued: 2026-07-10
-    note: "BLOCKED on M1-GAS-CORE: approved PLAN @a0db28a2 + dirty BUILD preserved on codex/c-visual-009-build; no continuation/close; history/2026-07-11-s-repair-visual-sim-upstream-001.md."
+    note: "LOCKED under PROGRAM.md@f5c1d650; historical PLAN @a0db28a2 and dirty dev_2 BUILD are preserved but non-runnable. Fresh owner-present reconciliation PLAN only after M0+C1+L3+I1 delivered/reviewed; motion BUILD also needs sufficient detached immutable committed-per-Step Flux/history from L3 or delivered c-exec-near-gas-visual-motion-data-seam-001. Moving-source visual waits E1; door/destruction visual waits D1/X1."
   - id: c-exec-player-puppetmaster-p2a0-lean-spike-build-001
     to: executor
     for: M1-P2a0 / лёгкий спайк PuppetMaster (owner-eye + живой прибор)
@@ -98,6 +113,6 @@ decisions:
     options: ["Ратифицировать все 5", "Ратифицировать выборочно", "Отклонить — критерии не расширяем"]
     recommendation: "Ратифицировать все 5: дёшево и делает final evidence leg доказуемым; min-spec требует owner-выбора конкретного железа. Источник: owner-lane вырезанной лестницы 10.07 — критерии нигде больше не жили (s-repair-board-m1-ladder-purge-001)."
 next:
-  CALL: work/c-exec-lv-ingest-phase0-call.md
+  CALL: work/c-exec-near-gas-core-authority-001-build-001-call.md
 
 END_OF_FILE: live/indie-game-development/NOW.md
