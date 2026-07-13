@@ -1,5 +1,5 @@
 # NOW: indie-game-development
-updated: 2026-07-13 by s-work-near-gas-l1-plan-amend-binding-close-001
+updated: 2026-07-13 by s-plan-characters-v1-freeze-001
 
 bet:
   node: g-9c41
@@ -119,11 +119,11 @@ open_calls:
     for: g-7e15 / preserved visual motion work awaiting fresh reconciliation
     issued: 2026-07-10
     note: "LOCKED under PROGRAM.md@f5c1d650; historical PLAN @a0db28a2 and dirty dev_2 BUILD are preserved but non-runnable. Fresh owner-present reconciliation PLAN only after M0+C1+L3+I1 delivered/reviewed; motion BUILD also needs sufficient detached immutable committed-per-Step Flux/history from L3 or delivered c-exec-near-gas-visual-motion-data-seam-001. Moving-source visual waits E1; door/destruction visual waits D1/X1."
-  - id: c-plan-characters-001
-    to: session
-    for: g-6d4e / дорожная карта персонажей + замороженный spec первого drop-in слайса
+  - id: c-exec-char-v1-socket-dropin-build-001
+    to: executor
+    for: g-6d4e / В1 — сокет авторитетной позиции + drop-in управляемая капсула
     issued: 2026-07-13
-    note: "READY parallel track (owner 2026-07-13 «трек ... ок», «поехали»). PLAN-сессия: выдать owner-approved дорожную карту трека «Игровые персонажи» (персонаж-first ORDER: drop-in префаб + стабильный adapter-API → управление/процедурные реакции/косметический рэгдолл → [ядро] граница грид-баллистики) и builder-ready spec ПЕРВОГО слайса = переиспользуемый префаб игрока + стабильный adapter-API против ЗАГЛУШКИ авторитетной позиции (seam R13/R14, свап на реальное ядро без правки трека). PLAN-only: без продуктового кода/тестов/RED/BUILD/Unity/MCP/мержа/пуша (BUILD идёт отдельной свежей GasCoopGame_dev сессией); independent-test-author RED-план отметить по проектному builder-quality правилу. Грид-баллистика НЕ в build-scope трека — это слайс ядра g-9c41 (input-lockstep, целочисленно, ждёт delivered grid+Step+lockstep), назван для позже; захватить как downstream + обязательный 2-машинный FishNet-proof. Канон вердикта P2a0: GasCoopGame origin/main@0e9eed02 docs/results/c-exec-player-puppetmaster-p2a0-lean-spike-build-001.md. Газовый хребет (next = fresh L1 EXECUTE c-exec-near-gas-core-authority-001-execute-002) остаётся приоритетом №1. work/c-plan-characters-001-call.md."
+    note: "READY BUILD после owner-approved freeze (owner 2026-07-13: order «Вариант 1», «замораживай»). Frozen PLAN + В1 spec: work/c-plan-characters-001-plan.md (c-plan-characters-001 FROZEN, DELIVERED). Строить в свежей GasCoopGame_dev сессии на ЧИСТОМ worktree: переиспользуемый player-префаб + СТАБИЛЬНЫЙ adapter-seam «read-only авторитетная поза ← сменный источник» (В1 источник = локальная заглушка от ввода; ядро подставится позже без правки префаба/сцен), управление + follow-камера; хуки реакция/вставание ОБЪЯВЛЕНЫ, но no-op (наполнит В2). Independent test-author пишет RED из spec ДО билда (EditMode/headless: спавн ставит игрока; префаб потребляет инъектированный источник; смена реализации источника двигает игрока без правки префаба; drop-in во 2-ю сцену). Owner-eye приёмка (PlayMode, ТЫ запускаешь — Unity Personal без headless-PlayMode/CI): дропнул префаб → ходит, камера следит; во 2-й сцене работает; проба развязки (скриптовый источник без правки префаба). BOUNDARY: без рига/модели/рэгдолла, без физики/ядра/грид-баллистики, без сети/газа, без merge в main до owner-eye GREEN. Routing: BUILD Opus/Claude Code, VALIDATE Codex read-only. Занятые GasCoopGame_dev/_core foreign changes НЕ трогать. work/c-exec-char-v1-socket-dropin-build-001-call.md."
   - id: c-marketing-wake-001
     to: session
     for: g-2f8c / минимальное пробуждение маркетинга
