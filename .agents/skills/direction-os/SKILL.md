@@ -4,8 +4,8 @@ description: >-
   The master discipline for running a Direction OS leg in this repo
   (github.com/ainazemtsau/my_global_workflow) from Codex. Trigger whenever the
   owner pastes a CALL packet, a RESULT packet, or a plain message about a
-  direction (a question, an ambition, "продолжаем"), or asks to collect / audit
-  / digest a direction. Covers the opening-contract header, the
+  direction (a question, an ambition, "продолжаем"), or asks to collect / finalize /
+  audit / digest a direction. Covers the opening-contract header, the
   RESULT-as-final-message rule, self-writer-after-RESULT, never writing state
   except via RESULT.state_changes, and talking to the owner in Russian.
 ---
@@ -51,6 +51,7 @@ that needs the owner.
 | `MAINTENANCE REQUEST ...` / a problem about the OS itself | **maintenance** | `os/MAINTENANCE.md` (never touch `live/**`) |
 | A CALL packet, or a plain message about a direction | **session** | run the play per `os/KERNEL.md` §2 OPEN |
 | `collect next for <direction>` | **writer** | one paste block: SESSION_PAYLOAD → play → NOW.md → CALL |
+| `finalize <engineering-call-id>` | **writer** | materialize the persisted intent, run its phase guard, commit finalized CALL, then stop; see adapter Role 1 |
 | `audit <direction>` | **writer** | read-only consistency sweep, report only |
 | `digest [<direction>] [since <date>]` | **writer** | read-only morning report, render only |
 

@@ -2,7 +2,8 @@
 
 A single monotonic integer naming the current state of the engineering contract (CONTOUR.md +
 VALIDATION.md + PROJECT_SETUP.md + V21-CONFORMANCE.md + `os/schema/packets.md` +
-`os/adapters/coding-agent.md` + ESCAPE-CLASSES.md + profiles/**). Appending a defect-class to
+`os/adapters/coding-agent.md` + root `AGENTS.md` + `.agents/skills/direction-os/SKILL.md` +
+ESCAPE-CLASSES.md + profiles/**). Appending a defect-class to
 ESCAPE-CLASSES.md (the ratchet, MAINTENANCE step 6) bumps it too, so the new class propagates to
 product repos instead of protecting only the workflow-repo-side audits. A **MAINTENANCE session bumps it** (current + one
 log line) whenever it hardens or adds a load-bearing gate (os/MAINTENANCE.md step 6). Each product
@@ -83,7 +84,8 @@ log:
       before this contract was declared complete. Config therefore declares only the ordered trust-root path/mode list;
       the external CALL manifest pins every path/mode/blob including config itself, avoiding a config self-hash cycle.
       A third full-SHA refutation found eight more concrete bypasses and all were made mechanical before close: PLAN
-      chronology is now author checkpoint -> writer rerun/history commit -> separate finalized verdict session, so a
+      chronology is now author checkpoint -> writer event W -> fresh writer verdict-CALL commit W2 -> verdict RESULT W3,
+      with strict ancestry avoiding commit self-reference, so a
       receipt/timestamp first appearing with owner words has no authority; conformance uses acyclic install challenge ->
       bootstrap receipt -> non-install cases -> persisted final receipt/event -> excluded binding smoke; stack adapter is
       produced and independently reviewed in a separate Direction transaction whose writer event/blob predates install;

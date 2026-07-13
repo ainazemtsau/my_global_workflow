@@ -14,7 +14,7 @@ Companion files: `PROJECT_SETUP.md` (bootstrap a product repo), `VALIDATION.md` 
 
 ## Roles (always separated)
 
-**v21 PLAN role boundary (normative over the older planner shorthand below).** PLAN is two fresh sessions: `author` creates the gated candidate and stops without owner verdict; writer reruns and commits its receipt event; only then `verdict` presents that exact candidate and obtains owner words. BUILD/RED is a third fresh session. Neither PLAN session writes product code or commissions RED.
+**v21 PLAN role boundary (normative over older shorthand).** `author` stops at gated candidate; writer commits receipt event W and ends; a fresh writer job commits verdict CALL W2 referencing ancestral W; only then fresh `verdict` obtains owner words in W3. BUILD/RED is another fresh session. Neither PLAN session writes product code or commissions RED.
 
 - **Planner** — interactive session, frontier model, plan mode. Talks to the owner. A SEPARATE session from BUILD, always: the plan leg ENDS when the owner approves the plan — it hands off a build CALL and writes NO product code and authors/commissions NO red tests (red-test authoring is the build session's opening move — see Test-author). Planning and building never share one session.
 - **Builder** - autonomous fresh EXECUTE or receipt-bound BUILD-resume session, never the PLAN session. It reads the frozen plan and external run receipts, never talks to the owner mid-run, and cannot turn an arbitrary on-disk diff into a resume.
@@ -103,9 +103,9 @@ CALL (business task from a direction)
     `PLAN/author` commits exact candidate, verifies clean manifested delta, trust, acceptance, typed TESTABILITY
     and red realizations, runs pinned plan, then returns a terminal PLAN-GATED checkpoint with exact command/
     zero-exit/clean-status observation, candidate HEAD and receipt covering that observation. It never prompts
-    for a verdict. Writer reruns/recomputes, saves and commits a Direction-history receipt event, then emits a
-    separate finalized `PLAN/verdict` CALL. Only that fresh session presents the candidate and obtains owner words;
-    the event commit must be ancestral to its CALL/RESULT. Receipt first appearing with owner words is invalid.
+    for a verdict. Writer reruns/recomputes, saves/commits Direction-history event W, then ends. A fresh writer
+    job commits finalized `PLAN/verdict` CALL W2 referencing W; strict W<W2 avoids self-reference. Only that
+    session presents candidate and obtains owner words in later W3. Receipt first appearing with words is invalid.
     EXEC session returns stable intent. Writer verifies event/candidate/receipt/verdict, runs pre-execution, then
     persists run-id, pre-red-head, receipt/observation and finalized CALL. Historical source/test work has
     no such receipt.
