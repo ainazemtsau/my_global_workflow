@@ -39,7 +39,10 @@ log:
       VALIDATION makes the artifact a plan-handoff AND -Deliver dependency;
       PROJECT_SETUP requires `validation.config: plan_handoff_check`, shared plan/-Deliver enforcement and seeded misses
       for absent/RED/incomplete/stale/wrong-change/wrong-manifest/wrong-worktree-or-base/token-omitting/empty-or-n/a
-      bindings. Packet schema now requires normalized engineering phase; EXECUTE/BUILD also carries exact
+      bindings. Packet schema now requires normalized SETUP|PLAN|EXECUTE|BUILD|RE-SYNC. SETUP is the non-circular
+      bootstrap only while the target lacks a complete installed run-contract/stamp pair; it preserves existing files,
+      carries an absolute target worktree without pre-existing branch/base, and cannot implement the feature. An
+      initialized target rejects SETUP; other phases reject an uninitialized target. EXECUTE/BUILD also carries exact
       worktree/branch/authoritative-base/change-id/testability/manifest identity. coding-agent adds an immediately-active
       writer equality guard, hard-bounces EXECUTE while product contract <21/check unreadable, and requires executor
       worktree/merge-base/pre-RED-diff truth-resolution before RED. No prior gate is weakened;
@@ -60,7 +63,8 @@ log:
       and bump its current stamp →21.
       Enforcement clarification: product plan-check/-Deliver is inert until re-sync, so writer/apply and collect HARD-
       BOUNCE EXECUTE/BUILD while the assigned product stamp is below 21 or `plan_handoff_check` is unreadable; only
-      PLAN/PLAN-AMEND/re-sync may enter an old repo. Thus inert product wiring cannot become a third builder STOP.
+      SETUP on an uninitialized target, PLAN (including amendment work), and contract-only RE-SYNC may enter without a
+      current v21 stamp. Thus inert product wiring cannot become a third builder STOP.
   20  2026-07-13  repo-local execution authority + obsolete global runtime retirement: a generic Direction OS
       engineering/PLAN/BUILD CALL is governed by the CALL plus the product repo's AGENTS.md, frozen plan/spec,
       and validation.config. Globally installed or discoverable skills and tools are support, not authority:

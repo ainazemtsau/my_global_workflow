@@ -21,7 +21,7 @@ Companion files: `PROJECT_SETUP.md` (bootstrap a product repo), `VALIDATION.md` 
 
 ## The cycle
 
-Engineering CALLs expose the session boundary mechanically: `phase: PLAN` enters only the plan leg; the downstream separate fresh feature leg is `phase: EXECUTE|BUILD`; `phase: RE-SYNC` may only install a newer contract/check into a behind product. Missing/unknown phase is not inferred from prose and is not runnable.
+Engineering CALLs expose the session boundary mechanically: `phase: SETUP` enters PROJECT_SETUP only for a target without a complete installed run-contract plus validation stamp, carries its absolute target worktree without requiring branch/base before repository identity exists, preserves existing files and may not implement the feature; an initialized target rejects SETUP. `phase: PLAN` enters only the plan leg; the downstream separate fresh feature leg is `phase: EXECUTE|BUILD`; `phase: RE-SYNC` may only install a newer contract/check into an initialized behind product. Missing/unknown phase is not inferred from prose and is not runnable.
 
 ```
 CALL (business task from a direction)
