@@ -287,7 +287,7 @@ active_bet:
       kill the bet and shape a new bounded bet; do not extend appetite or
       claim partial success.
 
-route_status: operating_substrate_first_process_creator_t2_f_r01_closing_report_alignment_pending
+route_status: operating_substrate_first_process_creator_t3_recommended_pass_owner_disposition_pending
 
 owner_directive: |
   Owner approved umbrella placement for Solmax.
@@ -858,7 +858,7 @@ tasks:
 
   - id: t-2
     kind: executor
-    status: active
+    status: done
     budget: 0.5 focused execution day
     goal: |
       Materialize the complete Process Creator candidate on a bounded
@@ -898,7 +898,11 @@ tasks:
 
   - id: t-3
     kind: session
-    status: open
+    status: blocked
+    unblock_when: |
+      The owner gives actual binding structural disposition words after the
+      fresh independent t-3 refutation at product review/result HEAD eefc77e
+      recommends admission and records F-R01 fixed.
     budget: 0.25 focused execution day
     goal: |
       Independently attempt to refute and admit or reject the Process
@@ -1102,24 +1106,14 @@ recurring: []
 decisions: []
 
 open_calls:
-  - id: c-solmax-operating-substrate-first-process-creator-t2-f-r01-ledger-correction-001
-    to: executor
-    for: g-operating-substrate-first-process-creator/t-2
+  - id: c-solmax-operating-substrate-first-process-creator-t3-owner-disposition-002
+    to: session
+    for: g-operating-substrate-first-process-creator/t-3
     issued: 2026-07-13
     note: |
-      Owner chose repair and a new independent check after the confirmed
-      evidence-integrity defect F-R01 at product review HEAD ea254929. The
-      narrow ledger correction is present at product commit 8134aaef; its
-      candidate-only G5 completion remains pending and the closing-report
-      alignment CALL below must finish before fresh t-3 is issued.
-  - id: c-solmax-operating-substrate-first-process-creator-t2-f-r01-closing-report-alignment-002
-    to: executor
-    for: g-operating-substrate-first-process-creator/t-2
-    issued: 2026-07-13
-    note: |
-      Product RESULT.md still describes pre-correction F-R01 as unresolved.
-      This narrow report-only alignment must identify 8134aaef and leave the
-      repaired candidate awaiting a fresh independent t-3 review.
+      Fresh Claude Opus 4.8 G5 evidence at product review/result HEAD eefc77e
+      verifies F-R01 fixed and recommends structural admission. The candidate
+      remains candidate-only until the owner supplies actual disposition words.
 # 2026-07-12: c-solmax-operating-substrate-first-process-creator-t2-repo-bootstrap-001
 # cleared — the repo-bootstrap setup checkpoint is complete (commit f3d153d, CI
 # green). t-2 remains ACTIVE; Process Creator materialization is the next work,
@@ -1241,6 +1235,10 @@ preserved_evidence:
   - 'local product F-R01 correction: C:/projects/solmax-operating-substrate@8134aaef9732498f11480491778ffcecaf5b4ed0 (only packs/process-creator/verification/scope-coverage.md)'
   - live/solmax/work/calls/c-solmax-operating-substrate-first-process-creator-t2-f-r01-closing-report-alignment-002.md
   - live/solmax/history/2026-07-13-s-solmax-operating-substrate-first-process-creator-t2-f-r01-correction-handback-002.md
+  - 'local product fresh t-3 review/result: C:/projects/solmax-operating-substrate@eefc77edbba5a1a5af8c2656544b06bb6824d922 (reviewed candidate b7da58713121884cc252bcc934672e66fb64e8f4)'
+  - 'local product review evidence: C:/projects/solmax-operating-substrate/docs/reviews/review-process-creator-v1.md@eefc77edbba5a1a5af8c2656544b06bb6824d922'
+  - live/solmax/work/calls/c-solmax-operating-substrate-first-process-creator-t3-owner-disposition-002.md
+  - live/solmax/history/2026-07-13-s-solmax-operating-substrate-first-process-creator-t2-autonomous-close-003.md
 next: |
-  live/solmax/work/calls/c-solmax-operating-substrate-first-process-creator-t2-f-r01-closing-report-alignment-002.md
+  live/solmax/work/calls/c-solmax-operating-substrate-first-process-creator-t3-owner-disposition-002.md
 END_OF_FILE: live/solmax/NOW.md
