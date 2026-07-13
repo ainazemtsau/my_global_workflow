@@ -131,13 +131,17 @@ log:
       itself refuted because it described fake executables, future-pinned TESTABILITY, planner-authored RED bytes and
       non-writer-compatible histories. It is not the shipped authority. Final v21 narrows the mechanical repair to the
       witnessed boundary and supplies a real subprocess regression witness: PLAN author enters without TESTABILITY,
-      commits an ungated candidate binding contract and stops; a distinct fresh product-read-only PLAN/binding-validator
-      derives the obligation union independently, generates scratch-only non-acceptance probes and runs the real pinned
-      compiler/discovery/filtered runner. Only its persisted GREEN event can lead through a fresh finalizer to owner
-      verdict. The later independent RED author receives routes/receipt but never probe source and authors fresh
-      spec-derived acceptance tests. `V21-CONFORMANCE.md` is the concise normative rule and
-      `os/engineering/v21_conformance.py` is the executable OS witness (one positive plus 31 negative child-process
-      cases, real pinned CPython `-I -S`, dynamic compile/discovery/filtered sentinels). Product SETUP/RE-SYNC must bind
+      commits an ungated candidate binding contract with no candidate self-pin and stops; a distinct fresh product-
+      read-only PLAN/binding-validator derives the obligation union from external authority bytes, generates scratch-
+      only non-acceptance probes and runs the real pinned compiler/discovery/filtered/union contour. A generic typed
+      registry/recipe executor is the sole completion path; it checks actual signatures, owners, args, returns,
+      resources, graph, operation fault ownership and before/after product-tree identity. Only persisted GREEN can lead
+      through a fresh finalizer to owner verdict, and only explicit accepted words for unchanged P/receipt can lead to
+      EXECUTE; revised/split revalidates and rejected stops. The later independent RED author receives routes/receipt
+      but never probe source and authors fresh spec-derived acceptance tests. `V21-CONFORMANCE.md` is the concise
+      normative rule and `os/engineering/v21_conformance.py` is the executable OS witness (one positive plus 62 exact-
+      oracle negative cases across separate case/validator/compiler/discovery/filter/union child processes, pinned
+      CPython `-I -S`). Product SETUP/RE-SYNC must bind
       the equivalent cases to its native real toolchain before stamp 21; no prose or OS witness substitutes for that
       product-native run. Earlier claims of a complete exact ABI/history/archive mutation model are superseded, not
       evidence. The residual is explicit: this prevents the witnessed elementary binding class from first surfacing

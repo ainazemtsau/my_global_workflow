@@ -26,7 +26,8 @@ For every frozen/G0 change:
    wrong sentinel is `PLAN RED`. Writer routes the complete gap list back to `PLAN/author`; no owner-verdict CALL exists.
 6. Only a persisted GREEN validator RESULT and a fresh finalizer may create `PLAN/verdict`. That CALL freezes candidate,
    TESTABILITY mode/blob/input-manifest hash, validator session, actual observations and PLAN receipt. Only the owner's
-   later words may authorize fresh EXECUTE.
+   explicit `accepted` words for those exact unchanged bytes may authorize fresh EXECUTE. `revised|split` starts a new
+   candidate and full binding validation; `rejected` creates no EXECUTE.
 7. EXECUTE starts with a third role: the independent RED author. It derives real acceptance tests from the frozen spec,
    using TESTABILITY only for syntax/routes. It cannot read or reuse validator scratch probe bytes and cannot be the
    planner, binding validator or builder.
@@ -64,7 +65,9 @@ existing writer contract, not alternative fixture conventions.
 `TESTABILITY.md` is a machine-readable binding contract authored with candidate `P`; it is not a validator verdict and
 does not contain acceptance-test or validator-probe source. It contains:
 
-- `change-id`, exact base authority/commit, exact Direction acceptance hash and exact candidate commit;
+- `change-id`, exact base authority/commit and exact Direction acceptance hash. Candidate commit `P` is intentionally
+  absent because TESTABILITY is part of `P`; the later writer-finalized binding-validator CALL/event pins `P` and the
+  TESTABILITY path/mode/blob externally;
 - an ordinal manifest for proposal, PLAN, tasks, every delta spec, referenced ADR and each exact-base public/test-harness
   declaration used by a binding;
 - the complete independently derivable obligation list and the planner's one-to-one coverage list;
@@ -119,8 +122,9 @@ then performs all of the following in scratch outside the product worktree:
 4. Invoke the real product compiler with every compile source explicit.
 5. Invoke real discovery and require exactly one unique id per obligation and the exact union.
 6. Invoke the real filtered runner with only declared runtime resources and require each exact binding sentinel.
-7. Exercise every fault phase and compare the full observable audit before/after; separately reject fault reuse across
-   operations.
+7. Materialize every operation-local fault phase, invoke its exact seam and type-observe the full audit, ownership and
+   delegation surfaces. It makes no rollback, equality, golden-value or other future behavioral assertion; those belong
+   only to the later independent acceptance RED author.
 8. Return all gaps in one complete sweep, not only the first failure.
 9. Prove `product-writes: []` and unchanged status/tree before and after.
 
@@ -173,11 +177,18 @@ The parent pins the resolved interpreter path/version/SHA-256 and script SHA-256
 process, dynamically compiles validator-generated probes, uniquely discovers them, runs each filter and checks exact
 sentinels. The expected terminal field is `"status": "V21_CONFORMANCE_GREEN"`.
 
-The current witness has one positive and 31 negative cases. Negatives remove each exact binding for audit, comparator,
-codec, fault phases, face/impulse, loopback, owned handler, source isolation, topology, existing/create routes, golden
-resources and both operation/fault slots. It also covers planner self-validation, validator product writes, stale
-candidate, planner-supplied probe, incomplete/coverage-trusting sweep, kind conflation, generic fault ownership, omitted
-hidden observation, omitted after-fault control and an unresolved dependency.
+The current witness has one positive and 62 negative cases. A parent, per-case child, fresh validator child, real isolated
+CPython compiler child, discovery child, per-filter runner children and union runner child are distinct processes. The
+validator consumes immutable external done_when/spec/event bytes and the candidate typed registry/recipes; one generic
+executor is the only path to completion. Every negative has an independent exact `(error-code, path)` oracle plus a
+pre/post mutation fingerprint, so a broken mutator or worker is fatal rather than a successful RED.
+
+The corpus removes the concrete create/topology/face-impulse/owned-handler/audit/loopback/fault-selector/operation-slot/
+golden/codec/source/hidden-state routes, including a two-gap complete sweep. It also seeds signature, owner, ordered
+argument, same-typed source edge, return/slot type, visibility, resource path/mode/size/blob, fault ownership, graph
+cycle/reachability/producer, candidate/authority/toolchain, compile/discovery/filter/union, copied-sentinel and actual
+product-write failures. The receipt contains observed commands/exits/hashes and before/after product-tree hashes, not
+candidate booleans.
 
 The witness is a regression test for the OS rule, not proof that an arbitrary product adapter is correct. The binding
 GREEN for a real change comes only from that product's fresh native validator run against its exact candidate/base. This
