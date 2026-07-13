@@ -287,7 +287,7 @@ active_bet:
       kill the bet and shape a new bounded bet; do not extend appetite or
       claim partial success.
 
-route_status: operating_substrate_first_process_creator_t2_f_r01_repair_authorized_fresh_t3_pending
+route_status: operating_substrate_first_process_creator_t2_f_r01_closing_report_alignment_pending
 
 owner_directive: |
   Owner approved umbrella placement for Solmax.
@@ -1108,9 +1108,18 @@ open_calls:
     issued: 2026-07-13
     note: |
       Owner chose repair and a new independent check after the confirmed
-      evidence-integrity defect F-R01 at product review HEAD ea254929. This
-      narrow t-2 correction is the only open execution route; it must return
-      candidate-only evidence for a later fresh t-3 review.
+      evidence-integrity defect F-R01 at product review HEAD ea254929. The
+      narrow ledger correction is present at product commit 8134aaef; its
+      candidate-only G5 completion remains pending and the closing-report
+      alignment CALL below must finish before fresh t-3 is issued.
+  - id: c-solmax-operating-substrate-first-process-creator-t2-f-r01-closing-report-alignment-002
+    to: executor
+    for: g-operating-substrate-first-process-creator/t-2
+    issued: 2026-07-13
+    note: |
+      Product RESULT.md still describes pre-correction F-R01 as unresolved.
+      This narrow report-only alignment must identify 8134aaef and leave the
+      repaired candidate awaiting a fresh independent t-3 review.
 # 2026-07-12: c-solmax-operating-substrate-first-process-creator-t2-repo-bootstrap-001
 # cleared — the repo-bootstrap setup checkpoint is complete (commit f3d153d, CI
 # green). t-2 remains ACTIVE; Process Creator materialization is the next work,
@@ -1229,6 +1238,9 @@ preserved_evidence:
   - 'owner disposition in chat: "Исправляем F‑R01 и возвращаем на свежую проверку Yeah."'
   - live/solmax/work/calls/c-solmax-operating-substrate-first-process-creator-t2-f-r01-ledger-correction-001.md
   - live/solmax/history/2026-07-13-s-solmax-operating-substrate-first-process-creator-f-r01-repair-route-001.md
+  - 'local product F-R01 correction: C:/projects/solmax-operating-substrate@8134aaef9732498f11480491778ffcecaf5b4ed0 (only packs/process-creator/verification/scope-coverage.md)'
+  - live/solmax/work/calls/c-solmax-operating-substrate-first-process-creator-t2-f-r01-closing-report-alignment-002.md
+  - live/solmax/history/2026-07-13-s-solmax-operating-substrate-first-process-creator-t2-f-r01-correction-handback-002.md
 next: |
-  live/solmax/work/calls/c-solmax-operating-substrate-first-process-creator-t2-f-r01-ledger-correction-001.md
+  live/solmax/work/calls/c-solmax-operating-substrate-first-process-creator-t2-f-r01-closing-report-alignment-002.md
 END_OF_FILE: live/solmax/NOW.md
