@@ -287,7 +287,7 @@ active_bet:
       kill the bet and shape a new bounded bet; do not extend appetite or
       claim partial success.
 
-route_status: operating_substrate_first_process_creator_t4_health_reclamation_plan_owner_approval_pending
+route_status: operating_substrate_first_process_creator_t4_health_reclamation_build_pending
 
 owner_directive: |
   Owner approved umbrella placement for Solmax.
@@ -1102,14 +1102,14 @@ recurring: []
 decisions: []
 
 open_calls:
-  - id: c-solmax-operating-substrate-first-process-creator-t4-health-reclamation-plan-approval-002
-    to: session
+  - id: c-solmax-operating-substrate-first-process-creator-t4-health-reclamation-build-003
+    to: executor
     for: g-operating-substrate-first-process-creator/t-4
     issued: 2026-07-13
     note: |
-      Owner intent is now an approval-ready Health Reclamation plan. The
-      product repo requires the owner to approve the plan before a fresh
-      candidate BUILD; no candidate, activation, or live claim is open.
+      Owner approved Health Reclamation plan v1. A fresh product BUILD may
+      create only the candidate; independent refutation, admission,
+      activation, useful-live proof, and reuse remain separate.
 # 2026-07-12: c-solmax-operating-substrate-first-process-creator-t2-repo-bootstrap-001
 # cleared — the repo-bootstrap setup checkpoint is complete (commit f3d153d, CI
 # green). t-2 remains ACTIVE; Process Creator materialization is the next work,
@@ -1240,8 +1240,11 @@ preserved_evidence:
   - live/solmax/history/2026-07-13-s-solmax-operating-substrate-first-process-creator-t3-owner-disposition-004.md
   - live/solmax/work/health-reclamation-plan-v1.md
   - live/solmax/work/calls/c-solmax-operating-substrate-first-process-creator-t4-health-reclamation-plan-approval-002.md
+  - 'owner plan approval in chat: "Approve plan v1"'
+  - live/solmax/work/calls/c-solmax-operating-substrate-first-process-creator-t4-health-reclamation-build-003.md
   - 'product provisional health-reclamation pack: cea2866, reversed before delivery at 3b38d78'
   - live/solmax/history/2026-07-13-s-solmax-operating-substrate-first-process-creator-t4-health-reclamation-plan-checkpoint-001.md
+  - live/solmax/history/2026-07-13-s-solmax-operating-substrate-first-process-creator-t4-health-reclamation-plan-approval-002.md
 next: |
-  live/solmax/work/calls/c-solmax-operating-substrate-first-process-creator-t4-health-reclamation-plan-approval-002.md
+  live/solmax/work/calls/c-solmax-operating-substrate-first-process-creator-t4-health-reclamation-build-003.md
 END_OF_FILE: live/solmax/NOW.md

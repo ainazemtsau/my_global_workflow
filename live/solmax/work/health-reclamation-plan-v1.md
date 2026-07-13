@@ -1,6 +1,6 @@
 # Health Reclamation plan v1
 
-Status: **DRAFT - owner approval required**.
+Status: **APPROVED - frozen for fresh BUILD (owner: "Approve plan v1", 2026-07-13).**
 
 This is a plan for a future process-pack candidate. It is not a process
 candidate, an admitted definition, an activation, a training prescription, a
