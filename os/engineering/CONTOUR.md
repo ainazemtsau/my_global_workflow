@@ -17,7 +17,7 @@ Companion files: `PROJECT_SETUP.md` (bootstrap a product repo), `VALIDATION.md` 
 - **Planner** — interactive session, frontier model, plan mode. Talks to the owner. A SEPARATE session from BUILD, always: the plan leg ENDS when the owner approves the plan — it hands off a build CALL and writes NO product code and authors/commissions NO red tests (red-test authoring is the build session's opening move — see Test-author). Planning and building never share one session.
 - **Builder** — autonomous session(s), default-tier model, a FRESH session that reads the frozen plan (never the same session that planned). Never talks to the owner mid-run.
 - **Validator** — fresh-context, read-only (no Write/Edit), did not author the code; for at least one pass per feature — a different model family than the builder. Agents consistently overrate their own output; same-model self-review is a mirror, not a check.
-- **Test-author** — a separate subagent that, after the spec freezes and before BUILD, reads ONLY the frozen spec (never the code — it does not exist yet) and writes the per-criterion acceptance tests as failing (red). The builder makes them pass and may not edit them. Not the builder (self-review is a mirror), not the validator (a pre-code oracle and a post-code review are different artifacts); a cheap-tier model is fine — its independence is from the SPEC, not from a verdict. This is what stops the builder's own tests from inheriting the builder's misreading of the spec. For a `core algorithm` change the same role returns for a second, POST-build pass (see cycle, PROPERTY AUDIT): once gates are green it reads the actual DIFF — the one artifact neither the frozen spec nor the pre-code pass could see — for new throw-paths, seams, order-dependencies, and derived-value ranges the implementation introduced, and appends property tests for them before REPORT. Still not the builder (same self-review mirror) and not the validator (adversarial test-authoring, not review) — it is the only step positioned at the moment the seam becomes visible, between a test-author blind to the code and a reviewer who only reads it after DELIVERED.
+- **Test-author** — a separate subagent that, after the spec freezes and before BUILD, reads the frozen spec plus its recorded exact-base **baseline corpus**: only the public/module API declarations and committed test-harness contracts the spec's executable-binding table cites. It never reads the builder's branch, new implementation, or diff. The spec owns behavior and meaning; the baseline corpus supplies only pre-existing syntax, construction and harness facts. A new surface with no baseline declaration must therefore be bound exactly in the spec. The test-author writes the per-criterion acceptance tests as failing (red); the builder makes them pass and may not edit them. Not the builder (self-review is a mirror), not the validator (a pre-code oracle and a post-code review are different artifacts); a cheap-tier model is fine — its independence is from the current implementation, not enforced ignorance of the system being extended. For a `core algorithm` change the same role returns for a second, POST-build pass (see cycle, PROPERTY AUDIT): once gates are green it reads the actual DIFF — the one artifact neither the frozen spec nor the pre-code pass could see — for new throw-paths, seams, order-dependencies, and derived-value ranges the implementation introduced, and appends property tests for them before REPORT. Still not the builder (same self-review mirror) and not the validator (adversarial test-authoring, not review) — it is the only step positioned at the moment the seam becomes visible, between a test-author blind to the new code and a reviewer who only reads it after DELIVERED.
 
 ## The cycle
 
@@ -38,7 +38,7 @@ CALL (business task from a direction)
     Then it interviews the owner if needed and writes the change spec:
     per-feature acceptance criteria as a machine-readable ledger (all
     entries start failing), plus the verification plan the validator
-    approves BEFORE any code. Three spec-hardening checks before freeze:
+    approves BEFORE any code. Four spec-hardening checks before freeze:
     (a) when the change EXTENDS a working/frozen system, list the invariants
     that held in the old regime and, per one, whether this change can falsify
     it — falsifiable ones become failing criteria tested in the new regime;
@@ -87,6 +87,28 @@ CALL (business task from a direction)
     ESCALATION) — a self-authored cut of a promise is a coverage FAIL, not a disposition. This
     list is RECORDED in the spec; the deliver gate checks it (PROJECT_SETUP §Strong-check
     enablement) and the writer re-checks it on carry-back (os/adapters/coding-agent.md).
+    (d) EXECUTABLE-TEST CLOSURE: the spec records a baseline corpus at the exact
+    pre-build commit and an `Executable-test bindings` table covering the independently
+    derived union of every executable/headless ledger criterion, acceptance/negative-control
+    token and property-test token. Every obligation binds: `construct` (exact constructor,
+    factory, literal or committed fixture), `act` (exact production entrypoint), `observe`
+    (exact public/internal friend seam or real evidence venue), `negative` (the exact
+    deliberately-wrong/test-local injection route), and `source` (`spec:<anchor>` for a new
+    surface or `baseline:<commit>:<path>#<symbol>` for an existing one). A test-bearing
+    obligation has no `n/a` escape; if it is not executable, its evidence class/acceptance
+    meaning must be corrected before approval rather than silently waived.
+    A FRESH read-only validator independently derives the obligation union from the proposed
+    spec, resolves every source against the exact base, and tries to refute every row. It
+    returns the complete report body; the planner records it verbatim as
+    `openspec/changes/<id>/TESTABILITY.md` with `baseline-commit`, the exact proposed
+    `spec-blob`, `complete-sweep: yes`, one disposition per obligation, and `verdict: GREEN|RED`.
+    The sweep NEVER stops at the first gap: RED returns the complete gap set for that round;
+    GREEN means zero gaps. Any change to the spec, baseline corpus or obligation set makes the
+    audit stale and forces a fresh full sweep. The owner-readable PLAN is not presented for
+    final approval, the spec is not handed off, and no EXECUTE/BUILD CALL is issued until this
+    artifact is fresh and GREEN (VALIDATION G0; PROJECT_SETUP pre-execution gate).
+    TESTABILITY.md then joins the frozen packet: builder/test-author may not edit it. This is a
+    plan testability audit, not RED authoring: it writes no production or acceptance test.
     The plan the owner approves is a detailed-but-simple OWNER-READABLE
     document — the goal in plain words and EACH technical decision spelled out
     (plain-language what + why), plus what is cut or deferred; the machine spec /
@@ -99,9 +121,11 @@ CALL (business task from a direction)
     the frozen plan (the plan session writes no product code and commissions no
     red tests). Planning and building never share one session.
   → RED TESTS (before build): the test-author (see Roles) writes the failing
-    acceptance tests from the frozen spec — the builder cannot author or edit
-    the tests it must satisfy, so a misreading of the spec cannot hide in
-    self-agreeing tests.
+    acceptance tests from the frozen spec and its audited exact-base corpus —
+    the builder cannot author or edit the tests it must satisfy, so a misreading
+    of the spec cannot hide in self-agreeing tests. Before authoring it rechecks
+    that TESTABILITY.md is GREEN and fresh; absent/stale/RED is a pre-RED STOP,
+    not another partial authoring attempt.
   → BUILD (autonomous): one feature at a time, smallest-first.
     Reuse-first rule: before writing anything, search for an existing
     implementation; the duplicate you would have written becomes a call.
@@ -136,7 +160,7 @@ CALL (business task from a direction)
     → stop early. Hard cap: 3 retries per gate.
   → A FIX IS A CHANGE, not a patch: a fix made during VALIDATE/RETRY that ADDS
     or CHANGES behavior (a new guard, a reordering, a check that can throw) re-
-    triggers the spec-hardening checks (a)/(b) on the fix — explicitly on the
+    triggers the spec-hardening checks (a)/(b)/(d) on the fix — explicitly on the
     NEW failure/exception paths it introduces: a guard that throws must keep the
     old-regime invariants (tick atomicity, conservation, non-negativity) intact
     ON the throw path, and each becomes a failing criterion the test-author

@@ -10,9 +10,46 @@ stamps it at setup, §Re-sync updates it. `collect` / `audit` / `digest` compare
 that is BEHIND, so an os/engineering hardening can no longer silently fail to reach the repo where work
 runs (the root cause behind FRICTION 79/84/88/90/92 — propagation lag with no forcing function).
 
-current: 20
+current: 21
 
 log:
+  21  2026-07-13  executable-test closure before PLAN approval/handoff (owner maintenance request after the
+      second NearGas spec-only RED stop). Witnesses: GasCoopGame c-exec-near-gas-core-authority-001 first stopped
+      at historical checkpoint b94806deaaa3cbb56a8b6cda9baa75ac52f028c3 because the frozen packet did not bind
+      public construction and a semantic-fault route; PLAN-AMEND supplied construction A/fault A, then a Direction
+      binding-refutation incorrectly generalized that local repair to full-suite readiness; fresh RED checkpoint
+      5c783e07b5378dece1e0664b203c4e147edacd68 still found nine elementary construction/observation/injection groups
+      missing and could author only the empty single-cell recipe. The spec-ceiling risk was already in FRICTION 84,
+      so more reviewer care is not a control. Verdict: (a) rule defect — CONTOUR told an extension's test-author to
+      read ONLY a spec on the false premise that code did not yet exist; (b) missing gate — no pre-execution artifact
+      proved every acceptance/negative/property obligation constructible, invocable, observable and falsifiable;
+      plus a witnessed refutation-execution slip (a partial amendment was treated as complete). Explicit owner request
+      is independently sufficient. Fix, STRICTLY ADDITIVE: CONTOUR adds executable-test closure as fourth pre-freeze
+      check and defines an exact-base public/test-harness baseline corpus; each obligation owns non-empty
+      construct|act|observe|negative|source bindings with no test-bearing n/a. A FRESH read-only validator independently
+      derives the whole obligation union, resolves every row, NEVER stops at the first gap, and returns a complete body
+      for verbatim planner transcription with baseline-commit + proposed spec-blob + complete-sweep + per-obligation
+      dispositions + GREEN|RED in openspec/changes/<id>/TESTABILITY.md. Final owner-readable PLAN approval,
+      freeze/handoff and EXECUTE/BUILD are forbidden until fresh GREEN. TESTABILITY.md joins the frozen packet and is
+      not editable by RED author/builder. The
+      independent RED author then reads the frozen spec plus ONLY that audited corpus, never builder/new implementation.
+      VALIDATION makes the artifact a plan-handoff AND -Deliver dependency;
+      PROJECT_SETUP requires a repo-native plan-check plus seeded misses for absent/RED/incomplete/stale/token-omitting/
+      empty-or-n/a bindings; coding-agent adds an immediately-active writer line-presence guard on downstream EXECUTE
+      CALLs and executor truth-resolution before RED. No prior gate is weakened; planner/builder/validator/test-author
+      separation, frozen meaning, option-A serial concurrency readiness, negative controls, property layer, review/G5,
+      retry/non-convergence and owner authority remain intact. SCOPE (honest): mechanically prevents the witnessed
+      missing-executable-binding class from FIRST surfacing in a builder session; a fresh validator still supplies
+      symbol/route truth, so this does not promise that no subtle specification mistake can exist. This is a process/
+      handoff defect caught before product implementation/review/owner-eye, not a product-invariant escape, so no
+      ESCAPE-CLASSES row. KERNEL/plays/packets/schema/SESSION_PAYLOAD/live/** untouched; no owner re-paste is needed.
+      OS writer guard ACTIVE now; product plan-check/-Deliver enforcement is INERT until §Re-sync. §Re-sync OWED:
+      GasCoopGame — mirror the v21 root-AGENTS executable-test source/handoff rule, add TESTABILITY.md format and a
+      plan-check shared with -Deliver, seed every named miss, bump validation.config 20→21; the current NearGas packet
+      must repair ALL missing bindings and receive a fresh full-sweep audit before any new EXECUTE CALL (the original
+      BUILD remains historical NOT DELIVERED). health-ai — translate the same obligation/baseline rule for its markdown
+      execution substrate or record N/A only when there truly is no G0-frozen executable obligation, seed that branch,
+      and bump its current stamp →21.
   20  2026-07-13  repo-local execution authority + obsolete global runtime retirement: a generic Direction OS
       engineering/PLAN/BUILD CALL is governed by the CALL plus the product repo's AGENTS.md, frozen plan/spec,
       and validation.config. Globally installed or discoverable skills and tools are support, not authority:
