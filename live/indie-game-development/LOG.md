@@ -212,4 +212,6 @@ archived: history/LOG-archive-indie-game-development.md — sessions before 2026
 
 2026-07-13 — work/close (g-9c41/NearGas-L1-PLAN, s-work-near-gas-l1-plan-close-001): fresh binding refutation found PLAN done_when met — owner-approved @1e4e78c is merged in origin/main@13917123, PLAN closed, and a separate serial concurrency-ready L1 BUILD call opened; actual workers wait for delivered L1/L2/C1 plus fresh profiling, and no RED/BUILD/Unity ran. → history/2026-07-13-s-work-near-gas-l1-plan-close-001.md
 
+2026-07-13 — work/publish (g-9c41/NearGas-L1-BUILD route, s-work-publish-near-gas-l1-build-route-001): origin/main advanced 6701284 → b7e3f20 without force; merge preserved remote OS/Solmax state and published the binding-closed L1 PLAN plus its separate serial concurrency-ready BUILD call. Remote readback is green; builder dispatch must §Re-sync GasCoopGame contract v19→v20 before material work. → history/2026-07-13-s-work-publish-near-gas-l1-build-route-001.md
+
 END_OF_FILE: live/indie-game-development/LOG.md
