@@ -14,7 +14,7 @@ Companion files: `PROJECT_SETUP.md` (bootstrap a product repo), `VALIDATION.md` 
 
 ## Roles (always separated)
 
-**v21 PLAN role boundary (normative over older shorthand).** `author` stops at gated candidate; writer commits receipt event W and ends; a fresh writer job commits verdict CALL W2 referencing ancestral W; only then fresh `verdict` obtains owner words in W3. BUILD/RED is another fresh session. Neither PLAN session writes product code or commissions RED.
+**v21 PLAN role boundary (normative over older shorthand).** `author` stops at gated candidate; writer commits receipt event plus an ordinary mechanical finalization CALL in W and ends; a fresh finalizer RESULT lets writer commit verdict CALL W2 referencing ancestral W; only then fresh `verdict` obtains owner words in W3 and leaves another mechanical finalization CALL. A different fresh finalizer RESULT lets writer commit EXEC CALL W4. BUILD/RED is another fresh session. Neither PLAN session nor either finalizer writes product code or commissions RED.
 
 - **Planner** — interactive session, frontier model, plan mode. Talks to the owner. A SEPARATE session from BUILD, always: the plan leg ENDS when the owner approves the plan — it hands off a build CALL and writes NO product code and authors/commissions NO red tests (red-test authoring is the build session's opening move — see Test-author). Planning and building never share one session.
 - **Builder** - autonomous fresh EXECUTE or receipt-bound BUILD-resume session, never the PLAN session. It reads the frozen plan and external run receipts, never talks to the owner mid-run, and cannot turn an arbitrary on-disk diff into a resume.
@@ -94,18 +94,21 @@ CALL (business task from a direction)
     (d) EXECUTABLE-TEST CLOSURE: external base-authority and exact Direction done_when enter
     PLAN intent. Writer finalizes entry. Coverage reproduces every bullet; typed packet/authority/base
     regular-file rows bind meaning while baseline current copies may legitimately change.
-    Every obligation passes all seven machine records:
-    `construct|act|observe|negative|source|skeleton|red-realization`, with complete FQ signature,
-    visibility/owner, arguments/fixtures/returns/observe/inject/delegate and no-implementation sequence.
-    Validator renders against exact base and proves compile plus unique discovery without production stub.
+    Every obligation passes all seven machine records plus a closed typed binding-registry DAG:
+    `construct|act|observe|negative|source|skeleton|red-realization`. Every fixture/slot/literal resolves
+    to exact typed producer, encoded bytes/path/blob, test-local source, or single-producer slot; no nickname
+    counts. Validator fully expands ephemeral source plus its exact reachable test-local helper closure in a clean
+    exact-base scratch tree, passes every helper path explicitly, and actually runs the pinned compiler, discovery and
+    one-test filtered runtime, proving one id and its exact RED criterion without a production stub.
     A new absent symbol uses exact reflection/dynamic test-local signature route and runtime criterion RED;
     a direct uncompilable new-member call fails PLAN.
     `PLAN/author` commits exact candidate, verifies clean manifested delta, trust, acceptance, typed TESTABILITY
     and red realizations, runs pinned plan, then returns a terminal PLAN-GATED checkpoint with exact command/
     zero-exit/clean-status observation, candidate HEAD and receipt covering that observation. It never prompts
-    for a verdict. Writer reruns/recomputes, saves/commits Direction-history event W, then ends. A fresh writer
-    job commits finalized `PLAN/verdict` CALL W2 referencing W; strict W<W2 avoids self-reference. Only that
-    session presents candidate and obtains owner words in later W3. Receipt first appearing with words is invalid.
+    for a verdict. Its RESULT lets writer save event plus an ordinary pending mechanical finalization CALL at W, then ends. A fresh
+    session runs that CALL, emits its own mechanical RESULT and lets writer commit finalized `PLAN/verdict` CALL W2 referencing
+    W; strict W<W2 avoids self-reference and preserves the live-only-via-RESULT rule. Only that
+    session presents candidate and obtains owner words in W3; a fresh mechanical RESULT finalizes EXEC in W4. Receipt first appearing with words, or EXEC existing before W4, is invalid.
     EXEC session returns stable intent. Writer verifies event/candidate/receipt/verdict, runs pre-execution, then
     persists run-id, pre-red-head, receipt/observation and finalized CALL. Historical source/test work has
     no such receipt.
@@ -113,13 +116,17 @@ CALL (business task from a direction)
     test/oracle-registration delta; first R is direct child or declared test-author-only chain. Pinned
     red-boundary proves compile, unique discovery/filter and expected runtime RED. Production-before-R,
     mixed/unmanifested change or wrong parent fails. Later independent revisions parent exact accepted
-    progress and obey the same path rule.
+    progress, obey the same path rule and may add/repair only a variant under the unchanged frozen obligation;
+    they preserve the original assertion/mapping/acceptance hash and cannot relabel acceptance.
     BUILD resume preserves finalized run/base/acceptance/trust/TESTABILITY plus RED revision and exact
     Direction-accepted progress. Foreign or pre-v21 state cannot resume.
     Base config resolves exact result path; deliver at D and one-commit archive A use typed manifests.
     Routing receipt recovers by rerun at D or derivation D=A^ at clean A; product report never self-hashes.
-    Before SETUP/RE-SYNC install, separate adapter-author and fresh adapter-review RESULTs are writer-applied/
-    committed; install pins that ancestral event and adapter path/mode/blob. Writer nonce-salts fixture identity,
+    A read-only `SETUP/interview` RESULT and writer receipt precede adapter work; it may inspect the target/profile
+    but cannot write product files. `SETUP/adapter-author` returns one exact work artifact; writer commits its RESULT/artifact
+    plus a mechanical finalizer, and that finalizer's fresh RESULT creates strict-descendant `SETUP/adapter-review`.
+    The different read-only reviewer returns the acceptance event; only `SETUP/install` may pin the full ancestral chain
+    and mutate the target. Writer nonce-salts fixture identity,
     runs challenge -> bootstrap-receipt install cases -> non-install receipt cases -> final receipt + excluded
     binding smoke, and rejects always-zero/case/order/root/fingerprint-switch/defect-absent fixtures.
     This is plan testability, not RED authoring: no product or acceptance test is written here.

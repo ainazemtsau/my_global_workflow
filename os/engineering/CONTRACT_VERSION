@@ -2,8 +2,7 @@
 
 A single monotonic integer naming the current state of the engineering contract (CONTOUR.md +
 VALIDATION.md + PROJECT_SETUP.md + V21-CONFORMANCE.md + `os/schema/packets.md` +
-`os/adapters/coding-agent.md` + root `AGENTS.md` + `.agents/skills/direction-os/SKILL.md` +
-ESCAPE-CLASSES.md + profiles/**). Appending a defect-class to
+`os/adapters/coding-agent.md` + ESCAPE-CLASSES.md + profiles/**). Appending a defect-class to
 ESCAPE-CLASSES.md (the ratchet, MAINTENANCE step 6) bumps it too, so the new class propagates to
 product repos instead of protecting only the workflow-repo-side audits. A **MAINTENANCE session bumps it** (current + one
 log line) whenever it hardens or adds a load-bearing gate (os/MAINTENANCE.md step 6). Each product
@@ -49,7 +48,7 @@ log:
       execution/deliver/close modes and seeded misses for absent/RED/incomplete/stale/wrong-change/wrong-manifest/wrong-
       report-blob/wrong-archive/wrong-validation-toolchain/wrong-
       worktree-or-base/token-omitting/empty-or-n/a bindings, including seeded misses for an omitted/changed/substituted
-      trust root or a dynamic/unlisted load. Packet schema requires normalized SETUP|PLAN|EXECUTE|BUILD|
+      trust root or a dynamic/unlisted load. Packet schema requires normalized SETUP|PLAN|EXECUTE|BUILD|DELIVER|CLOSE|
       RE-SYNC and absolute worktree; logical repo is never a path. SETUP is the sole no-branch/base bootstrap. PLAN and
       later phases carry exact branch/base; PLAN also carries change-id and exact safe preexisting-plan-diff, checked by
       writer plus a current-v21 zero `plan-entry` run before planner time. Every EXECUTE/BUILD explicitly carries real
@@ -84,8 +83,9 @@ log:
       before this contract was declared complete. Config therefore declares only the ordered trust-root path/mode list;
       the external CALL manifest pins every path/mode/blob including config itself, avoiding a config self-hash cycle.
       A third full-SHA refutation found eight more concrete bypasses and all were made mechanical before close: PLAN
-      chronology is now author checkpoint -> writer event W -> fresh writer verdict-CALL commit W2 -> verdict RESULT W3,
-      with strict ancestry avoiding commit self-reference, so a
+      chronology is now author checkpoint -> writer event/finalizer W -> fresh RESULT-authorized verdict-CALL commit W2
+      -> verdict RESULT/finalizer W3 -> fresh RESULT-authorized EXEC-CALL commit W4, with strict ancestry avoiding commit
+      self-reference, so a
       receipt/timestamp first appearing with owner words has no authority; conformance uses acyclic install challenge ->
       bootstrap receipt -> non-install cases -> persisted final receipt/event -> excluded binding smoke; stack adapter is
       produced and independently reviewed in a separate Direction transaction whose writer event/blob predates install;
