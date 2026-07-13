@@ -18,10 +18,12 @@ For every frozen/G0 change:
    `TESTABILITY.md`. It may not write product source, acceptance tests, oracle registration or a GREEN verdict.
 3. Writer persists the complete planner RESULT and, through the normal event -> mechanical finalizer -> child sequence,
    creates a fresh finalized `PLAN/binding-validator` CALL for exact `P`.
-4. A different fresh read-only validator independently derives the obligation union from the Direction `done_when` and
-   frozen spec. It must not trust the planner's coverage list as the source of that union. In a clean scratch tree at the
-   exact base it generates its own ephemeral binding probes and runs the product's real pinned compiler, discovery tool
-   and one-test filtered runner for every obligation and for the union.
+4. A different fresh read-only validator independently derives the obligation union from the Direction `done_when`,
+   frozen spec and an adapter-reviewed authority grammar that candidate `P` cannot edit. It must not trust the planner's
+   coverage list, an empty frozen trace or the candidate's own notion of completeness. Exact typed literal values,
+   source/resource path+mode+blob and required owner/observer/delegation edges are authority. The validator never imports
+   product code into its controller; it generates ephemeral probes and runs the real pinned compiler, discovery tool and
+   one-test filtered runner against an exact registry-selected scratch mirror for every obligation and for the union.
 5. Any missing/unresolved binding, skipped command, write to the product, stale candidate, non-unique discovery, PASS or
    wrong sentinel is `PLAN RED`. Writer routes the complete gap list back to `PLAN/author`; no owner-verdict CALL exists.
 6. Only a persisted GREEN validator RESULT and a fresh finalizer may create `PLAN/verdict`. That CALL freezes candidate,
@@ -85,7 +87,7 @@ Every reference resolves exactly once. The permitted kinds are disjoint:
 
 - typed literal;
 - exact-base production producer with fully qualified signature and visibility;
-- test-local source artifact with exact generated path/mode/blob;
+- test-local source artifact with exact module/path/mode/blob;
 - runtime resource with exact path/mode/blob and an exact loader/codec callable;
 - constructed object instance with constructor, ownership and lifetime;
 - callable action/observer with the exact owning instance, signature, ordered typed arguments and return;
@@ -93,7 +95,8 @@ Every reference resolves exactly once. The permitted kinds are disjoint:
 - negative control bound to one concrete operation instance and one exact fault phase.
 
 A source path cannot stand in for an instance, a method name cannot stand in for its owner, raw bytes cannot stand in
-for a typed value, and `operation:Step` cannot stand in for a concrete operation instance. The graph is acyclic,
+for a typed value, and `operation:Step` cannot stand in for a concrete operation instance. Literal value as well as type
+is frozen: `open` cannot silently become `sealed`, and fault phase `before` cannot become `after`. The graph is acyclic,
 type/arity/visibility correct and fully reachable from an obligation.
 
 Each route names, without prose aliases:
@@ -113,20 +116,26 @@ then reach a validator-owned sentinel; the probe does not assert the future beha
 
 ## Fresh binding-validator result
 
-The validator receives exact `P`, but independently parses `done_when` and the spec to derive the obligation union. It
-then performs all of the following in scratch outside the product worktree:
+The validator receives exact `P`, but independently parses `done_when` and the spec against the separately reviewed
+adapter grammar to derive the obligation union and mandatory subroutes. It then performs all of the following in scratch
+outside the product worktree:
 
 1. Verify base/candidate/toolchain/manifest and a clean byte-identical product tree.
-2. Resolve the complete typed DAG and expand each skeleton.
-3. Generate ephemeral binding-only source itself. Planner-supplied source is invalid.
-4. Invoke the real product compiler with every compile source explicit.
-5. Invoke real discovery and require exactly one unique id per obligation and the exact union.
-6. Invoke the real filtered runner with only declared runtime resources and require each exact binding sentinel.
-7. Materialize every operation-local fault phase, invoke its exact seam and type-observe the full audit, ownership and
+2. Statically resolve the exact source/API closure without importing product code into the controller; reject an empty
+   authority grammar, wrong literal value, source substitution or product attempt to import validator controller state.
+3. Resolve the complete typed DAG and expand each skeleton.
+4. Generate ephemeral binding-only source itself. Planner-supplied source is invalid.
+5. Mirror the pinned product bytes into scratch, select compile/runtime source only through the validated registry and
+   invoke the real product compiler with every compile source explicit.
+6. Invoke real discovery and require exactly one unique id per obligation and the exact union.
+7. Invoke isolated real filtered runners with only declared runtime resources and require each exact validator-owned
+   binding proof/sentinel; product-origin text cannot impersonate completion.
+8. Materialize every operation-local fault phase, invoke its exact seam and type-observe the full audit, ownership and
    delegation surfaces. It makes no rollback, equality, golden-value or other future behavioral assertion; those belong
    only to the later independent acceptance RED author.
-8. Return all gaps in one complete sweep, not only the first failure.
-9. Prove `product-writes: []` and unchanged status/tree before and after.
+9. Return all gaps in one complete sweep, not only the first failure.
+10. Prove `product-writes: []` with content and write-sensitive metadata observations before and after; a transient
+    append/truncate is not hidden by equal final bytes.
 
 The pinned tool identity includes real executable or interpreter path, version and content hash; script path/mode/blob;
 and every loaded dependency. A descriptor string, executable bit, nickname, boolean `compiled: true`, copied expected
@@ -158,7 +167,8 @@ The OS witness does not replace the product-native adapter. SETUP/RE-SYNC must i
 
 - binds the real stack compiler/discovery/runner/interpreter and dependencies;
 - implements `plan-entry`, `plan-binding`, `pre-execution`, `red-boundary`, `resume`, `deliver` and `close` checks;
-- runs the OS-owned negative classes below against disposable exact-base product fixtures;
+- runs the OS-owned negative classes below against disposable exact-base product fixtures, including empty authority,
+  literal-value/source substitution, controller-import, persistent/transient write and stale/future contract replay;
 - stores an independently authored/reviewed adapter bundle (source plus output manifest) and exact conformance receipt;
 - refuses stamp v21 when any case is missing, skipped, nonmaterialized or returns the wrong exit.
 
@@ -177,18 +187,21 @@ The parent pins the resolved interpreter path/version/SHA-256 and script SHA-256
 process, dynamically compiles validator-generated probes, uniquely discovers them, runs each filter and checks exact
 sentinels. The expected terminal field is `"status": "V21_CONFORMANCE_GREEN"`.
 
-The current witness has one positive and 62 negative cases. A parent, per-case child, fresh validator child, real isolated
+The current witness has one positive and 78 negative cases. A parent, per-case child, fresh validator child, real isolated
 CPython compiler child, discovery child, per-filter runner children and union runner child are distinct processes. The
 validator consumes immutable external done_when/spec/event bytes and the candidate typed registry/recipes; one generic
 executor is the only path to completion. Every negative has an independent exact `(error-code, path)` oracle plus a
 pre/post mutation fingerprint, so a broken mutator or worker is fatal rather than a successful RED.
 
-The corpus removes the concrete create/topology/face-impulse/owned-handler/audit/loopback/fault-selector/operation-slot/
-golden/codec/source/hidden-state routes, including a two-gap complete sweep. It also seeds signature, owner, ordered
-argument, same-typed source edge, return/slot type, visibility, resource path/mode/size/blob, fault ownership, graph
-cycle/reachability/producer, candidate/authority/toolchain, compile/discovery/filter/union, copied-sentinel and actual
-product-write failures. The receipt contains observed commands/exits/hashes and before/after product-tree hashes, not
-candidate booleans.
+The corpus removes the concrete create/topology/face-impulse/owned-handler/audit/loopback/fault-selector/fault-slot/
+operation-slot/golden/codec/source/hidden-state/owner/audit-counter/delegation routes, including same-kind and mixed-class
+two-gap complete sweeps.
+It also seeds wrong open/sealed and before/after literals, source-path substitution, empty external route grammar,
+controller-import, malformed node schema, signature, owner, ordered argument, same-typed source edge, return/slot type,
+visibility, resource path/mode/size/blob, fault ownership, graph cycle/reachability/producer, candidate/authority/toolchain,
+old finalized-contract replay, future product stamp and changed live contract authority,
+compile/discovery/filter/union, copied-sentinel and persistent/transient product-write failures. The receipt contains
+observed commands/exits/hashes plus content and write-sensitive before/after product-tree hashes, not candidate booleans.
 
 The witness is a regression test for the OS rule, not proof that an arbitrary product adapter is correct. The binding
 GREEN for a real change comes only from that product's fresh native validator run against its exact candidate/base. This

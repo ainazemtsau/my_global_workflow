@@ -7,8 +7,8 @@ ESCAPE-CLASSES.md (the ratchet, MAINTENANCE step 6) bumps it too, so the new cla
 product repos instead of protecting only the workflow-repo-side audits. A **MAINTENANCE session bumps it** (current + one
 log line) whenever it hardens or adds a load-bearing gate (os/MAINTENANCE.md step 6). Each product
 repo records the version it last synced to (`validation.config: synced_contract_version`); PROJECT_SETUP
-stamps it at setup, §Re-sync updates it. `collect` / `audit` / `digest` compare the two and flag a repo
-that is BEHIND, so an os/engineering hardening can no longer silently fail to reach the repo where work
+stamps it at setup; Re-sync updates it. Writer/finalizer/collect/executor require exact equality; audit/digest report
+any mismatch (behind or future), so an os/engineering hardening can no longer silently fail to reach the repo where work
 runs (the root cause behind FRICTION 79/84/88/90/92 — propagation lag with no forcing function).
 
 current: 21
@@ -132,18 +132,24 @@ log:
       non-writer-compatible histories. It is not the shipped authority. Final v21 narrows the mechanical repair to the
       witnessed boundary and supplies a real subprocess regression witness: PLAN author enters without TESTABILITY,
       commits an ungated candidate binding contract with no candidate self-pin and stops; a distinct fresh product-
-      read-only PLAN/binding-validator derives the obligation union from external authority bytes, generates scratch-
-      only non-acceptance probes and runs the real pinned compiler/discovery/filtered/union contour. A generic typed
-      registry/recipe executor is the sole completion path; it checks actual signatures, owners, args, returns,
-      resources, graph, operation fault ownership and before/after product-tree identity. Only persisted GREEN can lead
+      read-only PLAN/binding-validator derives the obligation union from external authority bytes plus an independently
+      reviewed non-empty authority grammar, generates scratch-only non-acceptance probes and runs the real pinned
+      compiler/discovery/filtered/union contour. Candidate P cannot define completeness: exact literal values,
+      source/resource module/path/mode/blob, required owners/observers/delegation and operation fault ownership are frozen.
+      Product code never loads into the validator controller; static source/API closure selects an exact scratch mirror,
+      isolated workers execute it, and content plus write-sensitive original-tree observations detect persistent or
+      transient writes. A generic typed registry/recipe executor is the sole completion path. Only persisted GREEN can lead
       through a fresh finalizer to owner verdict, and only explicit accepted words for unchanged P/receipt can lead to
       EXECUTE; revised/split revalidates and rejected stops. The later independent RED author receives routes/receipt
       but never probe source and authors fresh spec-derived acceptance tests. `V21-CONFORMANCE.md` is the concise
-      normative rule and `os/engineering/v21_conformance.py` is the executable OS witness (one positive plus 62 exact-
+      normative rule and `os/engineering/v21_conformance.py` is the executable OS witness (one positive plus 78 exact-
       oracle negative cases across separate case/validator/compiler/discovery/filter/union child processes, pinned
       CPython `-I -S`). Product SETUP/RE-SYNC must bind
       the equivalent cases to its native real toolchain before stamp 21; no prose or OS witness substitutes for that
-      product-native run. Earlier claims of a complete exact ABI/history/archive mutation model are superseded, not
+      product-native run. Every engineering finalized packet also binds an independently resolved live contract-authority
+      observation and product ordinal; writer/finalizer/collect and executor-before-first-write require exact equality.
+      Behind, future, missing/unreadable, changed live authority or replay of an older finalized CALL stops for RE-SYNC.
+      Earlier claims of a complete exact ABI/history/archive mutation model are superseded, not
       evidence. The residual is explicit: this prevents the witnessed elementary binding class from first surfacing
       in BUILD; it does not prove every human semantic judgment correct.
   20  2026-07-13  repo-local execution authority + obsolete global runtime retirement: a generic Direction OS
@@ -451,7 +457,7 @@ log:
   2  2026-06-16  independent test-author role: spec-derived RED acceptance tests before build, builder cannot edit them (FRICTION 84)
   1  2026-06-15  report-handback: RESULT.md deliver-gate + non-negotiable #6; builder never authors the next CALL (FRICTION 79)
 
-# A product repo whose synced_contract_version < current is behind by the listed versions and owes a
-# §Re-sync (PROJECT_SETUP §Re-sync). The compare is integer "<"; the log names exactly what is owed.
+# A product repo whose synced_contract_version is not exactly current owes RE-SYNC (PROJECT_SETUP Re-sync).
+# Behind and future stamps both fail; finalized packets and executors independently re-resolve live authority.
 
 END_OF_FILE: os/engineering/CONTRACT_VERSION

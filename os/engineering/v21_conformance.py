@@ -11,6 +11,7 @@ the same contract to their native stack during SETUP/RE-SYNC.
 
 from __future__ import annotations
 
+import ast
 import copy
 import hashlib
 import importlib.util
@@ -308,8 +309,43 @@ def tree_manifest(root: Path) -> list[dict[str, Any]]:
     return rows
 
 
+def tree_observation(root: Path) -> list[dict[str, Any]]:
+    """Content plus write-sensitive metadata for the read-only product tree."""
+    rows: list[dict[str, Any]] = []
+    for path in sorted(root.rglob("*"), key=lambda item: item.as_posix().lower()):
+        if path.is_dir():
+            continue
+        if not regular_file(path):
+            rows.append({"path": path.relative_to(root).as_posix(), "invalid": "non-regular"})
+            continue
+        observed = path.stat()
+        rows.append(
+            {
+                "path": path.relative_to(root).as_posix(),
+                "mode": logical_mode(path),
+                "size": observed.st_size,
+                "sha256": file_sha256(path),
+                "mtime_ns": observed.st_mtime_ns,
+            }
+        )
+    return rows
+
+
 def tree_hash(root: Path) -> str:
     return sha256_bytes(canonical_bytes(tree_manifest(root)))
+
+
+def copy_product_snapshot(source: Path, target: Path, manifest: list[dict[str, Any]]) -> None:
+    target.mkdir(parents=True)
+    for row in manifest:
+        if "invalid" in row:
+            raise HarnessError("cannot mirror non-regular product entry")
+        source_path = source / row["path"]
+        target_path = target / row["path"]
+        target_path.parent.mkdir(parents=True, exist_ok=True)
+        shutil.copyfile(source_path, target_path)
+    if tree_manifest(target) != manifest:
+        raise HarnessError("scratch product mirror differs from pinned base")
 
 
 def write_json(path: Path, value: Any) -> None:
@@ -443,6 +479,7 @@ def base_testability(product_root: Path, acceptance_hash: str) -> dict[str, Any]
             "id": "source:fixture-api",
             "kind": "source-artifact",
             "role": "fixture-api-source",
+            "module": "fixture_api",
             "path": "fixture_api.py",
             "mode": "100644",
             "sha256": file_sha256(fixture_path),
@@ -790,33 +827,93 @@ def base_testability(product_root: Path, acceptance_hash: str) -> dict[str, Any]
     }
 
 
+def reference_descriptor(node: dict[str, Any], by_id: dict[str, dict[str, Any]]) -> dict[str, Any]:
+    """Frozen shallow identity for every value or artifact used by a route."""
+    kind = node["kind"]
+    value: dict[str, Any] = {"kind": kind, "role": node["role"]}
+    if kind == "typed-literal":
+        value.update({"value_type": node["value_type"], "value": node["value"]})
+    elif kind == "source-artifact":
+        value.update(
+            {
+                "module": node["module"], "path": node["path"], "mode": node["mode"],
+                "sha256": node["sha256"],
+            }
+        )
+    elif kind == "runtime-resource":
+        value.update(
+            {
+                "path": node["path"], "mode": node["mode"], "size": node["size"],
+                "sha256": node["sha256"], "value_type": node["value_type"],
+            }
+        )
+    elif kind in {"instance", "slot"}:
+        owner_ref = node.get("owner_ref")
+        producer = node.get("producer")
+        value.update(
+            {
+                "value_type": node["value_type"], "lifetime": node["lifetime"],
+                "owner_role": by_id[owner_ref]["role"] if owner_ref in by_id else None,
+                "producer_role": by_id[producer]["role"] if producer in by_id else None,
+            }
+        )
+    else:
+        value["binding"] = node.get("signature")
+    return value
+
+
+def route_reference_descriptor(node: dict[str, Any], by_id: dict[str, dict[str, Any]]) -> dict[str, Any]:
+    if node["kind"] in {"typed-literal", "source-artifact", "runtime-resource", "instance", "slot"}:
+        return reference_descriptor(node, by_id)
+    return {"kind": node["kind"], "role": node["role"]}
+
+
 def trace_descriptor(node: dict[str, Any], by_id: dict[str, dict[str, Any]]) -> dict[str, Any]:
     kind = node["kind"]
     if kind == "runtime-resource":
         binding = "resource:" + node["path"]
-        args: list[str] = []
+        style = "resource"
+        visibility = "frozen"
+        owner_type = None
+        args: list[dict[str, Any]] = []
         owner = None
         outcome = "returned"
-    elif kind == "reflection":
-        binding = node["signature"]
-        args = [by_id[item["source"]]["role"] for item in node["args"]]
-        owner = None
-        outcome = "missing:AttributeError"
     else:
         binding = node["signature"]
-        args = [by_id[item["source"]]["role"] for item in node["args"]]
-        owner = by_id[node["owner_source"]]["role"] if node.get("owner_source") else None
-        expected = node.get("expected_exception")
-        outcome = "exception:" + expected if expected else "returned"
+        style = node["style"]
+        visibility = node["visibility"]
+        owner_type = node["owner_type"]
+        args = [
+            {
+                "name": item["name"], "type": item["type"],
+                "source": reference_descriptor(by_id[item["source"]], by_id),
+            }
+            for item in node["args"]
+        ]
+        owner = reference_descriptor(by_id[node["owner_source"]], by_id) if node.get("owner_source") else None
+        if kind == "reflection":
+            outcome = "missing:AttributeError"
+        else:
+            expected = node.get("expected_exception")
+            outcome = "exception:" + expected if expected else "returned"
     output_id = node.get("output")
-    return {
+    descriptor = {
+        "kind": kind,
         "role": node["role"],
         "binding": binding,
-        "owner_role": owner,
-        "arg_roles": args,
-        "output_role": by_id[output_id]["role"] if output_id else None,
+        "style": style,
+        "visibility": visibility,
+        "owner_type": owner_type,
+        "owner": owner,
+        "args": args,
+        "return_type": node.get("return_type", node.get("value_type")),
+        "output": reference_descriptor(by_id[output_id], by_id) if output_id else None,
         "outcome": outcome,
     }
+    if kind == "negative-control":
+        descriptor["operation"] = reference_descriptor(by_id[node["operation_source"]], by_id)
+        descriptor["phase"] = reference_descriptor(by_id[node["phase_source"]], by_id)
+    return descriptor
 
 
 def frozen_authority(packet: dict[str, Any]) -> tuple[dict[str, Any], dict[str, Any]]:
@@ -838,6 +935,10 @@ def frozen_authority(packet: dict[str, Any]) -> tuple[dict[str, Any], dict[str, 
                     category: [by_id[node_id]["role"] for node_id in packet["routes"][obligation][category]]
                     for category in ("construct", "act", "observe", "negative", "source", "skeleton")
                 },
+                "route_bindings": {
+                    category: [route_reference_descriptor(by_id[node_id], by_id) for node_id in packet["routes"][obligation][category]]
+                    for category in ("construct", "act", "observe", "negative", "source", "skeleton")
+                },
                 "trace": [trace_descriptor(by_id[node_id], by_id) for node_id in packet["recipes"][obligation]],
             }
         )
@@ -845,6 +946,10 @@ def frozen_authority(packet: dict[str, Any]) -> tuple[dict[str, Any], dict[str, 
         "change_id": packet["change_id"],
         "observed_fields": OBSERVED_FIELDS,
         "fault_phases": FAULT_PHASES,
+        "literal_authority": {
+            row["role"]: {"value_type": row["value_type"], "value": row["value"]}
+            for row in packet["nodes"] if row["kind"] == "typed-literal"
+        },
         "planned_api": {
             "fixture_api.Core.create": {
                 "style": "class",
@@ -866,7 +971,7 @@ PACKET_KEYS = {
 }
 NODE_KEYS = {
     "typed-literal": {"id", "kind", "role", "value_type", "value"},
-    "source-artifact": {"id", "kind", "role", "path", "mode", "sha256"},
+    "source-artifact": {"id", "kind", "role", "module", "path", "mode", "sha256"},
     "instance": {"id", "kind", "role", "value_type", "producer", "lifetime", "owner_ref"},
     "slot": {"id", "kind", "role", "value_type", "producer", "lifetime", "owner_ref"},
     "runtime-resource": {"id", "kind", "role", "path", "mode", "size", "sha256", "output", "value_type"},
@@ -907,17 +1012,27 @@ def resolved_inside(root: Path, relative: str) -> Path | None:
         return None
 
 
-def derive_authority(done_when: dict[str, Any], spec: dict[str, Any], gaps: list[Gap]) -> tuple[list[str], dict[str, Any]]:
-    done_rows = done_when.get("obligations")
-    spec_rows = spec.get("obligations")
-    done_ids = [row.get("id") for row in done_rows] if isinstance(done_rows, list) else []
-    spec_ids = [row.get("id") for row in spec_rows] if isinstance(spec_rows, list) else []
-    if done_ids != spec_ids or not done_ids or any(not isinstance(item, str) for item in done_ids):
-        add_gap(gaps, "E_AUTHORITY_UNION", "/authority/obligations", "done_when/spec obligation union differs")
-    if len(done_ids) != len(set(done_ids)):
-        add_gap(gaps, "E_AUTHORITY_DUPLICATE", "/authority/obligations", "duplicate obligation")
-    by_id = {row.get("id"): row for row in spec_rows or [] if isinstance(row, dict) and isinstance(row.get("id"), str)}
-    return done_ids, by_id
+def embedded_reference_authority() -> tuple[dict[str, Any], dict[str, Any]]:
+    """Adapter-reviewed grammar derived from OS-owned bytes, never candidate P."""
+    with tempfile.TemporaryDirectory(prefix="v21-authority-") as root_raw:
+        product_root = Path(root_raw)
+        (product_root / "resources").mkdir()
+        (product_root / "fixture_api.py").write_text(FIXTURE_SOURCE, encoding="utf-8", newline="\n")
+        (product_root / "resources" / "golden-cell.json").write_bytes(GOLDEN_CELL)
+        (product_root / "resources" / "golden-source.json").write_bytes(GOLDEN_SOURCE)
+        return frozen_authority(base_testability(product_root, "embedded-authority"))
+
+
+def derive_authority(done_when: Any, spec: Any, gaps: list[Gap]) -> tuple[list[str], dict[str, Any]]:
+    reference_done, reference_spec = embedded_reference_authority()
+    if done_when != reference_done:
+        add_gap(gaps, "E_AUTHORITY_DONE_WHEN", "/authority/done_when", "frozen meanings differ from reviewed adapter grammar")
+    if spec != reference_spec:
+        add_gap(gaps, "E_AUTHORITY_SPEC", "/authority/spec", "frozen route grammar is incomplete or differs")
+    reference_rows = reference_spec["obligations"]
+    union = [row["id"] for row in reference_rows]
+    by_id = {row["id"]: row for row in reference_rows}
+    return union, by_id
 
 
 def actual_toolchain() -> dict[str, Any]:
@@ -930,8 +1045,25 @@ def actual_toolchain() -> dict[str, Any]:
         "flags": ISOLATION_FLAGS,
         "script_path": str(script),
         "script_sha256": file_sha256(script),
-        "dependencies": ["stdlib-only", "fixture_api.py@base-manifest"],
+        "dependencies": ["stdlib-only", "registry-source@base-manifest"],
         "commands": ["py_compile", "discover", "filter", "union"],
+    }
+
+
+def live_contract_authority() -> dict[str, Any]:
+    path = Path(__file__).resolve().with_name("CONTRACT_VERSION")
+    current_rows = [line for line in path.read_text(encoding="utf-8").splitlines() if line.startswith("current:")]
+    if len(current_rows) != 1:
+        raise HarnessError("live contract authority has no unique current ordinal")
+    try:
+        current = int(current_rows[0].split(":", 1)[1].strip())
+    except ValueError as error:
+        raise HarnessError("live contract ordinal is invalid") from error
+    return {
+        "path": str(path),
+        "mode": logical_mode(path),
+        "sha256": file_sha256(path),
+        "current": current,
     }
 
 
@@ -996,22 +1128,104 @@ def dependency_references(node: dict[str, Any]) -> list[str]:
     return [item for item in refs if isinstance(item, str)]
 
 
-def load_product_module(product_root: Path) -> Any:
-    module_path = product_root / "fixture_api.py"
+def source_artifact(packet: Any, product_root: Path, gaps: list[Gap] | None = None) -> tuple[dict[str, Any], Path] | None:
+    rows = packet.get("nodes") if isinstance(packet, dict) else None
+    sources = [row for row in rows or [] if isinstance(row, dict) and row.get("kind") == "source-artifact"]
+    if len(sources) != 1:
+        if gaps is not None:
+            add_gap(gaps, "E_SOURCE_COUNT", "/registry/source-artifact", "exactly one runtime source is required")
+        return None
+    row = sources[0]
+    module_name = row.get("module")
+    relative = row.get("path")
+    target = resolved_inside(product_root, relative) if isinstance(relative, str) else None
+    if not isinstance(module_name, str) or not module_name or target is None or target.suffix != ".py":
+        if gaps is not None:
+            add_gap(gaps, "E_SOURCE_MODULE", "/registry/" + str(row.get("id", "source")), "module/path is not executable Python source")
+        return None
+    if target.stem != module_name or not regular_file(target):
+        if gaps is not None:
+            add_gap(gaps, "E_SOURCE_MODULE", "/registry/" + str(row.get("id", "source")), "module does not name its exact source path")
+        return None
+    return row, target
+
+
+def static_api_model(packet: Any, product_root: Path, gaps: list[Gap]) -> dict[str, Any] | None:
+    """Inspect the exact source without importing product code into the validator."""
+    resolved = source_artifact(packet, product_root, gaps)
+    if resolved is None:
+        return None
+    source_row, source_path = resolved
+    try:
+        syntax = ast.parse(source_path.read_text(encoding="utf-8"), filename=str(source_path))
+    except (OSError, UnicodeError, SyntaxError) as error:
+        add_gap(gaps, "E_SOURCE_PARSE", "/registry/" + source_row["id"] + "/path", error.__class__.__name__)
+        return None
+    for statement in ast.walk(syntax):
+        if isinstance(statement, ast.Import) and any(item.name == "__main__" for item in statement.names):
+            add_gap(gaps, "E_SOURCE_PROCESS_ESCAPE", "/registry/" + source_row["id"], "binding source imports validator __main__")
+        if isinstance(statement, ast.ImportFrom) and statement.module == "__main__":
+            add_gap(gaps, "E_SOURCE_PROCESS_ESCAPE", "/registry/" + source_row["id"], "binding source imports validator __main__")
+    assignments: dict[str, Any] = {}
+    classes: dict[str, ast.ClassDef] = {}
+    for statement in syntax.body:
+        if isinstance(statement, (ast.Assign, ast.AnnAssign)):
+            targets = statement.targets if isinstance(statement, ast.Assign) else [statement.target]
+            if len(targets) == 1 and isinstance(targets[0], ast.Name):
+                try:
+                    assignments[targets[0].id] = ast.literal_eval(statement.value)
+                except (ValueError, TypeError):
+                    pass
+        elif isinstance(statement, ast.ClassDef):
+            classes[statement.name] = statement
+    catalog = assignments.get("BINDING_API")
+    parents = assignments.get("TYPE_PARENTS")
+    if not isinstance(catalog, dict) or not isinstance(parents, dict):
+        add_gap(gaps, "E_SOURCE_CATALOG", "/registry/" + source_row["id"], "literal BINDING_API/TYPE_PARENTS absent")
+        return None
+    module_name = source_row["module"]
+    parameters: dict[str, list[str]] = {}
+    for class_name, class_node in classes.items():
+        init = next((item for item in class_node.body if isinstance(item, (ast.FunctionDef, ast.AsyncFunctionDef)) and item.name == "__init__"), None)
+        if init is not None:
+            parameters[f"{module_name}.{class_name}"] = [item.arg for item in init.args.args[1:]]
+        for item in class_node.body:
+            if not isinstance(item, (ast.FunctionDef, ast.AsyncFunctionDef)) or item.name == "__init__":
+                continue
+            names = [arg_node.arg for arg_node in item.args.args]
+            decorator_names = {decorator.id for decorator in item.decorator_list if isinstance(decorator, ast.Name)}
+            if not ({"staticmethod"} & decorator_names) and names:
+                names = names[1:]
+            parameters[f"{module_name}.{class_name}.{item.name}"] = names
+    return {
+        "module": module_name,
+        "path": source_row["path"],
+        "catalog": catalog,
+        "type_parents": parents,
+        "parameters": parameters,
+    }
+
+
+def load_product_module(packet: dict[str, Any], product_root: Path) -> Any:
+    resolved = source_artifact(packet, product_root)
+    if resolved is None:
+        raise HarnessError("validated runtime source is absent")
+    source_row, module_path = resolved
+    module_name = source_row["module"]
     sys.dont_write_bytecode = True
-    sys.modules.pop("fixture_api", None)
-    spec = importlib.util.spec_from_file_location("fixture_api", module_path)
+    sys.modules.pop(module_name, None)
+    spec = importlib.util.spec_from_file_location(module_name, module_path)
     if spec is None or spec.loader is None:
-        raise HarnessError("cannot load fixture_api")
+        raise HarnessError("cannot load runtime source")
     module = importlib.util.module_from_spec(spec)
-    sys.modules["fixture_api"] = module
+    sys.modules[module_name] = module
     spec.loader.exec_module(module)
     return module
 
 
 def resolve_symbol(module: Any, signature: str) -> Any:
     parts = signature.split(".")
-    if len(parts) < 2 or parts[0] != "fixture_api":
+    if len(parts) < 2 or parts[0] != module.__name__:
         raise AttributeError(signature)
     value: Any = module
     for part in parts[1:]:
@@ -1019,8 +1233,8 @@ def resolve_symbol(module: Any, signature: str) -> Any:
     return value
 
 
-def catalog_row(module: Any, signature: str) -> dict[str, Any] | None:
-    raw = getattr(module, "BINDING_API", {}).get(signature)
+def catalog_row(api_model: dict[str, Any], signature: str) -> dict[str, Any] | None:
+    raw = api_model.get("catalog", {}).get(signature)
     if not isinstance(raw, list) or len(raw) != 5:
         return None
     style, visibility, owner_type, args, return_type = raw
@@ -1033,17 +1247,10 @@ def catalog_row(module: Any, signature: str) -> dict[str, Any] | None:
     }
 
 
-def inspect_parameter_names(target: Any, style: str) -> list[str]:
-    params = list(inspect.signature(target).parameters.values())
-    if style == "instance" and params and params[0].name == "self":
-        params = params[1:]
-    return [item.name for item in params]
-
-
-def type_assignable(actual: str, expected: str, module: Any) -> bool:
+def type_assignable(actual: str, expected: str, model: Any) -> bool:
     if actual == expected:
         return True
-    parents = getattr(module, "TYPE_PARENTS", {})
+    parents = model.get("type_parents", {}) if isinstance(model, dict) else getattr(model, "TYPE_PARENTS", {})
     return expected in parents.get(actual, [])
 
 
@@ -1066,12 +1273,24 @@ def runtime_type(value: Any, module: Any) -> str:
     return value.__class__.__name__
 
 
+def literal_runtime_type(value: Any) -> str:
+    if value is None:
+        return "None"
+    if type(value) is bytes:
+        return "bytes"
+    if type(value) is str:
+        return "str"
+    if type(value) is int:
+        return "int"
+    return value.__class__.__name__
+
+
 def audit_packet(
     packet: Any,
     product_root: Path,
     authority_union: list[str],
     authority_by_id: dict[str, Any],
-    module: Any,
+    api_model: dict[str, Any],
 ) -> tuple[list[Gap], dict[str, dict[str, Any]]]:
     gaps: list[Gap] = []
     if not isinstance(packet, dict):
@@ -1097,6 +1316,7 @@ def audit_packet(
         return normalized_gaps(gaps), {}
     by_id: dict[str, dict[str, Any]] = {}
     roles: dict[str, str] = {}
+    schema_invalid: set[str] = set()
     for index, row in enumerate(rows):
         path = f"/nodes/{index}"
         if not isinstance(row, dict):
@@ -1120,17 +1340,21 @@ def audit_packet(
         kind = row.get("kind")
         if kind not in NODE_KEYS:
             add_gap(gaps, "E_KIND", "/registry/" + node_id + "/kind", "unknown or conflated kind")
+            schema_invalid.add(node_id)
             continue
         expected_keys = NODE_KEYS[kind]
         if set(row) != expected_keys:
             add_gap(gaps, "E_NODE_SCHEMA", "/registry/" + node_id, "exact kind schema differs")
+            schema_invalid.add(node_id)
 
     # Collapse every dangling use to one canonical row so a complete sweep is
     # readable instead of producing dozens of cascaded follow-on messages.
     missing_refs: set[str] = set()
     recipes = packet.get("recipes") if isinstance(packet.get("recipes"), dict) else {}
     routes = packet.get("routes") if isinstance(packet.get("routes"), dict) else {}
-    for row in by_id.values():
+    for node_id, row in by_id.items():
+        if node_id in schema_invalid:
+            continue
         missing_refs.update(item for item in node_references(row) if item not in by_id)
     for obligation in authority_union:
         steps = recipes.get(obligation)
@@ -1164,32 +1388,43 @@ def audit_packet(
             add_gap(gaps, "E_ROUTE_SCHEMA", f"/routes/{obligation}", "route categories differ")
             continue
         expected_route_roles = authority.get("route_roles", {})
+        expected_route_bindings = authority.get("route_bindings", {})
         for category in ROUTE_CATEGORIES:
-            actual_roles = [by_id[item]["role"] for item in route.get(category, []) if item in by_id]
-            if not missing_refs and actual_roles != expected_route_roles.get(category):
+            route_items = route.get(category, [])
+            actual_roles = [by_id[item]["role"] for item in route_items if item in by_id and item not in schema_invalid]
+            if not missing_refs and not any(item in schema_invalid for item in route_items) and actual_roles != expected_route_roles.get(category):
                 add_gap(gaps, "E_ROUTE_ROLES", f"/routes/{obligation}/{category}", "semantic binding roles differ")
+            if not missing_refs and not any(item in schema_invalid for item in route_items):
+                actual_bindings = [route_reference_descriptor(by_id[item], by_id) for item in route_items]
+                if actual_bindings != expected_route_bindings.get(category):
+                    add_gap(gaps, "E_ROUTE_BINDINGS", f"/routes/{obligation}/{category}", "literal/artifact/value bindings differ")
         executable_kinds = {"callable", "negative-control", "reflection", "runtime-resource"}
         invalid_recipe_kind = False
         descriptors: list[dict[str, Any]] = []
         for item in steps:
-            if item not in by_id or any(ref not in by_id for ref in node_references(by_id[item])):
+            if item not in by_id or item in schema_invalid or any(ref not in by_id for ref in node_references(by_id[item])):
                 continue
             if by_id[item].get("kind") not in executable_kinds:
                 add_gap(gaps, "E_RECIPE_KIND", f"/recipes/{obligation}/{item}", "recipe step is not executable")
                 invalid_recipe_kind = True
                 continue
             descriptors.append(trace_descriptor(by_id[item], by_id))
-        if not missing_refs and not invalid_recipe_kind and descriptors != authority.get("trace"):
+        if not missing_refs and not invalid_recipe_kind and not any(item in schema_invalid for item in steps) and descriptors != authority.get("trace"):
             add_gap(gaps, "E_TRACE_CONTRACT", f"/recipes/{obligation}", "binding edges differ from frozen trace")
 
     # Per-kind semantics and exact-base API resolution.
     for node_id, row in by_id.items():
+        if node_id in schema_invalid:
+            continue
         kind = row.get("kind")
         path = "/registry/" + node_id
         if kind == "typed-literal":
-            actual = runtime_type(row.get("value"), module)
+            actual = literal_runtime_type(row.get("value"))
             if actual != row.get("value_type"):
                 add_gap(gaps, "E_LITERAL_TYPE", path + "/value", "literal runtime type differs")
+            expected_literal = authority_by_id.get("__literal_authority__", {}).get(row.get("role"))
+            if expected_literal != {"value_type": row.get("value_type"), "value": row.get("value")}:
+                add_gap(gaps, "E_LITERAL_AUTHORITY", path + "/value", "literal value differs from frozen authority")
         elif kind in {"source-artifact", "runtime-resource"}:
             relative = row.get("path")
             target = resolved_inside(product_root, relative) if isinstance(relative, str) else None
@@ -1211,14 +1446,12 @@ def audit_packet(
             if not isinstance(signature, str) or not signature:
                 add_gap(gaps, "E_SIGNATURE", path + "/signature", "empty signature")
                 continue
-            catalog = catalog_row(module, signature)
+            catalog = catalog_row(api_model, signature)
             if catalog is None:
                 add_gap(gaps, "E_SIGNATURE", path + "/signature", "signature absent from exact-base API")
                 continue
-            try:
-                target = resolve_symbol(module, signature)
-                actual_names = inspect_parameter_names(target, catalog["style"])
-            except (AttributeError, TypeError, ValueError):
+            actual_names = api_model.get("parameters", {}).get(signature)
+            if actual_names is None:
                 add_gap(gaps, "E_SIGNATURE", path + "/signature", "callable cannot resolve")
                 continue
             if actual_names != [item["name"] for item in catalog["args"]]:
@@ -1231,12 +1464,12 @@ def audit_packet(
                 add_gap(gaps, "E_CALLABLE_ARGS", path + "/args", "ordered names/types differ from exact API")
             for index, item in enumerate(row.get("args", []) if isinstance(row.get("args"), list) else []):
                 source = by_id.get(item.get("source"))
-                if source is not None and not type_assignable(source.get("value_type"), item.get("type"), module):
+                if source is not None and not type_assignable(source.get("value_type"), item.get("type"), api_model):
                     add_gap(gaps, "E_ARG_SOURCE_TYPE", f"{path}/args/{index}/source", "source type is not assignable")
             owner_source = row.get("owner_source")
             if catalog["style"] == "instance":
                 source = by_id.get(owner_source)
-                if source is None or not type_assignable(source.get("value_type"), catalog["owner_type"], module):
+                if source is None or not type_assignable(source.get("value_type"), catalog["owner_type"], api_model):
                     add_gap(gaps, "E_OWNER", path + "/owner_source", "concrete owner missing or wrong type")
             elif owner_source is not None:
                 add_gap(gaps, "E_OWNER", path + "/owner_source", "non-instance callable has owner source")
@@ -1270,11 +1503,7 @@ def audit_packet(
                 }
                 if candidate_meta != planned:
                     add_gap(gaps, "E_REFLECTION_META", path, "planned missing-member metadata differs")
-                try:
-                    resolve_symbol(module, row.get("signature"))
-                except AttributeError:
-                    pass
-                else:
+                if row.get("signature") in api_model.get("parameters", {}):
                     add_gap(gaps, "E_REFLECTION_PRESENT", path + "/signature", "planned member is not missing at base")
         if kind in {"instance", "slot"}:
             producer = by_id.get(row.get("producer"))
@@ -1376,9 +1605,26 @@ def call_target(module: Any, node: dict[str, Any], context: dict[str, Any]) -> A
     return resolve_symbol(module, node["signature"])
 
 
-def execute_recipe(packet: dict[str, Any], product_root: Path, obligation: str, token: object) -> CompletionProof:
-    module = load_product_module(product_root)
+def execute_recipe(
+    packet: dict[str, Any], product_root: Path, obligation: str, token: object, fault: str = "none"
+) -> CompletionProof:
+    # Capture controller primitives before loading product code.  The product is
+    # confined to this worker and cannot replace the parent validator command path.
+    safe_load_product_module = load_product_module
+    safe_runtime_type = runtime_type
+    safe_type_assignable = type_assignable
+    safe_resolved_inside = resolved_inside
+    safe_regular_file = regular_file
+    safe_sha256_bytes = sha256_bytes
+    safe_resolve_symbol = resolve_symbol
+    completion_type = CompletionProof
     by_id = {row["id"]: row for row in packet["nodes"]}
+    descriptor_by_id = {
+        node_id: trace_descriptor(row, by_id)
+        for node_id, row in by_id.items()
+        if row.get("kind") in {"callable", "negative-control", "reflection", "runtime-resource"}
+    }
+    module = safe_load_product_module(packet, product_root)
     context: dict[str, Any] = {
         node_id: row["value"] for node_id, row in by_id.items() if row.get("kind") == "typed-literal"
     }
@@ -1389,32 +1635,32 @@ def execute_recipe(packet: dict[str, Any], product_root: Path, obligation: str, 
         path = f"/runtime/{obligation}/{index}:{node_id}"
         kind = node["kind"]
         if kind == "runtime-resource":
-            target = resolved_inside(product_root, node["path"])
-            if target is None or not regular_file(target):
+            target = safe_resolved_inside(product_root, node["path"])
+            if target is None or not safe_regular_file(target):
                 add_gap(gaps, "E_RUNTIME_RESOURCE", path, "resource unavailable")
                 continue
             raw = target.read_bytes()
-            if len(raw) != node["size"] or sha256_bytes(raw) != node["sha256"]:
+            if len(raw) != node["size"] or safe_sha256_bytes(raw) != node["sha256"]:
                 add_gap(gaps, "E_RUNTIME_RESOURCE", path, "resource identity changed")
                 continue
             context[node["output"]] = raw
-            trace.append(trace_descriptor(node, by_id))
+            trace.append(descriptor_by_id[node_id])
             continue
 
         if kind == "reflection":
             values: list[Any] = []
             for item in node["args"]:
                 value = context.get(item["source"])
-                actual = runtime_type(value, module)
-                if not type_assignable(actual, item["type"], module):
+                actual = safe_runtime_type(value, module)
+                if not safe_type_assignable(actual, item["type"], module):
                     add_gap(gaps, "E_RUNTIME_ARG_TYPE", path + "/" + item["name"], actual)
                 values.append(value)
             if gaps:
                 continue
             try:
-                target = resolve_symbol(module, node["signature"])
+                target = safe_resolve_symbol(module, node["signature"])
             except AttributeError:
-                trace.append(trace_descriptor(node, by_id))
+                trace.append(descriptor_by_id[node_id])
                 continue
             try:
                 target(*values)
@@ -1431,26 +1677,31 @@ def execute_recipe(packet: dict[str, Any], product_root: Path, obligation: str, 
         local_gap = False
         if node.get("owner_source"):
             owner = context.get(node["owner_source"])
-            actual_owner = runtime_type(owner, module)
-            if not type_assignable(actual_owner, node["owner_type"], module):
+            actual_owner = safe_runtime_type(owner, module)
+            if not safe_type_assignable(actual_owner, node["owner_type"], module):
                 add_gap(gaps, "E_RUNTIME_OWNER", path + "/owner", actual_owner)
                 local_gap = True
         for item in node["args"]:
             value = context.get(item["source"])
-            actual = runtime_type(value, module)
-            if not type_assignable(actual, item["type"], module):
+            actual = safe_runtime_type(value, module)
+            if not safe_type_assignable(actual, item["type"], module):
                 add_gap(gaps, "E_RUNTIME_ARG_TYPE", path + "/" + item["name"], actual)
                 local_gap = True
             values.append(value)
         if local_gap:
             continue
         try:
-            target = call_target(module, node, context)
+            if fault == "product-sentinel" and obligation == "OB-1" and node_id == "call:ob1-calls-read":
+                raise RuntimeError("BINDING_REACHED:copied")
+            if node["style"] == "instance":
+                target = getattr(context[node["owner_source"]], node["signature"].rsplit(".", 1)[1])
+            else:
+                target = safe_resolve_symbol(module, node["signature"])
             result = target(*values)
         except Exception as error:
             expected = node.get("expected_exception")
             if expected and error.__class__.__name__ == expected:
-                trace.append(trace_descriptor(node, by_id))
+                trace.append(descriptor_by_id[node_id])
                 continue
             # Product-origin text can never impersonate validator completion.
             add_gap(gaps, "E_ROUTE_EXCEPTION", path, error.__class__.__name__ + ":" + str(error))
@@ -1458,17 +1709,17 @@ def execute_recipe(packet: dict[str, Any], product_root: Path, obligation: str, 
         if node.get("expected_exception"):
             add_gap(gaps, "E_EXPECTED_EXCEPTION", path, "route returned instead of materializing control")
             continue
-        actual_return = runtime_type(result, module)
-        if not type_assignable(actual_return, node["return_type"], module):
+        actual_return = safe_runtime_type(result, module)
+        if not safe_type_assignable(actual_return, node["return_type"], module):
             add_gap(gaps, "E_RUNTIME_RETURN_TYPE", path, actual_return)
             continue
         output = node.get("output")
         if output is not None:
             context[output] = result
-        trace.append(trace_descriptor(node, by_id))
+        trace.append(descriptor_by_id[node_id])
     if gaps:
         raise ExecutionRejected(gaps)
-    return CompletionProof(token, obligation, tuple(trace))
+    return completion_type(token, obligation, tuple(trace))
 
 
 def generated_probe_source(obligations: list[str]) -> str:
@@ -1512,76 +1763,88 @@ def worker_discover(probe_path: Path, fault: str) -> int:
 
 
 def invoke_probe(
-    packet: dict[str, Any], product_root: Path, probe_path: Path, obligation: str
+    packet: dict[str, Any], product_root: Path, probe_path: Path, obligation: str, fault: str = "none"
 ) -> CompletionProof:
+    execute = execute_recipe
+    completion_type = CompletionProof
     namespace = load_probe_namespace(probe_path)
     function_name = "probe_" + obligation.replace("-", "_")
     function = namespace.get(function_name)
     if not inspect.isfunction(function):
         raise ExecutionRejected([Gap("E_FILTER_DISCOVERY", "/runtime/" + obligation, "probe function missing")])
     token = object()
-    proof = function(lambda item, supplied: execute_recipe(packet, product_root, item, supplied), token)
-    if not isinstance(proof, CompletionProof) or proof.token is not token or proof.obligation != obligation:
+    proof = function(lambda item, supplied: execute(packet, product_root, item, supplied, fault), token)
+    if not isinstance(proof, completion_type) or proof.token is not token or proof.obligation != obligation:
         raise ExecutionRejected([Gap("E_COMPLETION_PROOF", "/runtime/" + obligation, "unforgeable proof missing")])
     return proof
 
 
 def worker_filter(packet_path: Path, product_root: Path, probe_path: Path, obligation: str, fault: str) -> int:
     try:
+        criterion = criterion_for
+        digest = sha256_bytes
+        canonical = canonical_bytes
+        dumps = json.dumps
+        write_stdout = sys.stdout.write
         packet = load_json(packet_path)
         if fault == "filter-pass":
-            print(json.dumps({"status": "PASS", "obligation": obligation}, sort_keys=True))
+            write_stdout(dumps({"status": "PASS", "obligation": obligation}, sort_keys=True) + "\n")
             return 0
-        proof = invoke_probe(packet, product_root, probe_path, obligation)
+        proof = invoke_probe(packet, product_root, probe_path, obligation, fault)
         trace = list(proof.trace)
-        criterion = criterion_for(obligation, trace)
+        criterion_value = criterion(obligation, trace)
         if fault == "wrong-sentinel":
-            criterion = "WRONG_SENTINEL"
-        print(
-            json.dumps(
+            criterion_value = "WRONG_SENTINEL"
+        write_stdout(
+            dumps(
                 {
-                    "status": "BINDING_SENTINEL", "obligation": obligation, "criterion": criterion,
-                    "trace": trace, "trace_sha256": sha256_bytes(canonical_bytes(trace)),
+                    "status": "BINDING_SENTINEL", "obligation": obligation, "criterion": criterion_value,
+                    "trace": trace, "trace_sha256": digest(canonical(trace)),
                 },
                 sort_keys=True,
-            )
+            ) + "\n"
         )
         return BINDING_SENTINEL_EXIT
     except ExecutionRejected as error:
-        print(json.dumps({"status": "PLAN_RED", "gaps": [item.row() for item in error.gaps]}, sort_keys=True))
+        write_stdout(dumps({"status": "PLAN_RED", "gaps": [item.row() for item in error.gaps]}, sort_keys=True) + "\n")
         return VALIDATOR_RED
     except Exception as error:
-        print(json.dumps({"status": "WORKER_ERROR", "error": error.__class__.__name__ + ":" + str(error)}, sort_keys=True))
+        write_stdout(dumps({"status": "WORKER_ERROR", "error": error.__class__.__name__ + ":" + str(error)}, sort_keys=True) + "\n")
         return HARNESS_FATAL
 
 
 def worker_union(packet_path: Path, product_root: Path, probe_path: Path, obligations: list[str], fault: str) -> int:
     try:
+        criterion = criterion_for
+        digest = sha256_bytes
+        canonical = canonical_bytes
+        dumps = json.dumps
+        write_stdout = sys.stdout.write
         packet = load_json(packet_path)
         selected = obligations[:-1] if fault == "union-incomplete" else obligations
         rows: list[dict[str, Any]] = []
         gaps: list[Gap] = []
         for obligation in selected:
             try:
-                proof = invoke_probe(packet, product_root, probe_path, obligation)
+                proof = invoke_probe(packet, product_root, probe_path, obligation, fault)
                 trace = list(proof.trace)
                 rows.append(
                     {
                         "obligation": obligation,
-                        "criterion": criterion_for(obligation, trace),
+                        "criterion": criterion(obligation, trace),
                         "trace": trace,
-                        "trace_sha256": sha256_bytes(canonical_bytes(trace)),
+                        "trace_sha256": digest(canonical(trace)),
                     }
                 )
             except ExecutionRejected as error:
                 gaps.extend(error.gaps)
         if gaps:
-            print(json.dumps({"status": "PLAN_RED", "gaps": [item.row() for item in normalized_gaps(gaps)]}, sort_keys=True))
+            write_stdout(dumps({"status": "PLAN_RED", "gaps": [item.row() for item in normalized_gaps(gaps)]}, sort_keys=True) + "\n")
             return VALIDATOR_RED
-        print(json.dumps({"status": "BINDING_SENTINEL_UNION", "rows": rows}, sort_keys=True))
+        write_stdout(dumps({"status": "BINDING_SENTINEL_UNION", "rows": rows}, sort_keys=True) + "\n")
         return BINDING_SENTINEL_EXIT
     except Exception as error:
-        print(json.dumps({"status": "WORKER_ERROR", "error": error.__class__.__name__ + ":" + str(error)}, sort_keys=True))
+        write_stdout(dumps({"status": "WORKER_ERROR", "error": error.__class__.__name__ + ":" + str(error)}, sort_keys=True) + "\n")
         return HARNESS_FATAL
 
 
@@ -1610,6 +1873,7 @@ def run_command(argv: list[str]) -> tuple[subprocess.CompletedProcess[str], dict
 ENVELOPE_KEYS = {
     "schema", "case", "product_root", "base_tree_sha256", "candidate", "observed_candidate", "planner_session",
     "validator_session", "testability", "candidate_event", "done_when", "spec", "acceptance_sha256", "toolchain",
+    "contract_authority", "contract_version", "product_contract_version",
 }
 
 
@@ -1651,6 +1915,13 @@ def validate_envelope(envelope_path: Path, fault: str) -> int:
             add_gap(gaps, "E_ENVELOPE_SCHEMA", "/envelope/" + key, "missing envelope field")
         if envelope.get("schema") != 1:
             add_gap(gaps, "E_ENVELOPE_SCHEMA", "/envelope/schema", "expected schema 1")
+        live_contract = live_contract_authority()
+        if envelope.get("contract_authority") != live_contract:
+            add_gap(gaps, "E_CONTRACT_AUTHORITY", "/envelope/contract_authority", "live authority observation differs")
+        if envelope.get("contract_version") != live_contract["current"]:
+            add_gap(gaps, "E_CONTRACT_PACKET_VERSION", "/envelope/contract_version", "finalized packet is not current")
+        if envelope.get("product_contract_version") != live_contract["current"]:
+            add_gap(gaps, "E_CONTRACT_PRODUCT_VERSION", "/envelope/product_contract_version", "product stamp is not exact current")
         compare_toolchain(envelope.get("toolchain"), gaps)
 
         product_root = Path(str(envelope.get("product_root", "")))
@@ -1658,7 +1929,9 @@ def validate_envelope(envelope_path: Path, fault: str) -> int:
             add_gap(gaps, "E_PRODUCT_ROOT", "/envelope/product_root", "product root absent")
             return validation_output(case, gaps, None)
         before_manifest = tree_manifest(product_root)
+        before_observation = tree_observation(product_root)
         before_hash = sha256_bytes(canonical_bytes(before_manifest))
+        checker_before = file_sha256(Path(__file__).resolve())
         if before_hash != envelope.get("base_tree_sha256"):
             add_gap(gaps, "E_BASE_IDENTITY", "/envelope/base_tree_sha256", "observed base differs")
 
@@ -1694,14 +1967,12 @@ def validate_envelope(envelope_path: Path, fault: str) -> int:
                 add_gap(gaps, "E_CANDIDATE_EVENT", "/candidate_event/testability_sha256", "candidate packet pin differs")
 
         authority_union, authority_by_id = derive_authority(done_when, frozen_spec, gaps)
-        authority_by_id["__planned_api__"] = frozen_spec.get("planned_api", {})
-        try:
-            module = load_product_module(product_root)
-        except Exception as error:
-            add_gap(gaps, "E_PRODUCT_LOAD", "/product/fixture_api.py", error.__class__.__name__ + ":" + str(error))
-            module = None
-        if module is not None:
-            packet_gaps, _ = audit_packet(packet, product_root, authority_union, authority_by_id, module)
+        _, reference_spec = embedded_reference_authority()
+        authority_by_id["__planned_api__"] = reference_spec["planned_api"]
+        authority_by_id["__literal_authority__"] = reference_spec["literal_authority"]
+        api_model = static_api_model(packet, product_root, gaps)
+        if api_model is not None:
+            packet_gaps, _ = audit_packet(packet, product_root, authority_union, authority_by_id, api_model)
             gaps.extend(packet_gaps)
 
         observations: list[dict[str, Any]] = []
@@ -1712,11 +1983,14 @@ def validate_envelope(envelope_path: Path, fault: str) -> int:
             script = Path(__file__).resolve()
             with tempfile.TemporaryDirectory(prefix="v21-validator-") as scratch_raw:
                 scratch = Path(scratch_raw)
-                compile_root = scratch / "compile"
-                compile_root.mkdir()
-                fixture_copy = compile_root / "fixture_api.py"
-                shutil.copyfile(product_root / "fixture_api.py", fixture_copy)
-                probe_path = compile_root / "binding_probes.py"
+                runtime_root = scratch / "product"
+                copy_product_snapshot(product_root, runtime_root, before_manifest)
+                if api_model is None:
+                    raise HarnessError("static source model absent after GREEN audit")
+                source_copy = runtime_root / api_model["path"]
+                probe_root = scratch / "probes"
+                probe_root.mkdir()
+                probe_path = probe_root / "binding_probes.py"
                 source = generated_probe_source(authority_union)
                 if fault == "compile-failure":
                     source += "\ndef broken(:\n"
@@ -1728,7 +2002,7 @@ def validate_envelope(envelope_path: Path, fault: str) -> int:
                     add_gap(dynamic_gaps, "E_COMPILE_SKIPPED", "/commands/compile", "compile command absent")
                 else:
                     compile_argv = [
-                        str(interpreter), *ISOLATION_FLAGS, "-m", "py_compile", str(fixture_copy), str(probe_path),
+                        str(interpreter), *ISOLATION_FLAGS, "-m", "py_compile", str(source_copy), str(probe_path),
                     ]
                     process, _, observation = run_command(compile_argv)
                     observation["id"] = "compile"
@@ -1761,10 +2035,10 @@ def validate_envelope(envelope_path: Path, fault: str) -> int:
                         add_gap(dynamic_gaps, "E_DISCOVERY_SET", "/commands/discover/ids", "zero/duplicate/wrong union")
 
                     for obligation in authority_union:
-                        filter_fault = fault if obligation == authority_union[0] and fault in {"filter-pass", "wrong-sentinel"} else "none"
+                        filter_fault = fault if obligation == authority_union[0] and fault in {"filter-pass", "wrong-sentinel", "product-sentinel"} else "none"
                         filter_argv = [
                             str(interpreter), *ISOLATION_FLAGS, str(script), "--worker", "filter", str(packet_path),
-                            str(product_root), str(probe_path), obligation, filter_fault,
+                            str(runtime_root), str(probe_path), obligation, filter_fault,
                         ]
                         process, payload, observation = run_command(filter_argv)
                         observation["id"] = "filter:" + obligation
@@ -1788,10 +2062,10 @@ def validate_envelope(envelope_path: Path, fault: str) -> int:
                         if payload.get("trace") != expected_trace:
                             add_gap(dynamic_gaps, "E_RUNTIME_TRACE", f"/commands/filter/{obligation}/trace", "materialized trace differs")
 
-                    union_fault = fault if fault == "union-incomplete" else "none"
+                    union_fault = fault if fault in {"union-incomplete", "product-sentinel"} else "none"
                     union_argv = [
                         str(interpreter), *ISOLATION_FLAGS, str(script), "--worker", "union", str(packet_path),
-                        str(product_root), str(probe_path), json.dumps(authority_union), union_fault,
+                        str(runtime_root), str(probe_path), json.dumps(authority_union), union_fault,
                     ]
                     process, payload, observation = run_command(union_argv)
                     observation["id"] = "union"
@@ -1816,11 +2090,25 @@ def validate_envelope(envelope_path: Path, fault: str) -> int:
                         if payload.get("status") != "BINDING_SENTINEL_UNION" or payload.get("rows") != expected_rows:
                             add_gap(dynamic_gaps, "E_UNION_SET", "/commands/union/rows", "union is incomplete or differs")
 
+        if fault == "persistent-product-write":
+            (product_root / "forbidden-write.txt").write_text("forbidden", encoding="utf-8", newline="\n")
+        elif fault == "transient-product-write":
+            target = product_root / "fixture_api.py"
+            before_stat = target.stat()
+            with target.open("r+b") as stream:
+                stream.seek(0, os.SEEK_END)
+                stream.write(b"X")
+                stream.flush()
+                os.fsync(stream.fileno())
+                stream.truncate(before_stat.st_size)
+            os.utime(target, ns=(before_stat.st_atime_ns, before_stat.st_mtime_ns + 1_000_000_000))
+
         gaps.extend(dynamic_gaps)
         after_manifest = tree_manifest(product_root)
-        if after_manifest != before_manifest:
+        after_observation = tree_observation(product_root)
+        if after_observation != before_observation:
             add_gap(gaps, "E_PRODUCT_WRITE", "/product", "tree changed during read-only validation")
-        if file_sha256(Path(__file__).resolve()) != envelope.get("toolchain", {}).get("script_sha256"):
+        if file_sha256(Path(__file__).resolve()) != checker_before:
             add_gap(gaps, "E_TOOLCHAIN_CHANGED", "/toolchain/script_sha256", "checker changed during run")
 
         receipt = None
@@ -1838,6 +2126,8 @@ def validate_envelope(envelope_path: Path, fault: str) -> int:
                 "commands": observations,
                 "product_before_sha256": sha256_bytes(canonical_bytes(before_manifest)),
                 "product_after_sha256": sha256_bytes(canonical_bytes(after_manifest)),
+                "product_observation_before_sha256": sha256_bytes(canonical_bytes(before_observation)),
+                "product_observation_after_sha256": sha256_bytes(canonical_bytes(after_observation)),
                 "product_writes": [],
             }
             receipt = {**receipt_preimage, "plan_receipt_sha256": sha256_bytes(canonical_bytes(receipt_preimage))}
@@ -1876,11 +2166,15 @@ MISSING_CASES = {
     "missing-fault-selector-before": "control:ob2-fault-before",
     "missing-fault-selector-during": "control:ob2-fault-during",
     "missing-fault-selector-after": "control:ob2-fault-after",
+    "missing-fault-slot": "slot:ob2-fault-before",
     "missing-operation-slot": "slot:ob2-before-operation",
     "missing-golden-resource": "resource:golden-cell",
     "missing-codec": "call:ob1-codec",
     "missing-source-input": "call:ob3-source-input",
     "missing-hidden-observer": "call:ob2-after-after-hidden",
+    "missing-owner-observer": "call:ob1-owner-read",
+    "missing-audit-counter-observer": "call:ob2-after-after-counter",
+    "missing-delegation-observer": "call:ob2-after-delegation-read",
 }
 
 
@@ -1888,6 +2182,7 @@ CASE_NAMES = [
     "valid",
     *MISSING_CASES,
     "two-independent-gaps",
+    "mixed-missing-and-literal-gaps",
     "planner-self-validates",
     "stale-candidate",
     "planner-supplied-probe",
@@ -1902,6 +2197,13 @@ CASE_NAMES = [
     "wrong-arg-name",
     "wrong-arg-type",
     "same-type-source-swap",
+    "wrong-open-literal",
+    "wrong-fault-phase-literal",
+    "source-path-substitution",
+    "product-imports-validator-main",
+    "empty-authority-grammar",
+    "empty-candidate-and-authority",
+    "missing-signature-field",
     "wrong-return-type",
     "wrong-return-slot-type",
     "resource-path-escape",
@@ -1917,9 +2219,13 @@ CASE_NAMES = [
     "api-declaration-mismatch",
     "route-copies-sentinel",
     "actual-product-write",
+    "transient-product-write",
     "wrong-base",
     "wrong-acceptance",
     "wrong-testability-pin",
+    "old-finalized-contract-replay",
+    "future-product-contract",
+    "changed-contract-authority",
     "fake-interpreter",
     "wrong-interpreter-hash",
     "wrong-version",
@@ -1951,14 +2257,22 @@ CASE_EXPECTED: dict[str, set[tuple[str, str]]] = {
     "missing-fault-selector-before": {("E_NODE_MISSING", "/registry/control:ob2-fault-before")},
     "missing-fault-selector-during": {("E_NODE_MISSING", "/registry/control:ob2-fault-during")},
     "missing-fault-selector-after": {("E_NODE_MISSING", "/registry/control:ob2-fault-after")},
+    "missing-fault-slot": {("E_NODE_MISSING", "/registry/slot:ob2-fault-before")},
     "missing-operation-slot": {("E_NODE_MISSING", "/registry/slot:ob2-before-operation")},
     "missing-golden-resource": {("E_NODE_MISSING", "/registry/resource:golden-cell")},
     "missing-codec": {("E_NODE_MISSING", "/registry/call:ob1-codec")},
     "missing-source-input": {("E_NODE_MISSING", "/registry/call:ob3-source-input")},
     "missing-hidden-observer": {("E_NODE_MISSING", "/registry/call:ob2-after-after-hidden")},
+    "missing-owner-observer": {("E_NODE_MISSING", "/registry/call:ob1-owner-read")},
+    "missing-audit-counter-observer": {("E_NODE_MISSING", "/registry/call:ob2-after-after-counter")},
+    "missing-delegation-observer": {("E_NODE_MISSING", "/registry/call:ob2-after-delegation-read")},
     "two-independent-gaps": {
         ("E_NODE_MISSING", "/registry/call:ob1-impulse"),
         ("E_NODE_MISSING", "/registry/call:ob3-source-input"),
+    },
+    "mixed-missing-and-literal-gaps": {
+        ("E_NODE_MISSING", "/registry/call:ob1-impulse"),
+        ("E_LITERAL_AUTHORITY", "/registry/lit:phase-before/value"),
     },
     "planner-self-validates": {("E_ROLE_INDEPENDENCE", "/envelope/validator_session")},
     "stale-candidate": {("E_STALE_CANDIDATE", "/envelope/candidate")},
@@ -1973,10 +2287,7 @@ CASE_EXPECTED: dict[str, set[tuple[str, str]]] = {
         ("E_RECIPE_UNION", "/recipes"),
         ("E_ROUTE_UNION", "/routes"),
     },
-    "kind-conflation": {
-        ("E_KIND", "/registry/call:ob1-handler/kind"),
-        ("E_RECIPE_KIND", "/recipes/OB-1/call:ob1-handler"),
-    },
+    "kind-conflation": {("E_KIND", "/registry/call:ob1-handler/kind")},
     "empty-signature": {
         ("E_SIGNATURE", "/registry/call:ob1-impulse/signature"),
         ("E_TRACE_CONTRACT", "/recipes/OB-1"),
@@ -1985,37 +2296,95 @@ CASE_EXPECTED: dict[str, set[tuple[str, str]]] = {
         ("E_SIGNATURE", "/registry/call:ob1-impulse/signature"),
         ("E_TRACE_CONTRACT", "/recipes/OB-1"),
     },
-    "wrong-visibility": {("E_CALLABLE_VISIBILITY", "/registry/call:ob1-impulse/visibility")},
+    "wrong-visibility": {
+        ("E_CALLABLE_VISIBILITY", "/registry/call:ob1-impulse/visibility"),
+        ("E_TRACE_CONTRACT", "/recipes/OB-1"),
+    },
     "wrong-owner": {
         ("E_OWNER", "/registry/call:ob1-step/owner_source"),
         ("E_TRACE_CONTRACT", "/recipes/OB-1"),
     },
-    "wrong-arg-name": {("E_CALLABLE_ARGS", "/registry/call:ob1-impulse/args")},
+    "wrong-arg-name": {
+        ("E_CALLABLE_ARGS", "/registry/call:ob1-impulse/args"),
+        ("E_TRACE_CONTRACT", "/recipes/OB-1"),
+    },
     "wrong-arg-type": {
         ("E_ARG_SOURCE_TYPE", "/registry/call:ob1-impulse/args/0/source"),
         ("E_CALLABLE_ARGS", "/registry/call:ob1-impulse/args"),
+        ("E_TRACE_CONTRACT", "/recipes/OB-1"),
     },
     "same-type-source-swap": {("E_TRACE_CONTRACT", "/recipes/OB-1")},
+    "wrong-open-literal": {
+        ("E_LITERAL_AUTHORITY", "/registry/lit:room-open/value"),
+        ("E_TRACE_CONTRACT", "/recipes/OB-1"),
+        ("E_TRACE_CONTRACT", "/recipes/OB-2"),
+        ("E_TRACE_CONTRACT", "/recipes/OB-3"),
+    },
+    "wrong-fault-phase-literal": {
+        ("E_LITERAL_AUTHORITY", "/registry/lit:phase-before/value"),
+        ("E_TRACE_CONTRACT", "/recipes/OB-2"),
+    },
+    "source-path-substitution": {("E_SOURCE_MODULE", "/registry/source:fixture-api")},
+    "product-imports-validator-main": {
+        ("E_SOURCE_PROCESS_ESCAPE", "/registry/source:fixture-api"),
+        ("E_ROUTE_BINDINGS", "/routes/OB-1/source"),
+        ("E_ROUTE_BINDINGS", "/routes/OB-2/source"),
+        ("E_ROUTE_BINDINGS", "/routes/OB-3/source"),
+    },
+    "empty-authority-grammar": {("E_AUTHORITY_SPEC", "/authority/spec")},
+    "empty-candidate-and-authority": {
+        ("E_AUTHORITY_SPEC", "/authority/spec"),
+        ("E_SOURCE_COUNT", "/registry/source-artifact"),
+    },
+    "missing-signature-field": {("E_NODE_SCHEMA", "/registry/call:ob1-impulse")},
     "wrong-return-type": {
         ("E_CALLABLE_RETURN_TYPE", "/registry/call:ob1-impulse/return_type"),
         ("E_RETURN_SLOT_TYPE", "/registry/call:ob1-impulse/output"),
-    },
-    "wrong-return-slot-type": {("E_RETURN_SLOT_TYPE", "/registry/call:ob1-calls-read/output")},
-    "resource-path-escape": {
-        ("E_RESOURCE_ESCAPE", "/registry/resource:golden-cell/path"),
         ("E_TRACE_CONTRACT", "/recipes/OB-1"),
     },
-    "resource-wrong-hash": {("E_RESOURCE_HASH", "/registry/resource:golden-cell/sha256")},
-    "resource-wrong-mode": {("E_RESOURCE_MODE", "/registry/resource:golden-cell/mode")},
-    "resource-wrong-size": {("E_RESOURCE_SIZE", "/registry/resource:golden-cell/size")},
-    "fault-owner-generic": {("E_FAULT_OWNER", "/registry/control:ob2-fault-before/output")},
+    "wrong-return-slot-type": {
+        ("E_RETURN_SLOT_TYPE", "/registry/call:ob1-calls-read/output"),
+        ("E_TRACE_CONTRACT", "/recipes/OB-1"),
+    },
+    "resource-path-escape": {
+        ("E_RESOURCE_ESCAPE", "/registry/resource:golden-cell/path"),
+        ("E_ROUTE_BINDINGS", "/routes/OB-1/skeleton"),
+        ("E_ROUTE_BINDINGS", "/routes/OB-1/source"),
+        ("E_TRACE_CONTRACT", "/recipes/OB-1"),
+    },
+    "resource-wrong-hash": {
+        ("E_RESOURCE_HASH", "/registry/resource:golden-cell/sha256"),
+        ("E_ROUTE_BINDINGS", "/routes/OB-1/skeleton"),
+        ("E_ROUTE_BINDINGS", "/routes/OB-1/source"),
+    },
+    "resource-wrong-mode": {
+        ("E_RESOURCE_MODE", "/registry/resource:golden-cell/mode"),
+        ("E_ROUTE_BINDINGS", "/routes/OB-1/skeleton"),
+        ("E_ROUTE_BINDINGS", "/routes/OB-1/source"),
+    },
+    "resource-wrong-size": {
+        ("E_RESOURCE_SIZE", "/registry/resource:golden-cell/size"),
+        ("E_ROUTE_BINDINGS", "/routes/OB-1/skeleton"),
+        ("E_ROUTE_BINDINGS", "/routes/OB-1/source"),
+    },
+    "fault-owner-generic": {
+        ("E_FAULT_OWNER", "/registry/control:ob2-fault-before/output"),
+        ("E_TRACE_CONTRACT", "/recipes/OB-2"),
+    },
     "fault-cross-operation": {
         ("E_FAULT_CONTROL_ARGS", "/registry/control:ob2-fault-before"),
         ("E_FAULT_OWNER", "/registry/control:ob2-fault-before/output"),
+        ("E_TRACE_CONTRACT", "/recipes/OB-2"),
         ("E_USE_BEFORE_PRODUCE", "/recipes/OB-2/5"),
     },
-    "self-cycle": {("E_GRAPH_CYCLE", "/registry/inst:ob1-core")},
-    "unreachable-node": {("E_UNREACHABLE", "/registry/lit:unreachable")},
+    "self-cycle": {
+        ("E_GRAPH_CYCLE", "/registry/inst:ob1-core"),
+        ("E_TRACE_CONTRACT", "/recipes/OB-1"),
+    },
+    "unreachable-node": {
+        ("E_LITERAL_AUTHORITY", "/registry/lit:unreachable/value"),
+        ("E_UNREACHABLE", "/registry/lit:unreachable"),
+    },
     "duplicate-slot-producer": {
         ("E_DUPLICATE_PRODUCER", "/registry/slot:ob1-calls"),
         ("E_UNREACHABLE", "/registry/call:ob1-calls-read-duplicate"),
@@ -2024,20 +2393,33 @@ CASE_EXPECTED: dict[str, set[tuple[str, str]]] = {
         ("E_TRACE_CONTRACT", "/recipes/OB-1"),
         ("E_USE_BEFORE_PRODUCE", "/recipes/OB-1/0"),
     },
-    "api-declaration-mismatch": {("E_API_DECLARATION", "/registry/call:ob1-calls-read/signature")},
+    "api-declaration-mismatch": {
+        ("E_API_DECLARATION", "/registry/call:ob1-calls-read/signature"),
+        ("E_ROUTE_BINDINGS", "/routes/OB-1/source"),
+        ("E_ROUTE_BINDINGS", "/routes/OB-2/source"),
+        ("E_ROUTE_BINDINGS", "/routes/OB-3/source"),
+    },
     "route-copies-sentinel": {("E_ROUTE_EXCEPTION", "/runtime/OB-1/14:call:ob1-calls-read")},
     "actual-product-write": {("E_PRODUCT_WRITE", "/product")},
+    "transient-product-write": {("E_PRODUCT_WRITE", "/product")},
     "wrong-base": {("E_BASE_IDENTITY", "/envelope/base_tree_sha256")},
     "wrong-acceptance": {("E_ACCEPTANCE_PIN", "/envelope/acceptance_sha256")},
     "wrong-testability-pin": {("E_PIN_HASH", "/envelope/testability/sha256")},
+    "old-finalized-contract-replay": {
+        ("E_CONTRACT_PACKET_VERSION", "/envelope/contract_version"),
+        ("E_CONTRACT_PRODUCT_VERSION", "/envelope/product_contract_version"),
+    },
+    "future-product-contract": {
+        ("E_CONTRACT_PRODUCT_VERSION", "/envelope/product_contract_version"),
+    },
+    "changed-contract-authority": {
+        ("E_CONTRACT_AUTHORITY", "/envelope/contract_authority"),
+    },
     "fake-interpreter": {("E_TOOLCHAIN_INTERPRETER", "/toolchain/interpreter_path")},
     "wrong-interpreter-hash": {("E_TOOLCHAIN_INTERPRETER_HASH", "/toolchain/interpreter_sha256")},
     "wrong-version": {("E_TOOLCHAIN_VERSION", "/toolchain/interpreter_version")},
     "wrong-script-path": {("E_TOOLCHAIN_SCRIPT", "/toolchain/script_path")},
-    "wrong-script-hash": {
-        ("E_TOOLCHAIN_CHANGED", "/toolchain/script_sha256"),
-        ("E_TOOLCHAIN_SCRIPT_HASH", "/toolchain/script_sha256"),
-    },
+    "wrong-script-hash": {("E_TOOLCHAIN_SCRIPT_HASH", "/toolchain/script_sha256")},
     "missing-isolation-flag": {("E_TOOLCHAIN_FLAGS", "/toolchain/flags")},
     "unlisted-dependency": {("E_TOOLCHAIN_DEPENDENCIES", "/toolchain/dependencies")},
     "compile-skipped": {("E_COMPILE_SKIPPED", "/commands/compile")},
@@ -2112,6 +2494,9 @@ def mutate_case(bundle: CaseBundle, case: str) -> None:
     if case == "two-independent-gaps":
         remove_node(packet, "call:ob1-impulse")
         remove_node(packet, "call:ob3-source-input")
+    elif case == "mixed-missing-and-literal-gaps":
+        remove_node(packet, "call:ob1-impulse")
+        find_node(packet, "lit:phase-before")["value"] = "after"
     elif case == "planner-self-validates":
         bundle.envelope_overrides["validator_session"] = "plan-author-001"
     elif case == "stale-candidate":
@@ -2142,6 +2527,40 @@ def mutate_case(bundle: CaseBundle, case: str) -> None:
         find_node(packet, "call:ob1-impulse")["args"][0]["type"] = "str"
     elif case == "same-type-source-swap":
         find_node(packet, "call:ob1-impulse")["args"][1]["source"] = "lit:neighbor-zero"
+    elif case == "wrong-open-literal":
+        find_node(packet, "lit:room-open")["value"] = "sealed"
+    elif case == "wrong-fault-phase-literal":
+        find_node(packet, "lit:phase-before")["value"] = "after"
+    elif case == "source-path-substitution":
+        source = find_node(packet, "source:fixture-api")
+        source["path"] = "resources/golden-cell.json"
+        source["module"] = "fixture_api"
+        source["sha256"] = file_sha256(bundle.product_root / source["path"])
+    elif case == "product-imports-validator-main":
+        replace_fixture(
+            bundle,
+            "from dataclasses import dataclass",
+            "from dataclasses import dataclass\nimport __main__\n__main__.run_command = lambda argv: None",
+        )
+    elif case == "empty-authority-grammar":
+        for obligation in bundle.spec["obligations"]:
+            obligation["trace"] = []
+            obligation["route_roles"] = {category: [] for category in ROUTE_CATEGORIES}
+            obligation["route_bindings"] = {category: [] for category in ROUTE_CATEGORIES}
+        packet["acceptance_sha256"] = sha256_bytes(canonical_bytes(bundle.done_when) + canonical_bytes(bundle.spec))
+    elif case == "empty-candidate-and-authority":
+        for obligation in bundle.spec["obligations"]:
+            obligation["trace"] = []
+            obligation["route_roles"] = {category: [] for category in ROUTE_CATEGORIES}
+            obligation["route_bindings"] = {category: [] for category in ROUTE_CATEGORIES}
+        packet["nodes"] = []
+        packet["recipes"] = {obligation: [] for obligation in packet["coverage"]}
+        packet["routes"] = {
+            obligation: {category: [] for category in ROUTE_CATEGORIES} for obligation in packet["coverage"]
+        }
+        packet["acceptance_sha256"] = sha256_bytes(canonical_bytes(bundle.done_when) + canonical_bytes(bundle.spec))
+    elif case == "missing-signature-field":
+        find_node(packet, "call:ob1-impulse").pop("signature")
     elif case == "wrong-return-type":
         find_node(packet, "call:ob1-impulse")["return_type"] = "int"
     elif case == "wrong-return-slot-type":
@@ -2178,23 +2597,24 @@ def mutate_case(bundle: CaseBundle, case: str) -> None:
             "    def call_count(self, extra=None):\n        return self.calls",
         )
     elif case == "route-copies-sentinel":
-        replace_fixture(
-            bundle,
-            "    def call_count(self):\n        return self.calls",
-            "    def call_count(self):\n        raise RuntimeError('BINDING_REACHED:copied')",
-        )
+        bundle.fault = "product-sentinel"
     elif case == "actual-product-write":
-        replace_fixture(
-            bundle,
-            "    def cell(value):\n        return value.cell",
-            "    def cell(value):\n        with open(__file__ + '.forbidden-write', 'w', encoding='utf-8') as stream:\n            stream.write('forbidden')\n        return value.cell",
-        )
+        bundle.fault = "persistent-product-write"
+    elif case == "transient-product-write":
+        bundle.fault = "transient-product-write"
     elif case == "wrong-base":
         bundle.envelope_overrides["base_tree_sha256"] = "0" * 64
     elif case == "wrong-acceptance":
         bundle.envelope_overrides["acceptance_sha256"] = "0" * 64
     elif case == "wrong-testability-pin":
         bundle.envelope_overrides["testability_sha256"] = "0" * 64
+    elif case == "old-finalized-contract-replay":
+        bundle.envelope_overrides["contract_version"] = 20
+        bundle.envelope_overrides["product_contract_version"] = 20
+    elif case == "future-product-contract":
+        bundle.envelope_overrides["product_contract_version"] = 99
+    elif case == "changed-contract-authority":
+        bundle.envelope_overrides["contract_authority.sha256"] = "0" * 64
     elif case == "fake-interpreter":
         bundle.envelope_overrides["toolchain.interpreter_path"] = "C:/missing/python.exe"
     elif case == "wrong-interpreter-hash":
@@ -2208,7 +2628,7 @@ def mutate_case(bundle: CaseBundle, case: str) -> None:
     elif case == "missing-isolation-flag":
         bundle.envelope_overrides["toolchain.flags"] = ["-I"]
     elif case == "unlisted-dependency":
-        bundle.envelope_overrides["toolchain.dependencies"] = ["stdlib-only", "fixture_api.py@base-manifest", "mystery.dll"]
+        bundle.envelope_overrides["toolchain.dependencies"] = ["stdlib-only", "registry-source@base-manifest", "mystery.dll"]
     elif case == "compile-skipped":
         bundle.fault = "skip-compile"
     elif case == "compile-failure":
@@ -2246,6 +2666,8 @@ def set_override(envelope: dict[str, Any], key: str, value: Any) -> None:
         envelope["testability"]["sha256"] = value
     elif key.startswith("toolchain."):
         envelope["toolchain"][key.split(".", 1)[1]] = value
+    elif key.startswith("contract_authority."):
+        envelope["contract_authority"][key.split(".", 1)[1]] = value
     else:
         envelope[key] = value
 
@@ -2282,6 +2704,9 @@ def finalize_bundle(bundle: CaseBundle, case: str) -> Path:
         "spec": {"path": str(spec_path.resolve()), "sha256": file_sha256(spec_path)},
         "acceptance_sha256": sha256_bytes(done_path.read_bytes() + spec_path.read_bytes()),
         "toolchain": actual_toolchain(),
+        "contract_authority": live_contract_authority(),
+        "contract_version": live_contract_authority()["current"],
+        "product_contract_version": live_contract_authority()["current"],
     }
     for key, value in bundle.envelope_overrides.items():
         set_override(envelope, key, value)
@@ -2371,6 +2796,9 @@ def run_case(case: str, enforce: bool = True) -> int:
 def run_parent() -> int:
     script = Path(__file__).resolve()
     interpreter = Path(sys.executable).resolve()
+    if len(CASE_NAMES) != len(set(CASE_NAMES)) or set(CASE_NAMES) != set(CASE_EXPECTED):
+        print(json.dumps({"status": "V21_CONFORMANCE_FATAL", "error": "case/oracle registry mismatch"}, sort_keys=True))
+        return HARNESS_FATAL
     outcomes: list[dict[str, Any]] = []
     for case in CASE_NAMES:
         process = subprocess.run(
@@ -2393,12 +2821,16 @@ def run_parent() -> int:
             (item[0], item[1]) for item in payload.get("rows", [])
             if isinstance(item, list) and len(item) == 2 and all(isinstance(part, str) for part in item)
         }
+        parent_error = None
         if rows != CASE_EXPECTED[case]:
-            raise HarnessError("parent observed wrong exact rows for " + case)
-        if case == "valid" and payload.get("materialized_before") != payload.get("materialized_after"):
-            raise HarnessError("parent observed valid mutation")
-        if case != "valid" and payload.get("materialized_before") == payload.get("materialized_after"):
-            raise HarnessError("parent observed unmaterialized negative")
+            parent_error = "wrong exact rows"
+        elif case == "valid" and payload.get("materialized_before") != payload.get("materialized_after"):
+            parent_error = "valid case mutated"
+        elif case != "valid" and payload.get("materialized_before") == payload.get("materialized_after"):
+            parent_error = "negative did not materialize"
+        if parent_error is not None:
+            print(json.dumps({"status": "V21_CONFORMANCE_FATAL", "case": case, "error": parent_error}, sort_keys=True))
+            return HARNESS_FATAL
         outcomes.append(payload)
     result = {
         "status": "V21_CONFORMANCE_GREEN",
