@@ -287,7 +287,7 @@ active_bet:
       kill the bet and shape a new bounded bet; do not extend appetite or
       claim partial success.
 
-route_status: operating_substrate_first_process_creator_t2_materialization_plan_approved_build_ready
+route_status: operating_substrate_first_process_creator_t2_build_evidence_accepted_t3_refutation_ready
 
 owner_directive: |
   Owner approved umbrella placement for Solmax.
@@ -898,7 +898,7 @@ tasks:
 
   - id: t-3
     kind: session
-    status: open
+    status: active
     budget: 0.25 focused execution day
     goal: |
       Independently attempt to refute and admit or reject the Process
@@ -1110,6 +1110,14 @@ open_calls:
       Owner-approved PLAN v1 is frozen. A fresh BUILD session materializes the
       complete Process Creator candidate and author self-conformance evidence;
       independent t-3 refutation remains a later fresh session.
+  - id: c-solmax-operating-substrate-first-process-creator-t3-refutation-001
+    to: executor
+    for: g-operating-substrate-first-process-creator/t-3
+    issued: 2026-07-13
+    note: |
+      Final BUILD HEAD d915789 is frozen for a fresh independent cross-family
+      refutation. Its recorded review evidence is the remaining close gate for
+      t-2 before the owner's binding structural disposition.
 # 2026-07-12: c-solmax-operating-substrate-first-process-creator-t2-repo-bootstrap-001
 # cleared — the repo-bootstrap setup checkpoint is complete (commit f3d153d, CI
 # green). t-2 remains ACTIVE; Process Creator materialization is the next work,
@@ -1218,6 +1226,10 @@ preserved_evidence:
   - live/solmax/work/operating-substrate/process-creator-materialization-plan-v1.md
   - live/solmax/history/2026-07-13-s-solmax-operating-substrate-first-process-creator-t2-materialization-plan-001.md
   - 'owner approval in chat: "Approve plan v1"'
+  - github.com/ainazemtsau/solmax-operating-substrate@6ca5539a60a24d96b27cb2677e605c582f5f0161
+  - github.com/ainazemtsau/solmax-operating-substrate@d915789baffd13893a9fee1e7cb4b1eb74a02604
+  - github.com/ainazemtsau/solmax-operating-substrate@d915789baffd13893a9fee1e7cb4b1eb74a02604/RESULT.md
+  - 'owner-provided engineering handback: BUILD candidate ready for independent t-3 refutation'
 next: |
-  live/solmax/work/calls/c-solmax-operating-substrate-first-process-creator-t2-materialization-build-001.md
+  live/solmax/work/calls/c-solmax-operating-substrate-first-process-creator-t3-refutation-001.md
 END_OF_FILE: live/solmax/NOW.md
