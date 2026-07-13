@@ -21,6 +21,8 @@ Companion files: `PROJECT_SETUP.md` (bootstrap a product repo), `VALIDATION.md` 
 
 ## The cycle
 
+Engineering CALLs expose the session boundary mechanically: `phase: PLAN` enters only the plan leg; the downstream separate fresh feature leg is `phase: EXECUTE|BUILD`; `phase: RE-SYNC` may only install a newer contract/check into a behind product. Missing/unknown phase is not inferred from prose and is not runnable.
+
 ```
 CALL (business task from a direction)
   → PLAN (interactive): the planner first names the change class — module
@@ -93,20 +95,35 @@ CALL (business task from a direction)
     token and property-test token. Every obligation binds: `construct` (exact constructor,
     factory, literal or committed fixture), `act` (exact production entrypoint), `observe`
     (exact public/internal friend seam or real evidence venue), `negative` (the exact
-    deliberately-wrong/test-local injection route), and `source` (`spec:<anchor>` for a new
-    surface or `baseline:<commit>:<path>#<symbol>` for an existing one). A test-bearing
+    deliberately-wrong/test-local injection route), and `source`
+    (`spec:<repo-relative-path>#<stable-id>` for a new surface or
+    `baseline:<commit>:<path>#<symbol>` for an existing one). A bare spec heading/anchor is
+    invalid because multiple delta specs may contain the same heading. A test-bearing
     obligation has no `n/a` escape; if it is not executable, its evidence class/acceptance
     meaning must be corrected before approval rather than silently waived.
     A FRESH read-only validator independently derives the obligation union from the proposed
     spec, resolves every source against the exact base, and tries to refute every row. It
     returns the complete report body; the planner records it verbatim as
-    `openspec/changes/<id>/TESTABILITY.md` with `baseline-commit`, the exact proposed
-    `spec-blob`, `complete-sweep: yes`, one disposition per obligation, and `verdict: GREEN|RED`.
+    `openspec/changes/<id>/TESTABILITY.md`. The report carries `change-id`, `baseline-commit`,
+    `complete-sweep: yes`, one disposition per obligation, `verdict: GREEN|RED`, and a
+    canonical input manifest. That manifest covers PLAN.md, proposal.md, tasks.md, every
+    `specs/**/spec.md`, every referenced ADR, and every other file declared as a frozen
+    ledger/property/baseline-corpus authority. It is an ordinal-path-sorted table of
+    `<repo-relative-path> | <git-blob-id>` and carries `input-manifest-hash`: SHA-256 of the
+    UTF-8 bytes of LF-joined `<path>\t<blob>` lines with one final LF. TESTABILITY.md itself is
+    not in its recursive input manifest.
     The sweep NEVER stops at the first gap: RED returns the complete gap set for that round;
-    GREEN means zero gaps. Any change to the spec, baseline corpus or obligation set makes the
-    audit stale and forces a fresh full sweep. The owner-readable PLAN is not presented for
+    GREEN means zero gaps. Any changed/added/removed manifested path, baseline corpus or
+    obligation set makes the audit stale and forces a fresh full sweep. The owner-readable
+    PLAN is not presented for
     final approval, the spec is not handed off, and no EXECUTE/BUILD CALL is issued until this
     artifact is fresh and GREEN (VALIDATION G0; PROJECT_SETUP pre-execution gate).
+    That execution CALL names exact `change-id`, TESTABILITY path, worktree, branch,
+    authoritative `base`, matching `baseline-commit`, and `input-manifest-hash`. Dispatch is a
+    hard STOP while the product contract is below v21 or its `plan_handoff_check` is unreadable.
+    Before RED, the executor requires a clean assigned worktree/branch, proves base is its
+    merge-base and only manifested frozen packet/evidence paths differ in `base..HEAD`;
+    baseline sources are read through that commit.
     TESTABILITY.md then joins the frozen packet: builder/test-author may not edit it. This is a
     plan testability audit, not RED authoring: it writes no production or acceptance test.
     The plan the owner approves is a detailed-but-simple OWNER-READABLE
