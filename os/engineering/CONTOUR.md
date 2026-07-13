@@ -21,7 +21,7 @@ Companion files: `PROJECT_SETUP.md` (bootstrap a product repo), `VALIDATION.md` 
 
 ## The cycle
 
-Engineering CALL boundaries are transactional. SETUP is branch/base-free but writer-pins a protected pre-entry inventory and exact install manifest. PLAN/EXECUTE/BUILD/RE-SYNC carry exact branch/base plus immutable external base-authority; PLAN and descendants also keep parent acceptance source/hash, toolchain/conformance pins and exact result path. RE-SYNC starts at clean HEAD==base and is contract-only. PLAN runs entry and final gates. EXECUTE is fresh only; BUILD is v21 receipt-bound resume only. No phase, prose label, plan tip, historical checkpoint or local checkout may invent/advance authority.
+Engineering CALL boundaries are two-stage transactions. Session emits stable intent; writer alone observes current state, runs the phase gate, adds non-self-referential receipts and persists finalized CALL before payload. Collect runs finalized only. SETUP uses create/overlay inventory; PLAN/EXECUTE/BUILD/RE-SYNC retain external base, parent acceptance and trust identities. RE-SYNC is contract-only at HEAD==base. PLAN has entry plus pre-owner candidate receipt. EXECUTE is fresh finalized pre-red entry; BUILD is receipt-bound resume. No prose, HEAD, plan tip, guessed receipt or historical checkpoint invents authority.
 
 ```
 CALL (business task from a direction)
@@ -89,45 +89,34 @@ CALL (business task from a direction)
     ESCALATION) — a self-authored cut of a promise is a coverage FAIL, not a disposition. This
     list is RECORDED in the spec; the deliver gate checks it (PROJECT_SETUP §Strong-check
     enablement) and the writer re-checks it on carry-back (os/adapters/coding-agent.md).
-    (d) EXECUTABLE-TEST CLOSURE: external Direction base-authority and exact done_when
-    bytes/hash enter PLAN. Frozen deliverable coverage reproduces every bullet verbatim and maps
-    each to the independently derived obligation union; final PLAN and next execution retain the
-    same authority/acceptance identity.
-    TESTABILITY uses typed regular-file rows:
-    `packet<TAB>path<TAB>mode<TAB>blob`, `authority<TAB>path<TAB>mode<TAB>blob`, and
-    `baseline<TAB>base<TAB>path<TAB>mode<TAB>blob`. Packet/authority rows are current immutable;
-    baseline rows resolve only at external base, so legitimate BUILD may edit their current copies.
-    TESTABILITY itself is separately pinned by regular-file mode/blob. Canonical paths stay
-    in-worktree, non-reparse, non-symlink/gitlink and unique after Windows case normalization.
-    Every obligation records machine-parsed `construct|act|observe|negative|source|skeleton`:
-    fully qualified complete signature, visibility/owner, every ordered argument source, fixture
-    topology/input, return slot, observation/assertion input and operation-local injection/delegation.
-    Ellipsis, wildcard, bare overload/member, inaccessible seam, vague state/counter, incomplete
-    fixture or unowned route is RED. Existing tokens resolve at base; new ones resolve to stable spec
-    declarations. The fresh read-only validator renders the complete no-implementation skeleton,
-    resolves every token, sweeps the whole union and returns every gap in one round.
-    Before owner presentation, planner commits the candidate packet/evidence, re-verifies original
-    toolchain roots before running `plan`, and proves clean exact branch with only the exact
-    manifested docs/same-id packet delta: no committed/uncommitted source, test, toolchain or
-    unmanifested edit. It verifies parent acceptance byte-for-byte and typed GREEN TESTABILITY.
-    Any failure stays before approval.
-    Fresh EXECUTE begins only after writer independently preserves authority/acceptance/toolchain/
-    conformance/result/testability identities, proves packet-only delta and records run plus
-    pre-execution receipt. Historical b948-like source/test checkpoints cannot be relabeled as base.
-    Independent test-author then commits RED checkpoint R and an oracle receipt containing regular
-    test path/mode/blob rows, unique discovered IDs, registration/filter and expected failing
-    criteria. Pinned `red-boundary` must observe those exact tests RED before builder control.
-    Builder never edits them. Later property/fix-test passes are separate recorded independent
-    manifest revisions before builder resumes.
-    An interrupted valid run resumes only through BUILD with original run/receipt/base/acceptance/
-    toolchain/TESTABILITY, protected oracle revision and exact Direction-accepted progress commit/
-    ledger blob. Foreign work, rewritten R, wrong run/base or unaccepted progress fails.
-    Base config resolves exact same-id `product-result-path`. At clean D, deliver hashes
-    `D:<that path>`; product report predeclares archive target/location but never its own hash or
-    commit. Archive is exactly next A. Close checks result/toolchain/oracle, typed packet relocation,
-    frozen external rows and base-qualified baseline rows. Receipt is routing only: after crash
-    rerun at D, or at clean A derive D=A^ and D:path/blob, then rerun structural close.
-    This is plan testability, not RED authoring: it writes no production or acceptance test.
+    (d) EXECUTABLE-TEST CLOSURE: external base-authority and exact Direction done_when enter
+    PLAN intent. Writer finalizes entry. Coverage reproduces every bullet; typed packet/authority/base
+    regular-file rows bind meaning while baseline current copies may legitimately change.
+    Every obligation passes all seven machine records:
+    `construct|act|observe|negative|source|skeleton|red-realization`, with complete FQ signature,
+    visibility/owner, arguments/fixtures/returns/observe/inject/delegate and no-implementation sequence.
+    Validator renders against exact base and proves compile plus unique discovery without production stub.
+    A new absent symbol uses exact reflection/dynamic test-local signature route and runtime criterion RED;
+    a direct uncompilable new-member call fails PLAN.
+    Before any approval prompt, planner commits exact candidate, verifies clean manifested delta, trust,
+    acceptance, typed TESTABILITY and red realizations, runs pinned plan, then persists candidate HEAD and
+    receipt. Owner verdict must be later and cite it; edit/skipped/stale receipt forces rerun.
+    EXEC session returns stable intent. Writer verifies plan receipt/candidate, runs pre-execution, then
+    persists run-id, pre-red-head, receipt/observation and finalized CALL. Historical source/test work has
+    no such receipt.
+    Independent test-author R records role/session, exact parent pre-red-head and only manifested
+    test/oracle-registration delta; first R is direct child or declared test-author-only chain. Pinned
+    red-boundary proves compile, unique discovery/filter and expected runtime RED. Production-before-R,
+    mixed/unmanifested change or wrong parent fails. Later independent revisions parent exact accepted
+    progress and obey the same path rule.
+    BUILD resume preserves finalized run/base/acceptance/trust/TESTABILITY plus RED revision and exact
+    Direction-accepted progress. Foreign or pre-v21 state cannot resume.
+    Base config resolves exact result path; deliver at D and one-commit archive A use typed manifests.
+    Routing receipt recovers by rerun at D or derivation D=A^ at clean A; product report never self-hashes.
+    SETUP/RE-SYNC trust bootstraps from OS-owned V21-CONFORMANCE specimen bytes/exact mutations and
+    externally pinned adapter. Writer materializes/randomizes/verifies deltas, passes no case/expected id,
+    and rejects always-zero/case-switch/defect-absent fixtures before stamp 21.
+    This is plan testability, not RED authoring: no product or acceptance test is written here.
     The plan the owner approves is a detailed-but-simple OWNER-READABLE
     document — the goal in plain words and EACH technical decision spelled out
     (plain-language what + why), plus what is cut or deferred; the machine spec /
@@ -139,7 +128,7 @@ CALL (business task from a direction)
     plan leg: RED TESTS + BUILD run as a SEPARATE, fresh build session reading
     the frozen plan (the plan session writes no product code and commissions no
     red tests). Planning and building never share one session.
-  -> RED TESTS (before build): the independent test-author reads frozen spec, pinned TESTABILITY and audited exact-base corpus. It writes failing acceptance/negative controls, commits clean R, and emits the canonical oracle manifest/discovery/filter/expected-failure receipt. Pinned red-boundary must observe those exact unique IDs failing before builder control. The builder cannot author, edit, exclude or shadow them. A later property/fix-test pass is a new independent revision checkpoint before builder resumes. Absent/stale/RED TESTABILITY or an incomplete recipe is a pre-RED STOP, never partial authoring.
+  -> RED TESTS: at finalized pre-red-head, independent test-author uses the base-compilable/discoverable skeletons, including reflection/dynamic routes for absent new APIs. It commits only exact manifested test/oracle-registration delta at direct parent R (or declared test-author-only chain), records role/session/IDs/filter/runtime criteria, and red-boundary observes expected RED before builder control. No production stub/source/frozen/toolchain/result/unmanifested file may enter. Later revisions parent exact accepted progress. Builder cannot author, edit, exclude or shadow the oracle.
   → BUILD (autonomous): one feature at a time, smallest-first.
     Reuse-first rule: before writing anything, search for an existing
     implementation; the duplicate you would have written becomes a call.

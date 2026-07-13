@@ -1,7 +1,8 @@
 # os/engineering contract version — the forcing function against silent propagation lag
 
 A single monotonic integer naming the current state of the engineering contract (CONTOUR.md +
-VALIDATION.md + PROJECT_SETUP.md + ESCAPE-CLASSES.md + profiles/**). Appending a defect-class to
+VALIDATION.md + PROJECT_SETUP.md + V21-CONFORMANCE.md + `os/schema/packets.md` +
+`os/adapters/coding-agent.md` + ESCAPE-CLASSES.md + profiles/**). Appending a defect-class to
 ESCAPE-CLASSES.md (the ratchet, MAINTENANCE step 6) bumps it too, so the new class propagates to
 product repos instead of protecting only the workflow-repo-side audits. A **MAINTENANCE session bumps it** (current + one
 log line) whenever it hardens or adds a load-bearing gate (os/MAINTENANCE.md step 6). Each product
@@ -67,7 +68,19 @@ log:
       legitimate current production edits pass. Config resolves exact same-id product-result-path. Independent RED ends
       at R with protected oracle/discovery/filter receipt; BUILD is only v21 receipt-bound resume. Deliver/close use typed
       mode/blob archive mapping and deterministic D/A receipt recovery. No product report self-hashes. No prior gate is
-      weakened;
+      weakened. A second committed-SHA pass then found and closed seven remaining contract deltas: conformance labels
+      without OS-owned specimen bytes/exact mutations still let installer and checker agree on a lie; CALL required
+      writer observations before the writer had a legal materialization step; owner approval was not durably tied to the
+      already-gated PLAN candidate; the top rule still admitted five non-empty prose fields; RED was not anchored to the
+      exact pre-red parent and test/oracle-only delta; SETUP could neither safely create nor explicitly overlay a
+      pre-existing path; and a direct test for an absent new API could not compile/discover. v21 now uses intent -> sole
+      writer-finalized persisted CALLs with non-self receipts, a pre-owner candidate/receipt/chronology, all seven recipe
+      records including base-compilable runtime `red-realization`, exact-parent test-author-only RED/revisions, disjoint
+      create/overlay manifests, and `V21-CONFORMANCE.md`: exact external phase snapshots, acyclic B->P->R->Q->D->A plus
+      RB->RS/S0->S1 trees, exact mutation families for every mode, separately pinned adapter, randomized roots and
+      always-zero/case-switch/defect-removed/omitted-mutation witnesses. The independent reviewer also caught and closed
+      incoherent WIP resume/deliver/archive snapshots, a potential specimen self-hash cycle and lost legacy seeded misses
+      before this contract was declared complete;
       planner/builder/validator/test-author
       separation, frozen meaning, option-A serial concurrency readiness, negative controls, property layer, review/G5,
       retry/non-convergence and owner authority remain intact. SCOPE (honest): mechanically prevents the witnessed
