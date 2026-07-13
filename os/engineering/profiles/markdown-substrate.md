@@ -51,6 +51,14 @@ scanner (aligns with contract v17 source-scan ban).
   compiler and an arms race. Keep Python to file/section presence, YAML parse
   (via PyYAML, not a hand parser), cited-path existence, report-field presence,
   scratch/secret hygiene. Semantics → the reviewer.
+- **The reflexive-CI trap.** PROJECT_SETUP says "CI on every PR" — a code-project
+  assumption. For a markdown substrate the owner does NOT watch, driven by AI
+  executors, a post-push badge nobody reads enforces nothing. The forcing
+  function is the local gate the agent runs BEFORE it pushes
+  (`check.py --deliver`). Default to NO CI (owner decision 2026-07-12); it is
+  the same N/A logic as the code-gates. If a hard backstop is wanted, a local
+  git pre-push hook fits — not a cloud pipeline. CI re-enters only via friction
+  if compiled code lands.
 - **Second source of truth.** Do not copy the accepted Q1-Q7 architecture cards
   into the repo without a materialization CALL — the direction state stays
   authoritative until then; a premature copy drifts.
@@ -60,8 +68,9 @@ scanner (aligns with contract v17 source-scan ban).
 ## 5. Setup notes
 
 - One dependency: `PyYAML` (config parsing only), pinned in `tools/requirements.txt`.
-- CI: GitHub Actions runs `python tools/check.py --deliver` + `python
-  tools/selfcheck.py` on push/PR to `main` (free for a public repo).
+- **No CI by default** (see §4 reflexive-CI trap): the gate is run by the agent
+  before deliver (`python tools/check.py --deliver` + `python tools/selfcheck.py`),
+  not by a post-push pipeline.
 - Deliver gate: `--deliver` adds the `RESULT.md` field-presence check to the
   always-run inner-loop gate; cited-artifact existence (v18) runs always.
 - The code-only strong-check deliver dependencies (mutation/negative-control/

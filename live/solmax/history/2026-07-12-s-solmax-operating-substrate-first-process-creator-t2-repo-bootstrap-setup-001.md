@@ -160,4 +160,20 @@ next: |
   boundary). t-2 remains active; the repo-bootstrap checkpoint is complete and
   Process Creator materialization is pending within the unchanged 3-day appetite.
 
+correction (same session, owner direction — supersedes the CI evidence above): |
+  Owner: «мы CI вообще не делаем… ассистенты должны перед запуском запускать
+  проверки… я потом не смотрю репозиторий… возможно стоит её вырезать».
+  CI on every push was a reflexive PROJECT_SETUP code-repo assumption; it does
+  not fit a markdown substrate the owner does not watch, driven by AI executors
+  that run the local gate before pushing. REMOVED: deleted
+  .github/workflows/check.yml; check.py REQUIRED_FILES drops it; AGENTS.md /
+  CLAUDE.md / README.md / RESULT.md / .gitattributes carry no CI claim;
+  ADR-0001 gains a "No CI" section (in-loop validation + local gate; re-sync
+  hatch if compiled code lands); validation.config lists ci-on-every-push under
+  not_used_by_design. Gate + selfcheck still green. Product commit 34f76d3
+  pushed to main. The forcing function is now solely `check.py --deliver` run by
+  the agent pre-deliver. Lesson pinned in profiles/markdown-substrate.md (§4
+  reflexive-CI trap). The GitHub Actions run 29195489904 in the evidence above
+  genuinely ran at f3d153d; there is no CI from 34f76d3 onward.
+
 END_OF_FILE: live/solmax/history/2026-07-12-s-solmax-operating-substrate-first-process-creator-t2-repo-bootstrap-setup-001.md
