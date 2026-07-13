@@ -165,27 +165,27 @@
 <div class="wrap">
 
 <header class="hero">
-  <div class="eyebrow">ОНО ДЫШИТ · панель направления · обновлено 13.07: gas-dashboard принят и закрыт; следующий шаг — owner-present L1 PLAN; L1 BUILD не открыт; visual LOCKED; PuppetMaster идёт параллельно</div>
+  <div class="eyebrow">ОНО ДЫШИТ · панель направления · обновлено 13.07: L1 PLAN принят, влит и binding-проверен; отдельный L1 BUILD готов, но не запущен; visual LOCKED; PuppetMaster идёт параллельно</div>
   <h1>Панель: что происходит, что решено, что ждёт тебя</h1>
   <p class="lead">Живой статус — секция «Борд» ниже (истина всегда NOW.md + git; панель — рендер). Дальше по странице — действующее: ставка Полигон М1, инвентарь по трекам, справочник дат фестов, матрица потребностей, стенд. Устаревшие обсуждения с панели вырезаются — их полная история лежит в git, ничего не теряется.</p>
-  <div class="stamp"><span>ставка: Полигон М1 · аппетит 13 легов · стоп-линия 24.07</span><span>газ: PROGRAM принят · dashboard закрыт</span><span>следом: owner-present L1 PLAN · BUILD не открыт</span><span>visual: LOCKED до M0+C1+L3+I1</span><span>канон: Canon Forge v3 ACTIVE · c-001 preliminary</span><span>маркетинг: INOMAND checkpoint сохранён</span></div>
+  <div class="stamp"><span>ставка: Полигон М1 · аппетит 13 легов · стоп-линия 24.07</span><span>газ: PROGRAM принят · L1 PLAN закрыт</span><span>следом: отдельный L1 BUILD · READY, не запущен</span><span>вариант A: serial concurrency-ready</span><span>visual: LOCKED до M0+C1+L3+I1</span><span>канон: Canon Forge v3 ACTIVE · c-001 preliminary</span><span>маркетинг: INOMAND checkpoint сохранён</span></div>
 </header>
 
 <section>
-  <div class="sec-head"><h2>📋 Борд — живой статус</h2><span class="tag">обновлено 13.07 · NOW.next = owner-present L1 PLAN · dashboard закрыт owner-verdict · L1 BUILD не выпущен · Phase 0 не маршрут · visual LOCKED · P2a0 параллельно · истина всегда NOW.md + evidence</span></div>
+  <div class="sec-head"><h2>📋 Борд — живой статус</h2><span class="tag">обновлено 13.07 · NOW.next = отдельный L1 BUILD · PLAN @1e4e78c owner-approved + merged @13917123 + binding-refuted · BUILD не запущен · Phase 0 не маршрут · visual LOCKED · P2a0 параллельно · истина всегда NOW.md + evidence</span></div>
   <div class="callout accent"><b>Единственный дом этой панели — репозиторий:</b> live/indie-game-development/work/board/dashboard.html; открывается в Chrome с диска, обновляется ТОЛЬКО здесь (внешних зеркал не ведём — правило владельца 2026-07-11). Живой статус — эта секция; панель — рендер: решения по ней, противоречащей NOW, не принимаются.</div>
-  <div class="callout"><b>Как читать параллельность:</b> у направления один <code>NOW.next</code> — маршрут команды «продолжаем». Dashboard принят владельцем после живого просмотра в Chrome и закрыт Direction-result. Теперь главный маршрут — отдельная PLAN-сессия первой Core-леги L1: она обязана показать владельцу подробный понятный план и остановиться на его verdict. Никакого RED или BUILD внутри неё нет. PuppetMaster идёт параллельно, Unity .NET runner остаётся неприоритетным; visual не готовая параллельная стройка, а явно запертая линия.</div>
+  <div class="callout"><b>Как читать параллельность:</b> у направления один <code>NOW.next</code> — маршрут команды «продолжаем». L1 PLAN уже принят владельцем, влит и отдельно binding-проверен. Теперь главный маршрут — свежий L1 BUILD: он начинает с независимого RED и остаётся serial concurrency-ready. Реальные workers не входят и могут появиться только отдельной будущей легой после delivered L1/L2/C1 и свежего профиля. PuppetMaster идёт параллельно, Unity .NET runner остаётся неприоритетным; visual не готовая параллельная стройка, а явно запертая линия.</div>
   <div class="callout"><b>⚠ Демо: определения сейчас НЕТ — это открытый пункт, а не план.</b> Концепт изменился (11.07 принята новая рамка игры: расследование почти невидимого газа → план → добыча/операция → эвакуация). Старый октябрьский демо-план с панели ВЫРЕЗАН — его история лежит в git. 12.07 владелец установил Canon Forge v3 как единственный живой paper-only маршрут, затем отдельным вердиктом «ADMIT TO CANON» допустил «Цель стоит запуска» как предварительную карточку c-001 (нужен-грейбокс). Это не готовая механика: fun, кооперация, рантайм-читаемость, темп давления, стоимость движка и коммерческий сигнал не доказаны; точные правила газа, активации, добычи, экономики, инвентаря и кооперации остаются открыты. Проверенные даты фестов сохранены ниже как справочник, а не как план.</div>
   <div class="callout"><b>Газовый маршрут пересобран.</b> Принята единая продуктовая программа: сначала ядро получает одного владельца и одну атомарную симуляцию, затем ограничение ресурсов, дешёвую сверку состояния, точную версию Unity и единственный рабочий путь через Unity; после интеграционной проверки подключаются PlayerSense, replay и удаление старых путей. Старый монолитный Phase 0 честно остался <b>NOT DELIVERED</b> и больше не запускается. Бюджет ставки <b>13 легов / 24.07</b> не расширен: новая программа не считается молча помещённой в него.</div>
-  <div class="callout accent"><b>Что происходит прямо сейчас:</b> зеркало построено, committed source/diff/preservation проверены, а владелец после живого Chrome-просмотра вынес verdict: «всё чётко», «вообще не придраться», «давай закрывать сейчас». Dashboard-задача закрыта. Следом готова только owner-present L1 PLAN-сессия; она проектирует один engine-free Core-владелец и атомарный Step, но не пишет код и не запускает BUILD. Visual BUILD по-прежнему запрещён.</div>
+  <div class="callout accent"><b>Что происходит прямо сейчас:</b> владелец подтвердил вариант A и закрытие L1 PLAN. Frozen PLAN @<b>1e4e78c</b> влит в main @<b>13917123</b>, а отдельная свежая refutation не нашла дыр в done_when. PLAN-задача закрыта; отдельный L1 BUILD-заказ готов, но RED, BUILD и Unity в этой Direction-сессии не запускались. Он строит только serial concurrency-ready engine-free Core; многопоточность отложена до L1/L2/C1 и свежего профиля. Visual BUILD по-прежнему запрещён.</div>
   <h3 class="subhead">Открытые работы</h3>
   <div class="calls">
     <div class="call">
-      <div class="head"><span class="st">▶ ГЛАВНЫЙ МАРШРУТ · PLAN-ONLY · ЖДЁТ ВЛАДЕЛЬЦА</span><b>L1: один engine-free Core-владелец и атомарный шаг симуляции</b><span class="id">c-exec-near-gas-core-authority-001 · открыта 13.07</span></div>
-      <p><span class="l">Что это:</span> отдельная сессия планирования первой маленькой леги принятой gas-программы. Она проектирует новый спящий Core-контур, который умеет целиком заменить поколение данных и выполнить один полный детерминированный шаг без Unity.</p>
-      <p><span class="l">Зачем:</span> прежде чем ограничивать ресурсы, считать дешёвую идентичность и переключать Unity, нужен один хозяин состояния и одна атомарная граница: либо весь шаг принят, либо при ошибке ничего не изменилось.</p>
-      <p><span class="l">Где сейчас:</span> dashboard принят владельцем и больше не блокирует дорогу. Заказ на PLAN готов по принятой PROGRAM и её подробной декомпозиции. Он обязан сначала проверить выделенный core-worktree; если площадка не готова, остановиться, а не уйти в dev или строить обход.</p>
-      <p><span class="l">Что дальше:</span> планировщик показывает тебе подробный, но простой PLAN с каждым техническим решением и причиной. Только твои фактические слова могут заморозить план. После этого сессия останавливается и возвращается домой; отдельный BUILD-заказ DirectionS выпустит позже. Сейчас ни код, ни RED-тесты, ни Unity не запускаются.</p>
+      <div class="head"><span class="st">▶ ГЛАВНЫЙ МАРШРУТ · BUILD READY · НЕ ЗАПУЩЕН</span><b>L1: один engine-free Core-владелец и атомарный шаг симуляции</b><span class="id">c-exec-near-gas-core-authority-001-build-001 · открыта 13.07</span></div>
+      <p><span class="l">Что это:</span> отдельная свежая BUILD-сессия реализует уже замороженный L1: один спящий engine-free Core-владелец целиком заменяет поколение и выполняет один полный детерминированный шаг как одну атомарную операцию.</p>
+      <p><span class="l">Зачем:</span> прежде чем ограничивать ресурсы, считать дешёвую идентичность и переключать Unity, нужен один хозяин состояния и одна граница: либо весь шаг принят, либо при любой ошибке ничего — включая скрытое retry-состояние — не изменилось.</p>
+      <p><span class="l">Где сейчас:</span> PLAN @1e4e78c принят владельцем, влит в main @13917123 и выдержал свежую Direction-refutation. BUILD-заказ зарегистрирован на отдельной headless Core-площадке, но ещё не запускался; все чужие dirty/untracked файлы сохранены.</p>
+      <p><span class="l">Что дальше:</span> независимый test-author сначала создаёт RED из frozen spec, затем builder реализует вариант A и проходит review + свежую G5. L1 остаётся серийной concurrency-ready базой без threads/workers/scheduler; настоящая многопоточность — только отдельная будущая лега после delivered L1/L2/C1 и нового профилирования. Unity сюда не входит.</p>
     </div>
     <div class="call">
       <div class="head"><span class="st">ГОТОВА · НЕПРИОРИТЕТНАЯ ПАРАЛЛЕЛЬНАЯ ЛИНИЯ</span><b>Перенести репозиторные ворота с обязательного PowerShell на локальный .NET runner</b><span class="id">c-exec-unity65-mac-revision-002-build-001 · открыта 12.07</span></div>
@@ -249,6 +249,12 @@
   <h3 class="subhead">Закрыто недавно — чем кончилось</h3>
   <div class="calls">
     <div class="call closed">
+      <div class="head"><span class="st">✓ L1 PLAN ЗАМОРОЖЕН И BINDING-ПРОВЕРЕН</span><b>Один Core-владелец, атомарный Step и вариант A</b><span class="id">c-exec-near-gas-core-authority-001 · закрыта 13.07</span></div>
+      <p><span class="l">Чем кончилось:</span> владелец подтвердил рекомендованный вариант A и движение по плану. Frozen PLAN @1e4e78c с простым объяснением, spec/tasks/ADR/evidence map и отчётом влит в main @13917123; отдельная свежая refutation подтвердила каждый PLAN done_when.</p>
+      <p><span class="l">Что именно принято:</span> L1 строит серийного concurrency-ready владельца с candidate/swap и одним полным commit. Реальные workers сознательно вынесены в отдельную будущую легу после delivered L1/L2/C1 и свежего профиля; если профиль не покажет нужды, она останется припаркованной.</p>
+      <p><span class="l">Граница:</span> это закрытый PLAN, а не доставленная функция. Product code, независимый RED, BUILD и Unity не запускались; отдельный BUILD-заказ выпущен только после этой проверки.</p>
+    </div>
+    <div class="call closed">
       <div class="head"><span class="st">✓ ПРОГРАММА ПРИНЯТА</span><b>Единая дорога gas simulation вместо монолитного Phase 0</b><span class="id">PROGRAM · принято 12.07</span></div>
       <p><span class="l">Что было:</span> старый Phase 0 пытался одновременно решить источники, владельца симуляции, Unity-жизненный цикл, чтение состояния, replay, очистку legacy и будущий визуал. Он перестал быть честно исполнимым как одна работа.</p>
       <p><span class="l">Чем кончилось:</span> принята последовательная программа: одно атомарное ядро → ограничения ресурсов → дешёвая сверка состояния → точная Unity-версия → единственный Unity-путь → интеграция → PlayerSense → replay → удаление старых путей. После этого отдельно идут масштаб, runtime-источники, двери и разрушение.</p>
@@ -258,7 +264,7 @@
       <div class="head"><span class="st">✓ ЗАКРЫТ КАК МАРШРУТ · NOT DELIVERED</span><b>Старый Phase 0: источники газа</b><span class="id">c-exec-lv-ingest-phase0-001</span></div>
       <p><span class="l">Что было:</span> длинный цикл строил источник газа внутри авторитетного пути, но обнаружил более глубокую проблему: у симуляции не было одного владельца и одной атомарной транзакции.</p>
       <p><span class="l">Чем кончилось:</span> работа не объявлена сделанной и не влита. Её полезные требования перенесены в новую программу, исходный пакет сохранён как история и помечен «никогда не возобновлять».</p>
-      <p><span class="l">Что вместо него:</span> dashboard закрыт; сейчас готов свежий owner-present L1 PLAN первой маленькой леги ядра.</p>
+      <p><span class="l">Что вместо него:</span> dashboard и L1 PLAN закрыты; сейчас готов отдельный serial concurrency-ready L1 BUILD первой маленькой леги ядра.</p>
     </div>
     <div class="call closed">
       <div class="head"><span class="st">✓ RUNNER PLAN ЗАМОРОЖЕН</span><b>Локальный .NET-маршрут репозиторных ворот</b><span class="id">c-exec-unity65-mac-revision-002 · закрыта 12.07</span></div>
@@ -404,12 +410,13 @@
   <h3 style="margin:26px 0 10px; font-size:18px">Журнал — последние 3 дня</h3>
   <p class="note" style="margin:0 0 10px">Рендер из LOG.md (полный архив — там); старше трёх дней с панели уходит. Сегодняшний день раскрыт.</p>
   <details class="day" open>
-    <summary>13 июля <span class="cnt">· gas-dashboard проверен и принят владельцем · dashboard-call закрыт · owner-present L1 PLAN готов · L1 BUILD не запущен</span></summary>
+    <summary>13 июля <span class="cnt">· gas-dashboard закрыт · L1 PLAN принят, влит и binding-проверен · отдельный L1 BUILD готов, но не запущен</span></summary>
     <ul>
       <li><b>NearGas-dashboard — Direction checkpoint:</b> отдельная свежая сессия попыталась опровергнуть product handback. Commit <b>9bc577c7</b> имеет parent accepted PROGRAM <b>f5c1d650</b> и меняет ровно AGENTS.md, dashboard.html и закрывающий отчёт; diff-check чист, dashboard содержит 10 основных и 13 поздних карточек, 11 дискретных сегментов, точные visual locks и не имеет script/img/iframe/external URL/SHA/path-шума. Все 10 прежних dirty/untracked файлов всё ещё на месте, а builder RESULT фиксирует равные before/after SHA-256 snapshots.</li>
       <li><b>Почему не закрыто:</b> сохранённые desktop+narrow captures заново прочитаны и выглядят корректно, но это evidence builder-сессии. Обязательный собственный fresh render не состоялся: in-app Browser запретил локальный file-адрес dashboard и одновременно запретил обход через другой browser, CDP или локальный server. Verdict = partially met; NearGas-dashboard и исходный executor-call остаются активными.</li>
       <li><b>Следом:</b> c-work-near-gas-dashboard-close-002 повторяет только свежий desktop 1280×720 + narrow 390×844 render/readback на совместимой площадке. При зелёном verdict он закрывает оба dashboard-call и готовит отдельный owner-present L1 PLAN. Ни L1 PLAN/BUILD, ни Unity/visual работа сейчас не запускались.</li>
       <li><b>NearGas-dashboard — владелец закрыл вопрос:</b> после живого просмотра текущей локальной страницы в Chrome владелец сказал: «так выглядит всё чётко», «прям вообще не придраться», по прочитанному началу «вообще вопросов нет» и дал прямую команду «давай закрывать сейчас». Отдельная fresh refutation уже закрыла committed diff, source coverage и preservation; owner-eye закрыл оставшийся визуальный вопрос. Оба dashboard-call удалены, задача помечена done. Следующим открыт только owner-present PLAN c-exec-near-gas-core-authority-001; код, RED, Unity и L1 BUILD не запускались.</li>
+      <li><b>NearGas L1 PLAN — fresh binding close:</b> PLAN-commit <b>1e4e78c</b> от точной base 9bc577c7 меняет только семь planning/dashboard/report файлов и влит в origin/main @<b>13917123</b>. Владелец подтвердил вариант A и движение по плану; отдельная Direction-сессия сверила frozen PLAN/spec/tasks/ADR/evidence map, legacy-audit границы, все 10 foreign dev paths и отсутствие code/RED/BUILD/Unity. Verdict = MET. PLAN закрыт; отдельный BUILD c-exec-near-gas-core-authority-001-build-001 готов, но не запущен. Реальные workers отложены до delivered L1/L2/C1 и свежего профиля.</li>
     </ul>
   </details>
   <details class="day">
@@ -461,7 +468,7 @@
 </section>
 
 <section>
-  <div class="sec-head"><h2>Где мы</h2><span class="tag">готовность по трекам · экспертная оценка · снимок 10.07</span></div>
+  <div class="sec-head"><h2>Где мы</h2><span class="tag">готовность по трекам · экспертная оценка · снимок 13.07</span></div>
   <div class="tracks">
     <div class="track">
       <h3>Симуляция газа</h3>
@@ -470,7 +477,7 @@
         <li class="done">Единая программа и порядок маленьких легов приняты</li>
         <li class="done">Старый Phase 0 сохранён как NOT DELIVERED evidence и больше не запускается</li>
         <li class="done">Владельческое dashboard-зеркало построено, проверено и принято владельцем</li>
-        <li class="miss">Сейчас открыт только owner-present L1 PLAN — один Core-владелец и атомарный Step; BUILD не начинался</li>
+        <li class="miss">L1 PLAN принят, влит и binding-проверен; отдельный serial concurrency-ready BUILD готов, но не начинался</li>
         <li class="miss">M1-GAS-PROBE/CORE и engine S4/A1 ждут исходный source после foundation</li>
       </ul>
     </div>
@@ -570,9 +577,9 @@
 
 <section>
   <div class="sec-head"><h2>Ближайшая инженерная дорога: gas PROGRAM</h2><span class="tag">маршрут принят 12.07 · статус легов доказывают их собственные RESULT/review/gates · приоритет задаёт Direction OS</span></div>
-  <div class="callout accent"><b>Сейчас:</b> dashboard закрыт → свежий owner-present L1 PLAN готов к запуску. Нельзя перескочить прямо в L1 BUILD, старый Phase 0 или старый visual BUILD.</div>
+  <div class="callout accent"><b>Сейчас:</b> dashboard и owner-approved L1 PLAN закрыты → отдельный serial concurrency-ready L1 BUILD готов, но не запущен. Реальные workers ждут delivered L1/L2/C1 и свежий профиль; старый Phase 0 и visual BUILD запускать нельзя.</div>
   <div class="tracks">
-    <div class="track"><h3>1 · Чистый фундамент</h3><ul><li class="miss">L1 — один Core-владелец и один атомарный Step</li><li class="miss">L2 — честные ограничения ресурсов</li><li class="miss">C1 — быстрая сверка committed-состояния</li><li class="miss">M0 — точная Unity 6.5 migration</li><li class="miss">L3 + I1 — единственный Unity-путь и интеграционная проверка</li><li class="miss">L4→L6 + I2 — PlayerSense, replay, удаление legacy</li></ul></div>
+    <div class="track"><h3>1 · Чистый фундамент</h3><ul><li class="miss">L1 — PLAN закрыт; отдельный BUILD готов, не запущен</li><li class="miss">L2 — честные ограничения ресурсов</li><li class="miss">C1 — быстрая сверка committed-состояния</li><li class="miss">M0 — точная Unity 6.5 migration</li><li class="miss">L3 + I1 — единственный Unity-путь и интеграционная проверка</li><li class="miss">L4→L6 + I2 — PlayerSense, replay, удаление legacy</li></ul></div>
     <div class="track"><h3>2 · Масштаб после фундамента</h3><ul><li class="miss">A0 — наблюдение активности ядра</li><li class="miss">M1-GAS-PROBE/CORE — ждёт исходный source</li><li class="miss">Engine S4/A1 — дальняя свёртка, тоже ждёт source</li></ul></div>
     <div class="track"><h3>3 · Живые изменения мира</h3><ul><li class="miss">R0 — выбрать порядок команд и политику миграции</li><li class="miss">E1 — движущиеся/включаемые источники</li><li class="miss">D1 — двери</li><li class="miss">T1/X1 — сохранение газа при изменении/разрушении структуры</li><li class="miss">LAB + I3 — единый финальный стенд и проверка</li></ul></div>
     <div class="track"><h3>4 · Визуал</h3><ul><li class="miss">PLAN LOCKED до M0+C1+L3+I1</li><li class="miss">Motion BUILD ждёт committed-per-Step данные</li><li class="miss">Moving source / door / destruction ждут E1 / D1 / X1</li><li class="done">Старая грязная сборка сохранена и не используется как evidence</li></ul></div>
@@ -624,7 +631,7 @@
     <tr><th>Что нужно</th><th>Статус</th><th class="a">Автономность</th><th>Как / блокер</th></tr>
     <tr class="grp"><td colspan="4">Движок · принятая gas PROGRAM</td></tr>
     <tr><td>Простое владельческое dashboard-зеркало</td><td>✅</td><td class="a">🟢</td><td>построено, проверено отдельной сессией и принято владельцем после живого Chrome-просмотра</td></tr>
-    <tr><td>L1→L3 + I1: один Core-владелец, честные лимиты, committed identity, Unity migration/cutover</td><td>📝</td><td class="a">🟡</td><td>готов owner-present L1 PLAN; ни RED, ни BUILD ещё не запускались</td></tr>
+    <tr><td>L1→L3 + I1: один Core-владелец, честные лимиты, committed identity, Unity migration/cutover</td><td>🔧</td><td class="a">🟢</td><td>L1 PLAN закрыт; отдельный serial concurrency-ready BUILD готов, но RED/BUILD/Unity ещё не запускались</td></tr>
     <tr><td>L4→L6 + I2: PlayerSense, replay, удаление старых путей</td><td>⬜</td><td class="a">🟡/🟠</td><td>строго после интеграционно проверенного L3</td></tr>
     <tr><td>A0 + M1-GAS + engine S4/A1</td><td>⬜</td><td class="a">🟠</td><td>после I2; M1/S4 сначала требуют восстановить точный исходный source</td></tr>
     <tr><td>Runtime sources / doors / topology / destruction / final LAB</td><td>⬜</td><td class="a">🟠</td><td>R0 выбирает правила; затем E1→D1→P1→T1→X1→LAB→I3</td></tr>

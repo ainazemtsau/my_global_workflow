@@ -210,4 +210,6 @@ archived: history/LOG-archive-indie-game-development.md — sessions before 2026
 
 2026-07-13 — work/close (g-9c41/NearGas-dashboard, s-work-near-gas-dashboard-close-002): owner accepted the live Chrome render — «всё чётко», «вообще не придраться», «давай закрывать сейчас»; dashboard evidence closed met, both dashboard calls cleared, NearGas-L1-PLAN opened, and no BUILD started. → history/2026-07-13-s-work-near-gas-dashboard-close-002.md
 
+2026-07-13 — work/close (g-9c41/NearGas-L1-PLAN, s-work-near-gas-l1-plan-close-001): fresh binding refutation found PLAN done_when met — owner-approved @1e4e78c is merged in origin/main@13917123, PLAN closed, and a separate serial concurrency-ready L1 BUILD call opened; actual workers wait for delivered L1/L2/C1 plus fresh profiling, and no RED/BUILD/Unity ran. → history/2026-07-13-s-work-near-gas-l1-plan-close-001.md
+
 END_OF_FILE: live/indie-game-development/LOG.md

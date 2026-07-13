@@ -1,5 +1,5 @@
 # NOW: indie-game-development
-updated: 2026-07-13 by s-work-near-gas-dashboard-close-002
+updated: 2026-07-13 by s-work-near-gas-l1-plan-close-001
 
 bet:
   node: g-9c41
@@ -17,8 +17,9 @@ bet:
     Финальный профиль: ≤50 ms green; 50–100 ms owner decision; >100 ms/desync/meaning-loss = not done.
   forecast: |
     Обязательный gas-engineering маршрут: GasCoopGame_dev@f5c1d650:docs/gas-simulation/PROGRAM.md.
-    Dashboard-зеркало принято владельцем и Direction-закрыто; сейчас готов свежий owner-present L1 PLAN CALL,
-    но L1 BUILD не создан и не запущен. Стабилизация идёт L1→L2→C1→M0→L3→I1→L4→L5→L6→I2; старый Phase 0 не возобновляется.
+    Dashboard-зеркало закрыто; owner-approved L1 PLAN @1e4e78c влит в origin/main@13917123 и выдержал fresh binding-refutation.
+    Отдельный L1 BUILD CALL готов, но не запущен: вариант A — serial concurrency-ready, а реальные workers возможны только
+    отдельной будущей легой после delivered L1/L2/C1 и свежего профиля. Маршрут идёт L1→L2→C1→M0→L3→I1→L4→L5→L6→I2.
     Параллельно P2a0 проверяет player root authority до production controller.
   against: |
     Полная PROGRAM-дорога не считается молча помещённой в старый appetite: предел 13 легов и дата сохраняются.
@@ -34,7 +35,7 @@ bet:
     commercial_traction: final evidence leg даёт capture-пакет существующим visual/marketing линиям.
     core_gameplay_depth: M1-5..7 — tracking, reactions, breach.
     coop_first: объединённый M1-9+10 — две реальные машины, sync и owner verdict.
-    technical_feasibility: PROGRAM.md@f5c1d650; dashboard закрыт, свежий L1 PLAN готов, затем L1→L2→C1→M0→L3→I1→L4→L5→L6→I2.
+    technical_feasibility: PROGRAM.md@f5c1d650; L1 PLAN @1e4e78c owner-approved, влит @13917123 и binding-refuted; отдельный serial concurrency-ready L1 BUILD готов, но не запущен; реальные workers — только после L1/L2/C1 и свежего профиля.
     scope_production: not_needed — cut_list и один уровень держат solo-scope.
     audience_workflow: final evidence leg; отдельная соцсеть-задача не нужна.
 
@@ -54,6 +55,15 @@ tasks:
       c-exec-near-gas-core-authority-001 возвращает committed owner-approved frozen PLAN: простое подробное
       объяснение технических решений и границ L1, builder-ready spec/tasks/ADR/evidence map, сохранность legacy-audit
       смыслов и dirty product files; product code, RED tests, Unity и BUILD не начаты, следующий BUILD выдаёт DirectionS.
+    status: done
+  - id: NearGas-L1-BUILD
+    goal: |
+      NearGas получает доставленного dormant engine-free Core-владельца с атомарной заменой generation
+      и одним полным deterministic Step по утверждённому варианту A.
+    done_when: |
+      c-exec-near-gas-core-authority-001-build-001 возвращает reviewed, gate-green DELIVERED L1 по замороженному
+      PLAN @1e4e78c: independent RED и binding fresh G5 доказывают атомарность/детерминизм/legacy-audit preservation;
+      реализация остаётся serial concurrency-ready без реальных workers, Unity и child-leg scope, а foreign work сохранён.
     status: active
   - id: M1-P2a0
     goal: |
@@ -71,11 +81,11 @@ open_calls:
     for: g-9c41 / local .NET repository-gate runner prerequisite
     issued: 2026-07-12
     note: "READY NON-PRIORITY after owner-approved PLAN `Одобряю PLAN c-exec-unity65-mac-revision-002`: product PLAN commit 7a3e747, parent 8a344e97, approach lan-local-dotnet-gates-adapter-only. Build/deliver the local cross-platform .NET 8 gate runner with full parity and independent RED evidence; do not resume revision-001, Unity/FishNet, Windows, merge or push. Preserve unstaged .vscode/settings.json and CoopSmallSGF.asset. work/c-exec-unity65-mac-revision-002-build-001-call.md."
-  - id: c-exec-near-gas-core-authority-001
+  - id: c-exec-near-gas-core-authority-001-build-001
     to: executor
-    for: NearGas-L1-PLAN / один engine-free Core-владелец и атомарный Step
+    for: NearGas-L1-BUILD / один dormant engine-free Core-владелец и атомарный Step
     issued: 2026-07-13
-    note: "READY PLAN-ONLY after owner accepted dashboard: «всё чётко», «вообще не придраться», «давай закрывать сейчас». Accepted PROGRAM/DECOMPOSITION define L1; lane A targets GasCoopGame_core/core from dev@9bc577c7, no Editor. Dev authority is contract v19; the Direction tool could not inspect the target core-worktree stamp, so preflight must verify it and §Re-sync or STOP if behind/unreadable. Produce an owner-readable frozen PLAN only: no product code, RED tests, Unity or BUILD; preserve all 10 dirty/untracked dev files and never substitute dev for an invalid core venue. work/c-exec-near-gas-core-authority-001-call.md."
+    note: "READY fresh L1 BUILD after owner-approved PLAN @1e4e78c merged into origin/main@13917123 and Direction binding-refutation MET. Lane A/core/headless, contract v19, exclusive core slot. Implement accepted option A only: serial concurrency-ready authority; no actual threads/workers/scheduler. Real concurrency is a separate future c-exec-near-gas-concurrency-001 after delivered L1/L2/C1 and fresh profiling. Independent spec-only RED, review and binding fresh G5 required; no Unity or child-leg scope; preserve all 10 foreign dirty/untracked dev paths. work/c-exec-near-gas-core-authority-001-build-001-call.md."
   - id: c-shape-sc-damage-001
     to: session
     for: Sc-damage
@@ -103,6 +113,6 @@ decisions:
     options: ["Ратифицировать все 5", "Ратифицировать выборочно", "Отклонить — критерии не расширяем"]
     recommendation: "Ратифицировать все 5: дёшево и делает final evidence leg доказуемым; min-spec требует owner-выбора конкретного железа. Источник: owner-lane вырезанной лестницы 10.07 — критерии нигде больше не жили (s-repair-board-m1-ladder-purge-001)."
 next:
-  CALL: work/c-exec-near-gas-core-authority-001-call.md
+  CALL: work/c-exec-near-gas-core-authority-001-build-001-call.md
 
 END_OF_FILE: live/indie-game-development/NOW.md
