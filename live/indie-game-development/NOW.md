@@ -1,5 +1,5 @@
 # NOW: indie-game-development
-updated: 2026-07-13 by s-work-near-gas-l1-plan-close-001
+updated: 2026-07-13 by s-work-near-gas-l1-build-checkpoint-001
 
 bet:
   node: g-9c41
@@ -18,8 +18,11 @@ bet:
   forecast: |
     Обязательный gas-engineering маршрут: GasCoopGame_dev@f5c1d650:docs/gas-simulation/PROGRAM.md.
     Dashboard-зеркало закрыто; owner-approved L1 PLAN @1e4e78c влит в origin/main@13917123 и выдержал fresh binding-refutation.
-    Отдельный L1 BUILD CALL готов, но не запущен: вариант A — serial concurrency-ready, а реальные workers возможны только
-    отдельной будущей легой после delivered L1/L2/C1 и свежего профиля. Маршрут идёт L1→L2→C1→M0→L3→I1→L4→L5→L6→I2.
+    L1 BUILD дошёл только до mandatory spec-only RED и остановлен на checkpoint @b94806de без test commit и реализации:
+    frozen spec не связывает constructible generation definition/fixture и стабильную адресацию шести fault-sites.
+    Следом owner-present PLAN-amend; исходный BUILD остаётся pending. Вариант A — serial concurrency-ready, а реальные
+    workers возможны только отдельной будущей легой после delivered L1/L2/C1 и свежего профиля.
+    Маршрут идёт L1→L2→C1→M0→L3→I1→L4→L5→L6→I2.
     Параллельно P2a0 проверяет player root authority до production controller.
   against: |
     Полная PROGRAM-дорога не считается молча помещённой в старый appetite: предел 13 легов и дата сохраняются.
@@ -35,7 +38,7 @@ bet:
     commercial_traction: final evidence leg даёт capture-пакет существующим visual/marketing линиям.
     core_gameplay_depth: M1-5..7 — tracking, reactions, breach.
     coop_first: объединённый M1-9+10 — две реальные машины, sync и owner verdict.
-    technical_feasibility: PROGRAM.md@f5c1d650; L1 PLAN @1e4e78c owner-approved, влит @13917123 и binding-refuted; отдельный serial concurrency-ready L1 BUILD готов, но не запущен; реальные workers — только после L1/L2/C1 и свежего профиля.
+    technical_feasibility: PROGRAM.md@f5c1d650; L1 PLAN @1e4e78c owner-approved, влит @13917123 и binding-refuted; L1 BUILD checkpoint @b94806de остановлен до test commit/реализации на двух spec-only contract gaps; owner-present PLAN-amend следующий; вариант A неизменен, реальные workers — только после L1/L2/C1 и свежего профиля.
     scope_production: not_needed — cut_list и один уровень держат solo-scope.
     audience_workflow: final evidence leg; отдельная соцсеть-задача не нужна.
 
@@ -85,7 +88,12 @@ open_calls:
     to: executor
     for: NearGas-L1-BUILD / один dormant engine-free Core-владелец и атомарный Step
     issued: 2026-07-13
-    note: "READY fresh L1 BUILD after owner-approved PLAN @1e4e78c merged into origin/main@13917123 and Direction binding-refutation MET. Lane A/core/headless, contract v19, exclusive core slot. Implement accepted option A only: serial concurrency-ready authority; no actual threads/workers/scheduler. Real concurrency is a separate future c-exec-near-gas-concurrency-001 after delivered L1/L2/C1 and fresh profiling. Independent spec-only RED, review and binding fresh G5 required; no Unity or child-leg scope; preserve all 10 foreign dirty/untracked dev paths. work/c-exec-near-gas-core-authority-001-build-001-call.md."
+    note: "BLOCKED at mandatory fresh spec-only RED checkpoint codex/c-exec-near-gas-core-authority-001-build-001@b94806de (base main@13917123; contract v20 sync @7cb8fbc4). No test commit, implementation, tests, review, G5, Deliver or Unity ran. Frozen spec lacks both a constructible NearGasGenerationDefinition/fixture contract and stable test addressability for six required internal fault-sites. Original BUILD stays pending until owner-approved PLAN-amend plus separate fresh Direction binding-refutation. Option A stays serial concurrency-ready; real concurrency only after delivered L1/L2/C1 and fresh profiling. Preserve all 10 foreign dev paths. work/c-exec-near-gas-core-authority-001-build-001-call.md."
+  - id: c-exec-near-gas-core-authority-001-plan-amend-001
+    to: executor
+    for: NearGas-L1-BUILD / узкая frozen-правка двух spec-only RED-контрактов
+    issued: 2026-07-13
+    note: "READY owner-present PLAN-AMEND from clean checkpoint core@b94806de: bind one constructible generation definition/fixture contract and one stable non-public fault-site test contract, then obtain the owner's actual two verdicts. PLAN-only: no production/tests/RED/BUILD/tools-check/Unity/MCP/child legs/merge/push; original BUILD remains pending and cannot self-resume. Preserve option A, deferred measured concurrency and all 10 foreign dev paths. work/c-exec-near-gas-core-authority-001-plan-amend-001-call.md."
   - id: c-shape-sc-damage-001
     to: session
     for: Sc-damage
@@ -113,6 +121,6 @@ decisions:
     options: ["Ратифицировать все 5", "Ратифицировать выборочно", "Отклонить — критерии не расширяем"]
     recommendation: "Ратифицировать все 5: дёшево и делает final evidence leg доказуемым; min-spec требует owner-выбора конкретного железа. Источник: owner-lane вырезанной лестницы 10.07 — критерии нигде больше не жили (s-repair-board-m1-ladder-purge-001)."
 next:
-  CALL: work/c-exec-near-gas-core-authority-001-build-001-call.md
+  CALL: work/c-exec-near-gas-core-authority-001-plan-amend-001-call.md
 
 END_OF_FILE: live/indie-game-development/NOW.md
