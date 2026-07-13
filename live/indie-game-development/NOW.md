@@ -1,5 +1,5 @@
 # NOW: indie-game-development
-updated: 2026-07-12 by s-repair-near-gas-program-routing-001
+updated: 2026-07-13 by s-work-near-gas-dashboard-close-001
 
 bet:
   node: g-9c41
@@ -66,7 +66,12 @@ open_calls:
     to: executor
     for: NearGas-dashboard / владельческое gas-engineering зеркало
     issued: 2026-07-12
-    note: "READY DOC-ONLY BUILD from accepted PROGRAM @f5c1d650 and owner choice A: one simple hand-maintained static HTML, no generator/server, no SHA/commit noise in the owner view; add root product AGENTS read/update pointer. Preserve every dirty/untracked product file and c-visual-009. work/c-exec-near-gas-dashboard-001-call.md."
+    note: "DIRECTION CLOSE PENDING: product doc-only commit 9bc577c7 exists on dev with exactly AGENTS.md, dashboard.html and its report; committed source, saved desktop+narrow captures and the 10-file dirty/untracked set were reconciled by s-work-near-gas-dashboard-close-001. Required fresh-session render was blocked because the in-app Browser forbids the local file URL and forbids workaround surfaces; keep this call pending until c-work-near-gas-dashboard-close-002 supplies that render/readback. work/c-exec-near-gas-dashboard-001-call.md."
+  - id: c-work-near-gas-dashboard-close-002
+    to: session
+    for: NearGas-dashboard / fresh render gate and Direction close
+    issued: 2026-07-13
+    note: "READY continuation checkpoint: all non-render evidence is reconciled at product commit 9bc577c7; run only on a surface that can legitimately render the committed local dashboard at desktop+narrow widths. At met close only NearGas-dashboard and c-exec-near-gas-dashboard-001 plus this continuation call, preserve M1-P2a0, and prepare but do not start the separate owner-present L1 PLAN. work/c-work-near-gas-dashboard-close-002-call.md."
   - id: c-shape-sc-damage-001
     to: session
     for: Sc-damage
@@ -94,6 +99,6 @@ decisions:
     options: ["Ратифицировать все 5", "Ратифицировать выборочно", "Отклонить — критерии не расширяем"]
     recommendation: "Ратифицировать все 5: дёшево и делает final evidence leg доказуемым; min-spec требует owner-выбора конкретного железа. Источник: owner-lane вырезанной лестницы 10.07 — критерии нигде больше не жили (s-repair-board-m1-ladder-purge-001)."
 next:
-  CALL: work/c-exec-near-gas-dashboard-001-call.md
+  CALL: work/c-work-near-gas-dashboard-close-002-call.md
 
 END_OF_FILE: live/indie-game-development/NOW.md

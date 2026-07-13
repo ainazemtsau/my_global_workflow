@@ -206,4 +206,6 @@ archived: history/LOG-archive-indie-game-development.md — sessions before 2026
 
 2026-07-12 — repair/route (g-9c41/gas-routing, s-repair-near-gas-program-routing-001): владелец выбрал простое ручное статическое gas-dashboard; accepted PROGRAM заменил устаревшие Phase 0/A0 routes, c-visual-009 получил точные locks, а doc-only dashboard BUILD стал next. → history/2026-07-12-s-repair-near-gas-program-routing-001.md
 
+2026-07-13 — work/checkpoint (g-9c41/NearGas-dashboard, s-work-near-gas-dashboard-close-001): committed diff, source coverage, saved desktop+narrow captures and 10-file preservation reconciled, but binding fresh render was blocked by local-file browser policy; verdict partially met, dashboard/L1 stay open and c-work-near-gas-dashboard-close-002 is next. → history/2026-07-13-s-work-near-gas-dashboard-close-001.md
+
 END_OF_FILE: live/indie-game-development/LOG.md
