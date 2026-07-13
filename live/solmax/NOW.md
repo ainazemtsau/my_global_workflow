@@ -287,7 +287,7 @@ active_bet:
       kill the bet and shape a new bounded bet; do not extend appetite or
       claim partial success.
 
-route_status: operating_substrate_first_process_creator_t3_review_reject_repairable_f_r01_owner_disposition_pending
+route_status: operating_substrate_first_process_creator_t2_f_r01_repair_authorized_fresh_t3_pending
 
 owner_directive: |
   Owner approved umbrella placement for Solmax.
@@ -898,11 +898,7 @@ tasks:
 
   - id: t-3
     kind: session
-    status: blocked
-    unblock_when: |
-      The owner gives actual binding structural disposition words after the
-      fresh cross-family review at product HEAD ea254929 and its F-R01 evidence
-      are presented in an owner-readable Solmax session.
+    status: open
     budget: 0.25 focused execution day
     goal: |
       Independently attempt to refute and admit or reject the Process
@@ -1106,23 +1102,15 @@ recurring: []
 decisions: []
 
 open_calls:
-  - id: c-solmax-operating-substrate-first-process-creator-t2-materialization-build-001
+  - id: c-solmax-operating-substrate-first-process-creator-t2-f-r01-ledger-correction-001
     to: executor
     for: g-operating-substrate-first-process-creator/t-2
     issued: 2026-07-13
     note: |
-      Final BUILD HEAD d915789 and fresh cross-family review HEAD ea254929 now
-      exist. The review recommends rejection for repairable F-R01; this BUILD
-      call remains pending until the owner's actual binding disposition.
-  - id: c-solmax-operating-substrate-first-process-creator-t3-refutation-001
-    to: executor
-    for: g-operating-substrate-first-process-creator/t-3
-    issued: 2026-07-13
-    note: |
-      Fresh Claude Opus 4.8 review evidence is recorded locally at product HEAD
-      ea254929 and recommends rejection for repairable F-R01. Owner words are
-      absent, so the verdict guard keeps this same call pending; no downstream
-      CALL, admission or activation is opened.
+      Owner chose repair and a new independent check after the confirmed
+      evidence-integrity defect F-R01 at product review HEAD ea254929. This
+      narrow t-2 correction is the only open execution route; it must return
+      candidate-only evidence for a later fresh t-3 review.
 # 2026-07-12: c-solmax-operating-substrate-first-process-creator-t2-repo-bootstrap-001
 # cleared — the repo-bootstrap setup checkpoint is complete (commit f3d153d, CI
 # green). t-2 remains ACTIVE; Process Creator materialization is the next work,
@@ -1238,6 +1226,9 @@ preserved_evidence:
   - 'local product review commit: C:/projects/solmax-operating-substrate@ea254929ff60324e96633573a084c7c990e7f8b7 (branch codex/process-creator-v1-t3-refutation; unpushed)'
   - 'local product review evidence: C:/projects/solmax-operating-substrate/docs/reviews/review-process-creator-v1.md@ea254929ff60324e96633573a084c7c990e7f8b7'
   - live/solmax/history/2026-07-13-s-solmax-operating-substrate-first-process-creator-t3-refutation-checkpoint-001.md
+  - 'owner disposition in chat: "Исправляем F‑R01 и возвращаем на свежую проверку Yeah."'
+  - live/solmax/work/calls/c-solmax-operating-substrate-first-process-creator-t2-f-r01-ledger-correction-001.md
+  - live/solmax/history/2026-07-13-s-solmax-operating-substrate-first-process-creator-f-r01-repair-route-001.md
 next: |
-  live/solmax/work/calls/c-solmax-operating-substrate-first-process-creator-t3-refutation-001.md
+  live/solmax/work/calls/c-solmax-operating-substrate-first-process-creator-t2-f-r01-ledger-correction-001.md
 END_OF_FILE: live/solmax/NOW.md
