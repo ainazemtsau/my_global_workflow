@@ -287,7 +287,7 @@ active_bet:
       kill the bet and shape a new bounded bet; do not extend appetite or
       claim partial success.
 
-route_status: operating_substrate_first_process_creator_t2_repo_bootstrap_done_materialization_pending
+route_status: operating_substrate_first_process_creator_t2_materialization_plan_approved_build_ready
 
 owner_directive: |
   Owner approved umbrella placement for Solmax.
@@ -1101,7 +1101,15 @@ tasks:
 recurring: []
 decisions: []
 
-open_calls: []
+open_calls:
+  - id: c-solmax-operating-substrate-first-process-creator-t2-materialization-build-001
+    to: executor
+    for: g-operating-substrate-first-process-creator/t-2
+    issued: 2026-07-13
+    note: |
+      Owner-approved PLAN v1 is frozen. A fresh BUILD session materializes the
+      complete Process Creator candidate and author self-conformance evidence;
+      independent t-3 refutation remains a later fresh session.
 # 2026-07-12: c-solmax-operating-substrate-first-process-creator-t2-repo-bootstrap-001
 # cleared — the repo-bootstrap setup checkpoint is complete (commit f3d153d, CI
 # green). t-2 remains ACTIVE; Process Creator materialization is the next work,
@@ -1207,11 +1215,9 @@ preserved_evidence:
   - 'owner stack decision in chat: "Вариант A" + Python only for concrete non-semantic functions (no compiler/regex/semantic scanner)'
   - live/solmax/history/2026-07-12-s-solmax-operating-substrate-first-process-creator-t2-repo-bootstrap-setup-001.md
   - os/engineering/profiles/markdown-substrate.md
+  - live/solmax/work/operating-substrate/process-creator-materialization-plan-v1.md
+  - live/solmax/history/2026-07-13-s-solmax-operating-substrate-first-process-creator-t2-materialization-plan-001.md
+  - 'owner approval in chat: "Approve plan v1"'
 next: |
-  Route back to a fresh solmax session to prepare the t-2 materialization PLAN
-  CALL: author the first Process Creator process pack under packs/ in
-  github.com/ainazemtsau/solmax-operating-substrate against the bootstrapped
-  foundation, then review/gate it. The executor did not author this CALL (CALL
-  boundary). t-2 remains ACTIVE; the repo-bootstrap checkpoint is complete and
-  Process Creator materialization is pending within the unchanged 3-day appetite.
+  live/solmax/work/calls/c-solmax-operating-substrate-first-process-creator-t2-materialization-build-001.md
 END_OF_FILE: live/solmax/NOW.md
