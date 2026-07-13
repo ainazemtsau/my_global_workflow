@@ -165,41 +165,41 @@
 <div class="wrap">
 
 <header class="hero">
-  <div class="eyebrow">ОНО ДЫШИТ · панель направления · обновлено 13.07: L1 PLAN-AMEND опубликован и binding GREEN; следующий шаг — fresh EXECUTE с нового independent RED; visual LOCKED; персонажный PLAN идёт параллельно</div>
+  <div class="eyebrow">ОНО ДЫШИТ · панель направления · обновлено 13.07: execute-002 вернулся CHECKPOINT / NOT DELIVERED; product v20 отстаёт от OS v21; следующий шаг — repair инженерных маршрутов; visual LOCKED; В1 character PLAN frozen</div>
   <h1>Панель: что происходит, что решено, что ждёт тебя</h1>
   <p class="lead">Живой статус — секция «Борд» ниже (истина всегда NOW.md + git; панель — рендер). Дальше по странице — действующее: ставка Полигон М1, инвентарь по трекам, справочник дат фестов, матрица потребностей, стенд. Устаревшие обсуждения с панели вырезаются — их полная история лежит в git, ничего не теряется.</p>
-  <div class="stamp"><span>ставка: Полигон М1 · аппетит 13 легов · стоп-линия 24.07</span><span>газ: L1 PLAN-AMEND · BINDING GREEN</span><span>следом: NEW EXECUTE от origin/main@32107343</span><span>original BUILD: historical checkpoint / NOT DELIVERED</span><span>вариант A: serial concurrency-ready</span><span>visual: LOCKED до M0+C1+L3+I1</span><span>канон: Canon Forge v3 ACTIVE · c-001 preliminary</span><span>маркетинг: INOMAND checkpoint сохранён</span></div>
+  <div class="stamp"><span>ставка: Полигон М1 · аппетит 13 легов · стоп-линия 24.07</span><span>газ: execute-002 CHECKPOINT / NOT DELIVERED</span><span>контракт: product v20 &lt; OS v21 · repair</span><span>original BUILD: historical checkpoint / NOT DELIVERED</span><span>персонажи: В1 PLAN frozen · BUILD несовместим с v21</span><span>visual: LOCKED до M0+C1+L3+I1</span><span>канон: Canon Forge v3 ACTIVE · c-001 preliminary</span><span>маркетинг: INOMAND checkpoint сохранён</span></div>
 </header>
 
 <section>
-  <div class="sec-head"><h2>📋 Борд — живой статус</h2><span class="tag">обновлено 13.07 · NOW.next = fresh L1 EXECUTE c-exec-near-gas-core-authority-001-execute-002 · base origin/main@32107343 · original BUILD @b94806de historical / NOT DELIVERED · Phase 0 не маршрут · visual LOCKED · персонажный PLAN параллельно · истина всегда NOW.md + evidence</span></div>
+  <div class="sec-head"><h2>📋 Борд — живой статус</h2><span class="tag">обновлено 13.07 · NOW.next всё ещё указывает на returned execute-002@5c783e07 · product contract v20 &lt; OS v21 · repair P1 · Phase 0 не маршрут · visual LOCKED · В1 PLAN frozen, BUILD несовместим с v21 · истина всегда NOW.md + git evidence</span></div>
   <div class="callout accent"><b>Единственный дом этой панели — репозиторий:</b> live/indie-game-development/work/board/dashboard.html; открывается в Chrome с диска, обновляется ТОЛЬКО здесь (внешних зеркал не ведём — правило владельца 2026-07-11). Живой статус — эта секция; панель — рендер: решения по ней, противоречащей NOW, не принимаются.</div>
-  <div class="callout"><b>Как читать параллельность:</b> у направления один <code>NOW.next</code> — маршрут команды «продолжаем». Owner-approved PLAN-AMEND закрыл обе дыры frozen spec и выдержал отдельную свежую Direction-refutation. Исходный BUILD не продолжается: он остаётся историческим checkpoint, а новый EXECUTE стартует с другой ветки и нового independent spec-only RED. Вариант A и граница настоящей многопоточности не менялись. Персонажный PLAN идёт параллельно, Unity .NET runner остаётся неприоритетным; visual явно заперт.</div>
+  <div class="callout"><b>Как читать параллельность:</b> у направления один <code>NOW.next</code> — маршрут команды «продолжаем», но сам указатель сейчас протух: execute-002 уже вернул committed CHECKPOINT / NOT DELIVERED, а contract v21 запрещает повторный dispatch старого v20 CALL. Runner и новый персонажный BUILD тоже выпущены без v21 identity/handoff. До repair ни одна из трёх инженерных карточек не является разрешением запускаться. Visual явно заперт.</div>
   <div class="callout"><b>⚠ Демо: определения сейчас НЕТ — это открытый пункт, а не план.</b> Концепт изменился (11.07 принята новая рамка игры: расследование почти невидимого газа → план → добыча/операция → эвакуация). Старый октябрьский демо-план с панели ВЫРЕЗАН — его история лежит в git. 12.07 владелец установил Canon Forge v3 как единственный живой paper-only маршрут, затем отдельным вердиктом «ADMIT TO CANON» допустил «Цель стоит запуска» как предварительную карточку c-001 (нужен-грейбокс). Это не готовая механика: fun, кооперация, рантайм-читаемость, темп давления, стоимость движка и коммерческий сигнал не доказаны; точные правила газа, активации, добычи, экономики, инвентаря и кооперации остаются открыты. Проверенные даты фестов сохранены ниже как справочник, а не как план.</div>
   <div class="callout"><b>Газовый маршрут пересобран.</b> Принята единая продуктовая программа: сначала ядро получает одного владельца и одну атомарную симуляцию, затем ограничение ресурсов, дешёвую сверку состояния, точную версию Unity и единственный рабочий путь через Unity; после интеграционной проверки подключаются PlayerSense, replay и удаление старых путей. Старый монолитный Phase 0 честно остался <b>NOT DELIVERED</b> и больше не запускается. Бюджет ставки <b>13 легов / 24.07</b> не расширен: новая программа не считается молча помещённой в него.</div>
-  <div class="callout accent"><b>Что происходит прямо сейчас:</b> PLAN-AMEND <b>a58ee356</b> влит в product origin/main@<b>32107343</b> и связывает настоящий public owned <code>Create(...)</code>, literal valid recipe и operation-local internal <code>NearGasFaultSite</code> без fixture/reflection/controller-костылей. Fresh Direction-refutation дала GREEN. Новый EXECUTE назначен в чистый <code>GasCoopGame_core</code> на новую ветку от этого base и обязан начать заново с independent spec-only RED. Original BUILD @b94806de остаётся NOT DELIVERED; реальные workers — только после delivered L1/L2/C1 и свежего профиля. Unity и visual сюда не входят.</div>
+  <div class="callout accent"><b>Что произошло после записанного NOW:</b> ветка execute-002 от exact origin/main@<b>32107343</b> уже вернула checkpoint <b>5c783e07</b>. Fresh spec-only автор снова остановился без теста и кода: frozen packet не связывает девять групп construct/observe/inject witnesses; статус = <b>SPEC-ONLY RED BLOCKED / NOT DELIVERED</b>. OS после этого поднял contract до v21 и требует product §Re-sync + полный TESTABILITY sweep до нового EXECUTE. Текущий v20 CALL повторно не запускается; задача L1 остаётся открытой.</div>
   <h3 class="subhead">Открытые работы</h3>
   <div class="calls">
     <div class="call">
-      <div class="head"><span class="st">▶ ГЛАВНЫЙ МАРШРУТ · FRESH EXECUTE READY</span><b>L1: заново исполнить frozen Core-authority от независимого RED</b><span class="id">c-exec-near-gas-core-authority-001-execute-002 · открыта 13.07</span></div>
-      <p><span class="l">Что это:</span> новая product-сессия строит dormant engine-free <code>NearGasSimulation</code> по amended frozen authority. Это отдельная execution-ветка, а не продолжение старого BUILD checkpoint.</p>
-      <p><span class="l">Зачем:</span> construction A теперь даёт тесту настоящий owned production factory и literal valid recipe; fault A даёт точные operation-local internal checkpoints в тех же private paths. Значит новый spec-only автор может начать честный RED без чтения implementation и без второго authority.</p>
-      <p><span class="l">Где сейчас:</span> product origin/main@<b>32107343</b> содержит PLAN-AMEND @a58ee356; separate Direction binding verdict = GREEN. Worktree <code>C:\projects\Unity\GasCoopGame_core</code> чист, Unity lock отсутствует, новая ветка <code>codex/c-exec-near-gas-core-authority-001-execute-002</code> свободна. Original BUILD @b94806de остаётся historical CHECKPOINT / NOT DELIVERED.</p>
-      <p><span class="l">Что дальше:</span> запустить fresh EXECUTE целиком по новому CALL. Первым работает новый independent test-author только по frozen spec; затем builder не имеет права менять PLAN/spec/tasks/ADR или его tests. <code>GasCoopGame_dev</code> с чужими uncommitted changes не назначается, не чистится и не перезаписывается. L1 остаётся serial concurrency-ready; реальные workers ждут delivered L1/L2/C1 и свежий профиль.</p>
+      <div class="head"><span class="st">P1 · RETURNED CHECKPOINT · НЕ ЗАПУСКАТЬ</span><b>L1: execute-002 снова упёрся в неполные executable bindings</b><span class="id">c-exec-near-gas-core-authority-001-execute-002 · 5c783e07</span></div>
+      <p><span class="l">Что это:</span> отдельная ветка действительно стартовала от exact origin/main@32107343, но fresh spec-only автор остановился до тестового файла и test commit.</p>
+      <p><span class="l">Проверяемый результат:</span> product RESULT перечисляет девять недостающих групп: VoxelImpulse/FaceRef, two-room topology, golden/source definitions, reactions/custom kinds, legacy-audit counter, hidden state, handler ownership, GasScenario/LockstepLoopback и injectable NegativeControls. Код, tests, review, G5 и Deliver не запускались.</p>
+      <p><span class="l">Где сейчас:</span> execute-ветка @<b>5c783e07</b> = 0 behind / 1 ahead от origin/main@32107343; product contract остаётся v20, OS current = v21. NOW ещё называет старый CALL READY и держит его в <code>NOW.next</code> — это repair-находка dr-20260713-001.</p>
+      <p><span class="l">Что дальше:</span> только repair маршрута: учесть checkpoint, провести contract-only §Re-sync и полный v21 TESTABILITY sweep до любого нового execution handoff. Не повторять execute-002 и не изобретать недостающие bindings/hashes в этой панели.</p>
     </div>
     <div class="call">
-      <div class="head"><span class="st">ГОТОВА · НЕПРИОРИТЕТНАЯ ПАРАЛЛЕЛЬНАЯ ЛИНИЯ</span><b>Перенести репозиторные ворота с обязательного PowerShell на локальный .NET runner</b><span class="id">c-exec-unity65-mac-revision-002-build-001 · открыта 12.07</span></div>
+      <div class="head"><span class="st">НЕПРИОРИТЕТНАЯ · PRE-v21 · НЕ ЗАПУСКАТЬ</span><b>Перенести репозиторные ворота с обязательного PowerShell на локальный .NET runner</b><span class="id">c-exec-unity65-mac-revision-002-build-001 · repair P1</span></div>
       <p><span class="l">Что это:</span> отдельная headless BUILD-сессия переносит существующие проверки в один локальный .NET 8 runner для macOS, Windows и Linux. PowerShell и shell остаются только необязательными тонкими переходниками; сами правила и все проверки от ложного зелёного обязаны сохраниться.</p>
       <p><span class="l">Зачем:</span> Mac-проверка Unity упёрлась в обязательный PowerShell. Runner снимает только эту инфраструктурную предпосылку и не меняет игру, Unity, FishNet или сетевой протокол.</p>
-      <p><span class="l">Где сейчас:</span> подробный PLAN одобрен словами «Одобряю PLAN c-exec-unity65-mac-revision-002» и заморожен в product commit <b>7a3e747</b>. BUILD, тесты и ворота ещё не запускались; две посторонние грязные правки владельца сохранены вне плана.</p>
-      <p><span class="l">Что дальше:</span> линия может стартовать отдельно, но не является главным приоритетом. Сначала независимые RED-тесты только по frozen spec, затем port с полной проверкой parity, mutation, review и свежей G5. Unity/FishNet revision-001 останется закрыт до доказанной доставки runner-а и нового отдельного resume-заказа; Windows validation, merge и push сюда не входят.</p>
+      <p><span class="l">Где сейчас:</span> OS хранит owner-approved PLAN id <b>7a3e747</b>, но после fetch этот commit и parent 8a344e9 не разрешаются ни одним product ref. CALL оформлен под contract v19 и не имеет обязательной v21 identity/testability поверхности. BUILD и ворота не запускались.</p>
+      <p><span class="l">Что дальше:</span> repair обязан сначала доказать точный committed ref/worktree и текущий contract route. Пока этого нет, карточка не READY; Unity/FishNet revision-001, Windows validation, merge и push остаются закрыты.</p>
     </div>
     <div class="call">
-      <div class="head"><span class="st">ГОТОВА · ПАРАЛЛЕЛЬНЫЙ PLAN-ТРЕК</span><b>Игровые персонажи: дорожная карта и первый drop-in слайс</b><span class="id">c-plan-characters-001 · открыта 13.07</span></div>
-      <p><span class="l">Что это:</span> отдельная owner-present PLAN-сессия для presentation/embodiment слоя персонажа: сначала переиспользуемый prefab и стабильный adapter-API против заглушки авторитетной позиции, затем управление, процедурные реакции и косметический рэгдолл.</p>
-      <p><span class="l">Зачем:</span> P2a0 уже закрыл архитектурный вопрос: ядро/контроллер владеет авторитетной позицией тела, PuppetMaster показывает только локальную косметику. Теперь персонажный трек можно планировать без второго источника истины и без ожидания полного газового ядра.</p>
-      <p><span class="l">Где сейчас:</span> M1-P2a0 закрыт словами владельца «Кандидат A — да». Трек g-6d4e заведён параллельно, но его первый слайс ещё только планируется; product code, RED, BUILD, Unity, MCP, merge и push не разрешены этой сессией.</p>
-      <p><span class="l">Что дальше:</span> владелец утверждает дорожную карту и frozen spec первого prefab/API слайса. Грид-баллистика остаётся будущим Core-слайсом g-9c41 и не входит в этот BUILD; газовый fresh L1 EXECUTE остаётся приоритетом №1.</p>
+      <div class="head"><span class="st">В1 PLAN FROZEN · BUILD НЕ СООТВЕТСТВУЕТ v21 · НЕ ЗАПУСКАТЬ</span><b>Игровые персонажи: socket + drop-in управляемая капсула</b><span class="id">c-exec-char-v1-socket-dropin-build-001 · dr-20260713-001</span></div>
+      <p><span class="l">Что принято:</span> владелец выбрал порядок В1→В2→В3 и сказал «Вариант 1», «замораживай». Frozen PLAN описывает стабильный socket авторитетной позиции, reusable prefab, управление и follow-camera; rig/ragdoll/grid-ballistics остаются позже.</p>
+      <p><span class="l">Зачем:</span> socket-as-spine позволяет сейчас использовать локальный placeholder, а позже подставить позицию ядра без правки префаба или сцен.</p>
+      <p><span class="l">Где сейчас:</span> committed `93d3f44` потребил PLAN-call и зарегистрировал BUILD, но новый CALL использует pseudo-fields, предлагает выбрать clean worktree/branch позже и не содержит обязательной v21 transaction identity/receipts: worktree/branch/base-authority/acceptance/run/TESTABILITY. Поэтому READY-метка не исполнима.</p>
+      <p><span class="l">Что дальше:</span> тот же engineering-v21 repair, что и для NearGas/runner, без изменения frozen смысла В1. Product code, RED, BUILD, Unity/MCP, merge и push этой панелью не разрешены.</p>
     </div>
     <div class="call">
       <div class="head"><span class="st">CHECKPOINT · ПРОДОЛЖАЕТСЯ В CLAUDE</span><b>Маркетинг: минимальное пробуждение</b><span class="id">c-marketing-wake-001 · открыта 11.07</span></div>
@@ -227,37 +227,28 @@
   <h3 class="subhead">Ждёт тебя (батч)</h3>
   <div class="calls">
     <div class="call wait">
-      <div class="head"><span class="st">ТВОЁ «ДА» — ПОЗЖЕ</span><b>Мерж-гейт: источники газа</b></div>
-      <p><span class="l">Что это:</span> разрешение влить готовую работу шага 1 (карточка выше) с рабочей ветки в основную.</p>
-      <p><span class="l">Почему важно:</span> верх очереди — держит фундамент контрольной суммы, окно наблюдения и весь хвост дороги. Сейчас гейт не активен: цикл ревью дорабатывает (решение 11.07 «пусть там работает»); твоя минута наступит после первого чистого раунда.</p>
-    </div>
-    <div class="call wait">
-      <div class="head"><span class="st">ТВОЁ «ДА» НА ФОРМУЛИРОВКИ</span><b>Кооп до 8 игроков — сверить три текста</b><span class="id">knowledge/g9c41-players-8-owner-requirement.md · 11.07</span></div>
-      <p><span class="l">Что случилось:</span> ты зафиксировал требование — кооператив до 8 игроков (твоя компания из 8 человек), дизайн-оптимум — полная группа; соло сейчас вне компетенции. Требование дословно закреплено в знаниях направления и с этого дня обязательно к чтению для канон-сессий (кооп-форма, роли) и сетевых планов.</p>
-      <p><span class="l">Что осталось:</span> три старые формулировки — дерево целей («2–4 players»; «solo-startable, co-op-optimal 1–4») и опора 1 конституции канона («1–4 игрока, соло-стартуемо»). Драфты новых текстов поданы тебе в чате; применяются только с твоим «да» (правило дерева G9; конституция — через поправку канона с твоим дословным вердиктом).</p>
-    </div>
-    <div class="call wait">
       <div class="head"><span class="st">РЕШЕНИЕ</span><b>Критерии приёмки Полигона М1 — пять дополнений</b><span class="id">d-m1-acceptance-criteria-001</span></div>
       <p><span class="l">Что случилось:</span> при проверке актуальности панели (11.07) выяснилось, что пять дополнений к критериям приёмки жили ТОЛЬКО в вырезанной устаревшей лестнице — ни в ставке, ни в NOW их нет. Переприколоты сюда, чтобы не потерялись, как когда-то сторожа.</p>
       <p><span class="l">Пять пунктов:</span> (1) замер на НАЗВАННОМ слабом железе — min-spec до сих пор не выбран; (2) лампа детерминизма в HUD — иначе «мультиплеер работает» не доказуемо; (3) политика выхода пира/хоста — хотя бы решение; (4) предохранитель заливки (admission ceiling, твой же ответ 03.07) виден в стенде; (5) звук — сознательно НЕ в Полигоне.</p>
       <p><span class="l">Рекомендация:</span> ратифицировать все пять — они дешёвые и делают финальное доказательство честным; пункт (1) требует от тебя назвать конкретное железо.</p>
     </div>
   </div>
+  <div class="callout"><b>Не показывается как живой owner-вопрос:</b> требование «до 8 игроков» пока не зарегистрировано в NOW.decisions, поэтому оно остаётся repair/P1 в «Проблемах», а не решением батча. Старый merge-gate Phase 0 удалён из живого рендера: Phase 0 = NOT DELIVERED / NEVER RESUME.</div>
 
   <h3 class="subhead">Закрыто недавно — чем кончилось</h3>
   <div class="calls">
     <div class="call closed">
-      <div class="head"><span class="st">✓ PLAN-AMEND ЗАМОРОЖЕН · BINDING GREEN</span><b>L1: настоящий construction contract и точные fault checkpoints</b><span class="id">c-exec-near-gas-core-authority-001-plan-amend-001 · закрыта 13.07</span></div>
+      <div class="head"><span class="st">PLAN-AMEND ПРИНЯТ · ПОЗДНИЙ CHECKPOINT НАШЁЛ НОВЫЕ GAPS</span><b>L1: construction/fault поправка не закрыла весь executable corpus</b><span class="id">c-exec-near-gas-core-authority-001-plan-amend-001 · 13.07</span></div>
       <p><span class="l">Что было:</span> первый independent spec-only RED остановился до test commit: frozen spec не позволял законно собрать admitted generation и выбрать обязательные внутренние точки отказа.</p>
       <p><span class="l">Чем кончилось:</span> владелец дословно подтвердил construction A + fault A. PLAN-AMEND @a58ee356, влитый в origin/main@32107343, фиксирует public owned <code>Create(...)</code>, immutable Core handler type maps, literal valid recipe и operation-local internal <code>NearGasFaultSite</code>/ForTesting entries в тех же production paths.</p>
-      <p><span class="l">Проверка:</span> отдельная fresh Direction-сессия сверила все published frozen artifacts, реальные constructor signatures, friend-test access, ancestry, seven-file planning-only diff, repo contract v20, вариант A и future-worker boundary. Verdict = GREEN; костылей и нового public fault authority нет.</p>
-      <p><span class="l">Граница:</span> это разрешение на новый EXECUTE, а не доставка L1. Original BUILD @b94806de остаётся историческим CHECKPOINT / NOT DELIVERED; новый test-author начинает с нуля, а product code/tests/gates ещё не выполнены.</p>
+      <p><span class="l">Проверка на тот момент:</span> fresh Direction-сессия подтвердила именно construction A / fault A и seven-file planning-only diff. Поздний execute-002@5c783e07 доказал, что вывод нельзя было расширять на готовность всей RED-suite: ещё девять групп bindings отсутствуют.</p>
+      <p><span class="l">Граница сейчас:</span> это историческая owner-approved поправка, не разрешение повторно запускать EXECUTE. Original BUILD и execute-002 остаются CHECKPOINT / NOT DELIVERED; v21 требует полный TESTABILITY sweep.</p>
     </div>
     <div class="call closed">
-      <div class="head"><span class="st">✓ КАНДИДАТ A ПРИНЯТ · P2a0 ЗАКРЫТ</span><b>PuppetMaster остаётся косметикой, позиция тела принадлежит ядру</b><span class="id">M1-P2a0 · закрыта 13.07</span></div>
+      <div class="head"><span class="st">⚠ NOW СТАВИТ DONE · REPAIR P1</span><b>PuppetMaster: owner выбрал Candidate A, но lifecycle G5 не закрыт</b><span class="id">M1-P2a0 · dr-20260711-001</span></div>
       <p><span class="l">Что было:</span> живой спайк проверял, может ли PuppetMaster показывать удар, падение и подъём, не становясь недетерминированным сетевым владельцем позиции.</p>
-      <p><span class="l">Чем кончилось:</span> после игры в стенд владелец сказал «Кандидат A — да»: авторитетная позиция принадлежит ядру/контроллеру, рэгдолл PuppetMaster — только локальный косметический вид. B отклонён, потому что PhysX на авторитетном пути рассинхронизирует машины.</p>
-      <p><span class="l">Что дальше:</span> открыт параллельный PLAN-трек «Игровые персонажи»; детерминированная грид-баллистика остаётся будущим слайсом ядра g-9c41, а не частью PuppetMaster/персонажной стройки.</p>
+      <p><span class="l">Owner-факт:</span> после игры в стенд владелец сказал «Кандидат A — да»: авторитетная позиция принадлежит ядру/контроллеру, рэгдолл PuppetMaster — только локальный косметический вид. B отклонён из-за PhysX на авторитетном пути.</p>
+      <p><span class="l">Почему repair:</span> записанный done_when всё ещё требует bounded-C и fresh G5, а RESULT закрытия прямо говорит, что оба не доставлены и owner-eye использован вместо fresh G5. KERNEL G5 и карта площадок запрещают срезать этот гейт. До repair карточка не является доказанным lifecycle close.</p>
     </div>
     <div class="call closed">
       <div class="head"><span class="st">✓ L1 PLAN ЗАМОРОЖЕН И BINDING-ПРОВЕРЕН</span><b>Один Core-владелец, атомарный Step и вариант A</b><span class="id">c-exec-near-gas-core-authority-001 · закрыта 13.07</span></div>
@@ -382,10 +373,10 @@
   <h3 style="margin:26px 0 10px; font-size:18px">Проблемы (дневное ревью)</h3>
   <div class="calls">
     <div class="call wait">
-      <div class="head"><span class="st">P1 · REPAIR · ОСТАТОК</span><b>P2a0 и старые launch-указатели ещё расходятся</b><span class="id">dr-20260711-001</span></div>
-      <p><span class="l">Что уже исправлено:</span> старый Phase 0 убран из живого маршрута, честно помечен NOT DELIVERED / NEVER RESUME, а принятая gas-программа зарегистрирована.</p>
-      <p><span class="l">Что осталось:</span> P2a0 всё ещё имеет отдельный checkpoint/launch-дрейф: карта площадок называет старый заказ, а один соседний CALL хранит старую базу. Сам P2a0 не объявляется закрытым без G5 и вердикта.</p>
-      <p><span class="l">Кто чинит:</span> отдельный узкий repair P2a0/launch после этой сессии; gas route повторно не открывать.</p>
+      <div class="head"><span class="st">P1 · REPAIR · KNOWN · НОВАЯ ПРИЧИНА</span><b>P2a0 помечен done без записанного fresh G5</b><span class="id">dr-20260711-001</span></div>
+      <p><span class="l">Что случилось:</span> NOW сохранил heavy done_when с bounded-C + fresh G5, но close RESULT прямо говорит, что оба не доставлены и owner-eye стал заменой G5. Карта площадок одновременно всё ещё держит старый P2a0 call 001 и Phase 0 in flight.</p>
+      <p><span class="l">Почему P1:</span> KERNEL G5 и сама карта говорят, что гейт не срезается; статус done и живая lane-карта сейчас взаимоисключающи.</p>
+      <p><span class="l">Кто чинит:</span> `c-repair-daily-p2a0-lanes-routing-20260713-001`; Phase 0 не переоткрывать и owner-eye не называть fresh G5.</p>
     </div>
     <div class="call wait">
       <div class="head"><span class="st">P1 · NIGHT · KNOWN</span><b>Канон-борд противоречит себе после admission c-001</b><span class="id">dr-20260711-004</span></div>
@@ -394,16 +385,22 @@
       <p><span class="l">Кто чинит:</span> ночная линия только перегенерирует `C:\projects\gas_coop_game_canon\board\dashboard.html` из committed канона + frame-слоя; сам канон не меняется.</p>
     </div>
     <div class="call wait">
-      <div class="head"><span class="st">P1 · REPAIR · NEW</span><b>Маркетинговый open_call всё ещё стартует до INOMAND checkpoint</b><span class="id">dr-20260712-001</span></div>
+      <div class="head"><span class="st">P1 · REPAIR · KNOWN</span><b>Маркетинговый open_call всё ещё стартует до INOMAND checkpoint</b><span class="id">dr-20260712-001</span></div>
       <p><span class="l">Что случилось:</span> committed checkpoint уже закрепил INOMAND/@inomandgames, домен/accounts@, Steamworks и B1 evidence, но NOW.note всё ещё говорит READY от брифа 11.07. Старый маршрут способен повторить старт и вернуть отменённый Chinvat.</p>
       <p><span class="l">Почему P1:</span> это живая open_call-инструкция; неверная точка старта дублирует работу и противоречит owner-approved identity.</p>
       <p><span class="l">Кто чинит:</span> repair-сессия по `c-repair-daily-marketing-routing-20260712-001`; сам маркетинг, аккаунты и публичные действия не выполняются.</p>
     </div>
     <div class="call wait">
-      <div class="head"><span class="st">P1 · REPAIR · NEW</span><b>Требование «до 8 игроков» потеряло state-route согласования</b><span class="id">dr-20260712-002</span></div>
+      <div class="head"><span class="st">P1 · REPAIR · KNOWN</span><b>Требование «до 8 игроков» потеряло state-route согласования</b><span class="id">dr-20260712-002</span></div>
       <p><span class="l">Что случилось:</span> knowledge хранит дословное owner requirement «до 8; оптимум 8; соло вне компетенции», а TREE и канон продолжают говорить 2–4/1–4 и solo-startable. Карточка есть на панели, но в NOW.decisions её нет.</p>
       <p><span class="l">Почему P1:</span> shape/PLAN может прочитать взаимоисключающие пределы игроков; панель не заменяет state-authority и owner-gated маршрут.</p>
       <p><span class="l">Кто чинит:</span> repair-сессия по `c-repair-daily-player-count-routing-20260712-001`; TREE и канон не меняются без фактических слов владельца и G9/amendment.</p>
+    </div>
+    <div class="call wait">
+      <div class="head"><span class="st">P1 · REPAIR · NEW</span><b>Три engineering route не проходят v21 dispatch</b><span class="id">dr-20260713-001</span></div>
+      <p><span class="l">Что случилось:</span> execute-002@5c783e07 уже вернул SPEC-ONLY RED BLOCKED / NOT DELIVERED с девятью missing binding groups. NOW всё ещё говорит READY и указывает на него; product stamp v20 отстаёт от OS v21. Runner CALL тоже pre-v21, его PLAN ref не виден после fetch. Новый character BUILD @93d3f44 аналогично не содержит обязательной v21 transaction identity/receipts.</p>
+      <p><span class="l">Почему P1:</span> команда «продолжаем» ведёт в returned mechanically non-dispatchable EXECUTE, то есть прямо блокирует главный маршрут.</p>
+      <p><span class="l">Кто чинит:</span> `c-repair-daily-engineering-v21-routing-20260713-001`; product read-only, без повторного RED/BUILD и без выдуманных hashes.</p>
     </div>
     <div class="call wait">
       <div class="head"><span class="st">P2 · REPAIR · KNOWN</span><b>LOG и history не образуют полностью разрешимый журнал</b><span class="id">dr-20260711-002</span></div>
@@ -422,7 +419,7 @@
   <h3 style="margin:26px 0 10px; font-size:18px">Журнал — последние 3 дня</h3>
   <p class="note" style="margin:0 0 10px">Рендер из LOG.md (полный архив — там); старше трёх дней с панели уходит. Сегодняшний день раскрыт.</p>
   <details class="day" open>
-    <summary>13 июля <span class="cnt">· gas-dashboard закрыт · L1 PLAN + PLAN-AMEND опубликованы и binding GREEN · fresh L1 EXECUTE следующий · P2a0 закрыт · персонажный PLAN открыт</span></summary>
+    <summary>13 июля <span class="cnt">· gas-dashboard закрыт · L1 PLAN/AMEND опубликованы · execute-002 вернулся checkpoint · OS v21 требует re-sync/full sweep · В1 character PLAN frozen · engineering routes в repair</span></summary>
     <ul>
       <li><b>NearGas-dashboard — Direction checkpoint:</b> отдельная свежая сессия попыталась опровергнуть product handback. Commit <b>9bc577c7</b> имеет parent accepted PROGRAM <b>f5c1d650</b> и меняет ровно AGENTS.md, dashboard.html и закрывающий отчёт; diff-check чист, dashboard содержит 10 основных и 13 поздних карточек, 11 дискретных сегментов, точные visual locks и не имеет script/img/iframe/external URL/SHA/path-шума. Все 10 прежних dirty/untracked файлов всё ещё на месте, а builder RESULT фиксирует равные before/after SHA-256 snapshots.</li>
       <li><b>Почему не закрыто:</b> сохранённые desktop+narrow captures заново прочитаны и выглядят корректно, но это evidence builder-сессии. Обязательный собственный fresh render не состоялся: in-app Browser запретил локальный file-адрес dashboard и одновременно запретил обход через другой browser, CDP или локальный server. Verdict = partially met; NearGas-dashboard и исходный executor-call остаются активными.</li>
@@ -434,6 +431,8 @@
       <li><b>NearGas L1 — следующий маршрут:</b> исходный BUILD остаётся pending и NOT DELIVERED. Открыт отдельный owner-present PLAN-amend c-exec-near-gas-core-authority-001-plan-amend-001: выбрать и заморозить только constructible generation contract и stable non-public fault-site test contract. Он не пишет код/тесты, не запускает RED/Unity и не возобновляет BUILD; после owner-verdict нужна отдельная свежая Direction-refutation. Вариант A и отложенная до L1/L2/C1+профиля многопоточность неизменны.</li>
       <li><b>PuppetMaster P2a0 — owner close и новый трек:</b> владелец сыграл в живой стенд и сказал «Кандидат A — да»: ядро/контроллер владеет авторитетной позицией тела, PuppetMaster-рэгдолл остаётся косметикой; B отклонён из-за недетерминированного PhysX на авторитетном пути. M1-P2a0 закрыт, lean-spike CALL удалён, открыт параллельный PLAN c-plan-characters-001 для reusable prefab + stable adapter-API; грид-баллистика маршрутизирована будущим Core-слайсом g-9c41. Газовый хребет остался приоритетом №1.</li>
       <li><b>NearGas L1 PLAN-AMEND — fresh binding GREEN:</b> product PLAN-AMEND <b>a58ee356</b> — прямой ребёнок historical checkpoint b94806de и влит в origin/main@<b>32107343</b>. Published frozen packet теперь связывает public owned <code>Create(...)</code>, immutable Core handler type maps, literal valid single-cell recipe и operation-local internal <code>NearGasFaultSite</code>/ForTesting entries; отдельная Direction-refutation сверила все artifacts, реальные type signatures, friend-test access, seven-file planning-only diff и contract v20. Original BUILD остаётся CHECKPOINT / NOT DELIVERED; выпущен новый c-exec-near-gas-core-authority-001-execute-002 от exact base @32107343 с новым independent spec-only RED. Вариант A и deferred workers неизменны; product code/tests/Unity не запускались.</li>
+      <li><b>Игровые персонажи — В1 PLAN frozen:</b> владелец одобрил порядок В1 socket+drop-in capsule → В2 rig/reactions/cosmetic ragdoll → В3 core grid-ballistics, выбрал «Вариант 1» и сказал «замораживай». Committed `93d3f44` сохранил frozen PLAN/spec и открыл В1 BUILD; газовый NOW.next не менялся.</li>
+      <li><b>Дневное ревью:</b> committed-state сверка оставила шесть прежних находок known и добавила одну repair/P1: execute-002 уже вернул checkpoint @5c783e07, product v20 отстаёт от OS v21, а NearGas/runner/character engineering CALLs не проходят current dispatch contract. В существующий dr-20260711-001 добавлена новая причина: M1-P2a0 помечен done при прямо записанном отсутствии bounded-C/fresh G5. Ничего не исправлялось; product/canon read-only.</li>
     </ul>
   </details>
   <details class="day">
@@ -494,7 +493,7 @@
         <li class="done">Единая программа и порядок маленьких легов приняты</li>
         <li class="done">Старый Phase 0 сохранён как NOT DELIVERED evidence и больше не запускается</li>
         <li class="done">Владельческое dashboard-зеркало построено, проверено и принято владельцем</li>
-        <li class="miss">L1 PLAN принят, влит и binding-проверен; отдельный serial concurrency-ready BUILD готов, но не начинался</li>
+        <li class="miss">L1 PLAN/AMEND приняты, но execute-002 снова остановлен до RED @5c783e07; новый execution запрещён до v21 re-sync + полного TESTABILITY sweep</li>
         <li class="miss">M1-GAS-PROBE/CORE и engine S4/A1 ждут исходный source после foundation</li>
       </ul>
     </div>
@@ -594,9 +593,9 @@
 
 <section>
   <div class="sec-head"><h2>Ближайшая инженерная дорога: gas PROGRAM</h2><span class="tag">маршрут принят 12.07 · статус легов доказывают их собственные RESULT/review/gates · приоритет задаёт Direction OS</span></div>
-  <div class="callout accent"><b>Сейчас:</b> dashboard, исходный owner-approved L1 PLAN и узкий PLAN-AMEND закрыты; amendment @a58ee356 опубликован в origin/main@32107343 и выдержал fresh binding-refutation. Следом — новый L1 EXECUTE с independent spec-only RED на новой ветке. Original BUILD @b94806de остаётся historical CHECKPOINT / NOT DELIVERED. Реальные workers ждут delivered L1/L2/C1 и свежий профиль; старый Phase 0 и visual BUILD запускать нельзя.</div>
+  <div class="callout accent"><b>Сейчас:</b> dashboard и owner-approved L1 PLAN/AMEND опубликованы, но новый execute-002 уже остановился до RED и сохранил CHECKPOINT / NOT DELIVERED @5c783e07. OS contract v21 требует product §Re-sync, полный TESTABILITY sweep всех обязательств и новый валидный handoff; текущий v20 EXECUTE повторно не запускается. Реальные workers ждут delivered L1/L2/C1 и свежий профиль; старый Phase 0 и visual BUILD запускать нельзя.</div>
   <div class="tracks">
-    <div class="track"><h3>1 · Чистый фундамент</h3><ul><li class="miss">L1 — PLAN-AMEND binding GREEN; fresh EXECUTE от @32107343 следующий, original BUILD historical</li><li class="miss">L2 — честные ограничения ресурсов</li><li class="miss">C1 — быстрая сверка committed-состояния</li><li class="miss">M0 — точная Unity 6.5 migration</li><li class="miss">L3 + I1 — единственный Unity-путь и интеграционная проверка</li><li class="miss">L4→L6 + I2 — PlayerSense, replay, удаление legacy</li></ul></div>
+    <div class="track"><h3>1 · Чистый фундамент</h3><ul><li class="miss">L1 — execute-002 CHECKPOINT / NOT DELIVERED; v21 re-sync + полный executable-test sweep до нового handoff</li><li class="miss">L2 — честные ограничения ресурсов</li><li class="miss">C1 — быстрая сверка committed-состояния</li><li class="miss">M0 — точная Unity 6.5 migration</li><li class="miss">L3 + I1 — единственный Unity-путь и интеграционная проверка</li><li class="miss">L4→L6 + I2 — PlayerSense, replay, удаление legacy</li></ul></div>
     <div class="track"><h3>2 · Масштаб после фундамента</h3><ul><li class="miss">A0 — наблюдение активности ядра</li><li class="miss">M1-GAS-PROBE/CORE — ждёт исходный source</li><li class="miss">Engine S4/A1 — дальняя свёртка, тоже ждёт source</li></ul></div>
     <div class="track"><h3>3 · Живые изменения мира</h3><ul><li class="miss">R0 — выбрать порядок команд и политику миграции</li><li class="miss">E1 — движущиеся/включаемые источники</li><li class="miss">D1 — двери</li><li class="miss">T1/X1 — сохранение газа при изменении/разрушении структуры</li><li class="miss">LAB + I3 — единый финальный стенд и проверка</li></ul></div>
     <div class="track"><h3>4 · Визуал</h3><ul><li class="miss">PLAN LOCKED до M0+C1+L3+I1</li><li class="miss">Motion BUILD ждёт committed-per-Step данные</li><li class="miss">Moving source / door / destruction ждут E1 / D1 / X1</li><li class="done">Старая грязная сборка сохранена и не используется как evidence</li></ul></div>
