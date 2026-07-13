@@ -55,15 +55,26 @@ log:
       `n/a-light`; omission cannot bypass and N/A requires an empty G0 scan. Writer apply/collect itself runs the exact
       worktree's `pre-execution` check and rejects dirty/wrong branch, merge-base, prior production/test/toolchain diff,
       nonzero/unrunnable/mutating check or blob/manifest/obligation mismatch before payload; executor re-runs only for
-      defense-in-depth. Product RESULT predeclares archive target but never self-hashes. Pre-archive deliver emits an
-      external D/result-blob receipt; archive is one commit A; writer `close` requires A^==D, unchanged RESULT, no post-
-      deliver source/test edit, exact move of every change-relative manifest blob, unchanged external authorities and
-      archived TESTABILITY blob. No prior gate is weakened;
+      defense-in-depth. Independent committed-SHA red-team then found and closed thirteen bypasses the first draft
+      still allowed: unscoped SETUP/RE-SYNC, self-certifying install/final PLAN checker, under-transcribed Direction
+      acceptance, rewritten feature base, vague non-empty recipes, hardcoded root RESULT, current-immutable baseline
+      source, untyped/symlink manifests, mutable or undiscovered RED oracle, no legitimate resume, volatile receipt and
+      archive recovery gaps. SETUP now has an external protected inventory; RE-SYNC an exact contract-only diff; both
+      require writer-run OS negative conformance (always-zero/skipped-case witnesses included) before stamp 21.
+      PLAN/descendants retain external base-authority and exact parent done_when hash; final plan rechecks clean manifested
+      delta and original trust roots before owner presentation. TESTABILITY has typed packet/authority/base rows and full
+      FQ-signature/visibility/owner/args/fixture/observe/inject/delegate skeleton recipes. Base rows resolve at base so
+      legitimate current production edits pass. Config resolves exact same-id product-result-path. Independent RED ends
+      at R with protected oracle/discovery/filter receipt; BUILD is only v21 receipt-bound resume. Deliver/close use typed
+      mode/blob archive mapping and deterministic D/A receipt recovery. No product report self-hashes. No prior gate is
+      weakened;
       planner/builder/validator/test-author
       separation, frozen meaning, option-A serial concurrency readiness, negative controls, property layer, review/G5,
       retry/non-convergence and owner authority remain intact. SCOPE (honest): mechanically prevents the witnessed
       missing-executable-binding class from FIRST surfacing in a builder session; a fresh validator still supplies
-      symbol/route truth, so this does not promise that no subtle specification mistake can exist. This is a process/
+      symbol/route truth, so this does not promise that no subtle specification mistake can exist. Semantic light-vs-
+      frozen classification and human independence/thoroughness remain explicit judgment layers; the witnessed real-id
+      frozen packet cannot use either as N/A. This is a process/
       handoff defect caught before product implementation/review/owner-eye, not a product-invariant escape, so no
       ESCAPE-CLASSES row. KERNEL/plays/SESSION_PAYLOAD/live/** untouched; packets schema changes only engineering
       phase/filesystem/plan-entry/execution-handoff identity fields, so no owner re-paste is needed.
@@ -74,11 +85,11 @@ log:
       BUILD remains historical NOT DELIVERED). health-ai — translate the same obligation/baseline rule for its markdown
       execution substrate or record N/A only when there truly is no G0-frozen executable obligation, seed that branch,
       and bump its current stamp →21.
-      Enforcement clarification: product checks are inert until re-sync, so writer/apply and collect HARD-BOUNCE PLAN/
-      EXECUTE/BUILD while the assigned worktree stamp is below 21 or its phase-entry check is absent/unrunnable/nonzero;
-      the writer never emits payload on mere readability. Only SETUP on an uninitialized target and contract-only
-      RE-SYNC may enter without a current v21 stamp. Thus inert wiring, a stale PLAN checkout, an omitted change id, or a
-      historical BUILD checkpoint cannot become a delayed planner/builder STOP.
+      Enforcement clarification: before stamp 21, only receipt-protected SETUP and manifest-limited RE-SYNC enter;
+      writer accepts their return only after independent OS conformance. PLAN then needs entry and final gates; fresh
+      EXECUTE needs packet-only pre-execution receipt; BUILD needs the same v21 run plus RED/progress receipt. Writer
+      apply/collect emits no payload on readable/self-reported checker, rewritten base/acceptance, stale final PLAN,
+      historical checkpoint or arbitrary resume. Product wiring remains inert until its successful SETUP/RE-SYNC.
   20  2026-07-13  repo-local execution authority + obsolete global runtime retirement: a generic Direction OS
       engineering/PLAN/BUILD CALL is governed by the CALL plus the product repo's AGENTS.md, frozen plan/spec,
       and validation.config. Globally installed or discoverable skills and tools are support, not authority:
