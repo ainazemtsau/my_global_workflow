@@ -77,10 +77,22 @@ log:
       writer-finalized persisted CALLs with non-self receipts, a pre-owner candidate/receipt/chronology, all seven recipe
       records including base-compilable runtime `red-realization`, exact-parent test-author-only RED/revisions, disjoint
       create/overlay manifests, and `V21-CONFORMANCE.md`: exact external phase snapshots, acyclic B->P->R->Q->D->A plus
-      RB->RS/S0->S1 trees, exact mutation families for every mode, separately pinned adapter, randomized roots and
+      RB->RS/S0->SB trees, exact mutation families for every mode, separately pinned adapter, randomized roots and
       always-zero/case-switch/defect-removed/omitted-mutation witnesses. The independent reviewer also caught and closed
       incoherent WIP resume/deliver/archive snapshots, a potential specimen self-hash cycle and lost legacy seeded misses
-      before this contract was declared complete;
+      before this contract was declared complete. Config therefore declares only the ordered trust-root path/mode list;
+      the external CALL manifest pins every path/mode/blob including config itself, avoiding a config self-hash cycle.
+      A third full-SHA refutation found eight more concrete bypasses and all were made mechanical before close: PLAN
+      chronology is now author checkpoint -> writer rerun/history commit -> separate finalized verdict session, so a
+      receipt/timestamp first appearing with owner words has no authority; conformance uses acyclic install challenge ->
+      bootstrap receipt -> non-install cases -> persisted final receipt/event -> excluded binding smoke; stack adapter is
+      produced and independently reviewed in a separate Direction transaction whose writer event/blob predates install;
+      every neutral fixture fingerprint is nonce-salted and a two-nonce fingerprint-switch checker must fail; H/F framing,
+      git graph metadata, receipt preimages, token registry and mutation operation/mode semantics are canonical; legacy
+      phase seeds now include descendant acceptance shrink, TESTABILITY external pins, every-mode trust roots, archive
+      source-left/undeclared output; the valid result declares identity/location/archive routing without self-hash; and
+      RE-SYNC verifies create/overlay content/postimage/protected bytes while packet schema again requires stage/phase/
+      absolute worktree. The review also exposed and closed the TESTABILITY in-file self-blob and config self-blob cycles;
       planner/builder/validator/test-author
       separation, frozen meaning, option-A serial concurrency readiness, negative controls, property layer, review/G5,
       retry/non-convergence and owner authority remain intact. SCOPE (honest): mechanically prevents the witnessed

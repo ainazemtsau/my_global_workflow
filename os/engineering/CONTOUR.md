@@ -14,6 +14,8 @@ Companion files: `PROJECT_SETUP.md` (bootstrap a product repo), `VALIDATION.md` 
 
 ## Roles (always separated)
 
+**v21 PLAN role boundary (normative over the older planner shorthand below).** PLAN is two fresh sessions: `author` creates the gated candidate and stops without owner verdict; writer reruns and commits its receipt event; only then `verdict` presents that exact candidate and obtains owner words. BUILD/RED is a third fresh session. Neither PLAN session writes product code or commissions RED.
+
 - **Planner** — interactive session, frontier model, plan mode. Talks to the owner. A SEPARATE session from BUILD, always: the plan leg ENDS when the owner approves the plan — it hands off a build CALL and writes NO product code and authors/commissions NO red tests (red-test authoring is the build session's opening move — see Test-author). Planning and building never share one session.
 - **Builder** - autonomous fresh EXECUTE or receipt-bound BUILD-resume session, never the PLAN session. It reads the frozen plan and external run receipts, never talks to the owner mid-run, and cannot turn an arbitrary on-disk diff into a resume.
 - **Validator** — fresh-context, read-only (no Write/Edit), did not author the code; for at least one pass per feature — a different model family than the builder. Agents consistently overrate their own output; same-model self-review is a mirror, not a check.
@@ -21,7 +23,7 @@ Companion files: `PROJECT_SETUP.md` (bootstrap a product repo), `VALIDATION.md` 
 
 ## The cycle
 
-Engineering CALL boundaries are two-stage transactions. Session emits stable intent; writer alone observes current state, runs the phase gate, adds non-self-referential receipts and persists finalized CALL before payload. Collect runs finalized only. SETUP uses create/overlay inventory; PLAN/EXECUTE/BUILD/RE-SYNC retain external base, parent acceptance and trust identities. RE-SYNC is contract-only at HEAD==base. PLAN has entry plus pre-owner candidate receipt. EXECUTE is fresh finalized pre-red entry; BUILD is receipt-bound resume. No prose, HEAD, plan tip, guessed receipt or historical checkpoint invents authority.
+Engineering CALL boundaries are two-stage transactions. Session emits stable intent; writer alone observes current state, runs the phase gate, adds non-self-referential receipts and persists finalized CALL before payload. Collect runs finalized only. SETUP uses create/overlay inventory; PLAN/EXECUTE/BUILD/RE-SYNC retain external base, parent acceptance and trust identities. RE-SYNC is contract-only at HEAD==base. PLAN is author checkpoint -> writer-committed receipt event -> fresh verdict CALL. EXECUTE is fresh finalized pre-red entry; BUILD is receipt-bound resume. No prose, timestamp, HEAD, plan tip, guessed receipt or historical checkpoint invents authority.
 
 ```
 CALL (business task from a direction)
@@ -98,10 +100,13 @@ CALL (business task from a direction)
     Validator renders against exact base and proves compile plus unique discovery without production stub.
     A new absent symbol uses exact reflection/dynamic test-local signature route and runtime criterion RED;
     a direct uncompilable new-member call fails PLAN.
-    Before any approval prompt, planner commits exact candidate, verifies clean manifested delta, trust,
-    acceptance, typed TESTABILITY and red realizations, runs pinned plan, then persists candidate HEAD and
-    receipt. Owner verdict must be later and cite it; edit/skipped/stale receipt forces rerun.
-    EXEC session returns stable intent. Writer verifies plan receipt/candidate, runs pre-execution, then
+    `PLAN/author` commits exact candidate, verifies clean manifested delta, trust, acceptance, typed TESTABILITY
+    and red realizations, runs pinned plan, then returns a terminal PLAN-GATED checkpoint with exact command/
+    zero-exit/clean-status observation, candidate HEAD and receipt covering that observation. It never prompts
+    for a verdict. Writer reruns/recomputes, saves and commits a Direction-history receipt event, then emits a
+    separate finalized `PLAN/verdict` CALL. Only that fresh session presents the candidate and obtains owner words;
+    the event commit must be ancestral to its CALL/RESULT. Receipt first appearing with owner words is invalid.
+    EXEC session returns stable intent. Writer verifies event/candidate/receipt/verdict, runs pre-execution, then
     persists run-id, pre-red-head, receipt/observation and finalized CALL. Historical source/test work has
     no such receipt.
     Independent test-author R records role/session, exact parent pre-red-head and only manifested
@@ -113,9 +118,10 @@ CALL (business task from a direction)
     Direction-accepted progress. Foreign or pre-v21 state cannot resume.
     Base config resolves exact result path; deliver at D and one-commit archive A use typed manifests.
     Routing receipt recovers by rerun at D or derivation D=A^ at clean A; product report never self-hashes.
-    SETUP/RE-SYNC trust bootstraps from OS-owned V21-CONFORMANCE specimen bytes/exact mutations and
-    externally pinned adapter. Writer materializes/randomizes/verifies deltas, passes no case/expected id,
-    and rejects always-zero/case-switch/defect-absent fixtures before stamp 21.
+    Before SETUP/RE-SYNC install, separate adapter-author and fresh adapter-review RESULTs are writer-applied/
+    committed; install pins that ancestral event and adapter path/mode/blob. Writer nonce-salts fixture identity,
+    runs challenge -> bootstrap-receipt install cases -> non-install receipt cases -> final receipt + excluded
+    binding smoke, and rejects always-zero/case/order/root/fingerprint-switch/defect-absent fixtures.
     This is plan testability, not RED authoring: no product or acceptance test is written here.
     The plan the owner approves is a detailed-but-simple OWNER-READABLE
     document — the goal in plain words and EACH technical decision spelled out
