@@ -48,8 +48,9 @@ log:
       execution/deliver/close modes and seeded misses for absent/RED/incomplete/stale/wrong-change/wrong-manifest/wrong-
       report-blob/wrong-archive/wrong-validation-toolchain/wrong-
       worktree-or-base/token-omitting/empty-or-n/a bindings, including seeded misses for an omitted/changed/substituted
-      trust root or a dynamic/unlisted load. Packet schema requires normalized SETUP|PLAN|EXECUTE|BUILD|DELIVER|CLOSE|
-      RE-SYNC and absolute worktree; logical repo is never a path. SETUP is the sole no-branch/base bootstrap. PLAN and
+      trust root or a dynamic/unlisted load. Packet schema requires normalized SETUP|RE-SYNC|PLAN|EXECUTE|BUILD and
+      absolute worktree; logical repo is never a path. Deliver/close are read-only handback gate modes under the same
+      immutable finalized BUILD CALL, never new phases or CALL identities. SETUP is the sole no-branch/base bootstrap. PLAN and
       later phases carry exact branch/base; PLAN also carries change-id and exact safe preexisting-plan-diff, checked by
       writer plus a current-v21 zero `plan-entry` run before planner time. Every EXECUTE/BUILD explicitly carries real
       change identity/evidence or coordinated
@@ -64,7 +65,10 @@ log:
       require writer-run OS negative conformance (always-zero/skipped-case witnesses included) before stamp 21.
       PLAN/descendants retain external base-authority and exact parent done_when hash; final plan rechecks clean manifested
       delta and original trust roots before owner presentation. TESTABILITY has typed packet/authority/base rows and full
-      FQ-signature/visibility/owner/args/fixture/observe/inject/delegate skeleton recipes. Base rows resolve at base so
+      FQ-signature/visibility/owner/args/fixture/observe/inject/delegate skeleton recipes. Test-local source artifacts,
+      constructed instances, callable observers and runtime resources are disjoint node kinds; the validator compiles
+      only the exact source closure, passes separately pinned path/mode/blob resources only to the pinned runner, and
+      verifies compiler/discovery/runner path/mode/blob/runtime/version/dependency identity. Base rows resolve at base so
       legitimate current production edits pass. Config resolves exact same-id product-result-path. Independent RED ends
       at R with protected oracle/discovery/filter receipt; BUILD is only v21 receipt-bound resume. Deliver/close use typed
       mode/blob archive mapping and deterministic D/A receipt recovery. No product report self-hashes. No prior gate is
@@ -76,7 +80,8 @@ log:
       pre-existing path; and a direct test for an absent new API could not compile/discover. v21 now uses intent -> sole
       writer-finalized persisted CALLs with non-self receipts, a pre-owner candidate/receipt/chronology, all seven recipe
       records including base-compilable runtime `red-realization`, exact-parent test-author-only RED/revisions, disjoint
-      create/overlay manifests, and `V21-CONFORMANCE.md`: exact external phase snapshots, acyclic B->P->R->Q->D->A plus
+      create/overlay manifests, and `V21-CONFORMANCE.md`: one exact intent plus exact writer-set CALL materialization,
+      complete Markdown CALL/RESULT/history bytes, exact external phase snapshots, acyclic B->P->R->Q->D->A plus
       RB->RS/S0->SB trees, exact mutation families for every mode, separately pinned adapter, randomized roots and
       always-zero/case-switch/defect-removed/omitted-mutation witnesses. The independent reviewer also caught and closed
       incoherent WIP resume/deliver/archive snapshots, a potential specimen self-hash cycle and lost legacy seeded misses
@@ -94,7 +99,10 @@ log:
       phase seeds now include descendant acceptance shrink, TESTABILITY external pins, every-mode trust roots, archive
       source-left/undeclared output; the valid result declares identity/location/archive routing without self-hash; and
       RE-SYNC verifies create/overlay content/postimage/protected bytes while packet schema again requires stage/phase/
-      absolute worktree. The review also exposed and closed the TESTABILITY in-file self-blob and config self-blob cycles;
+      absolute worktree. A later adversarial pass also forced complete original-plus-variant revision preservation,
+      full R1/R2 per-commit and terminal contours, semantic deliver/close/light handback negatives, closed ABI result/
+      authority projections, exact adapter output rows, and hybrid git-metadata/isomorphic-history witnesses. The review
+      also exposed and closed the TESTABILITY in-file self-blob and config self-blob cycles;
       planner/builder/validator/test-author
       separation, frozen meaning, option-A serial concurrency readiness, negative controls, property layer, review/G5,
       retry/non-convergence and owner authority remain intact. SCOPE (honest): mechanically prevents the witnessed

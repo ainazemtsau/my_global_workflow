@@ -95,11 +95,14 @@ CALL (business task from a direction)
     PLAN intent. Writer finalizes entry. Coverage reproduces every bullet; typed packet/authority/base
     regular-file rows bind meaning while baseline current copies may legitimately change.
     Every obligation passes all seven machine records plus a closed typed binding-registry DAG:
-    `construct|act|observe|negative|source|skeleton|red-realization`. Every fixture/slot/literal resolves
-    to exact typed producer, encoded bytes/path/blob, test-local source, or single-producer slot; no nickname
-    counts. Validator fully expands ephemeral source plus its exact reachable test-local helper closure in a clean
-    exact-base scratch tree, passes every helper path explicitly, and actually runs the pinned compiler, discovery and
-    one-test filtered runtime, proving one id and its exact RED criterion without a production stub.
+    `construct|act|observe|negative|source|skeleton|red-realization`. A source artifact, a constructed object
+    instance, a callable observer and a runtime resource are different node kinds; a path/blob never stands in for
+    an instance, and a method name never stands in for the object that owns it. Every fixture/slot/literal resolves
+    to one exact typed producer, encoded bytes/path/blob, test-local source, instance, callable, resource or
+    single-producer slot; no nickname counts. Validator fully expands ephemeral source plus its exact reachable
+    compile-source closure in a clean exact-base scratch tree, passes every source path explicitly only to the pinned
+    compiler, invokes pinned discovery on that output, then passes exact `path@mode@blob` runtime resources only to
+    the pinned one-test runner, proving one id and its exact RED criterion without a production stub or unlisted load.
     A new absent symbol uses exact reflection/dynamic test-local signature route and runtime criterion RED;
     a direct uncompilable new-member call fails PLAN.
     `PLAN/author` commits exact candidate, verifies clean manifested delta, trust, acceptance, typed TESTABILITY
@@ -116,12 +119,15 @@ CALL (business task from a direction)
     test/oracle-registration delta; first R is direct child or declared test-author-only chain. Pinned
     red-boundary proves compile, unique discovery/filter and expected runtime RED. Production-before-R,
     mixed/unmanifested change or wrong parent fails. Later independent revisions parent exact accepted
-    progress, obey the same path rule and may add/repair only a variant under the unchanged frozen obligation;
-    they preserve the original assertion/mapping/acceptance hash and cannot relabel acceptance.
+    progress, obey the same path rule and may append only separately named same-obligation variants under the
+    unchanged frozen obligation. Original test/oracle bytes, event and manifest remain pinned byte-identically;
+    discovery and execution cover the union of original plus variants, so replacement, relabeling or half-runs fail.
     BUILD resume preserves finalized run/base/acceptance/trust/TESTABILITY plus RED revision and exact
     Direction-accepted progress. Foreign or pre-v21 state cannot resume.
-    Base config resolves exact result path; deliver at D and one-commit archive A use typed manifests.
-    Routing receipt recovers by rerun at D or derivation D=A^ at clean A; product report never self-hashes.
+    Base config resolves exact result path. Deliver at D and one-commit archive A are read-only gate observations
+    under the same immutable finalized BUILD CALL, not new DELIVER/CLOSE phases: D/A/result/archive facts live only
+    in handback while CALL phase, entry HEAD and receipts remain byte-identical. Routing evidence recovers by rerun
+    at D or derivation D=A^ at clean A; product report never self-hashes.
     A read-only `SETUP/interview` RESULT and writer receipt precede adapter work; it may inspect the target/profile
     but cannot write product files. `SETUP/adapter-author` returns one exact work artifact; writer commits its RESULT/artifact
     plus a mechanical finalizer, and that finalizer's fresh RESULT creates strict-descendant `SETUP/adapter-review`.
