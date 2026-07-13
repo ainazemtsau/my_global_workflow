@@ -32,28 +32,41 @@ log:
       input-manifest-hash + complete-sweep + per-obligation dispositions + GREEN|RED in
       openspec/changes/<id>/TESTABILITY.md. The manifest binds PLAN/proposal/tasks/all delta specs/referenced ADRs/other
       declared frozen authorities; spec sources name path+stable-id, so any partial PLAN-AMEND invalidates old GREEN.
-      Final owner-readable PLAN approval,
-      freeze/handoff and EXECUTE/BUILD are forbidden until fresh GREEN. TESTABILITY.md joins the frozen packet and is
-      not editable by RED author/builder. The
-      independent RED author then reads the frozen spec plus ONLY that audited corpus, never builder/new implementation.
-      VALIDATION makes the artifact a plan-handoff AND -Deliver dependency;
-      PROJECT_SETUP requires `validation.config: plan_handoff_check`, shared plan/-Deliver enforcement and seeded misses
-      for absent/RED/incomplete/stale/wrong-change/wrong-manifest/wrong-worktree-or-base/token-omitting/empty-or-n/a
-      bindings. Packet schema now requires normalized SETUP|PLAN|EXECUTE|BUILD|RE-SYNC. SETUP is the non-circular
-      bootstrap only while the target lacks a complete installed run-contract/stamp pair; it preserves existing files,
-      carries an absolute target worktree without pre-existing branch/base, and cannot implement the feature. An
-      initialized target rejects SETUP; other phases reject an uninitialized target. EXECUTE/BUILD also carries exact
-      worktree/branch/authoritative-base/change-id/testability/manifest identity. coding-agent adds an immediately-active
-      writer equality guard, hard-bounces EXECUTE while product contract <21/check unreadable, and requires executor
-      worktree/merge-base/pre-RED-diff truth-resolution before RED. No prior gate is weakened;
+      TESTABILITY stays out of that recursive manifest; after commit, external `testability-blob` attests its complete
+      bytes in the EXECUTE/BUILD CALL and Direction handback. Final owner-readable PLAN approval, freeze/handoff and execution
+      are forbidden until fresh GREEN. The frozen report is not editable by RED author/builder; the RED author reads the
+      frozen spec, pinned TESTABILITY and ONLY the audited corpus, never PLAN/tasks/ADR as a second behavioral oracle nor
+      builder/new implementation. VALIDATION makes the artifact a plan-handoff AND -Deliver dependency.
+      The checker is not allowed to certify itself after a builder edit: every PLAN/EXECUTE/BUILD CALL pins
+      `validation-toolchain-manifest-hash` over ordinal base git blobs for validation.config, the handoff command and
+      every directly loaded helper/schema. Base config enumerates those trust roots; dynamic/unlisted loads,
+      symlink/reparse/outside-worktree roots and path substitution/addition are invalid. Writer derives and compares
+      base/current blobs before executing product-controlled code; executor repeats before RED; immutable/deliver/close
+      preserve the same pin, and builder/test-author may not edit it.
+      PROJECT_SETUP requires a read-only runnable `validation.config: plan_handoff_check` with plan-entry/plan/pre-
+      execution/deliver/close modes and seeded misses for absent/RED/incomplete/stale/wrong-change/wrong-manifest/wrong-
+      report-blob/wrong-archive/wrong-validation-toolchain/wrong-
+      worktree-or-base/token-omitting/empty-or-n/a bindings, including seeded misses for an omitted/changed/substituted
+      trust root or a dynamic/unlisted load. Packet schema requires normalized SETUP|PLAN|EXECUTE|BUILD|
+      RE-SYNC and absolute worktree; logical repo is never a path. SETUP is the sole no-branch/base bootstrap. PLAN and
+      later phases carry exact branch/base; PLAN also carries change-id and exact safe preexisting-plan-diff, checked by
+      writer plus a current-v21 zero `plan-entry` run before planner time. Every EXECUTE/BUILD explicitly carries real
+      change identity/evidence or coordinated
+      `n/a-light`; omission cannot bypass and N/A requires an empty G0 scan. Writer apply/collect itself runs the exact
+      worktree's `pre-execution` check and rejects dirty/wrong branch, merge-base, prior production/test/toolchain diff,
+      nonzero/unrunnable/mutating check or blob/manifest/obligation mismatch before payload; executor re-runs only for
+      defense-in-depth. Product RESULT predeclares archive target but never self-hashes. Pre-archive deliver emits an
+      external D/result-blob receipt; archive is one commit A; writer `close` requires A^==D, unchanged RESULT, no post-
+      deliver source/test edit, exact move of every change-relative manifest blob, unchanged external authorities and
+      archived TESTABILITY blob. No prior gate is weakened;
       planner/builder/validator/test-author
       separation, frozen meaning, option-A serial concurrency readiness, negative controls, property layer, review/G5,
       retry/non-convergence and owner authority remain intact. SCOPE (honest): mechanically prevents the witnessed
       missing-executable-binding class from FIRST surfacing in a builder session; a fresh validator still supplies
       symbol/route truth, so this does not promise that no subtle specification mistake can exist. This is a process/
       handoff defect caught before product implementation/review/owner-eye, not a product-invariant escape, so no
-      ESCAPE-CLASSES row. KERNEL/plays/SESSION_PAYLOAD/live/** untouched; packets schema changes only by the normalized
-      engineering phase/execution-identity fields, so no owner re-paste is needed.
+      ESCAPE-CLASSES row. KERNEL/plays/SESSION_PAYLOAD/live/** untouched; packets schema changes only engineering
+      phase/filesystem/plan-entry/execution-handoff identity fields, so no owner re-paste is needed.
       OS writer guard ACTIVE now; product plan-check/-Deliver enforcement is INERT until §Re-sync. §Re-sync OWED:
       GasCoopGame — mirror the v21 root-AGENTS executable-test source/handoff rule, add TESTABILITY.md format and a
       plan-check shared with -Deliver, seed every named miss, bump validation.config 20→21; the current NearGas packet
@@ -61,10 +74,11 @@ log:
       BUILD remains historical NOT DELIVERED). health-ai — translate the same obligation/baseline rule for its markdown
       execution substrate or record N/A only when there truly is no G0-frozen executable obligation, seed that branch,
       and bump its current stamp →21.
-      Enforcement clarification: product plan-check/-Deliver is inert until re-sync, so writer/apply and collect HARD-
-      BOUNCE EXECUTE/BUILD while the assigned product stamp is below 21 or `plan_handoff_check` is unreadable; only
-      SETUP on an uninitialized target, PLAN (including amendment work), and contract-only RE-SYNC may enter without a
-      current v21 stamp. Thus inert product wiring cannot become a third builder STOP.
+      Enforcement clarification: product checks are inert until re-sync, so writer/apply and collect HARD-BOUNCE PLAN/
+      EXECUTE/BUILD while the assigned worktree stamp is below 21 or its phase-entry check is absent/unrunnable/nonzero;
+      the writer never emits payload on mere readability. Only SETUP on an uninitialized target and contract-only
+      RE-SYNC may enter without a current v21 stamp. Thus inert wiring, a stale PLAN checkout, an omitted change id, or a
+      historical BUILD checkpoint cannot become a delayed planner/builder STOP.
   20  2026-07-13  repo-local execution authority + obsolete global runtime retirement: a generic Direction OS
       engineering/PLAN/BUILD CALL is governed by the CALL plus the product repo's AGENTS.md, frozen plan/spec,
       and validation.config. Globally installed or discoverable skills and tools are support, not authority:

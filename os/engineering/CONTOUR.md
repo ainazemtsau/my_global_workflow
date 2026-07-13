@@ -17,11 +17,11 @@ Companion files: `PROJECT_SETUP.md` (bootstrap a product repo), `VALIDATION.md` 
 - **Planner** — interactive session, frontier model, plan mode. Talks to the owner. A SEPARATE session from BUILD, always: the plan leg ENDS when the owner approves the plan — it hands off a build CALL and writes NO product code and authors/commissions NO red tests (red-test authoring is the build session's opening move — see Test-author). Planning and building never share one session.
 - **Builder** — autonomous session(s), default-tier model, a FRESH session that reads the frozen plan (never the same session that planned). Never talks to the owner mid-run.
 - **Validator** — fresh-context, read-only (no Write/Edit), did not author the code; for at least one pass per feature — a different model family than the builder. Agents consistently overrate their own output; same-model self-review is a mirror, not a check.
-- **Test-author** — a separate subagent that, after the spec freezes and before BUILD, reads the frozen spec plus its recorded exact-base **baseline corpus**: only the public/module API declarations and committed test-harness contracts the spec's executable-binding table cites. It never reads the builder's branch, new implementation, or diff. The spec owns behavior and meaning; the baseline corpus supplies only pre-existing syntax, construction and harness facts. A new surface with no baseline declaration must therefore be bound exactly in the spec. The test-author writes the per-criterion acceptance tests as failing (red); the builder makes them pass and may not edit them. Not the builder (self-review is a mirror), not the validator (a pre-code oracle and a post-code review are different artifacts); a cheap-tier model is fine — its independence is from the current implementation, not enforced ignorance of the system being extended. For a `core algorithm` change the same role returns for a second, POST-build pass (see cycle, PROPERTY AUDIT): once gates are green it reads the actual DIFF — the one artifact neither the frozen spec nor the pre-code pass could see — for new throw-paths, seams, order-dependencies, and derived-value ranges the implementation introduced, and appends property tests for them before REPORT. Still not the builder (same self-review mirror) and not the validator (adversarial test-authoring, not review) — it is the only step positioned at the moment the seam becomes visible, between a test-author blind to the new code and a reviewer who only reads it after DELIVERED.
+- **Test-author** — a separate subagent that, after the spec freezes and before BUILD, reads the frozen spec, pinned same-id TESTABILITY evidence, and its recorded exact-base **baseline corpus**: only the public/module API declarations and committed test-harness contracts the spec's executable-binding table cites. It never reads PLAN/tasks/ADR as a behavioral oracle or the builder's branch, new implementation, or diff. The spec owns behavior and meaning; the baseline corpus supplies only pre-existing syntax, construction and harness facts. A new surface with no baseline declaration must therefore be bound exactly in the spec. The test-author writes the per-criterion acceptance tests as failing (red); the builder makes them pass and may not edit them. Not the builder (self-review is a mirror), not the validator (a pre-code oracle and a post-code review are different artifacts); a cheap-tier model is fine — its independence is from the current implementation, not enforced ignorance of the system being extended. For a `core algorithm` change the same role returns for a second, POST-build pass (see cycle, PROPERTY AUDIT): once gates are green it reads the actual DIFF — the one artifact neither the frozen spec nor the pre-code pass could see — for new throw-paths, seams, order-dependencies, and derived-value ranges the implementation introduced, and appends property tests for them before REPORT. Still not the builder (same self-review mirror) and not the validator (adversarial test-authoring, not review) — it is the only step positioned at the moment the seam becomes visible, between a test-author blind to the new code and a reviewer who only reads it after DELIVERED.
 
 ## The cycle
 
-Engineering CALLs expose the session boundary mechanically: `phase: SETUP` enters PROJECT_SETUP only for a target without a complete installed run-contract plus validation stamp, carries its absolute target worktree without requiring branch/base before repository identity exists, preserves existing files and may not implement the feature; an initialized target rejects SETUP. `phase: PLAN` enters only the plan leg; the downstream separate fresh feature leg is `phase: EXECUTE|BUILD`; `phase: RE-SYNC` may only install a newer contract/check into an initialized behind product. Missing/unknown phase is not inferred from prose and is not runnable.
+Engineering CALLs expose the session boundary mechanically and always name an absolute `worktree`; logical `repo` is never a filesystem target. `phase: SETUP` enters PROJECT_SETUP only for a target without a complete installed run-contract plus validation stamp, preserves existing files, may not implement the feature, and is the sole phase with no branch/base; an initialized target rejects it. PLAN/EXECUTE/BUILD/RE-SYNC carry exact branch/base. PLAN also carries `change-id`, an exact safe `preexisting-plan-diff`, and `validation-toolchain-manifest-hash`; writer apply/collect rejects a dirty/wrong branch, non-ancestor base, undeclared/non-docs/non-same-id-OpenSpec diff, or a changed/unsafe/unlisted validation trust root. Before executing product-controlled code it derives the config/check/direct-helper/schema base blobs from base `validation.config`, compares base/current blobs and hash to the CALL, then requires a current-v21 zero read-only `plan-entry` check before planner time; a behind product must RE-SYNC first. `phase: PLAN` enters only the plan leg; the downstream separate fresh feature leg is `phase: EXECUTE|BUILD`; `phase: RE-SYNC` may only install a newer contract/check into an initialized behind product. Every PLAN/EXECUTE/BUILD has explicit `change-id: <id>|n/a-light`; omission/prose cannot choose light, and execution `n/a-light` requires an empty non-archived G0 trigger scan. Missing/unknown identity is not inferred and is not runnable.
 
 ```
 CALL (business task from a direction)
@@ -111,21 +111,35 @@ CALL (business task from a direction)
     ledger/property/baseline-corpus authority. It is an ordinal-path-sorted table of
     `<repo-relative-path> | <git-blob-id>` and carries `input-manifest-hash`: SHA-256 of the
     UTF-8 bytes of LF-joined `<path>\t<blob>` lines with one final LF. TESTABILITY.md itself is
-    not in its recursive input manifest.
+    not in its recursive input manifest; after it is committed, its complete bytes are attested
+    separately as `testability-blob` in the execution CALL and echoed RESULT evidence.
     The sweep NEVER stops at the first gap: RED returns the complete gap set for that round;
     GREEN means zero gaps. Any changed/added/removed manifested path, baseline corpus or
     obligation set makes the audit stale and forces a fresh full sweep. The owner-readable
     PLAN is not presented for
     final approval, the spec is not handed off, and no EXECUTE/BUILD CALL is issued until this
     artifact is fresh and GREEN (VALIDATION G0; PROJECT_SETUP pre-execution gate).
-    That execution CALL names exact `change-id`, TESTABILITY path, worktree, branch,
-    authoritative `base`, matching `baseline-commit`, and `input-manifest-hash`. Dispatch is a
-    hard STOP while the product contract is below v21 or its `plan_handoff_check` is unreadable.
-    Before RED, the executor requires a clean assigned worktree/branch, proves base is its
-    merge-base and only manifested frozen packet/evidence paths differ in `base..HEAD`;
-    baseline sources are read through that commit.
-    TESTABILITY.md then joins the frozen packet: builder/test-author may not edit it. This is a
-    plan testability audit, not RED authoring: it writes no production or acceptance test.
+    That execution CALL names exact real `change-id`, TESTABILITY path and `testability-blob`,
+    worktree, branch, authoritative `base`, matching `baseline-commit`, manifest hash, complete
+    sweep, GREEN verdict and the same pinned validation-toolchain manifest hash. Before emitting a runnable payload, writer apply/collect requires
+    clean exact worktree/branch, base as merge-base, packet/evidence-only `base..HEAD` (a prior
+    production/test/toolchain diff, including a historical BUILD checkpoint, fails), derives every
+    trust-root base/current blob before executing product-controlled code, then invokes
+    the worktree's declared read-only check with `DIRECTION_HANDOFF_MODE=pre-execution` and every
+    CALL identity field. Old contract, absent/unrunnable command, nonzero exit, current toolchain or report blob
+    mismatch, false N/A, or check mutation is a hard non-dispatch. The executor re-verifies the pin and re-runs that mode
+    only as defense-in-depth before RED; baseline sources are read through base. Immutable-path and
+    pre-archive `deliver` compare the original toolchain and TESTABILITY blobs while permitting legitimate built
+    source. Product RESULT.md is complete first and predeclares the deterministic archive target,
+    but never its own blob/commit. At clean committed HEAD D, deliver emits an external receipt
+    containing D and the RESULT blob. Archive is exactly one next commit A. Direction handback
+    carries the receipt; writer verifies the original base/current trust-root blobs before running
+    `close` and requires `A^ == D`, unchanged RESULT/toolchain, no D..A
+    production/test/RESULT/toolchain edit, one declared archive root, every change-folder manifest member at
+    its preserved relative suffix/blob, every external authority at original path/blob, and archived
+    TESTABILITY at the original external blob. TESTABILITY.md joins the frozen packet: builder/test-
+    author may not edit it. This is a plan
+    testability audit, not RED authoring: it writes no production or acceptance test.
     The plan the owner approves is a detailed-but-simple OWNER-READABLE
     document — the goal in plain words and EACH technical decision spelled out
     (plain-language what + why), plus what is cut or deferred; the machine spec /
