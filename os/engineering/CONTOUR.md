@@ -14,16 +14,17 @@ Companion files: `PROJECT_SETUP.md` (bootstrap a product repo), `VALIDATION.md` 
 
 ## Roles (always separated)
 
-**v21 PLAN role boundary (normative over older shorthand).** `author` stops at gated candidate; writer commits receipt event plus an ordinary mechanical finalization CALL in W and ends; a fresh finalizer RESULT lets writer commit verdict CALL W2 referencing ancestral W; only then fresh `verdict` obtains owner words in W3 and leaves another mechanical finalization CALL. A different fresh finalizer RESULT lets writer commit EXEC CALL W4. BUILD/RED is another fresh session. Neither PLAN session nor either finalizer writes product code or commissions RED.
+**v21 PLAN role boundary (normative over older shorthand).** `author` stops at an ungated candidate and cannot self-issue binding GREEN. Writer persists that candidate and a mechanical finalizer; a fresh finalizer creates `PLAN/binding-validator`. That distinct read-only session independently derives the obligation union and runs scratch-only binding probes against the exact candidate/base. Its GREEN event and another fresh finalizer are the sole route to `PLAN/verdict`; owner words and EXEC each remain later event/finalizer transactions. BUILD/acceptance RED is another fresh role and session. Planner, binding-validator, verdict, RED author and builder are pairwise distinct.
 
 - **Planner** — interactive session, frontier model, plan mode. Talks to the owner. A SEPARATE session from BUILD, always: the plan leg ENDS when the owner approves the plan — it hands off a build CALL and writes NO product code and authors/commissions NO red tests (red-test authoring is the build session's opening move — see Test-author). Planning and building never share one session.
 - **Builder** - autonomous fresh EXECUTE or receipt-bound BUILD-resume session, never the PLAN session. It reads the frozen plan and external run receipts, never talks to the owner mid-run, and cannot turn an arbitrary on-disk diff into a resume.
+- **Binding-validator** - fresh read-only PLAN substage, distinct from planner/validator/test-author/builder. It receives an already committed candidate, independently derives obligations from done_when+spec, generates its own ephemeral non-acceptance probes outside the product tree and runs the real pinned compiler/discovery/filtered runner. It returns GREEN/RED evidence but writes no product file and never decides behavioral acceptance.
 - **Validator** — fresh-context, read-only (no Write/Edit), did not author the code; for at least one pass per feature — a different model family than the builder. Agents consistently overrate their own output; same-model self-review is a mirror, not a check.
 - **Test-author** — a separate subagent that, after the spec freezes and before BUILD, reads the frozen spec, pinned same-id TESTABILITY evidence, and its recorded exact-base **baseline corpus**: only the public/module API declarations and committed test-harness contracts the spec's executable-binding table cites. It never reads PLAN/tasks/ADR as a behavioral oracle or the builder's branch, new implementation, or diff. The spec owns behavior and meaning; the baseline corpus supplies only pre-existing syntax, construction and harness facts. A new surface with no baseline declaration must therefore be bound exactly in the spec. The test-author writes the per-criterion acceptance tests as failing (red); the builder makes them pass and may not edit them. Not the builder (self-review is a mirror), not the validator (a pre-code oracle and a post-code review are different artifacts); a cheap-tier model is fine — its independence is from the current implementation, not enforced ignorance of the system being extended. For a `core algorithm` change the same role returns for a second, POST-build pass (see cycle, PROPERTY AUDIT): once gates are green it reads the actual DIFF — the one artifact neither the frozen spec nor the pre-code pass could see — for new throw-paths, seams, order-dependencies, and derived-value ranges the implementation introduced, and appends property tests for them before REPORT. Still not the builder (same self-review mirror) and not the validator (adversarial test-authoring, not review) — it is the only step positioned at the moment the seam becomes visible, between a test-author blind to the new code and a reviewer who only reads it after DELIVERED.
 
 ## The cycle
 
-Engineering CALL boundaries are two-stage transactions. Session emits stable intent; writer alone observes current state, runs the phase gate, adds non-self-referential receipts and persists finalized CALL before payload. Collect runs finalized only. SETUP uses create/overlay inventory; PLAN/EXECUTE/BUILD/RE-SYNC retain external base, parent acceptance and trust identities. RE-SYNC is contract-only at HEAD==base. PLAN is author checkpoint -> writer-committed receipt event -> fresh verdict CALL. EXECUTE is fresh finalized pre-red entry; BUILD is receipt-bound resume. No prose, timestamp, HEAD, plan tip, guessed receipt or historical checkpoint invents authority.
+Engineering CALL boundaries are two-stage transactions. Session emits stable intent; writer alone observes current state, runs the phase gate, adds non-self-referential receipts and persists finalized CALL before payload. Collect runs finalized only. SETUP uses create/overlay inventory; PLAN/EXECUTE/BUILD/RE-SYNC retain external base, parent acceptance and trust identities. RE-SYNC is contract-only at HEAD==base. PLAN is author candidate -> fresh binding-validator -> fresh verdict; each arrow is a persisted event plus a fresh mechanical finalizer. EXECUTE is fresh finalized pre-red entry; BUILD is receipt-bound resume. No prose, timestamp, HEAD, plan tip, guessed receipt or historical checkpoint invents authority.
 
 ```
 CALL (business task from a direction)
@@ -94,24 +95,19 @@ CALL (business task from a direction)
     (d) EXECUTABLE-TEST CLOSURE: external base-authority and exact Direction done_when enter
     PLAN intent. Writer finalizes entry. Coverage reproduces every bullet; typed packet/authority/base
     regular-file rows bind meaning while baseline current copies may legitimately change.
-    Every obligation passes all seven machine records plus a closed typed binding-registry DAG:
-    `construct|act|observe|negative|source|skeleton|red-realization`. A source artifact, a constructed object
-    instance, a callable observer and a runtime resource are different node kinds; a path/blob never stands in for
-    an instance, and a method name never stands in for the object that owns it. Every fixture/slot/literal resolves
-    to one exact typed producer, encoded bytes/path/blob, test-local source, instance, callable, resource or
-    single-producer slot; no nickname counts. Validator fully expands ephemeral source plus its exact reachable
-    compile-source closure in a clean exact-base scratch tree, passes every source path explicitly only to the pinned
-    compiler, invokes pinned discovery on that output, then passes exact `path@mode@blob` runtime resources only to
-    the pinned one-test runner, proving one id and its exact RED criterion without a production stub or unlisted load.
-    A new absent symbol uses exact reflection/dynamic test-local signature route and runtime criterion RED;
-    a direct uncompilable new-member call fails PLAN.
-    `PLAN/author` commits exact candidate, verifies clean manifested delta, trust, acceptance, typed TESTABILITY
-    and red realizations, runs pinned plan, then returns a terminal PLAN-GATED checkpoint with exact command/
-    zero-exit/clean-status observation, candidate HEAD and receipt covering that observation. It never prompts
-    for a verdict. Its RESULT lets writer save event plus an ordinary pending mechanical finalization CALL at W, then ends. A fresh
-    session runs that CALL, emits its own mechanical RESULT and lets writer commit finalized `PLAN/verdict` CALL W2 referencing
-    W; strict W<W2 avoids self-reference and preserves the live-only-via-RESULT rule. Only that
-    session presents candidate and obtains owner words in W3; a fresh mechanical RESULT finalizes EXEC in W4. Receipt first appearing with words, or EXEC existing before W4, is invalid.
+    Every obligation has complete `construct|act|observe|negative|source|skeleton` routes plus a closed typed
+    binding-registry DAG. A source artifact, constructed instance, callable and runtime resource are different kinds;
+    raw bytes require an exact loader/codec, a callable names its owning instance, and operation-local faults name the
+    concrete operation and returned slot. Every fixture/slot/literal resolves exactly once; no nickname counts.
+    `PLAN/author` enters without future TESTABILITY authority, commits exact candidate P and returns only a
+    PLAN-CANDIDATE checkpoint. Its RESULT and a fresh mechanical finalizer create `PLAN/binding-validator` for P.
+    That distinct read-only session derives the obligation union independently, generates ephemeral binding-only probes
+    outside git, and runs the real pinned compiler, unique discovery and filtered runner per obligation and for the union.
+    An absent proposed symbol uses an exact reflection/dynamic route; existing routes execute to a validator sentinel.
+    The probes establish executable routes, not future behavioral acceptance, and are never persisted for RED reuse.
+    Only the validator's persisted GREEN RESULT and another fresh finalizer create `PLAN/verdict`. Owner words and EXEC
+    are later event/finalizer transactions. Missing/stale/incomplete closure, planner self-validation, product writes,
+    skipped/nonzero compile, zero/duplicate discovery, PASS or wrong sentinel returns to PLAN before owner presentation.
     EXEC session returns stable intent. Writer verifies event/candidate/receipt/verdict, runs pre-execution, then
     persists run-id, pre-red-head, receipt/observation and finalized CALL. Historical source/test work has
     no such receipt.
@@ -129,7 +125,7 @@ CALL (business task from a direction)
     in handback while CALL phase, entry HEAD and receipts remain byte-identical. Routing evidence recovers by rerun
     at D or derivation D=A^ at clean A; product report never self-hashes.
     A read-only `SETUP/interview` RESULT and writer receipt precede adapter work; it may inspect the target/profile
-    but cannot write product files. `SETUP/adapter-author` returns one exact work artifact; writer commits its RESULT/artifact
+    but cannot write product files. `SETUP/adapter-author` returns one exact adapter bundle (source plus output manifest); writer commits its RESULT/bundle
     plus a mechanical finalizer, and that finalizer's fresh RESULT creates strict-descendant `SETUP/adapter-review`.
     The different read-only reviewer returns the acceptance event; only `SETUP/install` may pin the full ancestral chain
     and mutate the target. Writer nonce-salts fixture identity,

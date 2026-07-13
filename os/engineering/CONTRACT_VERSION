@@ -1,7 +1,7 @@
 # os/engineering contract version — the forcing function against silent propagation lag
 
 A single monotonic integer naming the current state of the engineering contract (CONTOUR.md +
-VALIDATION.md + PROJECT_SETUP.md + V21-CONFORMANCE.md + `os/schema/packets.md` +
+VALIDATION.md + PROJECT_SETUP.md + V21-CONFORMANCE.md + v21_conformance.py + `os/schema/packets.md` +
 `os/adapters/coding-agent.md` + ESCAPE-CLASSES.md + profiles/**). Appending a defect-class to
 ESCAPE-CLASSES.md (the ratchet, MAINTENANCE step 6) bumps it too, so the new class propagates to
 product repos instead of protecting only the workflow-repo-side audits. A **MAINTENANCE session bumps it** (current + one
@@ -111,8 +111,10 @@ log:
       frozen classification and human independence/thoroughness remain explicit judgment layers; the witnessed real-id
       frozen packet cannot use either as N/A. This is a process/
       handoff defect caught before product implementation/review/owner-eye, not a product-invariant escape, so no
-      ESCAPE-CLASSES row. KERNEL/plays/SESSION_PAYLOAD/live/** untouched; packets schema changes only engineering
-      phase/filesystem/plan-entry/execution-handoff identity fields, so no owner re-paste is needed.
+      ESCAPE-CLASSES row. Plays/SESSION_PAYLOAD/live/** are untouched; KERNEL changes only the engineering
+      transaction-identity sentence so executor design authority remains intact while worktree/branch/base/acceptance
+      cannot drift between sessions. Packets schema changes only engineering phase/filesystem/plan-entry/execution-
+      handoff identity fields, so no owner re-paste is needed.
       OS writer guard ACTIVE now; product plan-check/-Deliver enforcement is INERT until §Re-sync. §Re-sync OWED:
       GasCoopGame — mirror the v21 root-AGENTS executable-test source/handoff rule, add TESTABILITY.md format and a
       plan-check shared with -Deliver, seed every named miss, bump validation.config 20→21; the current NearGas packet
@@ -125,6 +127,21 @@ log:
       EXECUTE needs packet-only pre-execution receipt; BUILD needs the same v21 run plus RED/progress receipt. Writer
       apply/collect emits no payload on readable/self-reported checker, rewritten base/acceptance, stale final PLAN,
       historical checkpoint or arbitrary resume. Product wiring remains inert until its successful SETUP/RE-SYNC.
+      FINAL v21 AMENDMENT (normative over the WIP detail above): the attempted all-contour declarative fixture was
+      itself refuted because it described fake executables, future-pinned TESTABILITY, planner-authored RED bytes and
+      non-writer-compatible histories. It is not the shipped authority. Final v21 narrows the mechanical repair to the
+      witnessed boundary and supplies a real subprocess regression witness: PLAN author enters without TESTABILITY,
+      commits an ungated candidate binding contract and stops; a distinct fresh product-read-only PLAN/binding-validator
+      derives the obligation union independently, generates scratch-only non-acceptance probes and runs the real pinned
+      compiler/discovery/filtered runner. Only its persisted GREEN event can lead through a fresh finalizer to owner
+      verdict. The later independent RED author receives routes/receipt but never probe source and authors fresh
+      spec-derived acceptance tests. `V21-CONFORMANCE.md` is the concise normative rule and
+      `os/engineering/v21_conformance.py` is the executable OS witness (one positive plus 31 negative child-process
+      cases, real pinned CPython `-I -S`, dynamic compile/discovery/filtered sentinels). Product SETUP/RE-SYNC must bind
+      the equivalent cases to its native real toolchain before stamp 21; no prose or OS witness substitutes for that
+      product-native run. Earlier claims of a complete exact ABI/history/archive mutation model are superseded, not
+      evidence. The residual is explicit: this prevents the witnessed elementary binding class from first surfacing
+      in BUILD; it does not prove every human semantic judgment correct.
   20  2026-07-13  repo-local execution authority + obsolete global runtime retirement: a generic Direction OS
       engineering/PLAN/BUILD CALL is governed by the CALL plus the product repo's AGENTS.md, frozen plan/spec,
       and validation.config. Globally installed or discoverable skills and tools are support, not authority:
