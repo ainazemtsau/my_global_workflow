@@ -208,4 +208,6 @@ archived: history/LOG-archive-indie-game-development.md — sessions before 2026
 
 2026-07-13 — work/checkpoint (g-9c41/NearGas-dashboard, s-work-near-gas-dashboard-close-001): committed diff, source coverage, saved desktop+narrow captures and 10-file preservation reconciled, but binding fresh render was blocked by local-file browser policy; verdict partially met, dashboard/L1 stay open and c-work-near-gas-dashboard-close-002 is next. → history/2026-07-13-s-work-near-gas-dashboard-close-001.md
 
+2026-07-13 — work/close (g-9c41/NearGas-dashboard, s-work-near-gas-dashboard-close-002): owner accepted the live Chrome render — «всё чётко», «вообще не придраться», «давай закрывать сейчас»; dashboard evidence closed met, both dashboard calls cleared, NearGas-L1-PLAN opened, and no BUILD started. → history/2026-07-13-s-work-near-gas-dashboard-close-002.md
+
 END_OF_FILE: live/indie-game-development/LOG.md
