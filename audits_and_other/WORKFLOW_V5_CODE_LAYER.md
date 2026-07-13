@@ -155,9 +155,6 @@ RESULT (формат v5) + обязательные поля кодовой за
 | --- | --- | --- |
 | **AGENTS.md** | ядро слоя | открытый стандарт (Linux Foundation), Codex нативно, Claude Code как fallback, 60k+ репо. Один файл-истина вместо дублей под каждого ассистента |
 | **Спеки изменений (паттерн OpenSpec)** | ядро слоя | лёгкий spec-driven цикл «предложение → апрув → реализация → архив» точно совпадает с нашим гейтом плана; context-light, под brownfield. Берём паттерн (папка specs/changes/), сам инструмент OpenSpec — опционально, можно включить профилем |
-| **Serena MCP** | опция крупных кодовых баз | символьная навигация экономит токены на больших репо (бенчмарки это подтверждают), но: тяжёлая, известны утечки памяти, замедляет мелкие задачи, добавляет стартовый контекст. При нашей модульности потребность падает — модуль и так мал. Включается профилем, когда кодовая база переросла ~30–50k строк |
-| **Taskmaster AI** | не используем | его работу в v5 делает декомпозиция Направление→Фокус→Работа→дети + задачи в спеке изменения + нативное планирование ассистентов. Отдельный менеджер задач = второй источник состояния, что нарушает «одна истина». Его главный эффект («агент работает над одной чёткой задачей») у нас даёт сама карточка |
-| **Basic Memory MCP** | не используем | память проекта = docs/ + DECISIONS + LESSONS в репо; память направления = knowledge/ в воркфлоу. Ещё одно хранилище = расхождение источников |
 
 Общий принцип выбора: инструмент допускается, если его состояние живёт в git-репо (или его потеря ничего не ломает). MCP-обвязки — расходный слой.
 
@@ -182,7 +179,5 @@ RESULT (формат v5) + обязательные поля кодовой за
 - OpenSpec и spec-driven подходы: https://github.com/Fission-AI/OpenSpec , https://www.softwarethug.com/posts/openspec-vs-spec-kit-vs-agent-os-compared/
 - Сабагенты-ревьюеры, хуки, «не оценивай сам себя», качество LLM-тестов: https://code.claude.com/docs/en/best-practices , https://www.oreilly.com/radar/auto-reviewing-claudes-code/ , https://hamy.xyz/blog/2026-02_code-reviews-claude-subagents
 - Модульные границы для агентов (boundaries-линтеры, asmdef, графы зависимостей): https://dev.to/dortort/monorepo-vs-multi-repo-why-ai-agents-tip-the-scale-1cdj , https://engineering.mercari.com/en/blog/entry/20251030-taming-agents-in-the-mercari-web-monorepo/
-- Serena: https://medium.com/manomano-tech/project-aegis-benchmarking-ai-agents-and-why-serena-is-our-new-must-have-311673db35dd , https://github.com/oraios/serena/issues/944
-- Taskmaster и альтернативы: https://www.obviousworks.ch/en/agentic-coding-tools-2026-the-7-frameworks-that-take-your-development-to-a-new-level/
 
 <!-- EOF WORKFLOW_V5_CODE_LAYER.md -->

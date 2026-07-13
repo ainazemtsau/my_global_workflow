@@ -13,19 +13,16 @@ runs (the root cause behind FRICTION 79/84/88/90/92 — propagation lag with no 
 current: 20
 
 log:
-  20  2026-07-13  execution-entry authority guard: a generic Direction OS engineering/PLAN/BUILD CALL is
-      governed by the CALL plus the product repo's AGENTS.md/frozen plan/validation.config; globally installed
-      or discoverable skills and tools are support, not authority and not project requirements. They must not
-      auto-translate the leg into S_E wave_graph_plan/wave_execute or inject Taskmaster, Basic Memory, Serena,
-      Project Context Packet, or Trail of Bits bindings unless one of those project authorities explicitly opts
-      in. The required-tool STOP now applies only to a tool actually required by those authorities; an unselected
-      global tool being unbound is not a blocker. Witness: Solmax BUILD CALL
-      c-solmax-operating-substrate-first-process-creator-t2-materialization-build-001 contained none of those
-      modes/tools, while Codex self-selected the global codex-native-execution-layer skill, ran its Project Tool
-      Binding Bouncer, and returned NEEDS INPUT three times without starting material work. Fix: TOOLING canonical
-      selection guard + coding-agent Role-2 dispatch guard + PROJECT_SETUP product-run-contract mirror and setup
-      check; the global skill's own metadata/body is narrowed on this machine. §Re-sync OWED:
-      solmax-operating-substrate (mirror the entry guard in root AGENTS.md; bump synced_contract_version 19→20).
+  20  2026-07-13  repo-local execution authority + obsolete global runtime retirement: a generic Direction OS
+      engineering/PLAN/BUILD CALL is governed by the CALL plus the product repo's AGENTS.md, frozen plan/spec,
+      and validation.config. Globally installed or discoverable skills and tools are support, not authority:
+      they cannot replace the declared workflow or add project requirements. The required-tool STOP applies only
+      to a tool explicitly required by those repo authorities; discovery or installation alone is never a blocker.
+      Witness: a Solmax BUILD leg contained only the repo-native contract, but Codex self-selected an obsolete
+      globally installed execution bundle and stopped on its foreign bootstrap requirements without starting
+      material work. Owner correction superseded the initial trigger-narrowing mitigation: the obsolete bundle
+      and its tracked project config were deleted completely, active contracts were made provider-neutral, and
+      solmax-operating-substrate was re-synced from 19→20.
   19  2026-07-06  PLAN and BUILD are SEPARATE sessions + the owner approves an owner-READABLE plan (the
       plan-leg-boundary axis, owner request — transcript of a GasCoopGame c-exec-021 session that ran PLAN
       and BUILD in ONE session (wrote 7 data-layer files + commissioned 11 RED tests inside the planning
