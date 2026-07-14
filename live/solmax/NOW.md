@@ -287,7 +287,7 @@ active_bet:
       kill the bet and shape a new bounded bet; do not extend appetite or
       claim partial success.
 
-route_status: operating_substrate_first_process_creator_t4_rejected_route_review_pending
+route_status: operating_substrate_first_process_creator_t4_existing_candidate_fresh_refutation_pending
 
 owner_directive: |
   Полный хронологический леджер owner-решений/каведатов/коррекций по operating-substrate
@@ -585,15 +585,18 @@ recurring: []
 decisions: []
 
 open_calls:
-  - id: c-solmax-operating-substrate-first-process-creator-t4-real-process-review-005
-    to: session
+  - id: c-solmax-operating-substrate-first-process-creator-t4-health-reclamation-fresh-refutation-007
+    to: executor
     for: g-operating-substrate-first-process-creator/t-4
     issued: 2026-07-14
     note: |
-      Owner verdict "A" rejects and supersedes the legacy-health / Health
-      Reclamation plan-v1 route. Its product candidate is local-only,
-      historical, unadmitted and unactivated. t-4 stays active at its original
-      0.25-day budget; only kill/reshape review is pending.
+      The owner-approved first real process candidate exists locally at
+      C:/projects/solmax-operating-substrate on
+      codex/health-reclamation-candidate-build@e0f7db4, with semantic content
+      at da9d95b. Direction Health is neither its route nor its authority. A
+      fresh cross-family structural/admission refutation is pending; t-4 stays
+      active at its original 0.25-day budget and nothing is admitted or
+      activated.
 # 2026-07-12: c-solmax-operating-substrate-first-process-creator-t2-repo-bootstrap-001
 # cleared — the repo-bootstrap setup checkpoint is complete (commit f3d153d, CI
 # green). t-2 remains ACTIVE; Process Creator materialization is the next work,
@@ -601,5 +604,5 @@ open_calls:
 
 preserved_evidence: work/operating-substrate/evidence-index.md   # полный индекс вынесен из hot-state (verbatim)
 next: |
-  live/solmax/work/calls/c-solmax-operating-substrate-first-process-creator-t4-real-process-review-005.md
+  live/solmax/work/calls/c-solmax-operating-substrate-first-process-creator-t4-health-reclamation-fresh-refutation-007.md
 END_OF_FILE: live/solmax/NOW.md

@@ -133,5 +133,12 @@ preserved_evidence:
   - 'product provisional health-reclamation pack: cea2866, reversed before delivery at 3b38d78'
   - live/solmax/history/2026-07-13-s-solmax-operating-substrate-first-process-creator-t4-health-reclamation-plan-checkpoint-001.md
   - live/solmax/history/2026-07-13-s-solmax-operating-substrate-first-process-creator-t4-health-reclamation-plan-approval-002.md
+  - 'product first-process candidate content: C:/projects/solmax-operating-substrate@da9d95b81331b39d710620156bf3c23fa29ea37c (24 changed paths; complete 15-file Health Reclamation candidate)'
+  - 'product candidate handoff: C:/projects/solmax-operating-substrate@e0f7db494e707f6a613daf1e5a85e25ff5075d7e (branch codex/health-reclamation-candidate-build; local-only; candidate-only; fresh refutation pending)'
+  - 'saved owner brief and public-source research remain readable in product git object cea2866; verification/source-basis.md explicitly makes live/health non-authoritative'
+  - 'owner route correction on 2026-07-14: "единственная ошибка, что она пошла в Health"; confirmation after the exact recovery diff: "A"'
+  - 'historical route error: live/solmax/history/2026-07-14-s-solmax-operating-substrate-first-process-creator-t4-canonical-route-repair-004.md and its review-005 CALL rejected the product candidate by mistake; they are evidence, not current routing authority'
+  - live/solmax/work/calls/c-solmax-operating-substrate-first-process-creator-t4-health-reclamation-fresh-refutation-007.md
+  - live/solmax/history/2026-07-14-s-solmax-operating-substrate-first-process-creator-t4-existing-candidate-recovery-repair-006.md
 
 END_OF_FILE: live/solmax/work/operating-substrate/evidence-index.md
