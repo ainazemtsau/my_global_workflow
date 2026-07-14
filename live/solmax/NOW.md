@@ -287,7 +287,7 @@ active_bet:
       kill the bet and shape a new bounded bet; do not extend appetite or
       claim partial success.
 
-route_status: operating_substrate_first_process_creator_t4_health_reclamation_build_pending
+route_status: operating_substrate_first_process_creator_t4_rejected_route_review_pending
 
 owner_directive: |
   Полный хронологический леджер owner-решений/каведатов/коррекций по operating-substrate
@@ -585,14 +585,15 @@ recurring: []
 decisions: []
 
 open_calls:
-  - id: c-solmax-operating-substrate-first-process-creator-t4-health-reclamation-build-003
-    to: executor
+  - id: c-solmax-operating-substrate-first-process-creator-t4-real-process-review-005
+    to: session
     for: g-operating-substrate-first-process-creator/t-4
-    issued: 2026-07-13
+    issued: 2026-07-14
     note: |
-      Owner approved Health Reclamation plan v1. A fresh product BUILD may
-      create only the candidate; independent refutation, admission,
-      activation, useful-live proof, and reuse remain separate.
+      Owner verdict "A" rejects and supersedes the legacy-health / Health
+      Reclamation plan-v1 route. Its product candidate is local-only,
+      historical, unadmitted and unactivated. t-4 stays active at its original
+      0.25-day budget; only kill/reshape review is pending.
 # 2026-07-12: c-solmax-operating-substrate-first-process-creator-t2-repo-bootstrap-001
 # cleared — the repo-bootstrap setup checkpoint is complete (commit f3d153d, CI
 # green). t-2 remains ACTIVE; Process Creator materialization is the next work,
@@ -600,5 +601,5 @@ open_calls:
 
 preserved_evidence: work/operating-substrate/evidence-index.md   # полный индекс вынесен из hot-state (verbatim)
 next: |
-  live/solmax/work/calls/c-solmax-operating-substrate-first-process-creator-t4-health-reclamation-build-003.md
+  live/solmax/work/calls/c-solmax-operating-substrate-first-process-creator-t4-real-process-review-005.md
 END_OF_FILE: live/solmax/NOW.md
