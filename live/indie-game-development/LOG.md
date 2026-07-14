@@ -233,4 +233,6 @@ archived: history/LOG-archive-indie-game-development.md — sessions before 2026
 
 2026-07-14 — repair (g-d3a8/c-repair-minimum-game-frame-v2-001, s-repair-minimum-game-frame-v2-001): repair g-d3a8 Minimum Game Frame v2 — owner verdict FRAME READY; accepted current whole-game frame, issued owner-present g-d3a8 reconciliation and held co-op-composition continuation; no canon/TREE/CHARTER/product change. → history/2026-07-14-s-repair-minimum-game-frame-v2-001.md
 
+2026-07-14 — work/route (g-9c41/M1-Integration-ROUTE, s-work-poligon-m1-integration-route-001): owner «Да, именно так» снял числовой потолок product legs и оставил 24.07 контрольным review, затем «Маршрут принимаю»; принят единый six-track M1 route с 34 обязательными логическими legs + условными как ledger, не cap, а fresh review стал next для G3-закрытия старой ставки; no product BUILD. → history/2026-07-14-s-work-poligon-m1-integration-route-001.md
+
 END_OF_FILE: live/indie-game-development/LOG.md
