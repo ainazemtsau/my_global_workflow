@@ -146,5 +146,9 @@ preserved_evidence:
   - live/solmax/work/health-reclamation-f-hr-r01-repair-plan-v1.md
   - live/solmax/work/calls/c-solmax-operating-substrate-first-process-creator-t4-health-reclamation-f-hr-r01-red-preflight-009.md
   - live/solmax/history/2026-07-14-s-solmax-operating-substrate-first-process-creator-t4-health-reclamation-f-hr-r01-repair-plan-008.md
+  - 'fresh F-HR-R01 full-packet RED dry-run at clean C:/projects/solmax-operating-substrate@b23eb0bb208a6b2344043ac472621093132dadc9: RED_READY; 28 explicit fixture/call/observe/source/negative skeletons; unresolved 0; inferred 0; product and lifecycle mutation none'
+  - live/solmax/work/health-reclamation-f-hr-r01-repair-red-readiness.md
+  - live/solmax/work/calls/c-solmax-operating-substrate-first-process-creator-t4-health-reclamation-f-hr-r01-bounded-repair-010.md
+  - live/solmax/history/2026-07-14-s-solmax-operating-substrate-first-process-creator-t4-health-reclamation-f-hr-r01-red-preflight-009.md
 
 END_OF_FILE: live/solmax/work/operating-substrate/evidence-index.md
