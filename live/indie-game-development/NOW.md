@@ -1,5 +1,5 @@
 # NOW: indie-game-development
-updated: 2026-07-14 by s-repair-char-v1-held-reconcile-001
+updated: 2026-07-14 by s-work-publish-m1-route-char-main-001
 
 bet:
   node: g-9c41
