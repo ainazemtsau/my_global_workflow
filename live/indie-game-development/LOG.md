@@ -227,4 +227,6 @@ archived: history/LOG-archive-indie-game-development.md — sessions before 2026
 
 2026-07-14 — repair (g-9c41/engineering-v21-routing, s-repair-daily-engineering-v21-routing-20260714-001): execute-002@5c783e07 reconciled once as returned CHECKPOINT / NOT DELIVERED; NearGas stays open, runner/character are held, and the sole next product route is v20→v21 PLAN-AMEND/Re-sync followed by fresh Direction binding review. → history/2026-07-14-s-repair-daily-engineering-v21-routing-20260714-001.md
 
+2026-07-14 — work/publish (g-9c41/engineering-v21-routing, s-work-publish-engineering-routing-repair-20260714-001): repair 5946277 and checksum fix 45af36c were merged into main and pushed/read back at origin/main@017d6a2 without force; remote Frame-v2 ancestry 4e1d746 was preserved without replaying stale state, concurrent M1 commit 59cbd6b was excluded, and the NearGas PLAN-AMEND/Re-sync CALL remains next. → history/2026-07-14-s-work-publish-engineering-routing-repair-20260714-001.md
+
 END_OF_FILE: live/indie-game-development/LOG.md
