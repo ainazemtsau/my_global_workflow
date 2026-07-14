@@ -73,6 +73,12 @@ Format: `Class (invariant) | Standing question the §b audit must answer for thi
 | **Cross-spec meaning-drift of an unchanged-shape field** | A value crossing a frozen seam (persisted/wire/shared constant) whose MEANING was redefined by a sibling spec since this one froze — same name/type/shape, different meaning? | when a seam value's meaning changes, re-open every consumer's relevant acceptance row | predicted — wf_00feac76: save-version migration reads redefined `mass` |
 | **Catcher-soundness (oracle shares the implementation's misreading)** | If the catcher is an oracle that re-derives the answer (solver, reference sim), is it derived INDEPENDENTLY of the implementation, not from the same spec sentence? | independent second derivation (test-author independence / fresh-family G5) | predicted — wf_00feac76: procgen solvability oracle shares the connectivity misread |
 
+### Witnessed (continued)
+
+| Class (invariant) | Standing question | Catcher hint | Witness |
+|---|---|---|---|
+| **Evidence-class integrity / prose testability is not authored RED** | Are mixed rows split and is each atomic obligation classified once as behavioral RED or real non-test evidence? Does every behavioral obligation exist in the one independent immutable RED commit, while process order, structural review, owner verdicts and final gates stay outside the test numerator? | separate RED-FREEZE commit plus the repo-native compiler/test runner, then a fresh artifact-backed refutation; BUILD pins and reuses the reviewed commit | GasCoopGame NearGas v21: binding semantic review reported 29/29, but EXECUTE-003 returned 0/29 and no commit because AR-01/06/12/13 were process/structural/gate obligations and F5/CsCheck still required guessed executable APIs |
+
 ## Honest ceiling (do not over-claim)
 
 This forces the right *question* and a fail-capable catcher that fires where the bug lives. It does

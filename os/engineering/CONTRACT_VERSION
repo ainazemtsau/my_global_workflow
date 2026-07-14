@@ -10,9 +10,26 @@ stamps it at setup, §Re-sync updates it. `collect` / `audit` / `digest` compare
 that is BEHIND, so an os/engineering hardening can no longer silently fail to reach the repo where work
 runs (the root cause behind FRICTION 79/84/88/90/92 — propagation lag with no forcing function).
 
-current: 21
+current: 22
 
 log:
+  22  2026-07-14  executable RED-FREEZE handoff; prose readiness is no longer build authority. Witness:
+      GasCoopGame NearGas v21 received a binding `29/29` semantic GREEN, yet EXECUTE-003 produced zero tests
+      and no commit: AR-01/AR-06/AR-12/AR-13 mixed process/structural/final-gate evidence into the test
+      numerator, while the F5 pending-impulse comparison and the exact CsCheck 3.2.2 seed/shrinker/1024-case
+      invocation still required guesses. The two long pre-build checks therefore reviewed the same textual
+      representation; the independent C# author was the first real consumer. Fix: mixed rows are split and every atomic
+      obligation is classified `behavioral-red` or `evidence-only`; process, structural-review, owner-verdict and final-gate obligations are
+      excluded from the RED count and name their real evidence route. PLAN may hand off only to a separate
+      RED-FREEZE session. That session writes the complete test/support patch once, commits it without production
+      code, runs the repo-native compile/test command, and either records eligible exact RED or returns the full
+      PLAN-AMEND gap list. The already-required binding fresh review now refutes that committed artifact and runner
+      evidence instead of reviewing the same prose again. Only then does BUILD start from the pinned immutable RED
+      commit; it does not author the same tests again. A prose table, skeleton set, dry-run or partial suite never authorizes BUILD. No semantic parser or
+      proxy was added. Re-sync owed: GasCoopGame and health-ai mirror PLAN -> RED-FREEZE -> binding artifact review -> BUILD
+      contract, writer evidence guard and OpenSpec obligation classification, then stamp synced_contract_version
+      22. The active NearGas v21 packet must be repaired in its own Direction/product sessions; this maintenance
+      does not edit `live/**` or product repos.
   21  2026-07-14  full-packet semantic RED readiness before PLAN approval and execution handoff. Witness:
       GasCoopGame NearGas first reached BUILD with no constructible public generation/fault route; the amendment
       closed only those two named blockers, a narrow Direction refutation treated that local GREEN as whole-suite
