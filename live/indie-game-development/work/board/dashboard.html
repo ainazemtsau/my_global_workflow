@@ -165,41 +165,41 @@
 <div class="wrap">
 
 <header class="hero">
-  <div class="eyebrow">ОНО ДЫШИТ · панель направления · обновлено 13.07: execute-002 вернулся CHECKPOINT / NOT DELIVERED; product v20 отстаёт от OS v21; следующий шаг — repair инженерных маршрутов; visual LOCKED; В1 character PLAN frozen</div>
+  <div class="eyebrow">ОНО ДЫШИТ · панель направления · обновлено 14.07: execute-002 = CHECKPOINT / NOT DELIVERED; следующий шаг — NearGas PLAN-AMEND/Re-sync v20→v21; runner/character HELD; visual LOCKED</div>
   <h1>Панель: что происходит, что решено, что ждёт тебя</h1>
   <p class="lead">Живой статус — секция «Борд» ниже (истина всегда NOW.md + git; панель — рендер). Дальше по странице — действующее: ставка Полигон М1, инвентарь по трекам, справочник дат фестов, матрица потребностей, стенд. Устаревшие обсуждения с панели вырезаются — их полная история лежит в git, ничего не теряется.</p>
-  <div class="stamp"><span>ставка: Полигон М1 · аппетит 13 легов · стоп-линия 24.07</span><span>газ: execute-002 CHECKPOINT / NOT DELIVERED</span><span>контракт: product v20 &lt; OS v21 · repair</span><span>original BUILD: historical checkpoint / NOT DELIVERED</span><span>персонажи: В1 PLAN frozen · BUILD несовместим с v21</span><span>visual: LOCKED до M0+C1+L3+I1</span><span>канон: Canon Forge v3 ACTIVE · c-001 preliminary</span><span>маркетинг: INOMAND checkpoint сохранён</span></div>
+  <div class="stamp"><span>ставка: Полигон М1 · аппетит 13 легов · стоп-линия 24.07</span><span>газ: PLAN-AMEND/Re-sync PRIMARY · BUILD 0</span><span>контракт: product v20 → semantic OS v21</span><span>execute-002: returned checkpoint / NOT DELIVERED</span><span>персонажи: В1 PLAN frozen · BUILD HELD</span><span>runner: HELD</span><span>visual: LOCKED до M0+C1+L3+I1</span><span>Frame v2: READY PARALLEL</span></div>
 </header>
 
 <section>
-  <div class="sec-head"><h2>📋 Борд — живой статус</h2><span class="tag">обновлено 14.07 · Frame v2 READY PARALLEL · NOW.next всё ещё указывает на returned execute-002@5c783e07 · product contract v20 &lt; OS v21 · repair P1 · Phase 0 не маршрут · visual LOCKED · В1 PLAN frozen, BUILD несовместим с v21 · истина всегда NOW.md + git evidence</span></div>
+  <div class="sec-head"><h2>📋 Борд — живой статус</h2><span class="tag">обновлено 14.07 · NOW.next = NearGas PLAN-AMEND/Re-sync · Frame v2 READY PARALLEL · product BUILD runnable: 0 · Phase 0 не маршрут · visual LOCKED · истина всегда NOW.md + git evidence</span></div>
   <div class="callout accent"><b>Единственный дом этой панели — репозиторий:</b> live/indie-game-development/work/board/dashboard.html; открывается в Chrome с диска, обновляется ТОЛЬКО здесь (внешних зеркал не ведём — правило владельца 2026-07-11). Живой статус — эта секция; панель — рендер: решения по ней, противоречащей NOW, не принимаются.</div>
-  <div class="callout"><b>Как читать параллельность:</b> у направления один <code>NOW.next</code> — маршрут команды «продолжаем», но сам указатель сейчас протух: execute-002 уже вернул committed CHECKPOINT / NOT DELIVERED, а contract v21 запрещает повторный dispatch старого v20 CALL. Runner и новый персонажный BUILD тоже выпущены без v21 identity/handoff. До repair ни одна из трёх инженерных карточек не является разрешением запускаться. Visual явно заперт.</div>
+  <div class="callout"><b>Как читать параллельность:</b> один <code>NOW.next</code> задаёт основной маршрут «продолжаем» — сейчас это только planning-only PLAN-AMEND/Re-sync полного NearGas-пакета, не EXEC/BUILD. Frame v2 можно обсуждать параллельно как Direction-сессию. Runner и character BUILD остаются HELD до собственных current-packet проверок; visual явно заперт.</div>
   <div class="callout"><b>⚠ Демо: определения сейчас НЕТ — это открытый пункт, а не план.</b> Концепт изменился (11.07 принята новая рамка игры: расследование почти невидимого газа → план → добыча/операция → эвакуация). Старый октябрьский демо-план с панели ВЫРЕЗАН — его история лежит в git. 12.07 владелец установил Canon Forge v3 как единственный живой paper-only маршрут, затем отдельным вердиктом «ADMIT TO CANON» допустил «Цель стоит запуска» как предварительную карточку c-001 (нужен-грейбокс). Это не готовая механика: fun, кооперация, рантайм-читаемость, темп давления, стоимость движка и коммерческий сигнал не доказаны; точные правила газа, активации, добычи, экономики, инвентаря и кооперации остаются открыты. Проверенные даты фестов сохранены ниже как справочник, а не как план.</div>
   <div class="callout"><b>Газовый маршрут пересобран.</b> Принята единая продуктовая программа: сначала ядро получает одного владельца и одну атомарную симуляцию, затем ограничение ресурсов, дешёвую сверку состояния, точную версию Unity и единственный рабочий путь через Unity; после интеграционной проверки подключаются PlayerSense, replay и удаление старых путей. Старый монолитный Phase 0 честно остался <b>NOT DELIVERED</b> и больше не запускается. Бюджет ставки <b>13 легов / 24.07</b> не расширен: новая программа не считается молча помещённой в него.</div>
-  <div class="callout accent"><b>Что произошло после записанного NOW:</b> ветка execute-002 от exact origin/main@<b>32107343</b> уже вернула checkpoint <b>5c783e07</b>. Fresh spec-only автор снова остановился без теста и кода: frozen packet не связывает девять групп construct/observe/inject witnesses; статус = <b>SPEC-ONLY RED BLOCKED / NOT DELIVERED</b>. OS после этого поднял contract до v21 и требует product §Re-sync + полный TESTABILITY sweep до нового EXECUTE. Текущий v20 CALL повторно не запускается; задача L1 остаётся открытой.</div>
+  <div class="callout accent"><b>Почему следующим идёт PLAN-AMEND/Re-sync:</b> ветка execute-002 от exact origin/main@<b>32107343</b> вернула checkpoint <b>5c783e07</b>. Fresh spec-only автор остановился без теста и кода: frozen packet не связывает девять групп construct/observe/inject witnesses; статус = <b>SPEC-ONLY RED BLOCKED / NOT DELIVERED</b>. Теперь весь product-v20 packet семантически пересобирается под current v21 и после exact-packet GREEN возвращается на отдельную fresh Direction binding review.</div>
   <h3 class="subhead">Открытые работы</h3>
   <div class="calls">
     <div class="call">
-      <div class="head"><span class="st">P1 · RETURNED CHECKPOINT · НЕ ЗАПУСКАТЬ</span><b>L1: execute-002 снова упёрся в неполные executable bindings</b><span class="id">c-exec-near-gas-core-authority-001-execute-002 · 5c783e07</span></div>
-      <p><span class="l">Что это:</span> отдельная ветка действительно стартовала от exact origin/main@32107343, но fresh spec-only автор остановился до тестового файла и test commit.</p>
-      <p><span class="l">Проверяемый результат:</span> product RESULT перечисляет девять недостающих групп: VoxelImpulse/FaceRef, two-room topology, golden/source definitions, reactions/custom kinds, legacy-audit counter, hidden state, handler ownership, GasScenario/LockstepLoopback и injectable NegativeControls. Код, tests, review, G5 и Deliver не запускались.</p>
-      <p><span class="l">Где сейчас:</span> execute-ветка @<b>5c783e07</b> = 0 behind / 1 ahead от origin/main@32107343; product contract остаётся v20, OS current = v21. NOW ещё называет старый CALL READY и держит его в <code>NOW.next</code> — это repair-находка dr-20260713-001.</p>
-      <p><span class="l">Что дальше:</span> только repair маршрута: учесть checkpoint, провести contract-only §Re-sync и полный v21 TESTABILITY sweep до любого нового execution handoff. Не повторять execute-002 и не изобретать недостающие bindings/hashes в этой панели.</p>
+      <div class="head"><span class="st">PRIMARY · PLAN-AMEND/RE-SYNC ONLY</span><b>NearGas L1: пересобрать весь frozen packet под semantic v21</b><span class="id">c-exec-near-gas-core-authority-001-plan-amend-resync-002</span></div>
+      <p><span class="l">Что известно:</span> returned execute-002@<b>5c783e07</b> = CHECKPOINT / NOT DELIVERED; test file/commit, implementation, gates, Unity, merge и push не запускались.</p>
+      <p><span class="l">Девять gaps:</span> VoxelImpulse/FaceRef; two-room fixtures; golden/source inputs; reactions/custom kinds; audit counter; hidden state; handler ownership; GasScenario/LockstepLoopback; injectable NegativeControls.</p>
+      <p><span class="l">Что делает CALL:</span> contract-only v20→v21 Re-sync, точные fixture|call|observe|source|negative recipes и fresh semantic dry-run всего неизменного пакета после каждой правки.</p>
+      <p><span class="l">Граница:</span> без source/tests/actual RED/BUILD. Даже exact-packet GREEN возвращается в отдельную fresh Direction binding review и сам не открывает EXEC/BUILD.</p>
     </div>
     <div class="call">
-      <div class="head"><span class="st">НЕПРИОРИТЕТНАЯ · PRE-v21 · НЕ ЗАПУСКАТЬ</span><b>Перенести репозиторные ворота с обязательного PowerShell на локальный .NET runner</b><span class="id">c-exec-unity65-mac-revision-002-build-001 · repair P1</span></div>
+      <div class="head"><span class="st">НЕПРИОРИТЕТНАЯ · HELD · НЕ ЗАПУСКАТЬ</span><b>Перенести репозиторные ворота с обязательного PowerShell на локальный .NET runner</b><span class="id">c-exec-unity65-mac-revision-002-build-001</span></div>
       <p><span class="l">Что это:</span> отдельная headless BUILD-сессия переносит существующие проверки в один локальный .NET 8 runner для macOS, Windows и Linux. PowerShell и shell остаются только необязательными тонкими переходниками; сами правила и все проверки от ложного зелёного обязаны сохраниться.</p>
       <p><span class="l">Зачем:</span> Mac-проверка Unity упёрлась в обязательный PowerShell. Runner снимает только эту инфраструктурную предпосылку и не меняет игру, Unity, FishNet или сетевой протокол.</p>
-      <p><span class="l">Где сейчас:</span> OS хранит owner-approved PLAN id <b>7a3e747</b>, но после fetch этот commit и parent 8a344e9 не разрешаются ни одним product ref. CALL оформлен под contract v19 и не имеет обязательной v21 identity/testability поверхности. BUILD и ворота не запускались.</p>
-      <p><span class="l">Что дальше:</span> repair обязан сначала доказать точный committed ref/worktree и текущий contract route. Пока этого нет, карточка не READY; Unity/FishNet revision-001, Windows validation, merge и push остаются закрыты.</p>
+      <p><span class="l">Где сейчас:</span> OS хранит owner-approved PLAN id <b>7a3e747</b>, но после fetch этот commit и parent 8a344e9 не разрешаются ни одним product ref. BUILD и ворота не запускались.</p>
+      <p><span class="l">Что дальше:</span> отдельный repair должен доказать точную committed authority и проверить полный current-contract packet. Пока этого нет, карточка HELD; Unity/FishNet revision-001, Windows validation, merge и push остаются закрыты.</p>
     </div>
     <div class="call">
-      <div class="head"><span class="st">В1 PLAN FROZEN · BUILD НЕ СООТВЕТСТВУЕТ v21 · НЕ ЗАПУСКАТЬ</span><b>Игровые персонажи: socket + drop-in управляемая капсула</b><span class="id">c-exec-char-v1-socket-dropin-build-001 · dr-20260713-001</span></div>
+      <div class="head"><span class="st">В1 PLAN FROZEN · BUILD HELD · НЕ ЗАПУСКАТЬ</span><b>Игровые персонажи: socket + drop-in управляемая капсула</b><span class="id">c-exec-char-v1-socket-dropin-build-001</span></div>
       <p><span class="l">Что принято:</span> владелец выбрал порядок В1→В2→В3 и сказал «Вариант 1», «замораживай». Frozen PLAN описывает стабильный socket авторитетной позиции, reusable prefab, управление и follow-camera; rig/ragdoll/grid-ballistics остаются позже.</p>
       <p><span class="l">Зачем:</span> socket-as-spine позволяет сейчас использовать локальный placeholder, а позже подставить позицию ядра без правки префаба или сцен.</p>
-      <p><span class="l">Где сейчас:</span> committed `93d3f44` потребил PLAN-call и зарегистрировал BUILD, но новый CALL использует pseudo-fields, предлагает выбрать clean worktree/branch позже и не содержит обязательной v21 transaction identity/receipts: worktree/branch/base-authority/acceptance/run/TESTABILITY. Поэтому READY-метка не исполнима.</p>
-      <p><span class="l">Что дальше:</span> тот же engineering-v21 repair, что и для NearGas/runner, без изменения frozen смысла В1. Product code, RED, BUILD, Unity/MCP, merge и push этой панелью не разрешены.</p>
+      <p><span class="l">Где сейчас:</span> committed <b>93d3f44</b> потребил PLAN-call и зарегистрировал BUILD, но существующий artifact не является current launch authority. Поэтому READY-метка снята.</p>
+      <p><span class="l">Что дальше:</span> отдельная full-packet проверка без изменения frozen смысла В1. Product code, RED, BUILD, Unity/MCP, merge и push этой панелью не разрешены.</p>
     </div>
     <div class="call">
       <div class="head"><span class="st">CHECKPOINT · ПРОДОЛЖАЕТСЯ В CLAUDE</span><b>Маркетинг: минимальное пробуждение</b><span class="id">c-marketing-wake-001 · открыта 11.07</span></div>
@@ -249,7 +249,7 @@
       <p><span class="l">Что было:</span> первый independent spec-only RED остановился до test commit: frozen spec не позволял законно собрать admitted generation и выбрать обязательные внутренние точки отказа.</p>
       <p><span class="l">Чем кончилось:</span> владелец дословно подтвердил construction A + fault A. PLAN-AMEND @a58ee356, влитый в origin/main@32107343, фиксирует public owned <code>Create(...)</code>, immutable Core handler type maps, literal valid recipe и operation-local internal <code>NearGasFaultSite</code>/ForTesting entries в тех же production paths.</p>
       <p><span class="l">Проверка на тот момент:</span> fresh Direction-сессия подтвердила именно construction A / fault A и seven-file planning-only diff. Поздний execute-002@5c783e07 доказал, что вывод нельзя было расширять на готовность всей RED-suite: ещё девять групп bindings отсутствуют.</p>
-      <p><span class="l">Граница сейчас:</span> это историческая owner-approved поправка, не разрешение повторно запускать EXECUTE. Original BUILD и execute-002 остаются CHECKPOINT / NOT DELIVERED; v21 требует полный TESTABILITY sweep.</p>
+      <p><span class="l">Граница сейчас:</span> это историческая owner-approved поправка, не разрешение повторно запускать EXECUTE. Original BUILD и execute-002 остаются CHECKPOINT / NOT DELIVERED; v21 требует семантически проверить весь frozen packet целиком.</p>
     </div>
     <div class="call closed">
       <div class="head"><span class="st">⚠ NOW СТАВИТ DONE · REPAIR P1</span><b>PuppetMaster: owner выбрал Candidate A, но lifecycle G5 не закрыт</b><span class="id">M1-P2a0 · dr-20260711-001</span></div>
@@ -404,12 +404,6 @@
       <p><span class="l">Кто чинит:</span> repair-сессия по `c-repair-daily-player-count-routing-20260712-001`; TREE и канон не меняются без фактических слов владельца и G9/amendment.</p>
     </div>
     <div class="call wait">
-      <div class="head"><span class="st">P1 · REPAIR · NEW</span><b>Три engineering route не проходят v21 dispatch</b><span class="id">dr-20260713-001</span></div>
-      <p><span class="l">Что случилось:</span> execute-002@5c783e07 уже вернул SPEC-ONLY RED BLOCKED / NOT DELIVERED с девятью missing binding groups. NOW всё ещё говорит READY и указывает на него; product stamp v20 отстаёт от OS v21. Runner CALL тоже pre-v21, его PLAN ref не виден после fetch. Новый character BUILD @93d3f44 аналогично не содержит обязательной v21 transaction identity/receipts.</p>
-      <p><span class="l">Почему P1:</span> команда «продолжаем» ведёт в returned mechanically non-dispatchable EXECUTE, то есть прямо блокирует главный маршрут.</p>
-      <p><span class="l">Кто чинит:</span> `c-repair-daily-engineering-v21-routing-20260713-001`; product read-only, без повторного RED/BUILD и без выдуманных hashes.</p>
-    </div>
-    <div class="call wait">
       <div class="head"><span class="st">P2 · REPAIR · KNOWN</span><b>LOG и history не образуют полностью разрешимый журнал</b><span class="id">dr-20260711-002</span></div>
       <p><span class="l">Что случилось:</span> семь LOG-ссылок ведут в отсутствующие имена history-файлов; уже восемь history-файлов не имеют точного обязательного END_OF_FILE-трейлера — к прежним семи добавился addendum-файл walkthrough.</p>
       <p><span class="l">Почему P2:</span> это ломает проверяемую трассу сессий, но текущую ставку прямо сейчас не закрывает и не переоткрывает.</p>
@@ -426,9 +420,11 @@
   <h3 style="margin:26px 0 10px; font-size:18px">Журнал — последние 3 дня</h3>
   <p class="note" style="margin:0 0 10px">Рендер из LOG.md (полный архив — там); старше трёх дней с панели уходит. Сегодняшний день раскрыт.</p>
   <details class="day" open>
-    <summary>14 июля <span class="cnt">· Frame v2 READY PARALLEL · кооп-paper остановлен · канон и Sc-damage без изменений</span></summary>
+    <summary>14 июля <span class="cnt">· engineering routing repaired · NearGas Re-sync PRIMARY · Frame v2 READY PARALLEL · product BUILD runnable: 0</span></summary>
     <ul>
       <li><b>Canon Forge — Frame v2 checkpoint:</b> владелец сказал «FRAME REVISED — СОБРАТЬ КОРОТКУЮ FRAME V2». Полный gas/artifact research draft и отдельный distillation handoff сохранены как неканонические входы; paper-answer по кооперативной взаимозависимости не выбран, канон не изменён, Sc-damage остаётся HELD. Открыт owner-present c-repair-minimum-game-frame-v2-001; инженерный NOW.next не менялся.</li>
+      <li><b>Engineering routing repair:</b> владелец сказал «Одобрить пакет». execute-002@5c783e07 закреплён как CHECKPOINT / NOT DELIVERED; returned CALL больше не runnable, runner и character остаются HELD, а dr-20260713-001 закрыта.</li>
+      <li><b>Правдивый запуск:</b> основной следующий вход — c-exec-near-gas-core-authority-001-plan-amend-resync-002. Он меняет только frozen product planning packet; ни один BUILD не открыт.</li>
     </ul>
   </details>
   <details class="day" open>
@@ -497,7 +493,7 @@
 </section>
 
 <section>
-  <div class="sec-head"><h2>Где мы</h2><span class="tag">готовность по трекам · экспертная оценка · снимок 13.07</span></div>
+  <div class="sec-head"><h2>Где мы</h2><span class="tag">готовность по трекам · экспертная оценка · снимок 14.07</span></div>
   <div class="tracks">
     <div class="track">
       <h3>Симуляция газа</h3>
@@ -506,7 +502,7 @@
         <li class="done">Единая программа и порядок маленьких легов приняты</li>
         <li class="done">Старый Phase 0 сохранён как NOT DELIVERED evidence и больше не запускается</li>
         <li class="done">Владельческое dashboard-зеркало построено, проверено и принято владельцем</li>
-        <li class="miss">L1 PLAN/AMEND приняты, но execute-002 снова остановлен до RED @5c783e07; новый execution запрещён до v21 re-sync + полного TESTABILITY sweep</li>
+        <li class="miss">L1 checkpoint @5c783e07 остановлен до RED; дальше только v20→v21 Re-sync + полный semantic whole-packet dry-run и fresh Direction review</li>
         <li class="miss">M1-GAS-PROBE/CORE и engine S4/A1 ждут исходный source после foundation</li>
       </ul>
     </div>
@@ -606,9 +602,9 @@
 
 <section>
   <div class="sec-head"><h2>Ближайшая инженерная дорога: gas PROGRAM</h2><span class="tag">маршрут принят 12.07 · статус легов доказывают их собственные RESULT/review/gates · приоритет задаёт Direction OS</span></div>
-  <div class="callout accent"><b>Сейчас:</b> dashboard и owner-approved L1 PLAN/AMEND опубликованы, но новый execute-002 уже остановился до RED и сохранил CHECKPOINT / NOT DELIVERED @5c783e07. OS contract v21 требует product §Re-sync, полный TESTABILITY sweep всех обязательств и новый валидный handoff; текущий v20 EXECUTE повторно не запускается. Реальные workers ждут delivered L1/L2/C1 и свежий профиль; старый Phase 0 и visual BUILD запускать нельзя.</div>
+  <div class="callout accent"><b>Сейчас:</b> dashboard и owner-approved L1 PLAN/AMEND опубликованы, но execute-002 остановился до RED и сохранил CHECKPOINT / NOT DELIVERED @5c783e07. Единственный следующий маршрут — planning-only v20→v21 Re-sync, полный semantic dry-run неизменного пакета и отдельная fresh Direction binding review; текущий EXECUTE повторно не запускается. Реальные workers ждут delivered L1/L2/C1 и свежий профиль; старый Phase 0 и visual BUILD запускать нельзя.</div>
   <div class="tracks">
-    <div class="track"><h3>1 · Чистый фундамент</h3><ul><li class="miss">L1 — execute-002 CHECKPOINT / NOT DELIVERED; v21 re-sync + полный executable-test sweep до нового handoff</li><li class="miss">L2 — честные ограничения ресурсов</li><li class="miss">C1 — быстрая сверка committed-состояния</li><li class="miss">M0 — точная Unity 6.5 migration</li><li class="miss">L3 + I1 — единственный Unity-путь и интеграционная проверка</li><li class="miss">L4→L6 + I2 — PlayerSense, replay, удаление legacy</li></ul></div>
+    <div class="track"><h3>1 · Чистый фундамент</h3><ul><li class="miss">L1 — CHECKPOINT / NOT DELIVERED; PLAN-AMEND/Re-sync + whole-packet semantic dry-run + fresh Direction review</li><li class="miss">L2 — честные ограничения ресурсов</li><li class="miss">C1 — быстрая сверка committed-состояния</li><li class="miss">M0 — точная Unity 6.5 migration</li><li class="miss">L3 + I1 — единственный Unity-путь и интеграционная проверка</li><li class="miss">L4→L6 + I2 — PlayerSense, replay, удаление legacy</li></ul></div>
     <div class="track"><h3>2 · Масштаб после фундамента</h3><ul><li class="miss">A0 — наблюдение активности ядра</li><li class="miss">M1-GAS-PROBE/CORE — ждёт исходный source</li><li class="miss">Engine S4/A1 — дальняя свёртка, тоже ждёт source</li></ul></div>
     <div class="track"><h3>3 · Живые изменения мира</h3><ul><li class="miss">R0 — выбрать порядок команд и политику миграции</li><li class="miss">E1 — движущиеся/включаемые источники</li><li class="miss">D1 — двери</li><li class="miss">T1/X1 — сохранение газа при изменении/разрушении структуры</li><li class="miss">LAB + I3 — единый финальный стенд и проверка</li></ul></div>
     <div class="track"><h3>4 · Визуал</h3><ul><li class="miss">PLAN LOCKED до M0+C1+L3+I1</li><li class="miss">Motion BUILD ждёт committed-per-Step данные</li><li class="miss">Moving source / door / destruction ждут E1 / D1 / X1</li><li class="done">Старая грязная сборка сохранена и не используется как evidence</li></ul></div>
@@ -660,13 +656,13 @@
     <tr><th>Что нужно</th><th>Статус</th><th class="a">Автономность</th><th>Как / блокер</th></tr>
     <tr class="grp"><td colspan="4">Движок · принятая gas PROGRAM</td></tr>
     <tr><td>Простое владельческое dashboard-зеркало</td><td>✅</td><td class="a">🟢</td><td>построено, проверено отдельной сессией и принято владельцем после живого Chrome-просмотра</td></tr>
-    <tr><td>L1→L3 + I1: один Core-владелец, честные лимиты, committed identity, Unity migration/cutover</td><td>🔧</td><td class="a">🟢</td><td>L1 PLAN-AMEND construction A + fault A опубликован и binding GREEN; fresh EXECUTE от origin/main@32107343 готов, option A сохранён, Unity не запускалась</td></tr>
+    <tr><td>L1→L3 + I1: один Core-владелец, честные лимиты, committed identity, Unity migration/cutover</td><td>🔴</td><td class="a">🟢 PLAN-AMEND</td><td>Checkpoint @5c783e07 = NOT DELIVERED; девять gaps и product v20&lt;OS v21 блокируют EXECUTE</td></tr>
     <tr><td>L4→L6 + I2: PlayerSense, replay, удаление старых путей</td><td>⬜</td><td class="a">🟡/🟠</td><td>строго после интеграционно проверенного L3</td></tr>
     <tr><td>A0 + M1-GAS + engine S4/A1</td><td>⬜</td><td class="a">🟠</td><td>после I2; M1/S4 сначала требуют восстановить точный исходный source</td></tr>
     <tr><td>Runtime sources / doors / topology / destruction / final LAB</td><td>⬜</td><td class="a">🟠</td><td>R0 выбирает правила; затем E1→D1→P1→T1→X1→LAB→I3</td></tr>
     <tr><td>Visual motion и дальнейшие feature-визуалы</td><td>🔴</td><td class="a">🟠</td><td>LOCKED: PLAN ждёт M0+C1+L3+I1; motion/data и E1/D1/X1 добавляют свои замки</td></tr>
     <tr class="grp"><td colspan="4">Оболочка игры</td></tr>
-    <tr><td>Контроллер игрока + камера</td><td>⬜</td><td class="a">🟡</td><td>прототип-лента; вердикт по ощущению твой</td></tr>
+    <tr><td>Контроллер игрока + камера</td><td>🔴</td><td class="a">🟡 после отдельной проверки</td><td>V1 PLAN frozen: reusable prefab + authoritative-position socket; BUILD HELD и не является launch authority</td></tr>
     <tr><td>Глагол «пузырь» v0</td><td>⬜</td><td class="a">🟠</td><td>ядро + дизайн-вердикты по ходу; 🔴 частично канон (наполнение)</td></tr>
     <tr><td>Меню / host-join / экраны конца</td><td>⬜</td><td class="a">🟢</td><td>прототип-лента, валидация глазами разово</td></tr>
     <tr><td>HUD игрока (доза, опасность)</td><td>⬜</td><td class="a">🟡</td><td>после подключения дозы</td></tr>
