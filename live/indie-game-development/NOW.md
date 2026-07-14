@@ -1,5 +1,5 @@
 # NOW: indie-game-development
-updated: 2026-07-14 by s-work-publish-m1-route-char-main-001
+updated: 2026-07-14 by s-review-char-v1-g5-close-001
 
 bet:
   node: g-9c41
@@ -116,18 +116,6 @@ open_calls:
     for: NearGas-L1-BUILD / contract v20→v21 Re-sync + full frozen-packet repair
     issued: 2026-07-14
     note: "READY PLAN-AMEND/Re-sync ONLY: repair the complete frozen packet under current semantic v21, then return home for a fresh Direction binding review; no EXEC/BUILD. work/c-exec-near-gas-core-authority-001-plan-amend-resync-002-call.md."
-  - id: c-review-char-v1-socket-dropin-g5-001
-    to: session
-    for: g-6d4e / В1 socket + drop-in capsule — binding G5
-    issued: 2026-07-14
-    note: |
-      READY PARALLEL. В1 BUILD собран owner-directed (owner «Вариант 1» = HELD снят) в переиспользованном
-      p2a0-worktree C:\projects\Unity\GasCoopGame_p2a0_002, ветка c-exec-char-v1-socket-dropin-build-001
-      @db69aba6 (полный db69aba6847a47ce2544ad1314f3567b327805d7), база продукта origin/main@32107343 (v20).
-      Owner-eye (owner-run PlayMode, 3 сцены) GREEN; 34 независимых RED зелёные; внутренний кросс-модельный ревью
-      без P1/P2. Осталась вторая половина ворот: связывающий fresh cross-family G5 (Codex, read-only) пытается
-      опровергнуть заявки В1. В1 НЕ закрыт до G5; НЕ смёржен; merge в main — решение направления после G5
-      (+ предсуществующий газовый L19-красный чинится в gas-track). Затем В2. work/c-review-char-v1-socket-dropin-g5-001-call.md.
   - id: c-shape-sc-damage-001
     to: session
     for: Sc-damage
@@ -149,6 +137,9 @@ decisions:
   - q: "d-m1-min-spec-hardware-001 — какое конкретное слабое железо становится binding min-spec финального прогона М1?"
     options: ["Доступная физическая машина", "Точный CPU/GPU/RAM-класс с арендой/покупкой к финалу", "Только throttled-прокси — финал не закрывает"]
     recommendation: "Доступная физическая машина; газ CPU-bound, поэтому CPU должен быть назван явно."
+  - q: "d-char-v1-post-g5-001 — В1 G5-CONFIRMED (owner-eye + свежий binding G5, same-family Opus; заявки a–f не опровергнуты, P1 нет). Что дальше по character-треку?"
+    options: ["Merge В1 в main + открыть В2 следующим", "Сначала Codex cross-family G5-проход (routing-предпочтение) + фикс magenta-материала, затем merge/В2", "В1 done; В2/merge в очередь за spine (route-reset review) — сейчас не запускать"]
+    recommendation: "Заявки не опровергнуты и boundary чист → Codex-проход не обязателен (только доп-строгость на Unity-adapter/input); magenta — косметика для В2. Merge гоняешь ты. Пока НЕ авто-мержу и НЕ авто-открываю В2. Знание: knowledge/g6d4e-char-v1-socket-delivered.md."
 
 next:
   CALL: work/c-review-poligon-m1-route-reset-001-call.md
