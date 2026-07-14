@@ -1,8 +1,9 @@
 # CALL c-exec-level-platform-phase1-plan-001 — Generic 3D Level/Module Contract + Validation Platform (PLAN ONLY)
 
-> **STATUS: PREPARED, NOT ISSUED, BLOCKED.** Do not dispatch before `c-exec-lv-ingest-phase0-001` is DELIVERED,
-> owner-gated and MERGED into `origin/main`. This artifact is not an active `NOW.open_call` and does not authorize
-> RED tests, product code, Unity assets or BUILD.
+> **STATUS: SUPERSEDED / NEVER ISSUE (2026-07-14).** Its `Phase 0 MERGED` precondition can never become true:
+> Phase 0 is NOT DELIVERED / NEVER RESUME. The ratified Level/Module → DA runtime + PGG editor-time → content
+> phasing remains evidence, but a current successor must come through `c-work-poligon-m1-integration-route-001`
+> after exact appetite accounting under the repaired engineering-v21 routing. The historical body below authorizes nothing.
 
 > ⚠️ contract: drift-unknown — the GasCoopGame `validation.config` stamp was unreadable from the Direction-bound
 > session that authored this parked CALL. Current OS engineering contract = v19. At dispatch, read the product stamp,

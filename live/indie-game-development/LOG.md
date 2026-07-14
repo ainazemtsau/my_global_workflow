@@ -227,4 +227,6 @@ archived: history/LOG-archive-indie-game-development.md — sessions before 2026
 
 2026-07-14 — repair (g-9c41/engineering-v21-routing, s-repair-daily-engineering-v21-routing-20260714-001): execute-002@5c783e07 reconciled once as returned CHECKPOINT / NOT DELIVERED; NearGas stays open, runner/character are held, and the sole next product route is v20→v21 PLAN-AMEND/Re-sync followed by fresh Direction binding review. → history/2026-07-14-s-repair-daily-engineering-v21-routing-20260714-001.md
 
+2026-07-14 — repair/route (g-9c41/Poligon-M1-dashboard-routing, s-repair-poligon-m1-dashboard-routing-001): owner «A1» made the Direction board the M1 integration-scene roadmap, kept gas as a child lane, preserved Level/DA/PGG through a fresh successor route, and registered whole-M1 planning READY PARALLEL alongside the current NearGas PLAN-AMEND/Re-sync PRIMARY; no product BUILD. → history/2026-07-14-s-repair-poligon-m1-dashboard-routing-001.md
+
 END_OF_FILE: live/indie-game-development/LOG.md
