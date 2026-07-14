@@ -1,106 +1,90 @@
 # NOW: indie-game-development
-updated: 2026-07-14 by s-repair-daily-engineering-v21-routing-20260714-001
+updated: 2026-07-14 by s-repair-m1-acceptance-criteria-001
 
 bet:
   node: g-9c41
   goal: |
     Полигон М1 доказывает representative networked co-op scene: регулируемый DA-уровень,
-    gas gameplay, S4, controlled breach, full flood, две реальные машины и слабое железо.
+    gas gameplay, S4, controlled breach, full flood, две реальные машины и замер на названном
+    слабом железе; финальный стенд явно показывает deterministic agree/divergence,
+    ловит planted divergence и показывает admission ceiling.
   appetite: |
-    Максимум 13 product legs, started 2026-07-10; разовая owner-authorized exception 2026-07-11
-    для M1-GAS-PROBE + M1-GAS-CORE, дальнейшего автоматического продления нет. Checksum foundation
-    занимает один слот, а будущие M1-9 + M1-10 остаются одним final evidence leg. P2a0 — risk-first
-    opening уже существующего M1-5 player-tracking leg, не 14-й leg; остаток M1-5 не продлевается молча.
+    Максимум 13 product legs, started 2026-07-10; owner-authorized exception 2026-07-11 только для
+    M1-GAS-PROBE + M1-GAS-CORE. P2a0 — opening существующего M1-5, checksum foundation — один слот,
+    M1-9+10 — один final-evidence leg; Direction-задача M1-Integration-ROUTE не является product leg.
   kill_by: |
-    2026-07-24 либо 13 легов, что раньше; immediate review, если M1-GAS-PROBE не даёт
-    deterministic mass-exact bounded body/no-tail или M1-A1 не даёт bounded exact/no-pop.
+    2026-07-24 либо 13 product legs, что раньше; immediate review при провале deterministic gas-body/A1.
     Финальный профиль: ≤50 ms green; 50–100 ms owner decision; >100 ms/desync/meaning-loss = not done.
   forecast: |
-    Обязательный gas-engineering маршрут: GasCoopGame_dev@f5c1d650:docs/gas-simulation/PROGRAM.md.
-    Dashboard-зеркало закрыто; owner-approved L1 PLAN @1e4e78c и PLAN-AMEND @a58ee356 остаются в
-    origin/main@32107343. Returned product checkpoint @5c783e07 = PRODUCT CHECKPOINT / SPEC-ONLY RED BLOCKED /
-    NOT DELIVERED: fresh author остановился до test file/commit, implementation и gates; frozen packet имеет
-    девять construct/observe/inject gap-групп. Product contract v20 отстаёт от semantic OS v21.
-    Следующий допустимый product-сигнал — только PLAN-AMEND/Re-sync v20→v21 всего frozen packet,
-    полный semantic dry-run точного финального пакета и затем отдельный fresh Direction binding review;
-    до этого никакой EXEC/BUILD не разрешён. Вариант A/deferred workers неизменны.
-    После delivery маршрут остаётся L1→L2→C1→M0→L3→I1→L4→L5→L6→I2.
-    P2a0 ЗАКРЫТ (Кандидат A, owner 2026-07-13): ядро владеет авторитетной позицией тела, PuppetMaster-рэгдолл косметичен;
-    параллельный трек g-6d4e (Игровые персонажи, презентация) заведён; грид-баллистика = будущий слой ядра g-9c41.
+    Главный owner-view — work/board/dashboard.html: единый маршрут Полигона М1; product NearGas dashboard
+    остаётся дочерней gas-панелью. NearGas-L1-BUILD остаётся open: единственный checkpoint-record и девять
+    групп дыр находятся в task note. Следующий допустимый product-сигнал — только PLAN-AMEND/Re-sync v20→v21,
+    полный semantic dry-run всего финального пакета и затем отдельный fresh Direction binding review;
+    до этого никакой EXEC/BUILD не разрешён. Direction-анализ общего M1-маршрута можно вести параллельно.
+    Ратифицированный level path сохранён:
+    project-owned Level/Module Contract → DA runtime + PGG editor-time bake → production modules.
   against: |
-    Полная PROGRAM-дорога не считается молча помещённой в старый appetite: предел 13 легов и дата сохраняются.
-    L3 пересекается с сохранённым dirty visual BUILD; M1-GAS-PROBE/CORE и engine S4/A1 остаются NEEDS SOURCE
-    после I2/A0. Legacy exact checksum — медленный audit oracle, не runtime dirty/sync primitive.
+    Gas PROGRAM — обязательный дочерний маршрут, но не весь M1 и не разрешение молча превысить 13 legs.
+    Старый level PLAN ждёт Phase 0, которая больше никогда не возобновляется; новый маршрут обязан сперва
+    показать точный пересчёт legs/cuts. Visual всё ещё LOCKED; M1-P2a0 lifecycle/G5 drift чинится отдельно.
   cut_list:
     - Sc-damage остаётся HELD; нет damage/consequence.
-    - Нет врагов, миссии, production UI/audio/VFX и новой газовой энциклопедии.
+    - Нет врагов, миссии, production UI/VFX и новой газовой энциклопедии.
+    - Production-звук сознательно не входит в Полигон М1; это будущая visual-линия.
     - Только один контролируемый стеновой пролом; нет полной разрушаемости.
-    - Нет save/load, late join, matchmaking и host migration.
+    - Нет save/load, late join, matchmaking и host migration; потеря пира/хоста явно и контролируемо
+      завершает текущий прогон М1.
     - Один Полигон и минимальный DA module set; не контент-производство.
   lens_verdicts:
-    commercial_traction: final evidence leg даёт capture-пакет существующим visual/marketing линиям.
+    commercial_traction: final evidence leg отдаёт capture-пакет visual/marketing линиям.
     core_gameplay_depth: M1-5..7 — tracking, reactions, breach.
-    coop_first: объединённый M1-9+10 — две реальные машины, sync и owner verdict.
-    technical_feasibility: NearGas L1 NOT READY FOR EXECUTION; checkpoint/gaps are in NearGas-L1-BUILD.note. Authority remains origin/main@32107343 with PLAN@1e4e78c + PLAN-AMEND@a58ee356, product v20 < OS v21. Only PLAN-AMEND/Re-sync may run next; exact-packet semantic GREEN and a separate fresh Direction binding review are required before any EXEC/BUILD.
+    coop_first: M1-9+10 — две реальные машины, sync и owner verdict.
+    technical_feasibility: NearGas L1 NOT READY FOR EXECUTION; canonical checkpoint/gaps are in NearGas-L1-BUILD.note. Product authority remains origin/main@32107343 with PLAN@1e4e78c + PLAN-AMEND@a58ee356, product v20 < OS v21. Only PLAN-AMEND/Re-sync may run next; full-packet semantic GREEN and a separate fresh Direction binding review are required before any EXEC/BUILD. Level/DA/PGG route remains ratified.
     scope_production: not_needed — cut_list и один уровень держат solo-scope.
     audience_workflow: final evidence leg; отдельная соцсеть-задача не нужна.
 
 tasks:
   - id: NearGas-dashboard
-    goal: Владелец видит простую актуальную карту gas-engineering пути, статусов, блокеров, вопросов и недавней работы.
-    done_when: |
-      c-exec-near-gas-dashboard-001 возвращает committed light doc-only RESULT: ручное статическое dashboard-зеркало
-      и product AGENTS always-read/update правило существуют, render/readback green, product code/tests/scenes/Unity/
-      visual/L1 не затронуты; отдельная Direction-сессия после этого может выпустить свежий L1 PLAN.
+    goal: Владелец видит актуальную карту gas-engineering пути.
+    done_when: Committed light dashboard принят owner-eye; history/2026-07-13-s-work-near-gas-dashboard-close-002.md.
     status: done
   - id: NearGas-L1-PLAN
-    goal: |
-      Владелец понимает и утверждает детальный L1 PLAN для единственного engine-free Core-владельца,
-      атомарной замены generation и одного полного deterministic Step без запуска BUILD.
-    done_when: |
-      c-exec-near-gas-core-authority-001 возвращает committed owner-approved frozen PLAN: простое подробное
-      объяснение технических решений и границ L1, builder-ready spec/tasks/ADR/evidence map, сохранность legacy-audit
-      смыслов и dirty product files; product code, RED tests, Unity и BUILD не начаты, следующий BUILD выдаёт DirectionS.
+    goal: Владелец понимает и утверждает frozen L1 PLAN одного engine-free Core-владельца.
+    done_when: PLAN@1e4e78c + PLAN-AMEND@a58ee356 owner-approved и binding-refuted; BUILD отдельно.
     status: done
   - id: NearGas-L1-BUILD
-    goal: |
-      NearGas получает доставленного dormant engine-free Core-владельца с атомарной заменой generation
-      и одним полным deterministic Step по утверждённому варианту A.
-    done_when: |
-      c-exec-near-gas-core-authority-001-build-001 возвращает reviewed, gate-green DELIVERED L1 по замороженному
-      PLAN @1e4e78c: independent RED и binding fresh G5 доказывают атомарность/детерминизм/legacy-audit preservation;
-      реализация остаётся serial concurrency-ready без реальных workers, Unity и child-leg scope, а foreign work сохранён.
+    goal: NearGas получает delivered dormant engine-free Core-владельца с atomic generation replacement и deterministic Step.
+    done_when: Reviewed, gate-green DELIVERED L1 с independent RED и binding fresh G5; no Unity/child-leg/workers.
     status: active
     note: |
       RETURNED ONCE: c-exec-near-gas-core-authority-001-execute-002@5c783e07 = PRODUCT CHECKPOINT /
-      SPEC-ONLY RED BLOCKED / NOT DELIVERED; fresh author stopped before test file/commit. Production BUILD/tests,
-      tools/check, review, mutation, binding G5, Deliver, Unity, merge and push did not run.
-      Missing bindings: VoxelImpulse/FaceRef; open+sealed two-room fixtures; NoSourceGolden/SourceChecksumIsolation;
-      ReactionRuleSet/custom handlers; audit-counter and hidden-state observation; handler ownership;
-      GasScenario/LockstepLoopback construction+delegation; injectable NegativeControl shapes.
-      Authority stays origin/main@32107343 with PLAN@1e4e78c and PLAN-AMEND@a58ee356; product v20 < OS v21.
-      Only PLAN-AMEND/Re-sync may follow; even exact-packet GREEN needs a separate fresh Direction binding review.
+      SPEC-ONLY RED BLOCKED / NOT DELIVERED; fresh author stopped before a test file/commit. Production BUILD,
+      tests, tools/check, review, mutation, binding G5, Deliver, Unity, merge and push did not run.
+      Missing bindings: VoxelImpulse/FaceRef; open+sealed two-room fixtures; NoSourceGolden/
+      SourceChecksumIsolation inputs; ReactionRuleSet/custom handlers; audit-counter observation; hidden-state
+      observation; handler ownership; GasScenario/LockstepLoopback construction+delegation; injectable
+      NegativeControl shapes. Authority stays origin/main@32107343 with PLAN@1e4e78c and PLAN-AMEND@a58ee356;
+      product v20 < OS v21. Only PLAN-AMEND/Re-sync may follow. Even after whole-packet semantic GREEN, a
+      separate fresh Direction binding review is mandatory before any EXEC/BUILD. Option A/deferred workers remain.
   - id: M1-P2a0
-    goal: |
-      PuppetMaster получает проверенный root-authority маршрут для сетевого игрока, которого могут
-      физически сбивать камни и импульсы, до заморозки production controller.
-    done_when: |
-      c-exec-player-puppetmaster-p2a0-002 freezes an owner-approved live-source proof PLAN; a later separately-issued
-      BUILD under that frozen change returns accepted Puppet→Unpinned→GetUp evidence, A/B comparison + bounded C
-      kill-probe, multiplayer authority inventory and fresh G5, without FishNet BUILD, damage or product merge.
+    goal: PuppetMaster получает проверенный root-authority маршрут для сетевого игрока.
+    done_when: Owner-approved live-source PLAN + later accepted BUILD, bounded-C, multiplayer inventory и fresh G5.
     status: done
-    note: |
-      DONE 2026-07-13 через owner-eye гейт. Тяжёлый done_when выше СОЗНАТЕЛЬНО заменён owner-authorized
-      лёгким спайком (c-exec-player-puppetmaster-p2a0-lean-spike-build-001): владелец сыграл живой стенд
-      PuppetMaster и вынес вердикт = Кандидат A (ядро/контроллер владеет авторитетной позицией тела;
-      PuppetMaster-рэгдолл = косметический локальный вид, никогда не авторитетен; B отклонён — недетерминированный
-      PhysX на авторитетном пути = рассинхрон между машинами). Слово владельца в сессии 2026-07-13: «Кандидат A — да».
-      Потребность в геймплей-физике закрыта дизайном: детерминированный слой «грид-баллистика» в ЯДРЕ (не физ-движок),
-      маршрутизирован будущим слайсом ядра g-9c41. Сознательно НЕ сделано под лёгким разворотом (owner-acked cut):
-      bounded-C kill-probe и свежий G5 — связывающим гейтом этого ДИЗАЙН-решения был глаз владельца. Канонический
-      источник (single source): GasCoopGame origin/main@0e9eed02 docs/results/c-exec-player-puppetmaster-p2a0-lean-spike-build-001.md.
+    note: "Current owner-close = Candidate A; written done_when/G5 mismatch остаётся отдельным P1 repair dr-20260711-001, без переоткрытия Phase 0."
+  - id: M1-Integration-ROUTE
+    goal: Владелец имеет один согласованный путь до сильной интеграционной сцены Полигона М1.
+    done_when: |
+      Owner-approved dependency/parallelism map связывает gas, Level/DA/PGG, character, visual, network/min-spec/evidence;
+      точный 13-leg accounting/cuts записан, а новый Level PLAN successor честно gated текущим v21 route; no product BUILD.
+    status: active
+    note: "Direction-only planning, не product leg; work/c-work-poligon-m1-integration-route-001-call.md."
 
 open_calls:
+  - id: c-work-poligon-m1-integration-route-001
+    to: session
+    for: M1-Integration-ROUTE
+    issued: 2026-07-14
+    note: "READY PARALLEL: owner-present whole-M1 plan/accounting only; no product BUILD. work/c-work-poligon-m1-integration-route-001-call.md."
   - id: c-repair-minimum-game-frame-v2-001
     to: session
     for: g-d3a8 / Minimum Game Frame v2
@@ -108,9 +92,9 @@ open_calls:
     note: "READY PARALLEL: owner-present short Frame v2 distillation after Gate F verdict FRAME REVISED; no canon/TREE/CHARTER/Sc-damage change. history/2026-07-14-s-research-q-coop-interdependence-001.md."
   - id: c-exec-unity65-mac-revision-002-build-001
     to: executor
-    for: g-9c41 / local .NET repository-gate runner prerequisite
+    for: g-9c41 / local .NET gate runner prerequisite
     issued: 2026-07-12
-    note: "HELD / NON-RUNNABLE: pre-v21 CALL and PLAN refs 7a3e747/8a344e9 do not resolve from fetched refs. It needs its own current-v21 full-packet check; CALL content is unchanged. work/c-exec-unity65-mac-revision-002-build-001-call.md."
+    note: "HELD / NON-RUNNABLE: pre-v21 CALL and PLAN refs 7a3e747/8a344e9 do not resolve from fetched refs. After repo v21 Re-sync it still needs its own current-v21 full-packet check; CALL content is unchanged. work/c-exec-unity65-mac-revision-002-build-001-call.md."
   - id: c-exec-near-gas-core-authority-001-plan-amend-resync-002
     to: executor
     for: NearGas-L1-BUILD / contract v20→v21 Re-sync + full frozen-packet repair
@@ -118,30 +102,31 @@ open_calls:
     note: "READY PLAN-AMEND/Re-sync ONLY: repair the complete frozen packet under current semantic v21, then return home for a fresh Direction binding review; no EXEC/BUILD. work/c-exec-near-gas-core-authority-001-plan-amend-resync-002-call.md."
   - id: c-exec-char-v1-socket-dropin-build-001
     to: executor
-    for: g-6d4e / В1 — сокет авторитетной позиции + drop-in управляемая капсула
+    for: g-6d4e / В1 socket + drop-in capsule
     issued: 2026-07-13
-    note: "HELD / NON-RUNNABLE: frozen V1 meaning is preserved, but before any BUILD it needs its own current-v21 full-packet semantic check; CALL content is unchanged. work/c-exec-char-v1-socket-dropin-build-001-call.md."
+    note: "HELD / NON-RUNNABLE: frozen V1 meaning is preserved, but before any BUILD it needs its own current-v21 full-packet semantic check after repo Re-sync; CALL content is unchanged. work/c-exec-char-v1-socket-dropin-build-001-call.md."
   - id: c-shape-sc-damage-001
     to: session
     for: Sc-damage
     issued: 2026-07-09
-    note: "Pending owner-present shape CALL; current M1 cut keeps Sc-damage HELD; owner 2026-07-11: кооп-взаимозависимость обсуждается отдельным вопросом канона (кандидат Gate Q, work/canon-question-candidates-2026-07-11.md), Sc-damage стартует только с готовой канон-спекой; work/c-shape-sc-damage-call.md."
+    note: "HELD until ready canon spec; work/c-shape-sc-damage-call.md."
   - id: c-visual-009
     to: executor
-    for: g-7e15 / preserved visual motion work awaiting fresh reconciliation
+    for: g-7e15 / preserved visual motion work
     issued: 2026-07-10
-    note: "LOCKED under PROGRAM.md@f5c1d650; historical PLAN @a0db28a2 and dirty dev_2 BUILD are preserved but non-runnable. Fresh owner-present reconciliation PLAN only after M0+C1+L3+I1 delivered/reviewed; motion BUILD also needs sufficient detached immutable committed-per-Step Flux/history from L3 or delivered c-exec-near-gas-visual-motion-data-seam-001. Moving-source visual waits E1; door/destruction visual waits D1/X1."
+    note: "LOCKED until M0+C1+L3+I1 delivered/reviewed; motion also needs immutable per-Step data, later visuals wait E1/D1/X1."
   - id: c-marketing-wake-001
     to: session
-    for: g-2f8c / минимальное пробуждение маркетинга
+    for: g-2f8c / minimal marketing wake
     issued: 2026-07-11
-    note: "READY: owner verdict «будить минимально» 2026-07-11 + расширение и v2-уточнение тем же днём; сессия исполняет substrate строго по work/marketing/wake-minimal-2026-07-11.md и несёт research-мандат из §Расширение (стратегия не-generic, путь к деньгам — издатель/Kickstarter/прямые продажи, автономный контур «маркетинговый эксперт», AI-пайплайн без слопа, дашборд трека); единственное жёсткое требование — деньги последний ресурс, всё через AI-процессы; публичные действия БЕЗ отдельного owner-«да» НЕ входят; запуск-текст work/marketing/wake-launch-2026-07-11.md; параллельна инженерным линиям."
+    note: "READY from the 2026-07-11 wake brief; owner mandate includes INOMAND research/substrate and no public action or spend without a separate owner yes. Route is known stale against the committed INOMAND checkpoint: dr-20260712-001."
 recurring: []
 
 decisions:
-  - q: "d-m1-acceptance-criteria-001 — ратифицировать 5 дополнений к критериям приёмки Полигона М1 (замер на named min-spec железе; лампа детерминизма в HUD; политика выхода пира/хоста; admission ceiling виден в стенде; звук сознательно НЕ в М1)?"
-    options: ["Ратифицировать все 5", "Ратифицировать выборочно", "Отклонить — критерии не расширяем"]
-    recommendation: "Ратифицировать все 5: дёшево и делает final evidence leg доказуемым; min-spec требует owner-выбора конкретного железа. Источник: owner-lane вырезанной лестницы 10.07 — критерии нигде больше не жили (s-repair-board-m1-ladder-purge-001)."
+  - q: "d-m1-min-spec-hardware-001 — какое конкретное слабое железо становится binding min-spec финального прогона М1?"
+    options: ["Доступная физическая машина", "Точный CPU/GPU/RAM-класс с арендой/покупкой к финалу", "Только throttled-прокси — финал не закрывает"]
+    recommendation: "Доступная физическая машина; газ CPU-bound, поэтому CPU должен быть назван явно."
+
 next:
   CALL: work/c-exec-near-gas-core-authority-001-plan-amend-resync-002-call.md
 

@@ -229,4 +229,8 @@ archived: history/LOG-archive-indie-game-development.md — sessions before 2026
 
 2026-07-14 — work/publish (g-9c41/engineering-v21-routing, s-work-publish-engineering-routing-repair-20260714-001): repair 5946277 and checksum fix 45af36c were merged into main and pushed/read back at origin/main@017d6a2 without force; remote Frame-v2 ancestry 4e1d746 was preserved without replaying stale state, concurrent M1 commit 59cbd6b was excluded, and the NearGas PLAN-AMEND/Re-sync CALL remains next. → history/2026-07-14-s-work-publish-engineering-routing-repair-20260714-001.md
 
+2026-07-14 — repair/route (g-9c41/Poligon-M1-dashboard-routing, s-repair-poligon-m1-dashboard-routing-001): owner «A1» made the Direction board the M1 integration-scene roadmap, kept gas as a child lane, preserved Level/DA/PGG through a fresh successor route, and registered whole-M1 planning READY PARALLEL alongside the current NearGas PLAN-AMEND/Re-sync PRIMARY; no product BUILD. → history/2026-07-14-s-repair-poligon-m1-dashboard-routing-001.md
+
+2026-07-14 — repair (g-9c41/d-m1-acceptance-criteria-001, s-repair-m1-acceptance-criteria-001): владелец «ратифицировать все пять с этими уточнениями» — в живую планку М1 вернуты названное слабое железо, HUD-детерминизм, видимый admission ceiling, controlled disconnect-stop и явный audio-cut; остался узкий выбор binding min-spec железа. → history/2026-07-14-s-repair-m1-acceptance-criteria-001.md
+
 END_OF_FILE: live/indie-game-development/LOG.md
