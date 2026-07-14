@@ -216,4 +216,6 @@ archived: history/LOG-archive-indie-game-development.md — sessions before 2026
 
 2026-07-13 — work/checkpoint (g-9c41/NearGas-L1-BUILD, s-work-near-gas-l1-build-checkpoint-001): mandatory spec-only RED stopped cleanly before test commit at core@b94806de on missing constructible-definition and stable fault-site contracts; BUILD remains pending/not delivered, and an owner-present PLAN-amend is next with option A unchanged. → history/2026-07-13-s-work-near-gas-l1-build-checkpoint-001.md
 
+2026-07-14 — local/canon-forge (g-d3a8/c-research-q-coop-interdependence-001, s-research-q-coop-interdependence-001): canon-forge q-coop-interdependence checkpointed at owner verdict FRAME REVISED; short Minimum Game Frame v2 is now required before paper selection or Sc-damage release. → history/2026-07-14-s-research-q-coop-interdependence-001.md
+
 END_OF_FILE: live/indie-game-development/LOG.md
