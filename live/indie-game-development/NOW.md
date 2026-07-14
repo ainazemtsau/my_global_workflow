@@ -1,5 +1,5 @@
 # NOW: indie-game-development
-updated: 2026-07-14 by s-research-level-module-contract-recovery-001
+updated: 2026-07-14 by s-work-publish-near-gas-v21-main-and-open-binding-001
 
 bet:
   node: g-9c41
@@ -22,10 +22,12 @@ bet:
     Владелец сказал «Да, именно так»: числового ограничения нет, а 24.07 — контрольный review, не остановка;
     затем «Маршрут принимаю». Текущая ставка всё ещё формально хранит старые appetite/kill_by и по G3 не может
     быть продлена work-сессией, поэтому свежий review закрывает её и предлагает следующую ставку.
-    NearGas-L1-BUILD остаётся open: единственный допустимый product-сигнал — PLAN-AMEND/Re-sync v20→v21,
-    полный semantic dry-run и отдельный fresh Direction binding review; до этого EXEC/BUILD запрещён.
     Ратифицированный level path сохранён: project-owned Level/Module Contract → DA runtime + PGG editor-time
     bake → production modules; новый Level executor CALL не выпущен.
+    NearGas publication update: the owner-approved v21 packet is now on product origin/main@9dc49575 with exact
+    raw-Git-blob aggregate 2f676a071731bd8ae6f787eb4aeb01fdc440e676d476ebc54956eba803ed3a0e.
+    L1 remains NOT DELIVERED and no EXEC/BUILD may start until
+    c-work-near-gas-l1-v21-published-binding-001 returns a fresh binding verdict.
   against: |
     Gas PROGRAM — обязательный дочерний маршрут, но не весь M1 и не разрешение молча превысить 13 legs.
     Старый level PLAN ждёт Phase 0, которая больше никогда не возобновляется; новый маршрут обязан сперва
@@ -42,7 +44,7 @@ bet:
     commercial_traction: final evidence leg отдаёт capture-пакет visual/marketing линиям.
     core_gameplay_depth: M1-5..7 — tracking, reactions, breach.
     coop_first: M1-9+10 — две реальные машины, sync и owner verdict.
-    technical_feasibility: NearGas L1 NOT READY FOR EXECUTION; canonical checkpoint/gaps are in NearGas-L1-BUILD.note. Product authority remains origin/main@32107343 with PLAN@1e4e78c + PLAN-AMEND@a58ee356, product v20 < OS v21. Only PLAN-AMEND/Re-sync may run next; full-packet semantic GREEN and a separate fresh Direction binding review are required before any EXEC/BUILD. Level/DA/PGG route remains ratified.
+    technical_feasibility: NearGas L1 NOT READY FOR EXECUTION; v21 planning authority is published at product origin/main@9dc4957548111c99980f7efbbb9e7adbda17332b with packet aggregate 2f676a071731bd8ae6f787eb4aeb01fdc440e676d476ebc54956eba803ed3a0e. Fresh Direction binding review c-work-near-gas-l1-v21-published-binding-001 is still required before any independent RED or EXEC/BUILD. Level/DA/PGG route remains ratified.
     scope_production: not_needed — cut_list и один уровень держат solo-scope.
     audience_workflow: final evidence leg; отдельная соцсеть-задача не нужна.
 
@@ -60,15 +62,15 @@ tasks:
     done_when: Reviewed, gate-green DELIVERED L1 с independent RED и binding fresh G5; no Unity/child-leg/workers.
     status: active
     note: |
-      RETURNED ONCE: c-exec-near-gas-core-authority-001-execute-002@5c783e07 = PRODUCT CHECKPOINT /
-      SPEC-ONLY RED BLOCKED / NOT DELIVERED; fresh author stopped before a test file/commit. Production BUILD,
-      tests, tools/check, review, mutation, binding G5, Deliver, Unity, merge and push did not run.
-      Missing bindings: VoxelImpulse/FaceRef; open+sealed two-room fixtures; NoSourceGolden/
-      SourceChecksumIsolation inputs; ReactionRuleSet/custom handlers; audit-counter observation; hidden-state
-      observation; handler ownership; GasScenario/LockstepLoopback construction+delegation; injectable
-      NegativeControl shapes. Authority stays origin/main@32107343 with PLAN@1e4e78c and PLAN-AMEND@a58ee356;
-      product v20 < OS v21. Only PLAN-AMEND/Re-sync may follow. Even after whole-packet semantic GREEN, a
-      separate fresh Direction binding review is mandatory before any EXEC/BUILD. Option A/deferred workers remain.
+      V21 PLANNING AUTHORITY PUBLISHED / L1 NOT DELIVERED. Product origin/main@9dc4957548111c99980f7efbbb9e7adbda17332b
+      contains integration merge fed1073d53d5894946b8ad6e9ffd14d6c79ec69a and frozen packet commit
+      21acd415209dc4261aaa692c13cc56d0e6d9f59f. Exact raw-Git-blob packet aggregate is
+      2f676a071731bd8ae6f787eb4aeb01fdc440e676d476ebc54956eba803ed3a0e; fresh pre-push semantic review was
+      29/29 GREEN, zero gaps. Historical 52a47c52... is working-tree-byte chronology only.
+      Product publication, owner approval and in-session semantic review do not close the Direction gate.
+      c-work-near-gas-l1-v21-published-binding-001 must fresh-refute the exact published packet. Until GREEN,
+      no independent RED, EXEC/BUILD, implementation, delivery gate, Unity or MCP is authorized. Option A and
+      deferred workers remain; historical BUILD and execute-002 checkpoints stay evidence only.
   - id: M1-P2a0
     goal: PuppetMaster получает проверенный root-authority маршрут для сетевого игрока.
     done_when: Owner-approved live-source PLAN + later accepted BUILD, bounded-C, multiplayer inventory и fresh G5.
@@ -124,7 +126,17 @@ open_calls:
     to: executor
     for: NearGas-L1-BUILD / contract v20→v21 Re-sync + full frozen-packet repair
     issued: 2026-07-14
-    note: "READY PLAN-AMEND/Re-sync ONLY: repair the complete frozen packet under current semantic v21, then return home for a fresh Direction binding review; no EXEC/BUILD. work/c-exec-near-gas-core-authority-001-plan-amend-resync-002-call.md."
+    note: "PENDING DIRECTION CLOSE / DO NOT RERUN: product planning evidence is published on origin/main@9dc49575; keep this call open until c-work-near-gas-l1-v21-published-binding-001 returns the required fresh binding verdict. No EXEC/BUILD."
+  - id: c-work-near-gas-l1-v21-published-binding-001
+    to: session
+    for: NearGas-L1-BUILD / binding refutation of exact published v21 planning authority
+    issued: 2026-07-14
+    note: |
+      READY PARALLEL / FRESH DIRECTION BINDING: read-only refutation of product origin/main@9dc49575 and exact
+      packet aggregate 2f676a071731bd8ae6f787eb4aeb01fdc440e676d476ebc54956eba803ed3a0e. L1 stays NOT DELIVERED;
+      no product mutation, RED, EXEC/BUILD or delivery gate. If and only if GREEN, this fresh session may clear the
+      planning return and issue a future independent-RED executor CALL. Global PRIMARY remains the M1 bet review.
+      work/c-work-near-gas-l1-v21-published-binding-001-call.md.
   - id: c-shape-sc-damage-001
     to: session
     for: Sc-damage
