@@ -1,5 +1,5 @@
 # NOW: indie-game-development
-updated: 2026-07-14 by s-repair-m1-acceptance-criteria-001
+updated: 2026-07-14 by s-repair-minimum-game-frame-v2-001
 
 bet:
   node: g-9c41
@@ -85,11 +85,16 @@ open_calls:
     for: M1-Integration-ROUTE
     issued: 2026-07-14
     note: "READY PARALLEL: owner-present whole-M1 plan/accounting only; no product BUILD. work/c-work-poligon-m1-integration-route-001-call.md."
-  - id: c-repair-minimum-game-frame-v2-001
+  - id: c-map-g-d3a8-frame-v2-reconciliation-001
     to: session
-    for: g-d3a8 / Minimum Game Frame v2
+    for: g-d3a8 / TREE and design-canon branch reconciliation
     issued: 2026-07-14
-    note: "READY PARALLEL: owner-present short Frame v2 distillation after Gate F verdict FRAME REVISED; no canon/TREE/CHARTER/Sc-damage change. history/2026-07-14-s-research-q-coop-interdependence-001.md."
+    note: "READY PARALLEL: owner-present G9 reconciliation of only g-d3a8 against accepted Minimum Game Frame v2 and the eight-player requirement; no canon/CHARTER/product change. history/2026-07-14-s-repair-minimum-game-frame-v2-001.md."
+  - id: c-research-q-coop-interdependence-002
+    to: session
+    for: g-d3a8 / co-op composition question
+    issued: 2026-07-14
+    note: "HELD until c-map-g-d3a8-frame-v2-reconciliation-001 closes; then resume the preserved paper question under Frame v2 without canon admission or Sc-damage release. history/2026-07-14-s-repair-minimum-game-frame-v2-001.md."
   - id: c-exec-unity65-mac-revision-002-build-001
     to: executor
     for: g-9c41 / local .NET gate runner prerequisite

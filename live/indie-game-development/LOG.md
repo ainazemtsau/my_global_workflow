@@ -231,4 +231,6 @@ archived: history/LOG-archive-indie-game-development.md — sessions before 2026
 
 2026-07-14 — repair (g-9c41/d-m1-acceptance-criteria-001, s-repair-m1-acceptance-criteria-001): владелец «ратифицировать все пять с этими уточнениями» — в живую планку М1 вернуты названное слабое железо, HUD-детерминизм, видимый admission ceiling, controlled disconnect-stop и явный audio-cut; остался узкий выбор binding min-spec железа. → history/2026-07-14-s-repair-m1-acceptance-criteria-001.md
 
+2026-07-14 — repair (g-d3a8/c-repair-minimum-game-frame-v2-001, s-repair-minimum-game-frame-v2-001): repair g-d3a8 Minimum Game Frame v2 — owner verdict FRAME READY; accepted current whole-game frame, issued owner-present g-d3a8 reconciliation and held co-op-composition continuation; no canon/TREE/CHARTER/product change. → history/2026-07-14-s-repair-minimum-game-frame-v2-001.md
+
 END_OF_FILE: live/indie-game-development/LOG.md
