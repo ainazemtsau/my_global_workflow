@@ -1,5 +1,5 @@
 # NOW: indie-game-development
-updated: 2026-07-14 by s-repair-minimum-game-frame-v2-001
+updated: 2026-07-14 by s-repair-char-v1-held-reconcile-001
 
 bet:
   node: g-9c41
@@ -16,13 +16,16 @@ bet:
     2026-07-24 либо 13 product legs, что раньше; immediate review при провале deterministic gas-body/A1.
     Финальный профиль: ≤50 ms green; 50–100 ms owner decision; >100 ms/desync/meaning-loss = not done.
   forecast: |
-    Главный owner-view — work/board/dashboard.html: единый маршрут Полигона М1; product NearGas dashboard
-    остаётся дочерней gas-панелью. NearGas-L1-BUILD остаётся open: единственный checkpoint-record и девять
-    групп дыр находятся в task note. Следующий допустимый product-сигнал — только PLAN-AMEND/Re-sync v20→v21,
-    полный semantic dry-run всего финального пакета и затем отдельный fresh Direction binding review;
-    до этого никакой EXEC/BUILD не разрешён. Direction-анализ общего M1-маршрута можно вести параллельно.
-    Ратифицированный level path сохранён:
-    project-owned Level/Module Contract → DA runtime + PGG editor-time bake → production modules.
+    Главный owner-view — work/board/dashboard.html; принятый cross-bet route лежит в
+    work/poligon-m1-integration-route.md. Он связывает gas, Level/DA/PGG, character, visual, common scene и
+    network/evidence в 34 обязательных логических product legs плюс условные, но это прозрачный ledger, не cap.
+    Владелец сказал «Да, именно так»: числового ограничения нет, а 24.07 — контрольный review, не остановка;
+    затем «Маршрут принимаю». Текущая ставка всё ещё формально хранит старые appetite/kill_by и по G3 не может
+    быть продлена work-сессией, поэтому свежий review закрывает её и предлагает следующую ставку.
+    NearGas-L1-BUILD остаётся open: единственный допустимый product-сигнал — PLAN-AMEND/Re-sync v20→v21,
+    полный semantic dry-run и отдельный fresh Direction binding review; до этого EXEC/BUILD запрещён.
+    Ратифицированный level path сохранён: project-owned Level/Module Contract → DA runtime + PGG editor-time
+    bake → production modules; новый Level executor CALL не выпущен.
   against: |
     Gas PROGRAM — обязательный дочерний маршрут, но не весь M1 и не разрешение молча превысить 13 legs.
     Старый level PLAN ждёт Phase 0, которая больше никогда не возобновляется; новый маршрут обязан сперва
@@ -75,16 +78,24 @@ tasks:
     goal: Владелец имеет один согласованный путь до сильной интеграционной сцены Полигона М1.
     done_when: |
       Owner-approved dependency/parallelism map связывает gas, Level/DA/PGG, character, visual, network/min-spec/evidence;
-      точный 13-leg accounting/cuts записан, а новый Level PLAN successor честно gated текущим v21 route; no product BUILD.
-    status: active
-    note: "Direction-only planning, не product leg; work/c-work-poligon-m1-integration-route-001-call.md."
+      текущий точный ledger/cuts записан без числового cap, а новый Level PLAN successor честно gated текущим v21 route;
+      no product BUILD.
+    status: done
+    note: |
+      Owner accepted: «Да, именно так» = без числового потолка, 24.07 только контрольный review;
+      «Маршрут принимаю». Принятый route: work/poligon-m1-integration-route.md — 34 обязательных логических
+      product legs + условные, не cap. Старую Phase 0 не возвращает; новый Level executor CALL не выпущен.
+      Формальное закрытие старой 13/24 ставки передано свежему c-review-poligon-m1-route-reset-001 по G3.
 
 open_calls:
-  - id: c-work-poligon-m1-integration-route-001
+  - id: c-review-poligon-m1-route-reset-001
     to: session
-    for: M1-Integration-ROUTE
+    for: g-9c41 / current bet close and next-bet choice after accepted M1 route
     issued: 2026-07-14
-    note: "READY PARALLEL: owner-present whole-M1 plan/accounting only; no product BUILD. work/c-work-poligon-m1-integration-route-001-call.md."
+    note: |
+      PRIMARY / FRESH OWNER-PRESENT REVIEW: close, do not extend, the current 13/24 bet; preserve the accepted
+      no-cap cross-bet route and make 24.07 a control review in the owner-chosen next bet. Product/TREE/canon read-only;
+      no executor CALL or BUILD. work/c-review-poligon-m1-route-reset-001-call.md.
   - id: c-map-g-d3a8-frame-v2-reconciliation-001
     to: session
     for: g-d3a8 / TREE and design-canon branch reconciliation
@@ -105,11 +116,18 @@ open_calls:
     for: NearGas-L1-BUILD / contract v20→v21 Re-sync + full frozen-packet repair
     issued: 2026-07-14
     note: "READY PLAN-AMEND/Re-sync ONLY: repair the complete frozen packet under current semantic v21, then return home for a fresh Direction binding review; no EXEC/BUILD. work/c-exec-near-gas-core-authority-001-plan-amend-resync-002-call.md."
-  - id: c-exec-char-v1-socket-dropin-build-001
-    to: executor
-    for: g-6d4e / В1 socket + drop-in capsule
-    issued: 2026-07-13
-    note: "HELD / NON-RUNNABLE: frozen V1 meaning is preserved, but before any BUILD it needs its own current-v21 full-packet semantic check after repo Re-sync; CALL content is unchanged. work/c-exec-char-v1-socket-dropin-build-001-call.md."
+  - id: c-review-char-v1-socket-dropin-g5-001
+    to: session
+    for: g-6d4e / В1 socket + drop-in capsule — binding G5
+    issued: 2026-07-14
+    note: |
+      READY PARALLEL. В1 BUILD собран owner-directed (owner «Вариант 1» = HELD снят) в переиспользованном
+      p2a0-worktree C:\projects\Unity\GasCoopGame_p2a0_002, ветка c-exec-char-v1-socket-dropin-build-001
+      @db69aba6 (полный db69aba6847a47ce2544ad1314f3567b327805d7), база продукта origin/main@32107343 (v20).
+      Owner-eye (owner-run PlayMode, 3 сцены) GREEN; 34 независимых RED зелёные; внутренний кросс-модельный ревью
+      без P1/P2. Осталась вторая половина ворот: связывающий fresh cross-family G5 (Codex, read-only) пытается
+      опровергнуть заявки В1. В1 НЕ закрыт до G5; НЕ смёржен; merge в main — решение направления после G5
+      (+ предсуществующий газовый L19-красный чинится в gas-track). Затем В2. work/c-review-char-v1-socket-dropin-g5-001-call.md.
   - id: c-shape-sc-damage-001
     to: session
     for: Sc-damage
@@ -133,6 +151,6 @@ decisions:
     recommendation: "Доступная физическая машина; газ CPU-bound, поэтому CPU должен быть назван явно."
 
 next:
-  CALL: work/c-exec-near-gas-core-authority-001-plan-amend-resync-002-call.md
+  CALL: work/c-review-poligon-m1-route-reset-001-call.md
 
 END_OF_FILE: live/indie-game-development/NOW.md

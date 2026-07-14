@@ -165,21 +165,22 @@
 <div class="wrap">
 
 <header class="hero">
-  <div class="eyebrow">ОНО ДЫШИТ · главная панель направления · обновлено 14.07 · A1 принят</div>
+  <div class="eyebrow">ОНО ДЫШИТ · главная панель направления · обновлено 14.07 · маршрут M1 принят</div>
   <h1>Полигон M1 — путь к сильной интеграционной сцене</h1>
   <p class="lead"><b>Финиш:</b> одна регулируемая сцена, где DA собирает проверенные модули, PGG может наполнять их только на этапе авторинга, персонаж подключён через стабильный сокет, газ живёт под одним авторитетом, а сеть, названное слабое железо, телеметрия и снимки позволяют честно испытывать всё вместе. NearGas-dashboard ниже по иерархии: это подробная техническая панель одного газового трека, не roadmap всей цели.</p>
-  <div class="stamp"><span>ставка: Полигон М1 · максимум 13 product legs · стоп-линия 24.07</span><span>сейчас PRIMARY: NearGas PLAN-AMEND / Re-sync v20→v21</span><span>параллельно: общий M1 integration route + g-d3a8 reconciliation</span><span>Frame v2: FRAME READY · co-op continuation HELD</span><span>product BUILD сейчас: 0 разрешённых</span><span>Level/DA/PGG: маршрут сохранён, старый Phase-0 CALL отменён</span><span>персонажи: В1 PLAN frozen · BUILD HELD</span><span>visual: LOCKED</span></div>
+  <div class="stamp"><span>маршрут M1 принят · 34 обязательных логических legs + условные — ledger, не cap</span><span>owner: числового потолка нет · 24.07 = контрольный review, не stop</span><span>сейчас PRIMARY: свежий review закрывает старую 13/24 ставку по G3</span><span>параллельно: NearGas PLAN-AMEND/Re-sync planning-only + g-d3a8 reconciliation + Character V1 G5</span><span>product BUILD сейчас: 0 разрешённых</span><span>Level/DA/PGG: маршрут сохранён, старый Phase-0 CALL отменён</span><span>персонажи: В1 собран · owner-eye GREEN · G5 READY PARALLEL</span><span>visual: LOCKED</span></div>
 </header>
 
 <section id="m1-route">
-  <div class="sec-head"><h2>🧭 Маршрут к сцене</h2><span class="tag">шесть связанных трасс · газ — дочерняя трасса · параллельность показана явно</span></div>
-  <div class="callout accent"><b>Что реально можно запустить сейчас:</b> NearGas PLAN-AMEND / Re-sync меняет только frozen planning packet продукта и проводит полный semantic whole-packet dry-run; параллельные Direction-линии собирают единый план M1 и owner-present reconciliation ветки g-d3a8 с принятой Frame v2. Кооперативный paper-answer ждёт закрытия reconciliation. Ни один engineering BUILD сейчас не разрешён.</div>
+  <div class="sec-head"><h2>🧭 Маршрут к сцене</h2><span class="tag">принят владельцем · шесть связанных трасс · газ — дочерняя трасса</span></div>
+  <div class="callout accent"><b>Принято:</b> один cross-bet маршрут связывает gas, Level/DA/PGG, character, visual, common scene и network/evidence. Текущий честный ledger — 34 обязательных логических product legs плюс условные; это не числовое ограничение. Владелец подтвердил: 24 июля — контрольный review, а не остановка. Сам маршрут не открывает ни один BUILD.</div>
   <div class="mtx-wrap"><table class="mtx">
     <tr><th>Работа</th><th>Сейчас</th><th>Параллельно с чем</th><th>Почему / следующий гейт</th></tr>
-    <tr><td><b>NearGas PLAN-AMEND / Re-sync</b><br><span class="mono">c-exec-near-gas-core-authority-001-plan-amend-resync-002</span></td><td class="a">🟢 PRIMARY</td><td>с общим M1-анализом и g-d3a8 reconciliation</td><td>Только frozen planning packet: v20→v21 и полный semantic whole-packet dry-run; без source/tests/BUILD.</td></tr>
-    <tr><td><b>Общий маршрут Полигона M1</b><br><span class="mono">c-work-poligon-m1-integration-route-001</span></td><td class="a">🟢 READY PARALLEL</td><td>с NearGas planning</td><td>План и appetite accounting; не product leg, не BUILD.</td></tr>
+    <tr><td><b>Свежий review текущей ставки</b><br><span class="mono">c-review-poligon-m1-route-reset-001</span></td><td class="a">🟢 PRIMARY</td><td>owner-present; product read-only</td><td>Закрывает, а не продлевает, старую ставку 13/24 и предлагает следующую ставку под принятый no-cap route.</td></tr>
+    <tr><td><b>NearGas PLAN-AMEND / Re-sync</b><br><span class="mono">c-exec-near-gas-core-authority-001-plan-amend-resync-002</span></td><td class="a">🟢 READY PARALLEL</td><td>с review и g-d3a8 reconciliation</td><td>Только frozen planning packet: v20→v21 и полный semantic whole-packet dry-run; без source/tests/BUILD.</td></tr>
+    <tr><td><b>Общий маршрут Полигона M1</b><br><span class="mono">work/poligon-m1-integration-route.md</span></td><td class="a">✅ ПРИНЯТ</td><td>cross-bet direction route</td><td>34 обязательных логических legs + условные — текущий ledger, не cap; executor CALL не выпущен.</td></tr>
     <tr><td><b>Gas L1 BUILD</b></td><td class="a">🔴 НЕТ</td><td>после полного GREEN и fresh Direction review</td><td>Checkpoint @5c783e07: девять binding gaps; product v20 &lt; OS v21.</td></tr>
-    <tr><td><b>Character V1 BUILD</b></td><td class="a">🔴 HELD</td><td>только после собственной current-packet проверки</td><td>Frozen смысл сохранён; существующий BUILD CALL не является launch authority.</td></tr>
+    <tr><td><b>Character V1 BUILD</b></td><td class="a">🟢 СОБРАН · owner-eye GREEN · ждёт G5</td><td>owner-directed build; связывающий G5 параллельно</td><td>owner «Вариант 1» снял HELD; продукт @db69aba6 (база v20 32107343), не смёржен; merge — решение направления после G5.</td></tr>
     <tr><td><b>Level / DA / PGG BUILD</b></td><td class="a">🔴 НЕТ</td><td>сейчас только Direction-анализ</td><td>Старый PLAN ждёт мёртвую Phase 0; сначала общий route и свежий PLAN-only successor.</td></tr>
     <tr><td><b>Visual / network / final evidence</b></td><td class="a">🔴 ПОЗЖЕ</td><td>только после своих foundation gates</td><td>Visual LOCKED; сеть и две машины завершают интеграцию, а не стартуют её вслепую.</td></tr>
   </table></div>
@@ -195,12 +196,12 @@
       <div class="head"><span class="st">2 · ROUTE СОХРАНЁН · BUILD НЕ ОТКРЫТ</span><b>Level / Dungeon Architect / PGG</b><span class="id">Level Contract → DA runtime → PGG editor-time</span></div>
       <p><span class="l">Что уже доказано:</span> PGG способен испечь dependency-free static prefab, который проходит через SnapGridFlow в BuiltSceneRoomReader. Провал production-stage был не провалом PGG: отсутствовал наш стандарт сетки 0,5 м, сокетов, порталов, exact occupancy/apertures и anchors.</p>
       <p><span class="l">Правильная граница:</span> Phase 1 — project-owned full-3D Level/Module Contract + validators; Phase 2 — DA runtime composition и PGG только как editor-time bake/import; Phase 3 — production modules/content.</p>
-      <p><span class="l">Что дальше:</span> старый PLAN помечен <b>SUPERSEDED / NEVER ISSUE</b>, потому что ждёт Phase 0 MERGED. Общий M1-анализ вернёт свежий PLAN-only successor и точное место в 13-leg бюджете. Будущий lane D/worktree обязан быть проверен до BUILD.</p>
+      <p><span class="l">Что дальше:</span> старый PLAN помечен <b>SUPERSEDED / NEVER ISSUE</b>, потому что ждёт Phase 0 MERGED. Принятый M1 route начинает successor с project-owned Level/Module Contract без числового cap. Будущий lane D/worktree и полный current-v21 packet обязаны быть проверены до отдельного PLAN; executor CALL сейчас не выпущен.</p>
     </div>
     <div class="call wait">
-      <div class="head"><span class="st">3 · PLAN FROZEN · BUILD HELD</span><b>Character</b><span class="id">V1 socket/drop-in → V2 rig/reactions → V3 core ballistics</span></div>
+      <div class="head"><span class="st">3 · В1 СОБРАН · owner-eye GREEN · ждёт G5</span><b>Character</b><span class="id">V1 socket/drop-in → V2 rig/reactions → V3 core ballistics</span></div>
       <p><span class="l">Финиш трассы:</span> reusable player prefab читает авторитетную позу через стабильный адаптер; внешний вид и PuppetMaster-рэгдолл не владеют сетевой позицией.</p>
-      <p><span class="l">Где сейчас:</span> owner-approved V1 PLAN заморожен. Существующий BUILD CALL не является launch authority и остаётся HELD до отдельной проверки полного current-contract packet; интеграция и merge идут по одному.</p>
+      <p><span class="l">Где сейчас:</span> В1 собран owner-directed в переиспользованном p2a0-worktree (@db69aba6, база v20 32107343): стабильный socket + reusable prefab + управление + follow-camera, 34 независимых RED зелёные, owner-eye пройден владельцем. Owner «Вариант 1» снял HELD; осталась вторая половина ворот — связывающий G5 (свежая cross-family сессия). Merge — решение направления после G5.</p>
     </div>
     <div class="call wait">
       <div class="head"><span class="st">4 · НЕ ОТДЕЛЬНЫЙ GAS LAB</span><b>Integration lab</b><span class="id">единая сцена Полигона M1</span></div>
@@ -221,26 +222,26 @@
 </section>
 
 <section>
-  <div class="sec-head"><h2>📋 Борд — живой статус</h2><span class="tag">обновлено 14.07 · NOW.next = NearGas PLAN-AMEND/Re-sync · M1 route + g-d3a8 reconciliation READY PARALLEL · co-op paper continuation HELD · product BUILD runnable: 0 · истина всегда NOW.md + git</span></div>
+  <div class="sec-head"><h2>📋 Борд — живой статус</h2><span class="tag">обновлено 14.07 · NOW.next = fresh M1 bet review · NearGas planning + g-d3a8 reconciliation READY PARALLEL · co-op paper continuation HELD · product BUILD runnable: 0 · истина всегда NOW.md + git</span></div>
   <div class="callout accent"><b>Единственный дом этой панели — репозиторий:</b> live/indie-game-development/work/board/dashboard.html; открывается в Chrome с диска, обновляется ТОЛЬКО здесь (внешних зеркал не ведём — правило владельца 2026-07-11). Живой статус — эта секция; панель — рендер: решения по ней, противоречащей NOW, не принимаются.</div>
-  <div class="callout"><b>Как читать параллельность:</b> один <code>NOW.next</code> задаёт основной маршрут команды «продолжаем» — сейчас это только PLAN-AMEND/Re-sync полного NearGas-пакета, не EXEC/BUILD. Карточки <b>READY PARALLEL</b> разрешают отдельно обсуждать общий план M1 и привести ветку g-d3a8 в соответствие принятой Frame v2. Кооперативный paper-answer остаётся <b>HELD</b> до закрытия этой сверки; инженерный приоритет не меняется.</div>
+  <div class="callout"><b>Как читать параллельность:</b> один <code>NOW.next</code> задаёт основной маршрут команды «продолжаем» — сейчас это свежий owner-present review, который формально закрывает старую 13/24 ставку и предлагает следующую. <b>READY PARALLEL</b> остаются NearGas PLAN-AMEND/Re-sync planning-only и g-d3a8 reconciliation. Кооперативный paper-answer остаётся <b>HELD</b>; инженерный BUILD не открыт.</div>
   <div class="callout"><b>⚠ Демо: определения сейчас НЕТ — это открытый пункт, а не план.</b> Концепт изменился (11.07 принята новая рамка игры: расследование почти невидимого газа → план → добыча/операция → эвакуация). Старый октябрьский демо-план с панели ВЫРЕЗАН — его история лежит в git. 12.07 владелец установил Canon Forge v3 как единственный живой paper-only маршрут, затем отдельным вердиктом «ADMIT TO CANON» допустил «Цель стоит запуска» как предварительную карточку c-001 (нужен-грейбокс). Это не готовая механика: fun, кооперация, рантайм-читаемость, темп давления, стоимость движка и коммерческий сигнал не доказаны; точные правила газа, активации, добычи, экономики, инвентаря и кооперации остаются открыты. Проверенные даты фестов сохранены ниже как справочник, а не как план.</div>
-  <div class="callout"><b>Газовый маршрут пересобран.</b> Принята единая продуктовая программа: сначала ядро получает одного владельца и одну атомарную симуляцию, затем ограничение ресурсов, дешёвую сверку состояния, точную версию Unity и единственный рабочий путь через Unity; после интеграционной проверки подключаются PlayerSense, replay и удаление старых путей. Старый монолитный Phase 0 честно остался <b>NOT DELIVERED</b> и больше не запускается. Бюджет ставки <b>13 легов / 24.07</b> не расширен: новая программа не считается молча помещённой в него.</div>
-  <div class="callout accent"><b>Почему следующим стоит PLAN-AMEND/Re-sync:</b> ветка execute-002 от origin/main@<b>32107343</b> сохранила evidence <b>5c783e07</b>: fresh spec-only автор остановился без теста и кода, потому что frozen packet не связывает девять групп construct/observe/inject witnesses. Новый CALL чинит полный пакет под contract v21 и возвращается на отдельную свежую Direction-проверку; EXEC/BUILD до неё запрещён. Задача L1 остаётся открытой.</div>
+  <div class="callout"><b>Старое «13 / 24.07» больше не является желаемой рамкой продолжения.</b> Владелец прямо снял числовой потолок и оставил 24 июля контрольной точкой. Work-сессия не может переписать или продлить активную ставку по G3, поэтому текущий review должен честно закрыть старую ставку и открыть owner-chosen следующую. Принятый route уже хранит полный 34+ ledger без искусственного сжатия.</div>
+  <div class="callout accent"><b>Почему NearGas planning остаётся READY PARALLEL:</b> ветка execute-002 от origin/main@<b>32107343</b> сохранила evidence <b>5c783e07</b>: fresh spec-only автор остановился без теста и кода, потому что frozen packet не связывает девять групп construct/observe/inject witnesses. Текущий CALL чинит полный пакет под contract v21 и возвращается на отдельную свежую Direction-проверку; EXEC/BUILD до неё запрещён. Задача L1 остаётся открытой.</div>
   <h3 class="subhead">Открытые работы</h3>
   <div class="calls">
     <div class="call">
-      <div class="head"><span class="st">PRIMARY · PLAN-AMEND/RE-SYNC · МОЖНО ЗАПУСКАТЬ</span><b>Сделать полный NearGas-пакет исполнимым под contract v21</b><span class="id">c-exec-near-gas-core-authority-001-plan-amend-resync-002</span></div>
-      <p><span class="l">Что это:</span> единственный разрешённый product-маршрут: обновить контракт v20→v21 и закрыть все девять групп недостающих bindings во frozen planning-пакете.</p>
-      <p><span class="l">Зачем:</span> execute-002 честно остановился до теста и кода; без полного semantic dry-run новый EXEC снова получил бы ложное разрешение.</p>
-      <p><span class="l">Где сейчас:</span> это <code>NOW.next</code>. Только PLAN-AMEND/Re-sync; production code, RED, BUILD, Unity, merge и push запрещены.</p>
-      <p><span class="l">Что дальше:</span> после готового полного пакета — отдельная свежая Direction binding review; только её GREEN может открыть новый EXEC/BUILD.</p>
+      <div class="head"><span class="st">PRIMARY · FRESH REVIEW · НУЖЕН ВЛАДЕЛЕЦ</span><b>Закрыть старую 13/24 ставку и выбрать следующую</b><span class="id">c-review-poligon-m1-route-reset-001</span></div>
+      <p><span class="l">Что это:</span> честный review текущей ставки по G3: evidence/verdict, forecast и 2–3 варианта следующей ставки под уже принятый маршрут.</p>
+      <p><span class="l">Что не решается заново:</span> числового потолка нет, 24.07 — контрольный review, маршрут принят; эти actual owner words являются входом.</p>
+      <p><span class="l">Граница:</span> product/TREE/canon read-only, никакого executor CALL или BUILD. Новая ставка открывается только после actual owner choice.</p>
     </div>
     <div class="call">
-      <div class="head"><span class="st">READY PARALLEL · МОЖНО ЗАПУСКАТЬ</span><b>Собрать единый план сильной сцены Полигона M1</b><span class="id">c-work-poligon-m1-integration-route-001</span></div>
-      <p><span class="l">Что это:</span> owner-present Direction-анализ шести трасс, их зависимостей, площадок, параллельности и точного 13-leg accounting.</p>
-      <p><span class="l">Зачем:</span> возвращает DA/PGG в общий план и не даёт gas PROGRAM подменять весь M1.</p>
-      <p><span class="l">Граница:</span> не product leg, не Unity и не BUILD; executor CALL не выпускается поверх незакрытого v21 blocker.</p>
+      <div class="head"><span class="st">READY PARALLEL · PLAN-AMEND/RE-SYNC · МОЖНО ЗАПУСКАТЬ</span><b>Сделать полный NearGas-пакет исполнимым под contract v21</b><span class="id">c-exec-near-gas-core-authority-001-plan-amend-resync-002</span></div>
+      <p><span class="l">Что это:</span> единственный разрешённый product-маршрут: обновить контракт v20→v21 и закрыть все девять групп недостающих bindings во frozen planning-пакете.</p>
+      <p><span class="l">Зачем:</span> execute-002 честно остановился до теста и кода; без полного semantic dry-run новый EXEC снова получил бы ложное разрешение.</p>
+      <p><span class="l">Где сейчас:</span> READY PARALLEL к Direction review. Только PLAN-AMEND/Re-sync; production code, RED, BUILD, Unity, merge и push запрещены.</p>
+      <p><span class="l">Что дальше:</span> после готового полного пакета — отдельная свежая Direction binding review; только её GREEN может открыть новый EXEC/BUILD.</p>
     </div>
     <div class="call">
       <div class="head"><span class="st">READY PARALLEL · НУЖЕН ВЛАДЕЛЕЦ</span><b>Сверить ветку g-d3a8 с принятой Frame v2</b><span class="id">c-map-g-d3a8-frame-v2-reconciliation-001</span></div>
@@ -264,11 +265,11 @@
       <p><span class="l">Что дальше:</span> отдельный repair должен доказать точную committed authority и проверить полный current-contract packet. Пока этого нет, карточка HELD; Unity/FishNet revision-001, Windows validation, merge и push остаются закрыты.</p>
     </div>
     <div class="call">
-      <div class="head"><span class="st">В1 PLAN FROZEN · BUILD HELD · НЕ ЗАПУСКАТЬ</span><b>Игровые персонажи: socket + drop-in управляемая капсула</b><span class="id">c-exec-char-v1-socket-dropin-build-001</span></div>
-      <p><span class="l">Что принято:</span> владелец выбрал порядок В1→В2→В3 и сказал «Вариант 1», «замораживай». Frozen PLAN описывает стабильный socket авторитетной позиции, reusable prefab, управление и follow-camera; rig/ragdoll/grid-ballistics остаются позже.</p>
+      <div class="head"><span class="st">В1 СОБРАН · owner-eye GREEN · СВЯЗЫВАЮЩИЙ G5 — READY PARALLEL</span><b>Игровые персонажи: socket + drop-in управляемая капсула</b><span class="id">c-review-char-v1-socket-dropin-g5-001</span></div>
+      <p><span class="l">Что принято:</span> владелец сказал «Вариант 1» — он направлял этот билд; он зачтён как owner-directed, а HELD с character-трека снят. Билд собран в переиспользованном p2a0-worktree (ветка c-exec-char-v1-socket-dropin-build-001 @<b>db69aba6</b>, база v20 <b>32107343</b>): стабильный socket авторитетной позы, reusable prefab, управление, follow-camera; reaction/knockdown/getup — объявленные no-op хуки (В2).</p>
       <p><span class="l">Зачем:</span> socket-as-spine позволяет сейчас использовать локальный placeholder, а позже подставить позицию ядра без правки префаба или сцен.</p>
-      <p><span class="l">Где сейчас:</span> committed <b>93d3f44</b> потребил PLAN-call и зарегистрировал BUILD, но существующий artifact не является current launch authority. Поэтому READY-метка снята.</p>
-      <p><span class="l">Что дальше:</span> отдельная full-packet проверка без изменения frozen смысла В1. Product code, RED, BUILD, Unity/MCP, merge и push этой панелью не разрешены.</p>
+      <p><span class="l">Где сейчас:</span> 34 независимых RED зелёные + внутренний кросс-модельный ревью без P1/P2; owner-eye (owner-run PlayMode, 3 сцены) пройден владельцем. Это половина ворот В1.</p>
+      <p><span class="l">Что дальше:</span> связывающий G5 — свежая отдельная cross-family сессия (Codex, read-only) пытается опровергнуть заявки В1; owner-eye уже зелёный. После G5 В1 = done; merge в main — решение направления (продукт всё ещё v20; предсуществующий газовый L19-красный чинится в gas-track). В2 (тело: риг + реакции + косметический рэгдолл) открывается после G5.</p>
     </div>
     <div class="call">
       <div class="head"><span class="st">CHECKPOINT · ПРОДОЛЖАЕТСЯ В CLAUDE</span><b>Маркетинг: минимальное пробуждение</b><span class="id">c-marketing-wake-001 · открыта 11.07</span></div>
@@ -306,6 +307,12 @@
 
   <h3 class="subhead">Закрыто недавно — чем кончилось</h3>
   <div class="calls">
+    <div class="call closed">
+      <div class="head"><span class="st">✓ МАРШРУТ ПРИНЯТ · БЕЗ ЧИСЛОВОГО CAP</span><b>Сильная интеграционная сцена Полигона M1</b><span class="id">M1-Integration-ROUTE · 14.07</span></div>
+      <p><span class="l">Чем кончилось:</span> владелец сказал «Да, именно так» про отсутствие числового ограничения и 24.07 как контрольный review, затем «Маршрут принимаю».</p>
+      <p><span class="l">Что записано:</span> единый finish, cuts, шесть трасс, площадки/conflicts/proofs/merge gates, матрица параллельности и честный текущий ledger: 34 обязательных логических product legs плюс условные. Это accounting, не потолок.</p>
+      <p><span class="l">Граница:</span> product не менялся, старой Phase 0 нет, Level successor не выпущен. Следующий fresh review формально закрывает старую 13/24 ставку по G3 и предлагает следующую.</p>
+    </div>
     <div class="call closed">
       <div class="head"><span class="st">✓ РАТИФИЦИРОВАНО 5 ИЗ 5</span><b>Критерии приёмки Полигона М1</b><span class="id">d-m1-acceptance-criteria-001 · 14.07</span></div>
       <p><span class="l">Что было:</span> пять дополнений жили только в вырезанной устаревшей лестнице, поэтому финальная планка М1 могла тихо потерять CPU-, sync- и flood-доказательства.</p>
@@ -490,17 +497,19 @@
   <h3 style="margin:26px 0 10px; font-size:18px">Журнал — последние 3 дня</h3>
   <p class="note" style="margin:0 0 10px">Рендер из LOG.md (полный архив — там); старше трёх дней с панели уходит. Сегодняшний день раскрыт.</p>
   <details class="day" open>
-    <summary>14 июля <span class="cnt">· Frame v2 = FRAME READY · g-d3a8 reconciliation READY · co-op continuation HELD · M1 roadmap + 5 критериев published @feba69b · engineering routing published @017d6a2 · NearGas Re-sync PRIMARY · product BUILD runnable: 0</span></summary>
+    <summary>14 июля <span class="cnt">· M1 route принят · no-cap / 24.07 review · fresh bet review PRIMARY · NearGas planning READY PARALLEL · Frame v2 READY · В1 собран, HELD снят, G5 READY · прежний M1 roadmap published @feba69b</span></summary>
     <ul>
+      <li><b>Маршрут сильной сцены M1 принят:</b> владелец подтвердил «Да, именно так» — числового потолка product legs нет, 24.07 является контрольным review, не остановкой — и затем сказал «Маршрут принимаю». Записаны шесть трасс, dependencies/parallelism, finish/cuts и 34 обязательных логических legs плюс условные как текущий ledger, не cap. Product не менялся; свежий review закрывает старую ставку по G3.</li>
       <li><b>Публикация M1 roadmap и критериев:</b> коммиты <b>59cbd6b</b> и <b>677eb87</b> слиты с чистым актуальным main@bcc659a. Конфликты были только в LOG и журнале панели: сохранены и предыдущий engineering publish receipt, и M1 route/acceptance. Merge <b>feba69b</b> без force опубликован в origin/main; remote git + GitHub API readback совпали. Frame/Solmax/engineering ancestry цела; чужой dirty marketing-файл в коммиты не попал.</li>
       <li><b>Критерии приёмки М1:</b> владелец «ратифицировать все пять с этими уточнениями» вернул в живую планку замер на названном слабом железе, HUD-доказательство детерминизма, видимый admission ceiling и контролируемое завершение прогона при disconnect. Late join, host migration и production-звук остались вырезаны; в inbox остался только выбор конкретного min-spec железа.</li>
       <li><b>Poligon-M1 dashboard routing repair:</b> владелец выбрал «A1». Direction board стал главной панелью пути к интеграционной сцене; NearGas dashboard явно оставлен дочерней gas-панелью. Шесть трасс теперь показывают зависимости, площадки, merge-границы и текущую параллельность.</li>
       <li><b>Engineering routing repair:</b> владелец сказал «Одобрить пакет». execute-002@5c783e07 закреплён как CHECKPOINT / NOT DELIVERED; returned CALL больше не runnable, runner и character остаются HELD, а dr-20260713-001 закрыта.</li>
-      <li><b>Правдивый запуск:</b> основной следующий вход — c-exec-near-gas-core-authority-001-plan-amend-resync-002; параллельно остаются c-work-poligon-m1-integration-route-001 и owner-present c-map-g-d3a8-frame-v2-reconciliation-001. Первый меняет только frozen product planning packet, остальные — только Direction-артефакты; co-op continuation HELD, ни один BUILD не открыт.</li>
+      <li><b>Правдивый запуск:</b> основной следующий вход — c-review-poligon-m1-route-reset-001; параллельно остаются planning-only c-exec-near-gas-core-authority-001-plan-amend-resync-002 и owner-present c-map-g-d3a8-frame-v2-reconciliation-001. Co-op continuation HELD, ни один BUILD не открыт.</li>
       <li><b>Публикация engineering repair:</b> repair-коммит 5946277 и checksum-fix 45af36c влиты в main и без force опубликованы как origin/main@017d6a2. Уже существовавший удалённый Frame-v2 commit сохранён в ancestry без возврата к его устаревшему снимку состояния; параллельный M1-коммит 59cbd6b в эту публикацию не вошёл. Remote readback и ancestry проверены; это исторический receipt предыдущей публикации.</li>
       <li><b>Level / DA / PGG:</b> ratified Phase 1/2/3 сохранился; старый PLAN помечен SUPERSEDED / NEVER ISSUE из-за невозможной зависимости Phase 0 MERGED. PGG остаётся editor-time bake в dependency-free static prefab, не runtime authority.</li>
       <li><b>Canon Forge — Frame v2 checkpoint:</b> владелец сказал «FRAME REVISED — СОБРАТЬ КОРОТКУЮ FRAME V2». Полный gas/artifact research draft и отдельный distillation handoff сохранены как неканонические входы; paper-answer по кооперативной взаимозависимости не выбран, канон не изменён, Sc-damage остаётся HELD. Открыт owner-present c-repair-minimum-game-frame-v2-001; инженерный NOW.next не менялся.</li>
       <li><b>Minimum Game Frame v2:</b> владелец дал дословный вердикт «FRAME READY». Рамка стала текущей owner-approved whole-game design basis, но не каноном; c-001 сохранён без расширения, TREE/CHARTER/product не менялись. Открыта отдельная owner-present сверка g-d3a8, а продолжение co-op composition зарегистрировано HELD до её закрытия; Sc-damage остаётся HELD.</li>
+      <li><b>Игровые персонажи — В1 собран, HELD снят:</b> пришёл хендбэк В1-билда (socket + drop-in капсула) из owner-directed p2a0-worktree (@db69aba6, база v20 32107343); проверен first-hand в гите. Owner-eye владелец прошёл, 34 независимых RED зелёные, внутренний кросс-модельный ревью без P1/P2. Владелец сказал «Вариант 1» — подтвердил, что направлял билд; писарь зачёл его как owner-directed чекпоинт, снял HELD с character-трека и открыл связывающий G5 (c-review-char-v1-socket-dropin-g5-001, READY PARALLEL). В1 не закрыт (G5 — вторая половина ворот); не смёржен; продукт остаётся v20. Runner остаётся HELD; NearGas и NOW.next не менялись.</li>
     </ul>
   </details>
   <details class="day">
@@ -571,7 +580,7 @@
       <div class="bar"><i style="width:8%"></i></div><div class="pct">~8% · V1 спроектирован, но BUILD ещё не разрешён</div>
       <ul>
         <li class="done">V1 PLAN: reusable prefab + authoritative-position socket + follow-camera заморожен</li>
-        <li class="miss">V1 BUILD HELD до отдельной current-packet проверки; живого drop-in персонажа пока нет</li>
+        <li class="miss">В1 собран (owner-eye GREEN) в p2a0-ветке @db69aba6, но не смёржен и ждёт связывающего G5; в main живого drop-in персонажа пока нет</li>
         <li class="miss">Пузыря нет в движке — глагол не существует</li>
         <li class="miss">Нет UI, меню, экрана смерти</li>
         <li class="miss">Ни одного standalone-билда за всю историю</li>
@@ -715,7 +724,7 @@
     <tr><td>Runtime sources / doors / topology / destruction / final LAB</td><td>⬜</td><td class="a">🟠</td><td>R0 выбирает правила; затем E1→D1→P1→T1→X1→LAB→I3</td></tr>
     <tr><td>Visual motion и дальнейшие feature-визуалы</td><td>🔴</td><td class="a">🟠</td><td>LOCKED: PLAN ждёт M0+C1+L3+I1; motion/data и E1/D1/X1 добавляют свои замки</td></tr>
     <tr class="grp"><td colspan="4">Оболочка игры</td></tr>
-    <tr><td>Контроллер игрока + камера</td><td>🔴</td><td class="a">🟡 после отдельной проверки</td><td>V1 PLAN frozen: reusable prefab + authoritative-position socket; BUILD HELD и не является launch authority</td></tr>
+    <tr><td>Контроллер игрока + камера</td><td>🔴</td><td class="a">🟡 собран, ждёт G5+merge</td><td>В1 собран owner-directed (@db69aba6, база v20), owner-eye GREEN; HELD снят «Вариант 1»; связывающий G5 → затем merge-решение направления</td></tr>
     <tr><td>Глагол «пузырь» v0</td><td>⬜</td><td class="a">🟠</td><td>ядро + дизайн-вердикты по ходу; 🔴 частично канон (наполнение)</td></tr>
     <tr><td>Меню / host-join / экраны конца</td><td>⬜</td><td class="a">🟢</td><td>прототип-лента, валидация глазами разово</td></tr>
     <tr><td>HUD игрока (доза, опасность)</td><td>⬜</td><td class="a">🟡</td><td>после подключения дозы</td></tr>
@@ -757,7 +766,7 @@
     <tr><td>Чинка шума -Deliver (MERGED-doc fallback)</td><td>⬜</td><td class="a">🟢</td><td>рекуррентная заноза каждого закрытия</td></tr>
     <tr><td>Один-клик билд-скрипт + smoke на второй машине</td><td>⬜</td><td class="a">🟢</td><td>прототип-лента</td></tr>
     <tr><td>Min-spec: research эквивалентов + твоё решение</td><td>⬜</td><td class="a">🟢+🟠</td><td>research автономно; назвать железо — ты</td></tr>
-    <tr><td>OS: главная M1-панель + явная параллельность</td><td>✅</td><td class="a">🟢</td><td>A1 принят 14.07; NOW.next = NearGas PLAN-AMEND/Re-sync, whole-M1 analysis = READY PARALLEL</td></tr>
+    <tr><td>OS: главная M1-панель + явная параллельность</td><td>✅</td><td class="a">🟢</td><td>Маршрут принят 14.07; 34+ = ledger, не cap; NOW.next = fresh bet review, NearGas planning READY PARALLEL</td></tr>
     <tr><td>OS main подтяжка (приостановка канона)</td><td>⬜</td><td class="a">🟠</td><td>писарь готовит, пушишь ты</td></tr>
     <tr><td>Ремонт выпавших сторожей NOW (3 решения + сессия-сторож)</td><td>⬜</td><td class="a">🟡</td><td>из отчёта о «потерянной оптимизации»</td></tr>
   </table></div>
@@ -792,9 +801,9 @@
 </section>
 
 <section>
-  <div class="sec-head"><h2>Финишная сцена Полигона M1</h2><span class="tag">главная цель · общий маршрут утверждается отдельно · NearGasSimulationLab = внутренний gas-стенд</span></div>
+  <div class="sec-head"><h2>Финишная сцена Полигона M1</h2><span class="tag">главная цель · маршрут принят 14.07 · NearGasSimulationLab = внутренний gas-стенд</span></div>
   <div class="callout accent"><b>Одна сильная сцена вместо набора несвязанных песочниц:</b> DA собирает минимальный проверенный module set; хотя бы один модуль проходит PGG editor-time bake; reusable player prefab подключён к авторитетной позе; газ имеет pause/manual-step и приборы; controlled breach и full flood наблюдаемы; один сценарий повторяется на двух машинах и слабом железе со snapshots/телеметрией.</div>
-  <div class="callout"><b>Что остаётся дочерним:</b> L3 NearGasSimulationLab строится внутри gas PROGRAM и доказывает газовую интеграцию. Он не считается автоматически всей M1-сценой. Точные merge points, product-leg accounting и cuts фиксирует c-work-poligon-m1-integration-route-001; прежняя Phase 0 и старый level CALL не возвращаются.</div>
+  <div class="callout"><b>Что остаётся дочерним:</b> L3 NearGasSimulationLab строится внутри gas PROGRAM и доказывает газовую интеграцию. Он не считается автоматически всей M1-сценой. Принятый `work/poligon-m1-integration-route.md` фиксирует точные merge points, текущий 34+ ledger без cap и cuts; прежняя Phase 0 и старый level CALL не возвращаются.</div>
 </section>
 
 
