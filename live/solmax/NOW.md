@@ -287,7 +287,7 @@ active_bet:
       kill the bet and shape a new bounded bet; do not extend appetite or
       claim partial success.
 
-route_status: operating_substrate_first_process_creator_t2_materialization_plan_approved_build_ready
+route_status: operating_substrate_first_process_creator_t4_health_reclamation_build_pending
 
 owner_directive: |
   Owner approved umbrella placement for Solmax.
@@ -858,7 +858,7 @@ tasks:
 
   - id: t-2
     kind: executor
-    status: active
+    status: done
     budget: 0.5 focused execution day
     goal: |
       Materialize the complete Process Creator candidate on a bounded
@@ -898,7 +898,7 @@ tasks:
 
   - id: t-3
     kind: session
-    status: open
+    status: done
     budget: 0.25 focused execution day
     goal: |
       Independently attempt to refute and admit or reject the Process
@@ -934,7 +934,7 @@ tasks:
 
   - id: t-4
     kind: guide
-    status: open
+    status: active
     budget: 0.25 focused execution day
     goal: |
       Use the admitted Process Creator with an ordinary owner-originated
@@ -1102,14 +1102,14 @@ recurring: []
 decisions: []
 
 open_calls:
-  - id: c-solmax-operating-substrate-first-process-creator-t2-materialization-build-001
+  - id: c-solmax-operating-substrate-first-process-creator-t4-health-reclamation-build-003
     to: executor
-    for: g-operating-substrate-first-process-creator/t-2
+    for: g-operating-substrate-first-process-creator/t-4
     issued: 2026-07-13
     note: |
-      Owner-approved PLAN v1 is frozen. A fresh BUILD session materializes the
-      complete Process Creator candidate and author self-conformance evidence;
-      independent t-3 refutation remains a later fresh session.
+      Owner approved Health Reclamation plan v1. A fresh product BUILD may
+      create only the candidate; independent refutation, admission,
+      activation, useful-live proof, and reuse remain separate.
 # 2026-07-12: c-solmax-operating-substrate-first-process-creator-t2-repo-bootstrap-001
 # cleared — the repo-bootstrap setup checkpoint is complete (commit f3d153d, CI
 # green). t-2 remains ACTIVE; Process Creator materialization is the next work,
@@ -1218,6 +1218,33 @@ preserved_evidence:
   - live/solmax/work/operating-substrate/process-creator-materialization-plan-v1.md
   - live/solmax/history/2026-07-13-s-solmax-operating-substrate-first-process-creator-t2-materialization-plan-001.md
   - 'owner approval in chat: "Approve plan v1"'
+  - github.com/ainazemtsau/solmax-operating-substrate@6ca5539a60a24d96b27cb2677e605c582f5f0161
+  - github.com/ainazemtsau/solmax-operating-substrate@d915789baffd13893a9fee1e7cb4b1eb74a02604
+  - github.com/ainazemtsau/solmax-operating-substrate@d915789baffd13893a9fee1e7cb4b1eb74a02604/RESULT.md
+  - 'owner-provided engineering handback: BUILD candidate ready for independent t-3 refutation'
+  - 'local product review commit: C:/projects/solmax-operating-substrate@ea254929ff60324e96633573a084c7c990e7f8b7 (branch codex/process-creator-v1-t3-refutation; unpushed)'
+  - 'local product review evidence: C:/projects/solmax-operating-substrate/docs/reviews/review-process-creator-v1.md@ea254929ff60324e96633573a084c7c990e7f8b7'
+  - live/solmax/history/2026-07-13-s-solmax-operating-substrate-first-process-creator-t3-refutation-checkpoint-001.md
+  - 'owner disposition in chat: "Исправляем F‑R01 и возвращаем на свежую проверку Yeah."'
+  - live/solmax/work/calls/c-solmax-operating-substrate-first-process-creator-t2-f-r01-ledger-correction-001.md
+  - live/solmax/history/2026-07-13-s-solmax-operating-substrate-first-process-creator-f-r01-repair-route-001.md
+  - 'local product F-R01 correction: C:/projects/solmax-operating-substrate@8134aaef9732498f11480491778ffcecaf5b4ed0 (only packs/process-creator/verification/scope-coverage.md)'
+  - live/solmax/work/calls/c-solmax-operating-substrate-first-process-creator-t2-f-r01-closing-report-alignment-002.md
+  - live/solmax/history/2026-07-13-s-solmax-operating-substrate-first-process-creator-t2-f-r01-correction-handback-002.md
+  - 'local product fresh t-3 review/result: C:/projects/solmax-operating-substrate@eefc77edbba5a1a5af8c2656544b06bb6824d922 (reviewed candidate b7da58713121884cc252bcc934672e66fb64e8f4)'
+  - 'local product review evidence: C:/projects/solmax-operating-substrate/docs/reviews/review-process-creator-v1.md@eefc77edbba5a1a5af8c2656544b06bb6824d922'
+  - live/solmax/work/calls/c-solmax-operating-substrate-first-process-creator-t3-owner-disposition-002.md
+  - live/solmax/history/2026-07-13-s-solmax-operating-substrate-first-process-creator-t2-autonomous-close-003.md
+  - 'owner structural disposition in chat: "Принимаю структурную допустимость"'
+  - live/solmax/work/calls/c-solmax-operating-substrate-first-process-creator-t4-owner-intent-001.md
+  - live/solmax/history/2026-07-13-s-solmax-operating-substrate-first-process-creator-t3-owner-disposition-004.md
+  - live/solmax/work/health-reclamation-plan-v1.md
+  - live/solmax/work/calls/c-solmax-operating-substrate-first-process-creator-t4-health-reclamation-plan-approval-002.md
+  - 'owner plan approval in chat: "Approve plan v1"'
+  - live/solmax/work/calls/c-solmax-operating-substrate-first-process-creator-t4-health-reclamation-build-003.md
+  - 'product provisional health-reclamation pack: cea2866, reversed before delivery at 3b38d78'
+  - live/solmax/history/2026-07-13-s-solmax-operating-substrate-first-process-creator-t4-health-reclamation-plan-checkpoint-001.md
+  - live/solmax/history/2026-07-13-s-solmax-operating-substrate-first-process-creator-t4-health-reclamation-plan-approval-002.md
 next: |
-  live/solmax/work/calls/c-solmax-operating-substrate-first-process-creator-t2-materialization-build-001.md
+  live/solmax/work/calls/c-solmax-operating-substrate-first-process-creator-t4-health-reclamation-build-003.md
 END_OF_FILE: live/solmax/NOW.md
