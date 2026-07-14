@@ -1,5 +1,5 @@
 # NOW: indie-game-development
-updated: 2026-07-14 by s-work-near-gas-l1-v21-published-binding-001
+updated: 2026-07-14 by s-work-near-gas-cross-platform-identity-resync-001
 
 bet:
   node: g-9c41
@@ -24,10 +24,12 @@ bet:
     быть продлена work-сессией, поэтому свежий review закрывает её и предлагает следующую ставку.
     Ратифицированный level path сохранён: project-owned Level/Module Contract → DA runtime + PGG editor-time
     bake → production modules; новый Level executor CALL не выпущен.
-    NearGas publication update: fresh Direction refutation accepted the owner-approved v21 planning packet on exact
-    product origin/main@9dc49575 with 29/29 PASS, zero unresolved/process gaps and exact raw-Git-blob aggregate
-    2f676a071731bd8ae6f787eb4aeb01fdc440e676d476ebc54956eba803ed3a0e. L1 remains NOT DELIVERED;
-    c-exec-near-gas-core-authority-001-execute-003 is READY PARALLEL for a new independent RED then serial option-A BUILD.
+    NearGas publication update: fresh Direction refutation accepted the owner-approved v21 packet at
+    product origin/main@9dc49575 with 29/29 PASS and exact raw-Git-blob aggregate
+    2f676a071731bd8ae6f787eb4aeb01fdc440e676d476ebc54956eba803ed3a0e. Product main then advanced to
+    86e7927f through a cross-platform EOL/blob-identity infrastructure fix plus the focused drift-guard closure; the
+    five packet blobs, v21 contract and ancestry are unchanged. L1 remains NOT DELIVERED; execute-003 is READY
+    PARALLEL from exact current main.
   against: |
     Gas PROGRAM — обязательный дочерний маршрут, но не весь M1 и не разрешение молча превысить 13 legs.
     Старый level PLAN ждёт Phase 0, которая больше никогда не возобновляется; новый маршрут обязан сперва
@@ -44,7 +46,7 @@ bet:
     commercial_traction: final evidence leg отдаёт capture-пакет visual/marketing линиям.
     core_gameplay_depth: M1-5..7 — tracking, reactions, breach.
     coop_first: M1-9+10 — две реальные машины, sync и owner verdict.
-    technical_feasibility: NearGas v21 planning authority at exact product origin/main@9dc4957548111c99980f7efbbb9e7adbda17332b is binding GREEN: 29/29 PASS, zero unresolved/process gaps, packet aggregate 2f676a071731bd8ae6f787eb4aeb01fdc440e676d476ebc54956eba803ed3a0e. Independent execution CALL execute-003 is READY PARALLEL, but L1 remains NOT DELIVERED until its full RED/BUILD/review/fresh-G5/Deliver contour closes. Level/DA/PGG route remains ratified.
+    technical_feasibility: NearGas v21 planning authority is binding GREEN on the exact unchanged five-blob packet: 29/29 PASS, zero unresolved/process gaps, aggregate 2f676a071731bd8ae6f787eb4aeb01fdc440e676d476ebc54956eba803ed3a0e. Current product origin/main@86e7927f82c1e48a9d5ab7255ac8004dc12c10eb descends from reviewed publication 9dc49575 and adds only the cross-platform EOL/blob-identity infrastructure fix plus its focused staged/unstaged-drift guard closure. Independent execute-003 is READY PARALLEL from 86e7927f; L1 remains NOT DELIVERED until its full RED/BUILD/review/fresh-G5/Deliver contour closes. Level/DA/PGG route remains ratified.
     scope_production: not_needed — cut_list и один уровень держат solo-scope.
     audience_workflow: final evidence leg; отдельная соцсеть-задача не нужна.
 
@@ -62,13 +64,15 @@ tasks:
     done_when: Reviewed, gate-green DELIVERED L1 с independent RED и binding fresh G5; no Unity/child-leg/workers.
     status: active
     note: |
-      V21 PLANNING AUTHORITY BINDING GREEN / L1 NOT DELIVERED. Fresh read-only Direction refutation matched exact
-      product origin/main@9dc4957548111c99980f7efbbb9e7adbda17332b, integration merge fed1073d53d5894946b8ad6e9ffd14d6c79ec69a,
-      frozen packet commit 21acd415209dc4261aaa692c13cc56d0e6d9f59f and raw-Git-blob aggregate
-      2f676a071731bd8ae6f787eb4aeb01fdc440e676d476ebc54956eba803ed3a0e. All 13 Acceptance Requirements,
-      12 unique NegativeControls and 4 Properties passed first-hand: 29/29, zero unresolved/inferred cells and zero
-      process gaps. Historical 52a47c52... remains working-tree-byte chronology only. The planning-return and binding
-      CALLs are closed; c-exec-near-gas-core-authority-001-execute-003 is READY PARALLEL on lane A/headless from exact
+      V21 PLANNING AUTHORITY BINDING GREEN / L1 NOT DELIVERED. Fresh read-only Direction refutation matched the exact
+      five-blob packet at product origin/main@9dc4957548111c99980f7efbbb9e7adbda17332b: integration merge fed1073d,
+      frozen commit 21acd415 and aggregate 2f676a071731bd8ae6f787eb4aeb01fdc440e676d476ebc54956eba803ed3a0e;
+      all 13 Acceptance Requirements + 12 unique NegativeControls + 4 Properties passed first-hand, 29/29 with zero
+      gaps. Current product main@86e7927f82c1e48a9d5ab7255ac8004dc12c10eb is a descendant whose seven-path
+      infrastructure/test diff adds canonical LF/editor rules, a raw-Git-blob identity tool and a shared drift-safe
+      committed-artifact guard; the packet blobs, AGENTS.md and validation.config v21 are unchanged. Historical
+      52a47c52... stays working-tree-byte
+      chronology only. Planning calls are closed; execute-003 is READY PARALLEL on lane A/headless from exact current
       base with a new independent RED first, immutable packet/ledger/tests, serial option A, deferred workers and the
       full review/fresh-G5/Deliver contour. Historical BUILD and execute-002 checkpoints remain evidence only.
   - id: M1-P2a0
@@ -127,11 +131,14 @@ open_calls:
     for: NearGas-L1-BUILD / new independent RED then serial option-A delivery
     issued: 2026-07-14
     note: |
-      READY PARALLEL / LANE A HEADLESS / V21 BINDING GREEN: exact base product origin/main@9dc49575 and packet
-      aggregate 2f676a071731bd8ae6f787eb4aeb01fdc440e676d476ebc54956eba803ed3a0e. Start a new branch and new independent
-      spec-only RED for all 29 identities before production; one exclusive core mutation slot, immutable frozen packet,
-      ledger and independent tests, serial option A and deferred workers. Full build/tests/check/NegativeControls/
-      Properties/mutation/review/fresh-G5/Deliver contour; no Unity/MCP, merge or push. L1 remains NOT DELIVERED.
+      READY PARALLEL / LANE A HEADLESS / V21 BINDING GREEN: exact current base product origin/main@86e7927f descends
+      from reviewed publication 9dc49575 and preserves packet aggregate
+      2f676a071731bd8ae6f787eb4aeb01fdc440e676d476ebc54956eba803ed3a0e. Its intervening change is the verified
+      cross-platform EOL/raw-Git-blob identity infrastructure fix plus its focused drift-guard closure only. Start a
+      new branch and new independent spec-only RED for all 29 identities before production; one exclusive core
+      mutation slot, immutable frozen packet, ledger
+      and independent tests, serial option A and deferred workers. Full build/tests/check/NegativeControls/Properties/
+      mutation/review/fresh-G5/Deliver contour; no Unity/MCP, merge or push. L1 remains NOT DELIVERED.
       work/c-exec-near-gas-core-authority-001-execute-003-call.md.
   - id: c-shape-sc-damage-001
     to: session

@@ -20,10 +20,19 @@ context: |
   the exact current published authority and commission a new independent spec-only RED author before implementation.
   The earlier aborted RED attempts left no eligible test commit or surviving evidence and are not reused.
 
-  Published product authority is exact origin/main@9dc4957548111c99980f7efbbb9e7adbda17332b. Its parent is integration
+  Published product authority is exact origin/main@86e7927f82c1e48a9d5ab7255ac8004dc12c10eb. It descends from the
+  semantically reviewed publication 9dc4957548111c99980f7efbbb9e7adbda17332b; that commit descends from integration
   merge fed1073d53d5894946b8ad6e9ffd14d6c79ec69a, whose parents are
   db69aba6847a47ce2544ad1314f3567b327805d7 and frozen-packet commit
-  21acd415209dc4261aaa692c13cc56d0e6d9f59f. Both fed1073d and 21acd415 are ancestors of the published main.
+  21acd415209dc4261aaa692c13cc56d0e6d9f59f. 9dc49575, fed1073d and 21acd415 are all ancestors of current main.
+
+  The only 9dc49575..86e7927f change is c-exec-cross-platform-git-identity-001: repo-owned LF/UTF-8 rules,
+  raw committed-Git-blob identity tooling, focused tooling tests, the migrated Coarse committed-artifact guard, its
+  shared staged/unstaged-drift guard and product RESULT. It changes seven paths and does not change AGENTS.md,
+  validation.config, any frozen NearGas packet file or runtime/Unity code. Product evidence:
+  docs/results/c-exec-cross-platform-git-identity-001.md. Final tools/check.ps1 was green (1666/1666 headless);
+  focused identity/Coarse tests were independently repeated 12/12 green. The initial 1674e3ef implementation was
+  superseded by the focused 86e7927f guard closure after parent review exposed its HEAD-only false-green.
 
   Fresh Direction binding authority:
   - live/indie-game-development/history/2026-07-14-s-work-near-gas-l1-v21-published-binding-001.md
@@ -31,7 +40,7 @@ context: |
     zero unresolved/inferred cells and zero process gaps.
   - this verdict accepts the packet only as execution planning authority. NearGas L1 is still NOT DELIVERED.
 
-  Frozen execution authority at the exact published base:
+  Frozen execution authority at the exact current published base:
   - AGENTS.md and validation.config, synced contract version 21;
   - openspec/changes/c-exec-near-gas-core-authority-001/PLAN.md;
   - openspec/changes/c-exec-near-gas-core-authority-001/proposal.md;
@@ -49,6 +58,9 @@ context: |
   - tasks: ab32ed4a43b76d906d7ac75a1722e2a769121b184c65eb421c6c484e22710fe2
   - published aggregate identity: 2f676a071731bd8ae6f787eb4aeb01fdc440e676d476ebc54956eba803ed3a0e
 
+  Re-read at current main@86e7927f reproduced every SHA-256 and the same aggregate from the raw Git blobs. The fresh
+  binding verdict therefore carries forward by exact packet identity; no semantic packet row was edited or inferred.
+
   The packet binds the real public owned NearGasGenerationDefinition.Create(...), immutable built-in Core
   handler-type maps, complete F0-F8 fixtures/oracles, finite domain/fault/permutation catalogs, exact internal
   NearGasFaultSite values and same-private-path ForTesting entries. It keeps option A: one caller-serialized,
@@ -60,9 +72,9 @@ context: |
     venue: C:\projects\Unity\GasCoopGame_core — existing assigned headless core worktree; create NEW branch
       codex/c-exec-near-gas-core-authority-001-execute-003
     machine: ПК
-    base: origin/main @9dc4957548111c99980f7efbbb9e7adbda17332b (exact; if it moved, STOP and return)
+    base: origin/main @86e7927f82c1e48a9d5ab7255ac8004dc12c10eb (exact; if it moved, STOP and return)
     conflict_surface: NearGas Core authority, source/reaction/flow/loopback seams, new independent tests and gate evidence
-    depends_on: [published v21 packet at 9dc49575; fresh Direction binding GREEN at s-work-near-gas-l1-v21-published-binding-001]
+    depends_on: [unchanged published v21 packet at 86e7927f; fresh Direction binding GREEN at s-work-near-gas-l1-v21-published-binding-001]
     merge_queue: one exclusive mutating lane-A slot; return final branch/result HOME, no merge or push in this CALL
     gates: new independent spec-only RED first; different-family final-tip review; binding G5 = separate fresh session;
       owner-eye = n/a for dormant engine-free L1
@@ -108,7 +120,7 @@ boundaries: |
 done_when: |
   1. Preflight records exact project/worktree/new branch/base, clean status, no Unity lock, exclusive lane-A slot,
      repo contract v21, unchanged five-blob packet identity and fresh foreign-work preservation. Ancestry starts at
-     origin/main@9dc49575; historical checkpoints remain historical.
+     origin/main@86e7927f; historical checkpoints remain historical.
   2. A new independent spec-only RED author first commits executable coverage for all 13 requirement identities,
      all 12 unique NegativeControls and all four Properties, with every exact fixture/call/observe/source/negative
      recipe and skeleton instantiated without reading production, reusing old/dev fixtures or inventing a crutch.
@@ -142,7 +154,7 @@ done_when: |
       product activation, child feature leg, merge or push ran; every foreign GasCoopGame_dev path is preserved.
 
 return: |
-  Product EXECUTE-003 RESULT HOME with final branch/commit and ancestry from 9dc49575; exact changed paths; immutable
+  Product EXECUTE-003 RESULT HOME with final branch/commit and ancestry from 86e7927f; exact changed paths; immutable
   independent RED commit/author boundary; disposition/evidence for every one of the 29 identities and ledger rows;
   opened build/test/check/NegativeControl/Property/mutation/review/binding-G5/Deliver artifacts; updated report status
   and rollback; confirmation that construction A/fault A used no crutches, option A stayed serial, workers remained
