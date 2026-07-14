@@ -1,0 +1,137 @@
+# solmax — evidence index (moved verbatim from NOW.md hot-state, 2026-07-14)
+#
+# Полный список пойнтеров и доказательств (файлы, коммиты, дословные owner-цитаты) для
+# operating-substrate. Перенесён из live/solmax/NOW.md hot-state. Ничего не удалено — верватим.
+
+preserved_evidence:
+  - live/solmax/CHARTER.md
+  - live/solmax/TREE.md
+  - live/solmax/LOG.md
+  - live/solmax/work/converge-g-zara-operate-contract.md
+  - live/solmax/history/2026-07-04-c-solmax-zaratusta-markdown-manager-v1-route-repair-004.md
+  - live/solmax/work/calls/c-zara-operate-markdown-manager-v1-full-shape-001.md
+  - live/solmax/history/2026-07-05-s-zara-operate-markdown-manager-v1-full-shape-repair-001.md
+  - live/solmax/work/calls/c-zara-operate-markdown-manager-v1-full-surface-t1-001.md
+  - github.com/ainazemtsau/zaratusta@79578ac87c73591000409f9f82a3bb4d0e33aa5b
+  - github.com/ainazemtsau/zaratusta@b92de14eedda436e06a6de457f50aae483b7c631
+  - github.com/ainazemtsau/zaratusta@469e6996ea120073168bf350d54cf8e56135f30d
+  - github.com/ainazemtsau/zaratusta@b92de14eedda436e06a6de457f50aae483b7c631/contracts/operating-manager-v1.md
+  - github.com/ainazemtsau/zaratusta@b92de14eedda436e06a6de457f50aae483b7c631/contracts/operating-manager-v1-source-basis.md
+  - github.com/ainazemtsau/zaratusta@b92de14eedda436e06a6de457f50aae483b7c631/docs/decisions/0002-operating-manager-v1-surface.md
+  - github.com/ainazemtsau/zaratusta@b92de14eedda436e06a6de457f50aae483b7c631/examples/operating-manager-v1-examples.md
+  - github.com/ainazemtsau/zaratusta@dec12c4b1f449e4afdc304fec4d679f67b72f567
+  - github.com/ainazemtsau/zaratusta@29562edff935a9d674b99856f2a9a17867b93e8c
+  - live/solmax/history/2026-07-05-s-zara-operate-markdown-manager-v1-full-surface-t3-001.md
+  - live/solmax/history/2026-07-06-s-solmax-zaratusta-pause-operating-substrate-route-001.md
+  - user-provided transcript: Zaratusta Operating Manager v1 first ChatGPT Project live trial, showing live-use failure and debug admission
+  - live/solmax/work/calls/c-solmax-operating-substrate-frame-001.md
+  - live/solmax/history/2026-07-06-s-solmax-operating-substrate-placement-decision-001.md
+  - live/solmax/history/2026-07-06-s-solmax-operating-substrate-umbrella-placement-repair-001.md
+  - live/solmax/knowledge/zaratusta-live-use-failure-and-operating-substrate-route.md
+  - live/indie-game-development/plays/canon-cartography.md
+  - live/indie-game-development/plays/canon-forge.md
+  - owner approval in chat for umbrella repair option A: "Option A"
+  - live/solmax/work/operating-substrate-scope-boundary-cartography-001.md
+  - live/solmax/plays/architecture-forge.md
+  - live/solmax/work/calls/c-solmax-operating-substrate-scope-boundary-architecture-forge-001.md
+  - live/solmax/history/2026-07-07-s-solmax-operating-substrate-architecture-cartography-001-owner-sign.md
+  - owner approval in chat for scope/boundary cartography map: "с картой согласен ... можем с ней дальше двигаться"
+  - live/solmax/work/operating-substrate/cards/operating-substrate-scope-boundary-001.md
+  - owner approval in chat for operating-substrate scope/boundary card v2: "Approve v2"
+  - owner correction in chat: "не факт, что такая структура будет ... мы должны определить эту структуру саму ещё ... Я не хочу, чтобы он становился авторитетным в какую-то структуру"
+  - live/solmax/history/2026-07-09-c-solmax-operating-substrate-structure-discovery-architecture-forge-001.md
+  - owner correction in chat: "должна быть структура ... саму структуру это надо разрабатывать достаточно комплексная вещь ... дальше должна быть идти именно проработка, архитектурная проработка"
+
+  - live/solmax/work/operating-substrate-universal-structure-cartography-001.md
+  - live/solmax/history/2026-07-09-s-solmax-operating-substrate-universal-structure-cartography-001.md
+  - owner approval/steering in chat: "я с вопросами согласен ... будут возникать новые вопросы ... за одним вопросом последуют другие ... мы определим какую-то сущность, которая тоже должна быть отдельно определена ... мы должны быть готовы к такому"
+  - live/solmax/work/operating-substrate/cards/operating-substrate-core-invariant-001.md
+  - live/solmax/history/2026-07-10-s-solmax-operating-substrate-core-invariant-architecture-forge-001.md
+  - 'owner approval in chat: "я approve версию 1, вариант А"'
+  - 'owner clarification in chat: "я должен получить индекс, который могу скопировать и вставить в новый чат"'
+  - 'owner clarification in chat: "writer — это отдельная задача ... своя валидация должна быть"'
+  - 'owner carrier direction in chat: "сейчас это как просто Markdown-файл ... в будущем ... более автоматизировано"'
+  - live/solmax/work/operating-substrate-kernel-service-zone-best-practice-research-001.md
+  - live/solmax/history/2026-07-10-s-solmax-operating-substrate-kernel-service-zone-best-practice-research-001.md
+  - live/solmax/work/calls/c-solmax-operating-substrate-service-zone-classification-architecture-forge-001.md
+  - live/solmax/work/operating-substrate/cards/operating-substrate-service-zone-classification-001.md
+  - live/solmax/history/2026-07-10-s-solmax-operating-substrate-service-zone-classification-architecture-forge-001.md
+  - 'owner choice in chat: "A"'
+  - 'owner approval in chat: "Approve v1"'
+  - live/solmax/work/calls/c-solmax-operating-substrate-service-zone-relationship-best-practice-research-001.md
+  - live/solmax/work/operating-substrate-service-zone-relationship-best-practice-research-001.md
+  - live/solmax/history/2026-07-10-s-solmax-operating-substrate-service-zone-relationship-best-practice-research-001.md
+  - live/solmax/work/calls/c-solmax-operating-substrate-service-zone-relationship-architecture-forge-001.md
+  - live/solmax/work/operating-substrate/cards/operating-substrate-service-zone-relationship-001.md
+  - live/solmax/history/2026-07-10-s-solmax-operating-substrate-service-zone-relationship-architecture-forge-001.md
+  - 'owner choice in chat: "A"'
+  - 'owner approval in chat: "Approve v1"'
+  - live/solmax/work/calls/c-solmax-operating-substrate-process-pack-instantiation-best-practice-research-001.md
+  - live/solmax/work/operating-substrate-process-pack-instantiation-best-practice-research-001.md
+  - live/solmax/history/2026-07-10-s-solmax-operating-substrate-process-pack-instantiation-best-practice-research-001.md
+  - live/solmax/work/calls/c-solmax-operating-substrate-process-pack-instantiation-architecture-forge-001.md
+  - live/solmax/work/operating-substrate/cards/operating-substrate-process-pack-instantiation-001.md
+  - live/solmax/history/2026-07-10-s-solmax-operating-substrate-process-pack-instantiation-architecture-forge-001.md
+  - 'owner choice in chat: "принимаю твою рекомендацию"'
+  - 'owner approval in chat: "Approve v1"'
+  - live/solmax/work/calls/c-solmax-operating-substrate-shared-owner-context-best-practice-research-001.md
+  - live/solmax/work/operating-substrate-shared-owner-context-best-practice-research-001.md
+  - live/solmax/history/2026-07-11-s-solmax-operating-substrate-shared-owner-context-best-practice-research-001.md
+  - live/solmax/work/calls/c-solmax-operating-substrate-shared-owner-context-architecture-forge-001.md
+  - live/solmax/work/operating-substrate/cards/operating-substrate-shared-owner-context-001.md
+  - live/solmax/history/2026-07-11-s-solmax-operating-substrate-shared-owner-context-architecture-forge-001.md
+  - 'owner direction choice in chat: "1"'
+  - 'owner approval in chat: "Approve v1"'
+  - live/solmax/work/calls/c-solmax-operating-substrate-persistence-history-best-practice-research-001.md
+  - live/solmax/work/operating-substrate-persistence-history-best-practice-research-001.md
+  - live/solmax/work/calls/c-solmax-operating-substrate-persistence-history-architecture-forge-001.md
+  - live/solmax/work/operating-substrate/cards/operating-substrate-persistence-history-001.md
+  - live/solmax/history/2026-07-11-s-solmax-operating-substrate-persistence-history-architecture-forge-001.md
+  - 'owner direction choice in chat: "беру твою рекумендацию"'
+  - 'owner approval in chat: "Approve v1"'
+  - live/solmax/work/calls/c-solmax-operating-substrate-routing-procedure-best-practice-research-001.md
+  - live/solmax/work/operating-substrate-routing-procedure-minimal-bootstrap-steering-001.md
+  - live/solmax/work/calls/c-solmax-operating-substrate-routing-procedure-architecture-forge-001.md
+  - live/solmax/history/2026-07-11-s-solmax-operating-substrate-routing-procedure-direction-repair-001.md
+  - live/solmax/work/operating-substrate/cards/operating-substrate-routing-procedure-001.md
+  - live/solmax/history/2026-07-11-s-solmax-operating-substrate-routing-procedure-architecture-forge-001.md
+  - 'owner direction choice in chat: «Я принимаю твою рекомендацию»'
+  - 'owner final approval in chat: «Approve V1.»'
+  - live/solmax/work/operating-substrate-minimal-bootstrap-implementation-readiness-001.md
+  - live/solmax/history/2026-07-11-s-solmax-operating-substrate-minimal-bootstrap-implementation-readiness-001.md
+  - github.com/ainazemtsau/solmax-operating-substrate@f3d153d04289cbdc0533c1f394a1cef85f21a7b9
+  - 'owner stack decision in chat: "Вариант A" + Python only for concrete non-semantic functions (no compiler/regex/semantic scanner)'
+  - live/solmax/history/2026-07-12-s-solmax-operating-substrate-first-process-creator-t2-repo-bootstrap-setup-001.md
+  - os/engineering/profiles/markdown-substrate.md
+  - live/solmax/work/operating-substrate/process-creator-materialization-plan-v1.md
+  - live/solmax/history/2026-07-13-s-solmax-operating-substrate-first-process-creator-t2-materialization-plan-001.md
+  - 'owner approval in chat: "Approve plan v1"'
+  - github.com/ainazemtsau/solmax-operating-substrate@6ca5539a60a24d96b27cb2677e605c582f5f0161
+  - github.com/ainazemtsau/solmax-operating-substrate@d915789baffd13893a9fee1e7cb4b1eb74a02604
+  - github.com/ainazemtsau/solmax-operating-substrate@d915789baffd13893a9fee1e7cb4b1eb74a02604/RESULT.md
+  - 'owner-provided engineering handback: BUILD candidate ready for independent t-3 refutation'
+  - 'local product review commit: C:/projects/solmax-operating-substrate@ea254929ff60324e96633573a084c7c990e7f8b7 (branch codex/process-creator-v1-t3-refutation; unpushed)'
+  - 'local product review evidence: C:/projects/solmax-operating-substrate/docs/reviews/review-process-creator-v1.md@ea254929ff60324e96633573a084c7c990e7f8b7'
+  - live/solmax/history/2026-07-13-s-solmax-operating-substrate-first-process-creator-t3-refutation-checkpoint-001.md
+  - 'owner disposition in chat: "Исправляем F‑R01 и возвращаем на свежую проверку Yeah."'
+  - live/solmax/work/calls/c-solmax-operating-substrate-first-process-creator-t2-f-r01-ledger-correction-001.md
+  - live/solmax/history/2026-07-13-s-solmax-operating-substrate-first-process-creator-f-r01-repair-route-001.md
+  - 'local product F-R01 correction: C:/projects/solmax-operating-substrate@8134aaef9732498f11480491778ffcecaf5b4ed0 (only packs/process-creator/verification/scope-coverage.md)'
+  - live/solmax/work/calls/c-solmax-operating-substrate-first-process-creator-t2-f-r01-closing-report-alignment-002.md
+  - live/solmax/history/2026-07-13-s-solmax-operating-substrate-first-process-creator-t2-f-r01-correction-handback-002.md
+  - 'local product fresh t-3 review/result: C:/projects/solmax-operating-substrate@eefc77edbba5a1a5af8c2656544b06bb6824d922 (reviewed candidate b7da58713121884cc252bcc934672e66fb64e8f4)'
+  - 'local product review evidence: C:/projects/solmax-operating-substrate/docs/reviews/review-process-creator-v1.md@eefc77edbba5a1a5af8c2656544b06bb6824d922'
+  - live/solmax/work/calls/c-solmax-operating-substrate-first-process-creator-t3-owner-disposition-002.md
+  - live/solmax/history/2026-07-13-s-solmax-operating-substrate-first-process-creator-t2-autonomous-close-003.md
+  - 'owner structural disposition in chat: "Принимаю структурную допустимость"'
+  - live/solmax/work/calls/c-solmax-operating-substrate-first-process-creator-t4-owner-intent-001.md
+  - live/solmax/history/2026-07-13-s-solmax-operating-substrate-first-process-creator-t3-owner-disposition-004.md
+  - live/solmax/work/health-reclamation-plan-v1.md
+  - live/solmax/work/calls/c-solmax-operating-substrate-first-process-creator-t4-health-reclamation-plan-approval-002.md
+  - 'owner plan approval in chat: "Approve plan v1"'
+  - live/solmax/work/calls/c-solmax-operating-substrate-first-process-creator-t4-health-reclamation-build-003.md
+  - 'product provisional health-reclamation pack: cea2866, reversed before delivery at 3b38d78'
+  - live/solmax/history/2026-07-13-s-solmax-operating-substrate-first-process-creator-t4-health-reclamation-plan-checkpoint-001.md
+  - live/solmax/history/2026-07-13-s-solmax-operating-substrate-first-process-creator-t4-health-reclamation-plan-approval-002.md
+
+END_OF_FILE: live/solmax/work/operating-substrate/evidence-index.md
