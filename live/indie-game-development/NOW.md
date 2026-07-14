@@ -1,5 +1,5 @@
 # NOW: indie-game-development
-updated: 2026-07-13 by s-plan-characters-v1-freeze-001
+updated: 2026-07-14 by s-research-q-coop-interdependence-001
 
 bet:
   node: g-9c41
@@ -99,6 +99,11 @@ tasks:
       источник (single source): GasCoopGame origin/main@0e9eed02 docs/results/c-exec-player-puppetmaster-p2a0-lean-spike-build-001.md.
 
 open_calls:
+  - id: c-repair-minimum-game-frame-v2-001
+    to: session
+    for: g-d3a8 / Minimum Game Frame v2
+    issued: 2026-07-14
+    note: "READY PARALLEL: owner-present short Frame v2 distillation after Gate F verdict FRAME REVISED; no canon/TREE/CHARTER/Sc-damage change. history/2026-07-14-s-research-q-coop-interdependence-001.md."
   - id: c-exec-unity65-mac-revision-002-build-001
     to: executor
     for: g-9c41 / local .NET repository-gate runner prerequisite
