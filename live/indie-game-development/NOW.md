@@ -1,5 +1,5 @@
 # NOW: indie-game-development
-updated: 2026-07-14 by s-work-gascoopgame-contract-v22-resync-close-001
+updated: 2026-07-14 by s-work-char-v2-leg1-return-g5-open-001
 
 bet:
   node: g-9c41
@@ -157,25 +157,37 @@ open_calls:
     for: g-2f8c / minimal marketing wake
     issued: 2026-07-11
     note: "READY from the 2026-07-11 wake brief; owner mandate includes INOMAND research/substrate and no public action or spend without a separate owner yes. Route is known stale against the committed INOMAND checkpoint: dr-20260712-001."
-  - id: c-exec-char-v2-reaction-core-build-001
-    to: executor
-    for: g-6d4e / В2 Leg 1 — headless reaction core + knockdown-aware source
+  - id: c-review-char-v2-reaction-core-g5-001
+    to: session
+    for: g-6d4e / В2 Leg 1 — binding G5 on the built headless reaction core
     issued: 2026-07-14
     note: |
-      READY PARALLEL (character track, not the primary next): frozen spec work/c-plan-characters-002-plan.md §4 Leg 1.
-      Opening idempotent v20→v21 re-sync (contract-text only), then independent-RED headless reaction state machine +
-      knockdown-aware IAuthoritativeBodyState wrapper (gate input while State≠Normal; GetUp reconciles authoritative←rest);
-      seam TYPES byte-identical. No rig/ragdoll/material/merge. Reuse worktree GasCoopGame_p2a0_002. Binding fresh G5 in a
-      separate Direction session closes it. work/c-exec-char-v2-reaction-core-build-001-call.md.
+      READY PARALLEL (character track, not the primary next): binding fresh G5 on the FROZEN Leg-1 tip
+      c-exec-char-v2-reaction-core-build-001@e64f070f (worktree GasCoopGame_p2a0_002). Read-only refutation of claims
+      (a)–(j); no owner-eye half exists for this leg (headless by acceptance design) so G5 is Leg 1's ONLY gate.
+      Writer confirmed first-hand: leg delta = 10 files ALL additions, seam byte-identical, v21 already on base (SKIP
+      lawful), RED commit precedes impl, no unreviewed source after reviewed-commit 192855f3, G4 has 0×P0/P1.
+      TWO CORRECTIONS the builder could not know, carried by the CALL: (1) BASE DRIFTED — fork base 1674e3ef, but
+      origin/main is now 86e7927f "Fix Git artifact identity false-green guard" (direct child, +8 min mid-leg), so the
+      claimed gate-green and baseline 1662 were measured WITHOUT that false-green fix; 86e7927f looks orthogonal to
+      Characters (Tooling + coarse gas tests) and rebase belongs to the MERGE SLOT (lanes rule 5), not to G5; (2) В1 IS
+      ALREADY MERGED into product main and the product is on v21 — knowledge/ corrected by this session.
+      Cross-family Codex preferred: the G4 was cross-MODEL (opus-4-8↔sonnet-5) inside ONE family, so Codex is the first
+      independent family on this code; freshness (≠ builder session) is the hard gate, family is not.
+      Read-only: no rebase/merge/push. Only CONFIRMED closes Leg 1 and unblocks Leg 2 (the G5 session then issues the
+      runnable Leg 2 CALL). work/c-review-char-v2-reaction-core-g5-001-call.md.
   - id: c-exec-char-v2-body-rig-ragdoll-build-001
     to: executor
     for: g-6d4e / В2 Leg 2 — rig + procedural locomotion + cosmetic PuppetMaster ragdoll + character material
     issued: 2026-07-14
     note: |
-      HELD until Leg 1 (c-exec-char-v2-reaction-core-build-001) is G5-CONFIRMED; the Leg-1-return review issues the
-      runnable CALL. Spec: work/c-plan-characters-002-plan.md §4 Leg 2. PuppetMaster ragdoll = isolated cosmetic layer
+      HELD until Leg 1 is G5-CONFIRMED via c-review-char-v2-reaction-core-g5-001 (the former blocker
+      c-exec-char-v2-reaction-core-build-001 returned 2026-07-14 and is consumed); that G5 session issues the runnable
+      CALL. Spec: work/c-plan-characters-002-plan.md §4 Leg 2. PuppetMaster ragdoll = isolated cosmetic layer
       (base prefab works without gitignored RootMotion); magenta fix = own character material only (URP-default guid
-      31321ba1… untouched, F2). Engine existence proof + owner-eye LOOK + cross-family G4 + binding fresh G5.
+      31321ba1… untouched, F2). Must carry Leg-1 G4 P3s: F2 IsReady latches ever-ready (a consumer must NOT read
+      IsReady==true as "pose synced with input"), F3 GetUp from Normal transiently sets _held.
+      Engine existence proof + owner-eye LOOK + cross-family G4 + binding fresh G5.
 recurring: []
 
 decisions:
