@@ -254,4 +254,6 @@ archived: history/LOG-archive-indie-game-development.md — sessions before 2026
 
 2026-07-14 — repair (g-9c41/NearGas-L1-BUILD, s-repair-near-gas-execute-003-v22-routing-001): EXECUTE-003@86e7927f reconciled as CHECKPOINT 0/29 / NOT DELIVERED and made NON-RUNNABLE under contract v22; NearGas stays open, exactly one product contract v21→v22 §Re-sync CALL is READY, and the separate PLAN-AMEND waits for that RESULT HOME. → history/2026-07-14-s-repair-near-gas-execute-003-v22-routing-001.md
 
+2026-07-14 — work/product-return (g-9c41/NearGas-L1-BUILD, s-work-gascoopgame-contract-v22-resync-close-001): GasCoopGame contract v22 re-sync @874a0825 reconciled COMPLETE with exact six-path policy diff and frozen NearGas/product preservation; the contract call closed, L1 stayed active/NOT DELIVERED, and owner-present c-exec-near-gas-core-authority-001-plan-amend-v22-003 opened READY PARALLEL while the M1 review remained PRIMARY. → history/2026-07-14-s-work-gascoopgame-contract-v22-resync-close-001.md
+
 END_OF_FILE: live/indie-game-development/LOG.md
