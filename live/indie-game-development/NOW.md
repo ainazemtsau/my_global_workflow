@@ -1,5 +1,5 @@
 # NOW: indie-game-development
-updated: 2026-07-14 by s-work-near-gas-cross-platform-identity-resync-001
+updated: 2026-07-14 by s-repair-near-gas-execute-003-v22-routing-001
 
 bet:
   node: g-9c41
@@ -24,12 +24,12 @@ bet:
     быть продлена work-сессией, поэтому свежий review закрывает её и предлагает следующую ставку.
     Ратифицированный level path сохранён: project-owned Level/Module Contract → DA runtime + PGG editor-time
     bake → production modules; новый Level executor CALL не выпущен.
-    NearGas publication update: fresh Direction refutation accepted the owner-approved v21 packet at
-    product origin/main@9dc49575 with 29/29 PASS and exact raw-Git-blob aggregate
-    2f676a071731bd8ae6f787eb4aeb01fdc440e676d476ebc54956eba803ed3a0e. Product main then advanced to
-    86e7927f through a cross-platform EOL/blob-identity infrastructure fix plus the focused drift-guard closure; the
-    five packet blobs, v21 contract and ancestry are unchanged. L1 remains NOT DELIVERED; execute-003 is READY
-    PARALLEL from exact current main.
+    NearGas EXECUTE-003 returned from exact product main@86e7927f with 0 commits, 0 changed files and 0/29 RED:
+    CHECKPOINT / NOT DELIVERED. Binding fresh v22 refutation invalidated the former prose-level 29/29 as BUILD
+    authority: AR-01/06/12/13 mix non-test evidence, F5/pending-impulse comparison is incomplete, and the CsCheck
+    property recipe is not compile-ready. EXECUTE-003 is consumed and NON-RUNNABLE. The only new NearGas product
+    route is a contract-only GasCoopGame v21→v22 §Re-sync; after its RESULT HOME, Direction must issue a separate
+    PLAN-AMEND. That PLAN-AMEND is deliberately not open in this repair. L1 remains active / NOT DELIVERED.
   against: |
     Gas PROGRAM — обязательный дочерний маршрут, но не весь M1 и не разрешение молча превысить 13 legs.
     Старый level PLAN ждёт Phase 0, которая больше никогда не возобновляется; новый маршрут обязан сперва
@@ -46,7 +46,7 @@ bet:
     commercial_traction: final evidence leg отдаёт capture-пакет visual/marketing линиям.
     core_gameplay_depth: M1-5..7 — tracking, reactions, breach.
     coop_first: M1-9+10 — две реальные машины, sync и owner verdict.
-    technical_feasibility: NearGas v21 planning authority is binding GREEN on the exact unchanged five-blob packet: 29/29 PASS, zero unresolved/process gaps, aggregate 2f676a071731bd8ae6f787eb4aeb01fdc440e676d476ebc54956eba803ed3a0e. Current product origin/main@86e7927f82c1e48a9d5ab7255ac8004dc12c10eb descends from reviewed publication 9dc49575 and adds only the cross-platform EOL/blob-identity infrastructure fix plus its focused staged/unstaged-drift guard closure. Independent execute-003 is READY PARALLEL from 86e7927f; L1 remains NOT DELIVERED until its full RED/BUILD/review/fresh-G5/Deliver contour closes. Level/DA/PGG route remains ratified.
+    technical_feasibility: Product checkpoint is verified clean at codex/c-exec-near-gas-core-authority-001-execute-003@86e7927f82c1e48a9d5ab7255ac8004dc12c10eb with 0 commits, 0 diff and no RED test file. Direction OS v22 refutes the former v21 29/29 readiness claim because behavioral and evidence-only obligations were mixed, F5 lacks a complete comparison surface, and the CsCheck recipe cannot be compiled as written. Product contract still stamps v21. Contract-only v21→v22 §Re-sync is READY PARALLEL; no BUILD or PLAN-AMEND is open. Level/DA/PGG route remains ratified.
     scope_production: not_needed — cut_list и один уровень держат solo-scope.
     audience_workflow: final evidence leg; отдельная соцсеть-задача не нужна.
 
@@ -64,17 +64,16 @@ tasks:
     done_when: Reviewed, gate-green DELIVERED L1 с independent RED и binding fresh G5; no Unity/child-leg/workers.
     status: active
     note: |
-      V21 PLANNING AUTHORITY BINDING GREEN / L1 NOT DELIVERED. Fresh read-only Direction refutation matched the exact
-      five-blob packet at product origin/main@9dc4957548111c99980f7efbbb9e7adbda17332b: integration merge fed1073d,
-      frozen commit 21acd415 and aggregate 2f676a071731bd8ae6f787eb4aeb01fdc440e676d476ebc54956eba803ed3a0e;
-      all 13 Acceptance Requirements + 12 unique NegativeControls + 4 Properties passed first-hand, 29/29 with zero
-      gaps. Current product main@86e7927f82c1e48a9d5ab7255ac8004dc12c10eb is a descendant whose seven-path
-      infrastructure/test diff adds canonical LF/editor rules, a raw-Git-blob identity tool and a shared drift-safe
-      committed-artifact guard; the packet blobs, AGENTS.md and validation.config v21 are unchanged. Historical
-      52a47c52... stays working-tree-byte
-      chronology only. Planning calls are closed; execute-003 is READY PARALLEL on lane A/headless from exact current
-      base with a new independent RED first, immutable packet/ledger/tests, serial option A, deferred workers and the
-      full review/fresh-G5/Deliver contour. Historical BUILD and execute-002 checkpoints remain evidence only.
+      EXECUTE-003 CHECKPOINT / NOT DELIVERED. Product branch
+      codex/c-exec-near-gas-core-authority-001-execute-003 is still exactly
+      86e7927f82c1e48a9d5ab7255ac8004dc12c10eb: 0 commits, 0 changed files, no independent RED commit and 0/29.
+      Binding fresh contract-v22 refutation found three authority gaps: AR-01/06/12/13 mix behavioral obligations
+      with path/history/review/gate evidence; F5 does not expose a complete all-field plus pending-impulse comparison
+      API; the CsCheck 3.2.2 property text names seed/shrinking/1,024 cases but gives no compile-ready invocation.
+      Therefore the earlier v21 29/29 record remains history, not execution authority. EXECUTE-003 is consumed and
+      NON-RUNNABLE. Exactly one successor is open now: GasCoopGame contract v21→v22 §Re-sync only. It changes no
+      NearGas packet, tests or product behavior. After that RESULT HOME, Direction routes a separate PLAN-AMEND;
+      that later call is not opened here. Historical BUILD and execute-002 checkpoints remain evidence only.
   - id: M1-P2a0
     goal: PuppetMaster получает проверенный root-authority маршрут для сетевого игрока.
     done_when: Owner-approved live-source PLAN + later accepted BUILD, bounded-C, multiplayer inventory и fresh G5.
@@ -126,20 +125,16 @@ open_calls:
     for: g-9c41 / local .NET gate runner prerequisite
     issued: 2026-07-12
     note: "HELD / NON-RUNNABLE: pre-v21 CALL and PLAN refs 7a3e747/8a344e9 do not resolve from fetched refs. After repo v21 Re-sync it still needs its own current-v21 full-packet check; CALL content is unchanged. work/c-exec-unity65-mac-revision-002-build-001-call.md."
-  - id: c-exec-near-gas-core-authority-001-execute-003
+  - id: c-exec-gascoopgame-contract-v22-resync-001
     to: executor
-    for: NearGas-L1-BUILD / new independent RED then serial option-A delivery
+    for: NearGas-L1-BUILD prerequisite / GasCoopGame contract v21→v22 §Re-sync only
     issued: 2026-07-14
     note: |
-      READY PARALLEL / LANE A HEADLESS / V21 BINDING GREEN: exact current base product origin/main@86e7927f descends
-      from reviewed publication 9dc49575 and preserves packet aggregate
-      2f676a071731bd8ae6f787eb4aeb01fdc440e676d476ebc54956eba803ed3a0e. Its intervening change is the verified
-      cross-platform EOL/raw-Git-blob identity infrastructure fix plus its focused drift-guard closure only. Start a
-      new branch and new independent spec-only RED for all 29 identities before production; one exclusive core
-      mutation slot, immutable frozen packet, ledger
-      and independent tests, serial option A and deferred workers. Full build/tests/check/NegativeControls/Properties/
-      mutation/review/fresh-G5/Deliver contour; no Unity/MCP, merge or push. L1 remains NOT DELIVERED.
-      work/c-exec-near-gas-core-authority-001-execute-003-call.md.
+      READY PARALLEL / POLICY-ONLY / HEADLESS: mirror Direction OS contract v22 into GasCoopGame's repo-local run
+      contract and OpenSpec guidance, classify behavioral-red versus evidence-only obligations, add the writer
+      evidence guard and stamp synced_contract_version 22. No NearGas packet amendment, RED authoring, tests,
+      production BUILD, Unity, merge or push. Return HOME first; only then may Direction route a separate NearGas
+      PLAN-AMEND. work/c-exec-gascoopgame-contract-v22-resync-001-call.md.
   - id: c-shape-sc-damage-001
     to: session
     for: Sc-damage
