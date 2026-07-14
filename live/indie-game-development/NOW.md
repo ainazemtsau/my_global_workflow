@@ -1,5 +1,5 @@
 # NOW: indie-game-development
-updated: 2026-07-14 by s-work-publish-near-gas-v21-main-and-open-binding-001
+updated: 2026-07-14 by s-plan-characters-v2-freeze-001
 
 bet:
   node: g-9c41
@@ -152,15 +152,31 @@ open_calls:
     for: g-2f8c / minimal marketing wake
     issued: 2026-07-11
     note: "READY from the 2026-07-11 wake brief; owner mandate includes INOMAND research/substrate and no public action or spend without a separate owner yes. Route is known stale against the committed INOMAND checkpoint: dr-20260712-001."
+  - id: c-exec-char-v2-reaction-core-build-001
+    to: executor
+    for: g-6d4e / В2 Leg 1 — headless reaction core + knockdown-aware source
+    issued: 2026-07-14
+    note: |
+      READY PARALLEL (character track, not the primary next): frozen spec work/c-plan-characters-002-plan.md §4 Leg 1.
+      Opening idempotent v20→v21 re-sync (contract-text only), then independent-RED headless reaction state machine +
+      knockdown-aware IAuthoritativeBodyState wrapper (gate input while State≠Normal; GetUp reconciles authoritative←rest);
+      seam TYPES byte-identical. No rig/ragdoll/material/merge. Reuse worktree GasCoopGame_p2a0_002. Binding fresh G5 in a
+      separate Direction session closes it. work/c-exec-char-v2-reaction-core-build-001-call.md.
+  - id: c-exec-char-v2-body-rig-ragdoll-build-001
+    to: executor
+    for: g-6d4e / В2 Leg 2 — rig + procedural locomotion + cosmetic PuppetMaster ragdoll + character material
+    issued: 2026-07-14
+    note: |
+      HELD until Leg 1 (c-exec-char-v2-reaction-core-build-001) is G5-CONFIRMED; the Leg-1-return review issues the
+      runnable CALL. Spec: work/c-plan-characters-002-plan.md §4 Leg 2. PuppetMaster ragdoll = isolated cosmetic layer
+      (base prefab works without gitignored RootMotion); magenta fix = own character material only (URP-default guid
+      31321ba1… untouched, F2). Engine existence proof + owner-eye LOOK + cross-family G4 + binding fresh G5.
 recurring: []
 
 decisions:
   - q: "d-m1-min-spec-hardware-001 — какое конкретное слабое железо становится binding min-spec финального прогона М1?"
     options: ["Доступная физическая машина", "Точный CPU/GPU/RAM-класс с арендой/покупкой к финалу", "Только throttled-прокси — финал не закрывает"]
     recommendation: "Доступная физическая машина; газ CPU-bound, поэтому CPU должен быть назван явно."
-  - q: "d-char-v1-post-g5-001 — В1 G5-CONFIRMED (owner-eye + свежий binding G5, same-family Opus; заявки a–f не опровергнуты, P1 нет). Что дальше по character-треку?"
-    options: ["Merge В1 в main + открыть В2 следующим", "Сначала Codex cross-family G5-проход (routing-предпочтение) + фикс magenta-материала, затем merge/В2", "В1 done; В2/merge в очередь за spine (route-reset review) — сейчас не запускать"]
-    recommendation: "Заявки не опровергнуты и boundary чист → Codex-проход не обязателен (только доп-строгость на Unity-adapter/input); magenta — косметика для В2. Merge гоняешь ты. Пока НЕ авто-мержу и НЕ авто-открываю В2. Знание: knowledge/g6d4e-char-v1-socket-delivered.md."
 
 next:
   CALL: work/c-review-poligon-m1-route-reset-001-call.md
