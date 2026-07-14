@@ -140,5 +140,11 @@ preserved_evidence:
   - 'historical route error: live/solmax/history/2026-07-14-s-solmax-operating-substrate-first-process-creator-t4-canonical-route-repair-004.md and its review-005 CALL rejected the product candidate by mistake; they are evidence, not current routing authority'
   - live/solmax/work/calls/c-solmax-operating-substrate-first-process-creator-t4-health-reclamation-fresh-refutation-007.md
   - live/solmax/history/2026-07-14-s-solmax-operating-substrate-first-process-creator-t4-existing-candidate-recovery-repair-006.md
+  - 'product fresh review 007 and aligned RESULT: C:/projects/solmax-operating-substrate@b23eb0bb208a6b2344043ac472621093132dadc9 (review basis c184b36483925e3527ffd21c8e62886d286908d0; semantic candidate da9d95b81331b39d710620156bf3c23fa29ea37c)'
+  - 'product review verdict: structural_admissibility FAIL; only blocker F-HR-R01, Q2 atomic-classification/evidence-integrity; admission and activation NOT_PERFORMED; t-4 NOT_MET and remains active'
+  - 'owner repair-plan approval in chat: "A — исправляем только две классификации в правильном репозитории, сохраняя весь текущий прогрес"'
+  - live/solmax/work/health-reclamation-f-hr-r01-repair-plan-v1.md
+  - live/solmax/work/calls/c-solmax-operating-substrate-first-process-creator-t4-health-reclamation-f-hr-r01-red-preflight-009.md
+  - live/solmax/history/2026-07-14-s-solmax-operating-substrate-first-process-creator-t4-health-reclamation-f-hr-r01-repair-plan-008.md
 
 END_OF_FILE: live/solmax/work/operating-substrate/evidence-index.md
