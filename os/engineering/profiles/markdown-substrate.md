@@ -25,7 +25,7 @@ scanner (aligns with contract v17 source-scan ban).
 
 ## 2. Default validation.config thresholds
 
-- `synced_contract_version`: only absent/proven clean-Git-virgin SETUP or lower/current-invalid RE-SYNC stamps current from fresh `https://github.com/ainazemtsau/my_global_workflow` `refs/heads/main` query/fetch; current/wt/local/tracking refs and direct bump are invalid. Every existing target, syntactically complete pair included, evaluates one linear nondecreasing reachable marker+receipt chain and selects the unique descendant-most/highest event. If history exists, disk ordinal must equal recovered ordinal; mismatch is corrupt and routes by recovered lower/equal/future, so deletion or replacement cannot launder rollback. A matching inner marker resumes exact row+Git journal; the sole first-marker exception is an exact-empty absent-SETUP sibling temp-root creating that inner marker. Separate reconcile observation preserves the immutable entry receipt; advanced authority yields `MANIFEST-RECONCILED`, no current receipt, then fresh routing. Future never downgrades. Ordinary manifests require platform-normalized-path uniqueness across all operations, and an existing-repo post commit has exactly one parent equal to pre-HEAD; absent bootstrap alone is parentless.
+- `synced_contract_version`: stamp current `os/engineering/CONTRACT_VERSION`.
 - `retry_budget`: 3 per gate, then stop and report.
 - `mutation_kill_floor`: `n/a-markdown-substrate` — REQUIRED key kept present and
   honest (no compiled code → G2 has no subject matter). Do NOT fake a score.
@@ -73,12 +73,9 @@ scanner (aligns with contract v17 source-scan ban).
   not by a post-push pipeline.
 - Deliver gate: `--deliver` adds the `RESULT.md` field-presence check to the
   always-run inner-loop gate; cited-artifact existence (v18) runs always.
-- A v21 stamp and any G0/frozen executable PLAN are forbidden until the product
-  has a product-native, non-scanner interpreter/tool contour implementing the
-  distinct binding-validator -> owner verdict -> fresh independent RED-author
-  sequence and actual compile/parse, discovery, filtering and obligation-union
-  equivalents. A truly non-executable light change is N/A only by absence of
-  every G0/frozen trigger, never because an agent declares it light. The review
-  discipline (G4/G5) still applies to every substrate-content change.
+- The code-only strong-check deliver dependencies (mutation/negative-control/
+  property-layer/review-evidence freshness) are N/A-by-absence until a frozen
+  compiled-code change exists; the review discipline (G4/G5) still applies to
+  any substrate-content change and is recorded under `docs/reviews/`.
 
 END_OF_FILE: os/engineering/profiles/markdown-substrate.md

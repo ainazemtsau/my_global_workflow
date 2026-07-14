@@ -14,19 +14,15 @@ Companion files: `PROJECT_SETUP.md` (bootstrap a product repo), `VALIDATION.md` 
 
 ## Roles (always separated)
 
-**v21 PLAN role boundary (normative over older shorthand).** `author` stops at an ungated candidate and cannot self-issue binding GREEN. Writer persists that candidate and a mechanical finalizer; a fresh finalizer creates `PLAN/binding-validator`. That distinct read-only session independently derives the obligation union and runs scratch-only binding probes against the exact candidate/base. Its GREEN event and another fresh finalizer are the sole route to `PLAN/verdict`; only explicit accepted owner words for unchanged P/TESTABILITY/receipt plus a later finalizer may create EXEC. Revised/split starts a new candidate and full binding pass; rejected creates no EXEC. BUILD/acceptance RED is another fresh role and session. Planner, binding-validator, verdict, RED author and builder are pairwise distinct.
-
-- **Planner (v21)** - interactive PLAN/author session. It may clarify with the owner, but stops after committing the ungated candidate and hands only that event to the writer. It cannot ask for the binding verdict, issue EXECUTE/BUILD, write product code or author/commission RED tests.
-- **Owner-verdict session** - fresh PLAN/verdict session created only from persisted binding-validator GREEN. It presents the exact unchanged owner-readable candidate and records the owner's actual `accepted|revised|split|rejected` words; it never executes product work or authors the downstream CALL. A later fresh finalizer alone may materialize EXECUTE from `accepted`.
-
-- **Builder** - autonomous receipt-bound BUILD session after the distinct EXECUTE/RED-author checkpoint, never any PLAN/verdict/RED-author session. It reads the frozen plan and external run receipts, never talks to the owner mid-run, and cannot turn an arbitrary on-disk diff into a resume.
-- **Binding-validator** - fresh read-only PLAN substage, distinct from planner/validator/test-author/builder. It receives an already committed candidate, independently derives obligations from done_when+spec, generates its own ephemeral non-acceptance probes outside the product tree and runs the real pinned compiler/discovery/filtered runner. It returns GREEN/RED evidence but writes no product file and never decides behavioral acceptance.
+- **Pre-freeze RED reviewer** - a fresh read-only frontier AI that, before final owner approval, performs the semantic full-packet dry-run in PLAN step (d). It writes test recipes, never tests or product code, and is distinct from the planner and later test-author.
+- **Planner** — interactive session, frontier model, plan mode. Talks to the owner. A SEPARATE session from BUILD, always: the plan leg ENDS when the owner approves the plan — it hands off a build CALL and writes NO product code and authors/commissions NO red tests (red-test authoring is the build session's opening move — see Test-author). Planning and building never share one session.
+- **Builder** — autonomous session(s), default-tier model, a FRESH session that reads the frozen plan (never the same session that planned). Never talks to the owner mid-run.
 - **Validator** — fresh-context, read-only (no Write/Edit), did not author the code; for at least one pass per feature — a different model family than the builder. Agents consistently overrate their own output; same-model self-review is a mirror, not a check.
-- **Test-author** — a separate subagent that, after the spec freezes and before BUILD, reads the frozen spec, pinned same-id TESTABILITY evidence, and its recorded exact-base **baseline corpus**: only the public/module API declarations and committed test-harness contracts the spec's executable-binding table cites. It never reads PLAN/tasks/ADR as a behavioral oracle or the builder's branch, new implementation, or diff. The spec owns behavior and meaning; the baseline corpus supplies only pre-existing syntax, construction and harness facts. A new surface with no baseline declaration must therefore be bound exactly in the spec. The test-author writes the per-criterion acceptance tests as failing (red); the builder makes them pass and may not edit them. Not the builder (self-review is a mirror), not the validator (a pre-code oracle and a post-code review are different artifacts); a cheap-tier model is fine — its independence is from the current implementation, not enforced ignorance of the system being extended. For a `core algorithm` change the same role returns for a second, POST-build pass (see cycle, PROPERTY AUDIT): once gates are green it reads the actual DIFF — the one artifact neither the frozen spec nor the pre-code pass could see — for new throw-paths, seams, order-dependencies, and derived-value ranges the implementation introduced, and appends property tests for them before REPORT. Still not the builder (same self-review mirror) and not the validator (adversarial test-authoring, not review) — it is the only step positioned at the moment the seam becomes visible, between a test-author blind to the new code and a reviewer who only reads it after DELIVERED.
+- **Test-author** — a separate subagent that, after the spec freezes and before BUILD, reads ONLY the frozen spec (never the code — it does not exist yet) and writes the per-criterion acceptance tests as failing (red). The builder makes them pass and may not edit them. Not the builder (self-review is a mirror), not the validator (a pre-code oracle and a post-code review are different artifacts); a cheap-tier model is fine — its independence is from the SPEC, not from a verdict. This is what stops the builder's own tests from inheriting the builder's misreading of the spec. For a `core algorithm` change the same role returns for a second, POST-build pass (see cycle, PROPERTY AUDIT): once gates are green it reads the actual DIFF — the one artifact neither the frozen spec nor the pre-code pass could see — for new throw-paths, seams, order-dependencies, and derived-value ranges the implementation introduced, and appends property tests for them before REPORT. Still not the builder (same self-review mirror) and not the validator (adversarial test-authoring, not review) — it is the only step positioned at the moment the seam becomes visible, between a test-author blind to the code and a reviewer who only reads it after DELIVERED.
+
+**Extension rule.** Existing product code may already exist. The test-author's "never the code" restriction means the frozen spec must carry every construction and harness fact needed from that existing system; it must never assume the task is greenfield merely because the new implementation does not exist yet.
 
 ## The cycle
-
-Engineering CALL boundaries are two-stage. Intent carries literal locator; writer finalization adds only `https://github.com/ainazemtsau/my_global_workflow` + `refs/heads/main`, freshly query/fetches it, and preserves finalized CALL/entry receipt/observation byte-identically. Current/wt/local-main/tracking refs and remote-less fallback never authorize; audit/digest may derive the same resolver ephemerally only. Matching inner marker or the exact-empty absent-SETUP sibling temp-root first-marker exception resumes before matrix. Otherwise absent or proven clean initialized non-bare Git virgin admits SETUP; lower/current-invalid admits matching RE-SYNC; current-valid admits feature; trusted higher stops future; conflicting/unknown corrupt stops. Every existing target, syntactically complete pair included, enumerates reachable product+Direction events, requires one linear nondecreasing chain and selects unique descendant-most/highest. If any trusted event exists, disk ordinal must equal the recovered ordinal; mismatch is corrupt and routes only by recovered lower/equal/future, so disk replacement cannot launder rollback. SETUP is branch-free; RE-SYNC retains exact base/reason, author/review read-only, install alone writes declared rows/Git journal. Advanced-authority terminal recovery returns `MANIFEST-RECONCILED`, consumes the old call with preserved reconcile evidence, emits no receipt, then routes fresh. Stale packets never acquire receipts.
 
 ```
 CALL (business task from a direction)
@@ -94,67 +90,36 @@ CALL (business task from a direction)
     ESCALATION) — a self-authored cut of a promise is a coverage FAIL, not a disposition. This
     list is RECORDED in the spec; the deliver gate checks it (PROJECT_SETUP §Strong-check
     enablement) and the writer re-checks it on carry-back (os/adapters/coding-agent.md).
-    (d) EXECUTABLE-TEST CLOSURE: external base-authority and exact Direction done_when enter
-    PLAN intent. Writer finalizes entry. Coverage reproduces every bullet; typed packet/authority/base
-    regular-file rows bind meaning while baseline current copies may legitimately change.
-    Every obligation has complete `construct|act|observe|negative|source|skeleton` routes plus a closed typed
-    binding-registry DAG. A source artifact, constructed instance, callable and runtime resource are different kinds;
-    raw bytes require an exact loader/codec, a callable names its owning instance, and operation-local faults name the
-    concrete operation and returned slot. Every fixture/slot/literal resolves exactly once; no nickname counts.
-    `PLAN/author` enters without future TESTABILITY authority, commits exact candidate P and returns only a
-    PLAN-CANDIDATE checkpoint. Its RESULT and a fresh mechanical finalizer create `PLAN/binding-validator` for P.
-    That distinct read-only session derives the obligation union independently, generates ephemeral binding-only probes
-    outside git, and runs the real pinned compiler, unique discovery and filtered runner per obligation and for the union.
-    An absent proposed symbol uses an exact reflection/dynamic route; existing routes execute to a validator sentinel.
-    The probes establish executable routes, not future behavioral acceptance, and are never persisted for RED reuse.
-    Only the validator's persisted GREEN RESULT and another fresh finalizer create `PLAN/verdict`. Owner words and EXEC
-    are later event/finalizer transactions. Missing/stale/incomplete closure, planner self-validation, product writes,
-    skipped/nonzero compile, zero/duplicate discovery, PASS or wrong sentinel returns to PLAN before owner presentation.
-    EXEC session returns stable intent. Writer verifies event/candidate/receipt/verdict, runs pre-execution, then
-    persists run-id, pre-red-head, receipt/observation and finalized CALL. Historical source/test work has
-    no such receipt.
-    Independent test-author R records role/session, exact parent pre-red-head and only manifested
-    test/oracle-registration delta; first R is direct child or declared test-author-only chain. Pinned
-    red-boundary proves compile, unique discovery/filter and expected runtime RED. Production-before-R,
-    mixed/unmanifested change or wrong parent fails. Later independent revisions parent exact accepted
-    progress, obey the same path rule and may append only separately named same-obligation variants under the
-    unchanged frozen obligation. Original test/oracle bytes, event and manifest remain pinned byte-identically;
-    discovery and execution cover the union of original plus variants, so replacement, relabeling or half-runs fail.
-    BUILD resume preserves finalized run/base/acceptance/trust/TESTABILITY plus RED revision and exact
-    Direction-accepted progress. Foreign or pre-v21 state cannot resume.
-    Base config resolves exact result path. Deliver at D and one-commit archive A are read-only gate observations
-    under the same immutable finalized BUILD CALL, not new DELIVER/CLOSE phases: D/A/result/archive facts live only
-    in handback while CALL phase, entry HEAD and receipts remain byte-identical. Routing evidence recovers by rerun
-    at D or derivation D=A^ at clean A; product report never self-hashes.
-    Adapter preparation is phase-local. Absent or proven clean-Git virgin target uses read-only `SETUP/interview`, then
-    `SETUP/adapter-author` -> fresh `SETUP/adapter-review`; lower/current-invalid uses read-only
-    `RE-SYNC/adapter-author` -> fresh `RE-SYNC/adapter-review` on exact branch/base/reason. Writer finalization supplies
-    canonical remote-main resolver row; reviewer pins equivalent product-native resolver and native-tool identities.
-    Fresh finalizer persists nonce, canonical intent/manifest hashes and exact versioned attempt-id frame; all marker/temp
-    paths derive from it. The RFC8785 ordinary manifest sorts by platform-normalized path then operation and requires each
-    platform-normalized path to be unique across all operations; create+delete, overlay+delete, any cross-operation reuse
-    and case-equivalent duplicates fail. Declared row temps use fsync+atomic replacement and may be regenerated under a
-    matching inner marker; the sole first-marker exception is an exact-empty absent-SETUP sibling temp-root creating that
-    inner marker. Undeclared temp or final third state stops. Delete is exact contract/tool quarantine only. Install journals
-    pre/post ref/HEAD/index/tree, deterministic commit OID, temp index and locks. An existing-repo post commit has exactly
-    one parent equal to pinned pre-HEAD; only absent repo-bootstrap is parentless, and wrong/multi-parent commits fail.
-    Every run emits a separate reconcile observation while entry receipt stays immutable. Absent SETUP uses atomic sibling
-    mkdir as first marker, then inner zero-byte marker; marked partial root may rebuild while target is absent and publishes
-    only an exact clean parentless repo. Advanced
-    authority returns `MANIFEST-RECONCILED`, consumes old call without current/feature receipt, then classifies fresh.
-    This is plan testability, not RED authoring: no product or acceptance test is written here.
+    (d) SPEC-TO-RED HANDOFF: for every acceptance criterion, negative-control token and
+    property row, the spec contains one exact recipe with five fields: `fixture`
+    (constructors/signatures/literals), `call`, `observe` (assertion/evidence seam),
+    `source` (exact input or golden authority), and `negative` (the deliberately-wrong
+    injectable shape). Before final owner approval, the pre-freeze RED reviewer starts
+    from the complete candidate spec, independently derives the full obligation set, and
+    writes a concise test skeleton for every row. It may fact-check an existing public
+    signature or test-harness fact read-only, but GREEN is legal only when every fact used
+    is present in the spec and a final spec-only pass needs no guess. One unresolved,
+    inferred, `n/a`, or merely named future test makes the whole handoff RED; the reviewer
+    returns the complete gap list for that round, never only the first blocker. Any change
+    to the spec invalidates the pass and requires another full-packet run. A narrow
+    blocker refutation may close that blocker but can never authorize EXEC/BUILD by itself.
+    This is semantic AI review, not a script/parser/regex/conformance-tool task
+    (VALIDATION Plan-to-RED readiness; MAINTENANCE semantic-review boundary).
     The plan the owner approves is a detailed-but-simple OWNER-READABLE
     document — the goal in plain words and EACH technical decision spelled out
     (plain-language what + why), plus what is cut or deferred; the machine spec /
     ledger / ADR ride ALONGSIDE it for the builder and are NOT what the owner
     reads to approve (a wall of machine artifacts, or a plan buried in a scratch
     file, is not a plan).
-    A fresh PLAN/verdict session presents those exact gated bytes to the owner.
-    accepted closes PLAN only after a later fresh finalizer materializes EXECUTE;
-    revised or split returns to a new candidate and full binding pass, while
-    rejected creates no execution. Planner and verdict sessions write no product
-    code and commission no RED tests.
-  -> RED TESTS: after a fresh PLAN/verdict and later finalizer, a distinct fresh independent test-author session starts finalized EXECUTE at `pre-red-head`. It uses the base-compilable/discoverable skeletons, including reflection/dynamic routes for absent new APIs. It commits only exact manifested test/oracle-registration delta at direct parent R (or declared test-author-only chain), records role/session/IDs/filter/runtime criteria, and red-boundary observes expected RED before any builder session. No production stub/source/frozen/toolchain/result/unmanifested file may enter. Later revisions parent exact accepted progress. Builder cannot author, edit, exclude or shadow the oracle.
+    After the full-packet RED-author dry-run is GREEN, the owner approves the plan. This is the
+    owner's last mandatory appearance until the final report — and it CLOSES the
+    plan leg: RED TESTS + BUILD run as a SEPARATE, fresh build session reading
+    the frozen plan (the plan session writes no product code and commissions no
+    red tests). Planning and building never share one session.
+  → RED TESTS (before build): the test-author (see Roles) writes the failing
+    acceptance tests from the frozen spec — the builder cannot author or edit
+    the tests it must satisfy. The exact recipes are part of that frozen spec, so a misreading cannot hide in
+    self-agreeing tests.
   → BUILD (autonomous): one feature at a time, smallest-first.
     Reuse-first rule: before writing anything, search for an existing
     implementation; the duplicate you would have written becomes a call.
@@ -181,18 +146,20 @@ CALL (business task from a direction)
     §Strong-check) — so a leg can no longer reach done before an independent
     review round is recorded; a review whose tree has since changed with
     un-accounted source commits is stale and FAILs.
-    Builder may not edit ledger, frozen packet, validation toolchain or protected oracle tests/registration/filter. Ledger flip requires opened evidence; any oracle-path history change outside a recorded independent revision fails even if restored.
+    Builder may not edit the ledger or the spec; flipping a ledger entry
+    to passing requires opened evidence (hook-enforced where supported).
   → RETRY policy: a failed gate returns its findings verbatim into the next
     attempt. ≤2 retries in-context; then one fresh-context retry with a
     rewritten prompt; the same finding class recurring twice = non-convergence
     → stop early. Hard cap: 3 retries per gate.
   → A FIX IS A CHANGE, not a patch: a fix made during VALIDATE/RETRY that ADDS
     or CHANGES behavior (a new guard, a reordering, a check that can throw) re-
-    triggers the spec-hardening checks (a)/(b)/(d) on the fix — explicitly on the
+    triggers the spec-hardening checks (a)/(b) on the fix — explicitly on the
     NEW failure/exception paths it introduces: a guard that throws must keep the
     old-regime invariants (tick atomicity, conservation, non-negativity) intact
     ON the throw path, and each becomes a failing criterion the test-author
     writes RED before the fix (builder makes it pass, cannot edit it — #2).
+    The new or changed criteria also rerun check (d) before any continuation.
     Classify a finding by the INVARIANT it violates, not its surface site:
     fixing the reported instance without its class's invariant is non-convergence
     by construction — the invariant resurfaces at the next site (per-actor →
@@ -268,7 +235,7 @@ The owner returns to a finished, verified change and checks the evidence, not ev
 
 ## Run mechanics (platform-neutral contract)
 
-- State on disk, never in conversation: approved packet, typed TESTABILITY, run/pre-execution receipt, RED-oracle revisions, accepted progress ledger and result/archive identity live in committed product/Direction evidence. A fresh session resumes only through verified BUILD-resume; assume interruption and support deterministic D/A receipt recovery.
+- State on disk, never in conversation: approved spec + ledger + progress log live in the product repo; any fresh session resumes from them in under a minute. Assume interruption.
 - Kill switch and steering: a stop-file halts the run; a steer-file injects owner redirection mid-run without killing it.
 - Notifications: two channels wired at setup — "needs input" (escalation) and "finished: verdict" (run end). The owner is never polled; the run pushes.
 - Model routing: frontier + high effort for PLAN and architecture; default tier for BUILD legs; cheap tier for evaluators/plumbing. Fallback chain configured so overnight runs survive provider errors.

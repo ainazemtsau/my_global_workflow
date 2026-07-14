@@ -1,200 +1,31 @@
 # os/engineering contract version — the forcing function against silent propagation lag
 
 A single monotonic integer naming the current state of the engineering contract (CONTOUR.md +
-VALIDATION.md + PROJECT_SETUP.md + V21-CONFORMANCE.md + v21_conformance.py + `os/schema/packets.md` +
-`os/adapters/coding-agent.md` + ESCAPE-CLASSES.md + profiles/**). Appending a defect-class to
+VALIDATION.md + PROJECT_SETUP.md + ESCAPE-CLASSES.md + profiles/**). Appending a defect-class to
 ESCAPE-CLASSES.md (the ratchet, MAINTENANCE step 6) bumps it too, so the new class propagates to
 product repos instead of protecting only the workflow-repo-side audits. A **MAINTENANCE session bumps it** (current + one
 log line) whenever it hardens or adds a load-bearing gate (os/MAINTENANCE.md step 6). Each product
-repo records the version it last synced to (`validation.config: synced_contract_version`); only SETUP/install or
-RE-SYNC/install stamps it. Writer/finalizer/collect/executor use the phase matrix: normal product phases require exact
-current-valid equality; an initialized lower ordinal or equal-but-current-invalid installation is legal only through the
-read-only RE-SYNC author/review chain and its manifest-limited install. SETUP owns absent/virgin state; corrupt state
-without a trusted recovered ordinal and a future ordinal both stop, and future is never downgraded. Audit/digest report the
-classified state, so an os/engineering hardening can no longer silently fail to reach the repo where work runs (the root
-cause behind FRICTION 79/84/88/90/92 - propagation lag with no forcing function).
+repo records the version it last synced to (`validation.config: synced_contract_version`); PROJECT_SETUP
+stamps it at setup, §Re-sync updates it. `collect` / `audit` / `digest` compare the two and flag a repo
+that is BEHIND, so an os/engineering hardening can no longer silently fail to reach the repo where work
+runs (the root cause behind FRICTION 79/84/88/90/92 — propagation lag with no forcing function).
 
 current: 21
 
 log:
-  21  2026-07-13  executable-test closure before PLAN approval/handoff (owner maintenance request after the
-      second NearGas spec-only RED stop). Witnesses: GasCoopGame c-exec-near-gas-core-authority-001 first stopped
-      at historical checkpoint b94806deaaa3cbb56a8b6cda9baa75ac52f028c3 because the frozen packet did not bind
-      public construction and a semantic-fault route; PLAN-AMEND supplied construction A/fault A, then a Direction
-      binding-refutation incorrectly generalized that local repair to full-suite readiness; fresh RED checkpoint
-      5c783e07b5378dece1e0664b203c4e147edacd68 still found nine elementary construction/observation/injection groups
-      missing and could author only the empty single-cell recipe. The spec-ceiling risk was already in FRICTION 84,
-      so more reviewer care is not a control. Verdict: (a) rule defect — CONTOUR told an extension's test-author to
-      read ONLY a spec on the false premise that code did not yet exist; (b) missing gate — no pre-execution artifact
-      proved every acceptance/negative/property obligation constructible, invocable, observable and falsifiable;
-      plus a witnessed refutation-execution slip (a partial amendment was treated as complete). Explicit owner request
-      is independently sufficient.
-      REFUTED WIP - HISTORICAL EVIDENCE ONLY, NON-NORMATIVE, DO NOT IMPLEMENT: every detail from this marker through
-      "Product wiring remains inert" records successive drafts that later adversarial passes disproved. It is retained
-      only to explain the repair history; it is not a schema, mode list, conformance claim or instruction. The sole
-      normative v21 mechanics begin at `FINAL v21 AMENDMENT` below and live concisely in `V21-CONFORMANCE.md`.
-      The first draft, strictly additive in intent, proposed: CONTOUR adds executable-test closure as fourth pre-freeze
-      check and defines an exact-base public/test-harness baseline corpus; each obligation owns non-empty
-      construct|act|observe|negative|source bindings with no test-bearing n/a. A FRESH read-only validator independently
-      derives the whole obligation union, resolves every row, NEVER stops at the first gap, and returns a complete body
-      for verbatim planner transcription with change-id + baseline-commit + canonical input path/blob manifest +
-      input-manifest-hash + complete-sweep + per-obligation dispositions + GREEN|RED in
-      openspec/changes/<id>/TESTABILITY.md. The manifest binds PLAN/proposal/tasks/all delta specs/referenced ADRs/other
-      declared frozen authorities; spec sources name path+stable-id, so any partial PLAN-AMEND invalidates old GREEN.
-      TESTABILITY stays out of that recursive manifest; after commit, external `testability-blob` attests its complete
-      bytes in the EXECUTE/BUILD CALL and Direction handback. Final owner-readable PLAN approval, freeze/handoff and execution
-      are forbidden until fresh GREEN. The frozen report is not editable by RED author/builder; the RED author reads the
-      frozen spec, pinned TESTABILITY and ONLY the audited corpus, never PLAN/tasks/ADR as a second behavioral oracle nor
-      builder/new implementation. VALIDATION makes the artifact a plan-handoff AND -Deliver dependency.
-      The checker is not allowed to certify itself after a builder edit: every PLAN/EXECUTE/BUILD CALL pins
-      `validation-toolchain-manifest-hash` over ordinal base git blobs for validation.config, the handoff command and
-      every directly loaded helper/schema. Base config enumerates those trust roots; dynamic/unlisted loads,
-      symlink/reparse/outside-worktree roots and path substitution/addition are invalid. Writer derives and compares
-      base/current blobs before executing product-controlled code; executor repeats before RED; immutable/deliver/close
-      preserve the same pin, and builder/test-author may not edit it.
-      PROJECT_SETUP requires a read-only runnable `validation.config: plan_handoff_check` with plan-entry/plan/pre-
-      execution/deliver/close modes and seeded misses for absent/RED/incomplete/stale/wrong-change/wrong-manifest/wrong-
-      report-blob/wrong-archive/wrong-validation-toolchain/wrong-
-      worktree-or-base/token-omitting/empty-or-n/a bindings, including seeded misses for an omitted/changed/substituted
-      trust root or a dynamic/unlisted load. Packet schema requires normalized SETUP|RE-SYNC|PLAN|EXECUTE|BUILD and
-      absolute worktree; logical repo is never a path. Deliver/close are read-only handback gate modes under the same
-      immutable finalized BUILD CALL, never new phases or CALL identities. SETUP is the sole no-branch/base bootstrap. PLAN and
-      later phases carry exact branch/base; PLAN also carries change-id and exact safe preexisting-plan-diff, checked by
-      writer plus a current-v21 zero `plan-entry` run before planner time. Every EXECUTE/BUILD explicitly carries real
-      change identity/evidence or coordinated
-      `n/a-light`; omission cannot bypass and N/A requires an empty G0 scan. Writer apply/collect itself runs the exact
-      worktree's `pre-execution` check and rejects dirty/wrong branch, merge-base, prior production/test/toolchain diff,
-      nonzero/unrunnable/mutating check or blob/manifest/obligation mismatch before payload; executor re-runs only for
-      defense-in-depth. Independent committed-SHA red-team then found and closed thirteen bypasses the first draft
-      still allowed: unscoped SETUP/RE-SYNC, self-certifying install/final PLAN checker, under-transcribed Direction
-      acceptance, rewritten feature base, vague non-empty recipes, hardcoded root RESULT, current-immutable baseline
-      source, untyped/symlink manifests, mutable or undiscovered RED oracle, no legitimate resume, volatile receipt and
-      archive recovery gaps. SETUP now has an external protected inventory; RE-SYNC an exact contract-only diff; both
-      require writer-run OS negative conformance (always-zero/skipped-case witnesses included) before stamp 21.
-      PLAN/descendants retain external base-authority and exact parent done_when hash; final plan rechecks clean manifested
-      delta and original trust roots before owner presentation. TESTABILITY has typed packet/authority/base rows and full
-      FQ-signature/visibility/owner/args/fixture/observe/inject/delegate skeleton recipes. Test-local source artifacts,
-      constructed instances, callable observers and runtime resources are disjoint node kinds; the validator compiles
-      only the exact source closure, passes separately pinned path/mode/blob resources only to the pinned runner, and
-      verifies compiler/discovery/runner path/mode/blob/runtime/version/dependency identity. Base rows resolve at base so
-      legitimate current production edits pass. Config resolves exact same-id product-result-path. Independent RED ends
-      at R with protected oracle/discovery/filter receipt; BUILD is only v21 receipt-bound resume. Deliver/close use typed
-      mode/blob archive mapping and deterministic D/A receipt recovery. No product report self-hashes. No prior gate is
-      weakened. A second committed-SHA pass then found and closed seven remaining contract deltas: conformance labels
-      without OS-owned specimen bytes/exact mutations still let installer and checker agree on a lie; CALL required
-      writer observations before the writer had a legal materialization step; owner approval was not durably tied to the
-      already-gated PLAN candidate; the top rule still admitted five non-empty prose fields; RED was not anchored to the
-      exact pre-red parent and test/oracle-only delta; SETUP could neither safely create nor explicitly overlay a
-      pre-existing path; and a direct test for an absent new API could not compile/discover. v21 now uses intent -> sole
-      writer-finalized persisted CALLs with non-self receipts, a pre-owner candidate/receipt/chronology, all seven recipe
-      records including base-compilable runtime `red-realization`, exact-parent test-author-only RED/revisions, disjoint
-      create/overlay manifests, and `V21-CONFORMANCE.md`: one exact intent plus exact writer-set CALL materialization,
-      complete Markdown CALL/RESULT/history bytes, exact external phase snapshots, acyclic B->P->R->Q->D->A plus
-      RB->RS/S0->SB trees, exact mutation families for every mode, separately pinned adapter, randomized roots and
-      always-zero/case-switch/defect-removed/omitted-mutation witnesses. The independent reviewer also caught and closed
-      incoherent WIP resume/deliver/archive snapshots, a potential specimen self-hash cycle and lost legacy seeded misses
-      before this contract was declared complete. Config therefore declares only the ordered trust-root path/mode list;
-      the external CALL manifest pins every path/mode/blob including config itself, avoiding a config self-hash cycle.
-      A third full-SHA refutation found eight more concrete bypasses and all were made mechanical before close: PLAN
-      chronology is now author checkpoint -> writer event/finalizer W -> fresh RESULT-authorized verdict-CALL commit W2
-      -> verdict RESULT/finalizer W3 -> fresh RESULT-authorized EXEC-CALL commit W4, with strict ancestry avoiding commit
-      self-reference, so a
-      receipt/timestamp first appearing with owner words has no authority; conformance uses acyclic install challenge ->
-      bootstrap receipt -> non-install cases -> persisted final receipt/event -> excluded binding smoke; stack adapter is
-      produced and independently reviewed in a separate Direction transaction whose writer event/blob predates install;
-      every neutral fixture fingerprint is nonce-salted and a two-nonce fingerprint-switch checker must fail; H/F framing,
-      git graph metadata, receipt preimages, token registry and mutation operation/mode semantics are canonical; legacy
-      phase seeds now include descendant acceptance shrink, TESTABILITY external pins, every-mode trust roots, archive
-      source-left/undeclared output; the valid result declares identity/location/archive routing without self-hash; and
-      RE-SYNC verifies create/overlay content/postimage/protected bytes while packet schema again requires stage/phase/
-      absolute worktree. A later adversarial pass also forced complete original-plus-variant revision preservation,
-      full R1/R2 per-commit and terminal contours, semantic deliver/close/light handback negatives, closed ABI result/
-      authority projections, exact adapter output rows, and hybrid git-metadata/isomorphic-history witnesses. The review
-      also exposed and closed the TESTABILITY in-file self-blob and config self-blob cycles;
-      planner/builder/validator/test-author
-      separation, frozen meaning, option-A serial concurrency readiness, negative controls, property layer, review/G5,
-      retry/non-convergence and owner authority remain intact. SCOPE (honest): mechanically prevents the witnessed
-      missing-executable-binding class from FIRST surfacing in a builder session; a fresh validator still supplies
-      symbol/route truth, so this does not promise that no subtle specification mistake can exist. Semantic light-vs-
-      frozen classification and human independence/thoroughness remain explicit judgment layers; the witnessed real-id
-      frozen packet cannot use either as N/A. This is a process/
-      handoff defect caught before product implementation/review/owner-eye, not a product-invariant escape, so no
-      ESCAPE-CLASSES row. Plays/SESSION_PAYLOAD/live/** are untouched; KERNEL changes only the engineering
-      transaction-identity sentence so executor design authority remains intact while worktree/branch/base/acceptance
-      cannot drift between sessions. Packets schema changes only engineering phase/filesystem/plan-entry/execution-
-      handoff identity fields, so no owner re-paste is needed.
-      OS writer guard ACTIVE now; product plan-check/-Deliver enforcement is INERT until §Re-sync. §Re-sync OWED:
-      GasCoopGame — mirror the v21 root-AGENTS executable-test source/handoff rule, add TESTABILITY.md format and a
-      plan-check shared with -Deliver, seed every named miss, bump validation.config 20→21; the current NearGas packet
-      must repair ALL missing bindings and receive a fresh full-sweep audit before any new EXECUTE CALL (the original
-      BUILD remains historical NOT DELIVERED). health-ai — translate the same obligation/baseline rule for its markdown
-      execution substrate or record N/A only when there truly is no G0-frozen executable obligation, seed that branch,
-      and bump its current stamp →21.
-      Enforcement clarification: before stamp 21, only receipt-protected SETUP and manifest-limited RE-SYNC enter;
-      writer accepts their return only after independent OS conformance. PLAN then needs entry and final gates; fresh
-      EXECUTE needs packet-only pre-execution receipt; BUILD needs the same v21 run plus RED/progress receipt. Writer
-      apply/collect emits no payload on readable/self-reported checker, rewritten base/acceptance, stale final PLAN,
-      historical checkpoint or arbitrary resume. Product wiring remains inert until its successful SETUP/RE-SYNC.
-      FINAL v21 AMENDMENT (normative over the WIP detail above): the attempted all-contour declarative fixture was
-      itself refuted because it described fake executables, future-pinned TESTABILITY, planner-authored RED bytes and
-      non-writer-compatible histories. It is not the shipped authority. Final v21 narrows the mechanical repair to the
-      witnessed boundary and supplies a real subprocess regression witness: PLAN author enters without TESTABILITY,
-      commits an ungated candidate binding contract with no candidate self-pin and stops; a distinct fresh product-
-      read-only PLAN/binding-validator derives the obligation union from external authority bytes plus an independently
-      reviewed non-empty authority grammar, generates scratch-only non-acceptance probes and runs the real pinned
-      compiler/discovery/filtered/union contour. Candidate P cannot define completeness: exact literal values,
-      source/resource module/path/mode/blob, required owners/observers/delegation and operation fault ownership are frozen.
-      Product code never loads into the validator or filtered-run controller; static source/API/dependency closure selects
-      an exact scratch mirror and a deeper product-execution process returns only step data. The product-free controller
-      alone creates the proof/sentinel. Original product paths are absent from runtime RPC, filesystem/process/frame escape
-      is rejected, and controller materialization is journaled; equal restored bytes are not treated as proof of no write.
-      A generic typed registry/recipe executor is the sole completion path. Only persisted GREEN can lead
-      through a fresh finalizer to owner verdict, and only explicit accepted words for unchanged P/receipt can lead to
-      EXECUTE; revised/split revalidates and rejected stops. The later independent RED author receives routes/receipt
-      but never probe source and authors fresh spec-derived acceptance tests. `V21-CONFORMANCE.md` is the concise
-      normative rule and `os/engineering/v21_conformance.py` is the executable OS witness (machine-counted positive
-      controls plus an exact-oracle negative corpus across separate case/validator/compiler/discovery/product-free-filter/product-execution/
-      union child processes, pinned
-      CPython `-I -S`). Product SETUP/RE-SYNC must bind
-      the equivalent cases to its native real toolchain before stamp 21; no prose or OS witness substitutes for that
-      product-native run. The only locator is `direction-os://live/os/engineering/CONTRACT_VERSION`. Writer finalization,
-      not session intent/product/config, derives its schema-1 resolver from the canonical
-      `https://github.com/ainazemtsau/my_global_workflow` remote and freshly queried/fetched full `refs/heads/main`.
-      Current/wt/local-main/tracking refs are cache only, never authority; audit/digest may derive the same resolver
-      ephemerally but cannot materialize packet authority. Every finalized packet binds
-      locator/repo/ref/path/mode/git-blob/current plus actual product observation; observed ref SHA/fetch evidence is
-      diagnostic. Unavailable authority emits no payload. A disposable remote/main proves the regression witness only;
-      a worktree candidate activates no product runtime until published on canonical main.
-      Matching immutable open install CALL + exact acyclic inner marker is reconciled before normal classification; the
-      sole pre-marker exception is its exact declared empty absent-SETUP sibling root, which may only receive that marker. Otherwise
-      SETUP admits only absent target with pinned accessible parent or a truly virgin clean initialized non-bare Git
-      worktree with pinned branch/HEAD/index/inventory, both run-contract and stamp absent, and no reachable prior
-      install/trust marker. Existing non-Git/unborn/dirty state stops. Partial/malformed state, or both absent after prior
-      history, is initialized-corrupt. Recovery enumerates all reachable matching product/Direction marker+receipt events,
-      requires one linear nondecreasing ordinal chain and selects the unique descendant-most event; ambiguity/conflict
-      stops. A complete on-disk ordinal must agree with that trusted event; mismatch is corrupt and routes from recovered
-      history, so deleting/rewriting current bytes cannot launder equal/future into lower/virgin. Recovered lower routes RE-SYNC `lower`, equal
-      routes `current-invalid`, higher stops future, and no trusted ordinal stops `CONTRACT STATE CORRUPT`. Complete lower routes explicit read-only
-      RE-SYNC/adapter-author then fresh adapter-review then install; equal is current-valid only with matching installed
-      identities and conformance event/receipt, otherwise RE-SYNC `current-invalid`; only current-valid admits normal
-      PLAN/EXECUTE/BUILD; future never downgrades.
-      Install alone writes declared contract/tool create/overlay/delete rows with one platform-normalized path across all
-      operations; cross-operation duplicates fail. Writer persists a 128-bit hex nonce and
-      canonical LF-intent/RFC8785 sorted-manifest SHA-256 identities, computes a versioned framed SHA-256 attempt-id while
-      excluding marker/temp/finalized-CALL/receipt bytes, then derives the zero-byte marker and unique row/Git temp paths.
-      Matching marker permits a declared torn temp to be regenerated from pinned postimage; undeclared temp or final-row
-      third state fails. Contract/tool delete uses exact quarantine; production/feature/independent-test deletion is
-      forbidden. Absent SETUP uses atomic creation of the sibling temp-root as first marker, then inner marker, and publishes
-      only a complete clean exact parentless repo. Existing install journals pre/post ref/HEAD/index/tree, deterministic
-      commit OID (existing install: exactly one parent equal pre-HEAD; only absent bootstrap is parentless), temp index and
-      locks so retry can finish exact commit and compare-and-swap ref; merge/unrelated/third Git state fails.
-      Original CALL/entry receipt/observation remain byte-identical; every execution adds a separate hashed reconcile
-      observation. Authority advance closes completed old manifest as a named checkpoint with no current/feature receipt,
-      consumes that open install, then freshly classifies lower/current-invalid/future/unavailable. It never refinalizes.
-      Only SETUP/install or RE-SYNC/install may stamp current. Old finalized feature packets are never refreshed in place.
-      Earlier claims of a complete exact ABI/history/archive mutation model are superseded, not
-      evidence. The residual is explicit: this prevents the witnessed elementary binding class from first surfacing
-      in BUILD; it does not prove every human semantic judgment correct.
+  21  2026-07-14  full-packet semantic RED readiness before PLAN approval and execution handoff. Witness:
+      GasCoopGame NearGas first reached BUILD with no constructible public generation/fault route; the amendment
+      closed only those two named blockers, a narrow Direction refutation treated that local GREEN as whole-suite
+      readiness, and the next independent RED author found nine more elementary fixture/observation/source/control
+      gaps. Root cause: spec-only RED plus the v11/v12 obligation expansion and v19 session split removed the old
+      informal context bridge, while PLAN still had no complete spec-to-test recipe pass for extensions. Fix:
+      every acceptance, negative-control and property obligation owns an exact
+      `fixture|call|observe|source|negative` recipe in the spec; a fresh read-only AI independently derives the
+      whole set and writes each test skeleton before owner approval; RED returns the complete gap list; any spec
+      amendment invalidates the verdict and reruns the whole packet; a named-blocker GREEN cannot authorize
+      EXEC/BUILD. This is deliberately semantic and recorded, not a deliver script: no new parser, regex scanner,
+      schema compiler or conformance program may judge plan/spec completeness. Re-sync owed: GasCoopGame and
+      health-ai mirror the clause in their root run contract and OpenSpec planning guidance; no product code change.
   20  2026-07-13  repo-local execution authority + obsolete global runtime retirement: a generic Direction OS
       engineering/PLAN/BUILD CALL is governed by the CALL plus the product repo's AGENTS.md, frozen plan/spec,
       and validation.config. Globally installed or discoverable skills and tools are support, not authority:
@@ -500,8 +331,7 @@ log:
   2  2026-06-16  independent test-author role: spec-derived RED acceptance tests before build, builder cannot edit them (FRICTION 84)
   1  2026-06-15  report-handback: RESULT.md deliver-gate + non-negotiable #6; builder never authors the next CALL (FRICTION 79)
 
-# Matching open marker (or exact empty absent-SETUP first-root) reconciles first; authority advance completes old manifest only.
-# SETUP owns absent/proven virgin. Trusted-history/disk mismatch is corrupt; lower/current-invalid owns RE-SYNC; future stops.
-# Runtime authority is fresh canonical remote main; a local candidate activates nothing until published. Feature needs current-valid.
+# A product repo whose synced_contract_version < current is behind by the listed versions and owes a
+# §Re-sync (PROJECT_SETUP §Re-sync). The compare is integer "<"; the log names exactly what is owed.
 
 END_OF_FILE: os/engineering/CONTRACT_VERSION

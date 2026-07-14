@@ -59,7 +59,7 @@ A **bet** is one shaped node committed into `NOW.md` with tasks. Tasks (`t-1`…
 **RESULT** — the only way a session ends:
 `outcome` (what changed in the world, not a narrative of effort) · `evidence` (proof matching done_when) · `state_changes` (exact NOW/TREE edits) · `captures` · `decisions_needed` · `play_check` (one line per play step: done or skipped+why; steps the play marks `(owner)` cite the owner's words) · `log` (one line) · `next` (ready CALL, or `awaiting_decision`).
 
-An executor CALL for engineering goes to a coding agent in the direction's product repo. The agent owns solution architecture and implementation mechanics inside the writer-finalized transaction identity; evidence is commits/PR plus check output. For engineering work the OS pins the target worktree, branch, base authority and acceptance identity so a later session cannot silently switch transactions.
+An executor CALL for engineering goes to a coding agent in the direction's product repo. The agent owns implementation; evidence is commits/PR plus check output. The OS never dictates branches, paths, or SHAs.
 
 ## 5. Hard gates — all mechanically checkable
 
