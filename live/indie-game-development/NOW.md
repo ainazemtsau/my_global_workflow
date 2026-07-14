@@ -1,5 +1,5 @@
 # NOW: indie-game-development
-updated: 2026-07-14 by s-review-char-v1-g5-close-001
+updated: 2026-07-14 by s-research-level-module-contract-recovery-001
 
 bet:
   node: g-9c41
@@ -96,6 +96,15 @@ open_calls:
       PRIMARY / FRESH OWNER-PRESENT REVIEW: close, do not extend, the current 13/24 bet; preserve the accepted
       no-cap cross-bet route and make 24.07 a control review in the owner-chosen next bet. Product/TREE/canon read-only;
       no executor CALL or BUILD. work/c-review-poligon-m1-route-reset-001-call.md.
+  - id: c-research-level-module-standard-v1-001
+    to: research
+    for: g-9c41 / Level-DA-PGG project Standard v1 candidate and old-task recovery
+    issued: 2026-07-14
+    note: |
+      READY PARALLEL / DIRECTION-ONLY: reconstruct established seams versus the missing project-owned standard;
+      produce the two-contract Standard v1 candidate, validator/fixture matrices and old-task disposition package.
+      No product/Unity/PLAN/BUILD, no Phase 0 revival, no owner acceptance implied.
+      work/c-research-level-module-standard-v1-001-call.md.
   - id: c-map-g-d3a8-frame-v2-reconciliation-001
     to: session
     for: g-d3a8 / TREE and design-canon branch reconciliation
