@@ -180,7 +180,7 @@
     <tr><td><b>NearGas PLAN-AMEND / Re-sync</b><br><span class="mono">c-exec-near-gas-core-authority-001-plan-amend-resync-002</span></td><td class="a">🟢 READY PARALLEL</td><td>с review и g-d3a8 reconciliation</td><td>Только frozen planning packet: v20→v21 и полный semantic whole-packet dry-run; без source/tests/BUILD.</td></tr>
     <tr><td><b>Общий маршрут Полигона M1</b><br><span class="mono">work/poligon-m1-integration-route.md</span></td><td class="a">✅ ПРИНЯТ</td><td>cross-bet direction route</td><td>34 обязательных логических legs + условные — текущий ledger, не cap; executor CALL не выпущен.</td></tr>
     <tr><td><b>Gas L1 BUILD</b></td><td class="a">🔴 НЕТ</td><td>после полного GREEN и fresh Direction review</td><td>Checkpoint @5c783e07: девять binding gaps; product v20 &lt; OS v21.</td></tr>
-    <tr><td><b>Character V1 BUILD</b></td><td class="a">🔴 HELD</td><td>только после собственной current-packet проверки</td><td>Frozen смысл сохранён; существующий BUILD CALL не является launch authority.</td></tr>
+    <tr><td><b>Character V1 BUILD</b></td><td class="a">🟢 СОБРАН · owner-eye GREEN · ждёт G5</td><td>owner-directed build; связывающий G5 параллельно</td><td>owner «Вариант 1» снял HELD; продукт @db69aba6 (база v20 32107343), не смёржен; merge — решение направления после G5.</td></tr>
     <tr><td><b>Level / DA / PGG BUILD</b></td><td class="a">🔴 НЕТ</td><td>сейчас только Direction-анализ</td><td>Старый PLAN ждёт мёртвую Phase 0; сначала общий route и свежий PLAN-only successor.</td></tr>
     <tr><td><b>Visual / network / final evidence</b></td><td class="a">🔴 ПОЗЖЕ</td><td>только после своих foundation gates</td><td>Visual LOCKED; сеть и две машины завершают интеграцию, а не стартуют её вслепую.</td></tr>
   </table></div>
@@ -199,9 +199,9 @@
       <p><span class="l">Что дальше:</span> старый PLAN помечен <b>SUPERSEDED / NEVER ISSUE</b>, потому что ждёт Phase 0 MERGED. Принятый M1 route начинает successor с project-owned Level/Module Contract без числового cap. Будущий lane D/worktree и полный current-v21 packet обязаны быть проверены до отдельного PLAN; executor CALL сейчас не выпущен.</p>
     </div>
     <div class="call wait">
-      <div class="head"><span class="st">3 · PLAN FROZEN · BUILD HELD</span><b>Character</b><span class="id">V1 socket/drop-in → V2 rig/reactions → V3 core ballistics</span></div>
+      <div class="head"><span class="st">3 · В1 СОБРАН · owner-eye GREEN · ждёт G5</span><b>Character</b><span class="id">V1 socket/drop-in → V2 rig/reactions → V3 core ballistics</span></div>
       <p><span class="l">Финиш трассы:</span> reusable player prefab читает авторитетную позу через стабильный адаптер; внешний вид и PuppetMaster-рэгдолл не владеют сетевой позицией.</p>
-      <p><span class="l">Где сейчас:</span> owner-approved V1 PLAN заморожен. Существующий BUILD CALL не является launch authority и остаётся HELD до отдельной проверки полного current-contract packet; интеграция и merge идут по одному.</p>
+      <p><span class="l">Где сейчас:</span> В1 собран owner-directed в переиспользованном p2a0-worktree (@db69aba6, база v20 32107343): стабильный socket + reusable prefab + управление + follow-camera, 34 независимых RED зелёные, owner-eye пройден владельцем. Owner «Вариант 1» снял HELD; осталась вторая половина ворот — связывающий G5 (свежая cross-family сессия). Merge — решение направления после G5.</p>
     </div>
     <div class="call wait">
       <div class="head"><span class="st">4 · НЕ ОТДЕЛЬНЫЙ GAS LAB</span><b>Integration lab</b><span class="id">единая сцена Полигона M1</span></div>
@@ -265,11 +265,11 @@
       <p><span class="l">Что дальше:</span> отдельный repair должен доказать точную committed authority и проверить полный current-contract packet. Пока этого нет, карточка HELD; Unity/FishNet revision-001, Windows validation, merge и push остаются закрыты.</p>
     </div>
     <div class="call">
-      <div class="head"><span class="st">В1 PLAN FROZEN · BUILD HELD · НЕ ЗАПУСКАТЬ</span><b>Игровые персонажи: socket + drop-in управляемая капсула</b><span class="id">c-exec-char-v1-socket-dropin-build-001</span></div>
-      <p><span class="l">Что принято:</span> владелец выбрал порядок В1→В2→В3 и сказал «Вариант 1», «замораживай». Frozen PLAN описывает стабильный socket авторитетной позиции, reusable prefab, управление и follow-camera; rig/ragdoll/grid-ballistics остаются позже.</p>
+      <div class="head"><span class="st">В1 СОБРАН · owner-eye GREEN · СВЯЗЫВАЮЩИЙ G5 — READY PARALLEL</span><b>Игровые персонажи: socket + drop-in управляемая капсула</b><span class="id">c-review-char-v1-socket-dropin-g5-001</span></div>
+      <p><span class="l">Что принято:</span> владелец сказал «Вариант 1» — он направлял этот билд; он зачтён как owner-directed, а HELD с character-трека снят. Билд собран в переиспользованном p2a0-worktree (ветка c-exec-char-v1-socket-dropin-build-001 @<b>db69aba6</b>, база v20 <b>32107343</b>): стабильный socket авторитетной позы, reusable prefab, управление, follow-camera; reaction/knockdown/getup — объявленные no-op хуки (В2).</p>
       <p><span class="l">Зачем:</span> socket-as-spine позволяет сейчас использовать локальный placeholder, а позже подставить позицию ядра без правки префаба или сцен.</p>
-      <p><span class="l">Где сейчас:</span> committed <b>93d3f44</b> потребил PLAN-call и зарегистрировал BUILD, но существующий artifact не является current launch authority. Поэтому READY-метка снята.</p>
-      <p><span class="l">Что дальше:</span> отдельная full-packet проверка без изменения frozen смысла В1. Product code, RED, BUILD, Unity/MCP, merge и push этой панелью не разрешены.</p>
+      <p><span class="l">Где сейчас:</span> 34 независимых RED зелёные + внутренний кросс-модельный ревью без P1/P2; owner-eye (owner-run PlayMode, 3 сцены) пройден владельцем. Это половина ворот В1.</p>
+      <p><span class="l">Что дальше:</span> связывающий G5 — свежая отдельная cross-family сессия (Codex, read-only) пытается опровергнуть заявки В1; owner-eye уже зелёный. После G5 В1 = done; merge в main — решение направления (продукт всё ещё v20; предсуществующий газовый L19-красный чинится в gas-track). В2 (тело: риг + реакции + косметический рэгдолл) открывается после G5.</p>
     </div>
     <div class="call">
       <div class="head"><span class="st">CHECKPOINT · ПРОДОЛЖАЕТСЯ В CLAUDE</span><b>Маркетинг: минимальное пробуждение</b><span class="id">c-marketing-wake-001 · открыта 11.07</span></div>
@@ -497,7 +497,7 @@
   <h3 style="margin:26px 0 10px; font-size:18px">Журнал — последние 3 дня</h3>
   <p class="note" style="margin:0 0 10px">Рендер из LOG.md (полный архив — там); старше трёх дней с панели уходит. Сегодняшний день раскрыт.</p>
   <details class="day" open>
-    <summary>14 июля <span class="cnt">· M1 route принят · no-cap / 24.07 review · fresh bet review PRIMARY · NearGas planning READY PARALLEL · Frame v2 READY</span></summary>
+    <summary>14 июля <span class="cnt">· M1 route принят · no-cap / 24.07 review · fresh bet review PRIMARY · NearGas planning READY PARALLEL · Frame v2 READY · В1 собран, HELD снят, G5 READY</span></summary>
     <ul>
       <li><b>Маршрут сильной сцены M1 принят:</b> владелец подтвердил «Да, именно так» — числового потолка product legs нет, 24.07 является контрольным review, не остановкой — и затем сказал «Маршрут принимаю». Записаны шесть трасс, dependencies/parallelism, finish/cuts и 34 обязательных логических legs плюс условные как текущий ledger, не cap. Product не менялся; свежий review закрывает старую ставку по G3.</li>
       <li><b>Критерии приёмки М1:</b> владелец «ратифицировать все пять с этими уточнениями» вернул в живую планку замер на названном слабом железе, HUD-доказательство детерминизма, видимый admission ceiling и контролируемое завершение прогона при disconnect. Late join, host migration и production-звук остались вырезаны; в inbox остался только выбор конкретного min-spec железа.</li>
@@ -507,6 +507,7 @@
       <li><b>Level / DA / PGG:</b> ratified Phase 1/2/3 сохранился; старый PLAN помечен SUPERSEDED / NEVER ISSUE из-за невозможной зависимости Phase 0 MERGED. PGG остаётся editor-time bake в dependency-free static prefab, не runtime authority.</li>
       <li><b>Canon Forge — Frame v2 checkpoint:</b> владелец сказал «FRAME REVISED — СОБРАТЬ КОРОТКУЮ FRAME V2». Полный gas/artifact research draft и отдельный distillation handoff сохранены как неканонические входы; paper-answer по кооперативной взаимозависимости не выбран, канон не изменён, Sc-damage остаётся HELD. Открыт owner-present c-repair-minimum-game-frame-v2-001; инженерный NOW.next не менялся.</li>
       <li><b>Minimum Game Frame v2:</b> владелец дал дословный вердикт «FRAME READY». Рамка стала текущей owner-approved whole-game design basis, но не каноном; c-001 сохранён без расширения, TREE/CHARTER/product не менялись. Открыта отдельная owner-present сверка g-d3a8, а продолжение co-op composition зарегистрировано HELD до её закрытия; Sc-damage остаётся HELD.</li>
+      <li><b>Игровые персонажи — В1 собран, HELD снят:</b> пришёл хендбэк В1-билда (socket + drop-in капсула) из owner-directed p2a0-worktree (@db69aba6, база v20 32107343); проверен first-hand в гите. Owner-eye владелец прошёл, 34 независимых RED зелёные, внутренний кросс-модельный ревью без P1/P2. Владелец сказал «Вариант 1» — подтвердил, что направлял билд; писарь зачёл его как owner-directed чекпоинт, снял HELD с character-трека и открыл связывающий G5 (c-review-char-v1-socket-dropin-g5-001, READY PARALLEL). В1 не закрыт (G5 — вторая половина ворот); не смёржен; продукт остаётся v20. Runner остаётся HELD; NearGas и NOW.next не менялись.</li>
     </ul>
   </details>
   <details class="day">
@@ -577,7 +578,7 @@
       <div class="bar"><i style="width:8%"></i></div><div class="pct">~8% · V1 спроектирован, но BUILD ещё не разрешён</div>
       <ul>
         <li class="done">V1 PLAN: reusable prefab + authoritative-position socket + follow-camera заморожен</li>
-        <li class="miss">V1 BUILD HELD до отдельной current-packet проверки; живого drop-in персонажа пока нет</li>
+        <li class="miss">В1 собран (owner-eye GREEN) в p2a0-ветке @db69aba6, но не смёржен и ждёт связывающего G5; в main живого drop-in персонажа пока нет</li>
         <li class="miss">Пузыря нет в движке — глагол не существует</li>
         <li class="miss">Нет UI, меню, экрана смерти</li>
         <li class="miss">Ни одного standalone-билда за всю историю</li>
@@ -721,7 +722,7 @@
     <tr><td>Runtime sources / doors / topology / destruction / final LAB</td><td>⬜</td><td class="a">🟠</td><td>R0 выбирает правила; затем E1→D1→P1→T1→X1→LAB→I3</td></tr>
     <tr><td>Visual motion и дальнейшие feature-визуалы</td><td>🔴</td><td class="a">🟠</td><td>LOCKED: PLAN ждёт M0+C1+L3+I1; motion/data и E1/D1/X1 добавляют свои замки</td></tr>
     <tr class="grp"><td colspan="4">Оболочка игры</td></tr>
-    <tr><td>Контроллер игрока + камера</td><td>🔴</td><td class="a">🟡 после отдельной проверки</td><td>V1 PLAN frozen: reusable prefab + authoritative-position socket; BUILD HELD и не является launch authority</td></tr>
+    <tr><td>Контроллер игрока + камера</td><td>🔴</td><td class="a">🟡 собран, ждёт G5+merge</td><td>В1 собран owner-directed (@db69aba6, база v20), owner-eye GREEN; HELD снят «Вариант 1»; связывающий G5 → затем merge-решение направления</td></tr>
     <tr><td>Глагол «пузырь» v0</td><td>⬜</td><td class="a">🟠</td><td>ядро + дизайн-вердикты по ходу; 🔴 частично канон (наполнение)</td></tr>
     <tr><td>Меню / host-join / экраны конца</td><td>⬜</td><td class="a">🟢</td><td>прототип-лента, валидация глазами разово</td></tr>
     <tr><td>HUD игрока (доза, опасность)</td><td>⬜</td><td class="a">🟡</td><td>после подключения дозы</td></tr>

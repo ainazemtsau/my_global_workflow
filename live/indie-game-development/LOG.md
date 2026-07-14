@@ -235,4 +235,6 @@ archived: history/LOG-archive-indie-game-development.md — sessions before 2026
 
 2026-07-14 — work/route (g-9c41/M1-Integration-ROUTE, s-work-poligon-m1-integration-route-001): owner «Да, именно так» снял числовой потолок product legs и оставил 24.07 контрольным review, затем «Маршрут принимаю»; принят единый six-track M1 route с 34 обязательными логическими legs + условными как ledger, не cap, а fresh review стал next для G3-закрытия старой ставки; no product BUILD. → history/2026-07-14-s-work-poligon-m1-integration-route-001.md
 
+2026-07-14 — repair/route (g-6d4e/В1, s-repair-char-v1-held-reconcile-001): owner «Вариант 1» — В1 socket+drop-in build (owner-directed p2a0 @db69aba6, база v20 32107343, owner-eye GREEN, 34 независимых RED зелёные) зачтён как owner-directed checkpoint; HELD снят с character-трека; открыт связывающий fresh cross-family G5 (c-review-char-v1-socket-dropin-g5-001, READY PARALLEL). В1 НЕ закрыт до G5, не смёржен, продукт остаётся v20; returned BUILD CALL c-exec-char-v1-socket-dropin-build-001 consumed; runner остаётся HELD; NearGas/NOW.next не менялись; dashboard character-секции перегенерированы. → history/2026-07-14-s-repair-char-v1-held-reconcile-001.md
+
 END_OF_FILE: live/indie-game-development/LOG.md
