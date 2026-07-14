@@ -168,15 +168,15 @@
   <div class="eyebrow">ОНО ДЫШИТ · главная панель направления · обновлено 14.07 · A1 принят</div>
   <h1>Полигон M1 — путь к сильной интеграционной сцене</h1>
   <p class="lead"><b>Финиш:</b> одна регулируемая сцена, где DA собирает проверенные модули, PGG может наполнять их только на этапе авторинга, персонаж подключён через стабильный сокет, газ живёт под одним авторитетом, а сеть, названное слабое железо, телеметрия и снимки позволяют честно испытывать всё вместе. NearGas-dashboard ниже по иерархии: это подробная техническая панель одного газового трека, не roadmap всей цели.</p>
-  <div class="stamp"><span>ставка: Полигон М1 · максимум 13 product legs · стоп-линия 24.07</span><span>сейчас PRIMARY: NearGas PLAN-AMEND / Re-sync v20→v21</span><span>параллельно: общий M1 integration route + Frame v2</span><span>product BUILD сейчас: 0 разрешённых</span><span>Level/DA/PGG: маршрут сохранён, старый Phase-0 CALL отменён</span><span>персонажи: В1 PLAN frozen · BUILD HELD</span><span>visual: LOCKED</span></div>
+  <div class="stamp"><span>ставка: Полигон М1 · максимум 13 product legs · стоп-линия 24.07</span><span>сейчас PRIMARY: NearGas PLAN-AMEND / Re-sync v20→v21</span><span>параллельно: общий M1 integration route + g-d3a8 reconciliation</span><span>Frame v2: FRAME READY · co-op continuation HELD</span><span>product BUILD сейчас: 0 разрешённых</span><span>Level/DA/PGG: маршрут сохранён, старый Phase-0 CALL отменён</span><span>персонажи: В1 PLAN frozen · BUILD HELD</span><span>visual: LOCKED</span></div>
 </header>
 
 <section id="m1-route">
   <div class="sec-head"><h2>🧭 Маршрут к сцене</h2><span class="tag">шесть связанных трасс · газ — дочерняя трасса · параллельность показана явно</span></div>
-  <div class="callout accent"><b>Что реально можно запустить сейчас:</b> NearGas PLAN-AMEND / Re-sync меняет только frozen planning packet продукта и проводит полный semantic whole-packet dry-run; параллельные Direction-линии собирают единый план M1 и Frame v2. Ни один engineering BUILD сейчас не разрешён.</div>
+  <div class="callout accent"><b>Что реально можно запустить сейчас:</b> NearGas PLAN-AMEND / Re-sync меняет только frozen planning packet продукта и проводит полный semantic whole-packet dry-run; параллельные Direction-линии собирают единый план M1 и owner-present reconciliation ветки g-d3a8 с принятой Frame v2. Кооперативный paper-answer ждёт закрытия reconciliation. Ни один engineering BUILD сейчас не разрешён.</div>
   <div class="mtx-wrap"><table class="mtx">
     <tr><th>Работа</th><th>Сейчас</th><th>Параллельно с чем</th><th>Почему / следующий гейт</th></tr>
-    <tr><td><b>NearGas PLAN-AMEND / Re-sync</b><br><span class="mono">c-exec-near-gas-core-authority-001-plan-amend-resync-002</span></td><td class="a">🟢 PRIMARY</td><td>с общим M1-анализом и Frame v2</td><td>Только frozen planning packet: v20→v21 и полный semantic whole-packet dry-run; без source/tests/BUILD.</td></tr>
+    <tr><td><b>NearGas PLAN-AMEND / Re-sync</b><br><span class="mono">c-exec-near-gas-core-authority-001-plan-amend-resync-002</span></td><td class="a">🟢 PRIMARY</td><td>с общим M1-анализом и g-d3a8 reconciliation</td><td>Только frozen planning packet: v20→v21 и полный semantic whole-packet dry-run; без source/tests/BUILD.</td></tr>
     <tr><td><b>Общий маршрут Полигона M1</b><br><span class="mono">c-work-poligon-m1-integration-route-001</span></td><td class="a">🟢 READY PARALLEL</td><td>с NearGas planning</td><td>План и appetite accounting; не product leg, не BUILD.</td></tr>
     <tr><td><b>Gas L1 BUILD</b></td><td class="a">🔴 НЕТ</td><td>после полного GREEN и fresh Direction review</td><td>Checkpoint @5c783e07: девять binding gaps; product v20 &lt; OS v21.</td></tr>
     <tr><td><b>Character V1 BUILD</b></td><td class="a">🔴 HELD</td><td>только после собственной current-packet проверки</td><td>Frozen смысл сохранён; существующий BUILD CALL не является launch authority.</td></tr>
@@ -221,9 +221,9 @@
 </section>
 
 <section>
-  <div class="sec-head"><h2>📋 Борд — живой статус</h2><span class="tag">обновлено 14.07 · NOW.next = NearGas PLAN-AMEND/Re-sync · M1 route + Frame v2 READY PARALLEL · product BUILD runnable: 0 · истина всегда NOW.md + git</span></div>
+  <div class="sec-head"><h2>📋 Борд — живой статус</h2><span class="tag">обновлено 14.07 · NOW.next = NearGas PLAN-AMEND/Re-sync · M1 route + g-d3a8 reconciliation READY PARALLEL · co-op paper continuation HELD · product BUILD runnable: 0 · истина всегда NOW.md + git</span></div>
   <div class="callout accent"><b>Единственный дом этой панели — репозиторий:</b> live/indie-game-development/work/board/dashboard.html; открывается в Chrome с диска, обновляется ТОЛЬКО здесь (внешних зеркал не ведём — правило владельца 2026-07-11). Живой статус — эта секция; панель — рендер: решения по ней, противоречащей NOW, не принимаются.</div>
-  <div class="callout"><b>Как читать параллельность:</b> один <code>NOW.next</code> задаёт основной маршрут команды «продолжаем» — сейчас это только PLAN-AMEND/Re-sync полного NearGas-пакета, не EXEC/BUILD. Карточки <b>READY PARALLEL</b> разрешают отдельно обсуждать общий план M1 и короткую Frame v2: они не запускают продуктовую стройку и не меняют инженерный приоритет.</div>
+  <div class="callout"><b>Как читать параллельность:</b> один <code>NOW.next</code> задаёт основной маршрут команды «продолжаем» — сейчас это только PLAN-AMEND/Re-sync полного NearGas-пакета, не EXEC/BUILD. Карточки <b>READY PARALLEL</b> разрешают отдельно обсуждать общий план M1 и привести ветку g-d3a8 в соответствие принятой Frame v2. Кооперативный paper-answer остаётся <b>HELD</b> до закрытия этой сверки; инженерный приоритет не меняется.</div>
   <div class="callout"><b>⚠ Демо: определения сейчас НЕТ — это открытый пункт, а не план.</b> Концепт изменился (11.07 принята новая рамка игры: расследование почти невидимого газа → план → добыча/операция → эвакуация). Старый октябрьский демо-план с панели ВЫРЕЗАН — его история лежит в git. 12.07 владелец установил Canon Forge v3 как единственный живой paper-only маршрут, затем отдельным вердиктом «ADMIT TO CANON» допустил «Цель стоит запуска» как предварительную карточку c-001 (нужен-грейбокс). Это не готовая механика: fun, кооперация, рантайм-читаемость, темп давления, стоимость движка и коммерческий сигнал не доказаны; точные правила газа, активации, добычи, экономики, инвентаря и кооперации остаются открыты. Проверенные даты фестов сохранены ниже как справочник, а не как план.</div>
   <div class="callout"><b>Газовый маршрут пересобран.</b> Принята единая продуктовая программа: сначала ядро получает одного владельца и одну атомарную симуляцию, затем ограничение ресурсов, дешёвую сверку состояния, точную версию Unity и единственный рабочий путь через Unity; после интеграционной проверки подключаются PlayerSense, replay и удаление старых путей. Старый монолитный Phase 0 честно остался <b>NOT DELIVERED</b> и больше не запускается. Бюджет ставки <b>13 легов / 24.07</b> не расширен: новая программа не считается молча помещённой в него.</div>
   <div class="callout accent"><b>Почему следующим стоит PLAN-AMEND/Re-sync:</b> ветка execute-002 от origin/main@<b>32107343</b> сохранила evidence <b>5c783e07</b>: fresh spec-only автор остановился без теста и кода, потому что frozen packet не связывает девять групп construct/observe/inject witnesses. Новый CALL чинит полный пакет под contract v21 и возвращается на отдельную свежую Direction-проверку; EXEC/BUILD до неё запрещён. Задача L1 остаётся открытой.</div>
@@ -243,11 +243,18 @@
       <p><span class="l">Граница:</span> не product leg, не Unity и не BUILD; executor CALL не выпускается поверх незакрытого v21 blocker.</p>
     </div>
     <div class="call">
-      <div class="head"><span class="st">READY PARALLEL · НУЖЕН ВЛАДЕЛЕЦ</span><b>Собрать короткую Minimum Game Frame v2</b><span class="id">c-repair-minimum-game-frame-v2-001</span></div>
-      <p><span class="l">Что это:</span> отдельная текстовая сессия дистиллирует принятую макроархитектуру игры в одну короткую рамку; research draft и handoff сохранены как входы, но не стали каноном.</p>
-      <p><span class="l">Зачем:</span> владелец остановил текущий кооп-вопрос дословным вердиктом «FRAME REVISED — СОБРАТЬ КОРОТКУЮ FRAME V2». До новой рамки нельзя выбирать paper-answer или отпускать Sc-damage.</p>
-      <p><span class="l">Где сейчас:</span> CALL готов под g-d3a8 и не меняет инженерный <code>NOW.next</code>. Канон, TREE и CHARTER не изменены; кооп-материал сохранён для возврата после Frame v2.</p>
-      <p><span class="l">Что дальше:</span> owner-present сессия должна закончиться одним дословным вердиктом FRAME READY, FRAME REVISED или FRAME BLOCKED.</p>
+      <div class="head"><span class="st">READY PARALLEL · НУЖЕН ВЛАДЕЛЕЦ</span><b>Сверить ветку g-d3a8 с принятой Frame v2</b><span class="id">c-map-g-d3a8-frame-v2-reconciliation-001</span></div>
+      <p><span class="l">Что это:</span> owner-present текстовая сверка только ветки g-d3a8: текущий TREE всё ещё несёт старые 1–4-player и solo-startable формулировки, а Frame v2 и owner requirement требуют поддержку восьми.</p>
+      <p><span class="l">Зачем:</span> карта должна явно различать owner-approved frame, выбранный бумажный ответ и канон, чтобы последующие сессии не смешивали их полномочия.</p>
+      <p><span class="l">Где сейчас:</span> Frame v2 уже получила дословный вердикт «FRAME READY». Канон, TREE и CHARTER этим принятием не изменены; инженерный <code>NOW.next</code> сохранён.</p>
+      <p><span class="l">Что дальше:</span> показать владельцу точный diff ветки и получить явное одобрение или блок. Никакой canon/product/implementation работы в этой сессии.</p>
+    </div>
+    <div class="call wait">
+      <div class="head"><span class="st">HELD · ЖДЁТ g-d3a8 RECONCILIATION</span><b>Вернуться к вопросу о co-op composition</b><span class="id">c-research-q-coop-interdependence-002</span></div>
+      <p><span class="l">Что это:</span> сохранённый вопрос о том, какая композиция временных подгрупп и ситуационных ролей создаёт настоящую дополнительную ценность для 4–8 игроков.</p>
+      <p><span class="l">Зачем:</span> предыдущий материал был только входом и не стал OWNER-SELECTED PAPER ANSWER; Frame v2 теперь даёт ему правильную целую рамку.</p>
+      <p><span class="l">Где сейчас:</span> запуск запрещён до закрытия c-map-g-d3a8-frame-v2-reconciliation-001. Канон не меняется, Sc-damage не отпускается.</p>
+      <p><span class="l">Что дальше:</span> после reconciliation — отдельная owner-present сессия даст выбранный бумажный ответ либо честный FRAME/QUESTION/PAPER block.</p>
     </div>
     <div class="call">
       <div class="head"><span class="st">НЕПРИОРИТЕТНАЯ · HELD · НЕ ЗАПУСКАТЬ</span><b>Перенести репозиторные ворота с обязательного PowerShell на локальный .NET runner</b><span class="id">c-exec-unity65-mac-revision-002-build-001</span></div>
@@ -282,7 +289,7 @@
       <p><span class="l">Что это:</span> проектная сессия про первое последствие газа для игрока — как накопленная «доза» превращается во вред (удушье, отравление и т.д.).</p>
       <p><span class="l">Зачем:</span> без последствий газ не опасен, и кооперативу нечего преодолевать. Технически движок готов: доза игрока уже считается, не хватает именно дизайна.</p>
       <p><span class="l">Где сейчас:</span> в бюджет Полигона М1 урон сознательно не входит (он в списке отрезанного), а дизайн ждёт «палитру вреда» из канона.</p>
-      <p><span class="l">Что дальше:</span> проснётся после Полигона — или раньше, если канон ответит на вопрос о палитре вреда. До того трогать не нужно.</p>
+      <p><span class="l">Что дальше:</span> Frame v2 готова, но это не готовая канон-спека урона или кооперации. Работа проснётся после Полигона — или раньше только после отдельного достаточного canon answer. До того трогать не нужно.</p>
     </div>
   </div>
 
@@ -295,7 +302,7 @@
       <p><span class="l">Рекомендация:</span> выбрать доступную физическую машину и явно назвать её CPU, GPU и RAM; тогда финальные 50/100 ms имеют реальный якорь.</p>
     </div>
   </div>
-  <div class="callout"><b>Не показывается как живой owner-вопрос:</b> требование «до 8 игроков» пока не зарегистрировано в NOW.decisions, поэтому оно остаётся repair/P1 в «Проблемах», а не решением батча. Старый merge-gate Phase 0 удалён из живого рендера: Phase 0 = NOT DELIVERED / NEVER RESUME.</div>
+  <div class="callout"><b>Не показывается как живой owner-вопрос:</b> требование «до 8 игроков» уже является owner direction и теперь маршрутизировано в READY PARALLEL c-map-g-d3a8-frame-v2-reconciliation-001, а не в NOW.decisions. До G9-сверки противоречие TREE/канон остаётся в «Проблемах». Старый merge-gate Phase 0 удалён из живого рендера: Phase 0 = NOT DELIVERED / NEVER RESUME.</div>
 
   <h3 class="subhead">Закрыто недавно — чем кончилось</h3>
   <div class="calls">
@@ -412,8 +419,10 @@
       <p><span class="l">Чем кончилось:</span> план одобрен тобой и заморожен. Стройка сознательно заперта до вливания шага 1 — чтобы не строить на движущемся основании.</p>
     </div>
     <div class="call closed">
-      <div class="head"><span class="st">✓ «FRAME READY»</span><b>Рамка целой игры принята</b></div>
-      <p><span class="l">Чем кончилось:</span> принят каркас: расследование почти невидимого газа → план → добыча/операция → эвакуация через изменившуюся среду, с переносом результата между вылазками. Это основа дизайна (ещё не канон); подробности и карта — на канон-борде.</p>
+      <div class="head"><span class="st">✓ FRAME READY · CURRENT WHOLE-GAME BASIS</span><b>Minimum Game Frame v2 принята</b><span class="id">c-repair-minimum-game-frame-v2-001 · 14.07</span></div>
+      <p><span class="l">Что было:</span> Frame v1 честно описывала одну экспедицию, но откладывала забег, экономику и persistence; research draft одновременно смешивал полезную архитектуру с гипотезами и примерами.</p>
+      <p><span class="l">Чем кончилось:</span> владелец сказал «FRAME READY». Текущая owner-approved основа связывает короткий конечный забег, регулярную газовую ценность, безопасный возврат, инструменты, артефакты-исключения, полный вайп, быстрый restart, Шар/Пузырь и состав 4–8.</p>
+      <p><span class="l">Граница:</span> это рамка, не канон; TREE, CHARTER, продукт и реализация не менялись. Следом READY сверка g-d3a8, а co-op composition остаётся HELD до неё.</p>
     </div>
     <div class="call closed">
       <div class="head"><span class="st">✓ «QUESTION READY»</span><b>Проверка происхождения первого вопроса канона</b></div>
@@ -459,10 +468,10 @@
       <p><span class="l">Кто чинит:</span> repair-сессия по `c-repair-daily-marketing-routing-20260712-001`; сам маркетинг, аккаунты и публичные действия не выполняются.</p>
     </div>
     <div class="call wait">
-      <div class="head"><span class="st">P1 · REPAIR · KNOWN</span><b>Требование «до 8 игроков» потеряло state-route согласования</b><span class="id">dr-20260712-002</span></div>
-      <p><span class="l">Что случилось:</span> knowledge хранит дословное owner requirement «до 8; оптимум 8; соло вне компетенции», а TREE и канон продолжают говорить 2–4/1–4 и solo-startable. Карточка есть на панели, но в NOW.decisions её нет.</p>
+      <div class="head"><span class="st">P1 · MAP READY PARALLEL · ROUTED</span><b>Требование «до 8 игроков» ждёт state-reconciliation</b><span class="id">dr-20260712-002</span></div>
+      <p><span class="l">Что случилось:</span> Frame v2 и knowledge хранят owner requirement поддержки восьми, а TREE и канон продолжают говорить 2–4/1–4 и solo-startable. Принятие рамки само по себе эти authority-слои не переписало.</p>
       <p><span class="l">Почему P1:</span> shape/PLAN может прочитать взаимоисключающие пределы игроков; панель не заменяет state-authority и owner-gated маршрут.</p>
-      <p><span class="l">Кто чинит:</span> repair-сессия по `c-repair-daily-player-count-routing-20260712-001`; TREE и канон не меняются без фактических слов владельца и G9/amendment.</p>
+      <p><span class="l">Кто чинит:</span> READY PARALLEL c-map-g-d3a8-frame-v2-reconciliation-001 исправляет только g-d3a8/TREE по G9 и явно разводит frame, paper answer и canon. Любая canon-правка остаётся отдельной owner-present сессией.</p>
     </div>
     <div class="call wait">
       <div class="head"><span class="st">P2 · REPAIR · KNOWN</span><b>LOG и history не образуют полностью разрешимый журнал</b><span class="id">dr-20260711-002</span></div>
@@ -481,16 +490,17 @@
   <h3 style="margin:26px 0 10px; font-size:18px">Журнал — последние 3 дня</h3>
   <p class="note" style="margin:0 0 10px">Рендер из LOG.md (полный архив — там); старше трёх дней с панели уходит. Сегодняшний день раскрыт.</p>
   <details class="day" open>
-    <summary>14 июля <span class="cnt">· M1 roadmap + 5 критериев published @feba69b · A1 принят · главная панель = Полигон M1 · DA/PGG route возвращён · engineering routing published @017d6a2 · NearGas Re-sync PRIMARY · общий план и Frame v2 READY PARALLEL · product BUILD runnable: 0</span></summary>
+    <summary>14 июля <span class="cnt">· Frame v2 = FRAME READY · g-d3a8 reconciliation READY · co-op continuation HELD · M1 roadmap + 5 критериев published @feba69b · engineering routing published @017d6a2 · NearGas Re-sync PRIMARY · product BUILD runnable: 0</span></summary>
     <ul>
       <li><b>Публикация M1 roadmap и критериев:</b> коммиты <b>59cbd6b</b> и <b>677eb87</b> слиты с чистым актуальным main@bcc659a. Конфликты были только в LOG и журнале панели: сохранены и предыдущий engineering publish receipt, и M1 route/acceptance. Merge <b>feba69b</b> без force опубликован в origin/main; remote git + GitHub API readback совпали. Frame/Solmax/engineering ancestry цела; чужой dirty marketing-файл в коммиты не попал.</li>
       <li><b>Критерии приёмки М1:</b> владелец «ратифицировать все пять с этими уточнениями» вернул в живую планку замер на названном слабом железе, HUD-доказательство детерминизма, видимый admission ceiling и контролируемое завершение прогона при disconnect. Late join, host migration и production-звук остались вырезаны; в inbox остался только выбор конкретного min-spec железа.</li>
       <li><b>Poligon-M1 dashboard routing repair:</b> владелец выбрал «A1». Direction board стал главной панелью пути к интеграционной сцене; NearGas dashboard явно оставлен дочерней gas-панелью. Шесть трасс теперь показывают зависимости, площадки, merge-границы и текущую параллельность.</li>
       <li><b>Engineering routing repair:</b> владелец сказал «Одобрить пакет». execute-002@5c783e07 закреплён как CHECKPOINT / NOT DELIVERED; returned CALL больше не runnable, runner и character остаются HELD, а dr-20260713-001 закрыта.</li>
-      <li><b>Правдивый запуск:</b> основной следующий вход — c-exec-near-gas-core-authority-001-plan-amend-resync-002; параллельно остаются c-work-poligon-m1-integration-route-001 и owner-present Frame v2. Первый меняет только frozen product planning packet, остальные — только Direction-артефакты; ни один BUILD не открыт.</li>
+      <li><b>Правдивый запуск:</b> основной следующий вход — c-exec-near-gas-core-authority-001-plan-amend-resync-002; параллельно остаются c-work-poligon-m1-integration-route-001 и owner-present c-map-g-d3a8-frame-v2-reconciliation-001. Первый меняет только frozen product planning packet, остальные — только Direction-артефакты; co-op continuation HELD, ни один BUILD не открыт.</li>
       <li><b>Публикация engineering repair:</b> repair-коммит 5946277 и checksum-fix 45af36c влиты в main и без force опубликованы как origin/main@017d6a2. Уже существовавший удалённый Frame-v2 commit сохранён в ancestry без возврата к его устаревшему снимку состояния; параллельный M1-коммит 59cbd6b в эту публикацию не вошёл. Remote readback и ancestry проверены; это исторический receipt предыдущей публикации.</li>
       <li><b>Level / DA / PGG:</b> ratified Phase 1/2/3 сохранился; старый PLAN помечен SUPERSEDED / NEVER ISSUE из-за невозможной зависимости Phase 0 MERGED. PGG остаётся editor-time bake в dependency-free static prefab, не runtime authority.</li>
       <li><b>Canon Forge — Frame v2 checkpoint:</b> владелец сказал «FRAME REVISED — СОБРАТЬ КОРОТКУЮ FRAME V2». Полный gas/artifact research draft и отдельный distillation handoff сохранены как неканонические входы; paper-answer по кооперативной взаимозависимости не выбран, канон не изменён, Sc-damage остаётся HELD. Открыт owner-present c-repair-minimum-game-frame-v2-001; инженерный NOW.next не менялся.</li>
+      <li><b>Minimum Game Frame v2:</b> владелец дал дословный вердикт «FRAME READY». Рамка стала текущей owner-approved whole-game design basis, но не каноном; c-001 сохранён без расширения, TREE/CHARTER/product не менялись. Открыта отдельная owner-present сверка g-d3a8, а продолжение co-op composition зарегистрировано HELD до её закрытия; Sc-damage остаётся HELD.</li>
     </ul>
   </details>
   <details class="day">
