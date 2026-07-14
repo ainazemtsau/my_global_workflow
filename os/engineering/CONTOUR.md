@@ -14,11 +14,22 @@ Companion files: `PROJECT_SETUP.md` (bootstrap a product repo), `VALIDATION.md` 
 
 ## Roles (always separated)
 
-- **Pre-freeze RED reviewer** - a fresh read-only frontier AI that, before final owner approval, performs the semantic full-packet dry-run in PLAN step (d). It writes test recipes, never tests or product code, and is distinct from the planner and later test-author.
-- **Planner** — interactive session, frontier model, plan mode. Talks to the owner. A SEPARATE session from BUILD, always: the plan leg ENDS when the owner approves the plan — it hands off a build CALL and writes NO product code and authors/commissions NO red tests (red-test authoring is the build session's opening move — see Test-author). Planning and building never share one session.
-- **Builder** — autonomous session(s), default-tier model, a FRESH session that reads the frozen plan (never the same session that planned). Never talks to the owner mid-run.
+- **Plan reviewer** - a fresh read-only frontier AI that checks the candidate's meaning, obligation inventory and
+  evidence-class split. Its prose recipes are planning feedback only: they never count as authored RED and never
+  authorize BUILD.
+- **Planner** — interactive session, frontier model, plan mode. Talks to the owner. A SEPARATE session from RED-FREEZE
+  and BUILD, always: the plan leg ENDS when the owner approves the plan — it hands off a RED-FREEZE CALL and writes NO
+  product code or tests. Planning, RED authoring and building never share one session.
+- **Builder** — autonomous session(s), default-tier model, a FRESH session that reads the frozen plan and reviewed eligible RED commit (never the same session that planned). Never talks to the owner mid-run.
 - **Validator** — fresh-context, read-only (no Write/Edit), did not author the code; for at least one pass per feature — a different model family than the builder. Agents consistently overrate their own output; same-model self-review is a mirror, not a check.
-- **Test-author** — a separate subagent that, after the spec freezes and before BUILD, reads ONLY the frozen spec (never the code — it does not exist yet) and writes the per-criterion acceptance tests as failing (red). The builder makes them pass and may not edit them. Not the builder (self-review is a mirror), not the validator (a pre-code oracle and a post-code review are different artifacts); a cheap-tier model is fine — its independence is from the SPEC, not from a verdict. This is what stops the builder's own tests from inheriting the builder's misreading of the spec. For a `core algorithm` change the same role returns for a second, POST-build pass (see cycle, PROPERTY AUDIT): once gates are green it reads the actual DIFF — the one artifact neither the frozen spec nor the pre-code pass could see — for new throw-paths, seams, order-dependencies, and derived-value ranges the implementation introduced, and appends property tests for them before REPORT. Still not the builder (same self-review mirror) and not the validator (adversarial test-authoring, not review) — it is the only step positioned at the moment the seam becomes visible, between a test-author blind to the code and a reviewer who only reads it after DELIVERED.
+- **Test-author** — a separate RED-FREEZE session that, after the spec freezes and before BUILD, reads ONLY the frozen
+  spec and writes the complete `behavioral-red` test/support patch once as an immutable commit. It runs the repo's real
+  compile/test command and records the exact RED. The builder starts from that commit, makes it pass, and may not edit
+  it; there is no second pre-build test-authoring pass. Process, structural-review and final-gate obligations are
+  `evidence-only`, never fake tests. Not the builder and not the validator. For a `core algorithm` change the same role
+  returns for a second, POST-build pass (see cycle, PROPERTY AUDIT): once gates are green it reads the actual DIFF — the
+  one artifact neither the frozen spec nor the pre-code pass could see — for new throw-paths, seams, order-dependencies,
+  and derived-value ranges the implementation introduced, and appends property tests for them before REPORT.
 
 **Extension rule.** Existing product code may already exist. The test-author's "never the code" restriction means the frozen spec must carry every construction and harness fact needed from that existing system; it must never assume the task is greenfield merely because the new implementation does not exist yet.
 
@@ -90,37 +101,39 @@ CALL (business task from a direction)
     ESCALATION) — a self-authored cut of a promise is a coverage FAIL, not a disposition. This
     list is RECORDED in the spec; the deliver gate checks it (PROJECT_SETUP §Strong-check
     enablement) and the writer re-checks it on carry-back (os/adapters/coding-agent.md).
-    (d) SPEC-TO-RED HANDOFF: for every acceptance criterion, negative-control token and
-    property row, the spec contains one exact recipe with five fields: `fixture`
-    (constructors/signatures/literals), `call`, `observe` (assertion/evidence seam),
-    `source` (exact input or golden authority), and `negative` (the deliberately-wrong
-    injectable shape). Before final owner approval, the pre-freeze RED reviewer starts
-    from the complete candidate spec, independently derives the full obligation set, and
-    writes a concise test skeleton for every row. It may fact-check an existing public
-    signature or test-harness fact read-only, but GREEN is legal only when every fact used
-    is present in the spec and a final spec-only pass needs no guess. One unresolved,
-    inferred, `n/a`, or merely named future test makes the whole handoff RED; the reviewer
-    returns the complete gap list for that round, never only the first blocker. Any change
-    to the spec invalidates the pass and requires another full-packet run. A narrow
-    blocker refutation may close that blocker but can never authorize EXEC/BUILD by itself.
-    This is semantic AI review, not a script/parser/regex/conformance-tool task
-    (VALIDATION Plan-to-RED readiness; MAINTENANCE semantic-review boundary).
+    (d) SPEC-TO-RED HANDOFF: split mixed rows into atomic obligations, then classify each exactly once as
+    `behavioral-red` or `evidence-only`; one row may never straddle both classes. A behavioral row owns a named test file/method and
+    one exact recipe with `fixture` (constructors/signatures/literals), `call`, `observe`,
+    `source` and `negative`; every dependency/framework invocation needed to author it is
+    copied from an authoritative API or repo example. A process-order, structural-review,
+    owner-verdict or final-gate row is `evidence-only`: it names its real evidence route and
+    is excluded from the RED-test count — it may not be dressed as an Arrange/Act/Assert test.
+    The plan reviewer independently checks the full inventory and returns the complete gap
+    list, but a filled table or English skeleton is never `N/N executable` and never authorizes
+    BUILD. Only the later actual RED-FREEZE artifact plus its binding fresh refutation does. A spec change invalidates every
+    affected RED artifact; a narrow blocker close never authorizes BUILD by itself. This is
+    semantic AI review plus the real consumer artifact, not a new parser/regex/conformance tool
+    (VALIDATION Executable Plan-to-RED handoff; MAINTENANCE semantic-review boundary).
     The plan the owner approves is a detailed-but-simple OWNER-READABLE
     document — the goal in plain words and EACH technical decision spelled out
     (plain-language what + why), plus what is cut or deferred; the machine spec /
     ledger / ADR ride ALONGSIDE it for the builder and are NOT what the owner
     reads to approve (a wall of machine artifacts, or a plan buried in a scratch
     file, is not a plan).
-    After the full-packet RED-author dry-run is GREEN, the owner approves the plan. This is the
-    owner's last mandatory appearance until the final report — and it CLOSES the
-    plan leg: RED TESTS + BUILD run as a SEPARATE, fresh build session reading
-    the frozen plan (the plan session writes no product code and commissions no
-    red tests). Planning and building never share one session.
-  → RED TESTS (before build): the test-author (see Roles) writes the failing
-    acceptance tests from the frozen spec — the builder cannot author or edit
-    the tests it must satisfy. The exact recipes are part of that frozen spec, so a misreading cannot hide in
-    self-agreeing tests.
-  → BUILD (autonomous): one feature at a time, smallest-first.
+    The owner approves the plan and the plan leg CLOSES. A separate RED-FREEZE session now proves the handoff; BUILD
+    is not opened by a prose readiness verdict. Planning, RED-FREEZE and BUILD never share one session.
+  → RED-FREEZE (separate fresh session, before build): the test-author writes and commits the complete behavioral
+    test/support patch from the frozen spec and runs the repo's real command. Existing-surface work must compile,
+    discover the intended tests and fail on the claimed behavior. For a genuinely new frozen production surface,
+    compile-RED is allowed only when every diagnostic is an explicitly frozen not-yet-built production symbol;
+    undefined test-local fixtures/helpers, guessed framework calls, process rows posed as tests, or any unexplained
+    diagnostic are PLAN gaps. On a gap, return the complete list to PLAN-AMEND with no BUILD. On success, record the
+    immutable RED commit, exact changed test paths, command and failure evidence.
+  -> RED VERIFY (binding fresh refutation): the already-required fresh read-only review now inspects the frozen spec,
+    actual RED commit/diff and runner evidence, and tries to refute its completeness and independence. It does not
+    author tests or repeat the prose skeleton exercise. Only this artifact-backed verdict may open BUILD.
+  → BUILD (autonomous): a fresh builder starts from the reviewed eligible RED-FREEZE commit, never re-authors or edits it, and
+    implements one feature at a time, smallest-first.
     Reuse-first rule: before writing anything, search for an existing
     implementation; the duplicate you would have written becomes a call.
     Make-time obligations on any tests the builder writes itself too: assert
