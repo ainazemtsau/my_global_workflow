@@ -167,7 +167,7 @@
 <header class="hero">
   <div class="eyebrow">ОНО ДЫШИТ · главная панель направления · обновлено 14.07 · A1 принят</div>
   <h1>Полигон M1 — путь к сильной интеграционной сцене</h1>
-  <p class="lead"><b>Финиш:</b> одна регулируемая сцена, где DA собирает проверенные модули, PGG может наполнять их только на этапе авторинга, персонаж подключён через стабильный сокет, газ живёт под одним авторитетом, а сеть, слабое железо, телеметрия и снимки позволяют честно испытывать всё вместе. NearGas-dashboard ниже по иерархии: это подробная техническая панель одного газового трека, не roadmap всей цели.</p>
+  <p class="lead"><b>Финиш:</b> одна регулируемая сцена, где DA собирает проверенные модули, PGG может наполнять их только на этапе авторинга, персонаж подключён через стабильный сокет, газ живёт под одним авторитетом, а сеть, названное слабое железо, телеметрия и снимки позволяют честно испытывать всё вместе. NearGas-dashboard ниже по иерархии: это подробная техническая панель одного газового трека, не roadmap всей цели.</p>
   <div class="stamp"><span>ставка: Полигон М1 · максимум 13 product legs · стоп-линия 24.07</span><span>сейчас PRIMARY: NearGas PLAN-AMEND / Re-sync v20→v21</span><span>параллельно: общий M1 integration route + Frame v2</span><span>product BUILD сейчас: 0 разрешённых</span><span>Level/DA/PGG: маршрут сохранён, старый Phase-0 CALL отменён</span><span>персонажи: В1 PLAN frozen · BUILD HELD</span><span>visual: LOCKED</span></div>
 </header>
 
@@ -214,7 +214,7 @@
     </div>
     <div class="call wait">
       <div class="head"><span class="st">6 · FINAL EVIDENCE</span><b>Network, min-spec и доказательства</b><span class="id">две машины · профиль · sync · capture</span></div>
-      <p><span class="l">Финиш трассы:</span> одна и та же сцена проходит на двух реальных машинах, показывает admission ceiling и deterministic state, укладывается в профиль слабого железа и отдаёт повторяемые snapshots/телеметрию.</p>
+      <p><span class="l">Финиш трассы:</span> одна и та же сцена проходит на двух реальных машинах, HUD показывает deterministic agree/divergence, ловит planted divergence и показывает admission ceiling, прогон укладывается в профиль названного слабого железа и отдаёт повторяемые snapshots/телеметрию. Потеря пира/хоста не зависает молча: текущий прогон явно и контролируемо завершается; host migration вырезана.</p>
       <p><span class="l">Порядок:</span> инструменты и критерии можно планировать заранее; binding network/min-spec run идёт после объединения foundation-трасс. Последний merge и финальная проверка не параллелятся.</p>
     </div>
   </div>
@@ -289,16 +289,22 @@
   <h3 class="subhead">Ждёт тебя (батч)</h3>
   <div class="calls">
     <div class="call wait">
-      <div class="head"><span class="st">РЕШЕНИЕ</span><b>Критерии приёмки Полигона М1 — пять дополнений</b><span class="id">d-m1-acceptance-criteria-001</span></div>
-      <p><span class="l">Что случилось:</span> при проверке актуальности панели (11.07) выяснилось, что пять дополнений к критериям приёмки жили ТОЛЬКО в вырезанной устаревшей лестнице — ни в ставке, ни в NOW их нет. Переприколоты сюда, чтобы не потерялись, как когда-то сторожа.</p>
-      <p><span class="l">Пять пунктов:</span> (1) замер на НАЗВАННОМ слабом железе — min-spec до сих пор не выбран; (2) лампа детерминизма в HUD — иначе «мультиплеер работает» не доказуемо; (3) политика выхода пира/хоста — хотя бы решение; (4) предохранитель заливки (admission ceiling, твой же ответ 03.07) виден в стенде; (5) звук — сознательно НЕ в Полигоне.</p>
-      <p><span class="l">Рекомендация:</span> ратифицировать все пять — они дешёвые и делают финальное доказательство честным; пункт (1) требует от тебя назвать конкретное железо.</p>
+      <div class="head"><span class="st">РЕШЕНИЕ ОСТАЛОСЬ</span><b>Назвать слабое железо финального прогона</b><span class="id">d-m1-min-spec-hardware-001</span></div>
+      <p><span class="l">Что случилось:</span> все пять дополнений к приёмке М1 ратифицированы. Теперь «слабое железо» не может остаться абстрактным: газовая симуляция CPU-bound, а текущий профиль называет только GPU-класс и 16 GB RAM.</p>
+      <p><span class="l">Вопрос:</span> что становится binding min-spec: доступная физическая машина; точный CPU/GPU/RAM-класс с арендой или покупкой к финалу; или только throttled-прокси, который не закроет финальную приёмку.</p>
+      <p><span class="l">Рекомендация:</span> выбрать доступную физическую машину и явно назвать её CPU, GPU и RAM; тогда финальные 50/100 ms имеют реальный якорь.</p>
     </div>
   </div>
   <div class="callout"><b>Не показывается как живой owner-вопрос:</b> требование «до 8 игроков» пока не зарегистрировано в NOW.decisions, поэтому оно остаётся repair/P1 в «Проблемах», а не решением батча. Старый merge-gate Phase 0 удалён из живого рендера: Phase 0 = NOT DELIVERED / NEVER RESUME.</div>
 
   <h3 class="subhead">Закрыто недавно — чем кончилось</h3>
   <div class="calls">
+    <div class="call closed">
+      <div class="head"><span class="st">✓ РАТИФИЦИРОВАНО 5 ИЗ 5</span><b>Критерии приёмки Полигона М1</b><span class="id">d-m1-acceptance-criteria-001 · 14.07</span></div>
+      <p><span class="l">Что было:</span> пять дополнений жили только в вырезанной устаревшей лестнице, поэтому финальная планка М1 могла тихо потерять CPU-, sync- и flood-доказательства.</p>
+      <p><span class="l">Чем кончилось:</span> владелец сказал «ратифицировать все пять с этими уточнениями». Финал требует названное слабое железо, HUD-лампу agree/divergence с plant-самопроверкой и видимый admission ceiling.</p>
+      <p><span class="l">Граница:</span> потеря пира/хоста явно завершает текущий прогон; late join/host migration и production-звук в М1 не входят. Осталось назвать конкретное min-spec железо.</p>
+    </div>
     <div class="call closed">
       <div class="head"><span class="st">PLAN-AMEND ПРИНЯТ · ПОЗДНИЙ CHECKPOINT НАШЁЛ НОВЫЕ GAPS</span><b>L1: construction/fault поправка не закрыла весь executable corpus</b><span class="id">c-exec-near-gas-core-authority-001-plan-amend-001 · 13.07</span></div>
       <p><span class="l">Что было:</span> первый independent spec-only RED остановился до test commit: frozen spec не позволял законно собрать admitted generation и выбрать обязательные внутренние точки отказа.</p>
@@ -475,8 +481,9 @@
   <h3 style="margin:26px 0 10px; font-size:18px">Журнал — последние 3 дня</h3>
   <p class="note" style="margin:0 0 10px">Рендер из LOG.md (полный архив — там); старше трёх дней с панели уходит. Сегодняшний день раскрыт.</p>
   <details class="day" open>
-    <summary>14 июля <span class="cnt">· A1 принят · главная панель = Полигон M1 · DA/PGG route возвращён · engineering routing repaired · NearGas Re-sync PRIMARY · общий план и Frame v2 READY PARALLEL</span></summary>
+    <summary>14 июля <span class="cnt">· 5 критериев M1 ратифицированы · A1 принят · главная панель = Полигон M1 · DA/PGG route возвращён · engineering routing repaired · NearGas Re-sync PRIMARY · общий план и Frame v2 READY PARALLEL</span></summary>
     <ul>
+      <li><b>Критерии приёмки М1:</b> владелец «ратифицировать все пять с этими уточнениями» вернул в живую планку замер на названном слабом железе, HUD-доказательство детерминизма, видимый admission ceiling и контролируемое завершение прогона при disconnect. Late join, host migration и production-звук остались вырезаны; в inbox остался только выбор конкретного min-spec железа.</li>
       <li><b>Poligon-M1 dashboard routing repair:</b> владелец выбрал «A1». Direction board стал главной панелью пути к интеграционной сцене; NearGas dashboard явно оставлен дочерней gas-панелью. Шесть трасс теперь показывают зависимости, площадки, merge-границы и текущую параллельность.</li>
       <li><b>Engineering routing repair:</b> владелец сказал «Одобрить пакет». execute-002@5c783e07 закреплён как CHECKPOINT / NOT DELIVERED; returned CALL больше не runnable, runner и character остаются HELD, а dr-20260713-001 закрыта.</li>
       <li><b>Правдивый запуск:</b> основной следующий вход — c-exec-near-gas-core-authority-001-plan-amend-resync-002; параллельно остаются c-work-poligon-m1-integration-route-001 и owner-present Frame v2. Первый меняет только frozen product planning packet, остальные — только Direction-артефакты; ни один BUILD не открыт.</li>

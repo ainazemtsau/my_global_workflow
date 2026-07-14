@@ -1,11 +1,13 @@
 # NOW: indie-game-development
-updated: 2026-07-14 by s-repair-poligon-m1-dashboard-routing-001
+updated: 2026-07-14 by s-repair-m1-acceptance-criteria-001
 
 bet:
   node: g-9c41
   goal: |
     Полигон М1 доказывает representative networked co-op scene: регулируемый DA-уровень,
-    gas gameplay, S4, controlled breach, full flood, две реальные машины и слабое железо.
+    gas gameplay, S4, controlled breach, full flood, две реальные машины и замер на названном
+    слабом железе; финальный стенд явно показывает deterministic agree/divergence,
+    ловит planted divergence и показывает admission ceiling.
   appetite: |
     Максимум 13 product legs, started 2026-07-10; owner-authorized exception 2026-07-11 только для
     M1-GAS-PROBE + M1-GAS-CORE. P2a0 — opening существующего M1-5, checksum foundation — один слот,
@@ -27,9 +29,11 @@ bet:
     показать точный пересчёт legs/cuts. Visual всё ещё LOCKED; M1-P2a0 lifecycle/G5 drift чинится отдельно.
   cut_list:
     - Sc-damage остаётся HELD; нет damage/consequence.
-    - Нет врагов, миссии, production UI/audio/VFX и новой газовой энциклопедии.
+    - Нет врагов, миссии, production UI/VFX и новой газовой энциклопедии.
+    - Production-звук сознательно не входит в Полигон М1; это будущая visual-линия.
     - Только один контролируемый стеновой пролом; нет полной разрушаемости.
-    - Нет save/load, late join, matchmaking и host migration.
+    - Нет save/load, late join, matchmaking и host migration; потеря пира/хоста явно и контролируемо
+      завершает текущий прогон М1.
     - Один Полигон и минимальный DA module set; не контент-производство.
   lens_verdicts:
     commercial_traction: final evidence leg отдаёт capture-пакет visual/marketing линиям.
@@ -119,9 +123,9 @@ open_calls:
 recurring: []
 
 decisions:
-  - q: "d-m1-acceptance-criteria-001 — ратифицировать 5 дополнений к критериям приёмки Полигона М1?"
-    options: ["Ратифицировать все 5", "Ратифицировать выборочно", "Отклонить — критерии не расширяем"]
-    recommendation: "Ратифицировать все 5; min-spec требует отдельного owner-выбора железа."
+  - q: "d-m1-min-spec-hardware-001 — какое конкретное слабое железо становится binding min-spec финального прогона М1?"
+    options: ["Доступная физическая машина", "Точный CPU/GPU/RAM-класс с арендой/покупкой к финалу", "Только throttled-прокси — финал не закрывает"]
+    recommendation: "Доступная физическая машина; газ CPU-bound, поэтому CPU должен быть назван явно."
 
 next:
   CALL: work/c-exec-near-gas-core-authority-001-plan-amend-resync-002-call.md
