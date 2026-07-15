@@ -269,4 +269,6 @@ archived: history/LOG-archive-indie-game-development.md — sessions before 2026
 
 2026-07-15 — work/publish (repository/main, s-work-publish-eight-player-live-consistency-main-001): canon player-count render f56dadd and Direction consistency payload e0eb5af were pushed to remote main without force; local/fetched/ls-remote readback matched, workflow local main fast-forwarded, and NOW/routes stayed unchanged. → history/2026-07-15-s-work-publish-eight-player-live-consistency-main-001.md
 
+2026-07-15 — work/close (g-9c41/NearGas-L1-BUILD, s-work-near-gas-l1-experimental-close-001): NearGas L1a delivered and pushed through the owner-authorized experimental skeleton→independent RED→BUILD→refutation route @400ef8ec; binding fresh G5 PASS, full gates green, old v22 packet/carrier retired, mutation 72.78 retained without rerun, B1 maintenance unblocked and L1b remains separate. → history/2026-07-15-s-work-near-gas-l1-experimental-close-001.md
+
 END_OF_FILE: live/indie-game-development/LOG.md

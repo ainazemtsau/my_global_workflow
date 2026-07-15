@@ -1,5 +1,11 @@
 # CALL c-exec-near-gas-core-authority-001-plan-amend-v22-003
 
+> **SUPERSEDED / NEVER ISSUE (2026-07-15):** the owner explicitly forbade this legacy v22 PLAN-AMEND route.
+> NearGas L1a was delivered through the experimental skeleton → independent RED → BUILD → fresh-refutation
+> carrier and pushed to product `dev` and `main` at exact 400ef8eca1e747378493c97530770286c7e26ff1.
+> Do not collect, execute, restore or use this packet to reopen L1a. It is retained only as historical evidence;
+> the next workflow action is a separate maintenance B1 session, and L1b remains a separate product leg.
+
 to: executor
 direction: indie-game-development
 kind: engineering
