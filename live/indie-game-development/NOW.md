@@ -1,5 +1,5 @@
 # NOW: indie-game-development
-updated: 2026-07-15 by s-map-g-d3a8-frame-v2-reconciliation-001
+updated: 2026-07-15 by s-repair-canon-frame-v2-eight-player-001
 
 bet:
   node: g-9c41
@@ -116,19 +116,6 @@ open_calls:
       produce the two-contract Standard v1 candidate, validator/fixture matrices and old-task disposition package.
       No product/Unity/PLAN/BUILD, no Phase 0 revival, no owner acceptance implied.
       work/c-research-level-module-standard-v1-001-call.md.
-  - id: c-repair-canon-frame-v2-eight-player-001
-    to: session
-    for: g-d3a8 / canon top-law reconciliation with Frame v2 and mandatory eight-player support
-    issued: 2026-07-15
-    note: |
-      READY PARALLEL / FIRST g-d3a8 CONSISTENCY PHASE:
-      owner-present correction of the current canon top law so active
-      "1–4 / solo-startable" no longer contradicts accepted Frame v2
-      and the mandatory eight-player requirement. No mechanics,
-      paper-answer selection, c-001 expansion, TREE/CHARTER/product
-      change or unrelated canon rewrite. Full CALL is the `next`
-      packet in history/
-      2026-07-15-s-map-g-d3a8-frame-v2-reconciliation-001.md.
   - id: c-research-q-coop-interdependence-002
     to: session
     for: g-d3a8 / co-op composition question
@@ -147,13 +134,20 @@ open_calls:
     for: g-d3a8 + current live surfaces / eight-player consistency sweep
     issued: 2026-07-15
     note: |
-      HELD until c-repair-canon-frame-v2-eight-player-001 closes.
-      Then scan current authoritative/live surfaces for stale
-      "1–4", "2–4", "solo-startable" and equivalent meanings;
-      classify each as correct-now, engineering hygiene,
-      parked/deferred or historical evidence, and propose only the
-      minimal owner-approved corrections. Never rewrite history.
-      Full held CALL is preserved in
+      READY PARALLEL / SECOND g-d3a8 CONSISTENCY PHASE:
+      c-repair-canon-frame-v2-eight-player-001 closed owner-approved
+      with verdict «ОДОБРЯЮ КАНОН-ПОПРАВКУ». Current canon top law now
+      uses the accepted 4–8 / mandatory-eight / lower-bound-OPEN /
+      no-current-solo-target direction, with the old wording preserved
+      only in AMENDMENTS.md.
+      Scan current authoritative/live surfaces for stale "1–4",
+      "2–4", "solo-startable" and equivalent meanings; classify each
+      as correct-now, engineering hygiene, parked/deferred or
+      historical evidence, and propose only minimal owner-approved
+      corrections. Never rewrite history.
+      Read the completed repair RESULT:
+      history/2026-07-15-s-repair-canon-frame-v2-eight-player-001.md.
+      Full CALL definition remains preserved in:
       history/2026-07-15-s-map-g-d3a8-frame-v2-reconciliation-001.md.
   - id: c-exec-unity65-mac-revision-002-build-001
     to: executor

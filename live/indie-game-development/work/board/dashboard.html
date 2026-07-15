@@ -223,9 +223,9 @@
 </section>
 
 <section>
-  <div class="sec-head"><h2>📋 Борд — живой статус</h2><span class="tag">обновлено 15.07 · NOW.next = M1 bet review, но его packet stale v20→v21 и требует repair · canon top-law repair + co-op paper research + Level Standard research + NearGas contract-v22 PLAN-AMEND READY PARALLEL · eight-player sweep HELD за canon repair · NearGas L1 NOT DELIVERED · истина всегда NOW.md + git</span></div>
+  <div class="sec-head"><h2>📋 Борд — живой статус</h2><span class="tag">обновлено 15.07 · NOW.next = M1 bet review, но его packet stale v20→v21 и требует repair · eight-player sweep + co-op paper research + Level Standard research + NearGas contract-v22 PLAN-AMEND READY PARALLEL · canon top-law repair CLOSED owner-approved · NearGas L1 NOT DELIVERED · истина всегда NOW.md + git</span></div>
   <div class="callout accent"><b>Единственный дом этой панели — репозиторий:</b> live/indie-game-development/work/board/dashboard.html; открывается в Chrome с диска, обновляется ТОЛЬКО здесь (внешних зеркал не ведём — правило владельца 2026-07-11). Живой статус — эта секция; панель — рендер: решения по ней, противоречащей NOW, не принимаются.</div>
-  <div class="callout"><b>Как читать параллельность:</b> один <code>NOW.next</code> задаёт основной маршрут команды «продолжаем». Сейчас там зарегистрирован owner-present review старой 13/24 ставки, но его committed packet всё ещё называет живым маршрут v20→v21; после дневной сверки это <b>НЕ ЗАПУСКАТЬ ДО REPAIR</b> (dr-20260714-001). <b>READY PARALLEL</b> остаются Level/DA/PGG Standard v1 research, NearGas contract-v22 PLAN-AMEND, первая canon-consistency фаза и paper-only вопрос о кооперации. Полный eight-player consistency sweep остаётся <b>HELD</b> до canon repair; NearGas EXECUTE-003 уже потреблён как checkpoint и не запускается.</div>
+  <div class="callout"><b>Как читать параллельность:</b> один <code>NOW.next</code> задаёт основной маршрут команды «продолжаем». Сейчас там зарегистрирован owner-present review старой 13/24 ставки, но его committed packet всё ещё называет живым маршрут v20→v21; после дневной сверки это <b>НЕ ЗАПУСКАТЬ ДО REPAIR</b> (dr-20260714-001). <b>READY PARALLEL</b> остаются Level/DA/PGG Standard v1 research, NearGas contract-v22 PLAN-AMEND, второй eight-player consistency sweep и paper-only вопрос о кооперации. Canon top-law repair закрыт с вердиктом владельца «ОДОБРЯЮ КАНОН-ПОПРАВКУ»; NearGas EXECUTE-003 уже потреблён как checkpoint и не запускается.</div>
   <div class="callout"><b>⚠ Демо: определения сейчас НЕТ — это открытый пункт, а не план.</b> Концепт изменился (11.07 принята новая рамка игры: расследование почти невидимого газа → план → добыча/операция → эвакуация). Старый октябрьский демо-план с панели ВЫРЕЗАН — его история лежит в git. 12.07 владелец установил Canon Forge v3 как единственный живой paper-only маршрут, затем отдельным вердиктом «ADMIT TO CANON» допустил «Цель стоит запуска» как предварительную карточку c-001 (нужен-грейбокс). Это не готовая механика: fun, кооперация, рантайм-читаемость, темп давления, стоимость движка и коммерческий сигнал не доказаны; точные правила газа, активации, добычи, экономики, инвентаря и кооперации остаются открыты. Проверенные даты фестов сохранены ниже как справочник, а не как план.</div>
   <div class="callout"><b>Старое «13 / 24.07» больше не является желаемой рамкой продолжения.</b> Владелец прямо снял числовой потолок и оставил 24 июля контрольной точкой. Work-сессия не может переписать или продлить активную ставку по G3, поэтому текущий review должен честно закрыть старую ставку и открыть owner-chosen следующую. Принятый route уже хранит полный 34+ ledger без искусственного сжатия.</div>
   <div class="callout accent"><b>NearGas checkpoint / BUILD закрыт:</b> exact branch@<b>86e7927f</b> имеет 0 новых коммитов, 0 diff и 0/29 RED. Contract-v22 refutation отделила behavioral RED от path/history/review/gate evidence и нашла незавершённые F5/CsCheck executable seams. Policy-only re-sync завершён @<b>874a0825</b>: stamp 22, шесть contract-paths, frozen NearGas unchanged. Сейчас открыт только owner-present PLAN-AMEND; L1 остаётся NOT DELIVERED.</div>
@@ -253,25 +253,18 @@
       <p><span class="l">Граница:</span> сначала нормальный технический brief и actual owner approval; без RED/tests/source/BUILD/Unity/MCP/merge/push. После HOME допустим только отдельный RED-FREEZE. Global PRIMARY — M1 bet review.</p>
     </div>
     <div class="call">
-      <div class="head"><span class="st">READY PARALLEL · ПЕРВАЯ CONSISTENCY-ФАЗА · НУЖЕН ВЛАДЕЛЕЦ</span><b>Устранить противоречие верхнего закона канона</b><span class="id">c-repair-canon-frame-v2-eight-player-001</span></div>
-      <p><span class="l">Что это:</span> отдельная owner-present текстовая правка только активной верхней нормы канона и её amendment/supersession trail: старое «1–4 / solo-startable» больше не должно противоречить Frame v2 и обязательной поддержке восьми.</p>
-      <p><span class="l">Зачем:</span> TREE уже исправлен, но действующий канон всё ещё задаёт несовместимый максимум и соло-цель. Пока это не устранено, последующие design/shape-сессии читают две разные истины.</p>
-      <p><span class="l">Где сейчас:</span> Frame v2 = FRAME READY, primary range = меняющиеся группы 4–8, полная восьмёрка обязательна, нижняя граница ниже четырёх OPEN, соло не текущая цель. c-001 остаётся узкой карточкой investigation → operation.</p>
-      <p><span class="l">Что дальше:</span> показать точную canon-law поправку и получить отдельный owner verdict. Никаких механик, paper-answer, расширения c-001, TREE/CHARTER/product или unrelated canon-правок.</p>
-    </div>
-    <div class="call">
       <div class="head"><span class="st">READY PARALLEL · PAPER-ONLY · НУЖЕН ВЛАДЕЛЕЦ</span><b>Вернуться к вопросу о co-op composition</b><span class="id">c-research-q-coop-interdependence-002</span></div>
       <p><span class="l">Что это:</span> сохранённый вопрос о том, какая композиция временных подгрупп и ситуационных ролей создаёт настоящую дополнительную ценность для 4–8 игроков.</p>
       <p><span class="l">Зачем:</span> предыдущий материал был только входом и не стал OWNER-SELECTED PAPER ANSWER; Frame v2 теперь даёт ему правильную целую рамку.</p>
       <p><span class="l">Где сейчас:</span> g-d3a8 reconciliation закрыта owner-approved. Сессия может дать выбранный бумажный ответ или честный block; это не canon admission и не разрешение Sc-damage.</p>
       <p><span class="l">Что дальше:</span> провести точный preserved paper-вопрос под Frame v2 и обязательной поддержкой восьми; возможный canon admission остаётся отдельным owner-present CALL.</p>
     </div>
-    <div class="call wait">
-      <div class="head"><span class="st">HELD · ЖДЁТ CANON REPAIR</span><b>Проверить все живые поверхности на старые player-count обещания</b><span class="id">c-repair-eight-player-live-consistency-sweep-001</span></div>
+    <div class="call">
+      <div class="head"><span class="st">READY PARALLEL · ВТОРАЯ CONSISTENCY-ФАЗА · НУЖЕН ВЛАДЕЛЕЦ</span><b>Проверить все живые поверхности на старые player-count обещания</b><span class="id">c-repair-eight-player-live-consistency-sweep-001</span></div>
       <p><span class="l">Что это:</span> полный текстовый sweep текущих authoritative/live поверхностей по «1–4», «2–4», solo-startable и равнозначным утверждениям.</p>
       <p><span class="l">Зачем:</span> после локальной TREE и canon-law коррекции могут остаться другие активные обещания, которые выглядят как текущая дизайн-цель или максимум игроков.</p>
-      <p><span class="l">Где сейчас:</span> запуск запрещён до закрытия c-repair-canon-frame-v2-eight-player-001. История и архивы являются provenance и не переписываются.</p>
-      <p><span class="l">Что дальше:</span> после canon repair классифицировать каждое вхождение как correct-now, minimal correction, engineering hygiene, parked/deferred или historical evidence и показать владельцу только минимальные diff.</p>
+      <p><span class="l">Где сейчас:</span> верхний закон канона уже исправлен с вердиктом владельца «ОДОБРЯЮ КАНОН-ПОПРАВКУ»: активны 4–8, обязательная восьмёрка, OPEN нижний предел ниже четырёх и отсутствие текущей solo-цели; старая норма осталась только в AMENDMENTS.md.</p>
+      <p><span class="l">Что дальше:</span> классифицировать каждое вхождение как correct-now, minimal correction, engineering hygiene, parked/deferred или historical evidence и показать владельцу только минимальные diff. Историю и архивы не переписывать.</p>
     </div>
     <div class="call">
       <div class="head"><span class="st">НЕПРИОРИТЕТНАЯ · HELD · НЕ ЗАПУСКАТЬ</span><b>Перенести репозиторные ворота с обязательного PowerShell на локальный .NET runner</b><span class="id">c-exec-unity65-mac-revision-002-build-001</span></div>
@@ -326,10 +319,16 @@
       <p><span class="l">Рекомендация:</span> выбрать доступную физическую машину и явно назвать её CPU, GPU и RAM; тогда финальные 50/100 ms имеют реальный якорь.</p>
     </div>
   </div>
-  <div class="callout"><b>Не показывается как живой owner-вопрос:</b> требование поддержки восьми уже является owner direction, а не пунктом NOW.decisions. G9-сверка TREE закрыта; теперь READY canon top-law repair, READY paper-only co-op research и HELD полный consistency sweep. Старый merge-gate Phase 0 удалён из живого рендера: Phase 0 = NOT DELIVERED / NEVER RESUME.</div>
+  <div class="callout"><b>Не показывается как живой owner-вопрос:</b> требование поддержки восьми уже является owner direction, а не пунктом NOW.decisions. G9-сверка TREE и owner-approved canon top-law repair закрыты; теперь READY полный consistency sweep и READY paper-only co-op research. Старый merge-gate Phase 0 удалён из живого рендера: Phase 0 = NOT DELIVERED / NEVER RESUME.</div>
 
   <h3 class="subhead">Закрыто недавно — чем кончилось</h3>
   <div class="calls">
+    <div class="call closed">
+      <div class="head"><span class="st">✓ OWNER-APPROVED · CANON LAW AMENDED</span><b>Верхний закон канона согласован с обязательной восьмёркой</b><span class="id">c-repair-canon-frame-v2-eight-player-001 · 15.07</span></div>
+      <p><span class="l">Чем кончилось:</span> владелец сказал «ОДОБРЯЮ КАНОН-ПОПРАВКУ». Активная норма «1–4 / solo-startable» заменена на меняющиеся группы 4–8, обязательную поддержку восьми, OPEN нижний предел ниже четырёх и отсутствие текущей solo-цели.</p>
+      <p><span class="l">Что сохранено:</span> старая норма осталась историческим provenance в AMENDMENTS.md; Frame v2 целиком не канонизирован, c-001 и остальные карточки не менялись.</p>
+      <p><span class="l">Что дальше:</span> c-repair-eight-player-live-consistency-sweep-001 теперь READY PARALLEL и проверяет остальные текущие authoritative/live поверхности без переписывания истории.</p>
+    </div>
     <div class="call closed">
       <div class="head"><span class="st">✓ OWNER-APPROVED · TREE RECONCILED</span><b>Frame v2 и обязательная восьмёрка отражены в g-d3a8</b><span class="id">c-map-g-d3a8-frame-v2-reconciliation-001 · 15.07</span></div>
       <p><span class="l">Чем кончилось:</span> старая карточка g-d3a8 полностью заменена: текущая whole-game basis = Frame v2, не канон; primary range = меняющиеся группы 4–8; полная восьмёрка обязательна; нижняя граница ниже четырёх OPEN; соло не текущая цель.</p>
@@ -532,8 +531,9 @@
   <h3 style="margin:26px 0 10px; font-size:18px">Журнал — последние 3 дня</h3>
   <p class="note" style="margin:0 0 10px">Рендер из LOG.md (полный архив — там); старше трёх дней с панели уходит. Сегодняшний день раскрыт.</p>
   <details class="day" open>
-    <summary>15 июля <span class="cnt">· main publication c48790e verified · g-d3a8 reconciled · Frame v2 + mandatory eight-player support · canon repair READY first · co-op paper research READY PARALLEL · full consistency sweep HELD</span></summary>
+    <summary>15 июля <span class="cnt">· canon top law amended owner-approved · eight-player sweep READY PARALLEL · main publication c48790e verified · g-d3a8 reconciled · Frame v2 + mandatory eight-player support · co-op paper research READY PARALLEL</span></summary>
     <ul>
+      <li><b>Canon top-law repair закрыт:</b> владелец сказал «ОДОБРЯЮ КАНОН-ПОПРАВКУ». Активные «1–4 / solo-startable» заменены на меняющиеся группы 4–8, обязательную поддержку восьми, OPEN нижний предел ниже четырёх и отсутствие текущей solo-цели; AMENDMENTS.md хранит явный supersession trail. Frame v2 целиком не канонизирован, c-001 и unrelated canon не менялись. Полный live consistency sweep теперь READY PARALLEL; co-op paper research READY, Sc-damage HELD.</li>
       <li><b>Публикация в main:</b> по прямой команде владельца сохранена отдельным коммитом инструкция YouTube Brand-канала INOMAND, затем 15 branch-коммитов объединены с семью свежими параллельными Solmax-коммитами без пересечения путей. Merge <b>c48790e</b> опубликован в origin/main без force; local main, origin/main и ls-remote дали один SHA, tracked worktrees чисты. NOW, задачи и открытые маршруты не менялись.</li>
       <li><b>g-d3a8 — Frame v2 reconciliation закрыта:</b> владелец одобрил чистую замену карточки и фазовый маршрут. TREE теперь явно разводит FRAME, OWNER-SELECTED PAPER ANSWER и отдельный CANON ADMISSION; primary range = меняющиеся группы 4–8, полная восьмёрка обязательна, нижний предел ниже четырёх OPEN, solo вне текущей цели. Canon top-law repair READY первым, co-op composition READY PARALLEL / PAPER-ONLY, полный live consistency sweep HELD за canon repair, Sc-damage HELD; CHARTER/canon/product и инженерный NOW.next не менялись.</li>
     </ul>
