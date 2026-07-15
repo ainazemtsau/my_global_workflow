@@ -150,5 +150,10 @@ preserved_evidence:
   - live/solmax/work/health-reclamation-f-hr-r01-repair-red-readiness.md
   - live/solmax/work/calls/c-solmax-operating-substrate-first-process-creator-t4-health-reclamation-f-hr-r01-bounded-repair-010.md
   - live/solmax/history/2026-07-14-s-solmax-operating-substrate-first-process-creator-t4-health-reclamation-f-hr-r01-red-preflight-009.md
+  - 'contract-drift chronology: Direction engineering contract v22 commit d18be6e779533932d59383834801dcb0ba850514 predates product repair-content commit f77ad75c737b89685df3771c859bc49b51946f7c and handoff HEAD 3af27e66e88b764c702d53c3279cb1352cd4d134'
+  - 'non-authoritative product evidence preserved: C:/projects/solmax-operating-substrate@f77ad75c737b89685df3771c859bc49b51946f7c and @3af27e66e88b764c702d53c3279cb1352cd4d134; the v21 RESULT was writer-bounced and did not close F-HR-R01'
+  - 'owner repair confirmation in chat: "Сделай этот репейр."'
+  - live/solmax/work/calls/c-solmax-operating-substrate-first-process-creator-t4-health-reclamation-v22-resync-recovery-013.md
+  - live/solmax/history/2026-07-15-s-solmax-operating-substrate-first-process-creator-t4-health-reclamation-v22-route-repair-012.md
 
 END_OF_FILE: live/solmax/work/operating-substrate/evidence-index.md
