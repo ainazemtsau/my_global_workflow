@@ -597,6 +597,14 @@ open_calls:
       pre-repair Health basis; RED-FREEZE, binding review and bounded repair
       remain separate later legs. No legacy Health, admission, activation,
       process run, t-4 close or appetite extension is authorized.
+  - id: c-solmax-operating-substrate-first-process-creator-t4-health-reclamation-v22-post-marker-refutation-016
+    to: session
+    for: g-operating-substrate-first-process-creator/t-4
+    issued: 2026-07-15
+    note: |
+      Product HEAD 02e5bf8 is the v22 recovery candidate plus one report-only
+      marker correction. This fresh read-only leg must bind PASS or FAIL before
+      RED-FREEZE; t-4, appetite and all lifecycle limits remain unchanged.
 # 2026-07-12: c-solmax-operating-substrate-first-process-creator-t2-repo-bootstrap-001
 # cleared — the repo-bootstrap setup checkpoint is complete (commit f3d153d, CI
 # green). t-2 remains ACTIVE; Process Creator materialization is the next work,
@@ -604,5 +612,5 @@ open_calls:
 
 preserved_evidence: work/operating-substrate/evidence-index.md   # полный индекс вынесен из hot-state (verbatim)
 next: |
-  live/solmax/work/calls/c-solmax-operating-substrate-first-process-creator-t4-health-reclamation-v22-resync-recovery-013.md
+  live/solmax/work/calls/c-solmax-operating-substrate-first-process-creator-t4-health-reclamation-v22-post-marker-refutation-016.md
 END_OF_FILE: live/solmax/NOW.md
