@@ -10,9 +10,26 @@ stamps it at setup, §Re-sync updates it. `collect` / `audit` / `digest` compare
 that is BEHIND, so an os/engineering hardening can no longer silently fail to reach the repo where work
 runs (the root cause behind FRICTION 79/84/88/90/92 — propagation lag with no forcing function).
 
-current: 23
+current: 24
 
 log:
+  24  2026-07-15  semantic-artifact lane removes executable-code theater from AI-interpreted Markdown/YAML work.
+      Witness: the Solmax Health repair had an owner-approved bounded plan, but the v22 plan-review route expanded it
+      from 48 obligations to a working 254-row PLAN-AMEND inventory across three process commits while OP-HR01 and
+      KH-HR01 remained unchanged. Root: the markdown profile named fresh semantic review, yet the general contract still
+      routed an explicit non-compiled `n/a` through atomic inventory/carrier/RED language intended for executable code.
+      The owner explicitly retained independent review for task/plan/file consistency and rejected verb/status/SHA/ban/
+      command/report-field atomization. New owner-approved terminal route: existing PLAN -> separate BUILD candidate ->
+      concrete wiring checks -> one fresh source-backed actual-diff review -> REPORT. The reviewer checks task+owner
+      decisions against PLAN, PLAN against artifact, and artifact against applicable authorities/neighboring files; a
+      blocker needs source, exact site or concrete omission/contradiction/material ambiguity, and consequence.
+      No new plan schema, obligation ledger, spec-silence walk, SURFACE/RED stage, semantic parser or universal user
+      outcome is introduced. Review freshness/dispositions/rounds, cited evidence, closing REPORT, repo-local authority,
+      owner decisions and honest STOP remain; executable changes still use their native route and compiled v23 is
+      unchanged. Re-sync owed: `solmax-operating-substrate` moves directly from v22 to v24, records
+      `lane: semantic-artifact` / `carrier: n/a-semantic-artifact`, treats the committed 48-row and uncommitted 254-row
+      inventories/RED stages as historical rather than v24 comparison obligations, and names only the still-binding
+      owner-approved outcome/decisions/boundaries. This maintenance does not edit that product repo or `live/**`.
   23  2026-07-15  compiled SURFACE-FREEZE carrier supersedes the v22 prose-first launch route for compiled
       product-code legs. Witness: NearGas spent about 68 hours across eight branches with zero production code and a
       nominal RED artifact carrying 205 compile errors; the isolated carrier experiment delivered L1a through a

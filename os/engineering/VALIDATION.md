@@ -18,6 +18,31 @@ The strictest practical validation for autonomously-built code. Gates run cheap-
 
 **Cited-artifact existence — a closing report may not cite evidence it has not committed (the light-lane floor under review-evidence, contract v18).** The review-evidence dependency (v10) fires only for a G0-frozen change; a LIGHT change (no frozen `openspec/changes/<id>/specs/**/spec.md`) is N/A-by-absence, so its closing report can cite a `docs/reviews/review-*.md` / `docs/adr/*.md` artifact that does not exist yet and still deliver. Witnessed as a recurring class in the no-frozen-folder infra lane, self-caught by the in-leg reviewer both times, gate-caught neither — but only ONE would have RED'd AS DELIVERED: c-exec-030's closing docs cited `docs/reviews/review-c-exec-030-*.md` in past tense at the GREEN `-Deliver` commit `722dcb2` where that file was ABSENT (it landed two commits later at `0c09882`), so this gate WOULD have RED'd that run; c-exec-029 was the SAME class but WEAKER — its citation dangled only at an intermediate commit and self-resolved before its delivered tip `f926958` (all cited paths resolve there), so the gate DETERS it prospectively but would not have RED'd it as delivered (claiming a catch the mechanism does not make is the very class this gate forbids — v10/v14 presence≠truth honesty). The review loop's own reopen-tripwire (v14) is per-review-file and never sees a class recurring ACROSS legs. As of v18, for EVERY leg (frozen OR light), `-Deliver` verifies that each `docs/reviews/review-*.md` / `docs/adr/*.md` path — rooted in the repo's OWN `docs/` tree — that the leg's closing report (`RESULT` / `docs/results/<id>.md`) CITES EXISTS at HEAD; a dangling citation FAILs at whatever commit `-Deliver` runs. It is ORTHOGONAL to v10, NOT a subset: v10 keys on the frozen-folder id (`review-<id>.md` exact), this keys on whatever path the report cites (real files are `review-<id>-<slug>.md`) — different key spaces, both additive FAIL-only, no double-require. It rides the ALWAYS-RUN RESULT-report gate (the one c-exec-030 extracted to `tools/result-check.ps1`), NOT the frozen strong-check, so it reaches the light lane; a light leg owes only the EXISTENCE of what it cites, never v10's reviewed-commit ancestry / dispositions / rounds, and a report that OMITS the citation is untouched (a light leg is not required to be reviewed — only forbidden from CLAIMING a review it has not committed). SCOPE (honest, the same presence≠truth bound every prior axis carries): it asserts a cited PATH is PRESENT at the tip, never that the review was real, its verdict right, or the citation a past-tense claim vs a forward reference (a forward-mentioned not-yet-created path fails, over-strict/fail-safe — keep forward references out of the closing report); a cross-repo citation (a path escaping the repo root, or a bare `os/` reference) is OUT of scope, not tested; and it does NOT catch a prose-only review-claim or an empty-stub review file — those stay visible to the binding fresh-session KERNEL-G5 and the owner (a tripwire against the witnessed HONEST accidental draft-ahead ordering defect, not an anti-fabrication gate; closing them mechanically would be the banned self-written prose/content scanner, v17). Product-deliver only — no writer-side keystone (the writer cannot `Test-Path` the product tree, as v11/v12) — INERT until §Re-sync wires the citation-existence check into `tools/result-check.ps1` with a seeded-miss.
 
+**Semantic-artifact validation (contract v24).** When a repository's owner-approved profile/run contract declares
+`lane: semantic-artifact` and `carrier: n/a — no repo-native executable behavior subject`, validation follows the
+artifact's real venue rather than translating code gates into prose theater. G0 freezes the existing owner-approved
+PLAN and its cited decisions as the comparison baseline; it does not require a new schema, atomic obligation inventory,
+default-FAIL ledger, behavioral/evidence split or authored RED. When migrating v22 material, legacy inventory/RED
+sections are historical evidence, not baseline obligations; the re-sync identifies the still-binding owner-approved
+outcome, decisions and boundaries. G1 may check only concrete wiring (parseability, paths,
+citations, trailers, hygiene). G2/G3, mutation, NegativeControl, property tests, SURFACE/RED carriers and fix-class
+variant controls are N/A unless the particular change actually introduces a native executable behavioral subject.
+
+Routing checks use the exact values `lane: semantic-artifact` and `carrier: n/a-semantic-artifact`; explanatory prose
+about the absent executable subject is not part of either value.
+
+The load-bearing gate is one fresh read-only review of the **actual candidate commit/diff**, after BUILD and before
+REPORT. That review may satisfy both G4 and the binding fresh-session KERNEL-G5. It checks three mappings: task/CALL +
+owner decisions -> PLAN; PLAN -> changed artifact; changed artifact -> applicable authorities and neighboring current
+files. Any task-specific dry-run, cross-reference check or usage probe comes from the approved PLAN or artifact type,
+not from a universal checklist invented by the reviewer. A blocking finding must name: governing source/authority,
+exact site or concrete omission/contradiction/material ambiguity, and the consequence for the requested artifact.
+Grammatical decomposition or a wish to atomize verbs, statuses, SHAs, bans, commands or report fields is non-blocking
+without that chain. The review may name all affected related files in the same finding, but owes no separate obligation
+inventory, whole-repo class-sibling ledger or per-variant control. A second round is due only after a blocking finding
+changes the artifact; suggestions alone cannot reopen PLAN. Freshness, dispositions, rounds, citations and closing-
+report existence remain recorded; cross-family review is optional unless the CALL/repo contract explicitly requires it.
+
 **Compiled surface carrier (contract v23; supersedes the v22 prose-first carrier).** For a compiled product-code leg,
 PLAN may hand off only to a separate SURFACE-FREEZE session. The owner-approved decision page is at most 400 words
 and fully defines every fixture it names or omits it. The surface-author commits a compiler-green skeleton with real
@@ -59,8 +84,9 @@ may open BUILD.
 
 For a compiled v23 leg, every G0 phrase below that says the test-author works "from the spec" means the frozen
 compiled carrier defined above; the acceptance ledger/spec remains immutable coverage evidence, not RED launch
-authority. Non-compiled repositories do not copy the C# mechanism and instead record a native executable carrier or
-an explicit owner-approved `n/a` at re-sync.
+authority. A non-compiled repository with a native executable subject records its native carrier. An eligible
+AI-interpreted Markdown/YAML leg uses the v24 semantic-artifact override above after an explicit owner-approved
+lane/carrier declaration at re-sync; it does not copy the C# mechanism or translate it into prose.
 
 **G0 — Contract freeze (before build).** Acceptance criteria per feature, machine-readable, negotiated with the validator before code exists. The builder cannot edit them. No criteria → no build. The failing acceptance tests realizing those criteria are written by an independent test-author from the spec — not the builder — committed in the immutable RED-FREEZE artifact and fresh-reviewed before BUILD, and the builder cannot edit them (same protection as the criteria); the builder makes them pass. An independently-authored, spec-derived oracle is the only thing that catches a misreading the builder's own tests would share (mutation testing cannot — a wrong-but-consistent test still kills mutants).
 
