@@ -10,9 +10,34 @@ stamps it at setup, §Re-sync updates it. `collect` / `audit` / `digest` compare
 that is BEHIND, so an os/engineering hardening can no longer silently fail to reach the repo where work
 runs (the root cause behind FRICTION 79/84/88/90/92 — propagation lag with no forcing function).
 
-current: 22
+current: 23
 
 log:
+  23  2026-07-15  compiled SURFACE-FREEZE carrier supersedes the v22 prose-first launch route for compiled
+      product-code legs. Witness: NearGas spent about 68 hours across eight branches with zero production code and a
+      nominal RED artifact carrying 205 compile errors; the isolated carrier experiment delivered L1a through a
+      compiler-green public skeleton + short decision page -> independent RED -> BUILD -> binding fresh refutation,
+      ending at product `dev`/`origin/dev`/`origin/main` commit 400ef8eca1e747378493c97530770286c7e26ff1
+      with focused NearGas 71/71, NearGasTickTypeTests 8/8, normal 1714/1714, unfiltered 1793/1793,
+      `check.ps1 -Deliver` GREEN and fresh G5 PASS (Critical none, Important none). The retained mutation artifact is
+      72.78%; maintenance did not rerun mutation/Stryker.
+      New terminal sequence: PLAN -> separate SURFACE-FREEZE -> separate independent RED-FREEZE -> binding fresh
+      artifact-backed RED refutation -> BUILD. The frozen carrier is the exact freeze commit/Git manifest, a decision
+      page <=400 words with every named fixture fully defined or absent, and a compiler-green skeleton of real public
+      signatures <=400 added production-source lines by `git diff --numstat`; excess is a STOP and leg split, never a
+      raised ceiling. Data/value construction preserves fields, acceptance meaning cannot move into `///`, and the
+      surface session runs repo-native build+hygiene with mandatory sidecars in the same commit (Unity: tracked
+      `.cs.meta`; unavailable real importer = existing tool-unavailable STOP). RED must compile, be discovered and
+      fail on behavior; compile-RED, test counts and v22 prose/PLAN-AMEND are not launch authority. BUILD changes
+      neither frozen RED nor frozen public signatures and re-freezes before a public-surface change. The skeleton
+      proves constructibility only, not architecture, semantic completeness, oracle meaning or internal seams.
+      Independent test-author, immutable RED, compilation/hygiene, mutation >=70%, NegativeControls/CsCheck, review,
+      refutation, binding fresh G5 and all honest STOP rules remain intact. Applicability is limited to compiled
+      product-code legs with a repo-native compiler; non-compiled repositories need a native executable carrier or an
+      explicit `n/a` / separate owner decision, never copied C# mechanics. Re-sync owed: GasCoopGame goes directly
+      from synced contract 21 to terminal v23 and MUST NOT restore or execute the retired v22 prose-first
+      PLAN-AMEND/direct-RED route as an intermediate migration. This maintenance does not edit the product repo or
+      `live/**`.
   22  2026-07-14  executable RED-FREEZE handoff; prose readiness is no longer build authority. Witness:
       GasCoopGame NearGas v21 received a binding `29/29` semantic GREEN, yet EXECUTE-003 produced zero tests
       and no commit: AR-01/AR-06/AR-12/AR-13 mixed process/structural/final-gate evidence into the test
