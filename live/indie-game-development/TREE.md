@@ -67,8 +67,10 @@ root:
   - id: g-9c41
     goal: |
       A representative networked co-op scene runs and holds, on a core architected for
-      huge procedural levels: 2–4 players on a player-hosted session (one player hosts; no
-      dedicated server), host-authoritative multi-gas simulation on sector-band grid/room
+      huge procedural levels: changing 4–8-player groups on a player-hosted session
+      (one player hosts; no dedicated server), with mandatory support for the full group
+      of eight, the exact supported lower bound below four OPEN, and solo not a current
+      design target; host-authoritative multi-gas simulation on sector-band grid/room
       topology with doors/vents and at least one destruction-driven topology change,
       levels fed from procedural generators (Dungeon Architect at minimum, ideally also
       Procedural Generation Grid) through a replaceable ingestion adapter — solo-maintainable.
@@ -449,7 +451,22 @@ root:
          pitching deferred to post-gate 2027 upside; June chores done — Steamworks
          paperwork started, owner residency/entity checked for crowdfunding eligibility.
     status: parked
-    detail: history/s-map-002.md
+    detail: |
+      history/s-map-002.md
+
+      Player-count disposition (2026-07-15): PARKED / DEFERRED.
+      The preserved “solo-startable” demo wording is not a current
+      design target and is not an active implementation or storefront
+      promise.
+
+      Wake condition: before g-5b07 changes from parked, before demo
+      or storefront scope or public copy is accepted, or before a
+      related PLAN or BUILD is issued, an owner-present g-5b07
+      frame/shape/review must reconcile the demo promise with Minimum
+      Game Frame v2 and mandatory support for eight players.
+
+      Owner: the direction owner through the first owner-present
+      g-5b07 frame/shape/review that wakes this branch.
 
   - id: g-e6f2
     goal: |
