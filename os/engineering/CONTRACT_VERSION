@@ -1,7 +1,7 @@
 # os/engineering contract version — the forcing function against silent propagation lag
 
 A single monotonic integer naming the current state of the engineering contract (CONTOUR.md +
-VALIDATION.md + PROJECT_SETUP.md + ESCAPE-CLASSES.md + profiles/**). Appending a defect-class to
+VALIDATION.md + PROJECT_SETUP.md + ESCAPE-CLASSES.md + OBLIGATION_INVENTORY.md + profiles/**). Appending a defect-class to
 ESCAPE-CLASSES.md (the ratchet, MAINTENANCE step 6) bumps it too, so the new class propagates to
 product repos instead of protecting only the workflow-repo-side audits. A **MAINTENANCE session bumps it** (current + one
 log line) whenever it hardens or adds a load-bearing gate (os/MAINTENANCE.md step 6). Each product
@@ -10,9 +10,31 @@ stamps it at setup, §Re-sync updates it. `collect` / `audit` / `digest` compare
 that is BEHIND, so an os/engineering hardening can no longer silently fail to reach the repo where work
 runs (the root cause behind FRICTION 79/84/88/90/92 — propagation lag with no forcing function).
 
-current: 24
+current: 25
 
 log:
+  25  2026-07-15  B3 obligation-growth valve. A fresh manual census of current v24 authority replaces the audit's
+      `N=71` hypothesis with a named maximum of 239 leg obligations for the maximizing compiled Unity/core-algorithm
+      profile: 49 gate predicates + 97 cross-cutting axes + 16 escape-class rows + 19 spec payloads + 31 evidence
+      objects + 27 Unity profile predicates. OBLIGATION_INVENTORY defines the removal test so a long sentence cannot
+      hide independently removable duties; duplicates count once, fixed registry rows separately, and mutually
+      exclusive profiles are not summed. Every engineering-contract commit records each obligation delta and
+      recomputes affected profile totals; an omitted duty still counts and invalidates the change. Post-change N may
+      not exceed 239; every addition that would otherwise raise it must name and actually remove enough inventory ids
+      in the same commit to keep N at or below the ceiling; a replacement log names its added and removed ids;
+      compression, paraphrase, row-merging or relocation is not deletion. Tracked
+      `os/engineering/**` mandatory reading is capped at `32,511` words in this v25 tree and may only fall
+      after proved deletion (B4 owns reduction). Trigger provenance stays self-initiated when the owner merely agrees
+      to a session-proposed mechanism; such a mechanism still needs two same-point FRICTION entries. A witness must
+      resolve as a named-repo `path:line` or Git SHA. A temporary duty names a specific retirement leg whose
+      `done_when` removes it and updates the inventory; future voluntary cleanup cannot own retirement. Defects in
+      the valve itself may be repaired in the same maintenance session. No existing engineering gate was removed;
+      B4, product repos, `live/**`, and Stryker were untouched. Re-sync is control-plane-only for v25 itself: after
+      all older functional deltas applicable to the target are installed, record the v25 inventory ceiling/source
+      commit and bump `synced_contract_version` without copying this inventory or adding a product-leg gate.
+      GasCoopGame completes its separately pinned v24 B2 Re-sync first and only then takes a fresh v25 Re-sync;
+      health-ai and solmax-operating-substrate take terminal current-profile Re-syncs through v25. Repositories with
+      no contract stamp (Zaratusta, life-reset-manager) need current PROJECT_SETUP on activation, not Re-sync.
   24  2026-07-15  mutation-scope integrity and adaptive mutation concurrency. Witness: GasCoopGame's broken native
       `-Since` left scope in a builder-authored `-Mutate` glob; `mutation.ps1` recorded that scope, while `check.ps1
       -Deliver` read only score. The same class escaped twice (#14 and #69); the omitted Core file made the first honest
