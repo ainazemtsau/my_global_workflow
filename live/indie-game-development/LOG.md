@@ -267,4 +267,6 @@ archived: history/LOG-archive-indie-game-development.md — sessions before 2026
 
 2026-07-15 — repair/close (g-d3a8/c-repair-eight-player-live-consistency-sweep-001, s-repair-eight-player-live-consistency-sweep-001): owner approved the bounded live consistency package — g-9c41 corrected from active 2–4 to the Frame-v2 4–8/mandatory-eight/lower-bound-OPEN/no-current-solo direction; g-5b07 solo-demo wording explicitly parked with owner+wake condition; normative knowledge and current renders synchronized; 1-player/two-machine/two-human checks retained as engineering/test hygiene; history, canon law/cards, CHARTER and product unchanged. → history/2026-07-15-s-repair-eight-player-live-consistency-sweep-001.md
 
+2026-07-15 — work/publish (repository/main, s-work-publish-eight-player-live-consistency-main-001): canon player-count render f56dadd and Direction consistency payload e0eb5af were pushed to remote main without force; local/fetched/ls-remote readback matched, workflow local main fast-forwarded, and NOW/routes stayed unchanged. → history/2026-07-15-s-work-publish-eight-player-live-consistency-main-001.md
+
 END_OF_FILE: live/indie-game-development/LOG.md
