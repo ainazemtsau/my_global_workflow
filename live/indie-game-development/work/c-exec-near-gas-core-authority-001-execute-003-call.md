@@ -1,5 +1,14 @@
 # CALL c-exec-near-gas-core-authority-001-execute-003
 
+status: CONSUMED CHECKPOINT / NOT DELIVERED / NON-RUNNABLE UNDER CONTRACT V22
+consumed_by: s-repair-near-gas-execute-003-v22-routing-001
+checkpoint_product_head: 86e7927f82c1e48a9d5ab7255ac8004dc12c10eb
+checkpoint_note: |
+  EXECUTE-003 returned with 0 commits, 0 changed files and 0/29 RED tests. Binding fresh refutation under Direction
+  OS contract v22 found mixed non-test evidence in AR-01/06/12/13, an incomplete F5/pending-impulse comparison API,
+  and no compile-ready CsCheck 3.2.2 seed/shrinker/1024-case invocation. This file is retained as historical input
+  evidence only. It MUST NOT be dispatched or resumed. NearGas-L1-BUILD remains open and NOT DELIVERED.
+
 to: executor
 direction: indie-game-development
 kind: engineering
@@ -7,7 +16,7 @@ repo: C:\projects\Unity\GasCoopGame_core
 project: GasCoopGame
 node: g-9c41
 task: NearGas-L1-BUILD
-phase: EXECUTE-003 / independent RED + BUILD
+phase: EXECUTE-003 / CONSUMED CHECKPOINT / NON-RUNNABLE UNDER V22
 issued: 2026-07-14 (s-work-near-gas-l1-v21-published-binding-001)
 parent: s-work-near-gas-l1-v21-published-binding-001
 

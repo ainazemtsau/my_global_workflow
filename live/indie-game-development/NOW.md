@@ -1,5 +1,5 @@
 # NOW: indie-game-development
-updated: 2026-07-14 by s-work-near-gas-cross-platform-identity-resync-001
+updated: 2026-07-15 by s-work-near-gas-l1-experimental-close-001
 
 bet:
   node: g-9c41
@@ -24,12 +24,16 @@ bet:
     быть продлена work-сессией, поэтому свежий review закрывает её и предлагает следующую ставку.
     Ратифицированный level path сохранён: project-owned Level/Module Contract → DA runtime + PGG editor-time
     bake → production modules; новый Level executor CALL не выпущен.
-    NearGas publication update: fresh Direction refutation accepted the owner-approved v21 packet at
-    product origin/main@9dc49575 with 29/29 PASS and exact raw-Git-blob aggregate
-    2f676a071731bd8ae6f787eb4aeb01fdc440e676d476ebc54956eba803ed3a0e. Product main then advanced to
-    86e7927f through a cross-platform EOL/blob-identity infrastructure fix plus the focused drift-guard closure; the
-    five packet blobs, v21 contract and ancestry are unchanged. L1 remains NOT DELIVERED; execute-003 is READY
-    PARALLEL from exact current main.
+    NearGas L1a is DELIVERED exclusively through the owner-authorized experimental
+    skeleton → independent genuine RED → BUILD → fresh refutation route. Product `dev` and remote `dev`/`main`
+    all resolve to exact 400ef8eca1e747378493c97530770286c7e26ff1. Focused NearGas is 71/71, tick types 8/8,
+    normal gate 1714/1714, full unfiltered suite 1793/1793, `check.ps1 -Deliver` is GREEN, and the binding fresh
+    Direction G5 (task 019f658d-1427-7a03-90d6-b0c5ae8feb8b) returned PASS with no Critical or Important findings.
+    The existing exact ten-file mutation artifact remains 72.78% and was intentionally reused read-only: the owner
+    explicitly prohibited another Stryker run. The old v22 PLAN-AMEND packet and failed policy carrier are retired,
+    forbidden launch authority and must not reopen L1a. No Unity cutover, L1b or workers were included. The next
+    NearGas workflow action is a separate maintenance B1 session that promotes this experimental carrier globally
+    and marks conflicting legacy routes unused; L1b remains a separate later product leg.
   against: |
     Gas PROGRAM — обязательный дочерний маршрут, но не весь M1 и не разрешение молча превысить 13 legs.
     Старый level PLAN ждёт Phase 0, которая больше никогда не возобновляется; новый маршрут обязан сперва
@@ -46,7 +50,7 @@ bet:
     commercial_traction: final evidence leg отдаёт capture-пакет visual/marketing линиям.
     core_gameplay_depth: M1-5..7 — tracking, reactions, breach.
     coop_first: M1-9+10 — две реальные машины, sync и owner verdict.
-    technical_feasibility: NearGas v21 planning authority is binding GREEN on the exact unchanged five-blob packet: 29/29 PASS, zero unresolved/process gaps, aggregate 2f676a071731bd8ae6f787eb4aeb01fdc440e676d476ebc54956eba803ed3a0e. Current product origin/main@86e7927f82c1e48a9d5ab7255ac8004dc12c10eb descends from reviewed publication 9dc49575 and adds only the cross-platform EOL/blob-identity infrastructure fix plus its focused staged/unstaged-drift guard closure. Independent execute-003 is READY PARALLEL from 86e7927f; L1 remains NOT DELIVERED until its full RED/BUILD/review/fresh-G5/Deliver contour closes. Level/DA/PGG route remains ratified.
+    technical_feasibility: NearGas L1a is delivered on product remote dev/main@400ef8eca1e747378493c97530770286c7e26ff1 through the experimental skeleton→independent-RED→BUILD→refutation route. Genuine RED was recorded before production; focused 71/71 and tick-type 8/8 suites, normal 1714/1714, full unfiltered 1793/1793, direct review gate and Deliver are GREEN. Binding fresh Direction G5 task 019f658d-1427-7a03-90d6-b0c5ae8feb8b returned PASS with no Critical/Important findings. Existing mutation evidence is 72.78% over the exact ten changed Core files and was not rerun by explicit owner instruction. The old v22 packet/carrier is retired and non-runnable; B1 maintenance promotes the experimental carrier, while Unity, L1b and workers remain outside this leg. Level/DA/PGG route remains ratified.
     scope_production: not_needed — cut_list и один уровень держат solo-scope.
     audience_workflow: final evidence leg; отдельная соцсеть-задача не нужна.
 
@@ -62,19 +66,14 @@ tasks:
   - id: NearGas-L1-BUILD
     goal: NearGas получает delivered dormant engine-free Core-владельца с atomic generation replacement и deterministic Step.
     done_when: Reviewed, gate-green DELIVERED L1 с independent RED и binding fresh G5; no Unity/child-leg/workers.
-    status: active
+    status: done
     note: |
-      V21 PLANNING AUTHORITY BINDING GREEN / L1 NOT DELIVERED. Fresh read-only Direction refutation matched the exact
-      five-blob packet at product origin/main@9dc4957548111c99980f7efbbb9e7adbda17332b: integration merge fed1073d,
-      frozen commit 21acd415 and aggregate 2f676a071731bd8ae6f787eb4aeb01fdc440e676d476ebc54956eba803ed3a0e;
-      all 13 Acceptance Requirements + 12 unique NegativeControls + 4 Properties passed first-hand, 29/29 with zero
-      gaps. Current product main@86e7927f82c1e48a9d5ab7255ac8004dc12c10eb is a descendant whose seven-path
-      infrastructure/test diff adds canonical LF/editor rules, a raw-Git-blob identity tool and a shared drift-safe
-      committed-artifact guard; the packet blobs, AGENTS.md and validation.config v21 are unchanged. Historical
-      52a47c52... stays working-tree-byte
-      chronology only. Planning calls are closed; execute-003 is READY PARALLEL on lane A/headless from exact current
-      base with a new independent RED first, immutable packet/ledger/tests, serial option A, deferred workers and the
-      full review/fresh-G5/Deliver contour. Historical BUILD and execute-002 checkpoints remain evidence only.
+      DELIVERED through the owner-authorized experimental skeleton→independent genuine RED→BUILD→fresh-refutation
+      route. Product `dev`, remote `dev` and remote `main` are exact 400ef8eca1e747378493c97530770286c7e26ff1;
+      focused NearGas 71/71, tick types 8/8, normal 1714/1714, unfiltered 1793/1793, direct review and Deliver GREEN.
+      Binding fresh Direction G5 task 019f658d-1427-7a03-90d6-b0c5ae8feb8b: PASS, no Critical/Important findings.
+      Existing exact ten-file mutation score 72.78% was retained without rerun by explicit owner instruction.
+      Old v22 packet/carrier is retired and forbidden; no Unity, L1b or workers. B1 is separate maintenance.
   - id: M1-P2a0
     goal: PuppetMaster получает проверенный root-authority маршрут для сетевого игрока.
     done_when: Owner-approved live-source PLAN + later accepted BUILD, bounded-C, multiplayer inventory и fresh G5.
@@ -111,35 +110,24 @@ open_calls:
       produce the two-contract Standard v1 candidate, validator/fixture matrices and old-task disposition package.
       No product/Unity/PLAN/BUILD, no Phase 0 revival, no owner acceptance implied.
       work/c-research-level-module-standard-v1-001-call.md.
-  - id: c-map-g-d3a8-frame-v2-reconciliation-001
-    to: session
-    for: g-d3a8 / TREE and design-canon branch reconciliation
-    issued: 2026-07-14
-    note: "READY PARALLEL: owner-present G9 reconciliation of only g-d3a8 against accepted Minimum Game Frame v2 and the eight-player requirement; no canon/CHARTER/product change. history/2026-07-14-s-repair-minimum-game-frame-v2-001.md."
   - id: c-research-q-coop-interdependence-002
     to: session
     for: g-d3a8 / co-op composition question
     issued: 2026-07-14
-    note: "HELD until c-map-g-d3a8-frame-v2-reconciliation-001 closes; then resume the preserved paper question under Frame v2 without canon admission or Sc-damage release. history/2026-07-14-s-repair-minimum-game-frame-v2-001.md."
+    note: |
+      READY PARALLEL / PAPER-ONLY: g-d3a8 Frame-v2 reconciliation
+      closed owner-approved. Resume the exact preserved co-op
+      composition question under Frame v2 and the mandatory
+      eight-player requirement. It may return an
+      OWNER-SELECTED PAPER ANSWER or an honest block; canon admission
+      remains a separate owner-present CALL and Sc-damage remains
+      HELD. Full CALL:
+      history/2026-07-14-s-repair-minimum-game-frame-v2-001.md.
   - id: c-exec-unity65-mac-revision-002-build-001
     to: executor
     for: g-9c41 / local .NET gate runner prerequisite
     issued: 2026-07-12
     note: "HELD / NON-RUNNABLE: pre-v21 CALL and PLAN refs 7a3e747/8a344e9 do not resolve from fetched refs. After repo v21 Re-sync it still needs its own current-v21 full-packet check; CALL content is unchanged. work/c-exec-unity65-mac-revision-002-build-001-call.md."
-  - id: c-exec-near-gas-core-authority-001-execute-003
-    to: executor
-    for: NearGas-L1-BUILD / new independent RED then serial option-A delivery
-    issued: 2026-07-14
-    note: |
-      READY PARALLEL / LANE A HEADLESS / V21 BINDING GREEN: exact current base product origin/main@86e7927f descends
-      from reviewed publication 9dc49575 and preserves packet aggregate
-      2f676a071731bd8ae6f787eb4aeb01fdc440e676d476ebc54956eba803ed3a0e. Its intervening change is the verified
-      cross-platform EOL/raw-Git-blob identity infrastructure fix plus its focused drift-guard closure only. Start a
-      new branch and new independent spec-only RED for all 29 identities before production; one exclusive core
-      mutation slot, immutable frozen packet, ledger
-      and independent tests, serial option A and deferred workers. Full build/tests/check/NegativeControls/Properties/
-      mutation/review/fresh-G5/Deliver contour; no Unity/MCP, merge or push. L1 remains NOT DELIVERED.
-      work/c-exec-near-gas-core-authority-001-execute-003-call.md.
   - id: c-shape-sc-damage-001
     to: session
     for: Sc-damage
@@ -155,25 +143,66 @@ open_calls:
     for: g-2f8c / minimal marketing wake
     issued: 2026-07-11
     note: "READY from the 2026-07-11 wake brief; owner mandate includes INOMAND research/substrate and no public action or spend without a separate owner yes. Route is known stale against the committed INOMAND checkpoint: dr-20260712-001."
-  - id: c-exec-char-v2-reaction-core-build-001
+  - id: c-exec-char-v2-reaction-core-repair-002
     to: executor
-    for: g-6d4e / В2 Leg 1 — headless reaction core + knockdown-aware source
-    issued: 2026-07-14
+    for: g-6d4e / В2 Leg 1 — close the un-gated-seed CLASS (repair-001 was RED; owner chose option A)
+    issued: 2026-07-15
     note: |
-      READY PARALLEL (character track, not the primary next): frozen spec work/c-plan-characters-002-plan.md §4 Leg 1.
-      Opening idempotent v20→v21 re-sync (contract-text only), then independent-RED headless reaction state machine +
-      knockdown-aware IAuthoritativeBodyState wrapper (gate input while State≠Normal; GetUp reconciles authoritative←rest);
-      seam TYPES byte-identical. No rig/ragdoll/material/merge. Reuse worktree GasCoopGame_p2a0_002. Binding fresh G5 in a
-      separate Direction session closes it. work/c-exec-char-v2-reaction-core-build-001-call.md.
+      RUNNABLE (character track, parallel). Supersedes c-exec-char-v2-reaction-core-repair-001, which is CONSUMED
+      and CLOSED-RED. Chain: binding G5 found R1 → repair-001 (b6c6f2b7) → cross-family G4 (Codex, the FIRST
+      independent family on this code) returned RED → the G5 session CONFIRMED Codex with its own differential
+      probe → AGENTS.md "same failure class twice = stop" fired → owner decided **option A**.
+      ROOT CAUSE IS THE G5's OWN CALL, NOT THE BUILDER: repair-001 done_when #2 named a WEAK invariant
+      ("IsReady==true ⟹ Current обtained from inner, not the Origin placeholder"). A pose obtained from the inner
+      *while gated* SATISFIES that and is still an F1 leak (spec §6 killing force). The builder closed exactly the
+      class named; the independent test-author tested exactly the class named. Both did their jobs.
+      FULL invariant (use THIS): the wrapper may vouch for a pose (IsReady==true — the socket's only licence to
+      trust Current) ONLY if it LEGITIMATELY ACQUIRED it: inner sampled while State==Normal, or a restPose via
+      GetUp. Having acquired none, it MUST report not-ready. Provenance, never value (sniffing Origin is banned —
+      a body legitimately at zero stays ready; the frozen suite's discriminator pins this).
+      CLASS = ONE line, THREE entries (KnockdownAwareBodyState.cs @ b6c6f2b7): root line 112
+      `if (!_held.HasValue && _inner.IsReady) _held = _inner.Current;` — the SAME assignment line 65 gates with
+      `_reactions.State == Normal`, minus the state term. Entries: line 82 (IsReady) and line 57 (ctor).
+      IsReady was NEVER gated, before or after; the repair changed WHAT the un-gated path writes, not that it is
+      un-gated. The CTOR site was missed by G4, by the G5, AND by Codex — present identically at e64f070f and
+      b6c6f2b7. Proof it is ONE class: Codex's P1 is R1 with two steps transposed (order A ok / order B violates);
+      one condition closes both orders and the ctor at once.
+      COVERAGE TRAP: the frozen suite is 106/106 against BOTH the bug and the candidate fix — it cannot tell them
+      apart. 106/106 is NOT evidence here; the RED must discriminate.
+      ACCEPTED COST of A (recorded, not a defect): in the "inner comes online mid-knockdown" / "never ready"
+      regimes the wrapper honestly reports not-ready, so PlayerBodySocket returns its own _lastPose (initialised to
+      Origin) → body at world origin for the whole knockdown (~3 s vs ~2 frames). That is DF-13, NOT A's fault —
+      verified: a bare never-ready source with NO wrapper at all yields socket.Current == (0,0,0,0). DF-13's site
+      is PlayerBodySocket = the FROZEN seam (done_when #5) → do NOT fix it here; it is the owner's call.
+      REJECTED (probed): B (ctor demands ready inner) breaks 9/21 independent tests; G (spawn-pose ctor arg) has
+      the best behaviour 6/6 but breaks 21 call sites at compile time — the builder may edit neither. G2
+      (A + explicit Place(pose)) is 21/21 with no origin but adds a SECOND unbound caller obligation (the C1 class).
+      work/c-exec-char-v2-reaction-core-repair-002-call.md; full evidence + the corrected invariant in
+      knowledge/g6d4e-char-v2-leg1-reaction-core.md. THIRD pass at one class — if it does not close here, the next
+      step is not a fourth patch but re-scoping the leg with the owner.
   - id: c-exec-char-v2-body-rig-ragdoll-build-001
     to: executor
     for: g-6d4e / В2 Leg 2 — rig + procedural locomotion + cosmetic PuppetMaster ragdoll + character material
     issued: 2026-07-14
     note: |
-      HELD until Leg 1 (c-exec-char-v2-reaction-core-build-001) is G5-CONFIRMED; the Leg-1-return review issues the
-      runnable CALL. Spec: work/c-plan-characters-002-plan.md §4 Leg 2. PuppetMaster ragdoll = isolated cosmetic layer
-      (base prefab works without gitignored RootMotion); magenta fix = own character material only (URP-default guid
-      31321ba1… untouched, F2). Engine existence proof + owner-eye LOOK + cross-family G4 + binding fresh G5.
+      HELD until c-exec-char-v2-reaction-core-repair-002 closes and Leg 1 is G5-CONFIRMED (binding G5 returned NOT
+      CONFIRMED 2026-07-14; repair-001 was itself RED on the SAME class — cross-family Codex G4 caught it — so
+      repair-002 is the owner-decided option-A close; the repair's own binding G5 issues the runnable Leg 2 CALL).
+      Spec: work/c-plan-characters-002-plan.md §4 Leg 2. PuppetMaster ragdoll = isolated cosmetic layer (base prefab
+      works without gitignored RootMotion); magenta fix = own character material only (URP-default guid 31321ba1…
+      untouched, F2).
+      MANDATORY carry-forwards the Leg 2 CALL must bind (from the G5, knowledge/g6d4e-char-v2-leg1-reaction-core.md):
+      C1 — the inner-source RE-SEED on get-up is mechanically UNBOUND (no test, no ledger row, no gate). Omit it and
+      the authoritative pose teleports by the full gated-phase drift (probed: 4.5–5.2 m) the instant Normal resumes,
+      annihilating the GetUp(rest) reconcile; the ONLY catcher is owner-eye "no jerk". Make it a ledger row / RED test
+      at Leg 2 ENTRY. (Disclosed 4× by Leg 1 and spec-routed to Leg 2 — a boundary, not a Leg 1 defect.)
+      C2 — TRAP: PlayerBodyView.GetUp() (В1, already wired) forwards to the parameterless IBodyReactions.GetUp() and
+      SILENTLY SKIPS the wrapper's reconcile. The obvious-looking call is the wrong one; Leg 2 must call
+      wrapper.GetUp(restPose).
+      C3 — the driver's TIMED auto-rise never reconciles (no call site; IBodyReactions gives the wrapper no way to
+      learn a get-up began). Documented as S2; Leg 2 must handle it.
+      C4 — F2/F3 P3s, with their rationales CORRECTED by the repair (the old "self-healing" wording was false).
+      Engine existence proof + owner-eye LOOK + cross-family G4 + binding fresh G5.
 recurring: []
 
 decisions:
