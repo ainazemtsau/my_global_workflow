@@ -10,9 +10,30 @@ stamps it at setup, §Re-sync updates it. `collect` / `audit` / `digest` compare
 that is BEHIND, so an os/engineering hardening can no longer silently fail to reach the repo where work
 runs (the root cause behind FRICTION 79/84/88/90/92 — propagation lag with no forcing function).
 
-current: 23
+current: 24
 
 log:
+  24  2026-07-15  mutation-scope integrity and adaptive mutation concurrency. Witness: GasCoopGame's broken native
+      `-Since` left scope in a builder-authored `-Mutate` glob; `mutation.ps1` recorded that scope, while `check.ps1
+      -Deliver` read only score. The same class escaped twice (#14 and #69); the omitted Core file made the first honest
+      complete run score 68.19%, below the 70% floor, after a narrower report had passed GREEN. Contract: for every
+      change owing G2, Deliver independently derives changed eligible file set `D` from the authoritative review diff
+      and FAILS before score on a missing/malformed normalized report scope `M` or non-empty `D ∖ M`; a score-only
+      artifact is not evidence. The fresh reviewer independently derives scope and runs mutation; a builder-produced
+      scope/report/score cannot discharge G2. Runner default concurrency is
+      `min(24, max(4, floor(logicalProcessors / 2)))`, with an explicit recorded override. Scope is honestly file-scoped,
+      not line-scoped: a touched hot file is mutated whole and may remain slow. The retained GasCoopGame 72.78% result
+      was not rerun in maintenance. §Re-sync OWED: GasCoopGame 23->24 (derive exact per-file runner inputs from the
+      authoritative diff without Stryker native `-Since`; persist normalized `scopeFiles` + diff base/head + effective
+      concurrency; add the Deliver set-difference check and seeded misses; update reviewer contract and version stamp).
+      Re-sync also declares the integration-base ref and mutation-input dependency roots; independent review evidence
+      records mutation-reviewed `H`; the report echoes current base-ref tip `I`, `B = merge-base(I,H)`, and `H`.
+      Deliver recomputes and exact-matches those endpoints, rejects dependency changes after `H`, includes A/C/M/T and
+      rename destinations in `D`, and exact-matches delete paths/rename sources in `removedFiles`, all before score. The
+      already-closed NearGas artifact is a named pre-v24 migration exception only: preserve 72.78% without rerun,
+      mechanically prove its recorded exact inputs cover its frozen diff, and never reuse it for a new leg; this does
+      not reopen L1a. Product repos, `live/**`, B3 and B4 were untouched. (owner: B2 mutation gate false GREEN + 4/32
+      fixed concurrency made the only uniquely productive gate both unsound and needlessly expensive)
   23  2026-07-15  compiled SURFACE-FREEZE carrier supersedes the v22 prose-first launch route for compiled
       product-code legs. Witness: NearGas spent about 68 hours across eight branches with zero production code and a
       nominal RED artifact carrying 205 compile errors; the isolated carrier experiment delivered L1a through a

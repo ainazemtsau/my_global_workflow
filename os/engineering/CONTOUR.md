@@ -14,6 +14,8 @@ Companion files: `PROJECT_SETUP.md` (bootstrap a product repo), `VALIDATION.md` 
 
 ## Roles (always separated)
 
+**Validator write boundary (contract v24).** "Read-only" forbids the validator from authoring or editing source, tests, specs, rules, and evidence. It may invoke declared validation runners whose only writes are generated evidence artifacts/caches; it never edits those outputs.
+
 ### Contract v23 roles for compiled product-code legs
 
 This subsection supersedes the v22 direct PLAN-to-RED phrases in the legacy role summary below. For a compiled
@@ -44,6 +46,10 @@ RED-FREEZE, RED refutation and BUILD are separate sessions.
   returns for a second, POST-build pass (see cycle, PROPERTY AUDIT): once gates are green it reads the actual DIFF — the
   one artifact neither the frozen spec nor the pre-code pass could see — for new throw-paths, seams, order-dependencies,
   and derived-value ranges the implementation introduced, and appends property tests for them before REPORT.
+
+**Mutation-review duty (contract v24).** For G2 the validator independently derives the changed mutation-eligible Core/source files from the authoritative diff and runs mutation; a builder-produced scope, report, or score is not evidence. Runner-generated output does not authorize source, test or rule edits.
+
+**Mutation diff identity (contract v24).** Independent review evidence pins mutation-reviewed `H`; the report only echoes repo-derived `I` (declared integration-base tip), `B = merge-base(I,H)`, and `H`. Deliver recomputes and exact-matches them, rejects mutation-input changes after `H`, and handles renames/deletions per VALIDATION before it reads score.
 
 **Extension rule.** Existing product code may already exist. Under v23 the carrier pins real existing signatures by
 commit instead of copying constructors and harness facts into prose. The test-author never invents a test-local
@@ -320,7 +326,7 @@ The owner returns to a finished, verified change and checks the evidence, not ev
 
 1. No machine-runnable check → no autonomy. Every feature ships with its check before build starts.
 2. Builder cannot weaken the oracle: tests/ledger/spec edits by the builder fail the run.
-3. Validator is read-only and fresh-context, always.
+3. Validator is authoring-read-only and fresh-context, always: it may run declared validators that generate evidence artifacts/caches, but never authors or edits source, tests, specs, rules, or the generated evidence.
 4. All exploratory artifacts (scripts, test scenes) go to the single scratch dir; nothing from it reaches a commit.
 5. Done = gates green + evidence attached. A narrative claim is not done.
 6. Closing artifact is a CHECK, not prose: a leg cannot merge/deliver unless its RESULT exists at the known repo path with its required fields (a prose summary fails the check). Owner signals ("finish it", "merged?", "summary") TRIGGER the report, never replace it; the builder never authors the next CALL (continuation is the direction's, KERNEL §4).
