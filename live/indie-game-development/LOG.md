@@ -263,4 +263,6 @@ archived: history/LOG-archive-indie-game-development.md — sessions before 2026
 
 2026-07-15 — repair/close (g-d3a8/c-repair-canon-frame-v2-eight-player-001, s-repair-canon-frame-v2-eight-player-001): owner «ОДОБРЯЮ КАНОН-ПОПРАВКУ» approved the bounded canon top-law correction — active "1–4 / solo-startable" is superseded by changing 4–8 groups, mandatory eight support, OPEN lower bound below four and no current solo target; amendment trail explicit, Frame v2 not canonized wholesale, c-001/unrelated canon unchanged, live consistency sweep READY PARALLEL, co-op paper research still READY and Sc-damage HELD. → history/2026-07-15-s-repair-canon-frame-v2-eight-player-001.md
 
+2026-07-15 — work/publish (repository/main, s-work-publish-canon-eight-player-main-001): canon repair 8527af9 and Direction repair payload 7b94486 were pushed to their remote main branches without force; local main/origin/main/ls-remote readback matched, workflow local main fast-forwarded, and NOW/routes stayed unchanged. → history/2026-07-15-s-work-publish-canon-eight-player-main-001.md
+
 END_OF_FILE: live/indie-game-development/LOG.md
