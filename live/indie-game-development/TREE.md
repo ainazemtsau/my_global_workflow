@@ -173,43 +173,182 @@ root:
 
   - id: g-d3a8
     goal: |
-      The game's design truth exists and is fixed on paper: gas grammar (meta-gas behavior
-      archetypes with config gradations; reactions; mixing into new gases; special and
-      anomalous gases designed as the game's ANTAGONIST ROSTER of a horror-tinged
-      expedition), co-op roles, lore premise (pharma corp → descending underground city →
-      the unknown below), expedition loop v2 — solo-startable, co-op-optimal (1–4 players
-      via parametric scaling; no AI companions/bots).
-    why: the pride bar (root criteria 3–4) is designed, not hoped for; gives the core its capability list beyond the nucleus and the storefront its fantasy language — with honest limits on what AI validation can certify.
+      The game's design truth is coherent and current across an explicit
+      authority ladder rather than treated as one finished document:
+
+      1. Minimum Game Frame v2 is the owner-approved whole-game design
+         basis and is not canon.
+      2. An unresolved design question becomes an OWNER-SELECTED PAPER
+         ANSWER only through an owner-present paper verdict.
+      3. A paper answer becomes canon only through a separate
+         owner-present canon-admission decision.
+
+      At whole-game altitude the game is designed first for changing
+      4–8-player groups, with support for the full group of eight as a
+      hard design and support requirement. The exact supported lower
+      bound below four remains OPEN, and solo is not a current design
+      target.
+
+      The branch preserves the Frame-v2 player promise and anchors:
+      gas is the shared physical medium and regular expedition value;
+      safe return converts extraction into lasting power for the current
+      run; predictable tools differ from exceptional artifacts; a run is
+      short, difficult and finite, with full wipe and a fast meaningful
+      restart; and the Ball/Bubble remains the principal visible
+      extraction DESIGN ANCHOR while its exact behavior stays OPEN.
+
+      The branch progressively resolves gas grammar and roster,
+      temporary co-op composition, expedition economy and progression,
+      artifacts, depth and end-state, failure and recovery, and lore
+      without promoting hypotheses, examples or untested mechanics to
+      frame or canon authority.
+
+    why: |
+      This branch turns the root's pride, gameplay-depth and co-op-first
+      criteria into design truth that the engine, canon and storefront can
+      consume without authority drift. The explicit
+      FRAME → OWNER-SELECTED PAPER ANSWER → CANON ladder lets the
+      owner/AI workflow resolve bounded questions without pretending that
+      paper proves fun, while the owner's available eight-person group
+      provides a direct route to later real co-op evidence.
+
     done_when: |
-      1. Design doc exists; every base gas carries a gameplay job (decision / risk / tool /
-         co-op role) — no decorative gases. (EXPANDED 2026-06-20, s-review-002, owner-approved:
-         the gas TYPE catalog is effectively UNLIMITED — meta-gas archetypes × config gradations,
-         «должно быть очень много типов»; the engineering constraint lives in g-9c41 A+ = a bounded,
-         TUNABLE number of gases CONCURRENT per node + a hard wire cap, NOT a cap on the catalog;
-         per-room overflow → a reaction QUEUE. Catalog size is free design; concurrency is the
-         engineered budget.)
-      2. The loop produces designed, repeatable co-op fear-spike moments; horror stays
-         sim-derived (no scripted jump-scare drift); candidate systems (sanity/exposure)
-         remain candidates until they pass the depth test on merit.
-      3. Grammar checked against g-9c41 for simulability (nothing impossible promised).
-      4. AI red-team passed under a structured protocol (fixed adversarial roles,
-         anonymized authorship, simultaneous presentation, verdicts never revised under
-         owner pushback) for: internal consistency, loopholes/dominant strategies,
-         degenerate combos, balance hypotheses. Explicitly NOT certified here: fun,
-         pacing, onboarding, "co-op feels meaningful" — re-homed to the first Steam
-         Playtest as the pre-EA fun-gate.
-      5. Agent self-play over executable gas configs added as a second validation lane
-         once g-9c41 exists (timeboxed layer over the harness, not a separate project).
-      6. Owner's explicit verdict recorded: proud of this design.
+      All are true:
+
+      1. A current design document and source/status map identify
+         Minimum Game Frame v2 as FRAME READY and not canon, and
+         unambiguously distinguish:
+         - statements accepted at FRAME altitude;
+         - OWNER-SELECTED PAPER ANSWERS;
+         - answers separately admitted to CANON;
+         - still-OPEN questions;
+         - claims requiring playable or external evidence.
+         No hypothesis, example or paper answer gains canon authority
+         by implication.
+
+      2. The whole-game design states explicitly that:
+         - changing 4–8-player groups are the primary current design range;
+         - support for the full group of eight is mandatory;
+         - the exact supported lower bound below four remains OPEN;
+         - solo is outside the current design target.
+
+      3. The Frame-v2 anchors remain intact without silently fixing their
+         open implementation:
+         - gas is the shared physical environment and regular expedition
+           value;
+         - only safely returned gas becomes durable power for the current
+           run;
+         - predictable tools and exceptional artifacts have different jobs;
+         - one run is short, difficult and finite;
+         - full wipe ends the run and the next start reaches meaningful
+           decisions quickly;
+         - Ball/Bubble is the principal extraction DESIGN ANCHOR, while
+           filling, control, capacity, durability, rupture, required hands
+           and rare alternatives remain OPEN;
+         - c-001 remains limited to the conscious
+           investigation → operation transition.
+
+      4. Each remaining Frame-v2 macro fork is either resolved through
+         the authority ladder or remains explicitly OPEN:
+         - economy or access that makes meaningful gas return produce
+           progression without making near-empty systematic returns optimal;
+         - artifact origin, frequency and run-shaping role;
+         - depth, staging-zone structure and final objective;
+         - wipe/reset state, persistence, metaprogression and permitted
+           exceptions;
+         - temporary subgroup and role composition, additional value from
+           4–8 players, attendance continuity, scaling and the supported
+           lower bound.
+
+      5. Current canon is indexed against the frame. Any contradiction is
+         handled through an explicit amendment or supersession chain,
+         never by silently expanding or rewriting a canon card.
+         c-001 remains bounded to its declared question and does not
+         acquire extraction, Bubble, co-op-composition, damage, economy
+         or progression authority.
+
+      6. Gas grammar is designed rather than accumulated as decorative
+         content:
+         - every base gas has a gameplay job involving a decision, risk,
+           tool, route, consequence or co-op pressure;
+         - the design catalogue may be effectively unlimited, while
+           g-9c41 owns the bounded, tunable concurrent-per-node
+           engineering budget;
+         - reactions, mixing and anomalous gases remain consistent with
+           honest physical behavior: no creature intelligence, scripted
+           gas scares or hidden cheating;
+         - exact roster, states, reactions and tuning remain separate
+           design questions.
+
+      7. Selected design answers are checked against g-9c41 for
+         simulability and pass a structured paper red-team for internal
+         consistency, dominant strategies, loopholes, degenerate
+         combinations and balance hypotheses. Executable-config
+         self-play may be added once the relevant g-9c41 surface exists,
+         but it does not replace human play.
+
+      8. Evidence limits remain explicit. Paper work does not certify fun,
+         meaningful co-op, pacing, onboarding, runtime legibility,
+         production cost, market response or the actual play value of
+         eight players. Those require playable and external evidence.
+
+      9. The owner gives an explicit verdict that he is proud of the
+         resulting design, based on the current evidence level rather
+         than claims beyond it.
+
     status: parked
+
     detail: |
-      history/s-map-002.md. CANON TRACK (wired 2026-06-15): this node is worked in PARALLEL as the
-      creative/canon track. Content repo github.com/ainazemtsau/gas_coop_game_canon (clone
-      C:\projects\gas_coop_game_canon). Procedures: local/canon-forge (forge ONE question — 3 options →
-      owner picks → draft → craft gates → optional consistent images → freeze a canon card) and
-      local/canon-status (render-only — what is actionable / parallel / blocked / cluster-ready).
-      Full design + form-plan: work/canon-track-design-2026-06-15.md. Advanced via canon-forge sessions
-      in separate chats; NOT a second active bet — stays parked, the g-9c41 bet is untouched (G1).
+      Current reconciliation and lineage:
+      - history/2026-07-15-s-map-g-d3a8-frame-v2-reconciliation-001.md
+      - history/s-map-002.md
+
+      Current authority:
+      - FRAME: work/minimum-game-frame-v2.md — FRAME READY 2026-07-14;
+        whole-game design basis, not canon.
+      - OWNER REQUIREMENT:
+        knowledge/g9c41-players-8-owner-requirement.md — eight-player
+        support is mandatory; solo is outside the current design target.
+      - CANON: gas_coop_game_canon/CONSTITUTION.md, CORE.md, INDEX.md
+        and canon cards.
+      - CURRENT CARD: c-001 resolves only the conscious
+        investigation → operation transition.
+
+      Authority route:
+      FRAME READY
+      → OWNER-SELECTED PAPER ANSWER
+      → separate owner-present CANON ADMISSION.
+
+      Dependency map:
+      - consistency lane:
+        c-map-g-d3a8-frame-v2-reconciliation-001 [CLOSED]
+        → c-repair-canon-frame-v2-eight-player-001 [READY FIRST]
+        → c-repair-eight-player-live-consistency-sweep-001
+          [HELD until canon repair closes];
+
+      - design lane:
+        c-map-g-d3a8-frame-v2-reconciliation-001 [CLOSED]
+        → c-research-q-coop-interdependence-002
+          [READY PARALLEL / PAPER-ONLY]
+        → possible OWNER-SELECTED PAPER ANSWER
+        → separate owner-present canon-admission CALL;
+
+      - c-shape-sc-damage-001 remains HELD until a ready canon
+        specification explicitly changes that disposition.
+
+      The canon reconciliation changes no mechanics. The live
+      consistency sweep scans only current authoritative/live surfaces
+      and does not rewrite historical evidence.
+
+      Work continues as a parallel creative/canon track through
+      owner-present sessions and adds no second active bet or active
+      tasks. Existing procedures remain local/canon-forge and
+      local/canon-status, subject to the authority route above.
+
+      Superseded g-d3a8 wording remains recoverable through
+      history/s-map-002.md and git history. TREE.md carries only the
+      current readable card; no duplicate legacy copy is created in
+      archive.
 
   - id: g-7e15
     goal: |
