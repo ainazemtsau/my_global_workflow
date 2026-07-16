@@ -281,4 +281,6 @@ archived: history/LOG-archive-indie-game-development.md — sessions before 2026
 
 2026-07-16 — repair/close (g-9c41/worktree-routing-v2, s-repair-gascoopgame-worktree-routing-v2-001): owner A selected product-owned single mutable venue v2; nine checkouts and 33 refs were classified, canonical L1a mutation 72.78 was separated from stale core/exp evidence, the old lane map was superseded for dispatch, and a HELD protocol-install was opened before any L1B product executor. Fresh L1B acceptance next was preserved; no product worktree changed. → history/2026-07-16-s-repair-gascoopgame-worktree-routing-v2-001.md
 
+2026-07-16 — work/accept (g-9c41/L1B-Acceptance, s-work-near-gas-l1b-acceptance-001): владелец «accepted» — frozen acceptance 5/5 отличает actual L1a path от surrogate и fail-closed ловит observer effect/cuts; product PLAN не выпущен, потому что owner-approved worktree-protocol-v2 обязан вернуться первым, поэтому L1B-PLAN blocked. → history/2026-07-16-s-work-near-gas-l1b-acceptance-001.md
+
 END_OF_FILE: live/indie-game-development/LOG.md

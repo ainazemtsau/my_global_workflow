@@ -1,5 +1,5 @@
 # NOW: indie-game-development
-updated: 2026-07-16 by s-repair-gascoopgame-worktree-routing-v2-001
+updated: 2026-07-16 by s-work-near-gas-l1b-acceptance-001
 
 bet:
   node: g-9c41
@@ -39,11 +39,12 @@ tasks:
   - id: L1B-Acceptance
     goal: "[session] Frozen owner-approved child acceptance различает real L1a observability и surrogate evidence для 5/5 families."
     done_when: "5/5 families имеют falsifiable positive/negative oracle; adversarial dry-run не требует cut capability; владелец принял artifact."
-    status: active
+    status: done
   - id: L1B-PLAN
     goal: "[executor] Owner-approved product PLAN фиксирует evaluator, rollback и disjoint observation ownership без authority/Unity/C1/L2 expansion."
     done_when: "PLAN frozen по current v26 contract; владелец принял; next handoff соблюдает compiled-carrier/RED guards."
-    status: open
+    status: blocked
+    unblock_when: "c-exec-gascoopgame-worktree-protocol-v2-001 вернулся HOME; он сам ждёт close или owner-pause c-exec-char-v2-reaction-core-repair-002."
   - id: L1B-Capture
     goal: "[executor] Retry snapshot и fault injection дают стабильное пассивное наблюдение реального L1a path."
     done_when: "Genuine RED ловит retry/fault planted controls; delivery не меняет L1a result/order/atomicity."
@@ -62,14 +63,6 @@ tasks:
     status: open
 
 open_calls:
-  - id: c-work-near-gas-l1b-acceptance-001
-    to: session
-    for: g-9c41 / NearGas L1B task L1B-Acceptance
-    issued: 2026-07-16
-    note: |
-      PRIMARY / ACTIVE BET TASK 1 / OWNER-PRESENT: freeze falsifiable child acceptance for exactly retry snapshot,
-      fault injection, handler classification, kernel rows and loopback trace. Direction-only; no product/Unity/
-      PLAN/RED/BUILD and no L2/C1/workers/S4. work/c-work-near-gas-l1b-acceptance-001-call.md.
   - id: c-exec-gascoopgame-worktree-protocol-v2-001
     to: executor
     for: g-9c41 / product-owned single mutable venue v2 contract and registry
@@ -191,6 +184,6 @@ decisions:
     recommendation: "Доступная физическая машина; газ CPU-bound, поэтому CPU должен быть назван явно."
 
 next:
-  CALL: work/c-work-near-gas-l1b-acceptance-001-call.md
+  CALL: work/c-exec-gascoopgame-worktree-protocol-v2-001-call.md
 
 END_OF_FILE: live/indie-game-development/NOW.md
