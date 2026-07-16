@@ -287,7 +287,7 @@ active_bet:
       kill the bet and shape a new bounded bet; do not extend appetite or
       claim partial success.
 
-route_status: operating_substrate_first_process_creator_t4_health_reclamation_v22_resync_recovery_pending
+route_status: operating_substrate_first_process_creator_t4_health_reclamation_v26_bounded_build_pending
 
 owner_directive: |
   Полный хронологический леджер owner-решений/каведатов/коррекций по operating-substrate
@@ -585,18 +585,18 @@ recurring: []
 decisions: []
 
 open_calls:
-  - id: c-solmax-operating-substrate-first-process-creator-t4-health-reclamation-v22-resync-recovery-013
+  - id: c-solmax-operating-substrate-first-process-creator-t4-health-reclamation-v26-bounded-build-018
     to: executor
     for: g-operating-substrate-first-process-creator/t-4
-    issued: 2026-07-15
+    issued: 2026-07-16
     note: |
-      Direction contract v22 predates the v21 product repair attempt at
-      f77ad75/3af27e6, so CALL 010 and its handoff cannot close the repair.
-      Those commits remain reachable non-authoritative evidence. This call
-      creates only a reviewable v22-synced recovery candidate on the
-      pre-repair Health basis; RED-FREEZE, binding review and bounded repair
-      remain separate later legs. No legacy Health, admission, activation,
-      process run, t-4 close or appetite extension is authorized.
+      Binding fresh-session PASS_TO_BUILD from CALL 017 covers exact clean
+      integration HEAD 7ed7903 and the current-authority two-classification
+      repair packet. This bounded BUILD may change only OP-HR01, KH-HR01,
+      directly affected self-check evidence and root RESULT.md, then returns
+      the actual committed candidate diff for one later fresh review. No new
+      PLAN/RED/inventory or pre-BUILD review is pending. t-4, appetite and all
+      lifecycle limits remain unchanged.
 # 2026-07-12: c-solmax-operating-substrate-first-process-creator-t2-repo-bootstrap-001
 # cleared — the repo-bootstrap setup checkpoint is complete (commit f3d153d, CI
 # green). t-2 remains ACTIVE; Process Creator materialization is the next work,
@@ -604,5 +604,5 @@ open_calls:
 
 preserved_evidence: work/operating-substrate/evidence-index.md   # полный индекс вынесен из hot-state (verbatim)
 next: |
-  live/solmax/work/calls/c-solmax-operating-substrate-first-process-creator-t4-health-reclamation-v22-resync-recovery-013.md
+  live/solmax/work/calls/c-solmax-operating-substrate-first-process-creator-t4-health-reclamation-v26-bounded-build-018.md
 END_OF_FILE: live/solmax/NOW.md
