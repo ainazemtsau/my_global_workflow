@@ -295,4 +295,6 @@ archived: history/LOG-archive-indie-game-development.md — sessions before 2026
 
 2026-07-16 — research/close (g-9c41/Level-DA-PGG-Standard-v1, s-research-level-module-standard-v1-001): evidence-backed Standard v1 candidate восстановил proven lower seams без переписывания, определил project-owned Module Contract + Built Level Manifest, четыре validator boundaries, 1/2/3/4 + stacked fixtures и old-task disposition; продукт не тронут, standard не принят, current research CALL возвращён parent. → history/2026-07-16-s-research-level-module-standard-v1-001.md
 
+2026-07-16 — repair/close (g-9c41/dashboard-truth, s-repair-direction-neargas-dashboard-truth-001): владелец «A» синхронизировал Direction и NearGas owner panels с protocol RELEASED@5cd18250 и L1B PLAN ADMITTED-ACTIVE@accc677d / final verdict pending; P0→Q1 восстановлен, character pause показан, canon-board render drift оставлен честно OPEN. → history/2026-07-16-s-repair-direction-neargas-dashboard-truth-001.md
+
 END_OF_FILE: live/indie-game-development/LOG.md
