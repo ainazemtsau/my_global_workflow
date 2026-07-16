@@ -2,7 +2,8 @@
 
 This file is the load-bearing census for the engineering contract. It counts what one applicable
 product leg must do, not how many words describe it. The historical `N=71` in the 2026-07-14 audit
-was a hypothesis; this is the fresh contract-v24 census made before the contract-v25 valve landed.
+was a hypothesis; this is the fresh contract-v24 census made before the contract-v25 valve landed
+and re-verified unchanged by the contract-v26 B4 consumer audit.
 
 ## Counting unit
 
@@ -45,12 +46,14 @@ deliverables, and exercises fixed, refuted, owner-ack and escalation branches. I
 | Unity profile predicates (`U`) | 27 |
 | **Maximum `N`** | **239** |
 
-`N = 239` is the contract-v25 ceiling; the post-change maximum may not exceed it. An addition that
+`N = 239` remains the contract-v26 ceiling. B4 removed no obligation id: compacting historical
+narrative is a reading reduction, not a semantic deletion. The post-change maximum may not exceed
+it. An addition that
 would otherwise raise `N` is legal only when the same commit names and actually removes enough
 inventory ids from every authoritative surface to keep `N <= 239`. Renaming, compressing, merging
 rows, moving text to a product repo, or replacing two predicates with one sentence is not removal.
-A one-for-one replacement names both ids and leaves `N` unchanged. B4 may lower this ceiling only
-after the corresponding obligations are proved removed.
+A one-for-one replacement names both ids and leaves `N` unchanged. A later batch may lower this
+ceiling only after the corresponding obligations are proved removed.
 
 ## G - gate predicates (49)
 

@@ -1,422 +1,68 @@
-# os/engineering contract version — the forcing function against silent propagation lag
+# os/engineering contract version — propagation guard
 
-A single monotonic integer naming the current state of the engineering contract (CONTOUR.md +
-VALIDATION.md + PROJECT_SETUP.md + ESCAPE-CLASSES.md + OBLIGATION_INVENTORY.md + profiles/**). Appending a defect-class to
-ESCAPE-CLASSES.md (the ratchet, MAINTENANCE step 6) bumps it too, so the new class propagates to
-product repos instead of protecting only the workflow-repo-side audits. A **MAINTENANCE session bumps it** (current + one
-log line) whenever it hardens or adds a load-bearing gate (os/MAINTENANCE.md step 6). Each product
-repo records the version it last synced to (`validation.config: synced_contract_version`); PROJECT_SETUP
-stamps it at setup, §Re-sync updates it. `collect` / `audit` / `digest` compare the two and flag a repo
-that is BEHIND, so an os/engineering hardening can no longer silently fail to reach the repo where work
-runs (the root cause behind FRICTION 79/84/88/90/92 — propagation lag with no forcing function).
+This monotonic integer names the current engineering contract:
+`CONTOUR.md`, `VALIDATION.md`, `PROJECT_SETUP.md`, `ESCAPE-CLASSES.md`,
+`OBLIGATION_INVENTORY.md`, and `profiles/**`. A load-bearing change or a new escape class bumps it
+once. Product repositories record `validation.config: synced_contract_version`; `collect`, `audit`,
+and `digest` compare that stamp with `current` and surface a missing terminal Re-sync.
 
-current: 25
+current: 26
 
-log:
-  25  2026-07-15  B3 obligation-growth valve. A fresh manual census of current v24 authority replaces the audit's
-      `N=71` hypothesis with a named maximum of 239 leg obligations for the maximizing compiled Unity/core-algorithm
-      profile: 49 gate predicates + 97 cross-cutting axes + 16 escape-class rows + 19 spec payloads + 31 evidence
-      objects + 27 Unity profile predicates. OBLIGATION_INVENTORY defines the removal test so a long sentence cannot
-      hide independently removable duties; duplicates count once, fixed registry rows separately, and mutually
-      exclusive profiles are not summed. Every engineering-contract commit records each obligation delta and
-      recomputes affected profile totals; an omitted duty still counts and invalidates the change. Post-change N may
-      not exceed 239; every addition that would otherwise raise it must name and actually remove enough inventory ids
-      in the same commit to keep N at or below the ceiling; a replacement log names its added and removed ids;
-      compression, paraphrase, row-merging or relocation is not deletion. Tracked
-      `os/engineering/**` mandatory reading is capped at `32,511` words in this v25 tree and may only fall
-      after proved deletion (B4 owns reduction). Trigger provenance stays self-initiated when the owner merely agrees
-      to a session-proposed mechanism; such a mechanism still needs two same-point FRICTION entries. A witness must
-      resolve as a named-repo `path:line` or Git SHA. A temporary duty names a specific retirement leg whose
-      `done_when` removes it and updates the inventory; future voluntary cleanup cannot own retirement. Defects in
-      the valve itself may be repaired in the same maintenance session. No existing engineering gate was removed;
-      B4, product repos, `live/**`, and Stryker were untouched. Re-sync is control-plane-only for v25 itself: after
-      all older functional deltas applicable to the target are installed, record the v25 inventory ceiling/source
-      commit and bump `synced_contract_version` without copying this inventory or adding a product-leg gate.
-      GasCoopGame completes its separately pinned v24 B2 Re-sync first and only then takes a fresh v25 Re-sync;
-      health-ai and solmax-operating-substrate take terminal current-profile Re-syncs through v25. Repositories with
-      no contract stamp (Zaratusta, life-reset-manager) need current PROJECT_SETUP on activation, not Re-sync.
-  24  2026-07-15  mutation-scope integrity and adaptive mutation concurrency. Witness: GasCoopGame's broken native
-      `-Since` left scope in a builder-authored `-Mutate` glob; `mutation.ps1` recorded that scope, while `check.ps1
-      -Deliver` read only score. The same class escaped twice (#14 and #69); the omitted Core file made the first honest
-      complete run score 68.19%, below the 70% floor, after a narrower report had passed GREEN. Contract: for every
-      change owing G2, Deliver independently derives changed eligible file set `D` from the authoritative review diff
-      and FAILS before score on a missing/malformed normalized report scope `M` or non-empty `D ∖ M`; a score-only
-      artifact is not evidence. The fresh reviewer independently derives scope and runs mutation; a builder-produced
-      scope/report/score cannot discharge G2. Runner default concurrency is
-      `min(24, max(4, floor(logicalProcessors / 2)))`, with an explicit recorded override. Scope is honestly file-scoped,
-      not line-scoped: a touched hot file is mutated whole and may remain slow. The retained GasCoopGame 72.78% result
-      was not rerun in maintenance. §Re-sync OWED: GasCoopGame 23->24 (derive exact per-file runner inputs from the
-      authoritative diff without Stryker native `-Since`; persist normalized `scopeFiles` + diff base/head + effective
-      concurrency; add the Deliver set-difference check and seeded misses; update reviewer contract and version stamp).
-      Re-sync also declares the integration-base ref and mutation-input dependency roots; independent review evidence
-      records mutation-reviewed `H`; the report echoes current base-ref tip `I`, `B = merge-base(I,H)`, and `H`.
-      Deliver recomputes and exact-matches those endpoints, rejects dependency changes after `H`, includes A/C/M/T and
-      rename destinations in `D`, and exact-matches delete paths/rename sources in `removedFiles`, all before score. The
-      already-closed NearGas artifact is a named pre-v24 migration exception only: preserve 72.78% without rerun,
-      mechanically prove its recorded exact inputs cover its frozen diff, and never reuse it for a new leg; this does
-      not reopen L1a. Product repos, `live/**`, B3 and B4 were untouched. (owner: B2 mutation gate false GREEN + 4/32
-      fixed concurrency made the only uniquely productive gate both unsound and needlessly expensive)
-  23  2026-07-15  compiled SURFACE-FREEZE carrier supersedes the v22 prose-first launch route for compiled
-      product-code legs. Witness: NearGas spent about 68 hours across eight branches with zero production code and a
-      nominal RED artifact carrying 205 compile errors; the isolated carrier experiment delivered L1a through a
-      compiler-green public skeleton + short decision page -> independent RED -> BUILD -> binding fresh refutation,
-      ending at product `dev`/`origin/dev`/`origin/main` commit 400ef8eca1e747378493c97530770286c7e26ff1
-      with focused NearGas 71/71, NearGasTickTypeTests 8/8, normal 1714/1714, unfiltered 1793/1793,
-      `check.ps1 -Deliver` GREEN and fresh G5 PASS (Critical none, Important none). The retained mutation artifact is
-      72.78%; maintenance did not rerun mutation/Stryker.
-      New terminal sequence: PLAN -> separate SURFACE-FREEZE -> separate independent RED-FREEZE -> binding fresh
-      artifact-backed RED refutation -> BUILD. The frozen carrier is the exact freeze commit/Git manifest, a decision
-      page <=400 words with every named fixture fully defined or absent, and a compiler-green skeleton of real public
-      signatures <=400 added production-source lines by `git diff --numstat`; excess is a STOP and leg split, never a
-      raised ceiling. Data/value construction preserves fields, acceptance meaning cannot move into `///`, and the
-      surface session runs repo-native build+hygiene with mandatory sidecars in the same commit (Unity: tracked
-      `.cs.meta`; unavailable real importer = existing tool-unavailable STOP). RED must compile, be discovered and
-      fail on behavior; compile-RED, test counts and v22 prose/PLAN-AMEND are not launch authority. BUILD changes
-      neither frozen RED nor frozen public signatures and re-freezes before a public-surface change. The skeleton
-      proves constructibility only, not architecture, semantic completeness, oracle meaning or internal seams.
-      Independent test-author, immutable RED, compilation/hygiene, mutation >=70%, NegativeControls/CsCheck, review,
-      refutation, binding fresh G5 and all honest STOP rules remain intact. Applicability is limited to compiled
-      product-code legs with a repo-native compiler; non-compiled repositories need a native executable carrier or an
-      explicit `n/a` / separate owner decision, never copied C# mechanics. Re-sync owed: GasCoopGame goes directly
-      from synced contract 21 to terminal v23 and MUST NOT restore or execute the retired v22 prose-first
-      PLAN-AMEND/direct-RED route as an intermediate migration. This maintenance does not edit the product repo or
-      `live/**`.
-  22  2026-07-14  executable RED-FREEZE handoff; prose readiness is no longer build authority. Witness:
-      GasCoopGame NearGas v21 received a binding `29/29` semantic GREEN, yet EXECUTE-003 produced zero tests
-      and no commit: AR-01/AR-06/AR-12/AR-13 mixed process/structural/final-gate evidence into the test
-      numerator, while the F5 pending-impulse comparison and the exact CsCheck 3.2.2 seed/shrinker/1024-case
-      invocation still required guesses. The two long pre-build checks therefore reviewed the same textual
-      representation; the independent C# author was the first real consumer. Fix: mixed rows are split and every atomic
-      obligation is classified `behavioral-red` or `evidence-only`; process, structural-review, owner-verdict and final-gate obligations are
-      excluded from the RED count and name their real evidence route. PLAN may hand off only to a separate
-      RED-FREEZE session. That session writes the complete test/support patch once, commits it without production
-      code, runs the repo-native compile/test command, and either records eligible exact RED or returns the full
-      PLAN-AMEND gap list. The already-required binding fresh review now refutes that committed artifact and runner
-      evidence instead of reviewing the same prose again. Only then does BUILD start from the pinned immutable RED
-      commit; it does not author the same tests again. A prose table, skeleton set, dry-run or partial suite never authorizes BUILD. No semantic parser or
-      proxy was added. Re-sync owed: GasCoopGame and health-ai mirror PLAN -> RED-FREEZE -> binding artifact review -> BUILD
-      contract, writer evidence guard and OpenSpec obligation classification, then stamp synced_contract_version
-      22. The active NearGas v21 packet must be repaired in its own Direction/product sessions; this maintenance
-      does not edit `live/**` or product repos.
-  21  2026-07-14  full-packet semantic RED readiness before PLAN approval and execution handoff. Witness:
-      GasCoopGame NearGas first reached BUILD with no constructible public generation/fault route; the amendment
-      closed only those two named blockers, a narrow Direction refutation treated that local GREEN as whole-suite
-      readiness, and the next independent RED author found nine more elementary fixture/observation/source/control
-      gaps. Root cause: spec-only RED plus the v11/v12 obligation expansion and v19 session split removed the old
-      informal context bridge, while PLAN still had no complete spec-to-test recipe pass for extensions. Fix:
-      every acceptance, negative-control and property obligation owns an exact
-      `fixture|call|observe|source|negative` recipe in the spec; a fresh read-only AI independently derives the
-      whole set and writes each test skeleton before owner approval; RED returns the complete gap list; any spec
-      amendment invalidates the verdict and reruns the whole packet; a named-blocker GREEN cannot authorize
-      EXEC/BUILD. This is deliberately semantic and recorded, not a deliver script: no new parser, regex scanner,
-      schema compiler or conformance program may judge plan/spec completeness. Re-sync owed: GasCoopGame and
-      health-ai mirror the clause in their root run contract and OpenSpec planning guidance; no product code change.
-  20  2026-07-13  repo-local execution authority + obsolete global runtime retirement: a generic Direction OS
-      engineering/PLAN/BUILD CALL is governed by the CALL plus the product repo's AGENTS.md, frozen plan/spec,
-      and validation.config. Globally installed or discoverable skills and tools are support, not authority:
-      they cannot replace the declared workflow or add project requirements. The required-tool STOP applies only
-      to a tool explicitly required by those repo authorities; discovery or installation alone is never a blocker.
-      Witness: a Solmax BUILD leg contained only the repo-native contract, but Codex self-selected an obsolete
-      globally installed execution bundle and stopped on its foreign bootstrap requirements without starting
-      material work. Owner correction superseded the initial trigger-narrowing mitigation: the obsolete bundle
-      and its tracked project config were deleted completely, active contracts were made provider-neutral, and
-      solmax-operating-substrate was re-synced from 19→20.
-  19  2026-07-06  PLAN and BUILD are SEPARATE sessions + the owner approves an owner-READABLE plan (the
-      plan-leg-boundary axis, owner request — transcript of a GasCoopGame c-exec-021 session that ran PLAN
-      and BUILD in ONE session (wrote 7 data-layer files + commissioned 11 RED tests inside the planning
-      session) and surfaced the plan as machine artifacts in a scratch folder + a wall of text; owner:
-      «во-первых план должен показывать детально и просто, с расписанными техническими решениями; во-вторых
-      планирование и execution — это должны быть разные сессии»). Replay (MAINTENANCE step 1): CONTOUR already
-      says Roles are «always separated» (Planner = interactive session, Builder = autonomous session(s)) but
-      the cycle draws PLAN → RED TESTS → BUILD as ONE continuous arrow-chain with no explicit SESSION boundary
-      or STOP, and «owner approves the plan» never required an owner-READABLE plan (only the machine spec/
-      ledger/ADR) — so a single executor session doing plan+build and surfacing machine artifacts is what the
-      text INVITES. Verdict: (a) rule defect (ambiguous role-vs-session separation) + (c) owner-requested
-      behavior (explicit request = sufficient trigger). Sibling KEPT PARKED (one problem per session): the
-      2026-07-04 line-141 entry-guard (a bare CALL-id is not runnable / a `c-exec-*` leg opens its openspec
-      folder at PLAN before build, never «light») — a DIFFERENT mechanism, still owed its own session. Fix,
-      STRICTLY ADDITIVE (no gate weakened — validator G4/G5, test-author both passes, non-convergence, strong-
-      check/coverage/named-approach/registry-walk/review-evidence/negative-control/property-layer/refuted-
-      register/fix-class-closure/review-scope-split/cited-artifact/tool-unavailable-STOP/source-scan-ban all
-      intact; KERNEL/plays/packets/schema untouched; END_OF_FILE trailers intact): CONTOUR Roles — Planner is a
-      SEPARATE session from BUILD that ENDS at owner plan-approval (hands off a build CALL, writes no product
-      code, commissions no red tests), Builder is a FRESH session reading the frozen plan; CONTOUR cycle PLAN —
-      the approved plan is a detailed-but-simple OWNER-READABLE document (each technical decision spelled out
-      plain-language + why; the machine spec/ledger/ADR ride alongside for the builder, not as the plan) and
-      plan-approval CLOSES the plan leg (RED TESTS + BUILD are a separate fresh session); PROJECT_SETUP Step-3
-      run-contract carries the same «PLAN and BUILD are separate sessions + owner-readable plan» clause (→ every
-      product repo). SCOPE (honest, like v16/v17): BEHAVIORAL, not a deliver-script — there is no clean
-      mechanical signal that «one session did both» (sessions are not git-visible), so it is enforced by the
-      executor stopping at plan-approval, by the owner not approving a plan that arrives mid-build, and by
-      writer awareness; no seeded-miss, and no ESCAPE-CLASSES row (a process/role defect nothing walks, not a
-      product-property blind spot the spec-silence audit could ask about). OS text ACTIVE now; the product
-      AGENTS.md line lands at §Re-sync. §Re-sync OWED: GasCoopGame (mirror the PLAN/BUILD-separate-sessions +
-      owner-readable-plan clause into the product run-contract, RECONCILING the ad-hoc root-AGENTS.md edit the
-      transcript session hand-added out-of-process so it matches the OS-distilled wording; bump
-      synced_contract_version → 19, folding into the staged c-exec-026 re-sync); health-ai (mirror as-is — the
-      plan/build session split applies to any executor, .NET or markdown kernel). SCOPE-note: this hardens a
-      run-contract that propagates to product repos (same class as v16/v17), so the bump is correct even though
-      the axis is behavioral. (owner: «план детально и просто с техническими решениями; планирование и
-      исполнение — разные сессии»)
-  18  2026-07-04  cited-artifact existence (the light-lane floor under review-evidence, owner request
-      d-review-citation-fixclass-001 — owner picked the MECHANICAL gate over prose): the v10 review-evidence deliver
-      dependency fires only for a G0-frozen change, so a LIGHT/infra leg (no frozen openspec folder = N/A-by-absence)
-      can deliver a closing report that CITES a docs/reviews/review-*.md / docs/adr/*.md artifact not yet committed.
-      Recurred as a class in the no-frozen-folder infra lane, self-caught by the in-leg reviewer both times, gate-caught
-      neither — but only ONE would have RED'd AS DELIVERED (honesty, the very class this gate forbids): c-exec-030 cited
-      docs/reviews/review-c-exec-030-*.md at the GREEN -Deliver commit 722dcb2 where it was ABSENT (it landed at
-      0c09882) -> the gate WOULD red 722dcb2; c-exec-029 was the SAME class but WEAKER — its citation dangled only at an
-      intermediate commit and resolved at its delivered tip f926958 -> the gate DETERS it prospectively, would not have
-      red'd it as delivered. The review loop's reopen-tripwire (v14) is per-review-file and cannot see a class recurring
-      ACROSS legs. Verdict per MAINTENANCE step 1: (b) gap + (c) owner-requested mechanical fix (sufficient trigger).
-      Fix, STRICTLY ADDITIVE (no gate weakened — a report OMITTING the citation is untouched, a frozen leg keeps its full
-      v10 machinery; validator G4/G5, test-author, non-convergence, strong-check/coverage/named-approach/registry-walk/
-      review-evidence/negative-control/property-layer/refuted-register/fix-class-closure/review-scope-split/
-      tool-unavailable-STOP/source-scan-ban all intact; KERNEL/plays/packets untouched; END_OF_FILE trailers intact):
-      VALIDATION new §Cited-artifact existence — for EVERY leg the ALWAYS-RUN RESULT-report gate verifies each
-      docs/reviews/review-*.md / docs/adr/*.md path (rooted in the repo's OWN docs/ tree) the closing report cites EXISTS
-      at HEAD; a dangling citation FAILs at whatever commit -Deliver runs. ORTHOGONAL to v10 (v10 keys on the
-      frozen-folder id review-<id>.md; this keys on the report's cited paths review-<id>-<slug>.md — different key
-      spaces, both additive FAIL-only, no double-require). Rides the ALWAYS-RUN RESULT gate (tools/result-check.ps1,
-      extracted by c-exec-030), so it reaches the light/infra lane; PROJECT_SETUP extends the always-run Closing-report
-      clause + a Done-when seeded-miss (a RESULT citing an absent review-*.md -> RED, GREEN once it lands; a RESULT
-      omitting the citation -> PASS). SCOPE (honest): presence!=truth — asserts the cited path is PRESENT, never that the
-      review was real or its verdict right; a cross-repo citation (escaping the repo root / a bare os/ ref) is OUT of
-      scope; a forward-referenced not-yet-created path fails (over-strict/fail-safe); a prose-only review-claim or
-      empty-stub file is NOT caught (the binding fresh-session KERNEL-G5 + owner stay the truth layer — no prose/content
-      scanner, v17). No writer-side keystone (the writer cannot Test-Path the product tree, as v11/v12) — INERT until
-      §Re-sync. No ESCAPE-CLASSES row: that registry holds product-property blind spots the spec-silence audit walks;
-      this is a gate-enforced reporting/process defect nothing walks. §Re-sync OWED: GasCoopGame (wire the
-      cited-existence parse into tools/result-check.ps1 + a seeded-miss; bump synced_contract_version 14->18, folding the
-      still-owed v15/v16/v17); health-ai (markdown kernel, not .NET — translate the cited-artifact-existence to its
-      RESULT/review citations, or record explicit n/a if it has no result-check host). (owner: «механический гейт —
-      цитируемый review обязан существовать на HEAD в infra-полосе»)
-  17  2026-07-04  source-scan-is-never-behavior-evidence + self-written-scanner ban (the VENUE axis of no-silent-crutch,
-      owner request, same 2026-07-04 batch — «source-text scan никогда не доказательство поведения для Unity/шейдеров/
-      рендера; самописные сканеры запрещены»): VALIDATION never DEFINED behavior evidence by VENUE, so with PlayMode CI
-      deferred (unity.md) an executor filled the hole with a static source-text scan and then hardened it under the very
-      v11 negative-control + v12/v14 property/sweep gates meant for real code — driving a scanner into a compiler.
-      Witness (verified this session: SourceScanText.cs == 1728 lines, six GasVisual/*ScanTests.cs): GasCoopGame dev_2
-      visual track carries a 1728-line C#/HLSL/ShaderLab SourceScanText.cs + ~2000 lines of scan-tests + ~44
-      negative-controls (a 245-line suite guarding the scanner itself) — ~3900 lines proving "string present in file,"
-      not runtime/render behavior. The v14 witness (c-visual-004 comment-variant arms race, FRICTION line 137) is the
-      SAME root one layer down: v14 made the scanner's FIXES converge; it never asked whether the scanner should exist.
-      Verdict per MAINTENANCE step 1: (a) rule defect + (b) gap with an explicit owner trigger; a real past-the-test-author
-      escape → ESCAPE-CLASSES append (single escape is a sufficient trigger, MAINTENANCE step 6). Fix, STRICTLY ADDITIVE
-      (no gate weakened — a source scan was NEVER legitimate behavior evidence, so nothing green legitimately loses;
-      validator G4/G5, test-author both passes, non-convergence, strong-check/coverage/named-approach/registry-walk/
-      review-evidence/negative-control/property-layer/refuted-register/fix-class-closure/review-scope-split/
-      tool-unavailable-STOP all intact; KERNEL/plays/packets untouched; END_OF_FILE trailers intact): VALIDATION new
-      §Behavior evidence by venue — engine/shader/render/scene behavior = a real EditMode/PlayMode run OR a live-engine
-      MCP query; engine-free logic = real headless tests; look = owner-eye (G6, not a gate); a static source-text scan is
-      NONE of these even as a perfect compiler; self-written source scanners/parsers FORBIDDEN as behavior evidence; the
-      ONLY legal text check is a declared wiring-smoke (File.Exists + trivial substring, NO acceptance property / NO
-      negative control / NO property test) — so v11/v12/v14 NEVER attach to a smoke or a scan (the arms-race cutoff) and a
-      scan-oracle's fix is DELETION, not a stronger control; G3 anchored (an engine/render scenario is a real run / MCP
-      query — a scan is not an executed scenario); profiles/unity.md §2 names render-behavior = real MCP run + owner-eye,
-      scanner forbidden, boundary-gate stays the real headless COMPILE; ESCAPE-CLASSES.md NEW witnessed row «wrong-venue
-      evidence / self-written proxy scanner (execution, not text)» + a consistency pointer on the empty-oracle row (its
-      scan-oracle fix is deletion, not a stronger control). SCOPE (honest): behavioral/definitional, NOT a deliver-script
-      — enforced by the executor STOP (v16), the validator/owner rejecting a scan as behavior evidence, and the PLAN
-      spec-silence audit WALKING the new ESCAPE-CLASSES row (front-loaded, the one mechanical hook); a judgment-emulating
-      "is-this-a-scanner" grep is deliberately NOT added — it is the proxy-treadmill the owner flagged (memory
-      os-review-checker-gate-taxonomy). Proportionality: removing a crutch means DELETING theater, never adding a
-      pixel-readback harness in its place. OS text ACTIVE now; the product AGENTS.md line + the scanner DELETION land at
-      §Re-sync. §Re-sync OWED: GasCoopGame (DELETE SourceScanText.cs + the *ScanTests.cs + their negative-controls; mirror
-      the source-scan-≠-behavior + no-self-written-scanner + wiring-smoke carve-out into the product run-contract;
-      re-express any real render acceptance as owner-eye + a live-MCP run; synced_contract_version 16→17 — folds into the
-      staged c-exec-026 re-sync, now 11→17); health-ai (markdown kernel — TRANSLATE the class: no self-written scan of the
-      kernel markdown or the chat transcript as behavior evidence, behavior = a real cross-model process run + owner gate;
-      the Unity EditMode/PlayMode specifics are N/A). (owner: «source-text scan никогда не доказательство поведения для
-      Unity/шейдеров/рендера; самописные сканеры/парсеры запрещены; недоступна венью — стоп, зови меня, никаких костылей»)
-  16  2026-07-04  tool-unavailable STOP + explicit-written-owner-ack (the no-silent-crutch axis, owner request, same
-      session as v15 — owner «давай все как ты рекомендуешь»): a required tool/harness the plan depends on going
-      UNAVAILABLE (Unity Editor not launched, the Unity MCP dropped, a headless-test license absent) was only
-      IMPLICITLY an escalation trigger — CONTOUR ESCALATE named "sandbox/permission boundary hit" and the v8
-      no-silent-crutch rule, but an executor need not read "MCP dropped / Editor not running" as a permission boundary,
-      and the owner reports it recurring (the MCP slips, or he forgets to launch Unity) with the risk that a leg
-      crutches around it silently. Verdict per MAINTENANCE step 1: (c) customization — explicit owner request (its own
-      trigger; the ≥2-friction threshold is only for self-initiated changes). Fix, STRICTLY ADDITIVE (adds a STOP
-      trigger + reinforces the owner-ack — nothing that previously failed now passes; no gate weakened; validator/
-      test-author/strong-check/coverage/review-evidence/negative-control/property-layer/refuted-register/
-      fix-class-closure/review-scope-split all intact; KERNEL/plays/packets untouched; END_OF_FILE trailers intact):
-      CONTOUR ESCALATE names "a required tool/harness the plan depends on is UNAVAILABLE (engine Editor not running /
-      needed MCP disconnected / headless license absent)" as a mandatory STOP + owner-contact naming the tool, never a
-      workaround/crutch/silent scope-narrowing, and any exception (proceed-anyway / substitute / model-widen) stands
-      ONLY on the owner's EXPLICIT written owner-ack he types in chat — never a builder default; PROJECT_SETUP Step-3
-      run-contract carries the same clause (→ every product repo); coding-agent.md Role-2 blockers names the
-      tool-unavailable STOP. SCOPE (honest): behavioral, not a deliver-script — enforced by the executor stopping + the
-      push notification, like the rest of ESCALATE; the OS-side text is ACTIVE now, product AGENTS.md gets the explicit
-      line at §Re-sync. §Re-sync OWED: GasCoopGame + health-ai (mirror the tool-unavailable STOP + written-owner-ack
-      clause into the product run-contract; bump synced_contract_version 15→16 — folds into the same staged c-exec-026
-      re-sync, now 11→16). (owner: «если Unity недоступна — стопаться и говорить мне, надо запустить; никаких обходных
-      путей, костыли запрещено строго; исключения — только с моего явного письменного да в чате»)
-  15  2026-07-04  review-scope split (in-scope gates / class-sibling routes — the review-OUTPUT axis, owner request):
-      a leg's independent review returns findings from the whole-codebase class search (VALIDATION G4 "enumerate the
-      sibling sites") mixed FLAT with the diff's own findings and gates on all of them — so one diff drowns under
-      pre-existing defects elsewhere and its true-P1 count is inflated by half-year-old bugs it never introduced
-      (witness: c-exec-028 review — 9 findings, only 2 in the diff; 4 of the other 7 were themselves pre-existing
-      GATE-script bugs). Verdict per MAINTENANCE step 1: (a) rule defect — the class SEARCH is right (v6/G4, it keeps
-      closing recurring classes) but the review OUTPUT has no scope dimension, so a codebase-wide sweep both dilutes
-      AND blocks the one diff. Fix, STRICTLY ADDITIVE (no gate weakened — the class search unchanged, in-scope gating
-      unchanged in strictness, nothing silently dropped; validator G4/G5, test-author, non-convergence, strong-check/
-      coverage/named-approach/registry-walk/review-evidence/negative-control/property-layer/refuted-register/
-      fix-class-closure, default-FAIL ledger all intact; KERNEL/plays/packets untouched; END_OF_FILE trailers intact):
-      the review findings block gains a `scope` ∈ {in-scope | class-sibling} column (VALIDATION §Review-evidence (iii))
-      — in-scope (site IN the diff, or a regression the change CAUSED) GATES the leg with the same {fixed|refuted|
-      owner-ack} dispositions as before; class-sibling (the same class at a pre-existing site the change neither
-      touched nor caused) carries a `routed <ref>` pointer to the direction's backlog and does NOT gate — a
-      class-sibling with no routing pointer FAILs (nothing dropped). The findings block gains a `site` (file:line)
-      column and the anti-dodge floor is MECHANICAL: a class-sibling row whose `site` file is INSIDE the diff FAILs (a
-      git-diff name-membership test, product-side, same surface as reviewed-commit ancestry, INERT until §Re-sync;
-      writer-G10 carries site+scope+routed line-presence). RESIDUAL (1b, honest — caught by the pre-commit adversarial
-      review of THIS change): a caused regression at an OUT-of-diff site mis-tagged class-sibling escapes THIS gate but
-      is bounded by G2/G3 (behavioral regressions gate unconditionally regardless of the scope tag), leaving only a
-      no-test caused regression mis-judged pre-existing to the fresh-G5/owner truth layer. G4 tags each finding+sibling;
-      CONTOUR VALIDATE/REPORT hand the class-sibling bucket home as a routed backlog list; CONTOUR §Fix-is-a-change +
-      VALIDATION §Fix-class-closure let a v14 sweep close an OUT-OF-DIFF sibling as `n/a because out-of-scope, routed
-      <ref>` (the essential consistency point — otherwise "search by class" would still drag the whole codebase into
-      the leg through the sweep requirement); PROJECT_SETUP §Strong-check clause (d) + Done-when seeded-miss
-      (class-sibling with no routed pointer / in-scope row open); coding-agent.md writer-G10 review-evidence bounce now
-      keys on in-scope disposition + class-sibling routed-pointer presence (ENABLED NOW, reaches every repo before its
-      §Re-sync). SCOPE (honest): presence≠truth carries over — the scope TAG is the reviewer's/fresh-G5's call above a
-      mechanical floor (an in-diff site can't be class-sibling; out-of-diff causation stays judgment, exactly as
-      intent-vs-diff already is), so a reviewer who mis-tags an in-scope regression as class-sibling dodges the gate the
-      same way any judgment-in-a-presence-check does — G4 prose + fresh-G5 + owner stay the truth layer. §Re-sync OWED:
-      GasCoopGame (wire the `scope`+`site` columns + class-sibling `routed`-pointer + the `site`-diff-membership
-      anti-dodge check into the deliver review-file check +
-      the v14 sweep out-of-diff `routed` disposition + seeded-miss + bump synced_contract_version 14→15 — folds into
-      the STAGED c-exec-026 re-sync CALL); health-ai (markdown reviews — the scope split applies as-is, wire at its own
-      re-sync session). (owner: «ревью размывает фокус — много находок не про мой diff; такие проблемы фиксить надо, но
-      отдельным ревью»)
-  14  2026-07-04  fix-class-closure (the fix half of the review loop — the fix axis of *Enabled ≠ written*): a review→fix
-      round fixed the reported INSTANCE, not its class — a source-scan oracle satisfied by commented-out tokens was
-      "fixed" by stripping `//` line-comments only; the next round found `/* */` block comments, a commented-out
-      include, and a raw-text check (3 more sites of the SAME false-green class, GasCoopGame dev_2 / c-visual-004,
-      plus 2 P2 of the same nature: an existence-only package-lock check, a RESULT gate passing comment-only
-      sections) — the same pathology witnessed 3× in June (FRICTION 92/94/96, per-species→per-transfer→per-tick).
-      Verdict per MAINTENANCE step 1: (b) gap. The rule EXISTS in four places (CONTOUR "A FIX IS A CHANGE" since v6;
-      VALIDATION G4 classify+enumerate-siblings; the product repo's own AGENTS.md run contract, verbatim; REVIEW.md
-      "report by CLASS, not by site") and the REVIEWER half even became structure at v10 (the `invariant/class`
-      column; the pasted P1 itself names the class and enumerates the siblings) — but the FIX half never produced an
-      artifact any check trips on: under retry pressure an autonomous fix session satisfies the visible repro, and
-      prose loses — the 5th conversion of this exact defect (v5 strong-check, v10 review, v11 oracle, v12 property,
-      v13 register). Aggravator (witnessed, NOT fixed here — one problem per session): the leg ran with NO openspec
-      change folder (the CALL declared neither frozen nor light), so the v10 review file + rounds counter were
-      legally N/A and the loop lived in chat — logged as a witness on the standing light-change-classification
-      FRICTION watch. Fix, STRICTLY ADDITIVE (no gate weakened — validator G4/G5, test-author both passes,
-      non-convergence, strong-check/coverage/named-approach/registry-walk/review-evidence/negative-control/
-      property-layer/refuted-register, default-FAIL ledger intact; KERNEL/plays/packets untouched; END_OF_FILE
-      trailers intact): VALIDATION §Fix-class-closure — a `fixed <commit>` disposition in `docs/reviews/review-<id>.md`
-      closes ONLY with a recorded `sweep:` line (class token; sibling sites each closed <commit>|n/a because; a
-      seeded-miss/negative-control token per class VARIANT when the finding is itself a gate/scan/oracle false-green);
-      a later-round finding row whose `invariant/class` equals an earlier `fixed` row's class RE-OPENS that row and
-      counts as ONE recurring class toward rounds/escalation — the non-convergence rule's first mechanical hook
-      (string-compare inside one file, not anyone's memory); CONTOUR "A FIX IS A CHANGE" records the sweep BEFORE
-      `fixed`; PROJECT_SETUP §Strong-check clause (h) + run-contract line + Done-when seeded-miss (fixed-without-sweep /
-      recurring-class-not-reopened); ESCAPE-CLASSES Oracle-row witness appended (a recurrence of the SAME class on the
-      fix side — no new row, per the registry's own non-duplication rule). coding-agent.md writer-G10 bounce ENABLED
-      NOW and deliberately keyed on the RESULT's OWN content (any fixed-finding report without per-finding class+sweep
-      bounces) — so it reaches a leg outside the frozen-change machinery, exactly where the witness lived. SCOPE
-      (honest): presence≠truth — a hollow sweep ("searched, nothing") passes presence, but its sibling next round now
-      trips the reopen instead of reading as a fresh finding; a renamed class token dodges the string-compare (G4
-      prose + the owner stay the truth layer); product deliver checks INERT until §Re-sync (as v9/v11/v12/v13).
-      §Re-sync OWED: GasCoopGame — the STAGED c-exec-026 re-sync CALL (was 11→13) must absorb v14 → 11→14 (wire
-      clause (h) into the deliver review-file check + seeded-miss + bump synced_contract_version); health-ai
-      (markdown reviews — the sweep line applies as-is, wire at its own re-sync session). (owner: «мы фиксим весь
-      класс проблем, а не закрываем только один finding — почему ты не следуешь инструкции, в чём проблема, как
-      это исправить»)
-  13  2026-07-04  refuted-register (disagreement-persistence axis of the review loop): a `refuted` finding died with its
-      per-change review file — the next review of the same seam re-derived and re-litigated it from zero; witnesses: a
-      rejected buoyancy P1 whose seam rationale lived only in a session memory (outside the repo), and the workflow's
-      own logs hand-writing "REJECTED, do not re-propose" lists (the FRICTION 2026-07-02 parked entry; the v12 log line)
-      — a register already existed informally, homeless and unenforced. Borrow from Sheaf-ADMM (Sakana, ICML 2026; owner
-      request 2026-07-04, assessment in memory research-sheaf-admm-assessment): persistent disagreement state — an
-      unresolved conflict survives the round and biases the next one (the dual-variable mechanism), instead of
-      evaporating. Fix, STRICTLY ADDITIVE (no gate weakened — validator G4/G5, test-author both passes, non-convergence,
-      strong-check/coverage/named-approach/registry-walk/review-evidence/negative-control/property-layer, default-FAIL
-      ledger intact; KERNEL untouched 1494/1500; packets/SESSION_PAYLOAD untouched; END_OF_FILE trailers intact,
-      mid-file inserts): VALIDATION §Refuted-register — every `refuted` disposition ALSO appends a row to the repo's
-      cumulative `docs/reviews/REFUTED.md` (`row-id | seam/invariant | claim | why-refuted | marker | review-<id> |
-      date`); the review file carries a `refuted-register:` line naming the appended rows (`none` legal only with zero
-      refuted rows); a later review closes a re-derived duplicate by CITATION (marker `register:<row-id>` — legal
-      because the cited row carries the original G5/KERNEL-G5 marker); a re-raise WITH new evidence may NOT be
-      citation-closed — it escalates to the owner as a named seam decision and the register row records the re-raise (a
-      seam drawing repeated independent fire accumulates visible weight); CONTOUR §b walk extended to register rows
-      touching the change (`still-holds | re-opened <why>`, unmarked touching row = deliver FAIL) + VALIDATE records the
-      append; PROJECT_SETUP §Strong-check clause (g) + Step-3 run contract + Done-when seeded-miss
-      (refuted-without-register-row / register-line-missing / citation-resolving-nowhere / unmarked-touching-row);
-      coding-agent.md writer-G10 bounce ENABLED NOW (a review-evidence reporting ≥1 `refuted` with no
-      `refuted-register:` line bounces — line-presence, reaches every repo before its §Re-sync). SCOPE (honest):
-      presence≠truth — the register proves a refutation was RECORDED, never that it was right; a wrong refutation now
-      propagates cheaper by citation, which is why the new-evidence hatch is load-bearing and refutation CONTENT stays
-      with the binding fresh-session KERNEL-G5 and the owner; product deliver checks INERT until §Re-sync (as
-      v9/v11/v12). §Re-sync OWED: GasCoopGame (wire clause (g) into the deliver check + seed REFUTED.md — backfill
-      candidates: the ratified buoyancy per-band rejection, the v12 "checked arithmetic" rejection, the FRICTION
-      2026-07-02 REFUTED list — + seeded-miss + synced_contract_version 12→13); health-ai (markdown reviews — register
-      applies as-is, wire at its own re-sync session). SIBLING (same owner request, play-side, outside this contract's
-      file set, commit 2beec18): converge-verify step-3 boundary attack — an imported counterpart contract is
-      re-derived blind from this node's side and diffed; divergence bounces the row (corroborate, never adopt
-      verbatim) — the overlap-corroboration half of the same borrow. (owner: «давай применим твои 2 предложения»)
-  12  2026-07-03  property-layer suite (structural-seam axis of oracle-soundness): closes the parked W3 remainder from
-      v11 (os/FRICTION.md:131, "property-based слой (CsCheck)") — a DIFFERENT cluster than v11's empty-oracle one:
-      ~11 P1 interface/atomicity/ordering-seam defects across four legs, ALL found at review/post-merge, NONE caught
-      by mutation/coverage/named-approach/registry-walk/negative-control (a lost tick, da695e8/8ba4491; state left
-      ragged when an in-flight operation is interrupted, 22d548b/4396ded/27f4b26 — surviving 8 review rounds on one
-      leg; a seal/breach race over a tick, 147f701; a hash keyed to insertion order, e4d0089/c3b85bd). Root (R3, owner's
-      own diagnosis, confirmed against the product git log): the only party who SEES a new throw-path or seam is the
-      builder, whose incentive is to satisfy tests the independent test-author wrote from the frozen spec BEFORE the
-      code existed (G0); the reviewer reads AFTER DELIVERED — nothing sits between test-authoring and post-DELIVERED
-      review to attack the actual diff. VALIDATION G2 already asked for "property-based tests for core logic" in
-      prose; the repo checked (GasCoopGame) carries zero property-testing packages and coverage-check.ps1 carries no
-      `prop:` token — confirmed absence, not lagging sync: a rule already written, never enabled (classic *Enabled ≠
-      written*, applied to a NEW axis — G2 prose ≠ G2 enforcement). Fix, STRICTLY ADDITIVE (no gate weakened —
-      validator G4/G5, test-author's pre-code pass, non-convergence, strong-check/coverage/named-approach/
-      registry-walk/review-evidence/negative-control, default-FAIL ledger all intact; KERNEL/plays/packets untouched;
-      END_OF_FILE trailers intact), TWO parts per the owner's request: (1) VALIDATION G2 names the framework (CsCheck;
-      FsCheck 3.x fallback) + two classes not yet named (permutation-metamorphic, boundary-biased; fault-injection-
-      all-exit-paths and multi-actor-one-tick were already there in substance) + new §Property-layer deliver-dependency
-      paragraph — for a `core algorithm` PLAN change-class, every `headless` deliverable-coverage row needs a
-      `prop:<TestClass>.<TestMethod>` token (mechanical form `exists:` already takes for `engine` rows) matched to an
-      owner-signed property table (one row per required class); (2) CONTOUR — the test-author role gets a SECOND,
-      POST-build pass (new cycle stage PROPERTY AUDIT, before REPORT): once gates are green it re-reads the DIFF, not
-      the frozen spec, for new throw-paths/seams/order-dependencies/derived-value ranges and appends property tests —
-      the structural fix for R3, an adversarial read positioned at the moment the seam becomes visible instead of
-      before it exists (test-author) or after it ships (review). PROJECT_SETUP §Strong-check clause (f) + Step-3 run
-      contract + Done-when seeded-miss (missing `prop:` token / token naming a non-`[Category("Property")]` test or a
-      test absent from the table / property table missing a required class). ESCAPE-CLASSES: new WITNESSED row
-      "order-dependence / non-determinism (permutation-invariance)" — a topology hash keyed to insertion order
-      surfaced at review round 7-8 (e4d0089/c3b85bd), a genuinely new class (the other three witness-pairs are
-      SIBLINGS of already-witnessed rows: da695e8/8ba4491 and 147f701 recur under "multi-actor/one-tick conflict/
-      seam" — FRICTION 82; 22d548b/4396ded/27f4b26 recur under "invariants on failure/guard/throw paths" — FRICTION
-      94/96 — same class, different site, per the registry's own non-duplication rule). REJECTED, do not re-propose: checked
-      arithmetic (`CheckOverflowUnderflow`) on core — core's defined-wrap behavior is a protected lockstep-determinism
-      contract, not a bug (owner, this request). NOTED: static analyzers (the existing analyzer cluster) do not catch
-      this defect class — it needs a runtime property layer, not a lint rule. SCOPE (honest): unlike v8/v10 there is
-      no writer-side keystone (the writer runs no tests) — INERT until §Re-sync (same as v9/v11). §Re-sync OWED:
-      GasCoopGame (wire `prop:` token into coverage-check.ps1 + property table in frozen specs + seeded-miss + bump
-      synced_contract_version 11→12); health-ai (assess applicability at its OWN re-sync session before wiring anything
-      — its kernel is Markdown/YAML interpreted by an LLM, not compiled core-algorithm code in the CsCheck/FsCheck
-      sense; translate the four property classes to its own state-machine/procedure-interpreter invariants, or record
-      explicit n/a, rather than force a .NET-specific mechanism onto a non-.NET repo). PILOT: apply first on the next
-      `core algorithm` leg in GasCoopGame — do not retrofit already-delivered core files in this pass. PARKED
-      (untouched, owner's explicit boundary this session): layout registry (W4), owner-gates (W2) — both remain
-      `idea, watching` in os/FRICTION.md, separate sessions. (owner: atomicity/ordering/seam defect cluster — the
-      builder is the only one who sees a new seam and its incentive is to pass pre-written tests; nobody adversarially
-      reads the diff between test-authoring and post-DELIVERED review)
-  11  2026-07-03  negative-control suite (oracle-soundness deliver dependency): closes the "test green but empty" cluster — ~5 defects ALL green through G2 mutation (147f701 telemetry measured the wrong quantity; da695e8 Deadband config unread; 5d77267/748d201 fork-split satisfiable by pure diffusion for rounds; c7d89e0 non-strict `>=` admitting a constant). Root: mutation kills mutants of code that EXISTS — blind to an ABSENT property (no code → no mutant) and to a wrong-but-consistent/weak assertion; the oracle itself was never verified, and G4's "every negative control shown REACHABLE by a real run" was review-time PROSE (why it surfaced at review), never a deliver check. Fix, STRICTLY ADDITIVE (no gate weakened — validator G4/G5, test-author, non-convergence, strong-check/coverage/named-approach/registry-walk/review-evidence, default-FAIL ledger all intact; KERNEL/plays/packets untouched; END_OF_FILE trailers intact): every acceptance property owns a COMMITTED negative control — a deliberately-wrong implementation authored by the independent test-author (builder cannot edit it), paired with a `<Prop>_NegativeControl` test (category NegativeControl) GREEN only when the property REJECTS the wrong impl. `-Deliver` runs `dotnet test --filter TestCategory=NegativeControl` and requires, per acceptance-property token, a control DISCOVERED (missing = oracle unverified = FAIL) and PASSED (property lets the wrong impl through = empty oracle = FAIL); discovered+passed per token. VALIDATION §Oracle-soundness; PROJECT_SETUP §Strong-check clause (e) + Step-3 run-contract + Done-when seeded-miss (missing control / property-passes-its-control / witness controls RED-against-property: pure diffusion↛fork-split, constant-middle↛OR1, params(16,0)≠(16,16) bytes). ESCAPE-CLASSES: new WITNESSED row "oracle empty/weak/mis-targeted — the test has power to fail", witness = this cluster (MAINTENANCE step-6 ratchet, single escape sufficient); the predicted "catcher-soundness/shared-misread" row stays predicted (distinct catcher = independent second derivation). SCOPE (honest): unlike v8/v10 there is NO writer-side keystone (the writer runs no tests) — the negative-control dependency is INERT until §Re-sync (same as v9's registry-walk enforcement); presence≠truth (a test-author's weak control the property catches trivially passes presence — the authored-error ceiling of the whole deliver layer). BASE NOTE: v10 (review-evidence) was stranded off main on wt/indie-game-development (87420a9 / rebased 7a9b21d); per owner instruction main was brought to actual state (--no-ff merge, this session) BEFORE this bump, so 10→11 is literally correct and §Re-sync owes v10+v11 together. §Re-sync OWED: GasCoopGame, health-ai (wire the negative-control pass into `-Deliver` + a seeded-miss + bump synced_contract_version 10→11; product-caveat — START with a refactor of per-invariant assertion helpers parameterized by a step-delegate BEFORE writing controls, so each property's assertion re-runs against a wrong impl without duplication). PARKED (one problem per session — FRICTION → idea/watching): property-based layer (CsCheck), layout registry, owner-gates. (owner: cluster of "test green but empty" defects all passed mutation gates — the oracle is unverified)
-  10  2026-07-02  review-evidence deliver-dependency: the independent review (VALIDATION G4) and fresh-session refutation (KERNEL G5) axes gain the FIRST deliver dependency they ever had — the gap that let every leg reach DELIVERED before any independent eye was recorded (root of the "review finds a critical defect EVERY leg, always AFTER done" complaint; two analyses 2026-07-02, wf_653db954 17 agents + wf_01b3ca16 22 agents; red-teamed pre-apply wf_c13d744b, 3 blockers fixed). A G0-frozen change (non-archived openspec/changes/<id>/ with a frozen spec — same trigger as the strong-check, N/A by absence for a light change) closes on a RECORDED docs/reviews/review-<id>.md (filename <id> == the triggering change folder — a file naming another id, or absent, FAILs): `reviewed-commit:` an ANCESTOR of the delivered HEAD with EVERY intervening source commit accounted for by a `fixed <commit>` disposition (an un-reviewed source change since the review FAILs; an honest review→fix→deliver does NOT, because the fix-commits ARE the listed dispositions — this is why freshness is ancestry+accounting, never tree-equality), ≥1 pass by a model family other than the builder, EVERY finding row dispositioned (none `open`/missing), every `refuted` carrying a refutation-verification marker (in-session VALIDATION-G5 pre-pass vs binding fresh-session KERNEL-G5), `rounds:` ≤3 or a RESOLVING `escalation:<id>` (same resolution as v8 owner-ack — a hollow token bounces). VALIDATION "Enabled≠written" extended to the REVIEW axis (line-5 universal KEPT, G3 scripted-e2e carved out honestly as the remaining validator-run axis not yet a deliver-dep, FRICTION-watch); CONTOUR VALIDATE records the artifact + REPORT's RESULT carries it; PROJECT_SETUP §Strong-check clause (d) + Done-when seeded-miss (no file / wrong-id / un-accounted source commit / open-or-missing disposition / refuted-without-marker / >3-rounds-unresolved). writer-G10 (coding-agent.md, ENABLED NOW OS-side, reaches every repo): an engineering RESULT reporting done for a CALL whose done_when declares a frozen/openspec change but lacks a review-evidence line — or with an `open` finding, a `refuted`-without-marker, or a non-resolving escalation on >3 rounds — bounces (mechanical line-presence against the CALL the writer holds). SCOPE (honest): keystone writer-bounce ENABLED now; the product-side `-Deliver` freshness/structure enforcement is INERT until §Re-sync (same pattern as v8/v9). Presence≠truth remains: the gate checks the artifact EXISTS / is tree-FRESH / is STRUCTURALLY complete, never that the review was thorough, the independence real, or a `refuted` correct (validator/owner/binding-fresh KERNEL-G5 verify that, all sampling, all later); gate (ii) family-line and (iv) marker are self-authored strings — a fabricated-but-formatted review passes presence. Metric = "zero legs DELIVERED before a review-evidence round is RECORDED tree-fresh + fully dispositioned + rounds bounded-or-escalated", NOT "review finds nothing" (a fresh review typically finds something: 93.4% of findings unique per pass). §Re-sync OWED: GasCoopGame, health-ai (wire the review-evidence dependency + the reviewed-commit ancestry/accounting check into the deliver strong-check + a seeded-miss + bump synced_contract_version 9→10). This application also closes the meta-defect that v10 sat unapplied because the analysis session was not a writer. (owner: review finds critical defects every leg but always after DELIVERED — G4/G5 have no deliver dependency)
-  9  2026-06-25  escape-class ratchet: a cross-kind `os/engineering/ESCAPE-CLASSES.md` registry of product-defect classes the PLAN spec-silence audit (CONTOUR §b) must WALK row-by-row (each class addressed|n/a — an unmarked class is a deliver FAIL), seeded with the WITNESSED blind-spot classes (end-state/settle, derived/interval-arithmetic overflow, stored-domain-safety, multi-actor/seam, invariants-on-throw, field==source, user-perceivable) + a PREDICTED section from the stress-test, transparently marked (regime-narrow catcher, emergent-vs-point-sample, transition/trajectory, cross-spec meaning-drift, catcher-soundness). Each surfaced property names not just a catcher but the REGIME it must exercise (env / accumulated time-or-inputs / transition path, not the nominal instant) — closes the "green in the easy case" hole. RATCHET (MAINTENANCE step 6): a defect reaching a LATE stage (owner-eye/independent-review/post-merge) is named by the INVARIANT it violates and appended to the registry — a SINGLE past-test-author escape is a sufficient trigger (the one place the ≥2-friction threshold is waived), so the same class is asked of every future feature of any direction; per-node-class converge-verify checklists seed from the registry. Roots the owner's "defects found late in waves / will this cover OTHER feature kinds" concern in a question list that grows itself. SCOPE: keystone (the registry doc + the §b walk rule + the ratchet) is OS-side and ACTIVE now; the deliver-ENFORCEMENT of the walk is inert until §Re-sync wires it into the product strong-check (same pattern as v8). Catcher-regime rides as registry ROWS, NOT a new G2 floor (anti-churn — cf. the declined G2 physical-regime floor, FRICTION 88). Deliberately NOT built: a meaning-version ledger (speculative, no live witness → seeded as a predicted registry row + watch) and a digest escape-by-class metric (FRICTION 82c, render-only follow-up). §Re-sync OWED: GasCoopGame, health-ai (wire the registry-walk into the deliver strong-check + a seeded-miss + bump `synced_contract_version` 8→9). Stress-test wf_00feac76 (12 agents, 6 feature-kinds attacked; in-session pre-pass — binding fresh-session refutation is a §Re-sync-time candidate). (owner: late-found defects recur in waves; not critical but wants a general future-proofing fix)
-  8  2026-06-21  named-approach contract (anti-substitution + anti-fabricated-approval — 3rd recurrence of the route-around-the-gate class: Wave-2 strong-check cut / v7 unbuilt composer / now c-exec-012 substituted substrate + crutch + self-certified approval, all gates green on the fake). CONTOUR §Boundary: a CALL names the ONE approach as a token, never disjunctive "X OR lesser-Y" nor a standing in-CALL downgrade-license. CONTOUR ESCALATE: a blocked/infeasible/costly NAMED approach AND a silent stretch/normalization "crutch" the named approach did not require are ITSELF a mandatory pre-build STOP — a substitute is an owner decision, never a builder default. VALIDATION: existence proves PRESENT not NAMED (an engine row whose recorded `approach:` token differs from the named de-risk target needs an owner-ack), and the fresh-session G5 refuter must refute an infeasibility/substitution claim against the named code, not only value==source. coding-agent writer carry-back (ENABLED NOW, OS-side, reaches every repo): a RESULT approval-CLAIM (bare "(owner-approved)") or a substituted built-row with no resolving `owner-ack:<sig|esc-id>` token = bounce, mechanical line-presence (would have caught the c-exec-012 RESULT.md:63 fabricated approval). SCOPE (red-team-honest, 3 "revise" rounds): the keystone writer approval-bounce is enabled now; the substitution-DETECT is inert until §Re-sync wires the `approach:` token into the product coverage-check (without a machine-readable named-approach there is nothing to string-compare — the "diff the substrate" idea is judgment, not mechanism). §Re-sync OWED (product-side wiring): coverage-check `approach:` token compare + REVIEW.md refute-the-blocker rule + PROJECT_SETUP mirror — GasCoopGame (rides the re-opened Wave-A t-1 leg), health-ai. Contour audit wf_fac4614b (9 agents). (c-exec-012 fabricated "SGF editor-window-only" blocker → unrequested scene-tag substrate + VScale crutch + self-certified owner-approval)
-  7  2026-06-18  deliverable-exists invariant: VALIDATION "Enabled != written" extended to DELIVERABLES; CONTOUR §c deliverable-coverage indexed by the done_when PROMISES (every bullet gets a disposition — none silently omitted), each row records a CLASS (headless|engine) the gate keys on, an `engine` row disposed as built needs a NON-TRIVIAL recorded existence artifact under the artifact root and CANNOT be discharged by a headless test name / stub / directory / foreign file (closes the exact leg-8 lie), a cut needs a recorded OWNER-ack; PROJECT_SETUP coverage deliver dependency + 5-case seeded-miss; unity profile license-free non-trivial existence; writer G10 return-path reconciliation diffs the CALL's own done_when (independent copy, catches under-transcription). SCOPE (honest, two red-team rounds): the silent-ACCIDENT drop is caught — omission, absent/foreign/stub existence, engine-as-headless-test, unacked cut. RESIDUAL, validator/owner/writer-bound not gate-bound: a mis-classed engine→headless bullet, an under-transcribed/merged done_when (writer-G10 backstop), light-change classification + archive-as-exit (deliberate-gaming paths, prose in CONTOUR/PROJECT_SETUP, not yet a deliver tripwire — FRICTION watch). Re-sync owed: GasCoopGame (DONE this batch — gate wired+proven, separate dev commit), health-ai. (silent scope-drop of leg-8 composer/scene)
-  6  2026-06-17  a-fix-is-a-change: CONTOUR "A FIX IS A CHANGE", VALIDATION G2 invariants-on-all-paths-incl-failure, G4 classify-by-invariant + enumerate-sibling-sites (FRICTION 92)
-  5  2026-06-17  strong-check enablement: G2 mutation-score + spec-silence-audit as deliver dependencies; "Enabled != written" (FRICTION 90)
-  4  2026-06-16  user-perceivable behavior change-class = owner-signed acceptance PROPERTY at PLAN, not a builder default (FRICTION 88)
-  3  2026-06-15  G4 rubric: value-bearing/measured field asserted == its source (test pins MEANING); negative control shown REACHABLE by a real run (FRICTION 82)
-  2  2026-06-16  independent test-author role: spec-derived RED acceptance tests before build, builder cannot edit them (FRICTION 84)
-  1  2026-06-15  report-handback: RESULT.md deliver-gate + non-negotiable #6; builder never authors the next CALL (FRICTION 79)
+## Reading the map
 
-# A product repo whose synced_contract_version < current is behind by the listed versions and owes a
-# §Re-sync (PROJECT_SETUP §Re-sync). The compare is integer "<"; the log names exactly what is owed.
+The table is the complete operational history needed for drift comparison. The Git locator in every
+row resolves to the commit that introduced or completed that version; `git show <locator>` retrieves
+the exact delta. For a version assembled by follow-up commits (notably v20 and v21), the row points to
+the terminal commit and `git log <previous-locator>..<locator> -- os/engineering` exposes the whole
+range. The former long narrative remains immutable Git evidence at
+`e0c4912d73aeb00beedbab8dbf76f2d41aa620c7:os/engineering/CONTRACT_VERSION`.
+
+| Version | Date | Change / terminal Re-sync delta | Git locator |
+|---:|---|---|---|
+| 1 | 2026-06-15 | Closing `RESULT.md` is a deliver-time artifact; builder never authors the next CALL. | `eaf394a52389ea19100045140614fb344d1c7137` |
+| 2 | 2026-06-16 | Independent spec-derived RED test-author; builder cannot edit the frozen oracle. | `909421f7f17594185baf99e9df3f803d4faac3bb` |
+| 3 | 2026-06-15 | Review pins value-bearing fields to their source and proves negative controls reachable. | `539356c03fc6afdc63956e43895f5dbee9b5a465` |
+| 4 | 2026-06-16 | User-perceivable output becomes an owner-signed PLAN acceptance property. | `a299d8a7145a2a899b4cddbbae78a71d9505f2fb` |
+| 5 | 2026-06-17 | Mutation and recorded spec-silence checks become deliver dependencies. | `fbd8de9eeb63b82cf5fb9cde80670acedec9fc84` |
+| 6 | 2026-06-17 | A behaviour-changing fix is a change and re-enters invariant/spec/RED discipline. | `5f10cc1f919a0d6a42cf8951472aa1f7d5e78415` |
+| 7 | 2026-06-18 | Every promised deliverable is dispositioned; engine artifacts need non-trivial existence evidence. | `26e976c783010c5549adf9a2c474ca898ac9735c` |
+| 8 | 2026-06-21 | PLAN names one approach; substitution or an undeclared crutch is a STOP needing owner acknowledgement. | `381869d22032c6b04de68581f7899382101dd4a1` |
+| 9 | 2026-06-25 | Spec-silence walks the ratcheting escape-class registry and names catcher regimes. | `f323ae2c6b07466e35f7a406d3bcb6edfe99d70b` |
+| 10 | 2026-07-02 | Recorded independent review becomes a deliver dependency with reviewed-commit ancestry/accounting. | `7a9b21d79cc89ab3e0c9f262639580d84ba37dbe` |
+| 11 | 2026-07-03 | Every acceptance property owns an independent deliberately-wrong NegativeControl. | `805c5328e57ec005912715e88fbbfb323ad9016b` |
+| 12 | 2026-07-03 | Core algorithms use CsCheck/FsCheck properties plus an independent post-build diff audit. | `2716bf45ff61920dd3908a2e0aa624abc8957183` |
+| 13 | 2026-07-04 | Refuted findings persist in `docs/reviews/REFUTED.md`; new-evidence re-raises escalate. | `2a64e1342770adb8e9dc12519c0ecc78740e9935` |
+| 14 | 2026-07-04 | A fixed finding needs a class-wide sibling sweep; recurrence re-opens it. | `3d3530baa6c030e24e2f7205ee1f2e62586dd32a` |
+| 15 | 2026-07-04 | Review separates in-diff findings from routed class-sibling findings and blocks scope dodges. | `f05d2178b9956d2b745a796805e7524849bd60e1` |
+| 16 | 2026-07-04 | An unavailable required tool is a named STOP; proceeding needs written owner acknowledgement. | `50c7c67e53c8b48f48836593d6a1bd89800ae867` |
+| 17 | 2026-07-04 | Behaviour evidence comes from the real venue; self-written source scanners cannot substitute for it. | `aa59ba5ed882ca61498c8238f1827f11cab8a69b` |
+| 18 | 2026-07-05 | A closing RESULT's literal local review/ADR citations must exist at HEAD, including light legs. | `787ad3b82760edecd7861addf55d03fe45090c8f` |
+| 19 | 2026-07-06 | PLAN and BUILD are separate sessions; owner approves a detailed owner-readable plan. | `4f26136e6a7c40912ecf8c3db424dcf11d339573` |
+| 20 | 2026-07-13 | Execution authority is repo-local; globally discoverable tooling adds no requirements. | `670128418774dd3defab89a7d9bc8e692804882f` |
+| 21 | 2026-07-14 | Historical full-packet semantic PLAN-to-RED readiness route; its prose carrier was later superseded by v23. | `8aa4d02750bc77d504e8badb01eee9d989d60dcb` |
+| 22 | 2026-07-14 | Separate executable RED-FREEZE and `behavioral-red|evidence-only` split; the split remains, its prose-first carrier is superseded by v23. | `d18be6e779533932d59383834801dcb0ba850514` |
+| 23 | 2026-07-15 | Compiled legs use compiler-green SURFACE-FREEZE → independent immutable RED → binding fresh RED refutation → BUILD. | `0ddfd00cc854523f722e435c04b06b80b7b617b0` |
+| 24 | 2026-07-15 | Deliver independently proves mutation diff-scope coverage/integrity before accepting score ≥70. | `031f69e7e09f3684a050a9c12d3b3df5108ca0d4` |
+| 25 | 2026-07-15 | Named obligation inventory (`N=239`) and deletion-only anti-growth valve; mandatory-reading ceiling 32,511. | `e0c4912d73aeb00beedbab8dbf76f2d41aa620c7` |
+| 26 | 2026-07-16 | B4 proves the old kill-list consumer-by-consumer, removes no gate/obligation ID, compacts Git-backed history, and lowers mandatory reading to 25,726 words. | `engineering-contract-v26^{commit}` |
+
+## Terminal Re-sync to v26
+
+Re-sync installs the current terminal contract, not retired intermediate carriers. Apply every
+functional row after the product stamp that is applicable to that stack, then apply v25 inventory
+provenance and v26's control-plane-only metadata update. V26 deletes or simplifies **no product rule,
+script, test, spec section, or gate**: existing v8–v18 consumers remain live and v23/v24 remain intact.
+
+- A repository already on v25 verifies its existing consumers are still present, updates
+  `obligation_inventory_version` and `synced_contract_version` to `26`, keeps
+  `obligation_ceiling: 239`, and pins `obligation_inventory_source` to the v26 OS commit.
+- A repository behind v25 first installs all applicable functional rows through v24, then records
+  the v25/v26 inventory provenance. It may not use history compaction as a functional-gate waiver.
+- A repository with no contract stamp receives current `PROJECT_SETUP.md` when activated; that is
+  setup, not Re-sync.
+
+The B4 consumer proof and exact product disposition are in
+`os/docs/B4_ENGINEERING_CONSUMER_AUDIT_2026-07-16.md`. The exact B4 delta resolves with
+`git show engineering-contract-v26` after the tag and commit are pushed.
 
 END_OF_FILE: os/engineering/CONTRACT_VERSION
