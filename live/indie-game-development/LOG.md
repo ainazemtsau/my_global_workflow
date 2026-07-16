@@ -305,4 +305,6 @@ archived: history/LOG-archive-indie-game-development.md — sessions before 2026
 
 2026-07-16 — work/publish (dashboard-publication, s-work-publish-current-direction-state-001): Direction owner-board state published non-force through @5ad0a9b with remote equality; NearGas candidate @92331e30 remains correctly unpublished behind independent review + per-leg RESULT + integrated Deliver, product main/dev stay @5cd18250. → history/2026-07-16-s-work-publish-current-direction-state-001.md
 
+2026-07-16 — repair/launch (g-9c41/Level-LV0-PLAN, s-repair-level-lv0-parallel-launch-001): владелец уточнил, что NOW.next задаёт приоритет, а не глобальный WIP-lock, и запустил Level/DA/PGG параллельно; owner-present LV0 PLAN CALL READY без Unity/BUILD, product v26 сам выбирает admitted venue, extraction next и L1B checkpoint сохранены. → history/2026-07-16-s-repair-level-lv0-parallel-launch-001.md
+
 END_OF_FILE: live/indie-game-development/LOG.md

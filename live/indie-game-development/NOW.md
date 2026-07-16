@@ -1,5 +1,5 @@
 # NOW: indie-game-development
-updated: 2026-07-16 by s-work-near-gas-l1b-plan-review-publication-checkpoint-001
+updated: 2026-07-16 by s-repair-level-lv0-parallel-launch-001
 
 bet:
   node: g-9c41
@@ -76,6 +76,22 @@ open_calls:
       independent review + per-leg RESULT, make both focused gates and integrated-dev `tools/check.ps1 -Deliver` GREEN,
       then publish and only afterward mark RELEASED. No SURFACE-FREEZE, RED, BUILD, production/tests or Unity changes.
       CALL: work/c-exec-near-gas-l1b-plan-001-call.md; acceptance: work/neargas-l1b-acceptance.md.
+  - id: c-exec-level-module-standard-v1-lv0-plan-001
+    to: executor
+    for: g-9c41 / parallel owner-present Level/Module Standard v1 LV0 PLAN
+    issued: 2026-07-16
+    note: |
+      READY PARALLEL / OWNER-PRESENT / PLAN ONLY / NO UNITY / NO BUILD.
+      Owner clarified that `NOW.bet`/`NOW.next` is the priority/default continuation, not a global lock: Level/DA/PGG
+      starts alongside the priority route. Standard v1 is already owner-accepted with D1=A / D2=A. This LV0 freezes
+      canonical encoding, shared-surface ownership, socket terminal states, transform rules, deterministic build input,
+      registries/versioning, sampler authority and size/time ceiling against fresh current product authority while
+      preserving proven lower seams. GasCoopGame v26 protocol/registry owns pre-write admission, venue, lifecycle
+      worktree, branch and integration; Direction pins no path/branch/SHA. Unity Editor, source/tests/assets,
+      SURFACE-FREEZE, RED and BUILD remain forbidden. Owner must separately approve the finished PLAN.
+      CALL: work/c-exec-level-module-standard-v1-lv0-plan-001-call.md; architecture:
+      work/level-module-standard-v1-candidate-2026-07-16.md; dispatch authority:
+      work/gascoopgame-worktree-protocol-v2.md.
   - id: c-research-extraction-concept-landscape-001
     to: session
     for: g-d3a8 / high-level gas-extraction concept landscape

@@ -1,15 +1,16 @@
 # Level / Module Standard v1 — owner-accepted architectural basis
 
-status: OWNER-ACCEPTED ARCHITECTURAL BASIS / D1=A / D2=A / NOT BUILD AUTHORITY
+status: OWNER-ACCEPTED ARCHITECTURAL BASIS / D1=A / D2=A / LV0 PLAN ROUTED PARALLEL / NOT BUILD AUTHORITY
 date: 2026-07-16
 session: s-research-level-module-standard-v1-001
 accepted: 2026-07-16 by owner; recorded by s-repair-level-module-standard-v1-owner-acceptance-001
+lv0_plan_routed: 2026-07-16 by owner; c-exec-level-module-standard-v1-lv0-plan-001
 owner_verdict: |
   «Кандидат Level/Module Standard v1 принимаю как архитектурную основу. D1=A, D2=A. Canonical encoding,
   shared-surface ownership, socket terminal states, transform rules, deterministic build input,
   registries/versioning, sampler authority и size/time ceiling должны быть явно заморожены в owner-approved
   LV0 PLAN. Это не разрешение на BUILD»
-scope: project-owned level/module contracts, normalization and validation; no product/Unity mutation and no automatic PLAN or BUILD launch authority
+scope: project-owned level/module contracts, normalization and validation; LV0 product PLAN routed in parallel; no Unity/source/test/asset mutation and no BUILD authority
 lv0_freeze_required: canonical encoding; shared-surface ownership; socket terminal states; transform rules; deterministic build input; registries/versioning; sampler authority; size/time ceiling
 
 ## 0. Короткий вывод
@@ -26,7 +27,8 @@ level. Поэтому Standard v1 должен добавить ровно дв�
 Владелец принял этот целостный shape как **архитектурную основу** и выбрал D1=A / D2=A. Это не превращает
 предложенные имена полей, byte encoding, registry/version rules или implementation split в уже замороженный product
 spec: точные code-facing решения перечислены в `lv0_freeze_required` и обязаны получить отдельное owner approval в
-LV0 PLAN. Acceptance не выпускает LV0 CALL автоматически и не разрешает BUILD.
+LV0 PLAN. Позднейшая явная инструкция владельца выпустила ровно один параллельный LV0 PLAN CALL; она по-прежнему
+не разрешает BUILD.
 
 ## 1. Current-truth inventory
 
@@ -240,7 +242,7 @@ gameplay, networking, destruction or common-scene delivery.
 | `c-work-poligon-m1-integration-route-001` / accepted route | **keep-evidence / consumed** | Owner-accepted LV0→LV5 sequence and cuts remain direction truth; it authorizes no product work. |
 | Legacy gate `fresh v21 + verified lane D worktree` | **replace current dispatch meaning** | Record as historical safety intent. As of 2026-07-16 current contract is v26 and product protocol owns venue/pre-write admission; Direction must request current-contract/fresh-admission evidence, not prescribe `GasCoopGame_levels`. |
 | `c-research-level-module-standard-v1-001` | **complete / owner-disposed** | Research returned the candidate; owner later accepted it as architectural basis with D1=A / D2=A. No product leg follows automatically. |
-| LV0 — fresh owner-approved PLAN | **held / not issued** | Candidate disposition is cleared, but LV0 still needs explicit routing, fresh current product-contract/code readback and product-owned pre-write admission. It must freeze canonical encoding, shared-surface ownership, socket terminal states, transform rules, deterministic build input, registries/versioning, sampler authority and size/time ceiling. PLAN only; BUILD separate. |
+| LV0 — fresh owner-approved PLAN | **READY PARALLEL / CALL ISSUED** | `c-exec-level-module-standard-v1-lv0-plan-001` is the first parallel Level leg. It requires fresh current product-contract/code readback and product-owned pre-write admission, then freezes canonical encoding, shared-surface ownership, socket terminal states, transform rules, deterministic build input, registries/versioning, sampler authority and size/time ceiling. Owner-present PLAN only; no Unity and BUILD remains separate. |
 | LV1 — Project Level/Module Contract | **held behind LV0** | First product outcome. No DA/PGG dependency required; includes hand controls and canonical serialization. |
 | LV2 — validators | **held behind LV1 contract shape + LV0 split** | Module, adapter, built-level and engine-admission matrices; may share PLAN with LV1 but must have separate executable evidence/stop. |
 | LV3 — DA runtime composition | **held behind LV1+LV2** | Uses accepted modules/external sockets; outputs Built Level Manifest; fresh product admission required. |
@@ -250,9 +252,9 @@ gameplay, networking, destruction or common-scene delivery.
 ## 11. Parallelism and dependency route
 
 ```text
-NOW: architectural basis owner-accepted (D1=A, D2=A); Level product PLAN/BUILD runnable = 0
-  ↓ owner explicitly routes LV0 + fresh current product preflight/admission
-LV0 PLAN (owner-present, current contract; product chooses venue)
+NOW: priority route continues independently; Level LV0 PLAN runnable in parallel = 1; Level BUILD runnable = 0
+  ↓ c-exec-level-module-standard-v1-lv0-plan-001 + fresh current product preflight/admission
+LV0 PLAN (READY PARALLEL; owner-present; current contract; product chooses venue; no Unity)
   ↓
 LV1 Project Module Contract + hand controls
   ↓
@@ -267,8 +269,9 @@ LV5 minimal M1 modules
 common M1 scene / network / evidence under the accepted route
 ```
 
-Current NearGas/character/design tracks keep their own state. This candidate neither blocks nor launches them. Shared
-product registry, single Unity Editor, `LevelIngestion`/scene/module conflicts and integration remain serialized.
+Current NearGas/extraction/character/design tracks keep their own priority and state while LV0 runs in parallel. Shared
+product registry, single Unity Editor, `LevelIngestion`/scene/module conflicts and integration remain serialized;
+the docs-only LV0 leg launches no Editor.
 
 ## 12. Smallest owner decision package
 
@@ -298,9 +301,11 @@ Any later move to B is a separate explicitly budgeted owner decision, not an imp
 
 ## 13. Explicit cuts
 
-- No product repo, Unity, package, prefab, scene, test, canon, TREE or CHARTER change.
+- Direction launch changes only Direction files; LV0 may commit product planning docs after current product-owned
+  admission, but makes no Unity, source, test, package, prefab, scene, canon, TREE or CHARTER change.
 - No Phase 0 revival and no old CALL dispatch.
-- Owner acceptance is recorded, but no LV0 PLAN, executor/RED/BUILD CALL or physical worktree assignment is issued.
+- One LV0 PLAN executor CALL is issued in parallel. No SURFACE-FREEZE/RED/BUILD CALL or Direction-owned physical
+  worktree assignment is issued; product protocol chooses the planning venue and Unity stays closed.
 - No DA/PGG adapter implementation, runtime PGG, production module library or library compatibility promise.
 - No production art, navigation, stairs/ladders/elevators, streaming/occlusion, giant compound module or traversal.
 - No arbitrary destruction; only a typed breach-surface reference is reserved.
