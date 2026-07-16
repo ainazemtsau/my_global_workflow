@@ -273,4 +273,6 @@ archived: history/LOG-archive-indie-game-development.md — sessions before 2026
 
 2026-07-15 — repair/checkpoint (g-d3a8/canon-track-routing, s-repair-canon-chat-routing-001): owner corrected a misrouted g-9c41 review; no M1 verdict or state change was accepted, the engineering review remains pending separately, and the chat returns to existing paper-only canon CALL c-research-q-coop-interdependence-002. → history/2026-07-15-s-repair-canon-chat-routing-001.md
 
+2026-07-16 - repair/close (g-9c41/primary-review-packet, s-repair-primary-review-post-b4-v26-001): worktree fast-forwarded to OS v26@2a46d77; primary M1 review packet, NOW and owner panel reconciled to delivered L1a, completed B1-B4 and owner-reported GasCoopGame v26 Re-sync; dr-20260714-001 fixed, review runnable, L1b owner-gated and NOW.next unchanged; no product/review/downstream CALL. -> history/2026-07-16-s-repair-primary-review-post-b4-v26-001.md
+
 END_OF_FILE: live/indie-game-development/LOG.md

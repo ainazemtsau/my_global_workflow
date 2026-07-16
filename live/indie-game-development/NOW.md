@@ -1,5 +1,5 @@
 # NOW: indie-game-development
-updated: 2026-07-15 by s-work-near-gas-l1-experimental-close-001
+updated: 2026-07-16 by s-repair-primary-review-post-b4-v26-001
 
 bet:
   node: g-9c41
@@ -31,9 +31,12 @@ bet:
     Direction G5 (task 019f658d-1427-7a03-90d6-b0c5ae8feb8b) returned PASS with no Critical or Important findings.
     The existing exact ten-file mutation artifact remains 72.78% and was intentionally reused read-only: the owner
     explicitly prohibited another Stryker run. The old v22 PLAN-AMEND packet and failed policy carrier are retired,
-    forbidden launch authority and must not reopen L1a. No Unity cutover, L1b or workers were included. The next
-    NearGas workflow action is a separate maintenance B1 session that promotes this experimental carrier globally
-    and marks conflicting legacy routes unused; L1b remains a separate later product leg.
+    forbidden launch authority and must not reopen L1a. No Unity cutover, L1b or workers were included. Engineering
+    maintenance B1-B4 is complete: v23 promotes the compiled experimental carrier, v24 makes mutation scope
+    fail-closed, v25 caps named obligations at N=239, and v26 compacts Git-backed history without removing a gate.
+    OS main is exact 2a46d7753ea9463df5b07513bab330f870202768; the owner reports the GasCoopGame terminal v26
+    Re-sync complete. L1b remains a separate candidate product leg and is not launch-authorized until the fresh
+    g-9c41 review closes the old bet and records the owner's next-bet choice.
   against: |
     Gas PROGRAM — обязательный дочерний маршрут, но не весь M1 и не разрешение молча превысить 13 legs.
     Старый level PLAN ждёт Phase 0, которая больше никогда не возобновляется; новый маршрут обязан сперва
@@ -50,7 +53,7 @@ bet:
     commercial_traction: final evidence leg отдаёт capture-пакет visual/marketing линиям.
     core_gameplay_depth: M1-5..7 — tracking, reactions, breach.
     coop_first: M1-9+10 — две реальные машины, sync и owner verdict.
-    technical_feasibility: NearGas L1a is delivered on product remote dev/main@400ef8eca1e747378493c97530770286c7e26ff1 through the experimental skeleton→independent-RED→BUILD→refutation route. Genuine RED was recorded before production; focused 71/71 and tick-type 8/8 suites, normal 1714/1714, full unfiltered 1793/1793, direct review gate and Deliver are GREEN. Binding fresh Direction G5 task 019f658d-1427-7a03-90d6-b0c5ae8feb8b returned PASS with no Critical/Important findings. Existing mutation evidence is 72.78% over the exact ten changed Core files and was not rerun by explicit owner instruction. The old v22 packet/carrier is retired and non-runnable; B1 maintenance promotes the experimental carrier, while Unity, L1b and workers remain outside this leg. Level/DA/PGG route remains ratified.
+    technical_feasibility: NearGas L1a is delivered on product remote dev/main@400ef8eca1e747378493c97530770286c7e26ff1 through the experimental skeleton→independent-RED→BUILD→refutation route. Genuine RED was recorded before production; focused 71/71 and tick-type 8/8 suites, normal 1714/1714, full unfiltered 1793/1793, direct review gate and Deliver are GREEN. Binding fresh Direction G5 task 019f658d-1427-7a03-90d6-b0c5ae8feb8b returned PASS with no Critical/Important findings. Existing mutation evidence is 72.78% over the exact ten changed Core files and was not rerun by explicit owner instruction. The old v22 packet/carrier is retired and non-runnable; engineering maintenance B1-B4 and the owner-reported GasCoopGame terminal v26 Re-sync are complete. Unity, L1b and workers remain outside L1a; L1b requires the pending owner-present bet review before any product CALL. Level/DA/PGG route remains ratified.
     scope_production: not_needed — cut_list и один уровень держат solo-scope.
     audience_workflow: final evidence leg; отдельная соцсеть-задача не нужна.
 
@@ -73,7 +76,9 @@ tasks:
       focused NearGas 71/71, tick types 8/8, normal 1714/1714, unfiltered 1793/1793, direct review and Deliver GREEN.
       Binding fresh Direction G5 task 019f658d-1427-7a03-90d6-b0c5ae8feb8b: PASS, no Critical/Important findings.
       Existing exact ten-file mutation score 72.78% was retained without rerun by explicit owner instruction.
-      Old v22 packet/carrier is retired and forbidden; no Unity, L1b or workers. B1 is separate maintenance.
+      Old v22 packet/carrier is retired and forbidden; no Unity, L1b or workers. Engineering maintenance B1-B4 is
+      complete through OS contract v26, and the owner reports the GasCoopGame terminal v26 Re-sync complete; L1b
+      remains separate and gated by the pending owner-present bet review.
   - id: M1-P2a0
     goal: PuppetMaster получает проверенный root-authority маршрут для сетевого игрока.
     done_when: Owner-approved live-source PLAN + later accepted BUILD, bounded-C, multiplayer inventory и fresh G5.
