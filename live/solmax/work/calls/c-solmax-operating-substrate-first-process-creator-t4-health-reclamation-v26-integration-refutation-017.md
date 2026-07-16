@@ -6,9 +6,9 @@ node: g-operating-substrate-first-process-creator
 task: t-4
 
 goal: |
-  The terminal-contract-v26 Health Reclamation integration candidate has one
-  binding evidence-backed PASS or FAIL disposition and Solmax has one
-  trustworthy route forward from that exact committed product state.
+  The exact terminal-contract-v26 Health Reclamation candidate is either proven
+  ready for one bounded two-classification BUILD or rejected with one concrete
+  blocker and bounded repair route.
 
 context: |
   Run in a NEW Codex task/session. This CALL is self-contained; do not rely on
@@ -19,16 +19,26 @@ context: |
   - C:/my_global_workflow_worktrees/solmax/live/solmax/TREE.md
   - C:/my_global_workflow_worktrees/solmax/live/solmax/CHARTER.md
   - C:/my_global_workflow_worktrees/solmax/os/engineering/CONTRACT_VERSION
-  - C:/my_global_workflow_worktrees/solmax/os/engineering/PROJECT_SETUP.md
-  - C:/my_global_workflow_worktrees/solmax/os/engineering/CONTOUR.md
-  - C:/my_global_workflow_worktrees/solmax/os/engineering/VALIDATION.md
-  - C:/my_global_workflow_worktrees/solmax/os/engineering/
-    OBLIGATION_INVENTORY.md
-  - C:/my_global_workflow_worktrees/solmax/os/engineering/profiles/
-    markdown-substrate.md
+  - C:/my_global_workflow_worktrees/solmax/live/solmax/work/
+    health-reclamation-f-hr-r01-repair-plan-v1.md
+  - C:/my_global_workflow_worktrees/solmax/live/solmax/work/
+    health-reclamation-f-hr-r01-repair-red-readiness.md
+  - C:/my_global_workflow_worktrees/solmax/live/solmax/work/
+    operating-substrate/cards/
+    operating-substrate-service-zone-classification-001.md
 
   Product repository:
   C:/projects/solmax-operating-substrate-v26-integration
+
+  Current product workflow authority is repo-local: AGENTS.md, REVIEW.md,
+  openspec/README.md and validation.config at the integration HEAD. Read the
+  complete applicable Health authority/repair packet once. Contract v26 keeps
+  v21 full-packet semantic readiness, but openspec/README.md explicitly says
+  that readiness is not a required table/schema. The retired v22 carrier and
+  its committed inventories are historical evidence, not launch authority.
+  The existing Direction readiness record already carries 28/28 concrete
+  recipes with zero unresolved or inferred cells; reread and try to refute it
+  against current v26 authority, but do not rewrite it into another artifact.
 
   Exact product identities:
   - integration branch:
@@ -68,6 +78,22 @@ context: |
   instruction superseded them after terminal v26 Re-sync; they are history,
   not authority for this review or any later BUILD.
 
+  Binding owner-approved repair outcome (owner words in Direction history:
+  "A — исправляем только две классификации в правильном репозитории, сохраняя
+  весь текущий прогрес"):
+  - OP-HR01: classify the Health rule as one `process-pack declaration` owned
+    normatively by the Health Reclamation pack; the owner remains current
+    source/input, decision owner and variation owner, with no profile promotion,
+    silent persistence or cross-process reuse.
+  - KH-HR01: classify the routing rule as one `process-pack declaration` owned
+    normatively by the Health Reclamation pack; the qualified human remains the
+    external source and authority holder, while the pack gains no professional
+    authority and no sixth architecture class is created.
+  - A later BUILD may change only
+    packs/health-reclamation/verification/scope-coverage.md,
+    docs/results/health-reclamation-v1-self-check.md and root RESULT.md. It
+    changes no Health behavior and performs no lifecycle action.
+
 boundaries: |
   Read-only review. Do not modify either repository.
 
@@ -83,18 +109,31 @@ boundaries: |
   claims to attack. Honest markdown N/A is allowed only where the compiled
   product-code or eligible G2 source subject is actually absent.
 
+  Do not create or request another PLAN, PLAN-AMEND, obligation inventory,
+  recipe ledger, spec-silence walk, RED/SURFACE artifact, semantic parser,
+  scanner or conformance proxy. Do not use the committed 48/254-row v22-era
+  inventories as current comparison obligations. They may be cited only as
+  historical evidence of the retired route.
+
+  A blocking semantic finding must name the governing authority, the exact
+  current site or a concrete omission/contradiction/material ambiguity, and
+  its consequence for this two-classification repair. Merely splitting another
+  verb, status, SHA, prohibition, command or report field is non-blocking.
+
   No owner verdict is requested.
 
 done_when: |
   A fresh session returns exactly one binding verdict:
 
-  - PASS: integration HEAD 7ed7903 faithfully contains terminal product main
-    v26, honestly applies every applicable v23-v26 Re-sync disposition, and
-    leaves Health Reclamation feature semantics/artifacts unchanged; or
+  - PASS_TO_BUILD: integration HEAD 7ed7903 faithfully contains terminal
+    product main v26, honestly applies every applicable v23-v26 Re-sync
+    disposition, leaves Health semantics/artifacts unchanged, and the current
+    owner-approved repair packet has no material ambiguity that prevents one
+    fresh bounded BUILD; or
   - FAIL: every defect names authority, exact path/line or Git evidence,
     consequence and one bounded repair.
 
-  PASS requires evidence for every cluster:
+  PASS_TO_BUILD requires evidence for every cluster:
 
   1. Exact branch, clean status, HEAD 7ed7903 and its two ordered parents.
   2. Both 7bbc73d and 3ee6914 are ancestors; f77ad75, 3af27e6 and b23eb0b
@@ -122,27 +161,45 @@ done_when: |
      - python tools/check.py --deliver
   9. Product status remains candidate-only: no repair, admission, activation,
      process run, useful-live proof, reliability proof or reuse proof.
+  10. Current product authorities require one full-packet semantic reread but
+      no table/schema; retired v22 PLAN/RED artifacts cannot launch or block
+      BUILD merely through their atomized row count.
+  11. The current task, actual owner decision, Direction repair plan, Q2 card,
+      unchanged Health basis and current product packet agree on exactly the
+      two classifications and their source/authority separations above.
+  12. The only future product-content paths are
+      packs/health-reclamation/verification/scope-coverage.md,
+      docs/results/health-reclamation-v1-self-check.md and RESULT.md; every
+      other Health/product/lifecycle surface remains protected.
+  13. There is no cited concrete omission, contradiction or material ambiguity
+      that would force an owner or builder to invent behavior, authority,
+      meaning, scope or verification. Form-only atomization is not a blocker.
 
-  The RESULT identifies this as binding fresh-session KERNEL-G5, not an
-  in-session pre-pass.
+  The RESULT identifies this as both binding fresh-session KERNEL-G5 for the
+  integration and the one current-authority pre-BUILD semantic-readiness pass,
+  not an in-session pre-pass.
 
   Routing is executable:
-  - on PASS, clear CALL 017 with the binding evidence and return one complete
-    standalone v26-based Direction CALL for the next bounded pre-BUILD Health
-    disposition; no BUILD starts unless that later CALL explicitly authorizes
-    it under current authority;
+  - on PASS_TO_BUILD, clear CALL 017 and return one complete standalone fresh
+    BUILD CALL that applies only the two approved classification corrections
+    in the three allowed product paths, runs the repo gates, preserves all
+    lifecycle limits, and hands the actual candidate diff to one later fresh
+    review. Do not insert another PLAN, PLAN-AMEND, RED, inventory or pre-BUILD
+    review leg;
   - on FAIL, clear CALL 017 with the binding failure evidence and return one
     complete standalone bounded repair CALL.
 
 return: |
-  Return one complete Direction OS RESULT with PASS or FAIL, attempted
+  Return one complete Direction OS RESULT with PASS_TO_BUILD or FAIL, attempted
   refutations, exact refs/paths/lines/hashes/outputs, lifecycle limits,
-  binding-fresh-session status, exact NOW state_changes preserving t-4 and
-  appetite, and one complete self-contained next CALL.
+  explicit disposition of clusters 1-13, binding-fresh-session status, exact
+  NOW state_changes preserving t-4 and appetite, and one complete
+  self-contained next CALL.
 
 budget: |
-  One bounded fresh read-only refutation inside the already-fixed appetite.
-  No new reserve and no extension.
+  One bounded fresh read-only integration + semantic-readiness disposition
+  inside the already-fixed appetite. No second pre-BUILD review, new reserve
+  or extension.
 
 surface: codex
 

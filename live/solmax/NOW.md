@@ -287,7 +287,7 @@ active_bet:
       kill the bet and shape a new bounded bet; do not extend appetite or
       claim partial success.
 
-route_status: operating_substrate_first_process_creator_t4_health_reclamation_v26_integration_refutation_pending
+route_status: operating_substrate_first_process_creator_t4_health_reclamation_v26_build_readiness_refutation_pending
 
 owner_directive: |
   Полный хронологический леджер owner-решений/каведатов/коррекций по operating-substrate
@@ -591,10 +591,12 @@ open_calls:
     issued: 2026-07-16
     note: |
       Product integration HEAD 7ed7903 merges unchanged active basis 3ee6914
-      with terminal-v26 main 7bbc73d. This new-task read-only leg must bind
-      PASS or FAIL before any Health repair or BUILD; t-4, appetite and all
-      lifecycle limits remain unchanged. Prior v22 ids 013/016 remain history
-      only under the owner's terminal Re-sync instruction.
+      with terminal-v26 main 7bbc73d. This one new-task read-only leg binds both
+      integration integrity and the current-authority semantic readiness of the
+      already approved two-classification repair. PASS_TO_BUILD routes directly
+      to a fresh bounded BUILD CALL, without another PLAN/RED/inventory or
+      pre-BUILD review. t-4, appetite and all lifecycle limits remain unchanged;
+      prior v22 ids 013/016 and their atomized artifacts remain history only.
 # 2026-07-12: c-solmax-operating-substrate-first-process-creator-t2-repo-bootstrap-001
 # cleared — the repo-bootstrap setup checkpoint is complete (commit f3d153d, CI
 # green). t-2 remains ACTIVE; Process Creator materialization is the next work,
