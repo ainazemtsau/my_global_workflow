@@ -309,4 +309,6 @@ archived: history/LOG-archive-indie-game-development.md — sessions before 2026
 
 2026-07-16 — work/dispatch (g-9c41/L1B-PLAN, s-work-near-gas-l1b-plan-publication-dispatch-001): fresh product task `Publish NearGas L1B PLAN` (`019f6b41-0325-7191-8cf1-da0d80f021fa`) запущен для independent review + serialized publication candidate @92331e30; L1B-PLAN/open_call остаются active, SURFACE/RED/BUILD не открыты. → history/2026-07-16-s-work-near-gas-l1b-plan-publication-dispatch-001.md
 
+2026-07-16 — work/close (g-9c41/L1B-PLAN, s-work-near-gas-l1b-plan-publication-close-001): owner «Принимаю PLAN»; exact docs-only candidate @92331e30 independently reviewed без Critical/Important, PLAN-publication gate GREEN и serialized published/released at product dev/main/origin @2d995d69; invalid model-family gate removed by v27, L1B implementation/SURFACE/RED/BUILD не открыты, extraction next и Level pending preservation сохранены. → history/2026-07-16-s-work-near-gas-l1b-plan-publication-close-001.md
+
 END_OF_FILE: live/indie-game-development/LOG.md

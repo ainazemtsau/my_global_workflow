@@ -1,5 +1,5 @@
 # NOW: indie-game-development
-updated: 2026-07-16 by s-repair-level-lv0-parallel-launch-001
+updated: 2026-07-16 by s-work-near-gas-l1b-plan-publication-close-001
 
 bet:
   node: g-9c41
@@ -43,7 +43,7 @@ tasks:
   - id: L1B-PLAN
     goal: "[executor] Owner-approved product PLAN фиксирует evaluator, rollback и disjoint observation ownership без authority/Unity/C1/L2 expansion."
     done_when: "PLAN frozen по current v26 contract; владелец принял; next handoff соблюдает compiled-carrier/RED guards."
-    status: active
+    status: done
   - id: L1B-Capture
     goal: "[executor] Retry snapshot и fault injection дают стабильное пассивное наблюдение реального L1a path."
     done_when: "Genuine RED ловит retry/fault planted controls; delivery не меняет L1a result/order/atomicity."
@@ -62,20 +62,6 @@ tasks:
     status: open
 
 open_calls:
-  - id: c-exec-near-gas-l1b-plan-001
-    to: executor
-    for: g-9c41 / owner-present NearGas L1B product PLAN
-    issued: 2026-07-16
-    note: |
-      CHECKPOINT / OWNER-APPROVED FROZEN CANDIDATE / NOT PUBLISHED / DIRECTION CLOSE PENDING.
-      Owner exact words: «Принимаю PLAN». Exact seven-doc product candidate is `92331e30` on contract v26;
-      the proven v23 compiled-carrier remains the active process route. Focused structural/hygiene checks are GREEN,
-      but `review-check.ps1` is BLOCKED by missing `docs/reviews/review-c-exec-near-gas-l1b-plan-001.md` and
-      `result-check.ps1` is BLOCKED by missing `docs/results/c-exec-near-gas-l1b-plan-001.md`; product is not published.
-      Under fresh publish authority, accept the handback as registry `ADMITTED-ACTIVE → HANDBACK-PENDING`, record
-      independent review + per-leg RESULT, make both focused gates and integrated-dev `tools/check.ps1 -Deliver` GREEN,
-      then publish and only afterward mark RELEASED. No SURFACE-FREEZE, RED, BUILD, production/tests or Unity changes.
-      CALL: work/c-exec-near-gas-l1b-plan-001-call.md; acceptance: work/neargas-l1b-acceptance.md.
   - id: c-exec-level-module-standard-v1-lv0-plan-001
     to: executor
     for: g-9c41 / parallel owner-present Level/Module Standard v1 LV0 PLAN
