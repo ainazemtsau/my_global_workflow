@@ -2,7 +2,7 @@
 
 date: 2026-07-16
 owner_verdict: `A`
-status: accepted Direction dispatch rule; product implementation exists on dev, delivery BLOCKED on live-dev gates
+status: accepted Direction dispatch rule; product implementation exists, delivery BLOCKED; bounded repair A authorized
 read_by: any Direction session preparing a GasCoopGame executor CALL; product-protocol installation and cleanup sessions
 
 ## Короткий вердикт
@@ -97,7 +97,15 @@ owner verdict `A`, KERNEL-правилом «Direction не диктует branc
   исходная сессия сохранила status/count evidence, но не точные start-of-task content identities; ретроактивная
   byte-identity не фабрикуется.
 - По owner scope-stop не открыт preservation project, не построена новая topology, не запущены characters/DA/L1B
-  и не сделан ни один выбор по `.meta`. Следующий шаг — только owner-present A/B по узкому repair.
+  и не сделан ни один выбор по `.meta`. Этот checkpoint затем был разрешён отдельным owner-present verdict `A` ниже.
+
+## Owner disposition после checkpoint
+
+Владелец выбрал точным ответом **`A`**. Разрешён ровно один bounded product repair: repository-correct disposition
+двух guarded folder-meta conflicts и fresh preservation proof от начала новой leg. Выбор A одновременно признаёт,
+что отсутствующую historical start-of-task byte identity первой попытки восстановить нельзя; она не становится
+evidence задним числом. Character track остаётся PAUSED. До GREEN current-authority Deliver L1B product PLAN не
+открывается; broad cleanup/preservation project, новая topology/policy и characters/DA/L1B source остаются запрещены.
 
 ## Что исходная Direction repair-сессия НЕ делала
 

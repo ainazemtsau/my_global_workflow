@@ -1,5 +1,5 @@
 # NOW: indie-game-development
-updated: 2026-07-16 by s-work-gascoopgame-worktree-protocol-v2-blocked-001
+updated: 2026-07-16 by s-work-gascoopgame-worktree-protocol-v2-blocker-a-001
 
 bet:
   node: g-9c41
@@ -44,7 +44,7 @@ tasks:
     goal: "[executor] Owner-approved product PLAN фиксирует evaluator, rollback и disjoint observation ownership без authority/Unity/C1/L2 expansion."
     done_when: "PLAN frozen по current v26 contract; владелец принял; next handoff соблюдает compiled-carrier/RED guards."
     status: blocked
-    unblock_when: "Owner-present c-repair-gascoopgame-worktree-protocol-v2-blocker-001 даёт явный verdict, затем отдельный узкий product repair/close возвращает GREEN live-dev Deliver; до этого L1B product CALL запрещён."
+    unblock_when: "Owner-authorized c-exec-gascoopgame-worktree-protocol-v2-delivery-repair-001 возвращает HOME с GREEN current-authority Deliver и полным fresh-baseline preservation evidence; до Direction close этого RESULT L1B product CALL запрещён."
   - id: L1B-Capture
     goal: "[executor] Retry snapshot и fault injection дают стабильное пассивное наблюдение реального L1a path."
     done_when: "Genuine RED ловит retry/fault planted controls; delivery не меняет L1a result/order/atomicity."
@@ -63,18 +63,18 @@ tasks:
     status: open
 
 open_calls:
-  - id: c-repair-gascoopgame-worktree-protocol-v2-blocker-001
-    to: session
-    for: g-9c41 / owner disposition of guarded-meta and evidence blockers
+  - id: c-exec-gascoopgame-worktree-protocol-v2-delivery-repair-001
+    to: executor
+    for: g-9c41 / bounded guarded-meta repair and fresh-baseline protocol delivery
     issued: 2026-07-16
     note: |
-      READY / OWNER-PRESENT / DECISION-ONLY. Product protocol implementation exists on dev@767a8f8f, but delivery
-      is honestly BLOCKED: live-dev -Deliver is RED at DF-5 on two preserved untracked folder metas, and the original
-      leg lacks exact start-of-task content identities for other dirty legacy worktrees. Clean exact-commit evidence
-      checkout cannot substitute for the required integrated-dev gate. This CALL chooses only whether to authorize
-      one bounded successor repair or keep product launch blocked; it performs no product write, cleanup, manifest
-      reconstruction, characters/DA/L1B work or gate weakening.
-      work/c-repair-gascoopgame-worktree-protocol-v2-blocker-001-call.md;
+      READY / OWNER-AUTHORIZED A / BOUNDED PRODUCT REPAIR. Exact owner verdict: `A`. The leg may correctly
+      disposition only the two guarded folder-meta conflicts and prove preservation from its own fresh current-state
+      baseline. The owner acknowledges that the first attempt's missing historical start identities cannot be
+      reconstructed and are not evidence for this new leg. No characters/DA/L1B source, game behavior, legacy WIP,
+      broad cleanup/preservation project, new topology/policy, gate weakening or clean-checkout bypass. Product v26
+      AGENTS/registry own fresh venue, branch and integration mechanics; Direction evidence SHAs are not launch pins.
+      work/c-exec-gascoopgame-worktree-protocol-v2-delivery-repair-001-call.md;
       work/gascoopgame-worktree-protocol-v2.md.
   - id: c-research-level-module-standard-v1-001
     to: research
@@ -194,6 +194,6 @@ decisions:
     recommendation: "Доступная физическая машина; газ CPU-bound, поэтому CPU должен быть назван явно."
 
 next:
-  CALL: work/c-repair-gascoopgame-worktree-protocol-v2-blocker-001-call.md
+  CALL: work/c-exec-gascoopgame-worktree-protocol-v2-delivery-repair-001-call.md
 
 END_OF_FILE: live/indie-game-development/NOW.md

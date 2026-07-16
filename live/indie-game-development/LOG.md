@@ -287,4 +287,6 @@ archived: history/LOG-archive-indie-game-development.md — sessions before 2026
 
 2026-07-16 — work/checkpoint (g-9c41/worktree-protocol-v2-install, s-work-gascoopgame-worktree-protocol-v2-blocked-001): product protocol implementation dev@767a8f8f reconciled BLOCKED on live-dev DF-5 and missing historical byte proof; owner scope-stop prevented preservation/topology expansion, characters are PAUSED, L1B-PLAN stays blocked, and one owner A/B decision is next. → history/2026-07-16-s-work-gascoopgame-worktree-protocol-v2-blocked-001.md
 
+2026-07-16 — work/route (g-9c41/worktree-protocol-v2-blocker-disposition, s-work-gascoopgame-worktree-protocol-v2-blocker-a-001): владелец точным ответом «A» разрешил один bounded repair двух guarded meta от fresh baseline, признал исторический start-proof невосстановимым, сохранил characters PAUSED и L1B-PLAN BLOCKED до отдельного GREEN close; открыт c-exec-gascoopgame-worktree-protocol-v2-delivery-repair-001, product не менялся. → history/2026-07-16-s-work-gascoopgame-worktree-protocol-v2-blocker-a-001.md
+
 END_OF_FILE: live/indie-game-development/LOG.md
