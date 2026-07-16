@@ -1,106 +1,79 @@
 # NOW: indie-game-development
-updated: 2026-07-15 by s-work-near-gas-l1-experimental-close-001
+updated: 2026-07-16 by s-cartography-g-d3a8-current-question-front-001
 
 bet:
   node: g-9c41
   goal: |
-    Полигон М1 доказывает representative networked co-op scene: регулируемый DA-уровень,
-    gas gameplay, S4, controlled breach, full flood, две реальные машины и замер на названном
-    слабом железе; финальный стенд явно показывает deterministic agree/divergence,
-    ловит planted divergence и показывает admission ceiling.
+    Доставленный NearGas L1a проверяемо наблюдаем через ровно пять internal observation families:
+    retry snapshot, fault injection, handler classification, kernel rows и loopback trace; observer не меняет authority, atomicity и deterministic Step.
   appetite: |
-    Максимум 13 product legs, started 2026-07-10; owner-authorized exception 2026-07-11 только для
-    M1-GAS-PROBE + M1-GAS-CORE. P2a0 — opening существующего M1-5, checksum foundation — один слот,
-    M1-9+10 — один final-evidence leg; Direction-задача M1-Integration-ROUTE не является product leg.
+    3 focused days; владелец выбрал «а» 2026-07-16. Шесть задач по ≤0.5 focused day; продления нет.
   kill_by: |
-    2026-07-24 либо 13 product legs, что раньше; immediate review при провале deterministic gas-body/A1.
-    Финальный профиль: ≤50 ms green; 50–100 ms owner decision; >100 ms/desync/meaning-loss = not done.
+    Automatic review 2026-07-24 или при исчерпании 3 focused days, что раньше. Kill без продления, если acceptance <5/5,
+    любая family требует cut capability, observer меняет L1a semantics/order/atomicity или fresh G5 опровергает любую family.
   forecast: |
-    Главный owner-view — work/board/dashboard.html; принятый cross-bet route лежит в
-    work/poligon-m1-integration-route.md. Он связывает gas, Level/DA/PGG, character, visual, common scene и
-    network/evidence в 34 обязательных логических product legs плюс условные, но это прозрачный ledger, не cap.
-    Владелец сказал «Да, именно так»: числового ограничения нет, а 24.07 — контрольный review, не остановка;
-    затем «Маршрут принимаю». Текущая ставка всё ещё формально хранит старые appetite/kill_by и по G3 не может
-    быть продлена work-сессией, поэтому свежий review закрывает её и предлагает следующую ставку.
-    Ратифицированный level path сохранён: project-owned Level/Module Contract → DA runtime + PGG editor-time
-    bake → production modules; новый Level executor CALL не выпущен.
-    NearGas L1a is DELIVERED exclusively through the owner-authorized experimental
-    skeleton → independent genuine RED → BUILD → fresh refutation route. Product `dev` and remote `dev`/`main`
-    all resolve to exact 400ef8eca1e747378493c97530770286c7e26ff1. Focused NearGas is 71/71, tick types 8/8,
-    normal gate 1714/1714, full unfiltered suite 1793/1793, `check.ps1 -Deliver` is GREEN, and the binding fresh
-    Direction G5 (task 019f658d-1427-7a03-90d6-b0c5ae8feb8b) returned PASS with no Critical or Important findings.
-    The existing exact ten-file mutation artifact remains 72.78% and was intentionally reused read-only: the owner
-    explicitly prohibited another Stryker run. The old v22 PLAN-AMEND packet and failed policy carrier are retired,
-    forbidden launch authority and must not reopen L1a. No Unity cutover, L1b or workers were included. The next
-    NearGas workflow action is a separate maintenance B1 session that promotes this experimental carrier globally
-    and marks conflicting legacy routes unused; L1b remains a separate later product leg.
+    Ранний сигнал = L1B-Acceptance: 5/5 falsifiable positive/negative oracles на реальном L1a path без excluded dependency.
+    Ожидаем внутреннюю instrumentability + binding evidence за 6 half-day tasks, но не Unity/gameplay/M1 delivery.
+    Cross-bet 34+ route остаётся ledger, не cap; 24.07 остаётся контрольным review, не stop.
+    next_if_true: fresh review закрывает L1B только как internal instrumentability и возвращает владельцу выбор следующей ставки из route; нет automatic L2/C1/Unity launch.
   against: |
-    Gas PROGRAM — обязательный дочерний маршрут, но не весь M1 и не разрешение молча превысить 13 legs.
-    Старый level PLAN ждёт Phase 0, которая больше никогда не возобновляется; новый маршрут обязан сперва
-    показать точный пересчёт legs/cuts. Visual всё ещё LOCKED; M1-P2a0 lifecycle/G5 drift чинится отдельно.
+    Логи могут наблюдать суррогат, неоднозначно связывать retry/fault/handler или влиять на timing/order. Любой такой сигнал
+    переключает ставку в NOT MET/review; fake-harness обход запрещён.
+    next_if_false: L1a остаётся DELIVERED, v22 — FORBIDDEN; L1B закрывается NOT MET с названной failed family и возвращается на owner review без surrogate workaround.
   cut_list:
-    - Sc-damage остаётся HELD; нет damage/consequence.
-    - Нет врагов, миссии, production UI/VFX и новой газовой энциклопедии.
-    - Production-звук сознательно не входит в Полигон М1; это будущая visual-линия.
-    - Только один контролируемый стеновой пролом; нет полной разрушаемости.
-    - Нет save/load, late join, matchmaking и host migration; потеря пира/хоста явно и контролируемо
-      завершает текущий прогон М1.
-    - Один Полигон и минимальный DA module set; не контент-производство.
+    - Нет L2 resource admission, work/memory bounds и performance ceiling.
+    - Нет C1 committed digest или новой checksum authority.
+    - Нет Unity cutover, debug UI и gameplay wiring.
+    - Нет workers/concurrency.
+    - Нет S4, Level/DA/PGG, common scene, real network и two-machine proof.
+    - Нет общего telemetry/export/persistence/replay framework.
   lens_verdicts:
-    commercial_traction: final evidence leg отдаёт capture-пакет visual/marketing линиям.
-    core_gameplay_depth: M1-5..7 — tracking, reactions, breach.
-    coop_first: M1-9+10 — две реальные машины, sync и owner verdict.
-    technical_feasibility: NearGas L1a is delivered on product remote dev/main@400ef8eca1e747378493c97530770286c7e26ff1 through the experimental skeleton→independent-RED→BUILD→refutation route. Genuine RED was recorded before production; focused 71/71 and tick-type 8/8 suites, normal 1714/1714, full unfiltered 1793/1793, direct review gate and Deliver are GREEN. Binding fresh Direction G5 task 019f658d-1427-7a03-90d6-b0c5ae8feb8b returned PASS with no Critical/Important findings. Existing mutation evidence is 72.78% over the exact ten changed Core files and was not rerun by explicit owner instruction. The old v22 packet/carrier is retired and non-runnable; B1 maintenance promotes the experimental carrier, while Unity, L1b and workers remain outside this leg. Level/DA/PGG route remains ratified.
-    scope_production: not_needed — cut_list и один уровень держат solo-scope.
-    audience_workflow: final evidence leg; отдельная соцсеть-задача не нужна.
+    commercial_traction: "not_needed: внешнего сигнала нет; это короткий capped технический мост к M1."
+    core_gameplay_depth: "not_needed: механики и player decisions не заявляются."
+    coop_first: "not_needed: loopback = internal diagnostic, не co-op evidence."
+    technical_feasibility: "L1B-Acceptance→L1B-G5: falsifiability, passive observer, deterministic integrated trace и fresh refutation."
+    scope_production: "L1B-Acceptance + L1B-G5: cuts проверяются до PLAN и на close."
+    audience_workflow: "not_needed: internal trace не объявляется публичным артефактом."
 
 tasks:
-  - id: NearGas-dashboard
-    goal: Владелец видит актуальную карту gas-engineering пути.
-    done_when: Committed light dashboard принят owner-eye; history/2026-07-13-s-work-near-gas-dashboard-close-002.md.
+  - id: L1B-Acceptance
+    goal: "[session] Frozen owner-approved child acceptance различает real L1a observability и surrogate evidence для 5/5 families."
+    done_when: "5/5 families имеют falsifiable positive/negative oracle; adversarial dry-run не требует cut capability; владелец принял artifact."
     status: done
-  - id: NearGas-L1-PLAN
-    goal: Владелец понимает и утверждает frozen L1 PLAN одного engine-free Core-владельца.
-    done_when: PLAN@1e4e78c + PLAN-AMEND@a58ee356 owner-approved и binding-refuted; BUILD отдельно.
-    status: done
-  - id: NearGas-L1-BUILD
-    goal: NearGas получает delivered dormant engine-free Core-владельца с atomic generation replacement и deterministic Step.
-    done_when: Reviewed, gate-green DELIVERED L1 с independent RED и binding fresh G5; no Unity/child-leg/workers.
-    status: done
-    note: |
-      DELIVERED through the owner-authorized experimental skeleton→independent genuine RED→BUILD→fresh-refutation
-      route. Product `dev`, remote `dev` and remote `main` are exact 400ef8eca1e747378493c97530770286c7e26ff1;
-      focused NearGas 71/71, tick types 8/8, normal 1714/1714, unfiltered 1793/1793, direct review and Deliver GREEN.
-      Binding fresh Direction G5 task 019f658d-1427-7a03-90d6-b0c5ae8feb8b: PASS, no Critical/Important findings.
-      Existing exact ten-file mutation score 72.78% was retained without rerun by explicit owner instruction.
-      Old v22 packet/carrier is retired and forbidden; no Unity, L1b or workers. B1 is separate maintenance.
-  - id: M1-P2a0
-    goal: PuppetMaster получает проверенный root-authority маршрут для сетевого игрока.
-    done_when: Owner-approved live-source PLAN + later accepted BUILD, bounded-C, multiplayer inventory и fresh G5.
-    status: done
-    note: "Current owner-close = Candidate A; written done_when/G5 mismatch остаётся отдельным P1 repair dr-20260711-001, без переоткрытия Phase 0."
-  - id: M1-Integration-ROUTE
-    goal: Владелец имеет один согласованный путь до сильной интеграционной сцены Полигона М1.
-    done_when: |
-      Owner-approved dependency/parallelism map связывает gas, Level/DA/PGG, character, visual, network/min-spec/evidence;
-      текущий точный ledger/cuts записан без числового cap, а новый Level PLAN successor честно gated текущим v21 route;
-      no product BUILD.
-    status: done
-    note: |
-      Owner accepted: «Да, именно так» = без числового потолка, 24.07 только контрольный review;
-      «Маршрут принимаю». Принятый route: work/poligon-m1-integration-route.md — 34 обязательных логических
-      product legs + условные, не cap. Старую Phase 0 не возвращает; новый Level executor CALL не выпущен.
-      Формальное закрытие старой 13/24 ставки передано свежему c-review-poligon-m1-route-reset-001 по G3.
+  - id: L1B-PLAN
+    goal: "[executor] Owner-approved product PLAN фиксирует evaluator, rollback и disjoint observation ownership без authority/Unity/C1/L2 expansion."
+    done_when: "PLAN frozen по current v26 contract; владелец принял; next handoff соблюдает compiled-carrier/RED guards."
+    status: blocked
+    unblock_when: "c-exec-gascoopgame-worktree-protocol-v2-001 вернулся HOME; он сам ждёт close или owner-pause c-exec-char-v2-reaction-core-repair-002."
+  - id: L1B-Capture
+    goal: "[executor] Retry snapshot и fault injection дают стабильное пассивное наблюдение реального L1a path."
+    done_when: "Genuine RED ловит retry/fault planted controls; delivery не меняет L1a result/order/atomicity."
+    status: open
+  - id: L1B-Classify
+    goal: "[executor] Handler classification и kernel rows однозначно связывают attempt/generation/phase."
+    done_when: "Planted misclassification ловится; rows коррелируются без C1 digest и authority change."
+    status: open
+  - id: L1B-Trace
+    goal: "[executor] Loopback trace сводит 5/5 families в один детерминированный internal scenario."
+    done_when: "Trace различает agree/planted divergence и не заявляет real-network, gameplay или M1 delivery."
+    status: open
+  - id: L1B-G5
+    goal: "[session] Fresh binding refutation даёт честный verdict по 5/5 families, passive-observer invariant и cuts."
+    done_when: "Separate fresh review reruns first-hand gates, пытается опровергнуть каждую family и закрывает только по 5/5 + scope GREEN."
+    status: open
 
 open_calls:
-  - id: c-review-poligon-m1-route-reset-001
-    to: session
-    for: g-9c41 / current bet close and next-bet choice after accepted M1 route
-    issued: 2026-07-14
+  - id: c-exec-gascoopgame-worktree-protocol-v2-001
+    to: executor
+    for: g-9c41 / product-owned single mutable venue v2 contract and registry
+    issued: 2026-07-16
     note: |
-      PRIMARY / FRESH OWNER-PRESENT REVIEW: close, do not extend, the current 13/24 bet; preserve the accepted
-      no-cap cross-bet route and make 24.07 a control review in the owner-chosen next bet. Product/TREE/canon read-only;
-      no executor CALL or BUILD. work/c-review-poligon-m1-route-reset-001-call.md.
+      HELD until c-exec-char-v2-reaction-core-repair-002 closes or the owner explicitly pauses it; MUST RETURN HOME
+      before the first NearGas L1B product executor CALL. Owner selected A: Direction no longer dispatches by the
+      stale permanent-lane map or dictates local branches/paths/SHAs; current product v26 stays authority until this
+      process/docs-only install lands. No cleanup/reset/delete/move/rebase/merge, no meta choice, no mutation rerun
+      and no WIP change. work/c-exec-gascoopgame-worktree-protocol-v2-001-call.md;
+      work/gascoopgame-worktree-protocol-v2.md.
   - id: c-research-level-module-standard-v1-001
     to: research
     for: g-9c41 / Level-DA-PGG project Standard v1 candidate and old-task recovery
@@ -110,19 +83,26 @@ open_calls:
       produce the two-contract Standard v1 candidate, validator/fixture matrices and old-task disposition package.
       No product/Unity/PLAN/BUILD, no Phase 0 revival, no owner acceptance implied.
       work/c-research-level-module-standard-v1-001-call.md.
-  - id: c-research-q-coop-interdependence-002
+  - id: c-research-q-simple-gas-extraction-001
     to: session
-    for: g-d3a8 / co-op composition question
-    issued: 2026-07-14
+    for: g-d3a8 / P0 Frame alignment + Q1 Simple Gas Extraction
+    issued: 2026-07-16
     note: |
-      READY PARALLEL / PAPER-ONLY: g-d3a8 Frame-v2 reconciliation
-      closed owner-approved. Resume the exact preserved co-op
-      composition question under Frame v2 and the mandatory
-      eight-player requirement. It may return an
-      OWNER-SELECTED PAPER ANSWER or an honest block; canon admission
-      remains a separate owner-present CALL and Sc-damage remains
-      HELD. Full CALL:
-      history/2026-07-14-s-repair-minimum-game-frame-v2-001.md.
+      READY PARALLEL / OWNER-PRESENT / PAPER-ONLY.
+      Owner-approved current question map replaces the premature
+      co-op-composition front. Route = P0 bounded Gate F alignment,
+      then Q1 Simple Gas Extraction if the frame is READY:
+      minimal obvious extraction into a growing Bubble, visible
+      field/Bubble change and the choice "where / how much / when
+      to stop". Simple Suction Bubble is owner-origin input only,
+      not selected. Old question documents are historical evidence
+      only. Exact carry, helper count, scaling, roster, damage,
+      economy, artifacts, networking and implementation remain
+      outside Q1; co-op composition is proof_later; Sc-damage stays
+      HELD. CALL:
+      work/c-research-q-simple-gas-extraction-001-call.md.
+      Map:
+      work/canon-maps/g-d3a8-current-question-front-v1.md.
   - id: c-exec-unity65-mac-revision-002-build-001
     to: executor
     for: g-9c41 / local .NET gate runner prerequisite
@@ -211,6 +191,6 @@ decisions:
     recommendation: "Доступная физическая машина; газ CPU-bound, поэтому CPU должен быть назван явно."
 
 next:
-  CALL: work/c-review-poligon-m1-route-reset-001-call.md
+  CALL: work/c-exec-gascoopgame-worktree-protocol-v2-001-call.md
 
 END_OF_FILE: live/indie-game-development/NOW.md

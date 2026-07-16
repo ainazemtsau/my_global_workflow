@@ -273,4 +273,16 @@ archived: history/LOG-archive-indie-game-development.md — sessions before 2026
 
 2026-07-15 — repair/checkpoint (g-d3a8/canon-track-routing, s-repair-canon-chat-routing-001): owner corrected a misrouted g-9c41 review; no M1 verdict or state change was accepted, the engineering review remains pending separately, and the chat returns to existing paper-only canon CALL c-research-q-coop-interdependence-002. → history/2026-07-15-s-repair-canon-chat-routing-001.md
 
+2026-07-16 - repair/close (g-9c41/primary-review-packet, s-repair-primary-review-post-b4-v26-001): worktree fast-forwarded to OS v26@2a46d77; primary M1 review packet, NOW and owner panel reconciled to delivered L1a, completed B1-B4 and owner-reported GasCoopGame v26 Re-sync; dr-20260714-001 fixed, review runnable, L1b owner-gated and NOW.next unchanged; no product/review/downstream CALL. -> history/2026-07-16-s-repair-primary-review-post-b4-v26-001.md
+
+2026-07-16 — review/close (g-9c41/Poligon-M1-bet-review, s-review-poligon-m1-route-reset-001): старая 13/24 ставка закрыта NOT MET (0/10 критериев end-to-end; foundations сохранены), forecast = wrong-mechanism + optimistic; владелец выбрал «L1B», next = bounded shape без product/BUILD. → history/2026-07-16-s-review-poligon-m1-route-reset-001.md
+
+2026-07-16 — shape/activate (g-9c41/NearGas-L1B, s-shape-near-gas-l1b-001): владелец «принимаю ставку L1B» — активирована 3-focused-day ставка на 5 internal observation families; first = frozen L1B-Acceptance, 24.07 control review, L1a delivered/v22 forbidden. → history/2026-07-16-s-shape-near-gas-l1b-001.md
+
+2026-07-16 — repair/close (g-9c41/worktree-routing-v2, s-repair-gascoopgame-worktree-routing-v2-001): owner A selected product-owned single mutable venue v2; nine checkouts and 33 refs were classified, canonical L1a mutation 72.78 was separated from stale core/exp evidence, the old lane map was superseded for dispatch, and a HELD protocol-install was opened before any L1B product executor. Fresh L1B acceptance next was preserved; no product worktree changed. → history/2026-07-16-s-repair-gascoopgame-worktree-routing-v2-001.md
+
+2026-07-16 — work/accept (g-9c41/L1B-Acceptance, s-work-near-gas-l1b-acceptance-001): владелец «accepted» — frozen acceptance 5/5 отличает actual L1a path от surrogate и fail-closed ловит observer effect/cuts; product PLAN не выпущен, потому что owner-approved worktree-protocol-v2 обязан вернуться первым, поэтому L1B-PLAN blocked. → history/2026-07-16-s-work-near-gas-l1b-acceptance-001.md
+
+2026-07-16 — local/canon-cartography close (g-d3a8/c-cartography-g-d3a8-current-question-front-001, s-cartography-g-d3a8-current-question-front-001): owner approved the corrected current question map — old question documents are historical evidence only; P0 preserves common returned-gas value and the mandatory artifact line without fixing their form; Q1 Simple Gas Extraction is the sole ready design question, with Simple Suction Bubble as owner-origin input rather than a selected answer; exact carry/helper count/scaling are downstream, co-op composition is proof_later, the stale co-op CALL is replaced by owner-present P0→Q1 Canon Forge, and Frame/TREE/CHARTER/canon/product/Sc-damage remain unchanged. → history/2026-07-16-s-cartography-g-d3a8-current-question-front-001.md
+
 END_OF_FILE: live/indie-game-development/LOG.md
