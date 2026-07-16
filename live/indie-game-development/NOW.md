@@ -1,19 +1,75 @@
 # NOW: indie-game-development
-updated: 2026-07-16 by s-review-poligon-m1-route-reset-001
+updated: 2026-07-16 by s-shape-near-gas-l1b-001
 
-bet: null  # между ставками; старая Poligon M1 ставка закрыта NOT MET, next = shape выбранной владельцем L1B
+bet:
+  node: g-9c41
+  goal: |
+    Доставленный NearGas L1a проверяемо наблюдаем через ровно пять internal observation families:
+    retry snapshot, fault injection, handler classification, kernel rows и loopback trace; observer не меняет authority, atomicity и deterministic Step.
+  appetite: |
+    3 focused days; владелец выбрал «а» 2026-07-16. Шесть задач по ≤0.5 focused day; продления нет.
+  kill_by: |
+    Automatic review 2026-07-24 или при исчерпании 3 focused days, что раньше. Kill без продления, если acceptance <5/5,
+    любая family требует cut capability, observer меняет L1a semantics/order/atomicity или fresh G5 опровергает любую family.
+  forecast: |
+    Ранний сигнал = L1B-Acceptance: 5/5 falsifiable positive/negative oracles на реальном L1a path без excluded dependency.
+    Ожидаем внутреннюю instrumentability + binding evidence за 6 half-day tasks, но не Unity/gameplay/M1 delivery.
+    Cross-bet 34+ route остаётся ledger, не cap; 24.07 остаётся контрольным review, не stop.
+    next_if_true: fresh review закрывает L1B только как internal instrumentability и возвращает владельцу выбор следующей ставки из route; нет automatic L2/C1/Unity launch.
+  against: |
+    Логи могут наблюдать суррогат, неоднозначно связывать retry/fault/handler или влиять на timing/order. Любой такой сигнал
+    переключает ставку в NOT MET/review; fake-harness обход запрещён.
+    next_if_false: L1a остаётся DELIVERED, v22 — FORBIDDEN; L1B закрывается NOT MET с названной failed family и возвращается на owner review без surrogate workaround.
+  cut_list:
+    - Нет L2 resource admission, work/memory bounds и performance ceiling.
+    - Нет C1 committed digest или новой checksum authority.
+    - Нет Unity cutover, debug UI и gameplay wiring.
+    - Нет workers/concurrency.
+    - Нет S4, Level/DA/PGG, common scene, real network и two-machine proof.
+    - Нет общего telemetry/export/persistence/replay framework.
+  lens_verdicts:
+    commercial_traction: "not_needed: внешнего сигнала нет; это короткий capped технический мост к M1."
+    core_gameplay_depth: "not_needed: механики и player decisions не заявляются."
+    coop_first: "not_needed: loopback = internal diagnostic, не co-op evidence."
+    technical_feasibility: "L1B-Acceptance→L1B-G5: falsifiability, passive observer, deterministic integrated trace и fresh refutation."
+    scope_production: "L1B-Acceptance + L1B-G5: cuts проверяются до PLAN и на close."
+    audience_workflow: "not_needed: internal trace не объявляется публичным артефактом."
 
-tasks: []
+tasks:
+  - id: L1B-Acceptance
+    goal: "[session] Frozen owner-approved child acceptance различает real L1a observability и surrogate evidence для 5/5 families."
+    done_when: "5/5 families имеют falsifiable positive/negative oracle; adversarial dry-run не требует cut capability; владелец принял artifact."
+    status: active
+  - id: L1B-PLAN
+    goal: "[executor] Owner-approved product PLAN фиксирует evaluator, rollback и disjoint observation ownership без authority/Unity/C1/L2 expansion."
+    done_when: "PLAN frozen по current v26 contract; владелец принял; next handoff соблюдает compiled-carrier/RED guards."
+    status: open
+  - id: L1B-Capture
+    goal: "[executor] Retry snapshot и fault injection дают стабильное пассивное наблюдение реального L1a path."
+    done_when: "Genuine RED ловит retry/fault planted controls; delivery не меняет L1a result/order/atomicity."
+    status: open
+  - id: L1B-Classify
+    goal: "[executor] Handler classification и kernel rows однозначно связывают attempt/generation/phase."
+    done_when: "Planted misclassification ловится; rows коррелируются без C1 digest и authority change."
+    status: open
+  - id: L1B-Trace
+    goal: "[executor] Loopback trace сводит 5/5 families в один детерминированный internal scenario."
+    done_when: "Trace различает agree/planted divergence и не заявляет real-network, gameplay или M1 delivery."
+    status: open
+  - id: L1B-G5
+    goal: "[session] Fresh binding refutation даёт честный verdict по 5/5 families, passive-observer invariant и cuts."
+    done_when: "Separate fresh review reruns first-hand gates, пытается опровергнуть каждую family и закрывает только по 5/5 + scope GREEN."
+    status: open
 
 open_calls:
-  - id: c-shape-near-gas-l1b-001
+  - id: c-work-near-gas-l1b-acceptance-001
     to: session
-    for: g-9c41 / owner-selected next bet NearGas L1B
+    for: g-9c41 / NearGas L1B task L1B-Acceptance
     issued: 2026-07-16
     note: |
-      PRIMARY / OWNER-SELECTED: shape bounded L1B around the exact internal observation seams assigned by current
-      product authority. L1a stays DELIVERED; no product/Unity/PLAN/BUILD and no inclusion of L2/C1/workers/S4.
-      work/c-shape-near-gas-l1b-001-call.md.
+      PRIMARY / ACTIVE BET TASK 1 / OWNER-PRESENT: freeze falsifiable child acceptance for exactly retry snapshot,
+      fault injection, handler classification, kernel rows and loopback trace. Direction-only; no product/Unity/
+      PLAN/RED/BUILD and no L2/C1/workers/S4. work/c-work-near-gas-l1b-acceptance-001-call.md.
   - id: c-research-level-module-standard-v1-001
     to: research
     for: g-9c41 / Level-DA-PGG project Standard v1 candidate and old-task recovery
@@ -124,6 +180,6 @@ decisions:
     recommendation: "Доступная физическая машина; газ CPU-bound, поэтому CPU должен быть назван явно."
 
 next:
-  CALL: work/c-shape-near-gas-l1b-001-call.md
+  CALL: work/c-work-near-gas-l1b-acceptance-001-call.md
 
 END_OF_FILE: live/indie-game-development/NOW.md

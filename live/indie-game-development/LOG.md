@@ -277,4 +277,6 @@ archived: history/LOG-archive-indie-game-development.md — sessions before 2026
 
 2026-07-16 — review/close (g-9c41/Poligon-M1-bet-review, s-review-poligon-m1-route-reset-001): старая 13/24 ставка закрыта NOT MET (0/10 критериев end-to-end; foundations сохранены), forecast = wrong-mechanism + optimistic; владелец выбрал «L1B», next = bounded shape без product/BUILD. → history/2026-07-16-s-review-poligon-m1-route-reset-001.md
 
+2026-07-16 — shape/activate (g-9c41/NearGas-L1B, s-shape-near-gas-l1b-001): владелец «принимаю ставку L1B» — активирована 3-focused-day ставка на 5 internal observation families; first = frozen L1B-Acceptance, 24.07 control review, L1a delivered/v22 forbidden. → history/2026-07-16-s-shape-near-gas-l1b-001.md
+
 END_OF_FILE: live/indie-game-development/LOG.md
