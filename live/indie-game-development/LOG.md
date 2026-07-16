@@ -275,4 +275,6 @@ archived: history/LOG-archive-indie-game-development.md — sessions before 2026
 
 2026-07-16 - repair/close (g-9c41/primary-review-packet, s-repair-primary-review-post-b4-v26-001): worktree fast-forwarded to OS v26@2a46d77; primary M1 review packet, NOW and owner panel reconciled to delivered L1a, completed B1-B4 and owner-reported GasCoopGame v26 Re-sync; dr-20260714-001 fixed, review runnable, L1b owner-gated and NOW.next unchanged; no product/review/downstream CALL. -> history/2026-07-16-s-repair-primary-review-post-b4-v26-001.md
 
+2026-07-16 — review/close (g-9c41/Poligon-M1-bet-review, s-review-poligon-m1-route-reset-001): старая 13/24 ставка закрыта NOT MET (0/10 критериев end-to-end; foundations сохранены), forecast = wrong-mechanism + optimistic; владелец выбрал «L1B», next = bounded shape без product/BUILD. → history/2026-07-16-s-review-poligon-m1-route-reset-001.md
+
 END_OF_FILE: live/indie-game-development/LOG.md

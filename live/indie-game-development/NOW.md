@@ -1,111 +1,19 @@
 # NOW: indie-game-development
-updated: 2026-07-16 by s-repair-primary-review-post-b4-v26-001
+updated: 2026-07-16 by s-review-poligon-m1-route-reset-001
 
-bet:
-  node: g-9c41
-  goal: |
-    Полигон М1 доказывает representative networked co-op scene: регулируемый DA-уровень,
-    gas gameplay, S4, controlled breach, full flood, две реальные машины и замер на названном
-    слабом железе; финальный стенд явно показывает deterministic agree/divergence,
-    ловит planted divergence и показывает admission ceiling.
-  appetite: |
-    Максимум 13 product legs, started 2026-07-10; owner-authorized exception 2026-07-11 только для
-    M1-GAS-PROBE + M1-GAS-CORE. P2a0 — opening существующего M1-5, checksum foundation — один слот,
-    M1-9+10 — один final-evidence leg; Direction-задача M1-Integration-ROUTE не является product leg.
-  kill_by: |
-    2026-07-24 либо 13 product legs, что раньше; immediate review при провале deterministic gas-body/A1.
-    Финальный профиль: ≤50 ms green; 50–100 ms owner decision; >100 ms/desync/meaning-loss = not done.
-  forecast: |
-    Главный owner-view — work/board/dashboard.html; принятый cross-bet route лежит в
-    work/poligon-m1-integration-route.md. Он связывает gas, Level/DA/PGG, character, visual, common scene и
-    network/evidence в 34 обязательных логических product legs плюс условные, но это прозрачный ledger, не cap.
-    Владелец сказал «Да, именно так»: числового ограничения нет, а 24.07 — контрольный review, не остановка;
-    затем «Маршрут принимаю». Текущая ставка всё ещё формально хранит старые appetite/kill_by и по G3 не может
-    быть продлена work-сессией, поэтому свежий review закрывает её и предлагает следующую ставку.
-    Ратифицированный level path сохранён: project-owned Level/Module Contract → DA runtime + PGG editor-time
-    bake → production modules; новый Level executor CALL не выпущен.
-    NearGas L1a is DELIVERED exclusively through the owner-authorized experimental
-    skeleton → independent genuine RED → BUILD → fresh refutation route. Product `dev` and remote `dev`/`main`
-    all resolve to exact 400ef8eca1e747378493c97530770286c7e26ff1. Focused NearGas is 71/71, tick types 8/8,
-    normal gate 1714/1714, full unfiltered suite 1793/1793, `check.ps1 -Deliver` is GREEN, and the binding fresh
-    Direction G5 (task 019f658d-1427-7a03-90d6-b0c5ae8feb8b) returned PASS with no Critical or Important findings.
-    The existing exact ten-file mutation artifact remains 72.78% and was intentionally reused read-only: the owner
-    explicitly prohibited another Stryker run. The old v22 PLAN-AMEND packet and failed policy carrier are retired,
-    forbidden launch authority and must not reopen L1a. No Unity cutover, L1b or workers were included. Engineering
-    maintenance B1-B4 is complete: v23 promotes the compiled experimental carrier, v24 makes mutation scope
-    fail-closed, v25 caps named obligations at N=239, and v26 compacts Git-backed history without removing a gate.
-    OS main is exact 2a46d7753ea9463df5b07513bab330f870202768; the owner reports the GasCoopGame terminal v26
-    Re-sync complete. L1b remains a separate candidate product leg and is not launch-authorized until the fresh
-    g-9c41 review closes the old bet and records the owner's next-bet choice.
-  against: |
-    Gas PROGRAM — обязательный дочерний маршрут, но не весь M1 и не разрешение молча превысить 13 legs.
-    Старый level PLAN ждёт Phase 0, которая больше никогда не возобновляется; новый маршрут обязан сперва
-    показать точный пересчёт legs/cuts. Visual всё ещё LOCKED; M1-P2a0 lifecycle/G5 drift чинится отдельно.
-  cut_list:
-    - Sc-damage остаётся HELD; нет damage/consequence.
-    - Нет врагов, миссии, production UI/VFX и новой газовой энциклопедии.
-    - Production-звук сознательно не входит в Полигон М1; это будущая visual-линия.
-    - Только один контролируемый стеновой пролом; нет полной разрушаемости.
-    - Нет save/load, late join, matchmaking и host migration; потеря пира/хоста явно и контролируемо
-      завершает текущий прогон М1.
-    - Один Полигон и минимальный DA module set; не контент-производство.
-  lens_verdicts:
-    commercial_traction: final evidence leg отдаёт capture-пакет visual/marketing линиям.
-    core_gameplay_depth: M1-5..7 — tracking, reactions, breach.
-    coop_first: M1-9+10 — две реальные машины, sync и owner verdict.
-    technical_feasibility: NearGas L1a is delivered on product remote dev/main@400ef8eca1e747378493c97530770286c7e26ff1 through the experimental skeleton→independent-RED→BUILD→refutation route. Genuine RED was recorded before production; focused 71/71 and tick-type 8/8 suites, normal 1714/1714, full unfiltered 1793/1793, direct review gate and Deliver are GREEN. Binding fresh Direction G5 task 019f658d-1427-7a03-90d6-b0c5ae8feb8b returned PASS with no Critical/Important findings. Existing mutation evidence is 72.78% over the exact ten changed Core files and was not rerun by explicit owner instruction. The old v22 packet/carrier is retired and non-runnable; engineering maintenance B1-B4 and the owner-reported GasCoopGame terminal v26 Re-sync are complete. Unity, L1b and workers remain outside L1a; L1b requires the pending owner-present bet review before any product CALL. Level/DA/PGG route remains ratified.
-    scope_production: not_needed — cut_list и один уровень держат solo-scope.
-    audience_workflow: final evidence leg; отдельная соцсеть-задача не нужна.
+bet: null  # между ставками; старая Poligon M1 ставка закрыта NOT MET, next = shape выбранной владельцем L1B
 
-tasks:
-  - id: NearGas-dashboard
-    goal: Владелец видит актуальную карту gas-engineering пути.
-    done_when: Committed light dashboard принят owner-eye; history/2026-07-13-s-work-near-gas-dashboard-close-002.md.
-    status: done
-  - id: NearGas-L1-PLAN
-    goal: Владелец понимает и утверждает frozen L1 PLAN одного engine-free Core-владельца.
-    done_when: PLAN@1e4e78c + PLAN-AMEND@a58ee356 owner-approved и binding-refuted; BUILD отдельно.
-    status: done
-  - id: NearGas-L1-BUILD
-    goal: NearGas получает delivered dormant engine-free Core-владельца с atomic generation replacement и deterministic Step.
-    done_when: Reviewed, gate-green DELIVERED L1 с independent RED и binding fresh G5; no Unity/child-leg/workers.
-    status: done
-    note: |
-      DELIVERED through the owner-authorized experimental skeleton→independent genuine RED→BUILD→fresh-refutation
-      route. Product `dev`, remote `dev` and remote `main` are exact 400ef8eca1e747378493c97530770286c7e26ff1;
-      focused NearGas 71/71, tick types 8/8, normal 1714/1714, unfiltered 1793/1793, direct review and Deliver GREEN.
-      Binding fresh Direction G5 task 019f658d-1427-7a03-90d6-b0c5ae8feb8b: PASS, no Critical/Important findings.
-      Existing exact ten-file mutation score 72.78% was retained without rerun by explicit owner instruction.
-      Old v22 packet/carrier is retired and forbidden; no Unity, L1b or workers. Engineering maintenance B1-B4 is
-      complete through OS contract v26, and the owner reports the GasCoopGame terminal v26 Re-sync complete; L1b
-      remains separate and gated by the pending owner-present bet review.
-  - id: M1-P2a0
-    goal: PuppetMaster получает проверенный root-authority маршрут для сетевого игрока.
-    done_when: Owner-approved live-source PLAN + later accepted BUILD, bounded-C, multiplayer inventory и fresh G5.
-    status: done
-    note: "Current owner-close = Candidate A; written done_when/G5 mismatch остаётся отдельным P1 repair dr-20260711-001, без переоткрытия Phase 0."
-  - id: M1-Integration-ROUTE
-    goal: Владелец имеет один согласованный путь до сильной интеграционной сцены Полигона М1.
-    done_when: |
-      Owner-approved dependency/parallelism map связывает gas, Level/DA/PGG, character, visual, network/min-spec/evidence;
-      текущий точный ledger/cuts записан без числового cap, а новый Level PLAN successor честно gated текущим v21 route;
-      no product BUILD.
-    status: done
-    note: |
-      Owner accepted: «Да, именно так» = без числового потолка, 24.07 только контрольный review;
-      «Маршрут принимаю». Принятый route: work/poligon-m1-integration-route.md — 34 обязательных логических
-      product legs + условные, не cap. Старую Phase 0 не возвращает; новый Level executor CALL не выпущен.
-      Формальное закрытие старой 13/24 ставки передано свежему c-review-poligon-m1-route-reset-001 по G3.
+tasks: []
 
 open_calls:
-  - id: c-review-poligon-m1-route-reset-001
+  - id: c-shape-near-gas-l1b-001
     to: session
-    for: g-9c41 / current bet close and next-bet choice after accepted M1 route
-    issued: 2026-07-14
+    for: g-9c41 / owner-selected next bet NearGas L1B
+    issued: 2026-07-16
     note: |
-      PRIMARY / FRESH OWNER-PRESENT REVIEW: close, do not extend, the current 13/24 bet; preserve the accepted
-      no-cap cross-bet route and make 24.07 a control review in the owner-chosen next bet. Product/TREE/canon read-only;
-      no executor CALL or BUILD. work/c-review-poligon-m1-route-reset-001-call.md.
+      PRIMARY / OWNER-SELECTED: shape bounded L1B around the exact internal observation seams assigned by current
+      product authority. L1a stays DELIVERED; no product/Unity/PLAN/BUILD and no inclusion of L2/C1/workers/S4.
+      work/c-shape-near-gas-l1b-001-call.md.
   - id: c-research-level-module-standard-v1-001
     to: research
     for: g-9c41 / Level-DA-PGG project Standard v1 candidate and old-task recovery
@@ -216,6 +124,6 @@ decisions:
     recommendation: "Доступная физическая машина; газ CPU-bound, поэтому CPU должен быть назван явно."
 
 next:
-  CALL: work/c-review-poligon-m1-route-reset-001-call.md
+  CALL: work/c-shape-near-gas-l1b-001-call.md
 
 END_OF_FILE: live/indie-game-development/NOW.md
