@@ -1,5 +1,5 @@
 # NOW: indie-game-development
-updated: 2026-07-16 by s-work-gascoopgame-worktree-protocol-v2-delivery-repair-close-001
+updated: 2026-07-16 by s-research-level-module-standard-v1-001
 
 bet:
   node: g-9c41
@@ -74,15 +74,6 @@ open_calls:
       no characters/DA and no retired v22 authority. Product root AGENTS + canonical registry own fresh admission,
       venue, branch and integration mechanics. work/c-exec-near-gas-l1b-plan-001-call.md;
       work/neargas-l1b-acceptance.md; work/gascoopgame-worktree-protocol-v2.md.
-  - id: c-research-level-module-standard-v1-001
-    to: research
-    for: g-9c41 / Level-DA-PGG project Standard v1 candidate and old-task recovery
-    issued: 2026-07-14
-    note: |
-      READY PARALLEL / DIRECTION-ONLY: reconstruct established seams versus the missing project-owned standard;
-      produce the two-contract Standard v1 candidate, validator/fixture matrices and old-task disposition package.
-      No product/Unity/PLAN/BUILD, no Phase 0 revival, no owner acceptance implied.
-      work/c-research-level-module-standard-v1-001-call.md.
   - id: c-research-q-simple-gas-extraction-001
     to: session
     for: g-d3a8 / P0 Frame alignment + Q1 Simple Gas Extraction
