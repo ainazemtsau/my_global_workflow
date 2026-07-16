@@ -1,5 +1,5 @@
 # NOW: indie-game-development
-updated: 2026-07-16 by s-research-q-simple-gas-extraction-001
+updated: 2026-07-16 by s-work-near-gas-l1b-plan-review-publication-checkpoint-001
 
 bet:
   node: g-9c41
@@ -67,13 +67,15 @@ open_calls:
     for: g-9c41 / owner-present NearGas L1B product PLAN
     issued: 2026-07-16
     note: |
-      READY / OWNER-PRESENT / PLAN ONLY. Product protocol repair is Direction-closed GREEN at published
-      product `main/dev@5cd18250`; those SHAs are evidence, never launch pins. Freeze an owner-approved current-v26
-      PLAN for exactly the five accepted actual-path observation families, passive-observer semantics, evaluator,
-      rollback and disjoint ownership. No production/test/carrier/RED/BUILD, no sixth family, no L2/C1/Unity/workers,
-      no characters/DA and no retired v22 authority. Product root AGENTS + canonical registry own fresh admission,
-      venue, branch and integration mechanics. work/c-exec-near-gas-l1b-plan-001-call.md;
-      work/neargas-l1b-acceptance.md; work/gascoopgame-worktree-protocol-v2.md.
+      CHECKPOINT / OWNER-APPROVED FROZEN CANDIDATE / NOT PUBLISHED / DIRECTION CLOSE PENDING.
+      Owner exact words: «Принимаю PLAN». Exact seven-doc product candidate is `92331e30` on contract v26;
+      the proven v23 compiled-carrier remains the active process route. Focused structural/hygiene checks are GREEN,
+      but `review-check.ps1` is BLOCKED by missing `docs/reviews/review-c-exec-near-gas-l1b-plan-001.md` and
+      `result-check.ps1` is BLOCKED by missing `docs/results/c-exec-near-gas-l1b-plan-001.md`; product is not published.
+      Under fresh publish authority, accept the handback as registry `ADMITTED-ACTIVE → HANDBACK-PENDING`, record
+      independent review + per-leg RESULT, make both focused gates and integrated-dev `tools/check.ps1 -Deliver` GREEN,
+      then publish and only afterward mark RELEASED. No SURFACE-FREEZE, RED, BUILD, production/tests or Unity changes.
+      CALL: work/c-exec-near-gas-l1b-plan-001-call.md; acceptance: work/neargas-l1b-acceptance.md.
   - id: c-research-extraction-concept-landscape-001
     to: session
     for: g-d3a8 / high-level gas-extraction concept landscape

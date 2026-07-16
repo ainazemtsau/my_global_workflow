@@ -301,4 +301,6 @@ archived: history/LOG-archive-indie-game-development.md — sessions before 2026
 
 2026-07-16 — local/canon-forge block (g-d3a8/Simple Gas Extraction, s-research-q-simple-gas-extraction-001): extraction Canon Forge остановлен QUESTION BLOCKED на неверной высоте; владелец перенаправил работу к высокоуровневому research всей концепции добычи до нового bounded paper question. → history/2026-07-16-s-research-q-simple-gas-extraction-001.md
 
+2026-07-16 — work/checkpoint (g-9c41/L1B-PLAN, s-work-near-gas-l1b-plan-review-publication-checkpoint-001): owner «Принимаю PLAN» froze the exact seven-doc product candidate @92331e30 with focused structural/hygiene GREEN, but missing independent review and per-leg RESULT keep it unpublished and Direction-open; registry/publish handback is ADMITTED-ACTIVE→HANDBACK-PENDING, no SURFACE-FREEZE. → history/2026-07-16-s-work-near-gas-l1b-plan-review-publication-checkpoint-001.md
+
 END_OF_FILE: live/indie-game-development/LOG.md
