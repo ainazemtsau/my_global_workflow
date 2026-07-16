@@ -58,7 +58,7 @@ These clauses are binding interpretations of Procedure steps 2, 3, and 6:
   overrides the generic simplify-or-remove choice in Procedure step 3 at the ceiling.
 - **Mandatory-reading budget.** All tracked text under `os/engineering/**`, including the compact
   contract map and the inventory, is mandatory reading with a ceiling of `25,726` words
-  at contract v26. The measurement is the whitespace-token count over the tracked files. Later
+  since contract v26. The measurement is the whitespace-token count over the tracked files. Later
   maintenance may not raise the ceiling; it may fall only after proved removal of text or duties,
   never by packing duties into longer lines. Git history is the evidence store for retired narrative
   and must not be copied back into the mandatory-reading surface.

@@ -141,8 +141,9 @@ validators, however many, give you a useful pre-pass but NOT the binding G5
 review, because they are part of the same leg. The authoritative final
 refutation must be a **fresh session** (`converge-verify` as its own session, or
 `review`'s G5 pass run separately from the executor/work session). A different
-model family can be requested by a CALL or direction state for extra rigor, but
-it is not the default hard gate. State this in the parent's RESULT: which checks
+model or provider may add optional diversity when available, but model identity
+or availability never affects review eligibility and cannot block the leg. State
+this in the parent's RESULT: which checks
 were in-session pre-passes and which fresh session provides the binding review.
 
 ## 6. What never fans out

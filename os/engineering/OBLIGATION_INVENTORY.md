@@ -127,7 +127,7 @@ ceiling only after the corresponding obligations are proved removed.
 | X12 | The planner writes or commissions no RED tests. | `os/engineering/CONTOUR.md:35` |
 | X13a | The validator is fresh-context. | `os/engineering/CONTOUR.md:39` |
 | X13b | The validator is authoring-read-only. | `os/engineering/CONTOUR.md:39` |
-| X14 | At least one validation pass uses another model family. | `os/engineering/CONTOUR.md:39` |
+| X14 | Model identity and availability never gate review eligibility. | `os/engineering/CONTOUR.md:39` |
 | X15a | The test-author is not the builder. | `os/engineering/CONTOUR.md:45` |
 | X15b | The test-author is not the validator. | `os/engineering/CONTOUR.md:45` |
 | X16 | The builder cannot edit frozen independent tests. | `os/engineering/CONTOUR.md:43` |

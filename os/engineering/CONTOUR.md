@@ -36,7 +36,7 @@ RED-FREEZE, RED refutation and BUILD are separate sessions.
   product code or tests. For compiled v23 legs, the role override above replaces that direct handoff with
   SURFACE-FREEZE. Planning, surface authoring, RED authoring and building never share one session.
 - **Builder** — autonomous session(s), default-tier model, a FRESH session that reads the frozen plan and reviewed eligible RED commit (never the same session that planned). Never talks to the owner mid-run.
-- **Validator** — fresh-context, read-only (no Write/Edit), did not author the code; for at least one pass per feature — a different model family than the builder. Agents consistently overrate their own output; same-model self-review is a mirror, not a check.
+- **Validator** — fresh-context, read-only (no Write/Edit), did not author the code; independence is established by authorship, context and authority separation, never by model identity: equal builder/reviewer model provenance is legal, and model availability cannot block review or delivery.
 - **Test-author** — a separate RED-FREEZE session that, after the spec freezes and before BUILD, reads ONLY the frozen
   carrier for compiled v23 legs (the freeze commit/manifest, real public surface and decision page) and writes the
   complete `behavioral-red` test/support patch once as an immutable commit. It runs the repo's real
