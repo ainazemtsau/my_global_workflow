@@ -2,7 +2,7 @@
 
 date: 2026-07-16
 owner_verdict: `A`
-status: accepted Direction dispatch rule; product implementation exists, delivery BLOCKED; bounded repair A authorized
+status: DELIVERED and Direction-closed GREEN at published product main/dev@5cd18250; L1B product PLAN unblocked
 read_by: any Direction session preparing a GasCoopGame executor CALL; product-protocol installation and cleanup sessions
 
 ## Короткий вердикт
@@ -106,6 +106,26 @@ owner verdict `A`, KERNEL-правилом «Direction не диктует branc
 что отсутствующую historical start-of-task byte identity первой попытки восстановить нельзя; она не становится
 evidence задним числом. Character track остаётся PAUSED. До GREEN current-authority Deliver L1B product PLAN не
 открывается; broad cleanup/preservation project, новая topology/policy и characters/DA/L1B source остаются запрещены.
+
+## Product delivery и Direction close
+
+Owner-authorized bounded repair доставлен и опубликован на product
+`main == dev == origin/main == origin/dev @ 5cd182503d8f2d4f359eca63f8b0443fccbad7d4`. Committed product delta от
+`767a8f8f` содержит ровно canonical `Characters.meta`, canonical `Core/Field/NearGas.meta`, registry, product gas
+dashboard и два RESULT-документа; source, tests, scenes, packages, tools и gameplay behavior не менялись. Meta GUID:
+`25e9aebe0fc3aec489feb24efd8beb61` и `8050004b0bccd064885ab8cde51fb5f8`.
+
+Fresh product manifest сохраняет byte-level start/end identity всех семи legacy worktree/WIP, unrelated remote refs,
+Editor identity и L1a score/raw artifact. Closing product run до serial publication был GREEN: build, 1714/1714,
+79/79 negative controls, DF-5 и Unity EditMode 36/36; Stryker не запускался. Отдельная Direction close-сессия
+перепроверила current refs/checkouts/diff/meta blobs, заново получила build 1714/1714, hygiene/scans/DF-5 GREEN,
+79/79 GREEN, persisted Unity XML 36/36 и exact current-result gate GREEN.
+
+Post-publication повтор общего `-Deliver` при `HEAD == main` ожидаемо вошёл в документированный no-delta fallback и
+остановился на пяти старых malformed historical RESULT-файлах. Это не failure доставленной leg: сам gate прямо
+определяет feature-branch delta как normal mode, а для no-delta fallback проверяет весь исторический каталог;
+точечный current-leg result-check GREEN, оба checkout после проверки clean. Поэтому protocol open_call закрыт,
+L1B-PLAN разблокирован, но никакой L1B code/RED/BUILD этой приёмкой не запускался.
 
 ## Что исходная Direction repair-сессия НЕ делала
 
