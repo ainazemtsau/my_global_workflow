@@ -43,6 +43,10 @@ First created 2026-06-13 (GasCoopGame setup, indie-game-development/g-9c41). For
   dropped / Editor not launched ⇒ STOP and ask the owner to launch it (contract v16), never a scan
   stand-in.
 
+- **Contract v24 mutation scope:** `-Deliver` independently derives changed `Assets/<Game>/Core/**/*.cs` files from the authoritative review diff and fails before score comparison if any is absent from the report's normalized explicit `scopeFiles`. The fresh reviewer derives that scope and runs mutation; builder-authored globs/reports/scores are not evidence. The runner derives exact file inputs from the diff and defaults concurrency to `min(24, max(4, floor(logicalProcessors / 2)))` (explicit override recorded). Scope is file-scoped, not line-scoped: a touched hot core file is mutated whole and may still take a long time.
+
+**Contract v24 diff identity:** the run contract declares the integration-base ref and mutation-input roots (Core source, headless mutation tests/project, mutation/check tooling and config). Independent review evidence pins mutation-reviewed `H`; the report echoes `I` (current base-ref tip), `B = merge-base(I,H)`, and `H`. Deliver recomputes and exact-matches the tuple, rejects any dependency-root change after `H`, mutates rename destinations/current A/C/M/T Core files, and exact-matches deleted/rename-source Core paths in `removedFiles` before score.
+
 ## 3. Test layout
 - Headless core tests: `tests/<Game>.Core.Tests/` (`net8.0`, **NUnit** — same family as Unity's Test
   Framework, so assertions transfer). Run via `dotnet test`.

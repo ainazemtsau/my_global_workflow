@@ -35,7 +35,44 @@ No other setup. The session reads this file and runs the procedure below.
    **Semantic-review boundary:** when the job is to judge the meaning or completeness of a plan, spec, rule, review, or RESULT, the reviewer is the AI reading the authoritative artifacts. The session must not create or run a new script, parser, schema, regex scanner, conformance harness, or other executable proxy to make that judgment. Existing repo-native commands may establish objective facts only (for example exact SHA/ancestry, file existence, clean state, compilation, or test outcome). Any new process automation requires a separate owner-approved maintenance request that names one objective machine predicate; without that explicit approval, stop at a short proposal and do not build it.
 4. **Consistency sweep.** Grep every term/file the change touches and update all cross-references. If `os/adapters/SESSION_PAYLOAD.md` changed, say so explicitly in the reply — the owner must re-paste platform instructions (politely degradable, not urgent).
 5. **Verify.** Re-read the changed files end-to-end for contradictions; walk one affected scenario (use the validation trace in `os/docs/DESIGN.md` §4 as the test track). A change that can't survive the walkthrough doesn't ship.
-6. **Log & close.** Append the case to `os/FRICTION.md` with `→ fixed <commit>` (or `→ logged, watching` for (d)/(e)). **If the change hardened or added a load-bearing engineering gate** (CONTOUR / VALIDATION / PROJECT_SETUP / ESCAPE-CLASSES / a profile), bump `os/engineering/CONTRACT_VERSION` (`current:` + one log line) and name the product-repo §Re-sync as a follow-up — this is what makes the propagation visible (`collect`/`audit`/`digest` flag any repo left behind) instead of silently lagging. **If the case is a product DEFECT that reached a late stage** (owner-eye / independent review / post-merge), also name the CLASS it violated by its INVARIANT — never its surface site — and append it to `os/engineering/ESCAPE-CLASSES.md` with its witness, so the PLAN spec-silence audit (CONTOUR §b) asks it of every future feature of any direction; **a single past-the-test-author escape is a sufficient trigger** for this append (the one place the ≥2-entry threshold is waived — a class must not be allowed a second escape). Commit with a descriptive message. Reply to the owner with: what changed and where, why this is the smallest fix, anything the owner must do (usually nothing), and a one-line litmus to re-test it in his next chat.
+6. **Log & close.** Append the case to `os/FRICTION.md` with `→ fixed <commit>` (or `→ logged, watching` for (d)/(e)). **If the change hardened or added a load-bearing engineering gate** (CONTOUR / VALIDATION / PROJECT_SETUP / ESCAPE-CLASSES / a profile), bump `os/engineering/CONTRACT_VERSION` (`current:` + one version-map row) and name the product-repo §Re-sync as a follow-up — this is what makes the propagation visible (`collect`/`audit`/`digest` flag any repo left behind) instead of silently lagging. **If the case is a product DEFECT that reached a late stage** (owner-eye / independent review / post-merge), also name the CLASS it violated by its INVARIANT — never its surface site — and append it to `os/engineering/ESCAPE-CLASSES.md` with its witness, so the PLAN spec-silence audit (CONTOUR §b) asks it of every future feature of any direction; **a single past-the-test-author escape is a sufficient trigger** for this append (the one place the ≥2-entry threshold is waived — a class must not be allowed a second escape). Commit with a descriptive message. Reply to the owner with: what changed and where, why this is the smallest fix, anything the owner must do (usually nothing), and a one-line litmus to re-test it in his next chat.
+
+## Engineering obligation and reading budgets
+
+These clauses are binding interpretations of Procedure steps 2, 3, and 6:
+
+- **Trigger provenance.** Owner agreement with a mechanism first proposed by the session does not
+  retroactively turn that self-initiated improvement into the owner's original request. Unless the
+  owner named the underlying problem before the session proposed the mechanism, the improvement
+  remains self-initiated and still needs at least two FRICTION entries on the same point.
+- **Leg-obligation ceiling.** `os/engineering/OBLIGATION_INVENTORY.md` defines one leg obligation,
+  lists every current obligation by stable id, and records the maximum across applicable profiles.
+  The AI performs this semantic census by reading the authoritative files; no parser, regex scanner,
+  schema, or conformance program may decide the count. Every engineering-contract commit re-reads
+  its affected authority, records every obligation delta in the inventory, and recomputes the affected
+  profile totals; an omitted duty still counts and invalidates the change.
+- **Deletion-only at the ceiling.** The post-change maximum may not exceed the recorded ceiling. An
+  addition that would otherwise raise it is invalid unless the same commit names and removes enough
+  obligation ids from every authority to keep the maximum at or below that ceiling. Compression,
+  paraphrase, row-merging, or moving the duty elsewhere is not removal. This deletion-only rule
+  overrides the generic simplify-or-remove choice in Procedure step 3 at the ceiling.
+- **Mandatory-reading budget.** All tracked text under `os/engineering/**`, including the compact
+  contract map and the inventory, is mandatory reading with a ceiling of `25,726` words
+  at contract v26. The measurement is the whitespace-token count over the tracked files. Later
+  maintenance may not raise the ceiling; it may fall only after proved removal of text or duties,
+  never by packing duties into longer lines. Git history is the evidence store for retired narrative
+  and must not be copied back into the mandatory-reading surface.
+- **Resolvable witness.** A claimed witness is evidence only when it resolves as a concrete
+  `path:line` or Git SHA in the repository named with it. Prose, an unresolved filename, an
+  approximate line count, or a repository-less hash is not a witness.
+- **Temporary-mechanism retirement.** A temporary engineering obligation names
+  `retire_on: <specific leg/CALL>`, and that leg's `done_when` requires removal from every authority
+  and the inventory. The named leg is not done while retirement remains future cleanup; a watching
+  note or a voluntary later maintenance session is not a retirement owner.
+- **Reflexive repair.** A defect found in this budget/inventory mechanism while applying it may be
+  repaired in the same maintenance session. It is part of the same problem, not a second unrelated
+  improvement. `OBLIGATION_INVENTORY.md` is load-bearing engineering contract: a change to its
+  ceiling or semantics follows the Procedure step-6 version bump and product Re-sync rule.
 
 ## Boundaries
 

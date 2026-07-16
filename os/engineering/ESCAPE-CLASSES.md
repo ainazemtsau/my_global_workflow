@@ -79,13 +79,6 @@ Format: `Class (invariant) | Standing question the §b audit must answer for thi
 |---|---|---|---|
 | **Evidence-class integrity / prose testability is not authored RED** | Are mixed rows split and is each atomic obligation classified once as behavioral RED or real non-test evidence? Does every behavioral obligation exist in the one independent immutable RED commit, while process order, structural review, owner verdicts and final gates stay outside the test numerator? | separate RED-FREEZE commit plus the repo-native compiler/test runner, then a fresh artifact-backed refutation; BUILD pins and reuses the reviewed commit | GasCoopGame NearGas v21: binding semantic review reported 29/29, but EXECUTE-003 returned 0/29 and no commit because AR-01/06/12/13 were process/structural/gate obligations and F5/CsCheck still required guessed executable APIs |
 
-**v24 semantic-artifact applicability.** The witnessed `Evidence-class integrity / prose testability is not authored
-RED` row is an executable-carrier question. A declared semantic-artifact leg marks it `n/a because no repo-native
-executable behavior subject` and uses the fresh actual-diff review in CONTOUR v24. It must not satisfy that row by
-atomizing prose, inventing RED, or creating an obligation inventory. Other registry rows are considered only when the
-approved PLAN/authority makes their underlying invariant applicable to the semantic artifact; they are not a mandatory
-row-by-row pre-build walk in this lane.
-
 ## Honest ceiling (do not over-claim)
 
 This forces the right *question* and a fail-capable catcher that fires where the bug lives. It does

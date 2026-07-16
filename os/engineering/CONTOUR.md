@@ -14,45 +14,7 @@ Companion files: `PROJECT_SETUP.md` (bootstrap a product repo), `VALIDATION.md` 
 
 ## Roles (always separated)
 
-### Contract v24 semantic-artifact override
-
-This route applies only when the repository profile and owner-approved setup/re-sync explicitly declare
-`lane: semantic-artifact` and `carrier: n/a — no repo-native executable behavior subject`: the product is
-Markdown/YAML/instructions or procedures interpreted by an AI, not compiled/runtime behavior. Applicability is per
-change. If a change adds a repo-native executable behavioral subject, that change uses the applicable executable
-route; the repository name or file extension is not a waiver.
-
-The two recorded routing values are exactly `lane: semantic-artifact` and `carrier: n/a-semantic-artifact`. Any longer
-wording that explains why the carrier is N/A is rationale outside the value, never an alternate token.
-
-For an eligible semantic-artifact leg, this subsection supersedes the legacy atomic-obligation inventory,
-spec-to-carrier, SURFACE-FREEZE, RED-FREEZE and RED-refutation requirements below. The operative path is:
-
-```
-PLAN -> BUILD candidate -> repo-native mechanical checks -> binding fresh artifact review -> REPORT
-```
-
-- **PLAN** is the owner-approved plan already natural to the task (CALL, OpenSpec plan, or another declared planning
-  artifact). v24 adds no template, mandatory question set, atomic inventory or second plan representation. A separate
-  pre-build plan review runs only when the CALL or owner explicitly requires it; the default approved PLAN hands
-  directly to a separate BUILD session. On v22 migration, old obligation-inventory and RED-stage sections remain
-  historical process evidence, not v24 comparison requirements; re-sync names the owner-approved outcome, decisions
-  and boundaries that still form the baseline without re-atomizing them.
-- **BUILD** edits the real semantic artifact. Mechanical checks may prove only wiring facts such as parseability,
-  required paths, citations and trailers; they may not judge meaning with a parser/scanner or masquerade as behavior
-  evidence.
-- **One fresh read-only reviewer after the candidate** may satisfy both G4 and the binding fresh-session KERNEL-G5.
-  It compares (1) task/CALL and owner decisions to PLAN, (2) PLAN to the actual commit/diff, and (3) the changed files
-  to applicable authorities and neighboring current files. It uses the verification method already named by the
-  PLAN/artifact type; it does not invent a universal user outcome, test matrix or evidence inventory.
-- A blocking finding must cite the governing source/authority, the exact changed site or concrete omission/
-  contradiction/material ambiguity, and the consequence for the task or artifact. “This verb/status/SHA/ban/command/
-  report field could be split or described more atomically” is not a defect by itself. Suggestions without that
-  source-backed consequence are non-blocking and cannot trigger PLAN-AMEND or another review round.
-
-Review evidence, actual-diff freshness, bounded rounds, owner decisions, repo-local authority, closing REPORT and all
-honest STOP/escalation rules remain. The simplification removes correlated pre-build prose reviews; it does not remove
-independent review of the artifact that will actually be used.
+**Validator write boundary (contract v24).** "Read-only" forbids the validator from authoring or editing source, tests, specs, rules, and evidence. It may invoke declared validation runners whose only writes are generated evidence artifacts/caches; it never edits those outputs.
 
 ### Contract v23 roles for compiled product-code legs
 
@@ -85,14 +47,17 @@ RED-FREEZE, RED refutation and BUILD are separate sessions.
   one artifact neither the frozen spec nor the pre-code pass could see — for new throw-paths, seams, order-dependencies,
   and derived-value ranges the implementation introduced, and appends property tests for them before REPORT.
 
+**Mutation-review duty (contract v24).** For G2 the validator independently derives the changed mutation-eligible Core/source files from the authoritative diff and runs mutation; a builder-produced scope, report, or score is not evidence. Runner-generated output does not authorize source, test or rule edits.
+
+**Mutation diff identity (contract v24).** Independent review evidence pins mutation-reviewed `H`; the report only echoes repo-derived `I` (declared integration-base tip), `B = merge-base(I,H)`, and `H`. Deliver recomputes and exact-matches them, rejects mutation-input changes after `H`, and handles renames/deletions per VALIDATION before it reads score.
+
 **Extension rule.** Existing product code may already exist. Under v23 the carrier pins real existing signatures by
 commit instead of copying constructors and harness facts into prose. The test-author never invents a test-local
 substitute for an absent production fixture or API; a missing construction or observation surface stops the leg.
 
 **Applicability.** SURFACE-FREEZE is the carrier only for compiled product-code legs where a repo-native compiler can
-check the public surface. A non-compiled repository with a native executable behavioral subject uses its native
-carrier. An AI-interpreted Markdown/YAML repository may instead take the v24 semantic-artifact route only through the
-explicit owner-approved lane/carrier declaration above; it never copies C# skeleton mechanics by analogy.
+check the public surface. A markdown or other non-compiled repository must not copy the C# skeleton mechanics: it
+needs its own native executable carrier, or an explicit `n/a` / separate owner decision at that repository's re-sync.
 
 ## The cycle
 
@@ -133,9 +98,8 @@ commit/diff and runner evidence before BUILD. A green/red count by itself proves
 correctness. BUILD pins both reviewed commits, keeps frozen RED unchanged, and may implement internal HOW within the
 approved plan; a required public-surface change stops and re-freezes the carrier before a newly independent RED pass.
 
-The legacy cycle text below remains authority where neither the v23 compiled override nor the v24 semantic-artifact
-override applies. Its direct PLAN-to-RED, spec-only test-author and compile-RED allowances describe v22 history and
-MUST NOT execute for a compiled v23 leg or an eligible v24 semantic-artifact leg.
+The legacy cycle text below remains authority for every other gate and artifact, but its direct PLAN-to-RED,
+spec-only test-author and compile-RED allowances describe v22 history and MUST NOT execute for a compiled v23 leg.
 
 ```
 CALL (business task from a direction)
@@ -360,11 +324,9 @@ The owner returns to a finished, verified change and checks the evidence, not ev
 
 ## Non-negotiables (mechanical, enforced by hooks/CI — not prose)
 
-1. Evidence matches the venue. Executable behavior needs its real machine-runnable check before build; a declared
-   semantic artifact needs the owner-approved PLAN plus one fresh, source-backed review of the actual candidate diff.
-   Wiring smoke checks never become semantic or behavior evidence.
+1. No machine-runnable check → no autonomy. Every feature ships with its check before build starts.
 2. Builder cannot weaken the oracle: tests/ledger/spec edits by the builder fail the run.
-3. Validator is read-only and fresh-context, always.
+3. Validator is authoring-read-only and fresh-context, always: it may run declared validators that generate evidence artifacts/caches, but never authors or edits source, tests, specs, rules, or the generated evidence.
 4. All exploratory artifacts (scripts, test scenes) go to the single scratch dir; nothing from it reaches a commit.
 5. Done = gates green + evidence attached. A narrative claim is not done.
 6. Closing artifact is a CHECK, not prose: a leg cannot merge/deliver unless its RESULT exists at the known repo path with its required fields (a prose summary fails the check). Owner signals ("finish it", "merged?", "summary") TRIGGER the report, never replace it; the builder never authors the next CALL (continuation is the direction's, KERNEL §4).

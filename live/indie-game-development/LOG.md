@@ -271,4 +271,6 @@ archived: history/LOG-archive-indie-game-development.md — sessions before 2026
 
 2026-07-15 — work/close (g-9c41/NearGas-L1-BUILD, s-work-near-gas-l1-experimental-close-001): NearGas L1a delivered and pushed through the owner-authorized experimental skeleton→independent RED→BUILD→refutation route @400ef8ec; binding fresh G5 PASS, full gates green, old v22 packet/carrier retired, mutation 72.78 retained without rerun, B1 maintenance unblocked and L1b remains separate. → history/2026-07-15-s-work-near-gas-l1-experimental-close-001.md
 
+2026-07-15 — repair/checkpoint (g-d3a8/canon-track-routing, s-repair-canon-chat-routing-001): owner corrected a misrouted g-9c41 review; no M1 verdict or state change was accepted, the engineering review remains pending separately, and the chat returns to existing paper-only canon CALL c-research-q-coop-interdependence-002. → history/2026-07-15-s-repair-canon-chat-routing-001.md
+
 END_OF_FILE: live/indie-game-development/LOG.md
