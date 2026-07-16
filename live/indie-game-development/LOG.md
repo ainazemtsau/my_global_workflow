@@ -285,4 +285,6 @@ archived: history/LOG-archive-indie-game-development.md — sessions before 2026
 
 2026-07-16 — local/canon-cartography close (g-d3a8/c-cartography-g-d3a8-current-question-front-001, s-cartography-g-d3a8-current-question-front-001): owner approved the corrected current question map — old question documents are historical evidence only; P0 preserves common returned-gas value and the mandatory artifact line without fixing their form; Q1 Simple Gas Extraction is the sole ready design question, with Simple Suction Bubble as owner-origin input rather than a selected answer; exact carry/helper count/scaling are downstream, co-op composition is proof_later, the stale co-op CALL is replaced by owner-present P0→Q1 Canon Forge, and Frame/TREE/CHARTER/canon/product/Sc-damage remain unchanged. → history/2026-07-16-s-cartography-g-d3a8-current-question-front-001.md
 
+2026-07-16 — work/checkpoint (g-9c41/worktree-protocol-v2-install, s-work-gascoopgame-worktree-protocol-v2-blocked-001): product protocol implementation dev@767a8f8f reconciled BLOCKED on live-dev DF-5 and missing historical byte proof; owner scope-stop prevented preservation/topology expansion, characters are PAUSED, L1B-PLAN stays blocked, and one owner A/B decision is next. → history/2026-07-16-s-work-gascoopgame-worktree-protocol-v2-blocked-001.md
+
 END_OF_FILE: live/indie-game-development/LOG.md

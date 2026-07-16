@@ -2,14 +2,16 @@
 
 date: 2026-07-16
 owner_verdict: `A`
-status: accepted Direction dispatch rule; product installation is a separate HELD executor CALL
+status: accepted Direction dispatch rule; product implementation exists on dev, delivery BLOCKED on live-dev gates
 read_by: any Direction session preparing a GasCoopGame executor CALL; product-protocol installation and cleanup sessions
 
 ## Короткий вердикт
 
 Код NearGas L1a и product `main` не потеряны. Рассинхронизировалась диспетчеризация: старая Direction-карта
-назначает постоянные feature-worktrees, тогда как current product authority v26 назначает один persistent `dev`
-и integration-only `main`. Владелец выбрал **A — product-owned single mutable venue v2**.
+назначает постоянные feature-worktrees, тогда как current product authority v26 назначает persistent `dev`
+и integration-only `main`. Владелец выбрал **A — product-owned venue authority v2**, а позднее уточнил:
+«процесс должен быть рассчитан на параллельные треки». Поэтому disjoint product legs разрешаются только через
+committed pre-write admission; один Unity Editor, registry mutation и integration остаются последовательными.
 
 С этого решения `knowledge/g9c41-lanes-venues.md` — историческая карта и **не launch authority**. Файл этой
 repair-сессией не переписывается: play `repair` не пишет `knowledge/`. Его dispatch-смысл superseded фактическим
@@ -25,8 +27,10 @@ owner verdict `A`, KERNEL-правилом «Direction не диктует branc
 3. **Durable truth** — commit + committed evidence. Имя папки не доказывает branch или статус работы.
 4. `main` — clean/read-only integration, без product edits и без Unity. `dev` — единственный долгоживущий
    mutable Unity+MCP workspace.
-5. Одновременно мутирует продукт ровно один product leg. Короткоживущий clean evidence checkout допустим только
-   для fresh review/mutation evidence и удаляется после возврата evidence; это не постоянный feature-worktree.
+5. Несколько disjoint product legs могут мутировать параллельно только после отдельной committed pre-write admission
+   каждого leg в canonical registry. Registry transitions, единственный live Unity Editor и integration сериализованы.
+   Короткоживущий clean evidence checkout допустим только для fresh review/mutation evidence и не заменяет closing
+   gate на integrated `dev`; это не постоянный feature-worktree.
 6. Legacy checkout получает один статус: `ACTIVE-EXCEPTION`, `FROZEN`, `FORENSIC` или `RETIRE-CANDIDATE`.
    Reset/delete/move/rebase/merge разрешены только после lossless preservation proof и отдельного owning CALL.
 
@@ -67,10 +71,11 @@ owner verdict `A`, KERNEL-правилом «Direction не диктует branc
 
 ## Обязательная миграционная последовательность
 
-1. До завершения character repair-002 все product protocol/cleanup mutations `HELD`. L1B acceptance остаётся
-   Direction-only и идёт независимо.
-2. Перед первым L1B product executor установить product-owned protocol/registry по
-   `c-exec-gascoopgame-worktree-protocol-v2-001`; этот шаг не чистит worktrees.
+1. Character repair-002 явно `PAUSED BY OWNER` словами «можно поставить на паузу»; он не является runnable gate и
+   не может незаметно возобновиться. L1B acceptance остаётся Direction-only и уже frozen 5/5.
+2. Перед первым L1B product executor product-owned protocol/registry должен получить честный GREEN delivery.
+   Первая попытка `c-exec-gascoopgame-worktree-protocol-v2-001` установила implementation, но закрылась BLOCKED;
+   product launch не открыт.
 3. Отдельно disposition'ить два разных `Characters.meta` GUID (`dev` и `p2a0_002`) и `NearGas.meta`; никакая
    repair/cleanup сессия не выбирает GUID сама.
 4. Сделать lossless preservation proofs для current Core dirt, `lab`, `dev_2`, `pgg_spike` и при необходимости
@@ -80,10 +85,24 @@ owner verdict `A`, KERNEL-правилом «Direction не диктует branc
 6. `p2a0_002` снимается только после Direction close + binding G5 + owning merge/disposition. `dev_2` — только
    после fresh visual plan. `lab` — только после explicit forensic-release. `core` — только после complete snapshot.
 
-## Что эта repair-сессия НЕ делала
+## Product checkpoint 2026-07-16
+
+- Implementation chain на `dev`: `d333dbdf` → committed admission `141bcdfa` → P1 fix `59a54b11` → initial
+  report `0662f0e2` → truthful blocker report `767a8f8f`.
+- Committed delta ограничена `AGENTS.md`, ADR-P-0009, registry, product dashboard и RESULT; game source, tests,
+  assets, scenes и packages не менялись. В `main` ничего не слито и в remote ничего не отправлено.
+- Live-dev `tools/check.ps1 -Deliver` прошёл build, 1714/1714 tests, hygiene и scans, затем честно остановился на
+  DF-5 из-за preserved untracked `Characters.meta` и `Core/Field/NearGas.meta` под guarded root.
+- Clean exact-commit checkout отвергнут как ложная подмена integrated-dev gate. Для прочих dirty legacy worktrees
+  исходная сессия сохранила status/count evidence, но не точные start-of-task content identities; ретроактивная
+  byte-identity не фабрикуется.
+- По owner scope-stop не открыт preservation project, не построена новая topology, не запущены characters/DA/L1B
+  и не сделан ни один выбор по `.meta`. Следующий шаг — только owner-present A/B по узкому repair.
+
+## Что исходная Direction repair-сессия НЕ делала
 
 Ни один product file, branch, index, worktree, lockfile, `.meta`, raw report, Unity process, remote ref или score
-не был изменён. Протокол установлен только как owner-approved Direction dispatch rule; product installation —
-отдельный HELD CALL.
+не был изменён. Она установила только Direction dispatch rule; последующая product-попытка и её BLOCKED evidence
+зафиксированы отдельным checkpoint выше.
 
 END_OF_FILE: live/indie-game-development/work/gascoopgame-worktree-protocol-v2.md

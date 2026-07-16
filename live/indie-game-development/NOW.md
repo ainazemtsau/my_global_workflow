@@ -1,5 +1,5 @@
 # NOW: indie-game-development
-updated: 2026-07-16 by s-cartography-g-d3a8-current-question-front-001
+updated: 2026-07-16 by s-work-gascoopgame-worktree-protocol-v2-blocked-001
 
 bet:
   node: g-9c41
@@ -44,7 +44,7 @@ tasks:
     goal: "[executor] Owner-approved product PLAN фиксирует evaluator, rollback и disjoint observation ownership без authority/Unity/C1/L2 expansion."
     done_when: "PLAN frozen по current v26 contract; владелец принял; next handoff соблюдает compiled-carrier/RED guards."
     status: blocked
-    unblock_when: "c-exec-gascoopgame-worktree-protocol-v2-001 вернулся HOME; он сам ждёт close или owner-pause c-exec-char-v2-reaction-core-repair-002."
+    unblock_when: "Owner-present c-repair-gascoopgame-worktree-protocol-v2-blocker-001 даёт явный verdict, затем отдельный узкий product repair/close возвращает GREEN live-dev Deliver; до этого L1B product CALL запрещён."
   - id: L1B-Capture
     goal: "[executor] Retry snapshot и fault injection дают стабильное пассивное наблюдение реального L1a path."
     done_when: "Genuine RED ловит retry/fault planted controls; delivery не меняет L1a result/order/atomicity."
@@ -63,16 +63,18 @@ tasks:
     status: open
 
 open_calls:
-  - id: c-exec-gascoopgame-worktree-protocol-v2-001
-    to: executor
-    for: g-9c41 / product-owned single mutable venue v2 contract and registry
+  - id: c-repair-gascoopgame-worktree-protocol-v2-blocker-001
+    to: session
+    for: g-9c41 / owner disposition of guarded-meta and evidence blockers
     issued: 2026-07-16
     note: |
-      HELD until c-exec-char-v2-reaction-core-repair-002 closes or the owner explicitly pauses it; MUST RETURN HOME
-      before the first NearGas L1B product executor CALL. Owner selected A: Direction no longer dispatches by the
-      stale permanent-lane map or dictates local branches/paths/SHAs; current product v26 stays authority until this
-      process/docs-only install lands. No cleanup/reset/delete/move/rebase/merge, no meta choice, no mutation rerun
-      and no WIP change. work/c-exec-gascoopgame-worktree-protocol-v2-001-call.md;
+      READY / OWNER-PRESENT / DECISION-ONLY. Product protocol implementation exists on dev@767a8f8f, but delivery
+      is honestly BLOCKED: live-dev -Deliver is RED at DF-5 on two preserved untracked folder metas, and the original
+      leg lacks exact start-of-task content identities for other dirty legacy worktrees. Clean exact-commit evidence
+      checkout cannot substitute for the required integrated-dev gate. This CALL chooses only whether to authorize
+      one bounded successor repair or keep product launch blocked; it performs no product write, cleanup, manifest
+      reconstruction, characters/DA/L1B work or gate weakening.
+      work/c-repair-gascoopgame-worktree-protocol-v2-blocker-001-call.md;
       work/gascoopgame-worktree-protocol-v2.md.
   - id: c-research-level-module-standard-v1-001
     to: research
@@ -128,7 +130,8 @@ open_calls:
     for: g-6d4e / В2 Leg 1 — close the un-gated-seed CLASS (repair-001 was RED; owner chose option A)
     issued: 2026-07-15
     note: |
-      RUNNABLE (character track, parallel). Supersedes c-exec-char-v2-reaction-core-repair-001, which is CONSUMED
+      PAUSED BY OWNER — exact words: «можно поставить на паузу». Do not dispatch or mutate the character track.
+      When explicitly resumed, this CALL supersedes c-exec-char-v2-reaction-core-repair-001, which is CONSUMED
       and CLOSED-RED. Chain: binding G5 found R1 → repair-001 (b6c6f2b7) → cross-family G4 (Codex, the FIRST
       independent family on this code) returned RED → the G5 session CONFIRMED Codex with its own differential
       probe → AGENTS.md "same failure class twice = stop" fired → owner decided **option A**.
@@ -191,6 +194,6 @@ decisions:
     recommendation: "Доступная физическая машина; газ CPU-bound, поэтому CPU должен быть назван явно."
 
 next:
-  CALL: work/c-exec-gascoopgame-worktree-protocol-v2-001-call.md
+  CALL: work/c-repair-gascoopgame-worktree-protocol-v2-blocker-001-call.md
 
 END_OF_FILE: live/indie-game-development/NOW.md
