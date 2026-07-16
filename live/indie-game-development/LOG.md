@@ -283,4 +283,6 @@ archived: history/LOG-archive-indie-game-development.md — sessions before 2026
 
 2026-07-16 — work/accept (g-9c41/L1B-Acceptance, s-work-near-gas-l1b-acceptance-001): владелец «accepted» — frozen acceptance 5/5 отличает actual L1a path от surrogate и fail-closed ловит observer effect/cuts; product PLAN не выпущен, потому что owner-approved worktree-protocol-v2 обязан вернуться первым, поэтому L1B-PLAN blocked. → history/2026-07-16-s-work-near-gas-l1b-acceptance-001.md
 
+2026-07-16 — local/canon-cartography close (g-d3a8/c-cartography-g-d3a8-current-question-front-001, s-cartography-g-d3a8-current-question-front-001): owner approved the corrected current question map — old question documents are historical evidence only; P0 preserves common returned-gas value and the mandatory artifact line without fixing their form; Q1 Simple Gas Extraction is the sole ready design question, with Simple Suction Bubble as owner-origin input rather than a selected answer; exact carry/helper count/scaling are downstream, co-op composition is proof_later, the stale co-op CALL is replaced by owner-present P0→Q1 Canon Forge, and Frame/TREE/CHARTER/canon/product/Sc-damage remain unchanged. → history/2026-07-16-s-cartography-g-d3a8-current-question-front-001.md
+
 END_OF_FILE: live/indie-game-development/LOG.md

@@ -1,5 +1,5 @@
 # NOW: indie-game-development
-updated: 2026-07-16 by s-work-near-gas-l1b-acceptance-001
+updated: 2026-07-16 by s-cartography-g-d3a8-current-question-front-001
 
 bet:
   node: g-9c41
@@ -83,19 +83,26 @@ open_calls:
       produce the two-contract Standard v1 candidate, validator/fixture matrices and old-task disposition package.
       No product/Unity/PLAN/BUILD, no Phase 0 revival, no owner acceptance implied.
       work/c-research-level-module-standard-v1-001-call.md.
-  - id: c-research-q-coop-interdependence-002
+  - id: c-research-q-simple-gas-extraction-001
     to: session
-    for: g-d3a8 / co-op composition question
-    issued: 2026-07-14
+    for: g-d3a8 / P0 Frame alignment + Q1 Simple Gas Extraction
+    issued: 2026-07-16
     note: |
-      READY PARALLEL / PAPER-ONLY: g-d3a8 Frame-v2 reconciliation
-      closed owner-approved. Resume the exact preserved co-op
-      composition question under Frame v2 and the mandatory
-      eight-player requirement. It may return an
-      OWNER-SELECTED PAPER ANSWER or an honest block; canon admission
-      remains a separate owner-present CALL and Sc-damage remains
-      HELD. Full CALL:
-      history/2026-07-14-s-repair-minimum-game-frame-v2-001.md.
+      READY PARALLEL / OWNER-PRESENT / PAPER-ONLY.
+      Owner-approved current question map replaces the premature
+      co-op-composition front. Route = P0 bounded Gate F alignment,
+      then Q1 Simple Gas Extraction if the frame is READY:
+      minimal obvious extraction into a growing Bubble, visible
+      field/Bubble change and the choice "where / how much / when
+      to stop". Simple Suction Bubble is owner-origin input only,
+      not selected. Old question documents are historical evidence
+      only. Exact carry, helper count, scaling, roster, damage,
+      economy, artifacts, networking and implementation remain
+      outside Q1; co-op composition is proof_later; Sc-damage stays
+      HELD. CALL:
+      work/c-research-q-simple-gas-extraction-001-call.md.
+      Map:
+      work/canon-maps/g-d3a8-current-question-front-v1.md.
   - id: c-exec-unity65-mac-revision-002-build-001
     to: executor
     for: g-9c41 / local .NET gate runner prerequisite
