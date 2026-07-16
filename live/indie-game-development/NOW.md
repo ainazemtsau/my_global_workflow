@@ -1,5 +1,5 @@
 # NOW: indie-game-development
-updated: 2026-07-16 by s-repair-level-module-standard-v1-owner-acceptance-001
+updated: 2026-07-16 by s-research-q-simple-gas-extraction-001
 
 bet:
   node: g-9c41
@@ -74,26 +74,24 @@ open_calls:
       no characters/DA and no retired v22 authority. Product root AGENTS + canonical registry own fresh admission,
       venue, branch and integration mechanics. work/c-exec-near-gas-l1b-plan-001-call.md;
       work/neargas-l1b-acceptance.md; work/gascoopgame-worktree-protocol-v2.md.
-  - id: c-research-q-simple-gas-extraction-001
+  - id: c-research-extraction-concept-landscape-001
     to: session
-    for: g-d3a8 / P0 Frame alignment + Q1 Simple Gas Extraction
+    for: g-d3a8 / high-level gas-extraction concept landscape
     issued: 2026-07-16
     note: |
-      READY PARALLEL / OWNER-PRESENT / PAPER-ONLY.
-      Owner-approved current question map replaces the premature
-      co-op-composition front. Route = P0 bounded Gate F alignment,
-      then Q1 Simple Gas Extraction if the frame is READY:
-      minimal obvious extraction into a growing Bubble, visible
-      field/Bubble change and the choice "where / how much / when
-      to stop". Simple Suction Bubble is owner-origin input only,
-      not selected. Old question documents are historical evidence
-      only. Exact carry, helper count, scaling, roster, damage,
-      economy, artifacts, networking and implementation remain
-      outside Q1; co-op composition is proof_later; Sc-damage stays
-      HELD. CALL:
-      work/c-research-q-simple-gas-extraction-001-call.md.
-      Map:
-      work/canon-maps/g-d3a8-current-question-front-v1.md.
+      READY PARALLEL / OWNER-PRESENT / HIGH-LEVEL RESEARCH.
+      Gate F remains FRAME READY from owner words «Вариант A»; bounded
+      P0 economy/artifact wording is not a prerequisite for extraction.
+      The prior Simple Gas Extraction question is CLOSED / QUESTION
+      BLOCKED at the wrong altitude by the owner's correction. Before
+      another bounded Canon Forge question is opened, explore the whole
+      extraction mechanic: tool, Bubble/Ball identity, primary physical
+      verb, visible gas/Bubble transformation, broad decision sources and
+      concept families. Simple Suction Bubble is owner-origin input only,
+      not selected. No canon or implementation; exact controls, capacity,
+      carry, helper count, scaling, roster, economy, artifacts, damage,
+      networking and balance remain OPEN. Sc-damage stays HELD. CALL:
+      work/c-research-extraction-concept-landscape-001-call.md.
   - id: c-exec-unity65-mac-revision-002-build-001
     to: executor
     for: g-9c41 / local .NET gate runner prerequisite
@@ -183,6 +181,6 @@ decisions:
     recommendation: "Доступная физическая машина; газ CPU-bound, поэтому CPU должен быть назван явно."
 
 next:
-  CALL: work/c-exec-near-gas-l1b-plan-001-call.md
+  CALL: work/c-research-extraction-concept-landscape-001-call.md
 
 END_OF_FILE: live/indie-game-development/NOW.md

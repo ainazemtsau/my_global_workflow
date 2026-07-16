@@ -299,4 +299,6 @@ archived: history/LOG-archive-indie-game-development.md — sessions before 2026
 
 2026-07-16 — repair/accept (g-9c41/Level-DA-PGG-Standard-v1, s-repair-level-module-standard-v1-owner-acceptance-001): владелец принял Level/Module Standard v1 как архитектурную основу с D1=A / D2=A и обязательным LV0 freeze восьми implementation-правил; Level PLAN/BUILD не открыт, NearGas bet/tasks/open_calls/NOW.next и product/canon/TREE/CHARTER/knowledge не изменены. → history/2026-07-16-s-repair-level-module-standard-v1-owner-acceptance-001.md
 
+2026-07-16 — local/canon-forge block (g-d3a8/Simple Gas Extraction, s-research-q-simple-gas-extraction-001): extraction Canon Forge остановлен QUESTION BLOCKED на неверной высоте; владелец перенаправил работу к высокоуровневому research всей концепции добычи до нового bounded paper question. → history/2026-07-16-s-research-q-simple-gas-extraction-001.md
+
 END_OF_FILE: live/indie-game-development/LOG.md
