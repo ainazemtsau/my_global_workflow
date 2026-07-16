@@ -1,5 +1,5 @@
 # NOW: indie-game-development
-updated: 2026-07-16 by s-research-level-module-standard-v1-001
+updated: 2026-07-16 by s-repair-level-module-standard-v1-owner-acceptance-001
 
 bet:
   node: g-9c41

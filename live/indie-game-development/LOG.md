@@ -297,4 +297,6 @@ archived: history/LOG-archive-indie-game-development.md — sessions before 2026
 
 2026-07-16 — repair/close (g-9c41/dashboard-truth, s-repair-direction-neargas-dashboard-truth-001): владелец «A» синхронизировал Direction и NearGas owner panels с protocol RELEASED@5cd18250 и L1B PLAN ADMITTED-ACTIVE@accc677d / final verdict pending; P0→Q1 восстановлен, character pause показан, canon-board render drift оставлен честно OPEN. → history/2026-07-16-s-repair-direction-neargas-dashboard-truth-001.md
 
+2026-07-16 — repair/accept (g-9c41/Level-DA-PGG-Standard-v1, s-repair-level-module-standard-v1-owner-acceptance-001): владелец принял Level/Module Standard v1 как архитектурную основу с D1=A / D2=A и обязательным LV0 freeze восьми implementation-правил; Level PLAN/BUILD не открыт, NearGas bet/tasks/open_calls/NOW.next и product/canon/TREE/CHARTER/knowledge не изменены. → history/2026-07-16-s-repair-level-module-standard-v1-owner-acceptance-001.md
+
 END_OF_FILE: live/indie-game-development/LOG.md

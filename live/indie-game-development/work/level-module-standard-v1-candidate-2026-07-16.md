@@ -1,9 +1,16 @@
-# Level / Module Standard v1 — evidence-backed candidate
+# Level / Module Standard v1 — owner-accepted architectural basis
 
-status: CANDIDATE / NOT ACCEPTED / DIRECTION RESEARCH ONLY
+status: OWNER-ACCEPTED ARCHITECTURAL BASIS / D1=A / D2=A / NOT BUILD AUTHORITY
 date: 2026-07-16
 session: s-research-level-module-standard-v1-001
-scope: project-owned level/module contracts, normalization and validation; no product, Unity, PLAN or BUILD authority
+accepted: 2026-07-16 by owner; recorded by s-repair-level-module-standard-v1-owner-acceptance-001
+owner_verdict: |
+  «Кандидат Level/Module Standard v1 принимаю как архитектурную основу. D1=A, D2=A. Canonical encoding,
+  shared-surface ownership, socket terminal states, transform rules, deterministic build input,
+  registries/versioning, sampler authority и size/time ceiling должны быть явно заморожены в owner-approved
+  LV0 PLAN. Это не разрешение на BUILD»
+scope: project-owned level/module contracts, normalization and validation; no product/Unity mutation and no automatic PLAN or BUILD launch authority
+lv0_freeze_required: canonical encoding; shared-surface ownership; socket terminal states; transform rules; deterministic build input; registries/versioning; sampler authority; size/time ceiling
 
 ## 0. Короткий вывод
 
@@ -16,8 +23,10 @@ level. Поэтому Standard v1 должен добавить ровно дв�
 2. **Built Level Manifest** — project-owned нормализованная правда конкретной собранной level instance после любой
    композиции и до существующих topology/voxel/feature consumers.
 
-Все новые имена, поля, error codes и fixture details ниже — **кандидат**, не owner-approved architecture. Принятыми
-остаются только явно процитированные Direction decisions и evidence.
+Владелец принял этот целостный shape как **архитектурную основу** и выбрал D1=A / D2=A. Это не превращает
+предложенные имена полей, byte encoding, registry/version rules или implementation split в уже замороженный product
+spec: точные code-facing решения перечислены в `lv0_freeze_required` и обязаны получить отдельное owner approval в
+LV0 PLAN. Acceptance не выпускает LV0 CALL автоматически и не разрешает BUILD.
 
 ## 1. Current-truth inventory
 
@@ -230,8 +239,8 @@ gameplay, networking, destruction or common-scene delivery.
 | `c-exec-level-platform-phase1-plan-001` | **replace** | `SUPERSEDED / NEVER ISSUE`; dead Phase0, v19, fixed lane-D and 13-leg assumptions cannot be repaired in place. Detailed requirements feed the successor. |
 | `c-work-poligon-m1-integration-route-001` / accepted route | **keep-evidence / consumed** | Owner-accepted LV0→LV5 sequence and cuts remain direction truth; it authorizes no product work. |
 | Legacy gate `fresh v21 + verified lane D worktree` | **replace current dispatch meaning** | Record as historical safety intent. As of 2026-07-16 current contract is v26 and product protocol owns venue/pre-write admission; Direction must request current-contract/fresh-admission evidence, not prescribe `GasCoopGame_levels`. |
-| `c-research-level-module-standard-v1-001` | **complete / return to parent** | This candidate, matrices, decisions and ledger are evidence only; no acceptance or product leg follows automatically. |
-| LV0 — fresh owner-approved PLAN | **held** | Waits owner disposition of this candidate, fresh current product-contract/code readback and product-owned pre-write admission. PLAN only; BUILD separate. |
+| `c-research-level-module-standard-v1-001` | **complete / owner-disposed** | Research returned the candidate; owner later accepted it as architectural basis with D1=A / D2=A. No product leg follows automatically. |
+| LV0 — fresh owner-approved PLAN | **held / not issued** | Candidate disposition is cleared, but LV0 still needs explicit routing, fresh current product-contract/code readback and product-owned pre-write admission. It must freeze canonical encoding, shared-surface ownership, socket terminal states, transform rules, deterministic build input, registries/versioning, sampler authority and size/time ceiling. PLAN only; BUILD separate. |
 | LV1 — Project Level/Module Contract | **held behind LV0** | First product outcome. No DA/PGG dependency required; includes hand controls and canonical serialization. |
 | LV2 — validators | **held behind LV1 contract shape + LV0 split** | Module, adapter, built-level and engine-admission matrices; may share PLAN with LV1 but must have separate executable evidence/stop. |
 | LV3 — DA runtime composition | **held behind LV1+LV2** | Uses accepted modules/external sockets; outputs Built Level Manifest; fresh product admission required. |
@@ -241,8 +250,8 @@ gameplay, networking, destruction or common-scene delivery.
 ## 11. Parallelism and dependency route
 
 ```text
-NOW: Direction candidate/owner review only; Level product PLAN/BUILD runnable = 0
-  ↓ owner accepts/revises candidate + fresh current product preflight/admission
+NOW: architectural basis owner-accepted (D1=A, D2=A); Level product PLAN/BUILD runnable = 0
+  ↓ owner explicitly routes LV0 + fresh current product preflight/admission
 LV0 PLAN (owner-present, current contract; product chooses venue)
   ↓
 LV1 Project Module Contract + hand controls
@@ -263,7 +272,7 @@ product registry, single Unity Editor, `LevelIngestion`/scene/module conflicts a
 
 ## 12. Smallest owner decision package
 
-### D1 — exact structural representation
+### D1 — exact structural representation — OWNER SELECTED A
 
 - **A — canonical sparse 25 cm cell/sub-face mask (recommended).** Preserves irregular voids, aligns with near-grid
   truth and makes expected↔observed comparison/hash direct. Bad side: artifact size and tooling need measurement.
@@ -272,9 +281,10 @@ product registry, single Unity Editor, `LevelIngestion`/scene/module conflicts a
 - **C — mesh/collider only, sampled at runtime.** Little stored data. Bad because Unity/runtime/vendor state becomes
   authority and deterministic cross-producer validation becomes harder.
 
-Recommendation: A for v1, with a first-probe size/time ceiling; compression is storage, never semantic identity.
+Owner verdict: **A for v1**, with size/time ceiling frozen in owner-approved LV0 PLAN; compression is storage, never
+semantic identity.
 
-### D2 — Z-normal engine scope
+### D2 — Z-normal engine scope — OWNER SELECTED A
 
 - **A — represent + validate now, loudly refuse engine admission until a later support leg (recommended).** Protects
   the full-3D contract without hiding missing runtime capability.
@@ -283,13 +293,14 @@ Recommendation: A for v1, with a first-probe size/time ceiling; compression is s
 - **C — omit vertical apertures from v1.** Smaller. Bad because it contradicts ratified 1:N vertical requirements and
   recreates a wall-only model.
 
-Recommendation: A. A later PLAN may choose B only as an explicit separately budgeted engine outcome.
+Owner verdict: **A**. Represent and validate ±Z now; engine admission must loudly reject unsupported runtime use.
+Any later move to B is a separate explicitly budgeted owner decision, not an implicit LV1/LV2 expansion.
 
 ## 13. Explicit cuts
 
 - No product repo, Unity, package, prefab, scene, test, canon, TREE or CHARTER change.
 - No Phase 0 revival and no old CALL dispatch.
-- No owner acceptance, LV0 PLAN, executor/RED/BUILD CALL or physical worktree assignment.
+- Owner acceptance is recorded, but no LV0 PLAN, executor/RED/BUILD CALL or physical worktree assignment is issued.
 - No DA/PGG adapter implementation, runtime PGG, production module library or library compatibility promise.
 - No production art, navigation, stairs/ladders/elevators, streaming/occlusion, giant compound module or traversal.
 - No arbitrary destruction; only a typed breach-surface reference is reserved.
@@ -302,13 +313,18 @@ Recommendation: A. A later PLAN may choose B only as an explicit separately budg
 `FAIL_STAGE`; DA/PGG role split; 50/25 cm dual lattice; module≠room; vertical 1:N and six-face expressibility;
 old Phase0/PLAN non-runnable status.
 
-**Candidate / inference:** exact field names; sparse-mask choice; yaw-only v1 default; instance-id formula; diagnostic
-codes; fixture topology and whether LV1/LV2 are separate commits or sessions. These require owner disposition and a
-fresh product-v26 code/contract read in LV0.
+**Owner-accepted architectural basis:** project-owned two-authority shape; D1 sparse 25 cm cell/sub-face truth; D2
+represent/validate ±Z with loud unsupported engine admission; four validator boundaries and the bounded fixture route.
+
+**Still requires LV0 freeze / product verification:** exact field/type names; canonical byte encoding; shared-surface
+ownership; socket terminal states; transform rules and yaw/handedness examples; deterministic pre-build input;
+registries/versioning; structural sampler authority; sparse size/time ceiling; instance-id formula; diagnostic codes;
+fixture implementation and whether LV1/LV2 are separate commits or sessions. These require a fresh product-v26
+code/contract read and owner-approved LV0 PLAN.
 
 The answer changes if fresh product readback proves a lower API materially different from Direction evidence, an
-independent sampler cannot reproduce canonical masks within the chosen ceiling, the owner selects D1/D2 alternatives,
-or current engine already supports verified Z-normal admission. No product claim here was re-verified outside
+independent sampler cannot reproduce canonical masks within the chosen ceiling, a later explicit owner verdict revises
+D1/D2, or current engine already supports verified Z-normal admission. No product claim here was re-verified outside
 committed Direction artifacts.
 
 ## 15. Recommended first implementation probe (not launched)
