@@ -287,7 +287,7 @@ active_bet:
       kill the bet and shape a new bounded bet; do not extend appetite or
       claim partial success.
 
-route_status: operating_substrate_first_process_creator_t4_health_reclamation_v22_resync_recovery_pending
+route_status: operating_substrate_first_process_creator_t4_health_reclamation_v26_integration_refutation_pending
 
 owner_directive: |
   Полный хронологический леджер owner-решений/каведатов/коррекций по operating-substrate
@@ -585,26 +585,16 @@ recurring: []
 decisions: []
 
 open_calls:
-  - id: c-solmax-operating-substrate-first-process-creator-t4-health-reclamation-v22-resync-recovery-013
-    to: executor
-    for: g-operating-substrate-first-process-creator/t-4
-    issued: 2026-07-15
-    note: |
-      Direction contract v22 predates the v21 product repair attempt at
-      f77ad75/3af27e6, so CALL 010 and its handoff cannot close the repair.
-      Those commits remain reachable non-authoritative evidence. This call
-      creates only a reviewable v22-synced recovery candidate on the
-      pre-repair Health basis; RED-FREEZE, binding review and bounded repair
-      remain separate later legs. No legacy Health, admission, activation,
-      process run, t-4 close or appetite extension is authorized.
-  - id: c-solmax-operating-substrate-first-process-creator-t4-health-reclamation-v22-post-marker-refutation-016
+  - id: c-solmax-operating-substrate-first-process-creator-t4-health-reclamation-v26-integration-refutation-017
     to: session
     for: g-operating-substrate-first-process-creator/t-4
-    issued: 2026-07-15
+    issued: 2026-07-16
     note: |
-      Product HEAD 02e5bf8 is the v22 recovery candidate plus one report-only
-      marker correction. This fresh read-only leg must bind PASS or FAIL before
-      RED-FREEZE; t-4, appetite and all lifecycle limits remain unchanged.
+      Product integration HEAD 7ed7903 merges unchanged active basis 3ee6914
+      with terminal-v26 main 7bbc73d. This new-task read-only leg must bind
+      PASS or FAIL before any Health repair or BUILD; t-4, appetite and all
+      lifecycle limits remain unchanged. Prior v22 ids 013/016 remain history
+      only under the owner's terminal Re-sync instruction.
 # 2026-07-12: c-solmax-operating-substrate-first-process-creator-t2-repo-bootstrap-001
 # cleared — the repo-bootstrap setup checkpoint is complete (commit f3d153d, CI
 # green). t-2 remains ACTIVE; Process Creator materialization is the next work,
@@ -612,5 +602,5 @@ open_calls:
 
 preserved_evidence: work/operating-substrate/evidence-index.md   # полный индекс вынесен из hot-state (verbatim)
 next: |
-  live/solmax/work/calls/c-solmax-operating-substrate-first-process-creator-t4-health-reclamation-v22-post-marker-refutation-016.md
+  live/solmax/work/calls/c-solmax-operating-substrate-first-process-creator-t4-health-reclamation-v26-integration-refutation-017.md
 END_OF_FILE: live/solmax/NOW.md
