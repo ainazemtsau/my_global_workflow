@@ -229,6 +229,13 @@ def targets_product_repo(payload: dict[str, Any], policy: dict[str, Any]) -> boo
 def blocks_product_write(payload: dict[str, Any], policy: dict[str, Any]) -> str | None:
     if not targets_product_repo(payload, policy):
         return None
+    ack_pattern = str(policy.get("product_write_ack_pattern", "")).strip()
+    if ack_pattern:
+        combined = "\n".join(
+            [text_blob(payload), command_from_payload(payload), workdir_from_payload(payload)]
+        )
+        if re.search(ack_pattern, combined):
+            return None
     command = command_from_payload(payload)
     tool = payload_tool_name(payload)
     if command and PRODUCT_WRITE_WORDS.search(command):
@@ -237,7 +244,7 @@ def blocks_product_write(payload: dict[str, Any], policy: dict[str, Any]) -> str
         return None
     if tool in WRITE_TOOL_NAMES or not command:
         return "Blocked product-repo write/stage/commit/push risk for C:/projects/Unity/GasCoopGame."
-    return "Blocked non-allowlisted product-repo command; only git status/diff/show/log/fetch are allowed."
+    return "Blocked non-allowlisted product-repo command; only read-only git commands or a configured owner-ack lease are allowed."
 
 
 def blocks_side_repair(payload: dict[str, Any], policy: dict[str, Any]) -> str | None:

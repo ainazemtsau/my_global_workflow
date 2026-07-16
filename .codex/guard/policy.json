@@ -1,5 +1,6 @@
 {
   "direction_id": "c-visual-006",
+  "product_write_ack_pattern": "owner_ack_product_write:v27-l1b-close-2026-07-16",
   "protected_side_repair_path": "docs/results/c-visual-005.md",
   "side_repair_ack_pattern": "owner_ack_side_repair:[A-Za-z0-9_.-]+",
   "product_repos": [
