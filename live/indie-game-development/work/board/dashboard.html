@@ -196,7 +196,7 @@
       <div class="head"><span class="st">2 · ROUTE СОХРАНЁН · BUILD НЕ ОТКРЫТ</span><b>Level / Dungeon Architect / PGG</b><span class="id">Level Contract → DA runtime → PGG editor-time</span></div>
       <p><span class="l">Что уже доказано:</span> PGG способен испечь dependency-free static prefab, который проходит через SnapGridFlow в BuiltSceneRoomReader. Провал production-stage был не провалом PGG: отсутствовал наш стандарт сетки 0,5 м, сокетов, порталов, exact occupancy/apertures и anchors.</p>
       <p><span class="l">Правильная граница:</span> Phase 1 — project-owned full-3D Level/Module Contract + validators; Phase 2 — DA runtime composition и PGG только как editor-time bake/import; Phase 3 — production modules/content.</p>
-      <p><span class="l">Что дальше:</span> старый PLAN помечен <b>SUPERSEDED / NEVER ISSUE</b>, потому что ждёт Phase 0 MERGED. Принятый M1 route начинает successor с project-owned Level/Module Contract без числового cap. Будущий lane D/worktree и полный current-v21 packet обязаны быть проверены до отдельного PLAN; executor CALL сейчас не выпущен.</p>
+      <p><span class="l">Что дальше:</span> старый PLAN помечен <b>SUPERSEDED / NEVER ISSUE</b>, потому что ждёт Phase 0 MERGED. Принятый M1 route начинает successor с project-owned Level/Module Contract без числового cap. Перед отдельным PLAN product authority заново выбирает fresh venue и сверяет current contract; executor CALL сейчас не выпущен.</p>
     </div>
     <div class="call wait">
       <div class="head"><span class="st">3 · В2 Leg 1 СОБРАН · ждёт G5 · Leg 2 HELD</span><b>Character</b><span class="id">V1 socket ✅ смёржен → V2 rig/reactions (сейчас) → V3 core ballistics</span></div>
@@ -223,12 +223,13 @@
 </section>
 
 <section>
-  <div class="sec-head"><h2>📋 Борд — живой статус</h2><span class="tag">обновлено 16.07 · L1B ACTIVE · appetite 3 focused days · task 1 = frozen acceptance 5/5 · NOW.next = c-work-near-gas-l1b-acceptance-001 · NearGas L1a DELIVERED experimental @400ef8ec · B1–B4 COMPLETE · OS v26 · co-op paper + Level Standard research READY PARALLEL · истина всегда NOW.md + git</span></div>
+  <div class="sec-head"><h2>📋 Борд — живой статус</h2><span class="tag">обновлено 16.07 · L1B ACTIVE · appetite 3 focused days · task 1 = frozen acceptance 5/5 · NOW.next = c-work-near-gas-l1b-acceptance-001 · worktree protocol A owner-approved, product install HELD · NearGas L1a DELIVERED experimental @400ef8ec · B1–B4 COMPLETE · OS v26 · co-op paper + Level Standard research READY PARALLEL · истина всегда NOW.md + git</span></div>
   <div class="callout accent"><b>Единственный дом этой панели — репозиторий:</b> live/indie-game-development/work/board/dashboard.html; открывается в Chrome с диска, обновляется ТОЛЬКО здесь (внешних зеркал не ведём — правило владельца 2026-07-11). Живой статус — эта секция; панель — рендер: решения по ней, противоречащей NOW, не принимаются.</div>
   <div class="callout"><b>Как читать параллельность:</b> один <code>NOW.next</code> задаёт основной маршрут команды «продолжаем». L1B активна на <b>3 focused days</b>; PRIMARY сейчас — owner-present frozen acceptance для 5/5 internal observation families. Это Direction work: product PLAN/RED/BUILD ещё не открыты. Старая 13/24 ставка остаётся CLOSED NOT MET, а 34+ route — ledger, не cap. <b>READY PARALLEL</b> остаются Level/DA/PGG Standard v1 research и paper-only вопрос о кооперации.</div>
   <div class="callout"><b>⚠ Демо: определения сейчас НЕТ — это открытый пункт, а не план.</b> Концепт изменился (11.07 принята новая рамка игры: расследование почти невидимого газа → план → добыча/операция → эвакуация). Старый октябрьский демо-план с панели ВЫРЕЗАН — его история лежит в git. 12.07 владелец установил Canon Forge v3 как единственный живой paper-only маршрут, затем отдельным вердиктом «ADMIT TO CANON» допустил «Цель стоит запуска» как предварительную карточку c-001 (нужен-грейбокс). Это не готовая механика: fun, кооперация, рантайм-читаемость, темп давления, стоимость движка и коммерческий сигнал не доказаны; точные правила газа, активации, добычи, экономики, инвентаря и кооперации остаются открыты. Проверенные даты фестов сохранены ниже как справочник, а не как план.</div>
   <div class="callout"><b>Старое «13 / 24.07» закрыто, а не продлено.</b> Review дал NOT MET при 0/10 end-to-end; прогноз был одновременно optimistic и привязан к неверному механизму Phase0→A0→S4. Числового потолка по-прежнему нет, 24 июля остаётся контрольным review, а 34+ route — ledger, не cap и не delivery.</div>
   <div class="callout accent"><b>NearGas L1a закрыт, L1B активна:</b> experimental carrier DELIVERED и опубликован в product remote dev/main@<b>400ef8ec</b>. Genuine RED предшествует production, Deliver и все заявленные suite-гейты GREEN, binding fresh G5 PASS. Mutation 72.78% не перезапускался. Старый v22 route RETIRED / FORBIDDEN; B1–B4 и GasCoopGame v26 Re-sync завершены. Owner-approved L1B ограничена 5 observation families; первой идёт frozen acceptance, поэтому product launch ещё не выпущен.</div>
+  <div class="callout accent"><b>Worktrees: владелец выбрал A — product-owned single mutable venue v2.</b> Direction больше не назначает local paths/branches/SHAs: main остаётся integration-only, dev — единственным persistent Unity+MCP workspace, а legacy core/dev_2/lab/pgg/p2a0 получают явный lifecycle. Девять checkout'ов проверены; старый core содержит forbidden v22 RED, не current L1a. Product protocol install HELD до закрытия character repair и обязан вернуться до первого L1B product executor; никакая уборка сейчас не выполнялась.</div>
   <h3 class="subhead">Открытые работы</h3>
   <div class="calls">
     <div class="call">
@@ -238,12 +239,19 @@
       <p><span class="l">Что должен вернуть:</span> owner-approved artifact с 5/5 falsifiable positive/negative oracles, evaluator, rollback/kill trigger, cuts и честной границей instrumentability ≠ Unity/gameplay/M1 delivery.</p>
       <p><span class="l">Граница:</span> product, Unity, PLAN, SURFACE-FREEZE, RED, BUILD и executor не запускаются до actual owner acceptance. L2, C1, workers, S4, Level и common scene вырезаны.</p>
     </div>
+    <div class="call wait">
+      <div class="head"><span class="st">HELD · OWNER-APPROVED A · ДО ПЕРВОГО L1B PRODUCT CALL</span><b>Установить product-owned single mutable venue v2</b><span class="id">c-exec-gascoopgame-worktree-protocol-v2-001</span></div>
+      <p><span class="l">Что это:</span> process/docs-only product leg переносит физическую topology authority из протухшей Direction lane-карты в GasCoopGame AGENTS + product-local registry.</p>
+      <p><span class="l">Зачем:</span> папки core/dev_2/lab давно checkout'ят не одноимённые ветки, product v26 уже требует один persistent dev, а старый Direction LAUNCH-блок продолжал диктовать paths/branches/SHAs.</p>
+      <p><span class="l">Где сейчас:</span> audit классифицировал 9 checkout'ов и 33 refs; canonical L1a score = 72.78 в main/dev, old core score отсутствует, exp хранит stale 72.61. Ни один product checkout не изменён.</p>
+      <p><span class="l">Что дальше:</span> запуск только после close/pause character repair-002; до первого L1B product executor. Этот leg устанавливает policy/registry и preservation plan, но не clean/reset/delete/move/rebase/merge и не выбирает meta GUID.</p>
+    </div>
     <div class="call">
       <div class="head"><span class="st">READY PARALLEL · DIRECTION RESEARCH · МОЖНО ЗАПУСКАТЬ</span><b>Собрать кандидат единого стандарта уровней и модулей</b><span class="id">c-research-level-module-standard-v1-001</span></div>
       <p><span class="l">Что это:</span> отдельная разборная сессия восстанавливает всю Level/DA/PGG-линию и собирает Standard v1, которому одинаково подчиняются ручные модули, Dungeon Architect, PGG bake и будущие источники.</p>
       <p><span class="l">Что уже известно:</span> нижние topology/voxel seams и узкий PGG→static prefab→DA мост существуют; отсутствуют единые Module Contract/Built Level Manifest, typed anchors и валидаторы. Старый PLAN навсегда отменён, потому что ждёт мёртвую Phase 0.</p>
       <p><span class="l">Что вернёт:</span> размеры/сетки, pivot/envelope, 1:N rooms, sockets/portals, exact occupancy/apertures, tags/anchors/features, PGG reserved zones, validator fixtures и разбор старых задач — с owner-options, но без автоматического принятия.</p>
-      <p><span class="l">Граница:</span> только Direction research; не product leg, не Unity, не PLAN/BUILD и не разрешение трогать lane D.</p>
+      <p><span class="l">Граница:</span> только Direction research; не product leg, не Unity, не PLAN/BUILD, не разрешение запускать Level/DA/PGG product work или выбирать физический checkout.</p>
     </div>
     <div class="call">
       <div class="head"><span class="st">READY PARALLEL · PAPER-ONLY · НУЖЕН ВЛАДЕЛЕЦ</span><b>Вернуться к вопросу о co-op composition</b><span class="id">c-research-q-coop-interdependence-002</span></div>
@@ -309,6 +317,12 @@
 
   <h3 class="subhead">Закрыто недавно — чем кончилось</h3>
   <div class="calls">
+    <div class="call closed">
+      <div class="head"><span class="st">✓ OWNER-APPROVED · PROTOCOL A</span><b>GasCoopGame worktree routing v2</b><span class="id">s-repair-gascoopgame-worktree-routing-v2-001 · 16.07</span></div>
+      <p><span class="l">Вердикт владельца:</span> A — физическая topology authority живёт в product repo; Direction хранит outcomes, конфликты, зависимости и статус, но не раздаёт local paths/branches/SHAs.</p>
+      <p><span class="l">Чем кончилось:</span> девять checkout'ов и 33 local refs классифицированы; canonical L1a mutation 72.78 отделена от stale core/exp evidence. Main остаётся integration-only, dev — единственным persistent Unity+MCP workspace; p2a0 временно grandfathered, остальные legacy venues frozen/forensic или retirement candidates.</p>
+      <p><span class="l">Что дальше:</span> process/docs-only product installer HELD до закрытия/паузы character repair и обязан вернуться до первого L1B product executor. Уборка, перенос WIP, meta-файлы и product mutation не выполнялись.</p>
+    </div>
     <div class="call closed">
       <div class="head"><span class="st">✓ OWNER-APPROVED · ACTIVE BET</span><b>Bounded ставка NearGas L1B</b><span class="id">c-shape-near-gas-l1b-001 · 16.07</span></div>
       <p><span class="l">Вердикт владельца:</span> «принимаю ставку L1B»; до этого appetite выбран словом «а» = 3 focused days.</p>
@@ -484,7 +498,7 @@
   <div class="callout ok" style="border-left-color:var(--ok); background:var(--ok-soft)">В любом новом чате работают фразы: <b>«что можем делать»</b> — покажет этот борд свежим; <b>«делай рефакторинг»</b> — запустит ночную линию по бэклогу; <b>«дневное ревью»</b> — сверка направления с записью находок; <b>«давай пройдёмся по развилкам»</b> — решения из «Ждёт тебя» по одному, с вариантами и рекомендациями; <b>«обнови борд»</b> — принудительная перегенерация панели.</div>
 
   <h3 class="subhead">Словарь борда</h3>
-  <p class="note" style="max-width:none; margin:4px 0 0"><b>лег</b> — одна порция инженерной работы, проходящая полный контроль качества (план → стройка → независимая проверка); примерно день. · <b>dev / main</b> — рабочая ветка кода / основная «чистовая» ветка; в main работа попадает только через твой гейт. · <b>мерж-гейт</b> — твоё «да» на вливание работы в основную ветку. · <b>PLAN / BUILD</b> — две отдельные сессии одной работы: сначала план (ты одобряешь и он замораживается), потом стройка строго по нему. · <b>G5 / опровержение</b> — независимая свежая проверка, которая ПЫТАЕТСЯ доказать, что сделано неправильно; не смогла — работа принята. · <b>контрольная сумма (чексум)</b> — число-«отпечаток» состояния симуляции; совпадает у всех игроков — значит игра синхронна. · <b>ставка / аппетит / стоп-линия</b> — текущая большая цель / её бюджет в легах / дата или лимит, после которого работа не продлевается молча. · <b>спайк</b> — быстрый бросовый эксперимент ради ответа на один вопрос: код выбрасывается, знание остаётся. · <b>канон / рамка / якорь</b> — закон игры / принятая основа дизайна (ещё не закон) / материал, который нравится и хранится, но не закон.</p>
+  <p class="note" style="max-width:none; margin:4px 0 0"><b>лег</b> — одна порция инженерной работы, проходящая полный контроль качества (план → стройка → независимая проверка); примерно день. · <b>dev / main</b> — dev = единственный долгоживущий рабочий Unity+MCP workspace; main = чистая integration-площадка без прямой работы и Editor. · <b>worktree</b> — дополнительная рабочая копия одного Git-репозитория; имя папки не доказывает ветку или статус, поэтому authority хранится в product registry. · <b>мерж-гейт</b> — твоё «да» на вливание работы в основную ветку. · <b>PLAN / BUILD</b> — две отдельные сессии одной работы: сначала план (ты одобряешь и он замораживается), потом стройка строго по нему. · <b>G5 / опровержение</b> — независимая свежая проверка, которая ПЫТАЕТСЯ доказать, что сделано неправильно; не смогла — работа принята. · <b>контрольная сумма (чексум)</b> — число-«отпечаток» состояния симуляции; совпадает у всех игроков — значит игра синхронна. · <b>ставка / аппетит / стоп-линия</b> — текущая большая цель / её бюджет в легах / дата или лимит, после которого работа не продлевается молча. · <b>спайк</b> — быстрый бросовый эксперимент ради ответа на один вопрос: код выбрасывается, знание остаётся. · <b>канон / рамка / якорь</b> — закон игры / принятая основа дизайна (ещё не закон) / материал, который нравится и хранится, но не закон.</p>
 
   <h3 style="margin:26px 0 10px; font-size:18px">Проблемы (дневное ревью)</h3>
   <div class="calls">
@@ -523,12 +537,13 @@
   <h3 style="margin:26px 0 10px; font-size:18px">Журнал — последние 3 дня</h3>
   <p class="note" style="margin:0 0 10px">Рендер из LOG.md (полный архив — там); старше трёх дней с панели уходит. Сегодняшний день раскрыт.</p>
   <details class="day" open>
-    <summary>16 июля <span class="cnt">· primary review packet repaired post-B4/v26 · старая 13/24 ставка CLOSED NOT MET · L1B ACTIVE · appetite 3 focused days · NOW.next = frozen acceptance 5/5</span></summary>
+    <summary>16 июля <span class="cnt">· primary review packet repaired post-B4/v26 · старая 13/24 ставка CLOSED NOT MET · L1B ACTIVE · appetite 3 focused days · worktree protocol A owner-approved · NOW.next = frozen acceptance 5/5</span></summary>
     <ul>
       <li><b>Primary M1 review packet repaired:</b> stale pre-B1 truth заменена на L1a DELIVERED experimental @400ef8ec, retired/forbidden v22 authority, completed engineering B1–B4 / OS v26 и owner-confirmed GasCoopGame v26 Re-sync. Review, owner verdict и downstream CALL при repair не запускались.</li>
       <li><b>Старая ставка Полигона M1 закрыта NOT MET:</b> свежая Direction-refutation проверила 10 условий против current evidence; 0/10 доказаны end-to-end в одной общей сцене. Частичные foundations сохранены, но не сложены в интеграционное закрытие. Forecast = wrong-mechanism + optimistic; 34+ route остаётся ledger, не cap и не delivery.</li>
       <li><b>Следующая ставка выбрана владельцем:</b> после human-readable brief владелец дважды ответил «L1B». Открыт <b>c-shape-near-gas-l1b-001</b> — только bounded Direction shape пяти internal observation seams; product/Unity/PLAN/BUILD, L2/C1/workers/S4 и общая сцена не запускались.</li>
       <li><b>NearGas L1B активирована:</b> владелец выбрал appetite «а» = 3 focused days, затем сказал «принимаю ставку L1B». Ставка ограничена 5 observation families, шестью half-day tasks и review 24.07; first = <b>c-work-near-gas-l1b-acceptance-001</b>. Product/Unity/PLAN/RED/BUILD не запускались.</li>
+      <li><b>Worktree routing v2 принят:</b> владелец выбрал A. Девять checkout'ов и 33 local refs сведены в lossless protocol: Direction больше не назначает физические venues; product repo должен закрепить main integration-only, dev как единственный persistent Unity+MCP workspace и явный lifecycle legacy trees. Installer HELD до character repair и должен вернуться до первого L1B product executor; product repo при repair не менялся.</li>
     </ul>
   </details>
   <details class="day">
@@ -696,42 +711,43 @@
 </section>
 
 <section>
-  <div class="sec-head"><h2>Правила безопасной параллельности</h2><span class="tag">NOW + git решают, что runnable · отдельный worktree не отменяет зависимости и merge-гейты</span></div>
+  <div class="sec-head"><h2>Правила безопасной параллельности</h2><span class="tag">protocol A · product authority владеет topology · audit snapshot не является launch command</span></div>
   <div class="tracks">
     <div class="track">
-      <h3>1 · Площадка должна быть проверена</h3>
+      <h3>1 · Разделение authority</h3>
       <ul>
-        <li class="done">Таблица lane → worktree → Unity Editor → машина существует</li>
-        <li class="done">Правила Unity: один проект = один редактор; линия = свой worktree</li>
-        <li class="miss">Старые lane C/D записи про P2a0/Phase 0 требуют отдельного repair; до него не являются launch authority</li>
+        <li class="done">Direction хранит outcomes, conflict surface, dependencies и READY/HELD/LOCKED</li>
+        <li class="done">Product AGENTS + registry владеют fresh paths, branches, SHAs, Editor identity и lifecycle</li>
+        <li class="miss">Registry installer HELD до character repair; старая lane-карта уже не launch authority</li>
       </ul>
     </div>
     <div class="track">
-      <h3>2 · Current-contract handoff</h3>
+      <h3>2 · Mutable сейчас — audit snapshot</h3>
       <ul>
-        <li class="done">lane / venue / machine / editor or headless</li>
-        <li class="done">worktree + branch + base authority + обязательный §Re-sync</li>
-        <li class="done">полный semantic packet: каждое обязательство связано с fixture, call, observation, source и negative witness</li>
+        <li class="done">main clean и integration-only; Unity там не открыт</li>
+        <li class="miss">dev — persistent Unity+MCP, но два untracked folder meta требуют отдельной disposition</li>
+        <li class="miss">p2a0_002 — grandfathered active character exception; clean/rebase/merge запрещены его CALL</li>
       </ul>
     </div>
     <div class="track">
-      <h3>3 · NOW показывает не только очередь</h3>
+      <h3>3 · Legacy не трогаем без proof</h3>
       <ul>
-        <li class="done">PRIMARY — дефолт команды «продолжаем»</li>
-        <li class="done">READY PARALLEL — независимая работа, которую можно стартовать рядом</li>
-        <li class="done">NON-RUNNABLE / LOCKED — сохранённый маршрут, но не разрешение запускать</li>
+        <li class="miss">core / dev_2 / lab / pgg_spike = FROZEN или FORENSIC</li>
+        <li class="miss">exp / policy = RETIRE-CANDIDATE только после lossless preservation proof</li>
+        <li class="done">Reset/delete/move/rebase/merge и выбор meta GUID требуют отдельного owning CALL</li>
       </ul>
     </div>
     <div class="track">
-      <h3>4 · Main merge всегда последовательно</h3>
+      <h3>4 · Один product mutation slot</h3>
       <ul>
-        <li class="done">Параллельные worktree могут строить независимые поверхности</li>
-        <li class="done">В main входит один merge за раз, затем полный check и rebase следующего</li>
+        <li class="done">Одновременно продукт мутирует ровно один leg; Direction research может идти отдельно</li>
+        <li class="done">Clean evidence checkout короткоживущий и не становится permanent feature-worktree</li>
+        <li class="done">Integration идёт последовательно после fresh product-owned preflight</li>
         <li class="done">Binding fresh G5 остаётся отдельной сессией и не срезается</li>
       </ul>
     </div>
   </div>
-  <div class="callout accent"><b>Текущая практическая карта:</b> lane A/core освободил L1a: experimental carrier доставлен и опубликован @400ef8ec. Старый execute/v22 PLAN-AMEND route retired/forbidden и не является launch authority. Engineering B1–B4 и owner-confirmed GasCoopGame v26 Re-sync завершены. L1B ACTIVE, но product slot ещё не открыт: сначала owner-present acceptance 5/5. Character V2 repair-002 идёт своим параллельным маршрутом; lane D/levels ещё не разрешён — старое назначение зависело от Phase 0. Один project-folder нельзя открывать двумя Unity Editor; общий main принимает работы последовательно.</div>
+  <div class="callout accent"><b>Текущий маршрут:</b> L1B пока выполняет только owner-present Direction acceptance 5/5 и не занимает product mutation slot. Character V2 repair-002 остаётся единственным grandfathered product exception. После его close/owner-pause process/docs-only installer закрепляет registry в GasCoopGame и возвращается HOME до первого L1B product executor. Cleanup в этот leg не входит.</div>
 </section>
 
 <section>

@@ -1,5 +1,5 @@
 # NOW: indie-game-development
-updated: 2026-07-16 by s-shape-near-gas-l1b-001
+updated: 2026-07-16 by s-repair-gascoopgame-worktree-routing-v2-001
 
 bet:
   node: g-9c41
@@ -70,6 +70,17 @@ open_calls:
       PRIMARY / ACTIVE BET TASK 1 / OWNER-PRESENT: freeze falsifiable child acceptance for exactly retry snapshot,
       fault injection, handler classification, kernel rows and loopback trace. Direction-only; no product/Unity/
       PLAN/RED/BUILD and no L2/C1/workers/S4. work/c-work-near-gas-l1b-acceptance-001-call.md.
+  - id: c-exec-gascoopgame-worktree-protocol-v2-001
+    to: executor
+    for: g-9c41 / product-owned single mutable venue v2 contract and registry
+    issued: 2026-07-16
+    note: |
+      HELD until c-exec-char-v2-reaction-core-repair-002 closes or the owner explicitly pauses it; MUST RETURN HOME
+      before the first NearGas L1B product executor CALL. Owner selected A: Direction no longer dispatches by the
+      stale permanent-lane map or dictates local branches/paths/SHAs; current product v26 stays authority until this
+      process/docs-only install lands. No cleanup/reset/delete/move/rebase/merge, no meta choice, no mutation rerun
+      and no WIP change. work/c-exec-gascoopgame-worktree-protocol-v2-001-call.md;
+      work/gascoopgame-worktree-protocol-v2.md.
   - id: c-research-level-module-standard-v1-001
     to: research
     for: g-9c41 / Level-DA-PGG project Standard v1 candidate and old-task recovery

@@ -279,4 +279,6 @@ archived: history/LOG-archive-indie-game-development.md — sessions before 2026
 
 2026-07-16 — shape/activate (g-9c41/NearGas-L1B, s-shape-near-gas-l1b-001): владелец «принимаю ставку L1B» — активирована 3-focused-day ставка на 5 internal observation families; first = frozen L1B-Acceptance, 24.07 control review, L1a delivered/v22 forbidden. → history/2026-07-16-s-shape-near-gas-l1b-001.md
 
+2026-07-16 — repair/close (g-9c41/worktree-routing-v2, s-repair-gascoopgame-worktree-routing-v2-001): owner A selected product-owned single mutable venue v2; nine checkouts and 33 refs were classified, canonical L1a mutation 72.78 was separated from stale core/exp evidence, the old lane map was superseded for dispatch, and a HELD protocol-install was opened before any L1B product executor. Fresh L1B acceptance next was preserved; no product worktree changed. → history/2026-07-16-s-repair-gascoopgame-worktree-routing-v2-001.md
+
 END_OF_FILE: live/indie-game-development/LOG.md
