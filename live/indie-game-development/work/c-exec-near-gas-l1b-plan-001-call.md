@@ -21,6 +21,11 @@ context: |
   planted negative, evidence source и forbidden-inference controls. Surrogate, observer effect или одна failed
   family делают L1B NOT MET.
 
+  Owner preflight input: `work/neargas-l1b-plan-owner-a-checkpoint.md`. Exact reply `A` selected the recommended
+  minimal architecture direction recorded there. This is design input for the product planner, not a frozen spec,
+  not final PLAN approval and not permission to infer approval; reconcile it with fresh product authority and STOP
+  on conflict. The completed product PLAN still requires a separate explicit owner verdict in its own session.
+
   Worktree protocol repair Direction-closed GREEN. Published product evidence currently has clean
   `main == dev == origin/main == origin/dev @ 5cd182503d8f2d4f359eca63f8b0443fccbad7d4`, product contract v26,
   two canonical folder metas tracked and full legacy-preservation evidence. This commit is evidence only, not a

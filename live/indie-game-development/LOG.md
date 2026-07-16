@@ -291,4 +291,6 @@ archived: history/LOG-archive-indie-game-development.md — sessions before 2026
 
 2026-07-16 — work/close (g-9c41/worktree-protocol-v2-delivery-repair-close, s-work-gascoopgame-worktree-protocol-v2-delivery-repair-close-001): protocol repair independently Direction-closed GREEN at published product main/dev@5cd18250 with exact two-meta diff, preserved legacy WIP, current result/1714/79/Unity-36 evidence and documented non-blocking post-publication no-delta fallback; L1B-PLAN is ACTIVE and c-exec-near-gas-l1b-plan-001 is next, characters remain PAUSED. → history/2026-07-16-s-work-gascoopgame-worktree-protocol-v2-delivery-repair-close-001.md
 
+2026-07-16 — work/checkpoint (g-9c41/L1B-PLAN, s-work-near-gas-l1b-plan-owner-a-checkpoint-001): владелец точным ответом «A» выбрал минимальное preflight-направление, сохранённое как input для product planner; product-задача и PLAN не создавались, финальное принятие не подразумевается, текущий CALL остаётся открытым. → history/2026-07-16-s-work-near-gas-l1b-plan-owner-a-checkpoint-001.md
+
 END_OF_FILE: live/indie-game-development/LOG.md
