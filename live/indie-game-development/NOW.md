@@ -1,5 +1,5 @@
 # NOW: indie-game-development
-updated: 2026-07-17 by s-repair-now-track-mode-migration-001
+updated: 2026-07-17 by s-repair-near-gas-l1b-track-rebase-001
 bet:
   node: g-9c41
   goal: |
@@ -63,17 +63,26 @@ tracks:
   - {id: visual, label: "Визуал и движение газа", mode: parallel, for: g-7e15}
   - {id: marketing, label: "Маркетинг и аудитория", mode: parallel, for: g-2f8c}
   - {id: characters, label: "Игровые персонажи", mode: parallel, for: g-6d4e}
+  - {id: dotnet-gates, label: "Локальный запуск проверок .NET — пауза", mode: parallel, for: "local: cross-platform .NET repository-gate runner prerequisite"}
 
 open_calls:
-  - id: c-exec-unity65-mac-revision-002-build-001
+  - id: c-exec-near-gas-l1b-surface-freeze-001
     track: core
-    status: blocked
+    status: ready
+    to: executor
+    for: "g-9c41 / L1B-Capture prerequisite — first code stage of the accepted L1B PLAN"
+    issued: 2026-07-17
+    call: work/c-exec-near-gas-l1b-surface-freeze-001-call.md
+    note: "READY: compiler-green carrier and no-op sites only; no behavior/tests/RED/BUILD, product registry owns venue → history/2026-07-17-s-repair-near-gas-l1b-track-rebase-001.md."
+  - id: c-exec-unity65-mac-revision-002-build-001
+    track: dotnet-gates
+    status: paused
     to: executor
     for: "g-9c41 / local .NET gate runner prerequisite"
     issued: 2026-07-12
     call: work/c-exec-unity65-mac-revision-002-build-001-call.md
-    unblock_when: "Pre-v21 refs are reconciled to current product authority and a fresh full-packet check makes the CALL runnable."
-    note: "Legacy witness: HELD / NON-RUNNABLE; history/2026-07-12-s-repair-unity65-mac-revision-002-route-001.md."
+    paused_by: history/2026-07-17-s-repair-near-gas-l1b-track-rebase-001.md
+    note: "Preserved non-priority legacy CALL; resume only after pre-v21 refs reconcile to current authority and a fresh full-packet check → history/2026-07-12-s-repair-unity65-mac-revision-002-route-001.md."
   - id: c-exec-level-module-standard-v1-lv0-plan-001
     track: level
     status: ready
@@ -145,6 +154,6 @@ decisions:
     recommendation: "Доступная физическая машина; газ CPU-bound, поэтому CPU должен быть назван явно."
 
 next:
-  call: c-research-extraction-concept-landscape-001
+  call: c-exec-near-gas-l1b-surface-freeze-001
 
 END_OF_FILE: live/indie-game-development/NOW.md

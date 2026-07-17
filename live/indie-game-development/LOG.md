@@ -315,4 +315,8 @@ archived: history/LOG-archive-indie-game-development.md — sessions before 2026
 
 2026-07-17 — work/publish (core/track-mode-publish-guide, s-work-track-mode-publish-guide-001): migration 00c4b41 fast-forward published to direction branch and main, and a current-state owner guide now covers pause/resume/retire/add/WIP/swap; NOW, all CALLs and extraction default remain unchanged. → history/2026-07-17-s-work-track-mode-publish-guide-001.md
 
+2026-07-17 — work/dispatch (g-9c41/L1B-Capture prerequisite, s-work-near-gas-l1b-surface-freeze-dispatch-001): по owner «можешь приступать к следующему шагу» выпущен первый кодовый NearGas L1B CALL — безопасный compiler-green carrier и no-op connection sites; это продолжение принятого PLAN, не новая задача, product code ещё не изменён, extraction/Level сохранены параллельно. → history/2026-07-17-s-work-near-gas-l1b-surface-freeze-dispatch-001.md
+
+2026-07-17 — repair/rebase (core/direction/near-gas-l1b-track-rebase, s-repair-near-gas-l1b-track-rebase-001): prepared NearGas SURFACE-FREEZE dispatch @e26367d is the sole ready core root/default; the non-priority .NET runner is preserved in paused dotnet-gates, WIP stays 6/6 and product remains untouched. → history/2026-07-17-s-repair-near-gas-l1b-track-rebase-001.md
+
 END_OF_FILE: live/indie-game-development/LOG.md
