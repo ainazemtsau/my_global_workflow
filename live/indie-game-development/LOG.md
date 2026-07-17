@@ -337,4 +337,6 @@ archived: history/LOG-archive-indie-game-development.md — sessions before 2026
 
 2026-07-17 · s-review-sphere-universal-capture-frame-001 · review · canon · g-d3a8 · MET: universal Sphere capture is complete in the owner-approved non-canon extraction/custody Frame; no active gas×shell incompatibility or gas-type shell damage remains, mixed outcomes stay undefined gas×gas, specialization stays PARKED behind playable evidence; owner chose A to preserve unfinished g-d3a8 and atomically replace the completed review root with fresh canon cartography · history/2026-07-17-s-review-sphere-universal-capture-frame-001.md
 
+2026-07-17 · s-work-publish-sphere-review-cartography-main-001 · work/publish · canon · repository/main · owner-requested Sphere review and cartography Direction state through 92ea8fb atomically pushed without force to origin/wt/indie-game-development and origin/main; exact remote readback matched, dirty legacy Sphere work-CALL stayed excluded and preserved · history/2026-07-17-s-work-publish-sphere-review-cartography-main-001.md
+
 END_OF_FILE: live/indie-game-development/LOG.md
