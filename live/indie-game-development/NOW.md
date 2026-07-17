@@ -91,14 +91,14 @@ open_calls:
     issued: 2026-07-16
     call: work/c-exec-level-module-standard-v1-lv0-plan-001-call.md
     note: "READY witness + owner-approved parallel launch → history/2026-07-16-s-repair-level-lv0-parallel-launch-001.md."
-  - id: c-research-sphere-foreign-gas-contact-outcomes-001
+  - id: c-work-sphere-universal-capture-frame-001
     track: canon
     status: ready
     to: session
-    for: "g-d3a8 / visible low-dimensional foreign-gas contact outcomes for the Sphere"
+    for: "g-d3a8 / persist owner-approved non-canon universal Sphere capture baseline"
     issued: 2026-07-17
-    call: work/c-research-sphere-foreign-gas-contact-outcomes-001-call.md
-    note: "READY / OWNER-PRESENT / NON-CANON DETAIL RESEARCH. Uses the persisted Sphere extraction/custody frame; compares foreign-gas outcomes only. No Gate Q, canon admission, damage, full roster matrix or implementation."
+    call: work/c-work-sphere-universal-capture-frame-001-call.md
+    note: "READY / OWNER-PRESENT. Persist only the selected universal-capture baseline in the existing non-canon Sphere frame. No canon admission, gas-reaction design, damage or implementation."
   - id: c-shape-sc-damage-001
     track: damage
     status: blocked
