@@ -335,4 +335,6 @@ archived: history/LOG-archive-indie-game-development.md — sessions before 2026
 
 2026-07-17 · s-work-near-gas-l1b-surface-freeze-close-001 · work · core · g-9c41/L1B-Capture prerequisite: SURFACE-FREEZE Direction-closed GREEN at exact carrier 163dffaa with cumulative +397 source lines, 326-word decision page, build/hygiene/tests and fresh exact-commit review; L1B tasks stay open, independent tests-only RED-FREEZE is the core default, BUILD remains closed. → history/2026-07-17-s-work-near-gas-l1b-surface-freeze-close-001.md
 
+2026-07-17 · s-review-sphere-universal-capture-frame-001 · review · canon · g-d3a8 · MET: universal Sphere capture is complete in the owner-approved non-canon extraction/custody Frame; no active gas×shell incompatibility or gas-type shell damage remains, mixed outcomes stay undefined gas×gas, specialization stays PARKED behind playable evidence; owner chose A to preserve unfinished g-d3a8 and atomically replace the completed review root with fresh canon cartography · history/2026-07-17-s-review-sphere-universal-capture-frame-001.md
+
 END_OF_FILE: live/indie-game-development/LOG.md
