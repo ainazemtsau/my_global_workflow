@@ -13,7 +13,11 @@ goal: |
   реакции не влияет на авторитетную позу или ручательство о ней.
 
 context: |
-  BLOCKED / NOT DISPATCHABLE pending decision d-char-v2-repair-admission-route-001.
+  READY after the owner verdict recorded in
+  history/2026-07-17-s-work-char-v2-repair-reservation-authorized-001.md. The owner's exact words were
+  «Тогда разрешать пройть запись.» in reply to the A/B/C route question. In that immediate context this
+  authorizes option A only: one service registry-reservation record may be committed, pushed to the current
+  origin/dev tip and confirmed by fresh readback. This is admission plumbing, not publication of the repair.
 
   repair-002 закончился evidence-checkpoint до первой product-записи:
   history/2026-07-17-s-work-char-v2-reaction-core-repair-002-admission-blocked-001.md.
@@ -34,9 +38,12 @@ context: |
   - history/2026-07-17-s-work-characters-resume-a1.md
 
 boundaries: |
-  Этот packet заблокирован и сам не разрешает registry push. Сначала нужны фактические слова владельца
-  по d-char-v2-repair-admission-route-001 и отдельный Direction RESULT, который либо узко обновит boundaries и сделает CALL
-  ready, либо оставит его blocked/paused. До этого не менять product repo.
+  До source/test mutation разрешена ровно одна внешняя service mutation: создать одну reservation-запись
+  в canonical product registry, сделать registry-only commit, push этого commit в current origin/dev и fresh
+  fetch/readback точного reservation state. Никакой другой push этим CALL не разрешён. Если current product
+  authority не может оформить admission в этих пределах без cleanup, topology redesign, дополнительных service
+  commits/pushes или иной мутации, STOP с evidence. После подтверждённого admission локальные repair diff/commit,
+  gates и read-only review разрешены только в пределах goal/done_when; candidate остаётся unpushed.
 
   Preserve frozen authoritative-body seam and confirmed reaction/state-machine behavior. Do not add movement or
   authority source, fix DF-13, build rig/ragdoll/locomotion, touch gas/network/core, clean legacy worktrees,
@@ -58,6 +65,6 @@ return: |
   Product RESULT plus exact commit/diff, gate and review evidence. Return to Direction as a checkpoint; Direction
   opens a separate fresh binding-G5 successor under the same parent before the body-rig root can become ready.
 
-budget: one focused continuation leg after the owner route verdict; stop if admission needs cleanup/topology redesign or scope expansion
+budget: one focused continuation leg; stop if admission needs cleanup/topology redesign or scope expansion
 
 END_OF_FILE: live/indie-game-development/work/c-exec-char-v2-reaction-core-repair-admission-003-call.md

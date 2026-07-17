@@ -331,4 +331,6 @@ archived: history/LOG-archive-indie-game-development.md — sessions before 2026
 
 2026-07-17 · s-work-publish-sphere-universal-capture-main-001 · work/publish · canon · repository/main · owner-requested committed Direction state through 0c327f4 atomically pushed without force to origin/wt/indie-game-development and origin/main; git and authenticated GitHub readbacks matched; dirty Characters partial apply stayed excluded and preserved · history/2026-07-17-s-work-publish-sphere-universal-capture-main-001.md
 
+2026-07-17 · s-work-char-v2-repair-reservation-authorized-001 · work · characters · g-6d4e/admission-route: owner «Тогда разрешать пройть запись.» authorized only one service registry-reservation commit+push+fresh-readback; admission-003 READY, Leg 2 WAITING, candidate publication/merge/Leg 2 remain forbidden, core default and WIP 5/6 preserved. → history/2026-07-17-s-work-char-v2-repair-reservation-authorized-001.md
+
 END_OF_FILE: live/indie-game-development/LOG.md

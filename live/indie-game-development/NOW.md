@@ -1,5 +1,5 @@
 # NOW: indie-game-development
-updated: 2026-07-17 by s-work-char-v2-reaction-core-repair-002-admission-blocked-001
+updated: 2026-07-17 by s-work-char-v2-repair-reservation-authorized-001
 bet:
   node: g-9c41
   goal: |
@@ -134,17 +134,16 @@ open_calls:
     call: work/c-exec-char-v2-body-rig-ragdoll-build-001-call.md
     waiting_on: [c-exec-char-v2-reaction-core-repair-admission-003]
     receipts: [history/2026-07-17-s-work-char-v2-reaction-core-repair-002-admission-blocked-001.md]
-    note: "Leg 2 remains NOT RUNNABLE. repair-002 stopped before the first product write because current admission requires a registry reservation push forbidden by that CALL; successor admission-003 is BLOCKED on the owner's route verdict, and a later separate fresh binding G5 is still mandatory."
+    note: "Leg 2 remains NOT RUNNABLE. Owner words «Тогда разрешать пройть запись.» make admission-003 READY only for one registry-reservation commit+push+fresh-readback before the local repair; a later separate fresh binding G5 is still mandatory."
   - id: c-exec-char-v2-reaction-core-repair-admission-003
     track: characters
-    status: blocked
+    status: ready
     to: executor
     for: "g-6d4e / В2 Leg 1 — authority-compliant admission before the bounded un-gated-seed class repair"
     issued: 2026-07-17
     call: work/c-exec-char-v2-reaction-core-repair-admission-003-call.md
     parent: c-exec-char-v2-body-rig-ragdoll-build-001
-    unblock_when: "The owner explicitly authorizes or rejects the one bounded origin/dev registry-reservation commit+push+fresh-readback route in d-char-v2-repair-admission-route-001, and a fresh Direction session refreshes this packet from that verdict."
-    note: "BLOCKED, not dispatchable. Current product authority requires committed+pushed+fresh-read-back ADMITTED-ACTIVE at the current origin/dev tip; repair-002 forbade every push, so product mutation/candidate/gates/review remained zero and saved WIP stayed losslessly preserved."
+    note: "READY after owner «Тогда разрешать пройть запись.» Exactly one service registry-reservation commit+push+fresh-readback at current origin/dev is authorized for admission; candidate push, merge, integration, cleanup and Leg 2 remain forbidden."
 
 recurring: []
 
@@ -154,12 +153,6 @@ decisions:
     q: "d-m1-min-spec-hardware-001 — какое конкретное слабое железо становится binding min-spec финального прогона М1?"
     options: ["Доступная физическая машина", "Точный CPU/GPU/RAM-класс с арендой/покупкой к финалу", "Только throttled-прокси — финал не закрывает"]
     recommendation: "Доступная физическая машина; газ CPU-bound, поэтому CPU должен быть назван явно."
-  - id: d-char-v2-repair-admission-route-001
-    track: characters
-    q: "Разрешить ли один узкий product ROUTE: только registry-reservation commit+push в origin/dev и fresh readback, чтобы product authority могла допустить reaction repair?"
-    options: ["A — разрешить только registry reservation push/readback; candidate-branch, merge и остальная публикация остаются запрещены", "B — сохранить абсолютный no-push; Characters остаётся blocked", "C — поставить Characters на паузу и освободить WIP-slot"]
-    recommendation: "A; это единственный current-authority-compliant путь к admission, и он ограничивает внешнюю мутацию registry-reservation, не публикацией candidate и не мержем."
-
 next:
   call: c-exec-near-gas-l1b-surface-freeze-001
 

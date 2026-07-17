@@ -1,6 +1,6 @@
 # Track-mode: как владельцу управлять треками
 
-updated: 2026-07-17 by s-work-char-v2-reaction-core-repair-002-admission-blocked-001
+updated: 2026-07-17 by s-work-char-v2-repair-reservation-authorized-001
 readers: владелец направления и любая Direction-OS session, которая меняет lifecycle трека.
 
 ## Текущий снимок
@@ -9,7 +9,7 @@ readers: владелец направления и любая Direction-OS sess
 * Занимают слот: `core`, `level`, `canon`, `visual`, `characters`.
 * Не занимают слот: `marketing`, `damage` и `dotnet-gates`, потому что их root CALL сейчас `paused`.
 * Primary: `core` — там живёт текущая ставка NearGas L1B.
-* Default: `core / NearGas L1B surface-freeze` — это только ответ на «продолжаем»; Characters сейчас blocked на admission-route и default не меняет.
+* Default: `core / NearGas L1B surface-freeze` — это только ответ на «продолжаем»; Characters теперь ready параллельно после узкого разрешения на служебную запись, и default не меняется.
 
 ## Четыре статуса CALL
 
@@ -66,12 +66,14 @@ Resume не означает автоматически `ready`: система 
 Characters снова занял один WIP-слот. В том же атомарном RESULT владелец поставил на паузу marketing и damage,
 поэтому occupancy перешёл `6/6 → 5/6` без промежуточного превышения.
 
-### Текущий admission-blocker Characters
+### Текущий admission-route Characters
 
 `repair-002` остановился до первой product-записи: product authority считает admission законным только после
 registry-reservation commit+push в `origin/dev` и fresh readback, а CALL запрещал любой push. Product diff/commit/gates/review остались нулевыми,
-сохранённый WIP не тронут. Same-position successor `c-exec-char-v2-reaction-core-repair-admission-003` имеет `blocked`, body-rig root остаётся
-`waiting`, а occupancy остаётся **5/6**. Незакрытый owner decision `d-char-v2-repair-admission-route-001` не разрешает самостоятельно ни registry push, ни repair.
+сохранённый WIP не тронут. Затем владелец ответил: «Тогда разрешать пройть запись.» Это записано как разрешение
+ровно на одну служебную reservation-запись: отправить её в общий `origin/dev` и проверить, что она прочиталась назад.
+Same-position successor `c-exec-char-v2-reaction-core-repair-admission-003` теперь `ready`, body-rig root остаётся
+`waiting`, occupancy — **5/6**. Публиковать repair-кандидат, сливать его или запускать Leg 2 по-прежнему нельзя.
 
 ## Swap при полном лимите — выполненный вариант
 

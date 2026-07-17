@@ -14,7 +14,7 @@ Track-wide пауза снята владельцем в `history/2026-07-17-s-w
 сохранён как outstanding state, а не открыт к исполнению. Не запускать и не менять product repo, пока одновременно
 не выполнены все оставшиеся условия:
 
-1. `c-exec-char-v2-reaction-core-repair-admission-003` после отдельного owner verdict прошёл current product admission и вернул repair-candidate checkpoint; `repair-002` сам закончился BLOCKED до первой product-записи;
+1. `c-exec-char-v2-reaction-core-repair-admission-003`, теперь READY после узкого owner-разрешения только на одну service registry reservation, прошёл current product admission и вернул repair-candidate checkpoint; `repair-002` сам закончился BLOCKED до первой product-записи;
 2. отдельная fresh binding G5-сессия дала по Leg 1 `CONFIRMED` с требуемым evidence;
 3. новый Direction-OS RESULT сверил и записал актуальные product authority и runnable handoff.
 
