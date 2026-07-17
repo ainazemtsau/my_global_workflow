@@ -6,7 +6,7 @@ This monotonic integer names the current engineering contract:
 once. Product repositories record `validation.config: synced_contract_version`; `collect`, `audit`,
 and `digest` compare that stamp with `current` and surface a missing terminal Re-sync.
 
-current: 27
+current: 28
 
 ## Reading the map
 
@@ -46,15 +46,15 @@ range. The former long narrative remains immutable Git evidence at
 | 25 | 2026-07-15 | Named obligation inventory (`N=239`) and deletion-only anti-growth valve; mandatory-reading ceiling 32,511. | `e0c4912d73aeb00beedbab8dbf76f2d41aa620c7` |
 | 26 | 2026-07-16 | B4 proves the old kill-list consumer-by-consumer, removes no gate/obligation ID, compacts Git-backed history, and lowers mandatory reading to 25,726 words. | `engineering-contract-v26^{commit}` |
 | 27 | 2026-07-16 | Model-neutral review independence; removed: X14(v26); added: X14(v27); N remains 239. | `engineering-contract-v27^{commit}` |
+| 28 | 2026-07-17 | Every engineering stage returns its current HOME handback; Direction alone issues successors. Removed: X41(v27); added: X41(v28); N remains 239. | `engineering-contract-v28^{commit}` |
 
-## Terminal Re-sync to v27
+## Terminal Re-sync to v28
 
 Install current authority, never retired carriers.
 
-- On v26: delete model-inequality checks; keep model fields as provenance, permit equal values, stamp
-  both versions `27`, retain ceiling `239`, and pin the v27 OS commit.
-- Behind v26: install applicable v1-v24 functions, v25 inventory, v26 metadata, then v27. Model
-  neutrality waives no independent-review or product gate.
+- On v27: replace X41 with every-stage HOME; only Direction issues successors. Stamp
+  `synced_contract_version` and `obligation_inventory_version` `28`, retain `239`, pin v28.
+- Behind v27: install the applicable prior terminal contract, then v28. Existing gates remain.
 - Unstamped: use current `PROJECT_SETUP.md` on activation.
 
 The B4 consumer proof and exact product disposition are in

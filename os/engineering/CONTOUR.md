@@ -19,7 +19,7 @@ Companion files: `PROJECT_SETUP.md` (bootstrap a product repo), `VALIDATION.md` 
 ### Contract v23 roles for compiled product-code legs
 
 This subsection supersedes the v22 direct PLAN-to-RED phrases in the legacy role summary below. For a compiled
-product-code leg, the planner hands off to SURFACE-FREEZE, never directly to RED-FREEZE. A separate fresh
+product-code leg, the planner returns PLAN HOME naming SURFACE-FREEZE eligible; Direction issues its CALL. A separate fresh
 surface-author materializes the owner-approved decision page and the smallest compiling skeleton of the real public
 surface, commits that carrier after repo-native build and hygiene, and writes neither tests nor behavioral
 implementation. The independent test-author then reads ONLY that frozen carrier as the leg-specific authority (the
@@ -32,9 +32,9 @@ RED-FREEZE, RED refutation and BUILD are separate sessions.
   evidence-class split. Its prose recipes are planning feedback only: they never count as authored RED and never
   authorize BUILD.
 - **Planner** — interactive session, frontier model, plan mode. Talks to the owner. A SEPARATE session from RED-FREEZE
-  and BUILD, always: the plan leg ENDS when the owner approves the plan — it hands off a RED-FREEZE CALL and writes NO
-  product code or tests. For compiled v23 legs, the role override above replaces that direct handoff with
-  SURFACE-FREEZE. Planning, surface authoring, RED authoring and building never share one session.
+  and BUILD: owner approval ENDS it with PLAN HOME and NO code/tests.
+  Direction issues RED-FREEZE, or SURFACE-FREEZE for compiled v23.
+  Planning, surface authoring, RED authoring and building never share one session.
 - **Builder** — autonomous session(s), default-tier model, a FRESH session that reads the frozen plan and reviewed eligible RED commit (never the same session that planned). Never talks to the owner mid-run.
 - **Validator** — fresh-context, read-only (no Write/Edit), did not author the code; independence is established by authorship, context and authority separation, never by model identity: equal builder/reviewer model provenance is legal, and model availability cannot block review or delivery.
 - **Test-author** — a separate RED-FREEZE session that, after the spec freezes and before BUILD, reads ONLY the frozen
@@ -186,8 +186,8 @@ CALL (business task from a direction)
     ledger / ADR ride ALONGSIDE it for the builder and are NOT what the owner
     reads to approve (a wall of machine artifacts, or a plan buried in a scratch
     file, is not a plan).
-    The owner approves the plan and decision page and the plan leg CLOSES. A separate SURFACE-FREEZE session now
-    materializes the compiler-green carrier; only then does a separate RED-FREEZE session prove the handoff. BUILD is
+    The owner approves the plan and decision page; the leg CLOSES with PLAN HOME. Direction issues SURFACE-FREEZE;
+    only then does RED-FREEZE prove the handoff. BUILD is
     not opened by a prose readiness verdict. Planning, surface authoring, RED authoring and BUILD never share a session.
   → RED-FREEZE (separate fresh session, before build): the test-author writes and commits the complete behavioral
     test/support patch from the v23 carrier and runs the repo's real command. The tests must compile, discover the
@@ -306,8 +306,8 @@ CALL (business task from a direction)
     The RESULT is the leg's GATED closing artifact at a known repo path
     (PROJECT_SETUP stamps the path + fields + an executable check into the
     repo, so the agent produces it with no OS access); a prose chat summary
-    does not close the leg. It ends with `next:` naming the direction as the
-    carry-back target — the builder NEVER authors the next task CALL (#6).
+    does not close the leg. Every stage emits the current CALL's HOME handback;
+    it may name eligibility/blocker but never asks for a successor; Direction issues it (#6).
 ```
 
 The owner returns to a finished, verified change and checks the evidence, not every line. Tier-2 actions (publish, spend, delete non-versioned data) are never auto-approved regardless of plan approval.
@@ -329,7 +329,7 @@ The owner returns to a finished, verified change and checks the evidence, not ev
 3. Validator is authoring-read-only and fresh-context, always: it may run declared validators that generate evidence artifacts/caches, but never authors or edits source, tests, specs, rules, or the generated evidence.
 4. All exploratory artifacts (scripts, test scenes) go to the single scratch dir; nothing from it reaches a commit.
 5. Done = gates green + evidence attached. A narrative claim is not done.
-6. Closing artifact is a CHECK, not prose: a leg cannot merge/deliver unless its RESULT exists at the known repo path with its required fields (a prose summary fails the check). Owner signals ("finish it", "merged?", "summary") TRIGGER the report, never replace it; the builder never authors the next CALL (continuation is the direction's, KERNEL §4).
+6. Closing artifact is a CHECK, not prose: merge/deliver requires RESULT at its known path with required fields. Owner signals ("finish it", "merged?", "summary") trigger, never replace, the report. Only Direction issues successor CALLs (KERNEL §4).
 
 Key sources: Anthropic long-running harness & three-agent harness (planner/generator/evaluator, default-FAIL ledger, evidence gate), Claude Code best practices (/goal, hooks, fresh-context review), OpenAI Codex long-horizon guidance (plans on disk, compaction), retry research (gains plateau at ~3, non-convergence = same error repeating). Full links: os/docs/RESEARCH_BASIS.md and the engineering research session history.
 

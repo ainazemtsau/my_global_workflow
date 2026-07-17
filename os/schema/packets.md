@@ -33,6 +33,8 @@ Executor CALLs (`to: executor`) add `repo: <org/repo>` and `kind: engineering | 
 - `engineering` — a business task in a product repo. The agent owns design and implementation; evidence = commits/PR + check output (tests, build). Conventions and the run contract live in that repo's AGENTS.md/CLAUDE.md, not in the OS. `goal`/`done_when` stay business-level — hygiene extends to architecture; `context` may point to the direction's `work/` design-exploration docs as input evidence for the planner, never as a binding spec. A direction's first engineering CALL while no initialized product repo exists is repo setup — interactive (stack interview), its `context` points to `os/engineering/PROJECT_SETUP.md` and `os/engineering/profiles/`.
 - `mechanical` — apply one complete RESULT's declared state-change intent to fresh `live/**` (the writer role), including semantic rebase of stale bases. A bare `state_changes` section is incomplete. Interpretation is bounded to preserving compatible concurrent state; never invent outcomes or evidence. Apply, commit, report the commit hash.
 
+Every executor stage closes with the current CALL's `return` handback HOME. A fresh-stage boundary means the handback names eligibility or the blocker only: the executor neither authors nor asks the owner to find/create the successor CALL. A Direction session consumes the handback and issues continuation through its RESULT.
+
 ## RESULT
 
 ```markdown

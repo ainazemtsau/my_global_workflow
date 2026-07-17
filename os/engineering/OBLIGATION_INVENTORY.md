@@ -2,8 +2,8 @@
 
 This file is the load-bearing census for the engineering contract. It counts what one applicable
 product leg must do, not how many words describe it. The historical `N=71` in the 2026-07-14 audit
-was a hypothesis; this is the fresh contract-v24 census made before the contract-v25 valve landed
-and re-verified unchanged by the contract-v26 B4 consumer audit.
+was a hypothesis; this is the fresh contract-v24 census made before the contract-v25 valve landed,
+re-verified by v26, with X41 replaced one-for-one in v28.
 
 ## Counting unit
 
@@ -46,7 +46,7 @@ deliverables, and exercises fixed, refuted, owner-ack and escalation branches. I
 | Unity profile predicates (`U`) | 27 |
 | **Maximum `N`** | **239** |
 
-`N = 239` remains the contract-v26 ceiling. B4 removed no obligation id: compacting historical
+`N = 239` remains the contract-v28 ceiling. B4 removed no obligation id: compacting historical
 narrative is a reading reduction, not a semantic deletion. The post-change maximum may not exceed
 it. An addition that
 would otherwise raise `N` is legal only when the same commit names and actually removes enough
@@ -167,7 +167,7 @@ ceiling only after the corresponding obligations are proved removed.
 | X38 | BUILD searches for reusable implementation before writing. | `os/engineering/CONTOUR.md:203` |
 | X39 | Value-bearing/measured fields are asserted equal to their source. | `os/engineering/CONTOUR.md:205` |
 | X40 | Multi-actor features exercise conflicting inputs in one tick. | `os/engineering/CONTOUR.md:207` |
-| X41 | The builder never authors the next task CALL. | `os/engineering/CONTOUR.md:309` |
+| X41 | Every engineering stage returns its current CALL handback HOME; Direction alone issues successors. | `os/engineering/CONTOUR.md:309` |
 | X42a | A new dependency needs an owner decision. | `os/engineering/VALIDATION.md:83` |
 | X42b | A contract change needs an owner decision. | `os/engineering/VALIDATION.md:83` |
 | X42c | A tier-2 action needs an owner decision. | `os/engineering/VALIDATION.md:83` |

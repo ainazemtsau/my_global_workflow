@@ -12,7 +12,7 @@ The tier — not the agent's judgment — decides whether the owner is interrupt
 
 ## Stage 1: manual relay (now)
 
-Owner carries CALL/RESULT between chat sessions and the writer. Decision inbox = `NOW.md → decisions`, surfaced by sessions and by pulse.
+Owner carries a Direction CALL to the executor, then carries the executor's current-stage HOME handback to a fresh Direction session/writer. That session emits the successor CALL. The owner never finds, reconstructs, or composes a successor on behalf of the completed stage. Decision inbox = `NOW.md → decisions`, surfaced by sessions and by pulse.
 
 ## Stage 2: runtime-assisted relay
 
