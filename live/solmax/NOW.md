@@ -287,7 +287,7 @@ active_bet:
       kill the bet and shape a new bounded bet; do not extend appetite or
       claim partial success.
 
-route_status: operating_substrate_first_process_creator_t5_health_reclamation_m2_bounded_activation_pending
+route_status: operating_substrate_first_process_creator_t6_health_reclamation_first_live_pending
 
 owner_directive: |
   Полный хронологический леджер owner-решений/каведатов/коррекций по operating-substrate
@@ -446,7 +446,7 @@ tasks:
 
   - id: t-5
     kind: executor
-    status: active
+    status: done
     budget: 0.5 focused execution day
     goal: |
       Validate, admit and authoritatively activate the first concrete
@@ -490,7 +490,7 @@ tasks:
 
   - id: t-6
     kind: guide
-    status: open
+    status: active
     budget: 0.5 focused execution day
     goal: |
       Run the first concrete pack on a real owner-originated obligation and
@@ -585,19 +585,18 @@ recurring: []
 decisions: []
 
 open_calls:
-  - id: c-solmax-operating-substrate-first-process-creator-t5-health-reclamation-m2-bounded-activation-019
-    to: executor
-    for: g-operating-substrate-first-process-creator/t-5
+  - id: c-solmax-operating-substrate-first-process-creator-t6-health-reclamation-first-live-020
+    to: session
+    for: g-operating-substrate-first-process-creator/t-6
     issued: 2026-07-17
     note: |
-      M2 semantic definition 4ed9cd1 is ADMITTED only for bounded activation
-      eligibility; d4c22f4 is closing evidence, not the effective definition.
-      The allowed first binding is exact Markdown definition + private ChatGPT
-      Project reasoning/routing carrier + Codex lifecycle verifier, with no
-      private writer, no durable personal state and no external effect. Owner
-      M2 acceptance is not activation authorization. CALL 019 must return the
-      owner's new exact authorization words, authoritative apply disposition
-      and the abstract missing-writer adverse branch; first real use stays t-6.
+      Exact M2 definition 4ed9cd1 is APPLIED only for bounded private Project
+      scope solmax/hr-m2-first-live-v1. Private writer, durable personal state,
+      external effects and Deep Research remain disabled. The synthetic
+      missing-writer branch passed but is not useful-live proof. CALL 020 must
+      handle one real low-consequence owner obligation inside the private
+      carrier and return the owner's actual usefulness judgment without raw
+      personal health content in Direction evidence.
 # 2026-07-12: c-solmax-operating-substrate-first-process-creator-t2-repo-bootstrap-001
 # cleared — the repo-bootstrap setup checkpoint is complete (commit f3d153d, CI
 # green). t-2 remains ACTIVE; Process Creator materialization is the next work,
@@ -605,5 +604,5 @@ open_calls:
 
 preserved_evidence: work/operating-substrate/evidence-index.md   # полный индекс вынесен из hot-state (verbatim)
 next: |
-  live/solmax/work/calls/c-solmax-operating-substrate-first-process-creator-t5-health-reclamation-m2-bounded-activation-019.md
+  live/solmax/work/calls/c-solmax-operating-substrate-first-process-creator-t6-health-reclamation-first-live-020.md
 END_OF_FILE: live/solmax/NOW.md
