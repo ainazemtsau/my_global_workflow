@@ -1,5 +1,5 @@
 # NOW: indie-game-development
-updated: 2026-07-17 by s-work-char-v2-repair-reservation-authorized-001
+updated: 2026-07-17 by s-work-near-gas-l1b-surface-freeze-close-001
 bet:
   node: g-9c41
   goal: |
@@ -66,14 +66,14 @@ tracks:
   - {id: dotnet-gates, label: "Локальный запуск проверок .NET — пауза", mode: parallel, for: "local: cross-platform .NET repository-gate runner prerequisite"}
 
 open_calls:
-  - id: c-exec-near-gas-l1b-surface-freeze-001
+  - id: c-exec-near-gas-l1b-red-freeze-001
     track: core
     status: ready
     to: executor
-    for: "g-9c41 / L1B-Capture prerequisite — first code stage of the accepted L1B PLAN"
+    for: "g-9c41 / L1B-Capture prerequisite — independent immutable RED against frozen carrier 163dffaa"
     issued: 2026-07-17
-    call: work/c-exec-near-gas-l1b-surface-freeze-001-call.md
-    note: "READY: compiler-green carrier and no-op sites only; no behavior/tests/RED/BUILD, product registry owns venue → history/2026-07-17-s-repair-near-gas-l1b-track-rebase-001.md."
+    call: work/c-exec-near-gas-l1b-red-freeze-001-call.md
+    note: "READY: SURFACE Direction-closed GREEN at exact carrier 163dffaa (+397 cumulative source lines, decision page 326 words, build/hygiene/review GREEN); tests/test-support-only RED must compile, discover and fail on behavior; no production/BUILD. Product v27<v28 drift stays explicit → history/2026-07-17-s-work-near-gas-l1b-surface-freeze-close-001.md."
   - id: c-exec-unity65-mac-revision-002-build-001
     track: dotnet-gates
     status: paused
@@ -154,6 +154,6 @@ decisions:
     options: ["Доступная физическая машина", "Точный CPU/GPU/RAM-класс с арендой/покупкой к финалу", "Только throttled-прокси — финал не закрывает"]
     recommendation: "Доступная физическая машина; газ CPU-bound, поэтому CPU должен быть назван явно."
 next:
-  call: c-exec-near-gas-l1b-surface-freeze-001
+  call: c-exec-near-gas-l1b-red-freeze-001
 
 END_OF_FILE: live/indie-game-development/NOW.md
