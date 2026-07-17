@@ -287,7 +287,7 @@ active_bet:
       kill the bet and shape a new bounded bet; do not extend appetite or
       claim partial success.
 
-route_status: operating_substrate_first_process_creator_t4_health_reclamation_v26_bounded_build_pending
+route_status: operating_substrate_first_process_creator_t5_health_reclamation_m2_bounded_activation_pending
 
 owner_directive: |
   Полный хронологический леджер owner-решений/каведатов/коррекций по operating-substrate
@@ -417,7 +417,7 @@ tasks:
 
   - id: t-4
     kind: guide
-    status: active
+    status: done
     budget: 0.25 focused execution day
     goal: |
       Use the admitted Process Creator with an ordinary owner-originated
@@ -446,7 +446,7 @@ tasks:
 
   - id: t-5
     kind: executor
-    status: open
+    status: active
     budget: 0.5 focused execution day
     goal: |
       Validate, admit and authoritatively activate the first concrete
@@ -585,18 +585,19 @@ recurring: []
 decisions: []
 
 open_calls:
-  - id: c-solmax-operating-substrate-first-process-creator-t4-health-reclamation-v26-bounded-build-018
+  - id: c-solmax-operating-substrate-first-process-creator-t5-health-reclamation-m2-bounded-activation-019
     to: executor
-    for: g-operating-substrate-first-process-creator/t-4
-    issued: 2026-07-16
+    for: g-operating-substrate-first-process-creator/t-5
+    issued: 2026-07-17
     note: |
-      Binding fresh-session PASS_TO_BUILD from CALL 017 covers exact clean
-      integration HEAD 7ed7903 and the current-authority two-classification
-      repair packet. This bounded BUILD may change only OP-HR01, KH-HR01,
-      directly affected self-check evidence and root RESULT.md, then returns
-      the actual committed candidate diff for one later fresh review. No new
-      PLAN/RED/inventory or pre-BUILD review is pending. t-4, appetite and all
-      lifecycle limits remain unchanged.
+      M2 semantic definition 4ed9cd1 is ADMITTED only for bounded activation
+      eligibility; d4c22f4 is closing evidence, not the effective definition.
+      The allowed first binding is exact Markdown definition + private ChatGPT
+      Project reasoning/routing carrier + Codex lifecycle verifier, with no
+      private writer, no durable personal state and no external effect. Owner
+      M2 acceptance is not activation authorization. CALL 019 must return the
+      owner's new exact authorization words, authoritative apply disposition
+      and the abstract missing-writer adverse branch; first real use stays t-6.
 # 2026-07-12: c-solmax-operating-substrate-first-process-creator-t2-repo-bootstrap-001
 # cleared — the repo-bootstrap setup checkpoint is complete (commit f3d153d, CI
 # green). t-2 remains ACTIVE; Process Creator materialization is the next work,
@@ -604,5 +605,5 @@ open_calls:
 
 preserved_evidence: work/operating-substrate/evidence-index.md   # полный индекс вынесен из hot-state (verbatim)
 next: |
-  live/solmax/work/calls/c-solmax-operating-substrate-first-process-creator-t4-health-reclamation-v26-bounded-build-018.md
+  live/solmax/work/calls/c-solmax-operating-substrate-first-process-creator-t5-health-reclamation-m2-bounded-activation-019.md
 END_OF_FILE: live/solmax/NOW.md
