@@ -1,0 +1,121 @@
+# Track-mode: как владельцу управлять треками
+
+updated: 2026-07-17 by s-work-track-mode-publish-guide-001
+readers: владелец направления и любая Direction-OS session, которая меняет lifecycle трека.
+
+## Текущий снимок
+
+* WIP-лимит: **6**; occupancy: **6/6**.
+* Занимают слот: `core`, `level`, `canon`, `damage`, `visual`, `marketing`.
+* Не занимает слот: `characters`, потому что его root и child CALL сейчас `paused`.
+* Primary: `core` — там живёт текущая ставка NearGas L1B.
+* Default: `canon / extraction` — это только ответ на «продолжаем», а не второй primary.
+
+## Четыре статуса CALL
+
+| Статус | Что значит | Занимает WIP |
+|---|---|---:|
+| `ready` | CALL можно запускать | да |
+| `waiting` | root ждёт child/event из `waiting_on` | да |
+| `blocked` | есть явный внешний `unblock_when`; это не ручная пауза | да |
+| `paused` | владелец явно остановил работу; есть `paused_by` receipt | нет |
+
+WIP считает **трек**, а не количество CALL. Child не добавляет второй слот. Pending owner decision занимает слот даже
+при paused root, поэтому одной паузы CALL недостаточно, чтобы освободить трек с нерешённым decision.
+
+## Что можно говорить обычными словами
+
+ID помнить не нужно. Достаточно человеческого названия и намерения:
+
+* «Поставь marketing на паузу. Default не меняй».
+* «Возобнови characters».
+* «Поставь marketing на паузу и возобнови characters; default оставь extraction».
+* «Добавь параллельный трек Audio Polish, но WIP оставь 6 — освободи для него marketing».
+* «Подними WIP-лимит с 6 до 7 и добавь Audio Polish».
+* «Убери visual из текущих треков совсем» — здесь система уточнит: временная пауза или retirement.
+
+Явная фраза вроде «поставь X на паузу» уже является owner verdict. Неясное «выключи X» требует одного выбора:
+`pause` (временно) или `retire` (убрать из current frontier).
+
+## Pause: временно остановить
+
+Pause сохраняет трек, CALL, зависимости и всю историю; меняется только dispatch-состояние. TREE-узел остаётся
+`parallel`. Все текущие CALL трека получают `paused` и один receipt с точными словами владельца. Default меняется
+только если он указывал на остановленный CALL и где-то остаётся другой `ready` CALL.
+
+Пример сейчас — поставить marketing на паузу:
+
+| | До | После |
+|---|---|---|
+| marketing root | `ready` | `paused` + `paused_by` |
+| occupancy | `6/6` | `5/6` |
+| default extraction | `ready`, выбран | без изменения |
+
+Важно: pausing `core` сейчас само по себе не освободит слот — там остаётся pending min-spec decision.
+
+## Resume: возобновить
+
+Resume не означает автоматически `ready`: система заново выводит состояние из сохранённых зависимостей и свежих
+свидетельств. Для `characters` после явного resume честный переход такой:
+
+| CALL | На паузе | После resume |
+|---|---|---|
+| body-rig root | `paused` | `waiting` на repair-002 + binding G5 |
+| reaction repair child | `paused` | `ready` |
+
+Characters снова займёт один WIP-слот. При текущих `6/6` одиночное «возобнови characters» не помещается: сначала
+нужно поставить другой занятый трек на паузу/retire либо явно поднять лимит.
+
+## Swap при полном лимите — рекомендуемый вариант
+
+Фраза: **«Поставь marketing на паузу и возобнови characters; default оставь extraction».**
+
+| Трек | До | После |
+|---|---|---|
+| marketing | root `ready`, WIP 1 | root `paused`, WIP 0 |
+| characters | root+child `paused`, WIP 0 | root `waiting`, child `ready`, WIP 1 |
+| occupancy | `6/6` | `6/6` |
+| default | canon/extraction | canon/extraction |
+
+Это атомарный lifecycle RESULT: сначала считается весь before/after, поэтому промежуточного превышения `7/6` нет.
+
+Если вместо marketing поставить на паузу `canon`, будет остановлен текущий default extraction. Пока существуют другие
+ready CALL, default обязан переехать. Рекомендуемый выбор в таком swap — новый ready character repair; альтернативно
+можно выбрать ready Level LV0.
+
+## Добавить новый трек
+
+Новый current track требует одновременно:
+
+1. уникальные короткий id и человеческое название;
+2. `primary` или `parallel` — primary всегда ровно один;
+3. approved scope с проверяемым `done_when`;
+4. один self-contained root CALL либо pending decision;
+5. явные слова владельца об открытии трека;
+6. свободный WIP-слот или явно одобренное изменение лимита.
+
+Если scope уже является TREE-узлом, добавление идёт через `map`: владелец подтверждает карточку, TREE меняется
+`parked → parallel` по G9, затем появляется track + root CALL. Если это bounded local process без TREE-узла,
+достаточен `work`: TREE не раздувается, но scope/done_when и root CALL всё равно обязательны. Новый primary — не
+«ещё один трек»: это handoff текущей ставки через `review`, потому что второй active bet запрещён.
+
+При `6/6` есть два честных варианта:
+
+* **Swap (рекомендуется):** pause/retire один занятый трек, добавить новый; лимит остаётся 6.
+* **Raise:** владелец явно говорит «поднять WIP до 7»; затем новый root занимает седьмой слот. Это не выводится из
+  желания добавить трек автоматически.
+
+## «Выключить» навсегда: retirement
+
+Retirement — не pause. Он проходит через `review`: каждый открытый CALL получает явную disposition, root не удаляется
+как будто его не было, receipt остаётся в history, track исчезает из current NOW, а TREE-backed узел с отдельным G9
+вердиктом становится `parked` или `dropped`. Ни `blocked`, ни merge/push, ни устная фраза «кажется, закончили» не
+являются доказательством close.
+
+## Что система показывает перед записью
+
+Для lifecycle-изменения owner brief должен показать: затронутые треки и CALL, before/after статусы, occupancy до и
+после, судьбу default, изменение WIP-лимита и любой TREE diff. При неоднозначности он останавливается за одним
+коротким verdict; при уже точной команде владельца применяет именно её, не расширяя полномочия.
+
+END_OF_FILE: live/indie-game-development/work/track-mode-owner-operations-guide.md

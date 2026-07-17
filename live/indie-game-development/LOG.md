@@ -313,4 +313,6 @@ archived: history/LOG-archive-indie-game-development.md — sessions before 2026
 
 2026-07-17 — repair/track-mode (direction/now-track-mode, s-repair-now-track-mode-migration-001): legacy NOW migrated to seven-track frontier with WIP 6/6; all eight CALLs, the current bet, pending decision and extraction default preserved, statuses = ready 3 / blocked 3 / paused 2, and nothing launched or closed. → history/2026-07-17-s-repair-now-track-mode-migration-001.md
 
+2026-07-17 — work/publish (core/track-mode-publish-guide, s-work-track-mode-publish-guide-001): migration 00c4b41 fast-forward published to direction branch and main, and a current-state owner guide now covers pause/resume/retire/add/WIP/swap; NOW, all CALLs and extraction default remain unchanged. → history/2026-07-17-s-work-track-mode-publish-guide-001.md
+
 END_OF_FILE: live/indie-game-development/LOG.md
