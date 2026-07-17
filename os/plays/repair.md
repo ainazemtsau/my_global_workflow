@@ -2,10 +2,12 @@
 
 Purpose: restore a trustworthy hot-state NOW.md when state contradicts reality or schema hygiene drift makes the entrypoint unreliable. Desync is expected, not exceptional — repair is cheap by design.
 
-Triggers: a session's CALL contradicts NOW.md; NOW.md contradicts TREE.md or visible evidence; audit/pulse flags NOW hygiene or hot-state hygiene drift (a hot file past its soft line ceiling, or carrying inlined evidence/an invented field); a session was interrupted and its RESULT lost; the owner says "this is wrong".
+Triggers: a session's CALL contradicts NOW.md; a workstream is untracked, a call is orphaned/misclassified, or default is dangling; NOW.md contradicts TREE.md or visible evidence; audit/pulse flags hygiene drift; a RESULT was lost; the owner says "this is wrong".
 
 Reads: NOW.md, TREE.md, CHARTER.md, LOG.md tail, recent history/ files, git log of the direction, work/ artifacts.
 Writes: NOW.md, TREE.md, CHARTER.md (hygiene trims only, owner-confirmed per G9), LOG.md (a repair entry naming what diverged), optional `work/` snapshot artifact, optional `history/LOG-archive-<direction-id>.md`.
+
+For a multi-workstream direction, reconstruction inventories the owner-approved WIP limit and each current track independently: stable id/label, primary|parallel mode, approved scope, one root/decision, parented children, and honest statuses. Corrected state moves prose into CALL/history artifacts, maps every call/decision to one track, stays within WIP, selects a valid default, and preserves unrelated ids. A parallel TREE node uses `status: parallel`; changing TREE still needs owner approval (G9).
 
 ## Steps
 
@@ -17,7 +19,7 @@ Writes: NOW.md, TREE.md, CHARTER.md (hygiene trims only, owner-confirmed per G9)
 
 ## Done when
 
-NOW.md matches reality and the NOW hygiene rules, any other flagged hot file is back within its schema template, to the owner's confirmation, and the divergence cause is logged.
+NOW.md matches reality and hygiene rules; tracks/calls/decisions/default are mutually consistent where used; any other flagged hot file is back within its template, to the owner's confirmation; the cause is logged.
 
 ## Notes
 

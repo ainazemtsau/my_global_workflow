@@ -1,11 +1,13 @@
 # Play: map
 
-Purpose: build or deeply revise the direction's goal tree WITH the owner. Evidence first, skeleton next, then one node at a time; nothing enters the tree without explicit owner approval (G9).
+Purpose: build/revise the goal tree WITH the owner; nothing enters without approval (G9).
 
 Reads: CHARTER.md, TREE.md, NOW.md; the latest map_evidence RESULT; evidence sources the owner names.
 Writes: TREE.md, NOW.md (next), LOG.md.
 
 Trigger: after frame; «перепланируем карту»; or a review harvest demands restructuring beyond small updates.
+
+Track-add fast path: one map-child card (not a G8 root mission); reuse evidence, skip global skeleton/search/lens sweep with reasons, get owner approval (G9), and at capacity pause/retire first.
 
 ## Steps
 
@@ -23,7 +25,7 @@ Trigger: after frame; «перепланируем карту»; or a review har
 6. **Order (owner)** — confirm the order, adjusted by verdicts: what unblocks what, riskiest assumption first.
 7. **Depth check** — top level only (rolling wave, G2). Deeper splits happen later, in shape.
 8. **Lens sweep on the map** — does the tree cover every charter lens? For each gap: propose a node or an explicit `not_needed: reason`.
-9. **Close (owner)** — the owner approves the whole tree shown compactly (G9). RESULT: full TREE.md (every non-root node carries its one-line why), log line, next = shape CALL on the recommended first node (2–3 options + recommendation).
+9. **Close (owner)** — owner approves the compact tree (G9). RESULT: TREE.md + log; normal map → shape CALL on recommended node (2–3 options); track-add map → accepted `parallel` node + track + one bounded work CALL, no tasks/appetite.
 
 ## Done when
 

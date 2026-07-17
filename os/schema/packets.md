@@ -8,6 +8,7 @@ Two packet types exist (KERNEL §4). Both are plain markdown blocks designed to 
 CALL <call-id>
 to: session | research | executor        # who runs it
 direction: <direction-id>
+track: <track-id>                        # required when NOW.md uses track-mode
 play: <frame|map|shape|converge|converge-arch|converge-verify|work|guide|review|research|pulse|repair|local/<name>>   # for sessions
 node: <g-xxxx>  task: <t-N> | recurring: <r-N>          # when applicable
 goal: |
@@ -22,7 +23,7 @@ done_when: |
 return: |
   <expected format of the RESULT's outcome/evidence>
 budget: <e.g. one session | 2h | 15 tool calls>
-parent: <session-id>                     # for children: where the result returns
+parent: <parent-call-id>                 # track child; legacy may name parent session
 surface: <optional routing hint: chatgpt | claude | cli | any>
 ```
 
@@ -36,15 +37,16 @@ Executor CALLs (`to: executor`) add `repo: <org/repo>` and `kind: engineering | 
 
 ```markdown
 RESULT <session-id> (call: <call-id>)
-direction: <direction-id>   play: <play>   node/task: <...>
+direction: <direction-id>   track: <track-id>   play: <play>   node/task: <...>
 outcome: |
   <what is now true that wasn't — in the world, not "I analyzed">
 evidence: |
   <proof matching done_when: artifact paths, commit/PR links, check output,
    source links. A claim without evidence is not an outcome.>
 state_changes: |
-  <exact edits: NOW.md task statuses, TREE.md node changes, files added to work/.
-   Includes CALLs issued by this session, for NOW.md → open_calls.
+  <exact edits: NOW.md task/track statuses, TREE.md node changes, files added to work/.
+   Includes CALLs issued by this session with track/status, for NOW.md → open_calls,
+   clears the returning call, and explicitly selects a new default when required.
    Written with stable targets and explicit postconditions so a mechanical
    executor needs only the bounded merge judgment defined below.>
 captures:
@@ -57,8 +59,10 @@ play_check:
   # actual words (his answer, verdict, or explicit waiver) — gate G10
 log: <one line for LOG.md>
 next: |
-  <ready CALL for the continuation | awaiting_decision | return-to-parent <id>>
+  <one continuation CALL whose status is in state_changes | awaiting_decision | return-to-parent <id>>
 ```
+
+**Track routing.** Legacy single-track directions may omit `track`. Once `NOW.md` has `tracks`, every newly issued CALL, RESULT, and pending decision names one; a pre-migration CALL may inherit its unique track from the authoritative `open_calls` entry with the same id. Each track has at most one parentless root CALL. A child names an existing same-track parent, appears in that parent's `waiting_on`, inherits its budget, and has acyclic ancestry to the root. Its RESULT clears only the child id, adds the history receipt to the direct parent, and makes that parent ready only after its last wait id clears. A RESULT may issue one same-position successor plus children: a root successor stays root; a child successor keeps its parent. Other call ids survive semantic rebase. `RESULT.next` is one recommended continuation, not the queue. If the returning call was `NOW.next`, state_changes selects its valid successor/default (or `awaiting_decision`); otherwise the default stays put unless explicitly changed.
 
 **State-change rebase semantics.** The authoritative per-operation merge and
 replay rules are `os/adapters/coding-agent.md` Role 1. Optional blob/SHA/commit

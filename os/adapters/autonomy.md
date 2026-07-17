@@ -19,15 +19,15 @@ Owner carries CALL/RESULT between chat sessions and the writer. Decision inbox =
 A local runtime, scheduled job, or short-lived headless agent on this repo:
 - applies RESULTs through the writer contract as they arrive (owner pastes once, not twice);
 - runs digest/audit/pulse on schedule, producing consolidated decision batches;
-- prepares the next CALL ready-to-paste;
+- prepares the default and every ready CALL grouped by track; the owner can open one or several without assembling packets;
 - may trigger fresh review of executor evidence before writer apply.
-Owner's manual work shrinks to: open next chat, paste one CALL, answer batched decisions.
+Owner's manual work shrinks to: choose a ready CALL card grouped by track (default already selected), open its chat, answer batched decisions.
 
 ## Stage 3: orchestrator
 
 A loop (cron + agentic CLI, or a small service) that:
-- picks `NOW.md → next` and runs the session itself via an API/CLI model call;
-- chains RESULT → writer → next CALL without human hops;
+- claims eligible ready calls (default first unless policy says otherwise) and runs separate API/CLI sessions without overlapping product writes;
+- chains each RESULT → writer → its issued continuation calls without human hops;
 - pushes only two kinds of notification to the owner: a tier-2 decision batch, and pulse digests. Four response verbs: approve / edit / reject-with-reason / answer.
 - hard caps: ≤N interrupts/day (default 3 batches); any run exceeding its CALL budget stops and surfaces as blocked, never silently retries.
 

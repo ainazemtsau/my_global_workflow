@@ -24,9 +24,9 @@ remain authoritative.
 
 ## Job lifecycle
 
-Runtime jobs are derived from CALLs, RESULTs, product-repo evidence, and owner
-actions. A job may store logs outside `live/**`, but the closing fact returns
-through RESULT/history.
+Runtime jobs are derived from tracked open calls, RESULTs, product-repo evidence,
+and owner actions. Queue identity is `(direction, track, call)`; a job may store
+logs outside `live/**`, but the closing fact returns through RESULT/history.
 
 Statuses:
 
@@ -51,6 +51,7 @@ The first high-value loop is:
 ## Locks
 
 - One writer apply per direction at a time.
+- One runtime claim per `(direction, track, call)`; retry resumes that identity instead of launching a duplicate.
 - Product executor jobs use separate branches/worktrees or an explicit
   owner-approved shared worktree.
 - Runtime must not start two agents that can edit overlapping files
@@ -62,9 +63,9 @@ The first high-value loop is:
 A future `osctl` or equivalent wrapper should expose small JSON-friendly
 commands:
 
-- `status`: derive directions, active bets, open calls, decisions, and next.
-- `collect`: render a paste-ready CALL/context packet.
-- `run`: start an allowlisted session/executor/research command.
+- `status`: derive directions, active bets, track WIP limit/occupancy, calls grouped by track, decisions, and default next.
+- `collect`: render a paste-ready packet for the default or a named track.
+- `run`: start one ready call through an allowlisted session/executor/research command.
 - `review`: run a fresh refutation pass over an executor RESULT.
 - `apply`: invoke the writer on one RESULT with direction lock.
 - `notify`: send owner batches without changing state.

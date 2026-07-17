@@ -1,9 +1,9 @@
 # Play: research
 
-Purpose: answer one bounded question for a parent session (child session; children may spawn their own children the same way).
+Purpose: answer one bounded question for a parent; children may recurse.
 
 Reads: the CALL packet only — it must be self-contained (pointers to any needed files).
-Writes: nothing directly; findings return via RESULT to the parent. A knowledge candidate may be proposed, never written.
+Writes: no artifacts; findings and an optional knowledge candidate return via RESULT.
 
 ## Steps
 
@@ -18,7 +18,7 @@ The question is answered in the requested format within budget, or a budget/feas
 
 ## Notes
 
-- A research child never makes decisions for the parent and never touches state. It informs.
+- A tracked child inherits track; RESULT clears its id, records its receipt on the direct parent, and readies that parent after all children return.
 - If the answer reveals work to do, it becomes a capture — the parent or shape triages it.
 - Respect the budget literally: better a partial answer on time than a perfect answer that burned the budget twice over.
 - Multiple generator children on one question run independently in parallel (nominal group); merge and dedupe afterwards — never a shared brainstorm thread.

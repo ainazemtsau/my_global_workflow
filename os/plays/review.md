@@ -1,11 +1,13 @@
 # Play: review
 
-Purpose: close the active bet, update the tree from what was learned, and select what's next. The only play that revises TREE.md after framing — feedback lives here.
+Purpose: close the active bet, update TREE from learning, and select what's next. This play alone revises TREE.md after framing.
 
-Reads: CHARTER.md, TREE.md, NOW.md, history/ of the bet's sessions.
+Reads: CHARTER.md, TREE.md, NOW.md, history/ of the target's sessions.
 Writes: TREE.md, NOW.md, LOG.md, knowledge/.
 
 Trigger: all bet tasks closed, OR appetite expired, OR kill_by breached. Must run in a fresh session — never the session that did the work (gate G5).
+
+Parallel-track trigger: done_when met or owner retirement; fresh-session G5 remains.
 
 ## Steps
 
@@ -19,7 +21,11 @@ Trigger: all bet tasks closed, OR appetite expired, OR kill_by breached. Must ru
 
 ## Done when
 
-Bet has a verified verdict; TREE.md reflects the learnings; owner has a next-bet decision with options; NOW.md is clean of the old bet under NOW hygiene rules.
+Bet has a verified verdict; TREE.md reflects the learnings; owner has a next-bet decision with options; NOW.md is clean of the old bet and preserves valid parallel calls.
+
+In track-mode, an active-bet review changes primary calls/default only; parallel calls are preserved unless this RESULT explicitly changes their approved scope.
+
+A parallel-track review refutes its scope/root done_when, harvests lenses, gets the owner-approved scope disposition (and TREE disposition for a node), retires the track, preserves primary bet/calls, and skips bet-only steps with reasons.
 
 ## Notes
 

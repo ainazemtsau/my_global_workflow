@@ -55,14 +55,14 @@ owner_approved: <date> — history/<file>.md   # one line, pointer only (G9); a 
       done_when: <how we'll know>
       why: <one line: how this node leads to the parent's success>   # mandatory, G9
       # detail: history/<file>.md   # optional ref to the planning session's full rationale
-      status: parked      # parked | shaped | active | done | dropped
+      status: parked      # parked | shaped | active | parallel | done | dropped
       # shaped/active nodes add:
       # appetite: <e.g. 2w>
       # kill_by: <metric + threshold + date>
       children: []        # expand only when a node approaches activation
 ```
 
-Rules: outcomes only — tasks never appear here (G2). One `active` node per direction (G1). Width ≤7 open children per node. `dropped` nodes keep one line with the reason — pruning is information. Every non-root node carries its one-line `why`; the full rationale is already stored in the planning session's history file — store rich, load minimal, fetch detail on demand.
+Rules: outcomes only — tasks never appear here (G2). Exactly one non-root node may be `active`: the node in `NOW.bet` (G1). A node currently advanced outside that bet is `parallel`, appears in `NOW.tracks`, and gains no tasks or second appetite from that status. Width ≤7 open children per node. `dropped` nodes keep one line with the reason — pruning is information. Every non-root node carries its one-line `why`; the full rationale is already stored in the planning session's history file — store rich, load minimal, fetch detail on demand.
 
 ## NOW.md
 
@@ -90,12 +90,27 @@ tasks:                         # ≤3 active (G1); each ≤ half a focused day
     status: open               # open | active | blocked | done
     # blocked adds: unblock_when: <...>
 
-open_calls:                    # in-flight registry: issued CALLs awaiting their RESULT
+track_wip_limit: 3            # required with tracks; positive, owner-approved
+tracks:                        # OPTIONAL; required when >1 workstream is current
+  - id: core                   # stable short id; owner may say the id or label
+    label: "Основная разработка"
+    mode: primary              # exactly one primary; others parallel
+    for: g-xxxx                # approved node | recurring | local process; has done_when
+
+open_calls:                    # all outstanding work; dispatch source in track-mode
   - id: c-117
+    track: core                # required in track-mode
+    status: ready              # ready | waiting | blocked | paused
     to: executor               # session | research | executor
     for: t-2                   # task / recurring / node it serves
     issued: <date>
-    note: "прототип в репо игры"
+    call: work/c-117-call.md    # self-contained CALL artifact
+    # parent: c-116            # child only; same-track parent CALL id
+    # waiting adds: waiting_on: [c-117-a, c-117-b]  # child/event ids
+    # receipts: [history/<child-result>.md]          # bounded return pointers
+    # blocked adds: unblock_when: <one-line condition>
+    # paused adds: paused_by: <owner-verdict history pointer>
+    # note: <optional one-line pointer/context; never an evidence block>
 
 recurring:                     # standing obligations that outlive bets; ≤3 per direction
   - id: r-1                    # adding/removing an entry is an owner decision (G7)
@@ -106,19 +121,32 @@ recurring:                     # standing obligations that outlive bets; ≤3 pe
     last_done: <date>
 
 decisions:                     # the owner's inbox; answered items move to history
-  - q: <question>
+  - id: d-1                    # id + track required in track-mode
+    track: core
+    q: <question>
     options: [<a>, <b>, <c>]
     recommendation: <a, because ...>
 
-next:                          # ready-to-send CALL for the next session
-  <CALL packet, see packets.md>
+next:                          # legacy: CALL/pointer; track-mode: default selector
+  call: c-117
+# OR when no call is ready and a decision is pending: next: awaiting_decision
 ```
 
-NOW hygiene rules: NOW.md is hot state, not an archive. Keep long evidence in `history/`, `work/`, or `knowledge/`; NOW keeps one-line pointers only. `open_calls` contains only CALLs still awaiting RESULT; returned, done, superseded, or cancelled calls leave this list and live in LOG/history. `decisions` contains only pending owner decisions; answered decisions move to history or a linked work/knowledge artifact. `next` is exactly one CALL packet, or one line pointing to a self-contained CALL artifact under `work/` (for example `CALL: work/c-117-call.md`), never a status digest. No field outside this template — a running narrative field (e.g. an invented `current_truth`) is the same schema drift as an inlined `owner_approved` quote block: `bet.goal` states the outcome, the latest `history/` file states the current status, and NOW points to it in one line.
+NOW hygiene rules: NOW.md is hot state, not an archive. Keep long evidence in `history/`, `work/`, or `knowledge/`; NOW keeps one-line pointers only. `open_calls` contains only outstanding CALLs; returned, done, superseded, or cancelled calls leave it for LOG/history. `decisions` contains only pending owner decisions. In legacy single-track state, `next` remains one CALL packet, one `CALL: work/<artifact>.md` pointer, or `awaiting_decision` with a pending decision. In track-mode, `next` is exactly `call: <id>` selecting an existing open call, or `awaiting_decision` with a pending decision. When it selects a call and any call is `ready`, that default call must be ready; if none is ready it may point to a waiting/blocked/paused focus so "продолжаем" reports why nothing launches. It is a convenience default, never the whole queue. No field outside this template — a running narrative field (e.g. `current_truth`) is schema drift: the latest `history/` file holds detail and NOW points to it.
+
+Label normalization for uniqueness: trim, Unicode case-fold, and collapse internal whitespace.
+
+Track-mode rules: `tracks` is a compact grouping index, not another planning hierarchy. `track_wip_limit` is a positive owner-approved integer. A track occupies one WIP slot when it has a non-paused root or pending decision; waiting/blocked count, while children do not add slots. Occupancy cannot exceed the limit. Track ids and normalized current labels are unique. Every `for` resolves to an approved node/recurring/local scope with done_when. Exactly one entry is `mode: primary`; while a bet exists its `for` names `bet.node`, and between bets it carries the selected review/shape route. Each other entry is `parallel`; a parallel tree node uses `status: parallel`, never `active`, and gains no tasks or authority from the track. Every open call and decision has a stable id and names an existing track. Each track has at most one root call (no `parent`); every child names an existing same-track parent, appears in that parent's `waiting_on`, and has acyclic ancestry ending at the root. A returning child clears only its id, removes it from direct-parent `waiting_on`, and adds its history pointer to parent `receipts`; the last return makes that parent `ready`. `ready` means dispatchable, `waiting` has non-empty child/event `waiting_on`, `blocked` carries `unblock_when`, and `paused` requires an owner pause. Full CALLs/evidence live in the pointed artifact/history. Every current track has a root call or pending decision; a track with neither retires. Adding a track cannot bypass G1/G2, owner gates, CALL budget, WIP limit, or product-repo conflict rules.
 
 Recurring rules: entries are NOT tasks (G1/G2 untouched — they have their own ≤3 budget). Only pulse instantiates a due entry, as a ready work CALL in its decision batch; pulse never executes it. A recurring run that can't finish closes with the reason; `last_done` stays unchanged and pulse re-raises it next time.
 
-Open-calls rules: this is how a fresh session on ANY platform sees what is already running and who waits for whom — the recovery point after a crashed chat or a provider switch. A closing RESULT lists the CALLs it issued in `state_changes`; the writer records them here; a returning RESULT clears its entry immediately. Pulse flags entries older than their budget. If a chat died mid-work: nothing is lost except its unwritten conversation — restart from `NOW.next` or the relevant open_calls entry.
+Open-calls rules: this is how a fresh session on ANY platform sees what is outstanding and who waits for whom — the recovery point after a crashed chat or provider switch. A closing RESULT lists issued CALLs with their track/status; the writer records them by stable call id and preserves unrelated calls. A returning RESULT clears its own entry immediately and may issue one or several successors. Pulse flags entries older than budget. If a chat died, restart that ready call; a runtime's `running` flag is cache, not state authority.
+
+**Call identity.** Call ids are unique within the direction and never reused after leaving hot state; a checkpoint successor gets a new id, and child ids namespace under their issuing call.
+
+**Track lifecycle.** Track kinds/names are never predefined. A RESULT may create a track only from the owner's cited instruction/approval, with a new stable id, human label, primary|parallel mode, approved `for` scope, and a root call or decision. Later RESULTs add/clear calls, block/pause the root, or retire the track by id; creation, retirement, WIP-limit changes, and primary handoff remain owner decisions, while ordinary call progression does not. Labels may change without changing identity. Retirement removes the hot row/calls/decisions after honest disposition; LOG/history preserve the lineage. A later unrelated workstream gets a new id, never a recycled one.
+
+**Default routing.** A RESULT returning the current default call must select a valid successor/focus or `awaiting_decision`; a RESULT from any other call preserves `NOW.next` unless its `state_changes` explicitly selects another valid default. Named-track input resolves a unique ready call; if several exist, the session shows a compact choice with a recommendation. "Что можно делать" renders every ready call grouped by track plus concise waiting/blocked/paused counts.
 
 ## LOG.md
 
@@ -128,6 +156,8 @@ Append-only, newest first, one line per session — literally one line, ≤2 sho
 2026-06-12 s-041 work t-3: трейлер-сценарий готов и принят → history/2026-06-12-s-041.md
 2026-06-11 s-040 review g-12ab: bet met; дерево +2 узла (audience) → history/2026-06-11-s-040.md
 ```
+
+Track-mode inserts the track id after session-id (`2026-07-17 canon-c117-a1 canon work ...`); legacy lines stay valid.
 
 Archival: entry count alone eventually crosses the soft ceiling even with short lines — that's expected, not a defect. When `repair` trims a LOG.md past the ceiling, it keeps the most recent entries (roughly the newest half of the ceiling) and moves everything older **verbatim** — never rewritten, this is cold storage, not a second editorial pass — into `history/LOG-archive-<direction-id>.md`. LOG.md keeps exactly one pointer line at its oldest (bottom) position: `archived: history/LOG-archive-<direction-id>.md — sessions before <date>`. A later rotation appends to the same archive file and bumps that one date. No play reads the archive file by default; it exists to be opened or grepped on demand.
 

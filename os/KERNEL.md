@@ -13,7 +13,7 @@ The OS runs the owner's life directions — long-term ambitions — through many
 
 ## 2. Session contract
 
-1. **OPEN** — input is a CALL **or a plain owner message** (typed or dictated). Read the direction's `NOW.md` plus the files the active play lists. With a plain message, resolve it against NOW.md: "продолжаем" → run `NOW.next`; a question → read-only; it matches an open task or recurring → that work; a new ambition where no state exists → frame; otherwise propose an interpretation in one line and confirm. The first reply is the **opening contract**: the orientation header, the play's numbered steps with the current one marked, and a ≤5-line restate (play, goal, done_when) — then run the play, stopping at the first step that needs the owner; play steps outrank the CALL's wording. If state is unreadable or contradicts the input — repair. Structured CALLs are for machines and copy-paste; the owner never has to compose one.
+1. **OPEN** — input is a CALL **or a plain owner message** (typed or dictated). Read `NOW.md` and the play's listed files. Resolve plain input against NOW: new TREE-backed track → map; retirement/primary handoff → review; other track lifecycle → work; track/task/CALL match → its call/decision; "продолжаем" → `NOW.next` (default call/decision); "что можно делать" → ready calls grouped by track; question → read-only; no-state ambition → frame; otherwise interpret and confirm. Several ready in one track → compact choice/recommendation. The first reply is the **opening contract**: the orientation header, the play's numbered steps with the current one marked, and a ≤5-line restate (play, goal, done_when) — then run the play, stopping at the first owner step; play steps outrank the CALL. Unreadable or contradictory state → repair. Structured CALLs are machine/copy-paste artifacts; the owner never composes one.
 2. **WORK** — follow the play. Cross-cutting moves available in any session:
    - `call:research` — spawn a bounded child question (CALL packet, §4); children may spawn their own.
    - `call:executor` — delegate execution to a working agent (CALL packet, §4).
@@ -22,7 +22,7 @@ The OS runs the owner's life directions — long-term ambitions — through many
 3. **CLOSE** — emit RESULT (§4) as the session's final message only: a readable owner summary first, then the single fenced RESULT block. A RESULT block appears nowhere else; emitting one ends the session, checkpoint included. A writer agent applies state_changes and commits. The session is dead after RESULT; continuation happens in a fresh session via RESULT.next. A session may close early with a **checkpoint** RESULT (partial outcome, task stays active, continuation CALL) — switching platforms or splitting long work is normal.
 
 **Orientation header.** Every owner-facing reply starts with one line:
-`📍 <direction> / <node> / <task> — <play>: <current step> | нужно от тебя: <ничего | вопрос>`
+`📍 <direction> / <track-or-legacy> / <node> / <task> — <play>: <current step> | нужно от тебя: <ничего | вопрос>`
 
 **Language.** Talk to the owner in the owner's language (Russian). State files keep keys in English; values may be any language.
 
@@ -40,16 +40,16 @@ The OS runs the owner's life directions — long-term ambitions — through many
 |---|---|---|
 | `CHARTER.md` | mission, measurable success criteria, constraints, lenses, product repos | frame |
 | `TREE.md` | recursive goal tree — outcomes only, no tasks; every non-root node carries its one-line `why` | frame (root), map, shape (splits), review |
-| `NOW.md` | the active bet, its tasks, recurring obligations, open calls (in-flight registry), decision inbox, ready next CALL | every session |
+| `NOW.md` | active bet/tasks, optional track index, open calls, recurring work, decisions, default call | every session |
 | `LOG.md` | append-only: one line per session + link | every session |
 | `history/` | full RESULT of every session, one file each | append-only |
 | `knowledge/` | accepted facts and decisions; each entry names who reads it and when | review, pulse |
 
 `work/` holds products (documents, assets, scans) — outputs, not state.
 
-**Goal tree node:** `id` (stable short id, e.g. `g-3f7a`), `goal` (an outcome in the world, not an activity), `done_when` (verifiable), `status: parked | shaped | active | done | dropped`, optional `children`. A shaped node also carries `appetite` (time budget) and `kill_by` (metric + threshold + date).
+**Goal tree node:** `id` (stable short id, e.g. `g-3f7a`), `goal` (an outcome, not an activity), `done_when` (verifiable), `status: parked | shaped | active | parallel | done | dropped`, optional `children`. `active` is the one bet; `parallel` is a routing-only track with no tasks. A shaped node also carries `appetite` and `kill_by`.
 
-A **bet** is one shaped node committed into `NOW.md` with tasks. Tasks (`t-1`…) exist only there: `goal`, `done_when`, `status`, sized at half a focused day or less.
+A **bet** is one shaped node in `NOW.md`. Its tasks (`t-1`…): `goal`, `done_when`, `status`, each ≤ half a focused day.
 
 ## 4. Packets
 
@@ -59,11 +59,13 @@ A **bet** is one shaped node committed into `NOW.md` with tasks. Tasks (`t-1`…
 **RESULT** — the only way a session ends:
 `outcome` (what changed in the world, not a narrative of effort) · `evidence` (proof matching done_when) · `state_changes` (exact NOW/TREE edits) · `captures` · `decisions_needed` · `play_check` (one line per play step: done or skipped+why; steps the play marks `(owner)` cite the owner's words) · `log` (one line) · `next` (ready CALL, or `awaiting_decision`).
 
-An executor CALL for engineering goes to a coding agent in the direction's product repo. The agent owns implementation; evidence is commits/PR plus check output. The OS never dictates branches, paths, or SHAs.
+In track-mode a continuation may be `waiting|blocked|paused`; `open_calls.status` decides whether it is dispatchable.
+
+An engineering executor CALL goes to the product repo. The agent owns implementation; evidence is commits/PR plus checks. The OS never dictates branches, paths, or SHAs.
 
 ## 5. Hard gates — all mechanically checkable
 
-- **G1 (WIP).** One active bet per direction; ≤3 active tasks. Nothing new starts until something finishes or dies.
+- **G1 (WIP).** One active bet per direction; ≤3 active tasks. Track-mode: owner-set WIP limit caps non-paused roots/decisions; ≤1 root/track; children share its budget.
 - **G2 (rolling wave).** Tasks exist only inside the active bet. Every other tree node stays outcome-level.
 - **G3 (appetite).** Appetite is set before tasks are written and never extends. There is no extend operation: an over-appetite bet dies; continuing means re-shaping a new bet.
 - **G4 (bet validity).** A bet without done_when and kill_by is invalid.

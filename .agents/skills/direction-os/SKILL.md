@@ -32,7 +32,7 @@ restate (play, goal, done_when). Then run the play and STOP at the first step
 that needs the owner.
 
 ```
-📍 <direction>/<node>/<task> — <play>: <step> | нужно от тебя: <ничего | вопрос>
+📍 <direction>/<track-or-legacy>/<node>/<task> — <play>: <step> | нужно от тебя: <ничего | вопрос>
 ```
 
 - Codex note: this header is the skill announcement for Direction OS. Do not
@@ -50,14 +50,18 @@ that needs the owner.
 | A `RESULT ...` packet ("apply this RESULT") | **writer** | `os/adapters/coding-agent.md` Role 1 |
 | `MAINTENANCE REQUEST ...` / a problem about the OS itself | **maintenance** | `os/MAINTENANCE.md` (never touch `live/**`) |
 | A CALL packet, or a plain message about a direction | **session** | run the play per `os/KERNEL.md` §2 OPEN |
-| `collect next for <direction>` | **writer** | one paste block: SESSION_PAYLOAD → play → NOW.md → CALL |
+| `collect next for <direction>[/<track>]` | **writer** | one block for default/unique ready call; ambiguous track → choices |
 | `audit <direction>` | **writer** | read-only consistency sweep, report only |
 | `digest [<direction>] [since <date>]` | **writer** | read-only morning report, render only |
 
-No CALL? Resolve against `NOW.md`: "продолжаем" → `NOW.next`; a question →
-read-only answer; matches an open task/recurring → that work; a new ambition
-with no state → `frame`; otherwise propose one interpretation in a line and
-confirm. The owner never composes packets by hand.
+No CALL? Resolve against `NOW.md`: new TREE-backed track → map;
+retirement/primary handoff → review; other track lifecycle → work;
+a track/task/CALL match → its call/decision;
+"продолжаем" → `NOW.next` (default call/decision); "что можно делать" →
+ready calls grouped by track; a named track with several ready calls → a
+compact choice and recommendation; a question → read-only; no-state ambition
+→ `frame`; otherwise propose one interpretation and confirm.
+The owner never composes packets or has to type track/call ids.
 
 ## 3. One session = one job = one RESULT
 
@@ -87,7 +91,7 @@ RESULT.** The order is strict:
    `history/<date>-<session-id>.md`, maintain every `END_OF_FILE: <path>`
    trailer, regenerate the direction's declared owner panel if one exists
    (rules in the direction's `knowledge/`; adapter Role 1), and commit
-   (`<direction> <play> <node/task>: <log line>`).
+   (`<direction>[/<track>] <play> <node/task>: <log line>`).
 
 The writer half is a bounded semantic integrator: it may resolve stale
 preconditions and compatible parallel edits, but carries no authority to
@@ -142,10 +146,10 @@ separate writer session applies them.
 - **A CALL is not an owner verdict.** When the CALL/play asks for an
   owner-readable verdict (`accepted/revised/rejected/split`, approve/reject,
   choose, "можно записывать", or similar), first present the readable brief and
-  STOP for the owner's actual words. Do not emit a closing RESULT, clear the
-  open_call, or open the downstream CALL until those words can be cited in
-  `play_check`/evidence. If no verdict exists, close only as a checkpoint and
-  leave the same open_call pending.
+  STOP for the owner's actual words. Do not close the pending work or open the
+  downstream CALL until those words can be cited in
+  `play_check`/evidence. If no verdict exists, checkpoint by clearing the
+  returning id and issuing a new continuation CALL for the same pending work.
 - Plans are co-created, never generated: draft one artifact at a time, get
   explicit owner approval before any `state_changes` (G9); `play_check` cites
   the owner's actual words on `(owner)` steps.
