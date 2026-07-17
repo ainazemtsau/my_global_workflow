@@ -323,4 +323,6 @@ archived: history/LOG-archive-indie-game-development.md — sessions before 2026
 
 2026-07-17 · s-research-sphere-universal-capture-verdict-001 · research · canon · g-d3a8 · owner selected universal Sphere capture: every standard Sphere takes every gameplay gas, gas type alone cannot damage the shell, compatibility exceptions parked behind playable evidence · history/2026-07-17-s-research-sphere-universal-capture-verdict-001.md
 
+2026-07-17 · s-work-characters-resume-a1 · work · characters · g-6d4e/resume: owner chose A, paused marketing and damage, resumed Characters with repair-002 READY under product-owned admission and body-rig WAITING on repair + binding G5; WIP 6/6→5/6, core default and product unchanged. → history/2026-07-17-s-work-characters-resume-a1.md
+
 END_OF_FILE: live/indie-game-development/LOG.md

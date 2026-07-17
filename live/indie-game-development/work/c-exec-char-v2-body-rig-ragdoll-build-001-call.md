@@ -1,4 +1,4 @@
-CALL c-exec-char-v2-body-rig-ragdoll-build-001 — PAUSED / NOT RUNNABLE
+CALL c-exec-char-v2-body-rig-ragdoll-build-001 — WAITING / NOT RUNNABLE
 
 * id: c-exec-char-v2-body-rig-ragdoll-build-001
 * track: characters
@@ -6,17 +6,17 @@ CALL c-exec-char-v2-body-rig-ragdoll-build-001 — PAUSED / NOT RUNNABLE
 * for: g-6d4e «Игровые персонажи» / В2 Leg 2 — engine-side body
 * issued: 2026-07-14; materialized from the frozen plan and legacy NOW by s-repair-now-track-mode-migration-001
 * play: execute
-* status: **PAUSED BY OWNER / NOT RUNNABLE**
+* status: **WAITING ON REPAIR + BINDING G5 / NOT RUNNABLE**
 
 ## Dispatch gate
 
-Этот CALL сохранён как outstanding state, а не открыт к исполнению. Не запускать и не менять product repo, пока
-одновременно не выполнены все условия:
+Track-wide пауза снята владельцем в `history/2026-07-17-s-work-characters-resume-a1.md`, но этот root всё ещё
+сохранён как outstanding state, а не открыт к исполнению. Не запускать и не менять product repo, пока одновременно
+не выполнены все оставшиеся условия:
 
-1. владелец явно снял track-wide паузу, заданную словами «можно поставить на паузу»;
-2. `c-exec-char-v2-reaction-core-repair-002` вернулся валидным Direction-OS RESULT;
-3. отдельная fresh binding G5-сессия дала по Leg 1 `CONFIRMED` с требуемым evidence;
-4. новый Direction-OS RESULT сверил и записал актуальные product authority, venue и runnable handoff.
+1. `c-exec-char-v2-reaction-core-repair-002` вернулся валидным Direction-OS RESULT;
+2. отдельная fresh binding G5-сессия дала по Leg 1 `CONFIRMED` с требуемым evidence;
+3. новый Direction-OS RESULT сверил и записал актуальные product authority и runnable handoff.
 
 До этого файл — recovery artifact. Он не разрешает checkout/worktree/build/merge/push и не заменяет свежую
 pre-write admission-проверку по действующему GasCoopGame protocol/registry.
@@ -76,7 +76,7 @@ transform.
    scenes/global settings.
 5. Current product gates are green with exact commands/results, and the seam/authority boundary is shown unchanged.
 6. Engine existence proof and owner-eye LOOK both exist; LOOK explicitly checks real flop and get-up without jerk.
-7. One cross-family G4 reviews the product result, then a separate fresh binding G5 attempts to refute every claim.
+7. One fresh G4 reviews the product result under current model-neutral rules, then a separate fresh binding G5 attempts to refute every claim.
    The CALL remains open until that binding close evidence exists in a valid Direction-OS RESULT.
 
 ## Return

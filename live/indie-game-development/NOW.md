@@ -1,5 +1,5 @@
 # NOW: indie-game-development
-updated: 2026-07-17 by s-research-gas-sphere-frame-close-004
+updated: 2026-07-17 by s-work-characters-resume-a1
 bet:
   node: g-9c41
   goal: |
@@ -101,12 +101,13 @@ open_calls:
     note: "READY / OWNER-PRESENT. Persist only the selected universal-capture baseline in the existing non-canon Sphere frame. No canon admission, gas-reaction design, damage or implementation."
   - id: c-shape-sc-damage-001
     track: damage
-    status: blocked
+    status: paused
     to: session
     for: Sc-damage
     issued: 2026-07-09
     call: work/c-shape-sc-damage-call.md
-    unblock_when: "A ready canon specification explicitly changes the legacy HELD disposition."
+    paused_by: history/2026-07-17-s-work-characters-resume-a1.md
+    note: "Owner paused this mechanically preserved legacy frontier. Its v19/base/canon assumptions are stale; a separate review should retire or rehome it without deleting the future damage obligation from core SPEC/knowledge."
   - id: c-visual-009
     track: visual
     status: blocked
@@ -117,32 +118,31 @@ open_calls:
     unblock_when: "M0+C1+L3+I1 are delivered/reviewed and immutable per-Step data exists; later visuals also require E1/D1/X1."
   - id: c-marketing-wake-001
     track: marketing
-    status: ready
+    status: paused
     to: session
     for: "g-2f8c / minimal marketing wake"
     issued: 2026-07-11
     call: work/marketing/claude-code-handoff-c-marketing-wake-001-2026-07-12.md
-    note: "Explicit READY preserved; resume from committed INOMAND checkpoint, while stale-route finding dr-20260712-001 remains open."
+    paused_by: history/2026-07-17-s-work-characters-resume-a1.md
+    note: "Paused in the owner-approved marketing→characters WIP swap. On a later resume, start from the committed INOMAND checkpoint and first reconcile stale-route finding dr-20260712-001."
   - id: c-exec-char-v2-body-rig-ragdoll-build-001
     track: characters
-    status: paused
+    status: waiting
     to: executor
     for: "g-6d4e / В2 Leg 2 — rig + procedural locomotion + cosmetic PuppetMaster ragdoll + character material"
     issued: 2026-07-14
     call: work/c-exec-char-v2-body-rig-ragdoll-build-001-call.md
     waiting_on: [c-exec-char-v2-reaction-core-repair-002]
-    paused_by: history/2026-07-16-s-work-gascoopgame-worktree-protocol-v2-blocked-001.md
-    note: "Track-wide owner pause wins for dispatch; after resume Leg 2 still waits for repair-002 + binding G5."
+    note: "Owner resumed the track in history/2026-07-17-s-work-characters-resume-a1.md. Leg 2 remains NOT RUNNABLE: repair-002 must return, then a same-position fresh binding-G5 successor must close before this root can become ready."
   - id: c-exec-char-v2-reaction-core-repair-002
     track: characters
-    status: paused
+    status: ready
     to: executor
     for: "g-6d4e / В2 Leg 1 — close the un-gated-seed CLASS (repair-001 was RED; owner chose option A)"
     issued: 2026-07-15
     call: work/c-exec-char-v2-reaction-core-repair-002-call.md
     parent: c-exec-char-v2-body-rig-ragdoll-build-001
-    paused_by: history/2026-07-16-s-work-gascoopgame-worktree-protocol-v2-blocked-001.md
-    note: "Owner words «можно поставить на паузу»; full invariant/evidence → knowledge/g6d4e-char-v2-leg1-reaction-core.md."
+    note: "READY after owner resume and full-packet refresh in history/2026-07-17-s-work-characters-resume-a1.md. Product AGENTS/registry own admitted venue, branch/path/SHA and integration; Direction owns the invariant, cuts and return evidence."
 
 recurring: []
 

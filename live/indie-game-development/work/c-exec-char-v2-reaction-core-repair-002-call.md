@@ -1,152 +1,61 @@
 CALL c-exec-char-v2-reaction-core-repair-002
+to: executor
+direction: indie-game-development
+track: characters
+repo: ainazemtsau/GasCoopGame
+kind: engineering
+node: g-6d4e
+parent: c-exec-char-v2-body-rig-ragdoll-build-001
 
-* id: c-exec-char-v2-reaction-core-repair-002
-* to: executor (fresh CONTINUATION session — НЕ plan-лег; fix-a-finding discipline)
-* for: g-6d4e «Игровые персонажи» / В2 Leg 1 — закрыть КЛАСС «незагейтованный посев», а не его очередной сайт
-* issued: 2026-07-15 by s-review-char-v2-reaction-core-g5-001 (binding G5), owner-decided «A»
-* play: execute
+goal: |
+  В2 Leg 1 имеет честное, готовое к отдельной binding-проверке закрытие полного класса
+  «незагейтованный посев»: источник сообщает готовность позы только при законном provenance,
+  а состояние inner во время реакции не может влиять на авторитетную позу или ручательство о ней.
 
-## Прочти это первым — почему CALL 001 провалился
+context: |
+  Read current product AGENTS.md and the canonical worktree registry first; they alone assign
+  admitted venue, branch/path/SHA, editor identity and integration lifecycle.
 
-**CALL 001 задал СЛАБЫЙ инвариант, и вся цепочка честно его исполнила.** Это ошибка G5-сессии (моя), НЕ билдера
-и НЕ тест-автора. Дословно из `c-exec-char-v2-reaction-core-repair-001-call.md` done_when #2:
+  Direction evidence and accepted scope:
+  - live/indie-game-development/knowledge/g6d4e-char-v2-leg1-reaction-core.md
+  - live/indie-game-development/work/c-plan-characters-002-plan.md
+  - live/indie-game-development/work/gascoopgame-worktree-protocol-v2.md
+  - live/indie-game-development/history/2026-07-17-s-work-characters-resume-a1.md
 
-> «`IsReady==true` ⟹ `Current` получена от inner, не `Origin`-плейсхолдер»
+  The complete invariant is provenance-based: readiness is valid only after a pose was sampled
+  while reactions were Normal or received as the rest pose through GetUp. With no such pose the
+  wrapper is not ready. A lawful pose at Origin remains valid; value sniffing is forbidden.
 
-Поза, взятая у inner **во время гейта**, этому инвариату УДОВЛЕТВОРЯЕТ — и остаётся F1-утечкой. Билдер закрыл
-ровно названный класс; тест-автор проверил ровно названный класс. Оба сработали правильно. Формулировка была
-неполной: в ней не было половины «а если законной позы нет — значит нет и базы, отвечай "не готова"».
+  The saved product work is an ACTIVE-EXCEPTION input, not launch authority. The product protocol
+  decides whether it can be admitted/preserved/reused or whether the leg must stop. The owner chose
+  the narrow repair option A; this does not authorize Leg 2, merge, push or cleanup.
 
-Итог: cross-family G4 (Codex) вернул RED, и связывающий G5 подтвердил СВОЕЙ пробой. Сработало правило
-`AGENTS.md` **«same failure class twice = stop»** → владелец принял решение: **вариант A**.
+boundaries: |
+  Preserve the frozen authoritative-body seam and the already confirmed reaction/state-machine
+  behavior. Do not add a new movement or authority source, fix DF-13, build rig/ragdoll/locomotion,
+  touch gas/network/core behavior, clean legacy worktrees, or integrate/publish product branches.
+  Do not treat a historical path, branch, SHA, dirty file or model family as authority or a gate.
+  If current product admission cannot preserve the saved work losslessly, stop with evidence.
 
-**НЕ ПОВТОРИ ЭТО: закрывай ИНВАРИАНТ, а не сайт.** Тест, который проходит и на баге, и на фиксе, — доказательство
-дыры, а не зелени.
+done_when: |
+  1. The full provenance invariant holds for both hostile orderings and construction over an
+     already-reacting body, while lawful Normal-state sampling and a lawful Origin pose still work.
+  2. Recorded pre-fix evidence distinguishes the failing state from the candidate; a suite that is
+     green on both is not accepted as proof.
+  3. The current product-native build/test/delivery gates required for this admitted leg are green,
+     and the frozen character seam is evidenced unchanged.
+  4. The previously refuted F3/S8 disposition is corrected or explicitly routed without a false
+     self-healing claim; DF-13 and the known throw/stray-GetUp latent boundaries are named honestly.
+  5. A fresh read-only product review attempts to refute the repaired invariant and records
+     class+sweep evidence under current model-neutral review rules.
+  6. The product RESULT reconciles every item above and returns exact evidence pointers without
+     merging, pushing, opening Leg 2 or declaring Direction close.
 
-## Правильный инвариант (полная форма — он и есть предмет ремонта)
+return: |
+  Product RESULT plus exact commit/diff, gate and review evidence. Return to Direction as a
+  checkpoint; Direction must open a separate fresh binding-G5 successor under the same parent
+  before the body-rig root can become ready.
 
-> Обёртка вправе ручаться за позу (`IsReady==true` — а сейм определяет это как «true once this source HAS A VALID
-> POSE TO BE READ», и это единственная лицензия сокета доверять `Current`) ТОЛЬКО если она эту позу **законно
-> получила**: сэмплировала inner, пока `_reactions.State == Normal`, либо получила `restPose` через `GetUp`.
-> **Не получила ни одной — обязана отвечать НЕ готова.**
-
-Провенанс, а не значение. Запрещено «нюхать» `Origin` как маркер: тело, законно стоящее в нуле, обязано
-оставаться ready и отдавать ноль (этот дискриминатор уже есть в замороженном сьюте — он тебя поймает).
-
-goal (outcome, not method)
-
-Класс «незагейтованный посев» закрыт целиком: ни один путь не может сделать позу или ручательство о ней функцией
-того, что происходит с inner, пока `State != Normal`.
-
-## Корень класса — ОДНА строка, ТРИ входа
-
-`Assets/GasCoopGame/Characters/KnockdownAwareBodyState.cs` на типе `b6c6f2b7`:
-
-* **стр. 112** — общий корень: `if (!_held.HasValue && _inner.IsReady) _held = _inner.Current;`
-  Сравни со **стр. 65** (`Current`), где ТО ЖЕ присваивание загейтовано: `if (_reactions.State ==
-  BodyReactionState.Normal && _inner.IsReady)`. На 112 терм состояния просто отсутствует.
-* **вход 1 — стр. 82** (`IsReady`) → 112. `IsReady` не был загейтован НИ ДО ремонта, ни после: до ремонта он
-  латчил `_everReady` от опроса inner, после — сеет `_held` от опроса inner. Ремонт поменял, ЧТО пишет
-  незагейтованный путь, но путь не загейтовал.
-* **вход 2 — стр. 57** (ctor) → 112. **Этот сайт не нашли ни G4, ни G5, ни Codex.** Обёртка, созданная над УЖЕ
-  сбитым телом, сеет `_held` из уже уехавшего inner. Присутствует ОДИНАКОВО на `e64f070f` и `b6c6f2b7` — его не
-  закрыл ни фикс G4-F1, ни ремонт 001. Замороженный тест
-  `Knockdown_WithoutPriorRead_FreezesAtConstructionSnapshot` в эту ветку не заходит: он строит СВЕЖИЙ
-  `BodyReactionDriver`, поэтому на ctor `State == Normal` и посев там законен.
-
-**Доказательство, что это ОДИН класс, а не три находки** (прогнано, не рассуждение):
-
-```
-                       порядок A (ожил→опрос→нокдаун)   порядок B (нокдаун→ожил→опрос)
-до ремонта  e64f070f   НАРУШЕНИЕ (= находка R1)         НАРУШЕНИЕ
-после       b6c6f2b7   OK                               НАРУШЕНИЕ (= P1 Codex'а)
-+1 условие  кандидат   OK                               OK
-```
-
-P1 Codex'а — это R1 с переставленными двумя шагами. Ремонт 001 закрыл тот порядок, который случайно проверяла
-его RED-фикстура, и оставил соседнюю клетку.
-
-## Вариант A (решение владельца) — и что он НЕ чинит
-
-Владелец выбрал **A**: загейтовать посев тем же термом, что уже стоит на стр. 65. Прогнано G5-сессией:
-закрывает порядок B, ctor-сайт и сохраняет законный посев порядка A; **замороженный сьют 106/106 без правок**.
-
-⚠ **И ровно поэтому 106/106 — НЕ доказательство.** Сьют даёт 106/106 и на `b6c6f2b7`, и на кандидате: он не
-отличает баг от фикса. Твой RED обязан их различить.
-
-**Принятая цена A (записана осознанно, не дефект):** в режиме «inner ожил, пока тело сбито» и «inner не ожил
-никогда» обёртка честно говорит НЕ готова, и тогда `PlayerBodySocket` отдаёт свой `_lastPose`, инициализированный
-`BodyPose.Origin` → тело в мировом нуле весь нокдаун (~3 с вместо ~2 кадров). **Это DF-13, а не вина A:**
-проверено — голый never-ready источник ВООБЩЕ БЕЗ обёртки даёт `socket.Current == (0,0,0,0)`. Сайт DF-13 —
-`PlayerBodySocket` = замороженный сейм, п.5 запрещает трогать. A делает обёртку честной и оставляет DF-13
-владельцу. **DF-13 в этом леге НЕ чинить**; в RESULT отметить, что A расширяет его окно.
-
-## Задачи
-
-**R1 — закрыть класс (главное).** Загейтовать посев на стр. 112 тем же термом состояния, что на стр. 65.
-Форма — твоё ADR-решение (условие в helper'е / иначе), но она обязана закрыть ОБА входа (82 и 57) через общий
-корень, а не пропатчить их по отдельности. Порядок обязателен: **RED → фикс → свип → гейты**.
-
-**R2 — F3/S8, диспозировать честно.** Codex опроверг F3 (P2) и assumption 4 в RESULT 001. `GetUp(restPose)`
-(стр. 96) пишет `_held` БЕЗУСЛОВНО, а `BodyReactionDriver.GetUp()` (стр. 83) — no-op, если `State != Knockdown`.
-При offline-inner restPose остаётся видимым и обёртка становится ready — это нарушает замороженный S8
-(«reconcile only manifests while State != Normal», `docs/reviews/prefreeze-red-…md:71`). Прогон Codex'а:
-
-```
-innerReady=True;  stateAfterGetUp=Normal; current=(3,4,5,90)
-innerReady=False; stateAfterGetUp=Normal; current=(10,0,-10,270)
-```
-
-Аргумент assumption 4 («обёртка получила валидную позу») доказывает только инвариант F2, но не S8. Либо закрой,
-либо маршрутизируй с owner-ack — но не оставляй опровергнутую находку недиспозированной.
-
-**R3 — записать латентное (не чинить, если не решишь иначе; назвать в RESULT):**
-* стр. 96-97 неатомарны под throw (`_held = restPose;` до `_reactions.GetUp();`) — рекуррентный класс #2 из
-  review-guidelines. Сегодня недостижимо: `BodyReactionDriver.GetUp()` рано возвращает и не бросает.
-* асимметрия: стрэй `GetUp` в Normal — намеренный no-op драйвера, но авторитет обёртки всё равно двигает.
-
-## Границы (out of scope)
-
-* **НЕ трогать сейм.** `IAuthoritativeBodyState.cs` / `PlayerBodySocket.cs` / `BodyPose.cs` / `BodyReactions.cs` —
-  `git diff origin/main..HEAD` обязан остаться ПУСТ. **DF-13 не чинить.**
-* **НЕ трогать** F1-гейт в `Current`, машину состояний, валидацию импульса, leftover-carry, `>=`-границу,
-  Tick-атомарность — подтверждены прогонами (7/7 мутантов убиты).
-* **НЕ править независимые тесты** (`KnockdownAwareBodyStateTests.cs`, `KnockdownAwareBodyStateReadinessTests.cs`).
-  Именно поэтому владелец отверг варианты B и G: они ломают 9/21 и 21/21 соответственно.
-* **НЕ чинить resume-snap / re-seed inner** — раскрытая граница Leg 2 (C1).
-* Продолжать ветку `c-exec-char-v2-reaction-core-build-001` от `b6c6f2b7`. Не мержить, не пушить, не ребейзить.
-* Unity/MCP не нужен (headless; MCP сейчас отвалился — на этот лег не влияет).
-* Грязь p2a0_002 (`.vscode/`, `Assets/Plugins/NuGet/*`, `Packages/*`, `ProjectSettings/*`, `dev/`, untracked
-  `Characters.meta`) — пре-существующее, не коммитить, не чинить.
-
-## done_when (verifiable)
-
-1. Оба порядка воспроизведены ДО фикса прогоном (не чтением): порядок B (нокдаун→ожил→опрос) И ctor-сайт
-   (обёртка над уже сбитым драйвером). Метод — **дифференциальный**: держи всё константой, меняй ТОЛЬКО
-   гейтовый ввод; если авторитетный выход поменялся — это утечка.
-2. Независимые RED-тесты (билдер не редактирует) на ПОЛНЫЙ инвариант выше, покрывающие: порядок B, ctor-сайт,
-   порядок A (законный посев обязан продолжать работать), и дискриминатор «законный ноль» (тело, реально
-   стоящее в Origin, остаётся ready). **Каждый обязан КРАСНЕТЬ против `b6c6f2b7`** — сьют, проходящий и там и
-   там, ничего не доказывает.
-3. Класс закрыт в общем корне; оба входа (82, 57) закрыты одним изменением, а не двумя патчами.
-4. `pwsh -File tools/check.ps1` → `OK: all gates green`; замороженные 106 Characters-тестов зелены БЕЗ правок;
-   headless ≥1729 + новые, 0 failed.
-5. Сейм байт-идентичен: `git diff origin/main..HEAD` по четырём файлам ПУСТ.
-6. R2 (F3/S8) диспозирован: закрыт либо маршрутизирован с owner-ack; assumption 4 в RESULT исправлена.
-7. RESULT + ADR: принятая цена A (расширенное окно DF-13) названа явно; цифры воспроизводятся на типе;
-   R3-латентное перечислено.
-8. Один cross-family G4 (**Codex**) read-only на ремонт. Codex уже нашёл то, что три Claude-прохода пропустили —
-   это не формальность.
-
-## return
-
-RESULT (execute) → `docs/results/c-exec-char-v2-reaction-core-repair-002.md` + маршрут домой направлению на
-связывающий G5. Билдер НЕ авторит следующий CALL, НЕ мержит, НЕ открывает Leg 2.
-
-## budget
-
-Одна свежая continuation-сессия. Изменение — одно условие; если раздувается — STOP + владелец.
-Это ТРЕТИЙ заход на один класс: если он не закроется и здесь, следующий шаг — не четвёртый патч, а пересмотр
-границ лега вместе с владельцем.
+budget: one focused continuation leg; stop if admission requires cleanup/topology redesign or the repair expands beyond the bounded invariant class
 
 END_OF_FILE: live/indie-game-development/work/c-exec-char-v2-reaction-core-repair-002-call.md

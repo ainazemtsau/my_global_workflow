@@ -1,15 +1,15 @@
 # Track-mode: как владельцу управлять треками
 
-updated: 2026-07-17 by s-work-track-mode-publish-guide-001
+updated: 2026-07-17 by s-work-characters-resume-a1
 readers: владелец направления и любая Direction-OS session, которая меняет lifecycle трека.
 
 ## Текущий снимок
 
-* WIP-лимит: **6**; occupancy: **6/6**.
-* Занимают слот: `core`, `level`, `canon`, `damage`, `visual`, `marketing`.
-* Не занимает слот: `characters`, потому что его root и child CALL сейчас `paused`.
+* WIP-лимит: **6**; occupancy: **5/6**.
+* Занимают слот: `core`, `level`, `canon`, `visual`, `characters`.
+* Не занимают слот: `marketing`, `damage` и `dotnet-gates`, потому что их root CALL сейчас `paused`.
 * Primary: `core` — там живёт текущая ставка NearGas L1B.
-* Default: `canon / extraction` — это только ответ на «продолжаем», а не второй primary.
+* Default: `core / NearGas L1B surface-freeze` — это только ответ на «продолжаем»; ready Characters идёт параллельно и default не меняет.
 
 ## Четыре статуса CALL
 
@@ -43,45 +43,44 @@ Pause сохраняет трек, CALL, зависимости и всю ист
 `parallel`. Все текущие CALL трека получают `paused` и один receipt с точными словами владельца. Default меняется
 только если он указывал на остановленный CALL и где-то остаётся другой `ready` CALL.
 
-Пример сейчас — поставить marketing на паузу:
+Пример из выполненного 17.07 swap — поставить marketing на паузу:
 
 | | До | После |
 |---|---|---|
 | marketing root | `ready` | `paused` + `paused_by` |
 | occupancy | `6/6` | `5/6` |
-| default extraction | `ready`, выбран | без изменения |
+| default core/NearGas | `ready`, выбран | без изменения |
 
 Важно: pausing `core` сейчас само по себе не освободит слот — там остаётся pending min-spec decision.
 
 ## Resume: возобновить
 
 Resume не означает автоматически `ready`: система заново выводит состояние из сохранённых зависимостей и свежих
-свидетельств. Для `characters` после явного resume честный переход такой:
+свидетельств. Для `characters` переход выполнен 2026-07-17 так:
 
 | CALL | На паузе | После resume |
 |---|---|---|
 | body-rig root | `paused` | `waiting` на repair-002 + binding G5 |
-| reaction repair child | `paused` | `ready` |
+| reaction repair child | `paused` | `ready` после full-packet refresh под product-owned protocol v2 |
 
-Characters снова займёт один WIP-слот. При текущих `6/6` одиночное «возобнови characters» не помещается: сначала
-нужно поставить другой занятый трек на паузу/retire либо явно поднять лимит.
+Characters снова занял один WIP-слот. В том же атомарном RESULT владелец поставил на паузу marketing и damage,
+поэтому occupancy перешёл `6/6 → 5/6` без промежуточного превышения.
 
-## Swap при полном лимите — рекомендуемый вариант
+## Swap при полном лимите — выполненный вариант
 
-Фраза: **«Поставь marketing на паузу и возобнови characters; default оставь extraction».**
+Владелец выбрал вариант A и дополнительно поставил damage на паузу; default оставлен core/NearGas.
 
 | Трек | До | После |
 |---|---|---|
 | marketing | root `ready`, WIP 1 | root `paused`, WIP 0 |
 | characters | root+child `paused`, WIP 0 | root `waiting`, child `ready`, WIP 1 |
-| occupancy | `6/6` | `6/6` |
-| default | canon/extraction | canon/extraction |
+| damage | root `blocked`, WIP 1 | root `paused`, WIP 0 |
+| occupancy | `6/6` | `5/6` |
+| default | core/NearGas | core/NearGas |
 
 Это атомарный lifecycle RESULT: сначала считается весь before/after, поэтому промежуточного превышения `7/6` нет.
 
-Если вместо marketing поставить на паузу `canon`, будет остановлен текущий default extraction. Пока существуют другие
-ready CALL, default обязан переехать. Рекомендуемый выбор в таком swap — новый ready character repair; альтернативно
-можно выбрать ready Level LV0.
+Если позже поставить на паузу трек, на который указывает current default, default обязан переехать на другой ready CALL.
 
 ## Добавить новый трек
 
