@@ -327,4 +327,6 @@ archived: history/LOG-archive-indie-game-development.md — sessions before 2026
 
 2026-07-17 · s-work-sphere-universal-capture-frame-001 · work · canon · g-d3a8 · owner accepted the exact universal Sphere capture Frame diff; gas-to-shell incompatibility removed from the non-canon baseline, mixed-gas outcomes remain gas×gas, specialization parked behind playable evidence; fresh review issued · history/2026-07-17-s-work-sphere-universal-capture-frame-001.md
 
+2026-07-17 · s-work-publish-sphere-universal-capture-main-001 · work/publish · canon · repository/main · owner-requested committed Direction state through 0c327f4 atomically pushed without force to origin/wt/indie-game-development and origin/main; git and authenticated GitHub readbacks matched; dirty Characters partial apply stayed excluded and preserved · history/2026-07-17-s-work-publish-sphere-universal-capture-main-001.md
+
 END_OF_FILE: live/indie-game-development/LOG.md
