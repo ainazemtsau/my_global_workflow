@@ -319,4 +319,6 @@ archived: history/LOG-archive-indie-game-development.md — sessions before 2026
 
 2026-07-17 — repair/rebase (core/direction/near-gas-l1b-track-rebase, s-repair-near-gas-l1b-track-rebase-001): prepared NearGas SURFACE-FREEZE dispatch @e26367d is the sole ready core root/default; the non-priority .NET runner is preserved in paused dotnet-gates, WIP stays 6/6 and product remains untouched. → history/2026-07-17-s-repair-near-gas-l1b-track-rebase-001.md
 
+2026-07-17 · s-research-gas-sphere-frame-close-004 · research · canon · g-d3a8 · full five-family Sphere extraction landscape and owner-approved non-canon custody frame persisted; foreign-gas contact-outcomes root successor ready · history/2026-07-17-s-research-gas-sphere-frame-close-004.md
+
 END_OF_FILE: live/indie-game-development/LOG.md

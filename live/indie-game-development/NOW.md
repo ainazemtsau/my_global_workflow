@@ -1,5 +1,5 @@
 # NOW: indie-game-development
-updated: 2026-07-17 by s-repair-near-gas-l1b-track-rebase-001
+updated: 2026-07-17 by s-research-gas-sphere-frame-close-004
 bet:
   node: g-9c41
   goal: |
@@ -91,14 +91,14 @@ open_calls:
     issued: 2026-07-16
     call: work/c-exec-level-module-standard-v1-lv0-plan-001-call.md
     note: "READY witness + owner-approved parallel launch → history/2026-07-16-s-repair-level-lv0-parallel-launch-001.md."
-  - id: c-research-extraction-concept-landscape-001
+  - id: c-research-sphere-foreign-gas-contact-outcomes-001
     track: canon
     status: ready
     to: session
-    for: "g-d3a8 / high-level gas-extraction concept landscape"
-    issued: 2026-07-16
-    call: work/c-research-extraction-concept-landscape-001-call.md
-    note: "READY witness; Simple Gas Extraction stays QUESTION BLOCKED at the old altitude → history/2026-07-16-s-research-q-simple-gas-extraction-001.md."
+    for: "g-d3a8 / visible low-dimensional foreign-gas contact outcomes for the Sphere"
+    issued: 2026-07-17
+    call: work/c-research-sphere-foreign-gas-contact-outcomes-001-call.md
+    note: "READY / OWNER-PRESENT / NON-CANON DETAIL RESEARCH. Uses the persisted Sphere extraction/custody frame; compares foreign-gas outcomes only. No Gate Q, canon admission, damage, full roster matrix or implementation."
   - id: c-shape-sc-damage-001
     track: damage
     status: blocked
