@@ -311,4 +311,6 @@ archived: history/LOG-archive-indie-game-development.md — sessions before 2026
 
 2026-07-16 — work/close (g-9c41/L1B-PLAN, s-work-near-gas-l1b-plan-publication-close-001): owner «Принимаю PLAN»; exact docs-only candidate @92331e30 independently reviewed без Critical/Important, PLAN-publication gate GREEN и serialized published/released at product dev/main/origin @2d995d69; invalid model-family gate removed by v27, L1B implementation/SURFACE/RED/BUILD не открыты, extraction next и Level pending preservation сохранены. → history/2026-07-16-s-work-near-gas-l1b-plan-publication-close-001.md
 
+2026-07-17 — repair/track-mode (direction/now-track-mode, s-repair-now-track-mode-migration-001): legacy NOW migrated to seven-track frontier with WIP 6/6; all eight CALLs, the current bet, pending decision and extraction default preserved, statuses = ready 3 / blocked 3 / paused 2, and nothing launched or closed. → history/2026-07-17-s-repair-now-track-mode-migration-001.md
+
 END_OF_FILE: live/indie-game-development/LOG.md

@@ -1,5 +1,7 @@
 # TREE — indie-game-development
 
+owner_approved: 2026-07-17 — history/2026-07-17-s-repair-now-track-mode-migration-001.md
+
 root:
   id: g-a7f2
   goal: |
@@ -298,7 +300,7 @@ root:
          resulting design, based on the current evidence level rather
          than claims beyond it.
 
-    status: parked
+    status: parallel
 
     detail: |
       Current reconciliation and lineage:
@@ -370,7 +372,7 @@ root:
       4. The visual pipeline is a derivation of simulation state (density-mask-style),
          behind the pipeline seam locked by the g-9c41 render proof slice.
       5. Clip material flows directly from harness scenes to g-5b07/g-e6f2.
-    status: active   # owner-directed 2026-06-21 (s-visual-001): elevated parked→active as a PARALLEL TRACK (NOT a 2nd bet). Engine g-9c41 stays the PRIMARY active bet (G1 — visual adds NO active_tasks; work via CALLs). Full track state → NOW.parallel_tracks.
+    status: parallel   # owner-approved track-mode repair 2026-07-17; g-9c41 remains the sole primary active bet.
     detail: |
       history/s-map-002.md + history/s-visual-001.md. VISUAL (GASG) TRACK stood up 2026-06-21 — the owner wants the
       gas's LOOK worked NOW, in parallel to the engine, visible in planning with its own budget («участвовало в дереве
@@ -406,7 +408,7 @@ root:
       5. BOUNDARY: the deterministic "grid-ballistics" physical-interaction layer is NOT built here — it is a
          g-9c41 CORE slice (input-lockstep, integer, needs delivered grid+Step+lockstep). This track only
          defines/consumes the adapter seam where that core authoritative position plugs in.
-    status: active   # owner-approved 2026-07-13 («трек ... ок», «поехали»): PARALLEL TRACK like g-7e15, NOT a 2nd bet — adds NO active_tasks to the g-9c41 bet (G1); work via CALLs at owner-set cadence; g-9c41 engine stays the PRIMARY bet. First step = PLAN c-plan-characters-001.
+    status: parallel   # owner-approved track-mode repair 2026-07-17; paused dispatch remains governed by NOW.
     detail: |
       Born 2026-07-13 from the P2a0 verdict (M1-P2a0 done). Canonical verdict + grid-ballistics design =
       GasCoopGame product repo origin/main@0e9eed02 docs/results/c-exec-player-puppetmaster-p2a0-lean-spike-build-001.md
@@ -520,7 +522,7 @@ root:
          "there is something real to say" — NOT a filler treadmill; not dependent on a volunteer's weekly slot.
       6. Light metrics only (learn channel fit, not corporate analytics); markdown-first, no special
          MCP/tooling now (API metrics optional later).
-    status: parked
+    status: parallel
     detail: |
       history/s-map-003.md. Born at map c-map-003 (2026-06-16) from owner discussion + 2 deep-research
       passes (market wf_c85f223d-c09; structure design-panel wf_9d9c7ccf-cd5). The contested fixed-artifact

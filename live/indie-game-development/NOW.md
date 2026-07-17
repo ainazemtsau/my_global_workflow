@@ -1,6 +1,5 @@
 # NOW: indie-game-development
-updated: 2026-07-16 by s-work-near-gas-l1b-plan-publication-close-001
-
+updated: 2026-07-17 by s-repair-now-track-mode-migration-001
 bet:
   node: g-9c41
   goal: |
@@ -20,13 +19,7 @@ bet:
     Логи могут наблюдать суррогат, неоднозначно связывать retry/fault/handler или влиять на timing/order. Любой такой сигнал
     переключает ставку в NOT MET/review; fake-harness обход запрещён.
     next_if_false: L1a остаётся DELIVERED, v22 — FORBIDDEN; L1B закрывается NOT MET с названной failed family и возвращается на owner review без surrogate workaround.
-  cut_list:
-    - Нет L2 resource admission, work/memory bounds и performance ceiling.
-    - Нет C1 committed digest или новой checksum authority.
-    - Нет Unity cutover, debug UI и gameplay wiring.
-    - Нет workers/concurrency.
-    - Нет S4, Level/DA/PGG, common scene, real network и two-machine proof.
-    - Нет общего telemetry/export/persistence/replay framework.
+  cut_list: ["Нет L2 resource admission, work/memory bounds и performance ceiling.", "Нет C1 committed digest или новой checksum authority.", "Нет Unity cutover, debug UI и gameplay wiring.", "Нет workers/concurrency.", "Нет S4, Level/DA/PGG, common scene, real network и two-machine proof.", "Нет общего telemetry/export/persistence/replay framework."]
   lens_verdicts:
     commercial_traction: "not_needed: внешнего сигнала нет; это короткий capped технический мост к M1."
     core_gameplay_depth: "not_needed: механики и player decisions не заявляются."
@@ -61,130 +54,97 @@ tasks:
     done_when: "Separate fresh review reruns first-hand gates, пытается опровергнуть каждую family и закрывает только по 5/5 + scope GREEN."
     status: open
 
+track_wip_limit: 6
+tracks:
+  - {id: core, label: "NearGas — ядро игры", mode: primary, for: g-9c41}
+  - {id: level, label: "Уровни, модули и генераторы", mode: parallel, for: "local: Level/DA/PGG Standard v1"}
+  - {id: canon, label: "Геймдизайн и канон", mode: parallel, for: g-d3a8}
+  - {id: damage, label: "Газовый урон — Sc-damage", mode: parallel, for: "local: Sc-damage"}
+  - {id: visual, label: "Визуал и движение газа", mode: parallel, for: g-7e15}
+  - {id: marketing, label: "Маркетинг и аудитория", mode: parallel, for: g-2f8c}
+  - {id: characters, label: "Игровые персонажи", mode: parallel, for: g-6d4e}
+
 open_calls:
-  - id: c-exec-level-module-standard-v1-lv0-plan-001
-    to: executor
-    for: g-9c41 / parallel owner-present Level/Module Standard v1 LV0 PLAN
-    issued: 2026-07-16
-    note: |
-      READY PARALLEL / OWNER-PRESENT / PLAN ONLY / NO UNITY / NO BUILD.
-      Owner clarified that `NOW.bet`/`NOW.next` is the priority/default continuation, not a global lock: Level/DA/PGG
-      starts alongside the priority route. Standard v1 is already owner-accepted with D1=A / D2=A. This LV0 freezes
-      canonical encoding, shared-surface ownership, socket terminal states, transform rules, deterministic build input,
-      registries/versioning, sampler authority and size/time ceiling against fresh current product authority while
-      preserving proven lower seams. GasCoopGame v26 protocol/registry owns pre-write admission, venue, lifecycle
-      worktree, branch and integration; Direction pins no path/branch/SHA. Unity Editor, source/tests/assets,
-      SURFACE-FREEZE, RED and BUILD remain forbidden. Owner must separately approve the finished PLAN.
-      CALL: work/c-exec-level-module-standard-v1-lv0-plan-001-call.md; architecture:
-      work/level-module-standard-v1-candidate-2026-07-16.md; dispatch authority:
-      work/gascoopgame-worktree-protocol-v2.md.
-  - id: c-research-extraction-concept-landscape-001
-    to: session
-    for: g-d3a8 / high-level gas-extraction concept landscape
-    issued: 2026-07-16
-    note: |
-      READY PARALLEL / OWNER-PRESENT / HIGH-LEVEL RESEARCH.
-      Gate F remains FRAME READY from owner words «Вариант A»; bounded
-      P0 economy/artifact wording is not a prerequisite for extraction.
-      The prior Simple Gas Extraction question is CLOSED / QUESTION
-      BLOCKED at the wrong altitude by the owner's correction. Before
-      another bounded Canon Forge question is opened, explore the whole
-      extraction mechanic: tool, Bubble/Ball identity, primary physical
-      verb, visible gas/Bubble transformation, broad decision sources and
-      concept families. Simple Suction Bubble is owner-origin input only,
-      not selected. No canon or implementation; exact controls, capacity,
-      carry, helper count, scaling, roster, economy, artifacts, damage,
-      networking and balance remain OPEN. Sc-damage stays HELD. CALL:
-      work/c-research-extraction-concept-landscape-001-call.md.
   - id: c-exec-unity65-mac-revision-002-build-001
+    track: core
+    status: blocked
     to: executor
-    for: g-9c41 / local .NET gate runner prerequisite
+    for: "g-9c41 / local .NET gate runner prerequisite"
     issued: 2026-07-12
-    note: "HELD / NON-RUNNABLE: pre-v21 CALL and PLAN refs 7a3e747/8a344e9 do not resolve from fetched refs. After repo v21 Re-sync it still needs its own current-v21 full-packet check; CALL content is unchanged. work/c-exec-unity65-mac-revision-002-build-001-call.md."
+    call: work/c-exec-unity65-mac-revision-002-build-001-call.md
+    unblock_when: "Pre-v21 refs are reconciled to current product authority and a fresh full-packet check makes the CALL runnable."
+    note: "Legacy witness: HELD / NON-RUNNABLE; history/2026-07-12-s-repair-unity65-mac-revision-002-route-001.md."
+  - id: c-exec-level-module-standard-v1-lv0-plan-001
+    track: level
+    status: ready
+    to: executor
+    for: "g-9c41 / parallel owner-present Level/Module Standard v1 LV0 PLAN"
+    issued: 2026-07-16
+    call: work/c-exec-level-module-standard-v1-lv0-plan-001-call.md
+    note: "READY witness + owner-approved parallel launch → history/2026-07-16-s-repair-level-lv0-parallel-launch-001.md."
+  - id: c-research-extraction-concept-landscape-001
+    track: canon
+    status: ready
+    to: session
+    for: "g-d3a8 / high-level gas-extraction concept landscape"
+    issued: 2026-07-16
+    call: work/c-research-extraction-concept-landscape-001-call.md
+    note: "READY witness; Simple Gas Extraction stays QUESTION BLOCKED at the old altitude → history/2026-07-16-s-research-q-simple-gas-extraction-001.md."
   - id: c-shape-sc-damage-001
+    track: damage
+    status: blocked
     to: session
     for: Sc-damage
     issued: 2026-07-09
-    note: "HELD until ready canon spec; work/c-shape-sc-damage-call.md."
+    call: work/c-shape-sc-damage-call.md
+    unblock_when: "A ready canon specification explicitly changes the legacy HELD disposition."
   - id: c-visual-009
+    track: visual
+    status: blocked
     to: executor
-    for: g-7e15 / preserved visual motion work
+    for: "g-7e15 / preserved visual motion work"
     issued: 2026-07-10
-    note: "LOCKED until M0+C1+L3+I1 delivered/reviewed; motion also needs immutable per-Step data, later visuals wait E1/D1/X1."
+    call: work/c-visual-009-movement-data-plan-call.md
+    unblock_when: "M0+C1+L3+I1 are delivered/reviewed and immutable per-Step data exists; later visuals also require E1/D1/X1."
   - id: c-marketing-wake-001
+    track: marketing
+    status: ready
     to: session
-    for: g-2f8c / minimal marketing wake
+    for: "g-2f8c / minimal marketing wake"
     issued: 2026-07-11
-    note: "READY from the 2026-07-11 wake brief; owner mandate includes INOMAND research/substrate and no public action or spend without a separate owner yes. Route is known stale against the committed INOMAND checkpoint: dr-20260712-001."
-  - id: c-exec-char-v2-reaction-core-repair-002
-    to: executor
-    for: g-6d4e / В2 Leg 1 — close the un-gated-seed CLASS (repair-001 was RED; owner chose option A)
-    issued: 2026-07-15
-    note: |
-      PAUSED BY OWNER — exact words: «можно поставить на паузу». Do not dispatch or mutate the character track.
-      When explicitly resumed, this CALL supersedes c-exec-char-v2-reaction-core-repair-001, which is CONSUMED
-      and CLOSED-RED. Chain: binding G5 found R1 → repair-001 (b6c6f2b7) → cross-family G4 (Codex, the FIRST
-      independent family on this code) returned RED → the G5 session CONFIRMED Codex with its own differential
-      probe → AGENTS.md "same failure class twice = stop" fired → owner decided **option A**.
-      ROOT CAUSE IS THE G5's OWN CALL, NOT THE BUILDER: repair-001 done_when #2 named a WEAK invariant
-      ("IsReady==true ⟹ Current обtained from inner, not the Origin placeholder"). A pose obtained from the inner
-      *while gated* SATISFIES that and is still an F1 leak (spec §6 killing force). The builder closed exactly the
-      class named; the independent test-author tested exactly the class named. Both did their jobs.
-      FULL invariant (use THIS): the wrapper may vouch for a pose (IsReady==true — the socket's only licence to
-      trust Current) ONLY if it LEGITIMATELY ACQUIRED it: inner sampled while State==Normal, or a restPose via
-      GetUp. Having acquired none, it MUST report not-ready. Provenance, never value (sniffing Origin is banned —
-      a body legitimately at zero stays ready; the frozen suite's discriminator pins this).
-      CLASS = ONE line, THREE entries (KnockdownAwareBodyState.cs @ b6c6f2b7): root line 112
-      `if (!_held.HasValue && _inner.IsReady) _held = _inner.Current;` — the SAME assignment line 65 gates with
-      `_reactions.State == Normal`, minus the state term. Entries: line 82 (IsReady) and line 57 (ctor).
-      IsReady was NEVER gated, before or after; the repair changed WHAT the un-gated path writes, not that it is
-      un-gated. The CTOR site was missed by G4, by the G5, AND by Codex — present identically at e64f070f and
-      b6c6f2b7. Proof it is ONE class: Codex's P1 is R1 with two steps transposed (order A ok / order B violates);
-      one condition closes both orders and the ctor at once.
-      COVERAGE TRAP: the frozen suite is 106/106 against BOTH the bug and the candidate fix — it cannot tell them
-      apart. 106/106 is NOT evidence here; the RED must discriminate.
-      ACCEPTED COST of A (recorded, not a defect): in the "inner comes online mid-knockdown" / "never ready"
-      regimes the wrapper honestly reports not-ready, so PlayerBodySocket returns its own _lastPose (initialised to
-      Origin) → body at world origin for the whole knockdown (~3 s vs ~2 frames). That is DF-13, NOT A's fault —
-      verified: a bare never-ready source with NO wrapper at all yields socket.Current == (0,0,0,0). DF-13's site
-      is PlayerBodySocket = the FROZEN seam (done_when #5) → do NOT fix it here; it is the owner's call.
-      REJECTED (probed): B (ctor demands ready inner) breaks 9/21 independent tests; G (spawn-pose ctor arg) has
-      the best behaviour 6/6 but breaks 21 call sites at compile time — the builder may edit neither. G2
-      (A + explicit Place(pose)) is 21/21 with no origin but adds a SECOND unbound caller obligation (the C1 class).
-      work/c-exec-char-v2-reaction-core-repair-002-call.md; full evidence + the corrected invariant in
-      knowledge/g6d4e-char-v2-leg1-reaction-core.md. THIRD pass at one class — if it does not close here, the next
-      step is not a fourth patch but re-scoping the leg with the owner.
+    call: work/marketing/claude-code-handoff-c-marketing-wake-001-2026-07-12.md
+    note: "Explicit READY preserved; resume from committed INOMAND checkpoint, while stale-route finding dr-20260712-001 remains open."
   - id: c-exec-char-v2-body-rig-ragdoll-build-001
+    track: characters
+    status: paused
     to: executor
-    for: g-6d4e / В2 Leg 2 — rig + procedural locomotion + cosmetic PuppetMaster ragdoll + character material
+    for: "g-6d4e / В2 Leg 2 — rig + procedural locomotion + cosmetic PuppetMaster ragdoll + character material"
     issued: 2026-07-14
-    note: |
-      HELD until c-exec-char-v2-reaction-core-repair-002 closes and Leg 1 is G5-CONFIRMED (binding G5 returned NOT
-      CONFIRMED 2026-07-14; repair-001 was itself RED on the SAME class — cross-family Codex G4 caught it — so
-      repair-002 is the owner-decided option-A close; the repair's own binding G5 issues the runnable Leg 2 CALL).
-      Spec: work/c-plan-characters-002-plan.md §4 Leg 2. PuppetMaster ragdoll = isolated cosmetic layer (base prefab
-      works without gitignored RootMotion); magenta fix = own character material only (URP-default guid 31321ba1…
-      untouched, F2).
-      MANDATORY carry-forwards the Leg 2 CALL must bind (from the G5, knowledge/g6d4e-char-v2-leg1-reaction-core.md):
-      C1 — the inner-source RE-SEED on get-up is mechanically UNBOUND (no test, no ledger row, no gate). Omit it and
-      the authoritative pose teleports by the full gated-phase drift (probed: 4.5–5.2 m) the instant Normal resumes,
-      annihilating the GetUp(rest) reconcile; the ONLY catcher is owner-eye "no jerk". Make it a ledger row / RED test
-      at Leg 2 ENTRY. (Disclosed 4× by Leg 1 and spec-routed to Leg 2 — a boundary, not a Leg 1 defect.)
-      C2 — TRAP: PlayerBodyView.GetUp() (В1, already wired) forwards to the parameterless IBodyReactions.GetUp() and
-      SILENTLY SKIPS the wrapper's reconcile. The obvious-looking call is the wrong one; Leg 2 must call
-      wrapper.GetUp(restPose).
-      C3 — the driver's TIMED auto-rise never reconciles (no call site; IBodyReactions gives the wrapper no way to
-      learn a get-up began). Documented as S2; Leg 2 must handle it.
-      C4 — F2/F3 P3s, with their rationales CORRECTED by the repair (the old "self-healing" wording was false).
-      Engine existence proof + owner-eye LOOK + cross-family G4 + binding fresh G5.
+    call: work/c-exec-char-v2-body-rig-ragdoll-build-001-call.md
+    waiting_on: [c-exec-char-v2-reaction-core-repair-002]
+    paused_by: history/2026-07-16-s-work-gascoopgame-worktree-protocol-v2-blocked-001.md
+    note: "Track-wide owner pause wins for dispatch; after resume Leg 2 still waits for repair-002 + binding G5."
+  - id: c-exec-char-v2-reaction-core-repair-002
+    track: characters
+    status: paused
+    to: executor
+    for: "g-6d4e / В2 Leg 1 — close the un-gated-seed CLASS (repair-001 was RED; owner chose option A)"
+    issued: 2026-07-15
+    call: work/c-exec-char-v2-reaction-core-repair-002-call.md
+    parent: c-exec-char-v2-body-rig-ragdoll-build-001
+    paused_by: history/2026-07-16-s-work-gascoopgame-worktree-protocol-v2-blocked-001.md
+    note: "Owner words «можно поставить на паузу»; full invariant/evidence → knowledge/g6d4e-char-v2-leg1-reaction-core.md."
+
 recurring: []
 
 decisions:
-  - q: "d-m1-min-spec-hardware-001 — какое конкретное слабое железо становится binding min-spec финального прогона М1?"
+  - id: d-m1-min-spec-hardware-001
+    track: core
+    q: "d-m1-min-spec-hardware-001 — какое конкретное слабое железо становится binding min-spec финального прогона М1?"
     options: ["Доступная физическая машина", "Точный CPU/GPU/RAM-класс с арендой/покупкой к финалу", "Только throttled-прокси — финал не закрывает"]
     recommendation: "Доступная физическая машина; газ CPU-bound, поэтому CPU должен быть назван явно."
 
 next:
-  CALL: work/c-research-extraction-concept-landscape-001-call.md
+  call: c-research-extraction-concept-landscape-001
 
 END_OF_FILE: live/indie-game-development/NOW.md
