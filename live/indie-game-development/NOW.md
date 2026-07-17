@@ -1,5 +1,5 @@
 # NOW: indie-game-development
-updated: 2026-07-17 by s-work-characters-resume-a1
+updated: 2026-07-17 by s-work-sphere-universal-capture-frame-001
 bet:
   node: g-9c41
   goal: |
@@ -91,14 +91,14 @@ open_calls:
     issued: 2026-07-16
     call: work/c-exec-level-module-standard-v1-lv0-plan-001-call.md
     note: "READY witness + owner-approved parallel launch → history/2026-07-16-s-repair-level-lv0-parallel-launch-001.md."
-  - id: c-work-sphere-universal-capture-frame-001
+  - id: c-review-sphere-universal-capture-frame-001
     track: canon
     status: ready
     to: session
-    for: "g-d3a8 / persist owner-approved non-canon universal Sphere capture baseline"
+    for: "g-d3a8 / fresh review of persisted universal Sphere capture frame"
     issued: 2026-07-17
-    call: work/c-work-sphere-universal-capture-frame-001-call.md
-    note: "READY / OWNER-PRESENT. Persist only the selected universal-capture baseline in the existing non-canon Sphere frame. No canon admission, gas-reaction design, damage or implementation."
+    call: work/c-review-sphere-universal-capture-frame-001-call.md
+    note: "READY. Freshly try to refute universal-capture persistence and boundary preservation; no Gate Q, canon admission or new design."
   - id: c-shape-sc-damage-001
     track: damage
     status: paused

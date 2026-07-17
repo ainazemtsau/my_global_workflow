@@ -325,4 +325,6 @@ archived: history/LOG-archive-indie-game-development.md — sessions before 2026
 
 2026-07-17 · s-work-characters-resume-a1 · work · characters · g-6d4e/resume: owner chose A, paused marketing and damage, resumed Characters with repair-002 READY under product-owned admission and body-rig WAITING on repair + binding G5; WIP 6/6→5/6, core default and product unchanged. → history/2026-07-17-s-work-characters-resume-a1.md
 
+2026-07-17 · s-work-sphere-universal-capture-frame-001 · work · canon · g-d3a8 · owner accepted the exact universal Sphere capture Frame diff; gas-to-shell incompatibility removed from the non-canon baseline, mixed-gas outcomes remain gas×gas, specialization parked behind playable evidence; fresh review issued · history/2026-07-17-s-work-sphere-universal-capture-frame-001.md
+
 END_OF_FILE: live/indie-game-development/LOG.md
