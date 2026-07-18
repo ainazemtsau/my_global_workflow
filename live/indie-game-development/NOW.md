@@ -1,5 +1,5 @@
 # NOW: indie-game-development
-updated: 2026-07-18 by s-work-near-gas-l1b-pair-freeze-dispatch-001
+updated: 2026-07-18 by s-work-near-gas-l1b-pair-freeze-blocked-route-001
 bet:
   node: g-9c41
   goal: |
@@ -66,14 +66,14 @@ tracks:
   - {id: dotnet-gates, label: "Локальный запуск проверок .NET — пауза", mode: parallel, for: "local: cross-platform .NET repository-gate runner prerequisite"}
 
 open_calls:
-  - id: c-exec-near-gas-l1b-pair-freeze-001
+  - id: c-exec-near-gas-l1b-pair-candidate-correction-001
     track: core
     status: ready
     to: executor
-    for: "g-9c41 / L1B-Capture - v29 binding fresh PAIR-FREEZE refutation of exact 7c2348bc -> 54892e68 pair"
+    for: "g-9c41 / L1B-Capture - v29 PAIR-CANDIDATE exact-source oracle correction after BLOCKED pair freeze"
     issued: 2026-07-18
-    call: work/c-exec-near-gas-l1b-pair-freeze-001-call.md
-    note: "READY / ROOT / PAIR-FREEZE / engineering_contract: 29. PAIR-CANDIDATE HOME closed MET for exact clean WIN-U3 current-branch pair 7c2348bc -> 54892e68: carrier only NearGasSimulation.cs +40/-9, following tests/support-only RED across four files +184/-11; frozen PLAN authority unchanged; 1793 baseline GREEN, 21 positive intentional behavioral failures, 21 NC GREEN, 16 evidence-only rows closed. Separate fresh independent artifact-backed read-only refutation must inspect exact commits/manifests, raw evidence, carrier semantics, inventory, fixtures/oracles/NCs, independence and failure meaning. Return only BUILD eligibility or complete blocker; no BUILD/mutation/integration/Deliver/G5 or branch switch/reset/stash/clean/delete."
+    call: work/c-exec-near-gas-l1b-pair-candidate-correction-001-call.md
+    note: "READY / ROOT / PAIR-CANDIDATE CORRECTION / engineering_contract: 29. Fresh independent PAIR-FREEZE task 019f7562-6fb0-7393-abfa-1551b971e6ab BLOCKED immutable pair 7c2348bc -> 54892e68; BUILD FORBIDDEN. Exact-source oracle class is incomplete across reachable retry/fault fields: post-Step ActiveSetDirty=true, non-empty PendingWakeFaces, actual Step preparation/current, separately constructed replacement candidate/read, rejecting NCs, plus missing lawful E-SCRATCH-PROOF Surface addendum/review. Fresh contract-author must be independent from that refutator and later BUILD/validation, preserve frozen PLAN/decision/spec/tasks/ADR and public behavior, produce a new direct compiler-green carrier -> tests/support RED pair on owner-selected WIN-U3/current branch, rerun real gates/slices, and return only eligibility for another fresh PAIR-FREEZE or a complete blocker. No BUILD, owner interview, re-plan, branch switch/reset/stash/clean/delete/merge/push."
   - id: c-exec-unity65-mac-revision-002-build-001
     track: dotnet-gates
     status: paused
@@ -146,6 +146,6 @@ decisions:
     options: ["Доступная физическая машина", "Точный CPU/GPU/RAM-класс с арендой/покупкой к финалу", "Только throttled-прокси — финал не закрывает"]
     recommendation: "Доступная физическая машина; газ CPU-bound, поэтому CPU должен быть назван явно."
 next:
-  call: c-exec-near-gas-l1b-pair-freeze-001
+  call: c-exec-near-gas-l1b-pair-candidate-correction-001
 
 END_OF_FILE: live/indie-game-development/NOW.md

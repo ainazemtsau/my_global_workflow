@@ -361,4 +361,6 @@ archived: history/LOG-archive-indie-game-development.md — sessions before 2026
 
 2026-07-18 - s-work-near-gas-l1b-pair-freeze-dispatch-001 - work - core - g-9c41/L1B-Capture: PAIR-CANDIDATE HOME met all 1-8 dispositions for clean WIN-U3 exact pair 7c2348bc->54892e68 (frozen authority unchanged, carrier +40/-9, tests/support RED +184/-11, baseline 1793/1793, positive 21 behavioral failures, NC 21/21, evidence-only 16); returning root was replaced by one engineering_contract:29 fresh artifact-backed PAIR-FREEZE refutation, with BUILD/mutation/integration/Deliver/G5 still closed and no product work run. -> history/2026-07-18-s-work-near-gas-l1b-pair-freeze-dispatch-001.md
 
+2026-07-18 · s-work-near-gas-l1b-pair-freeze-blocked-route-001 · work · core · g-9c41/L1B-Capture: fresh independent PAIR-FREEZE BLOCKED immutable 7c2348bc->54892e68 and kept BUILD forbidden because reachable retry/fault exact-source oracles and E-SCRATCH-PROOF were incomplete; the root now routes one engineering_contract:29 PAIR-CANDIDATE correction for a new carrier->RED pair, with frozen authority/public behavior preserved and no product work or owner decision. → history/2026-07-18-s-work-near-gas-l1b-pair-freeze-blocked-route-001.md
+
 END_OF_FILE: live/indie-game-development/LOG.md
