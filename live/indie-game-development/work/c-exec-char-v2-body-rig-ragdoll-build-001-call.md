@@ -1,4 +1,4 @@
-CALL c-exec-char-v2-body-rig-ragdoll-build-001 — WAITING / NOT RUNNABLE / SEPARATE OWNER DECISION REQUIRED
+CALL c-exec-char-v2-body-rig-ragdoll-build-001 — WAITING / NOT RUNNABLE UNTIL DIRECTION REVIEW
 
 * id: c-exec-char-v2-body-rig-ragdoll-build-001
 * track: characters
@@ -6,24 +6,27 @@ CALL c-exec-char-v2-body-rig-ragdoll-build-001 — WAITING / NOT RUNNABLE / SEPA
 * for: g-6d4e «Игровые персонажи» / В2 Leg 2 — engine-side body
 * issued: 2026-07-14; materialized from the frozen plan and legacy NOW by s-repair-now-track-mode-migration-001
 * play: execute
-* status: **WAITING ON DIRECTION ACCEPTANCE/RELEASE REVIEW / NOT RUNNABLE**
+* status: **WAITING ON FRESH DIRECTION REVIEW / NOT RUNNABLE**
 
 ## Dispatch gate
 
 Track-wide пауза была снята владельцем в `history/2026-07-17-s-work-characters-resume-a1.md`, но этот root всё ещё
-сохранён как outstanding state, а не открыт к исполнению. Product handback уже опубликован, однако owner 2026-07-18
-потребовал освободить текущую Character Direction и не открывать Leg 2 без отдельного решения. Не запускать и не
-менять product repo, пока одновременно не выполнены все оставшиеся условия:
+WAITING и не открыт к исполнению. Product handback уже опубликован. После первоначального требования не открывать
+Leg 2 без отдельного решения owner дал это отдельное решение дословно: «A — открывай Leg 2 после review».
+Не запускать product executor, пока одновременно не выполнены оба Direction-условия:
 
 1. `c-review-char-v2-published-handback-release-001` дал binding Direction-вердикт по опубликованным candidate
    `0e5b2948`, integration `53453081` и dev/main `029279a`, включая уже записанный product fresh G5 `CONFIRMED`;
-2. тот Direction-RESULT освободил текущий Character WIP, переведя этот root в owner-paused, а не в ready;
-3. после паузы владелец отдельными новыми словами явно решил возобновить именно Leg 2; прошлые resume/repair слова
-   и опубликованный handback такой authority не дают.
+2. тот Direction-RESULT с verdict MET consumed review child, append-нул receipt, очистил последний `waiting_on` и
+   перевёл этот существующий root в READY по owner decision «A — открывай Leg 2 после review».
 
-До этого файл — recovery artifact. Он не разрешает checkout/worktree/build/merge/push и не заменяет свежую
-pre-write admission-проверку по действующему GasCoopGame protocol/registry. После review он остаётся recovery
-artifact в paused-состоянии до отдельного owner resume.
+После этого отдельная свежая product executor-сессия обязана до любой записи перечитать current protocol/registry
+и пройти обязательную pre-write admission-проверку. READY в Direction state не является автоматическим dispatch.
+
+До MET-review файл — recovery artifact. Он не разрешает checkout/worktree/build/merge/push и не заменяет свежую
+pre-write admission-проверку по действующему GasCoopGame protocol/registry. Если review вернёт PARTIALLY MET или
+NOT MET, root остаётся non-runnable и ждёт названный repair/re-review successor. После MET root может стать READY,
+но фактическая работа начинается только отдельной fresh product executor-сессией.
 
 ## Goal
 
@@ -87,6 +90,7 @@ transform.
 
 Executor returns a product RESULT and evidence pointers to the direction. The executor does not author the next CALL,
 close this open_call, merge, push or declare g-6d4e/В2 complete. Published Leg 1 evidence never auto-dispatches this
-file: after Direction acceptance/release, a separate later owner decision is still required before any refreshed Leg 2 CALL.
+file. The separate owner decision now exists — «A — открывай Leg 2 после review» — so a MET Direction review may
+make this root READY; dispatch and product mutation still belong only to the later fresh executor session.
 
 END_OF_FILE: live/indie-game-development/work/c-exec-char-v2-body-rig-ragdoll-build-001-call.md

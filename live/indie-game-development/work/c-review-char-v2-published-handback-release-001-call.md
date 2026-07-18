@@ -8,7 +8,7 @@ parent: c-exec-char-v2-body-rig-ragdoll-build-001
 
 goal: |
   Опубликованный Character V2 reaction-core repair имеет связывающий Direction-вердикт,
-  а текущий Character WIP освобождён без выдачи authority на Leg 2.
+  и при MET существующий Leg 2 root становится READY по отдельному решению владельца.
 
 context: |
   Owner handback 2026-07-18:
@@ -36,31 +36,37 @@ context: |
   - knowledge/g6d4e-char-v2-leg1-reaction-core.md;
   - history/2026-07-18-s-work-char-v2-published-handback-release-route-001.md.
 
-  Owner scope disposition is already explicit in the returning session: «Выпусти отдельный CALL, принимающий
-  handback и освобождающий текущую Character Direction. Leg 2 без отдельного решения не открывать.» Operationally,
-  release means the preserved body-rig root becomes owner-paused and stops occupying WIP; it is not deleted,
-  made ready or dispatched. A later resume needs a new owner decision.
+  Initial owner scope disposition was: «Выпусти отдельный CALL, принимающий handback и освобождающий текущую
+  Character Direction. Leg 2 без отдельного решения не открывать.» The owner has now supplied that required
+  separate decision verbatim: «A — открывай Leg 2 после review». This later instruction supersedes the earlier
+  operational pause interpretation. It does not waive this review: before a MET verdict the preserved body-rig
+  root stays WAITING and NOT RUNNABLE. On MET it becomes READY; READY permits a separate fresh product executor
+  session, but does not automatically dispatch or mutate the product repo.
 
 boundaries: |
   Product repo and published refs are read-only in this leg. Do not mutate, merge, push, repair, re-run delivery
-  publication or rewrite product evidence. Do not open, refresh, dispatch or make ready Leg 2. Do not change the
-  primary core bet/default, unrelated tracks/calls/decisions, CHARTER or TREE. The current Character root is
-  released as paused, not silently completed or deleted; any future Character work requires a separate owner decision.
+  publication or rewrite product evidence. Do not dispatch or execute Leg 2 from the review session. Before a MET
+  verdict Leg 2 remains WAITING and NOT RUNNABLE. Only a MET verdict may make the existing body-rig root READY;
+  PARTIALLY MET or NOT MET must keep it non-runnable behind a named repair/re-review blocker. Do not change the
+  primary core bet/default, unrelated tracks/calls/decisions, CHARTER or TREE. Do not delete or silently complete
+  g-6d4e or the preserved body-rig root.
 
 done_when: |
   1. Exact published RESULT/review and candidate→integration→published identity have evidence-backed dispositions.
   2. All six admission-003 done_when bullets are reconciled against the published product evidence, including
      immutable RED discrimination, frozen seam identity, DF-13/14/15 routing, review class+sweep and final fresh G5.
   3. A binding Direction verdict records MET, PARTIALLY MET or NOT MET without treating publication alone as close.
-  4. On MET, Leg 1 is accepted only at its bounded reaction-core height; on any other verdict, the exact blocker is named.
-  5. The review child is consumed; the body-rig root becomes owner-paused with no waiting child and no runnable
-     successor, so Character stops occupying WIP while g-6d4e and its evidence remain recoverable.
-  6. Leg 2 remains NOT RUNNABLE and can resume only from a later explicit owner decision; primary/default and all
-     unrelated track state remain unchanged.
+  4. On MET, Leg 1 is accepted only at its bounded reaction-core height; the review child is consumed, its receipt
+     is appended to the body-rig root, the final wait clears and that existing root becomes READY under the owner's
+     exact decision «A — открывай Leg 2 после review».
+  5. On PARTIALLY MET or NOT MET, the exact blocker is named and the review child is replaced by a self-contained
+     same-parent repair/re-review successor, so the body-rig root stays WAITING and NOT RUNNABLE.
+  6. READY is only launch eligibility for a separate fresh product executor session, not execution in this review;
+     primary/default and all unrelated track state remain unchanged.
 
 return: |
   One Direction-OS RESULT with the binding verdict, exact evidence pointers, admission-003 reconciliation,
-  Character root pause/release state changes, refreshed owner panel and no Leg 2 CALL.
+  conditional Character root readiness state changes, refreshed owner panel and no product mutation.
 
 budget: one fresh read-only Direction review session
 

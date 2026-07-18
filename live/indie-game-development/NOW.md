@@ -1,5 +1,5 @@
 # NOW: indie-game-development
-updated: 2026-07-18 by s-work-char-v2-published-handback-release-route-001
+updated: 2026-07-18 by s-work-char-v2-leg2-after-review-authorized-001
 bet:
   node: g-9c41
   goal: |
@@ -134,16 +134,16 @@ open_calls:
     call: work/c-exec-char-v2-body-rig-ragdoll-build-001-call.md
     waiting_on: [c-review-char-v2-published-handback-release-001]
     receipts: [history/2026-07-17-s-work-char-v2-reaction-core-repair-002-admission-blocked-001.md, history/2026-07-18-s-work-char-v2-published-handback-release-route-001.md]
-    note: "Leg 2 remains NOT RUNNABLE. Product handback is published at dev/main 029279a after final fresh G5 CONFIRMED on candidate 0e5b2948 and integration 53453081; Direction acceptance/release review is READY. Owner ordered current Character Direction released and Leg 2 not opened without a separate decision; the review must pause this root, never make it ready."
+    note: "Leg 2 remains NOT RUNNABLE until the fresh Direction review returns MET. Product handback is published at dev/main 029279a after final fresh G5 CONFIRMED on candidate 0e5b2948 and integration 53453081. Owner then gave the separate exact decision «A — открывай Leg 2 после review»: on MET the review child clears and this root becomes READY; PARTIALLY MET/NOT MET keeps it non-runnable behind an exact repair/re-review blocker. READY authorizes a fresh product executor session, not automatic dispatch."
   - id: c-review-char-v2-published-handback-release-001
     track: characters
     status: ready
     to: session
-    for: "g-6d4e / published В2 Leg 1 handback — binding Direction acceptance and current Character WIP release"
+    for: "g-6d4e / published В2 Leg 1 handback — binding Direction acceptance and Leg 2 readiness gate"
     issued: 2026-07-18
     call: work/c-review-char-v2-published-handback-release-001-call.md
     parent: c-exec-char-v2-body-rig-ragdoll-build-001
-    note: "READY fresh Direction review. Exact published product RESULT/review at 029279a record candidate 0e5b2948, integration 53453081, final binding G5 CONFIRMED and Deliver 1873/1873 GREEN. Accept only after refutation/reconciliation; then release Character WIP by pausing the preserved body-rig root. Owner exact instruction: Leg 2 requires a separate decision."
+    note: "READY fresh Direction review. Exact published product RESULT/review at 029279a record candidate 0e5b2948, integration 53453081, final binding G5 CONFIRMED and Deliver 1873/1873 GREEN. Owner supplied the required separate decision verbatim: «A — открывай Leg 2 после review». On MET consume this child and make the body-rig root READY; on PARTIALLY MET/NOT MET keep the root non-runnable behind an exact repair/re-review blocker."
 
 recurring: []
 
