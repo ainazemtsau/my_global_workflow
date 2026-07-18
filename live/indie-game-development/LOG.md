@@ -339,4 +339,6 @@ archived: history/LOG-archive-indie-game-development.md — sessions before 2026
 
 2026-07-17 · s-work-publish-sphere-review-cartography-main-001 · work/publish · canon · repository/main · owner-requested Sphere review and cartography Direction state through 92ea8fb atomically pushed without force to origin/wt/indie-game-development and origin/main; exact remote readback matched, dirty legacy Sphere work-CALL stayed excluded and preserved · history/2026-07-17-s-work-publish-sphere-review-cartography-main-001.md
 
+2026-07-18 · s-work-m0-source-decision-001 · work · core · g-9c41/M0-source-decision · owner «принимаю A» fixed Unity 6000.5.3f1 and the M0 source policy: current committed Windows-produced product state is the fresh baseline, the existing Mac migration catches up over it, and delivery requires one exact reviewed commit for both machines; no product work or other owner question changed · history/2026-07-18-s-work-m0-source-decision-001.md
+
 END_OF_FILE: live/indie-game-development/LOG.md
