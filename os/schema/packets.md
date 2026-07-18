@@ -25,6 +25,7 @@ return: |
 budget: <e.g. one session | 2h | 15 tool calls>
 parent: <parent-call-id>                 # track child; legacy may name parent session
 surface: <optional routing hint: chatgpt | claude | cli | any>
+engineering_contract: <N | legacy:<origin-call-id> | re-sync:<N>>  # engineering only; see below
 ```
 
 **CALL hygiene.** `goal`/`context`/`boundaries` never restate or paraphrase the play's procedure — the play file is the only procedure source. A CALL that summarizes steps ("one card at a time", "ask first") invites the session to follow the paraphrase instead of the play; the writer bounces such CALLs at collect/apply time.
@@ -32,6 +33,16 @@ surface: <optional routing hint: chatgpt | claude | cli | any>
 Executor CALLs (`to: executor`) add `repo: <org/repo>` and `kind: engineering | mechanical`:
 - `engineering` — a business task in a product repo. The agent owns design and implementation; evidence = commits/PR + check output (tests, build). Conventions and the run contract live in that repo's AGENTS.md/CLAUDE.md, not in the OS. `goal`/`done_when` stay business-level — hygiene extends to architecture; `context` may point to the direction's `work/` design-exploration docs as input evidence for the planner, never as a binding spec. A direction's first engineering CALL while no initialized product repo exists is repo setup — interactive (stack interview), its `context` points to `os/engineering/PROJECT_SETUP.md` and `os/engineering/profiles/`.
 - `mechanical` — apply one complete RESULT's declared state-change intent to fresh `live/**` (the writer role), including semantic rebase of stale bases. A bare `state_changes` section is incomplete. Interpretation is bounded to preserving compatible concurrent state; never invent outcomes or evidence. Apply, commit, report the commit hash.
+
+**Engineering contract pin (v29).** Every newly issued root `kind: engineering` CALL carries the current integer
+`engineering_contract`; every same-leg successor inherits that exact value. A CALL already registered in `open_calls`
+when v29 lands may return unmarked; its first later successor uses `legacy:<origin-call-id>` and later successors preserve
+that marker. `legacy:` is invalid on a new root. A bounded `re-sync:<N>` CALL may only install contract N and stamp the
+repo; it runs under the repo's pre-upgrade contract and cannot carry product-feature work. The writer validates a return
+against its pinned/originating contract, never against requirements added after issuance. During rollout, a legacy
+return may only close/checkpoint its leg or issue a same-leg legacy successor; it never atomically opens Re-sync or an
+unrelated integer-pinned root. After that return applies and all older CALLs for the repo close, a later Direction
+RESULT may issue `re-sync:<N>`; the first new feature root comes only after Re-sync HOME.
 
 Every executor stage closes with the current CALL's `return` handback HOME. A fresh-stage boundary means the handback names eligibility or the blocker only: the executor neither authors nor asks the owner to find/create the successor CALL. A Direction session consumes the handback and issues continuation through its RESULT.
 

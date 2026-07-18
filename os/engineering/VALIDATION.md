@@ -24,51 +24,46 @@ The strictest practical validation for autonomously-built code. Gates run cheap-
 
 **Mutation snapshot cleanliness (contract v24).** Before running, the reviewer-side runner fails if any declared mutation-input dependency path is staged, unstaged, or untracked; `H` therefore names the exact source/test/tool/config snapshot that produced the score rather than a nearby commit.
 
-**Compiled surface carrier (contract v23; supersedes the v22 prose-first carrier).** For a compiled product-code leg,
-PLAN may hand off only to a separate SURFACE-FREEZE session. The owner-approved decision page is at most 400 words
-and fully defines every fixture it names or omits it. The surface-author commits a compiler-green skeleton with real
-public signatures; data/value constructors preserve their fields and trivial value behavior so RED reaches behavior
-rather than dying in Arrange. Acceptance meaning may not be hidden in `///` comments. The freeze commit plus its Git
-manifest is the carrier scope, never a prose folder list. Added skeleton production-source lines are measured by
-`git diff --numstat <freeze-parent>..<freeze>` and must be at most 400; excess means STOP and split, never raise the
-ceiling. The same session must record repo-native build and hygiene GREEN and track every mandatory platform sidecar
-in the freeze commit (Unity: every new `Assets/**/*.cs` already has tracked `.cs.meta`; a sidecar requiring an
-unavailable real importer triggers the existing tool-unavailable STOP).
+**Compiled pair candidate (contract v29; new pinned CALLs only).** A root carrying `engineering_contract: 29` routes
+PLAN -> separate PAIR-CANDIDATE -> binding fresh PAIR-FREEZE refutation -> BUILD. One fresh contract-author - the
+independent test-author, never builder/validator - may stabilize both the non-behavioral public carrier and tests/support
+inside that bounded job. The owner-approved page remains at most 400 words and fully defines or omits each fixture.
+Carrier edits stay inside its approved construction/observation surface: real signatures, field-preserving data/value
+construction, trivial reachability, no behavioral implementation and no acceptance meaning in `///`. There is no
+production-line cap; normal formatting and those semantic boundaries replace source compression.
 
-Only then may a fresh independent RED-FREEZE test-author read the carrier as the leg-specific authority and commit
-tests/support only. The repo-native test command must compile, discover the intended tests and fail on behavior;
-compile-RED is ineligible under v23. A carrier change invalidates affected RED. A binding fresh refutation of the exact
-surface commit/manifest, decision page, actual RED commit/diff and runner evidence is the only path to BUILD; BUILD
-pins both reviewed commits, edits neither frozen RED nor the frozen public surface, and returns to SURFACE-FREEZE if a
-public change is required. The plan's obligation inventory and `behavioral-red | evidence-only` split remain required
-coverage/review evidence, but v22 prose recipes, a standalone PLAN-AMEND carrier and any textual `N/N` are not launch
-authority. The skeleton proves constructibility only, not architecture, semantic completeness, oracle meaning or
-internal implementation seams; test pass/fail counts alone prove none of those. No independent-test-author,
-immutable-RED, compilation, hygiene, mutation, NegativeControl, property, review, refutation, KERNEL-G5 or honest-STOP
-gate is weakened by this carrier change.
+Final evidence is an exact carrier commit followed by an exact RED commit. After the last carrier edit, repo-native
+build+hygiene and mandatory sidecars are GREEN, then the real test command compiles, discovers the intended tests and
+fails on behavior. Permitted carrier gaps are corrected inside PAIR-CANDIDATE, not returned through owner/Direction;
+behavioral/out-of-plan changes or exhausted retries return one complete blocker. Fresh refutation inspects fixture
+meaning, both commits/manifests/diffs and runner evidence, then freezes public declarations/value contract and RED
+files. BUILD pins both, may implement bodies/internal HOW, and edits neither frozen contract nor RED; changing either
+returns through PAIR-CANDIDATE and pair freeze. The obligation inventory and `behavioral-red | evidence-only` split
+remain evidence; prose recipes, PLAN-AMEND, `N/N`, compile-RED and counts are not launch authority. An already-open
+unversioned CALL and its `legacy:` successors stay on their recorded v23 route; v29 evidence or Re-sync never blocks
+their return.
 
 **Executable Plan-to-RED handoff (contract v22, historical carrier only).** The v22 prose-first route below is retained
-as migration history and does not execute for a compiled product-code leg once current contract is v23. A prose recipe
+as migration history and does not execute for a compiled v29 leg. A prose recipe
 is planning evidence, never executable evidence. The frozen spec first splits mixed rows and classifies every atomic
 obligation as `behavioral-red` or `evidence-only`: only behavioral rows enter the RED numerator and own a named test
 file/method plus exact `fixture|call|observe|source|negative`; process order, structural review, owner verdicts and
-final gates name their real evidence route and are excluded from the test count. Under v23, the compiled carrier and
-artifact-backed RED/refutation above replace v22's compile-RED and PLAN-AMEND launch permissions.
+final gates name their real evidence route and are excluded from the test count. The CALL-pinned compiled carrier route
+replaces v22's compile-RED and PLAN-AMEND launch permissions.
 
-**Fresh-refutation routing.** RED-FREEZE may hand off only to the already-required binding fresh review, never straight
-to BUILD. For a compiled v23 leg that reviewer reads the frozen surface commit/manifest and decision page plus the
-actual RED commit/diff and runner output; the plan's obligation inventory remains comparison evidence, not a carrier.
-It tries to refute completeness, fixture meaning and independence and writes no tests. Only its artifact-backed verdict
-may open BUILD.
+**Fresh-refutation routing.** PAIR-CANDIDATE (v29) or legacy RED-FREEZE may hand off only to binding fresh review, never
+straight to BUILD. The reviewer reads the exact carrier, decision page, RED commit/diff and runner output; the plan's
+inventory remains comparison evidence. It tries to refute completeness, fixture meaning and independence, writes no
+tests, and for v29 freezes the exact pair. Only its artifact-backed verdict may open BUILD.
 
 ## Gates
 
-For a compiled v23 leg, every G0 phrase below that says the test-author works "from the spec" means the frozen
-compiled carrier defined above; the acceptance ledger/spec remains immutable coverage evidence, not RED launch
-authority. Non-compiled repositories do not copy the C# mechanism and instead record a native executable carrier or
-an explicit owner-approved `n/a` at re-sync.
+For a compiled leg, every G0 phrase below saying the test-author works "from the spec" means the CALL-pinned compiled
+carrier route defined above; the ledger/spec remains immutable coverage evidence, not RED launch authority. Under v29
+the RED commit becomes immutable with the carrier at pair freeze; legacy v23 retains its earlier RED-FREEZE timing.
+Non-compiled repositories use a native executable carrier or an explicit owner-approved `n/a` at re-sync.
 
-**G0 — Contract freeze (before build).** Acceptance criteria per feature, machine-readable, negotiated with the validator before code exists. The builder cannot edit them. No criteria → no build. The failing acceptance tests realizing those criteria are written by an independent test-author from the spec — not the builder — committed in the immutable RED-FREEZE artifact and fresh-reviewed before BUILD, and the builder cannot edit them (same protection as the criteria); the builder makes them pass. An independently-authored, spec-derived oracle is the only thing that catches a misreading the builder's own tests would share (mutation testing cannot — a wrong-but-consistent test still kills mutants).
+**G0 — Contract freeze (before build).** Acceptance criteria per feature, machine-readable, negotiated with the validator before code exists. The builder cannot edit them. No criteria → no build. The failing acceptance tests realizing those criteria are written by an independent test-author from the spec — not the builder — committed in the CALL-pinned RED artifact, made immutable before BUILD and fresh-reviewed, and the builder cannot edit them (same protection as the criteria); the builder makes them pass. An independently-authored, spec-derived oracle is the only thing that catches a misreading the builder's own tests would share (mutation testing cannot — a wrong-but-consistent test still kills mutants).
 
 **G1 — Mechanical.** Format, strict lint, typecheck, dependency-boundary check, dead-code / unused-export check, duplicate-helper detection, rules against hardcoded values/secrets/magic literals. One command; runs constantly (hooks), not just at the end.
 

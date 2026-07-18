@@ -3,7 +3,7 @@
 This file is the load-bearing census for the engineering contract. It counts what one applicable
 product leg must do, not how many words describe it. The historical `N=71` in the 2026-07-14 audit
 was a hypothesis; this is the fresh contract-v24 census made before the contract-v25 valve landed,
-re-verified by v26, with X41 replaced one-for-one in v28.
+re-verified by v26, with X41 replaced in v28 and the listed carrier/version duties replaced in v29.
 
 ## Counting unit
 
@@ -46,7 +46,7 @@ deliverables, and exercises fixed, refuted, owner-ack and escalation branches. I
 | Unity profile predicates (`U`) | 27 |
 | **Maximum `N`** | **239** |
 
-`N = 239` remains the contract-v28 ceiling. B4 removed no obligation id: compacting historical
+`N = 239` remains the contract-v29 ceiling. B4 removed no obligation id: compacting historical
 narrative is a reading reduction, not a semantic deletion. The post-change maximum may not exceed
 it. An addition that
 would otherwise raise `N` is legal only when the same commit names and actually removes enough
@@ -59,32 +59,32 @@ ceiling only after the corresponding obligations are proved removed.
 
 | ID | Independently fail-capable predicate | Authority |
 |---|---|---|
-| G01 | Acceptance contract is frozen before BUILD. | `os/engineering/VALIDATION.md:71` |
-| G02 | Formatter passes. | `os/engineering/VALIDATION.md:73` |
-| G03 | Strict lint passes. | `os/engineering/VALIDATION.md:73` |
-| G04 | Typecheck passes. | `os/engineering/VALIDATION.md:73` |
-| G05 | Dependency-boundary check passes. | `os/engineering/VALIDATION.md:73` |
-| G06 | Dead-code/unused-export check passes. | `os/engineering/VALIDATION.md:73` |
-| G07 | Duplicate-helper check passes. | `os/engineering/VALIDATION.md:73` |
-| G08 | Hardcoded-value check passes. | `os/engineering/VALIDATION.md:73` |
-| G09 | Secret check passes. | `os/engineering/VALIDATION.md:73` |
-| G10 | Magic-literal check passes. | `os/engineering/VALIDATION.md:73` |
-| G11 | Full test suite is green. | `os/engineering/VALIDATION.md:75` |
-| G12 | Changed-file suite repeats deterministically. | `os/engineering/VALIDATION.md:98` |
-| G13 | Diff-scoped mutation score meets the configured floor. | `os/engineering/VALIDATION.md:75` |
-| G14a | Core property tests use a real property-testing framework. | `os/engineering/VALIDATION.md:75` |
-| G14b | Core property tests carry the declared Property category. | `os/engineering/VALIDATION.md:75` |
-| G15 | A scripted end-to-end scenario runs per feature. | `os/engineering/VALIDATION.md:77` |
-| G16 | Independent line-level review passes. | `os/engineering/VALIDATION.md:79` |
-| G17 | Each candidate finding is verified against actual behaviour. | `os/engineering/VALIDATION.md:81` |
-| G18 | Owner spot-check receives the gated final report. | `os/engineering/VALIDATION.md:83` |
-| G19a | Deliver-time RESULT exists. | `os/engineering/PROJECT_SETUP.md:54` |
-| G19b | Deliver-time RESULT carries every required field. | `os/engineering/PROJECT_SETUP.md:54` |
-| G20 | A non-archived frozen change activates the strong-check battery. | `os/engineering/PROJECT_SETUP.md:55` |
-| G21a | Recorded spec-silence-audit section exists. | `os/engineering/PROJECT_SETUP.md:55` |
-| G21b | Recorded spec-silence audit is non-empty. | `os/engineering/PROJECT_SETUP.md:55` |
+| G01 | Acceptance contract is frozen before BUILD. | `os/engineering/VALIDATION.md:66` |
+| G02 | Formatter passes. | `os/engineering/VALIDATION.md:68` |
+| G03 | Strict lint passes. | `os/engineering/VALIDATION.md:68` |
+| G04 | Typecheck passes. | `os/engineering/VALIDATION.md:68` |
+| G05 | Dependency-boundary check passes. | `os/engineering/VALIDATION.md:68` |
+| G06 | Dead-code/unused-export check passes. | `os/engineering/VALIDATION.md:68` |
+| G07 | Duplicate-helper check passes. | `os/engineering/VALIDATION.md:68` |
+| G08 | Hardcoded-value check passes. | `os/engineering/VALIDATION.md:68` |
+| G09 | Secret check passes. | `os/engineering/VALIDATION.md:68` |
+| G10 | Magic-literal check passes. | `os/engineering/VALIDATION.md:68` |
+| G11 | Full test suite is green. | `os/engineering/VALIDATION.md:70` |
+| G12 | Changed-file suite repeats deterministically. | `os/engineering/VALIDATION.md:93` |
+| G13 | Diff-scoped mutation score meets the configured floor. | `os/engineering/VALIDATION.md:70` |
+| G14a | Core property tests use a real property-testing framework. | `os/engineering/VALIDATION.md:70` |
+| G14b | Core property tests carry the declared Property category. | `os/engineering/VALIDATION.md:70` |
+| G15 | A scripted end-to-end scenario runs per feature. | `os/engineering/VALIDATION.md:72` |
+| G16 | Independent line-level review passes. | `os/engineering/VALIDATION.md:74` |
+| G17 | Each candidate finding is verified against actual behaviour. | `os/engineering/VALIDATION.md:76` |
+| G18 | Owner spot-check receives the gated final report. | `os/engineering/VALIDATION.md:78` |
+| G19a | Deliver-time RESULT exists. | `os/engineering/PROJECT_SETUP.md:53` |
+| G19b | Deliver-time RESULT carries every required field. | `os/engineering/PROJECT_SETUP.md:53` |
+| G20 | A non-archived frozen change activates the strong-check battery. | `os/engineering/PROJECT_SETUP.md:54` |
+| G21a | Recorded spec-silence-audit section exists. | `os/engineering/PROJECT_SETUP.md:54` |
+| G21b | Recorded spec-silence audit is non-empty. | `os/engineering/PROJECT_SETUP.md:54` |
 | G22 | Every escape-class row is dispositioned. | `os/engineering/ESCAPE-CLASSES.md:21` |
-| G23 | Deliverable-coverage check closes every promise. | `os/engineering/PROJECT_SETUP.md:55` |
+| G23 | Deliverable-coverage check closes every promise. | `os/engineering/PROJECT_SETUP.md:54` |
 | G24 | Review-evidence dependency passes. | `os/engineering/VALIDATION.md:7` |
 | G25 | Negative-control dependency passes. | `os/engineering/VALIDATION.md:9` |
 | G26 | Core-algorithm property-layer dependency passes. | `os/engineering/VALIDATION.md:11` |
@@ -95,19 +95,19 @@ ceiling only after the corresponding obligations are proved removed.
 | G31a | Mutation `I/B/H` endpoints exact-match repo-derived identity. | `os/engineering/VALIDATION.md:23` |
 | G31b | Mutation `removedFiles` exact-matches deletes and rename sources. | `os/engineering/VALIDATION.md:23` |
 | G32 | Mutation-input snapshot is clean. | `os/engineering/VALIDATION.md:25` |
-| G33 | SURFACE-FREEZE eligibility check passes before RED. | `os/engineering/VALIDATION.md:27` |
-| G34a | RED compiles before BUILD. | `os/engineering/VALIDATION.md:38` |
-| G34b | The intended RED tests are discovered before BUILD. | `os/engineering/VALIDATION.md:38` |
-| G34c | RED fails on claimed behaviour before BUILD. | `os/engineering/VALIDATION.md:38` |
-| G35 | Test-like files exist only in the legal test root. | `os/engineering/VALIDATION.md:94` |
-| G36 | No orphaned test file remains. | `os/engineering/VALIDATION.md:95` |
-| G37 | Scratch content cannot reach a commit. | `os/engineering/VALIDATION.md:96` |
-| G38 | Main has no skipped/disabled tests. | `os/engineering/VALIDATION.md:97` |
-| G39 | Unit tests contain no sleep-waits. | `os/engineering/VALIDATION.md:98` |
-| G40 | Unit tests contain no real-network dependency. | `os/engineering/VALIDATION.md:98` |
-| G41 | Unit tests contain no real-clock dependency. | `os/engineering/VALIDATION.md:98` |
-| G42 | Every test asserts. | `os/engineering/VALIDATION.md:99` |
-| G43 | Module test-to-source ratio stays within its tripwire. | `os/engineering/VALIDATION.md:101` |
+| G33 | Pair-candidate eligibility passes after final carrier and real RED proof, before BUILD. | `os/engineering/VALIDATION.md:27` |
+| G34a | RED compiles before BUILD. | `os/engineering/VALIDATION.md:36` |
+| G34b | The intended RED tests are discovered before BUILD. | `os/engineering/VALIDATION.md:36` |
+| G34c | RED fails on claimed behaviour before BUILD. | `os/engineering/VALIDATION.md:37` |
+| G35 | Test-like files exist only in the legal test root. | `os/engineering/VALIDATION.md:89` |
+| G36 | No orphaned test file remains. | `os/engineering/VALIDATION.md:90` |
+| G37 | Scratch content cannot reach a commit. | `os/engineering/VALIDATION.md:91` |
+| G38 | Main has no skipped/disabled tests. | `os/engineering/VALIDATION.md:92` |
+| G39 | Unit tests contain no sleep-waits. | `os/engineering/VALIDATION.md:93` |
+| G40 | Unit tests contain no real-network dependency. | `os/engineering/VALIDATION.md:93` |
+| G41 | Unit tests contain no real-clock dependency. | `os/engineering/VALIDATION.md:93` |
+| G42 | Every test asserts. | `os/engineering/VALIDATION.md:94` |
+| G43 | Module test-to-source ratio stays within its tripwire. | `os/engineering/VALIDATION.md:96` |
 
 ## X - cross-cutting axes (97)
 
@@ -115,68 +115,68 @@ ceiling only after the corresponding obligations are proved removed.
 |---|---|---|
 | X01 | A CALL names one load-bearing approach; no lesser disjunction. | `os/engineering/CONTOUR.md:10` |
 | X02 | A substitute or silent stretch needs recorded owner acknowledgement. | `os/engineering/VALIDATION.md:5` |
-| X03 | Architectural choices are discussed with the owner. | `os/engineering/CONTOUR.md:106` |
-| X04 | An architectural choice is recorded in an ADR. | `os/engineering/CONTOUR.md:113` |
-| X05 | User-perceivable behaviour is an owner-signed acceptance property. | `os/engineering/CONTOUR.md:114` |
-| X06 | PLAN is a separate session. | `os/engineering/CONTOUR.md:34` |
-| X07 | SURFACE-FREEZE is a separate fresh session. | `os/engineering/CONTOUR.md:79` |
-| X08 | RED-FREEZE is a separate independent session. | `os/engineering/CONTOUR.md:40` |
-| X09 | RED is refuted in a separate binding fresh session. | `os/engineering/CONTOUR.md:198` |
-| X10 | BUILD starts in a fresh session. | `os/engineering/CONTOUR.md:201` |
-| X11 | The planner writes no product code. | `os/engineering/CONTOUR.md:35` |
-| X12 | The planner writes or commissions no RED tests. | `os/engineering/CONTOUR.md:35` |
-| X13a | The validator is fresh-context. | `os/engineering/CONTOUR.md:39` |
-| X13b | The validator is authoring-read-only. | `os/engineering/CONTOUR.md:39` |
-| X14 | Model identity and availability never gate review eligibility. | `os/engineering/CONTOUR.md:39` |
-| X15a | The test-author is not the builder. | `os/engineering/CONTOUR.md:45` |
-| X15b | The test-author is not the validator. | `os/engineering/CONTOUR.md:45` |
-| X16 | The builder cannot edit frozen independent tests. | `os/engineering/CONTOUR.md:43` |
-| X17a | The builder cannot edit the frozen spec. | `os/engineering/CONTOUR.md:228` |
-| X17b | The builder cannot edit the feature ledger. | `os/engineering/CONTOUR.md:228` |
-| X17c | The builder cannot edit acceptance criteria. | `os/engineering/CONTOUR.md:228` |
-| X18 | Public surface stays frozen until an explicit re-freeze. | `os/engineering/CONTOUR.md:98` |
+| X03 | Architectural choices are discussed with the owner. | `os/engineering/CONTOUR.md:115` |
+| X04 | An architectural choice is recorded in an ADR. | `os/engineering/CONTOUR.md:119` |
+| X05 | User-perceivable behaviour is an owner-signed acceptance property. | `os/engineering/CONTOUR.md:117` |
+| X06 | PLAN is a separate session. | `os/engineering/CONTOUR.md:36` |
+| X07 | PAIR-CANDIDATE is a separate fresh session. | `os/engineering/CONTOUR.md:83` |
+| X08 | The candidate carrier contains no behavioural implementation. | `os/engineering/CONTOUR.md:86` |
+| X09 | Binding fresh refutation freezes the public contract+RED pair before BUILD. | `os/engineering/CONTOUR.md:199` |
+| X10 | BUILD starts in a fresh session. | `os/engineering/CONTOUR.md:202` |
+| X11 | The planner writes no product code. | `os/engineering/CONTOUR.md:37` |
+| X12 | The planner writes or commissions no RED tests. | `os/engineering/CONTOUR.md:37` |
+| X13a | The validator is fresh-context. | `os/engineering/CONTOUR.md:41` |
+| X13b | The validator is authoring-read-only. | `os/engineering/CONTOUR.md:41` |
+| X14 | Model identity and availability never gate review eligibility. | `os/engineering/CONTOUR.md:41` |
+| X15a | The test-author is not the builder. | `os/engineering/CONTOUR.md:48` |
+| X15b | The test-author is not the validator. | `os/engineering/CONTOUR.md:48` |
+| X16 | The builder cannot edit frozen independent tests. | `os/engineering/CONTOUR.md:46` |
+| X17a | The builder cannot edit the frozen spec. | `os/engineering/CONTOUR.md:229` |
+| X17b | The builder cannot edit the feature ledger. | `os/engineering/CONTOUR.md:229` |
+| X17c | The builder cannot edit acceptance criteria. | `os/engineering/CONTOUR.md:229` |
+| X18 | Frozen public contract+RED stays unchanged until explicit re-stabilization. | `os/engineering/CONTOUR.md:98` |
 | X19 | CALL/repo artifacts, not global tools, define execution authority. | `os/engineering/TOOLING.md:21` |
-| X20a | An unavailable required tool causes STOP. | `os/engineering/CONTOUR.md:273` |
-| X20b | A tool-unavailable STOP contacts the owner naming the tool. | `os/engineering/CONTOUR.md:273` |
-| X21 | Proceeding past a required STOP needs explicit written owner ack. | `os/engineering/CONTOUR.md:286` |
-| X22 | A failed gate's findings return verbatim into retry. | `os/engineering/CONTOUR.md:230` |
-| X23 | Retry count is capped at three per gate. | `os/engineering/CONTOUR.md:231` |
-| X24 | The same finding class twice stops as non-convergence. | `os/engineering/CONTOUR.md:232` |
-| X25 | A behaviour-changing fix re-enters spec/RED discipline. | `os/engineering/CONTOUR.md:234` |
-| X26a | Findings are classified by invariant, not surface site. | `os/engineering/CONTOUR.md:242` |
-| X26b | The invariant's predicted sibling sites are swept. | `os/engineering/CONTOUR.md:247` |
+| X20a | An unavailable required tool causes STOP. | `os/engineering/CONTOUR.md:276` |
+| X20b | A tool-unavailable STOP contacts the owner naming the tool. | `os/engineering/CONTOUR.md:277` |
+| X21 | Proceeding past a required STOP needs explicit written owner ack. | `os/engineering/CONTOUR.md:287` |
+| X22 | A failed gate's findings return verbatim into retry. | `os/engineering/CONTOUR.md:231` |
+| X23 | Retry count is capped at three per gate. | `os/engineering/CONTOUR.md:234` |
+| X24 | The same finding class twice stops as non-convergence. | `os/engineering/CONTOUR.md:233` |
+| X25 | A behaviour-changing fix re-enters spec/RED discipline. | `os/engineering/CONTOUR.md:235` |
+| X26a | Findings are classified by invariant, not surface site. | `os/engineering/CONTOUR.md:243` |
+| X26b | The invariant's predicted sibling sites are swept. | `os/engineering/CONTOUR.md:250` |
 | X27a | In-scope review findings gate the leg. | `os/engineering/VALIDATION.md:7` |
 | X27b | Class-sibling review findings route out with a pointer. | `os/engineering/VALIDATION.md:7` |
 | X28a | Refuted findings persist in the cumulative register. | `os/engineering/VALIDATION.md:13` |
 | X28b | A re-raise with new evidence escalates to the owner. | `os/engineering/VALIDATION.md:13` |
 | X29a | Behaviour evidence comes from its real venue. | `os/engineering/VALIDATION.md:17` |
 | X29b | A source-text scan cannot be behaviour evidence. | `os/engineering/VALIDATION.md:17` |
-| X30a | Every load-bearing rule has a recorded/executable deliver dependency. | `os/engineering/PROJECT_SETUP.md:55` |
-| X30b | Every load-bearing deliver dependency has a seeded-miss proof. | `os/engineering/PROJECT_SETUP.md:55` |
-| X31 | BUILD existence closes before an owner LOOK can defer. | `os/engineering/CONTOUR.md:158` |
-| X32 | Semantic completeness is judged by AI, not a proxy parser/scanner. | `os/engineering/CONTOUR.md:181` |
-| X33a | A carrier over 400 added source lines stops and splits. | `os/engineering/CONTOUR.md:84` |
-| X33b | The 400-line carrier ceiling is never raised. | `os/engineering/CONTOUR.md:85` |
-| X34a | A carrier/public-surface change invalidates affected RED. | `os/engineering/CONTOUR.md:95` |
-| X34b | A required public-surface change returns through re-freeze. | `os/engineering/CONTOUR.md:99` |
-| X35a | The reviewer independently derives mutation scope. | `os/engineering/CONTOUR.md:50` |
-| X35b | The reviewer independently runs mutation. | `os/engineering/CONTOUR.md:50` |
+| X30a | Every load-bearing rule has a recorded/executable deliver dependency. | `os/engineering/PROJECT_SETUP.md:54` |
+| X30b | Every load-bearing deliver dependency has a seeded-miss proof. | `os/engineering/PROJECT_SETUP.md:54` |
+| X31 | BUILD existence closes before an owner LOOK can defer. | `os/engineering/CONTOUR.md:163` |
+| X32 | Semantic completeness is judged by AI, not a proxy parser/scanner. | `os/engineering/CONTOUR.md:184` |
+| X33a | Every newly issued engineering root CALL pins its contract; same-leg successors inherit it. | `os/schema/packets.md:37` |
+| X33b | A pre-v29 open CALL and its legacy successors stay on their originating contract; drift never retroactively gates return. | `os/adapters/coding-agent.md:39` |
+| X34a | The final pair reruns build, hygiene and RED after the last carrier edit. | `os/engineering/CONTOUR.md:91` |
+| X34b | Any frozen public-contract or RED change returns through pair candidate and freeze. | `os/engineering/CONTOUR.md:99` |
+| X35a | The reviewer independently derives mutation scope. | `os/engineering/CONTOUR.md:53` |
+| X35b | The reviewer independently runs mutation. | `os/engineering/CONTOUR.md:53` |
 | X36a | Mutation scope is honestly file-scoped. | `os/engineering/VALIDATION.md:21` |
 | X36b | Mutation records adaptive concurrency or an explicit override. | `os/engineering/VALIDATION.md:21` |
-| X37 | A core-algorithm leg runs a post-build property audit of the actual diff. | `os/engineering/CONTOUR.md:256` |
-| X38 | BUILD searches for reusable implementation before writing. | `os/engineering/CONTOUR.md:203` |
-| X39 | Value-bearing/measured fields are asserted equal to their source. | `os/engineering/CONTOUR.md:205` |
-| X40 | Multi-actor features exercise conflicting inputs in one tick. | `os/engineering/CONTOUR.md:207` |
-| X41 | Every engineering stage returns its current CALL handback HOME; Direction alone issues successors. | `os/engineering/CONTOUR.md:309` |
-| X42a | A new dependency needs an owner decision. | `os/engineering/VALIDATION.md:83` |
-| X42b | A contract change needs an owner decision. | `os/engineering/VALIDATION.md:83` |
-| X42c | A tier-2 action needs an owner decision. | `os/engineering/VALIDATION.md:83` |
-| X42d | An escalation needs an owner decision. | `os/engineering/VALIDATION.md:83` |
-| X43a | The approved spec lives on disk. | `os/engineering/CONTOUR.md:317` |
-| X43b | The feature ledger lives on disk. | `os/engineering/CONTOUR.md:317` |
-| X43c | Per-leg progress lives on disk. | `os/engineering/CONTOUR.md:317` |
-| X44 | One feature leg is at most a focused half-day equivalent. | `os/engineering/CONTOUR.md:321` |
-| X45 | Narrative prose cannot close a leg; gates plus attached evidence do. | `os/engineering/CONTOUR.md:331` |
+| X37 | A core-algorithm leg runs a post-build property audit of the actual diff. | `os/engineering/CONTOUR.md:257` |
+| X38 | BUILD searches for reusable implementation before writing. | `os/engineering/CONTOUR.md:204` |
+| X39 | Value-bearing/measured fields are asserted equal to their source. | `os/engineering/CONTOUR.md:207` |
+| X40 | Multi-actor features exercise conflicting inputs in one tick. | `os/engineering/CONTOUR.md:208` |
+| X41 | Every engineering stage returns its current CALL handback HOME; Direction alone issues successors. | `os/engineering/CONTOUR.md:310` |
+| X42a | A new dependency needs an owner decision. | `os/engineering/VALIDATION.md:78` |
+| X42b | A contract change needs an owner decision. | `os/engineering/VALIDATION.md:78` |
+| X42c | A tier-2 action needs an owner decision. | `os/engineering/VALIDATION.md:78` |
+| X42d | An escalation needs an owner decision. | `os/engineering/VALIDATION.md:78` |
+| X43a | The approved spec lives on disk. | `os/engineering/CONTOUR.md:318` |
+| X43b | The feature ledger lives on disk. | `os/engineering/CONTOUR.md:318` |
+| X43c | Per-leg progress lives on disk. | `os/engineering/CONTOUR.md:318` |
+| X44 | One feature leg is at most a focused half-day equivalent. | `os/engineering/CONTOUR.md:322` |
+| X45 | Narrative prose cannot close a leg; gates plus attached evidence do. | `os/engineering/CONTOUR.md:332` |
 | X46 | Review filename id matches the triggering change folder. | `os/engineering/VALIDATION.md:7` |
 | X47 | `reviewed-commit` is an ancestor of delivered HEAD. | `os/engineering/VALIDATION.md:7` |
 | X48 | Every later source commit is accounted by a fixed disposition. | `os/engineering/VALIDATION.md:7` |
@@ -189,11 +189,11 @@ ceiling only after the corresponding obligations are proved removed.
 | X55 | Every `register:<row-id>` citation resolves. | `os/engineering/VALIDATION.md:13` |
 | X56 | Every touching register row is marked still-holds, re-opened, or n/a. | `os/engineering/VALIDATION.md:13` |
 | X57 | A recurring fixed class re-opens the earlier row. | `os/engineering/VALIDATION.md:15` |
-| X58 | The owner-approved decision page is at most 400 words. | `os/engineering/CONTOUR.md:73` |
-| X59 | Every decision-page fixture fully defines inputs, domains, and mappings or is absent. | `os/engineering/CONTOUR.md:74` |
-| X60 | The carrier exposes real public signatures. | `os/engineering/CONTOUR.md:80` |
-| X61 | Data/value construction preserves every field. | `os/engineering/CONTOUR.md:80` |
-| X62 | Acceptance meaning is not moved into documentation comments. | `os/engineering/CONTOUR.md:82` |
+| X58 | The owner-approved decision page is at most 400 words. | `os/engineering/CONTOUR.md:77` |
+| X59 | Every decision-page fixture fully defines inputs, domains, and mappings or is absent. | `os/engineering/CONTOUR.md:78` |
+| X60 | The carrier exposes real public signatures. | `os/engineering/CONTOUR.md:85` |
+| X61 | Data/value construction preserves every field. | `os/engineering/CONTOUR.md:85` |
+| X62 | Acceptance meaning is not moved into documentation comments. | `os/engineering/CONTOUR.md:86` |
 | X63 | BUILD pins both reviewed carrier and RED commits. | `os/engineering/CONTOUR.md:98` |
 | X64 | Every acceptance property has a committed wrong implementation. | `os/engineering/VALIDATION.md:9` |
 | X65 | Each negative-control test proves the property's own assertion rejects that wrong implementation. | `os/engineering/VALIDATION.md:9` |
@@ -202,14 +202,14 @@ ceiling only after the corresponding obligations are proved removed.
 | X68 | Mutation-reviewed `H` is an ancestor of delivered HEAD. | `os/engineering/VALIDATION.md:23` |
 | X69 | A post-`H` mutation-input dependency change makes evidence stale. | `os/engineering/VALIDATION.md:23` |
 | X70 | Current A/C/M/T paths and rename destinations enter mutation set `D`. | `os/engineering/VALIDATION.md:23` |
-| X71 | An engine existence proof resolves under the declared artifact root. | `os/engineering/PROJECT_SETUP.md:55` |
-| X72 | An engine existence proof is non-trivial. | `os/engineering/PROJECT_SETUP.md:55` |
-| X73 | A sibling headless test cannot discharge an engine artifact. | `os/engineering/PROJECT_SETUP.md:55` |
-| X74 | Data/value construction exposes the trivial behaviour needed to reach RED. | `os/engineering/CONTOUR.md:81` |
-| X75 | The surface-author writes no tests. | `os/engineering/CONTOUR.md:24` |
-| X76 | The surface-author writes no behavioural implementation. | `os/engineering/CONTOUR.md:24` |
-| X77 | A fresh plan reviewer checks the complete obligation inventory. | `os/engineering/CONTOUR.md:31` |
-| X78 | A spec change invalidates every affected RED artifact. | `os/engineering/CONTOUR.md:179` |
+| X71 | An engine existence proof resolves under the declared artifact root. | `os/engineering/PROJECT_SETUP.md:54` |
+| X72 | An engine existence proof is non-trivial. | `os/engineering/PROJECT_SETUP.md:54` |
+| X73 | A sibling headless test cannot discharge an engine artifact. | `os/engineering/PROJECT_SETUP.md:54` |
+| X74 | Data/value construction exposes the trivial behaviour needed to reach RED. | `os/engineering/CONTOUR.md:85` |
+| X75 | PAIR-CANDIDATE contract-author owns only carrier and tests/support. | `os/engineering/CONTOUR.md:43` |
+| X76 | PAIR-CANDIDATE carrier edits stay inside the approved construction/observation surface. | `os/engineering/CONTOUR.md:28` |
+| X77 | A fresh plan reviewer checks the complete obligation inventory. | `os/engineering/CONTOUR.md:33` |
+| X78 | A spec change invalidates every affected RED artifact. | `os/engineering/CONTOUR.md:182` |
 
 ## R - escape-class rows (16)
 
@@ -238,19 +238,19 @@ Each row must be answered independently `addressed | n/a because <reason>`.
 
 | ID | Required recorded payload | Authority |
 |---|---|---|
-| S01 | PLAN change-class. | `os/engineering/CONTOUR.md:106` |
-| S02 | Machine-readable acceptance criteria/ledger, initially failing. | `os/engineering/CONTOUR.md:118` |
-| S03 | Validator-approved verification plan. | `os/engineering/CONTOUR.md:120` |
-| S04 | Old-regime invariant extension audit. | `os/engineering/CONTOUR.md:122` |
-| S05 | Unconstrained-regime/spec-silence audit. | `os/engineering/CONTOUR.md:125` |
-| S06 | Escape-class disposition table. | `os/engineering/CONTOUR.md:132` |
-| S07 | Touching REFUTED-row disposition table. | `os/engineering/CONTOUR.md:138` |
-| S08 | Must-hold property catcher/regime map. | `os/engineering/CONTOUR.md:142` |
-| S09 | CALL `done_when` recorded verbatim. | `os/engineering/CONTOUR.md:146` |
-| S10a | Deliverable-coverage disposition for every CALL promise. | `os/engineering/CONTOUR.md:147` |
-| S10b | Deliverable-coverage disposition for every owner-locked decision. | `os/engineering/CONTOUR.md:147` |
-| S11 | `headless|engine` class for every coverage row. | `os/engineering/CONTOUR.md:150` |
-| S12 | Atomic obligation inventory with `behavioral-red|evidence-only` split. | `os/engineering/CONTOUR.md:170` |
+| S01 | PLAN change-class. | `os/engineering/CONTOUR.md:109` |
+| S02 | Machine-readable acceptance criteria/ledger, initially failing. | `os/engineering/CONTOUR.md:122` |
+| S03 | Validator-approved verification plan. | `os/engineering/CONTOUR.md:123` |
+| S04 | Old-regime invariant extension audit. | `os/engineering/CONTOUR.md:125` |
+| S05 | Unconstrained-regime/spec-silence audit. | `os/engineering/CONTOUR.md:128` |
+| S06 | Escape-class disposition table. | `os/engineering/CONTOUR.md:135` |
+| S07 | Touching REFUTED-row disposition table. | `os/engineering/CONTOUR.md:141` |
+| S08 | Must-hold property catcher/regime map. | `os/engineering/CONTOUR.md:145` |
+| S09 | CALL `done_when` recorded verbatim. | `os/engineering/CONTOUR.md:149` |
+| S10a | Deliverable-coverage disposition for every CALL promise. | `os/engineering/CONTOUR.md:150` |
+| S10b | Deliverable-coverage disposition for every owner-locked decision. | `os/engineering/CONTOUR.md:150` |
+| S11 | `headless|engine` class for every coverage row. | `os/engineering/CONTOUR.md:153` |
+| S12 | Atomic obligation inventory with `behavioral-red|evidence-only` split. | `os/engineering/CONTOUR.md:173` |
 | S13 | Negative-control coverage. | `os/engineering/VALIDATION.md:9` |
 | S14a | Property-coverage section for a core algorithm. | `os/engineering/VALIDATION.md:11` |
 | S14b | Permutation-metamorphic property row. | `os/engineering/VALIDATION.md:11` |
@@ -262,37 +262,37 @@ Each row must be answered independently `addressed | n/a because <reason>`.
 
 | ID | Required object | Authority |
 |---|---|---|
-| E01 | Detailed owner-readable plan. | `os/engineering/CONTOUR.md:183` |
-| E02 | Architecture decision record when architectural. | `os/engineering/CONTOUR.md:113` |
-| E03 | Frozen change spec. | `os/engineering/CONTOUR.md:118` |
-| E04 | Default-FAIL feature ledger. | `os/engineering/CONTOUR.md:119` |
-| E05 | Owner-approved decision page. | `os/engineering/CONTOUR.md:72` |
-| E06 | Exact SURFACE-FREEZE commit identity. | `os/engineering/CONTOUR.md:79` |
-| E07 | Freeze Git manifest. | `os/engineering/CONTOUR.md:82` |
-| E08 | Compiler-green real public skeleton. | `os/engineering/CONTOUR.md:80` |
-| E09 | Repo-native surface build record. | `os/engineering/CONTOUR.md:87` |
-| E10 | Repo-native surface hygiene record. | `os/engineering/CONTOUR.md:87` |
-| E11 | Mandatory platform sidecars in the freeze commit. | `os/engineering/CONTOUR.md:88` |
-| E12 | Immutable independent RED commit. | `os/engineering/CONTOUR.md:192` |
-| E13 | Exact changed RED test paths. | `os/engineering/CONTOUR.md:197` |
-| E14 | RED command and failure output. | `os/engineering/CONTOUR.md:197` |
-| E15 | Binding fresh RED-refutation record. | `os/engineering/CONTOUR.md:198` |
-| E16 | BUILD implementation commit/diff. | `os/engineering/CONTOUR.md:201` |
+| E01 | Detailed owner-readable plan. | `os/engineering/CONTOUR.md:186` |
+| E02 | Architecture decision record when architectural. | `os/engineering/CONTOUR.md:119` |
+| E03 | Frozen change spec. | `os/engineering/CONTOUR.md:121` |
+| E04 | Default-FAIL feature ledger. | `os/engineering/CONTOUR.md:122` |
+| E05 | Owner-approved decision page. | `os/engineering/CONTOUR.md:77` |
+| E06 | Exact pair-candidate carrier commit identity. | `os/engineering/CONTOUR.md:83` |
+| E07 | Pair-candidate carrier Git manifest. | `os/engineering/CONTOUR.md:86` |
+| E08 | Compiler-green real public skeleton. | `os/engineering/CONTOUR.md:84` |
+| E09 | Final pair-candidate build record. | `os/engineering/CONTOUR.md:91` |
+| E10 | Final pair-candidate hygiene record. | `os/engineering/CONTOUR.md:91` |
+| E11 | Mandatory platform sidecars in the carrier commit. | `os/engineering/CONTOUR.md:92` |
+| E12 | Exact pair-candidate RED child commit. | `os/engineering/CONTOUR.md:197` |
+| E13 | Exact changed RED test paths. | `os/engineering/CONTOUR.md:198` |
+| E14 | RED command and failure output. | `os/engineering/CONTOUR.md:198` |
+| E15 | Binding fresh public-contract+RED freeze record. | `os/engineering/CONTOUR.md:199` |
+| E16 | BUILD implementation commit/diff. | `os/engineering/CONTOUR.md:202` |
 | E17 | Mutation report with normalized scope, score and concurrency. | `os/engineering/VALIDATION.md:21` |
 | E18 | Mutation `I/B/H` and `removedFiles` metadata. | `os/engineering/VALIDATION.md:23` |
-| E19 | Full-suite gate output. | `os/engineering/VALIDATION.md:75` |
-| E20 | Executed end-to-end run artifact. | `os/engineering/VALIDATION.md:77` |
-| E21 | `docs/reviews/review-<id>.md`. | `os/engineering/CONTOUR.md:211` |
-| E22 | Cumulative `docs/reviews/REFUTED.md`. | `os/engineering/CONTOUR.md:218` |
-| E23 | Per-fixed-finding class sweep record. | `os/engineering/CONTOUR.md:247` |
-| E24 | Post-build property-audit test evidence. | `os/engineering/CONTOUR.md:256` |
-| E25 | Non-trivial engine artifact existence path/measurement. | `os/engineering/PROJECT_SETUP.md:55` |
+| E19 | Full-suite gate output. | `os/engineering/VALIDATION.md:70` |
+| E20 | Executed end-to-end run artifact. | `os/engineering/VALIDATION.md:72` |
+| E21 | `docs/reviews/review-<id>.md`. | `os/engineering/CONTOUR.md:212` |
+| E22 | Cumulative `docs/reviews/REFUTED.md`. | `os/engineering/CONTOUR.md:219` |
+| E23 | Per-fixed-finding class sweep record. | `os/engineering/CONTOUR.md:248` |
+| E24 | Post-build property-audit test evidence. | `os/engineering/CONTOUR.md:257` |
+| E25 | Non-trivial engine artifact existence path/measurement. | `os/engineering/PROJECT_SETUP.md:54` |
 | E26 | Every review/ADR file cited by the closing report. | `os/engineering/VALIDATION.md:19` |
-| E27 | Manual acceptance instructions derived from G3 scripts. | `os/engineering/CONTOUR.md:302` |
-| E28 | Gated closing `RESULT.md`/RESULT artifact. | `os/engineering/CONTOUR.md:306` |
-| E29 | On-disk per-leg progress/handoff log. | `os/engineering/PROJECT_SETUP.md:76` |
-| E30a | Resolving owner-ack token when its branch is used. | `os/engineering/CONTOUR.md:286` |
-| E30b | Resolving escalation token when its branch is used. | `os/engineering/CONTOUR.md:223` |
+| E27 | Manual acceptance instructions derived from G3 scripts. | `os/engineering/CONTOUR.md:303` |
+| E28 | Gated closing `RESULT.md`/RESULT artifact. | `os/engineering/CONTOUR.md:307` |
+| E29 | On-disk per-leg progress/handoff log. | `os/engineering/PROJECT_SETUP.md:77` |
+| E30a | Resolving owner-ack token when its branch is used. | `os/engineering/CONTOUR.md:287` |
+| E30b | Resolving escalation token when its branch is used. | `os/engineering/CONTOUR.md:224` |
 
 ## U - maximizing Unity profile predicates (27)
 
@@ -321,8 +321,8 @@ Each row must be answered independently `addressed | n/a because <reason>`.
 | U17d | Mutation identity roots include mutation config. | `os/engineering/profiles/unity.md:48` |
 | U18 | Unity tests use one registered test-scene root. | `os/engineering/profiles/unity.md:53` |
 | U19 | The headless Core build rejects every Unity reference. | `os/engineering/profiles/unity.md:73` |
-| U20a | SURFACE-FREEZE runs the headless repo-native build. | `os/engineering/profiles/unity.md:89` |
-| U20b | SURFACE-FREEZE runs git-aware hygiene. | `os/engineering/profiles/unity.md:89` |
+| U20a | PAIR-CANDIDATE reruns the headless repo-native build after its last carrier edit. | `os/engineering/profiles/unity.md:89` |
+| U20b | PAIR-CANDIDATE reruns git-aware hygiene after its last carrier edit. | `os/engineering/profiles/unity.md:89` |
 | U21a | A real-importer sidecar is never guessed. | `os/engineering/profiles/unity.md:93` |
 | U21b | An unavailable real importer causes STOP. | `os/engineering/profiles/unity.md:93` |
 

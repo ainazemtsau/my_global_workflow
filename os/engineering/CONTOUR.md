@@ -16,32 +16,35 @@ Companion files: `PROJECT_SETUP.md` (bootstrap a product repo), `VALIDATION.md` 
 
 **Validator write boundary (contract v24).** "Read-only" forbids the validator from authoring or editing source, tests, specs, rules, and evidence. It may invoke declared validation runners whose only writes are generated evidence artifacts/caches; it never edits those outputs.
 
-### Contract v23 roles for compiled product-code legs
+### Contract v29 roles for newly issued compiled product-code legs
 
-This subsection supersedes the v22 direct PLAN-to-RED phrases in the legacy role summary below. For a compiled
-product-code leg, the planner returns PLAN HOME naming SURFACE-FREEZE eligible; Direction issues its CALL. A separate fresh
-surface-author materializes the owner-approved decision page and the smallest compiling skeleton of the real public
-surface, commits that carrier after repo-native build and hygiene, and writes neither tests nor behavioral
-implementation. The independent test-author then reads ONLY that frozen carrier as the leg-specific authority (the
-freeze commit and Git manifest, real signatures, and decision page; existing repo code remains authoritative for
-already-existing APIs and conventions). The builder starts only after the resulting immutable RED commit passes a
-binding fresh refutation; it edits neither frozen RED nor the frozen public surface. Planning, SURFACE-FREEZE,
-RED-FREEZE, RED refutation and BUILD are separate sessions.
+A new root engineering CALL pins `engineering_contract: 29`; every successor inherits it. A CALL already open when v29
+lands is grandfathered: it and any `legacy:<origin-call-id>` successors keep their recorded CALL/product contract, and
+neither v29 Re-sync nor v29 evidence can retroactively gate their return.
+
+For a v29 compiled leg, PLAN HOME names PAIR-CANDIDATE eligible. One fresh contract-author — the independent
+test-author, never the builder or validator — owns the bounded pre-freeze job. It may revise both the smallest
+compiler-green real public carrier and tests/support until the real command compiles, discovers the intended tests and
+fails on behavior. Carrier edits stay inside the approved construction/observation surface and contain no behavioral
+implementation. Intermediate carrier gaps stay inside this job; HOME returns only the final candidate pair or one
+complete blocker after the retry cap. Binding fresh refutation then freezes the public contract+RED pair. PLAN,
+PAIR-CANDIDATE, pair refutation and BUILD are separate sessions.
 
 - **Plan reviewer** - a fresh read-only frontier AI that checks the candidate's meaning, obligation inventory and
   evidence-class split. Its prose recipes are planning feedback only: they never count as authored RED and never
   authorize BUILD.
-- **Planner** — interactive session, frontier model, plan mode. Talks to the owner. A SEPARATE session from RED-FREEZE
+- **Planner** — interactive session, frontier model, plan mode. Talks to the owner. A SEPARATE session from PAIR-CANDIDATE
   and BUILD: owner approval ENDS it with PLAN HOME and NO code/tests.
-  Direction issues RED-FREEZE, or SURFACE-FREEZE for compiled v23.
-  Planning, surface authoring, RED authoring and building never share one session.
-- **Builder** — autonomous session(s), default-tier model, a FRESH session that reads the frozen plan and reviewed eligible RED commit (never the same session that planned). Never talks to the owner mid-run.
+  Direction issues the next eligible stage; a v29 compiled leg starts with PAIR-CANDIDATE.
+  Planning, contract authoring and building never share one session.
+- **Builder** — autonomous session(s), default-tier model, a FRESH session that reads the frozen plan and reviewed carrier+RED pair (never the same session that planned). Never talks to the owner mid-run.
 - **Validator** — fresh-context, read-only (no Write/Edit), did not author the code; independence is established by authorship, context and authority separation, never by model identity: equal builder/reviewer model provenance is legal, and model availability cannot block review or delivery.
-- **Test-author** — a separate RED-FREEZE session that, after the spec freezes and before BUILD, reads ONLY the frozen
-  carrier for compiled v23 legs (the freeze commit/manifest, real public surface and decision page) and writes the
-  complete `behavioral-red` test/support patch once as an immutable commit. It runs the repo's real
-  compile/test command and records the exact RED. The builder starts from that commit, makes it pass, and may not edit
-  it; there is no second pre-build test-authoring pass. Process, structural-review and final-gate obligations are
+- **Test-author / contract-author** — a separate PAIR-CANDIDATE session that reads the frozen plan, decision page and
+  existing repo, then owns only the non-behavioral public carrier plus the complete `behavioral-red` tests/support. It
+  may correct carrier gaps and rerun RED inside that one job; it never implements behavior or weakens/omits a planned
+  behavioral row. The final history records a carrier commit followed by a tests/support commit. Fresh review freezes
+  the public contract and RED files; the builder makes the tests pass and may edit neither. Process, structural-review
+  and final-gate obligations are
   `evidence-only`, never fake tests. Not the builder and not the validator. For a `core algorithm` change the same role
   returns for a second, POST-build pass (see cycle, PROPERTY AUDIT): once gates are green it reads the actual DIFF — the
   one artifact neither the frozen spec nor the pre-code pass could see — for new throw-paths, seams, order-dependencies,
@@ -51,22 +54,23 @@ RED-FREEZE, RED refutation and BUILD are separate sessions.
 
 **Mutation diff identity (contract v24).** Independent review evidence pins mutation-reviewed `H`; the report only echoes repo-derived `I` (declared integration-base tip), `B = merge-base(I,H)`, and `H`. Deliver recomputes and exact-matches them, rejects mutation-input changes after `H`, and handles renames/deletions per VALIDATION before it reads score.
 
-**Extension rule.** Existing product code may already exist. Under v23 the carrier pins real existing signatures by
-commit instead of copying constructors and harness facts into prose. The test-author never invents a test-local
-substitute for an absent production fixture or API; a missing construction or observation surface stops the leg.
+**Extension rule.** Existing product code may already exist. Under v29 the pair candidate pins its real signatures by
+commit instead of copying constructors and harness facts into prose. The contract-author never invents a test-local
+substitute: a missing approved construction/observation seam is added to the non-behavioral carrier; a seam outside the
+approved decision page stops with one complete blocker.
 
-**Applicability.** SURFACE-FREEZE is the carrier only for compiled product-code legs where a repo-native compiler can
+**Applicability.** PAIR-CANDIDATE is the carrier only for compiled product-code legs where a repo-native compiler can
 check the public surface. A markdown or other non-compiled repository must not copy the C# skeleton mechanics: it
 needs its own native executable carrier, or an explicit `n/a` / separate owner decision at that repository's re-sync.
 
 ## The cycle
 
-### Contract v23 compiled-carrier override
+### Contract v29 forward-only compiled route
 
 For compiled product-code legs the operative path is:
 
 ```
-PLAN -> SURFACE-FREEZE -> independent RED-FREEZE -> binding fresh RED refutation -> BUILD -> VALIDATE
+PLAN -> PAIR-CANDIDATE -> binding fresh PAIR-FREEZE refutation -> BUILD -> VALIDATE
 ```
 
 PLAN retains the owner-readable plan, acceptance ledger, spec-silence audit, deliverable coverage and the
@@ -76,30 +80,29 @@ encode constructors, signatures, literals and framework calls as a compile surro
 planning artifacts remain coverage/review evidence, but neither a prose recipe, a PLAN-AMEND packet nor `N/N` text is
 launch authority for RED or BUILD.
 
-SURFACE-FREEZE is a separate fresh session. Its one freeze commit contains or pins the decision page and a compiling
-skeleton of the real public surface. The skeleton uses real signatures; data/value constructors preserve their fields
-and expose the trivial value behavior needed to construct them, while behavioral bodies may remain unimplemented.
-Acceptance meaning may not be moved into `///` comments. The freeze commit and its Git manifest define the carrier
-scope; prose folder lists do not, and the manifest does not pretend to prove or predeclare implementation internals.
-The skeleton production-source paths may add at most 400 lines in `git diff --numstat <freeze-parent>..<freeze>`.
-More than 400 is an immediate STOP and leg split; the ceiling is never raised.
+PAIR-CANDIDATE is a separate fresh session. Its final history is an exact carrier commit followed by an exact
+tests/support commit. The carrier contains or pins the decision page and a compiling skeleton of the real public
+surface. It uses real signatures; data/value construction preserves fields and trivial reachability, while behavioral
+bodies remain unimplemented. Acceptance meaning may not move into `///` comments. The commit and Git manifest define
+scope; prose folder lists do not. There is no production-line quota: normal formatting remains mandatory, while the
+real-signature, field-preservation, trivial-reachability and no-behavior boundaries prevent source compression theater.
 
-Before RED handoff, SURFACE-FREEZE runs the repo-native build and repo-native hygiene commands. Every mandatory
-platform sidecar is tracked in the same freeze commit; for Unity, every new `Assets/**/*.cs` already has its tracked
-`.cs.meta`. If a correct sidecar depends on an unavailable real importer or engine, the existing tool-unavailable STOP
-applies. This compile-green carrier proves only constructibility of the public surface. It is not evidence of
-architecture, semantic completeness, test meaning or internal implementation seams.
+Within that one job the contract-author may revise the carrier as its tests expose gaps, but only inside the approved
+construction/observation surface. After the last carrier edit it reruns repo-native build, hygiene and the real test
+command on the final pair. Mandatory sidecars are tracked in the carrier commit; unavailable real importer/engine keeps
+the existing tool-unavailable STOP. Tests must compile, be discovered and fail on behavior. An intermediate permitted
+gap never creates a HOME/CALL/branch relay; a required behavioral or out-of-plan change returns one complete blocker.
 
-RED-FREEZE writes tests/support only and may not edit the carrier. The real test command must compile, discover the
-intended tests and fail on behavior against the skeleton; compile-RED is no longer eligible for a compiled v23 leg.
-A carrier gap returns the complete list to PLAN or SURFACE-FREEZE and opens no BUILD. Any carrier change invalidates
-all affected RED. The binding fresh RED refutation inspects the exact freeze commit/manifest, decision page, actual RED
-commit/diff and runner evidence before BUILD. A green/red count by itself proves neither fixture meaning nor oracle
-correctness. BUILD pins both reviewed commits, keeps frozen RED unchanged, and may implement internal HOW within the
-approved plan; a required public-surface change stops and re-freezes the carrier before a newly independent RED pass.
+Binding fresh refutation inspects the decision page, both exact commits/manifests/diffs and runner evidence, then freezes
+the public declarations/value contract and RED files. Counts alone prove neither fixture meaning nor oracle correctness.
+BUILD pins both commits and may implement bodies/internal HOW, but changes neither frozen public contract nor RED. Such
+a contract/RED change returns through PAIR-CANDIDATE and pair freeze.
 
-The legacy cycle text below remains authority for every other gate and artifact, but its direct PLAN-to-RED,
-spec-only test-author and compile-RED allowances describe v22 history and MUST NOT execute for a compiled v23 leg.
+Pre-v29 unversioned CALLs and their `legacy:` successors remain on their recorded v23 SURFACE-FREEZE route. They are
+accepted against that originating contract and are never upgraded merely because v29 is current.
+
+The legacy cycle text below remains authority for every other gate and artifact; its old carrier wording does not
+override the route pinned by the engineering CALL.
 
 ```
 CALL (business task from a direction)
@@ -170,13 +173,13 @@ CALL (business task from a direction)
     (d) SPEC-TO-CARRIER HANDOFF: split mixed rows into atomic obligations, then classify each exactly once as
     `behavioral-red` or `evidence-only`; one row may never straddle both classes. A behavioral row names its observable
     obligation, source, negative and eventual test identity. Constructors, signatures, literals and framework calls are
-    no longer copied into prose as a compile surrogate; the v23 SURFACE-FREEZE carrier supplies real signatures and the
+    no longer copied into prose as a compile surrogate; the CALL-pinned carrier route supplies real signatures and the
     fully-defined-fixture decision page. A process-order, structural-review,
     owner-verdict or final-gate row is `evidence-only`: it names its real evidence route and
     is excluded from the RED-test count — it may not be dressed as an Arrange/Act/Assert test.
     The plan reviewer independently checks the full inventory and returns the complete gap
     list, but a filled table or English skeleton is never `N/N executable` and never authorizes
-    BUILD. Only the later actual RED-FREEZE artifact plus its binding fresh refutation does. A spec change invalidates every
+    BUILD. Only actual pair-candidate evidence plus its binding fresh refutation does. A spec change invalidates every
     affected RED artifact; a narrow blocker close never authorizes BUILD by itself. This is
     semantic AI review plus the real consumer artifact, not a new parser/regex/conformance tool
     (VALIDATION Executable Plan-to-RED handoff; MAINTENANCE semantic-review boundary).
@@ -186,19 +189,17 @@ CALL (business task from a direction)
     ledger / ADR ride ALONGSIDE it for the builder and are NOT what the owner
     reads to approve (a wall of machine artifacts, or a plan buried in a scratch
     file, is not a plan).
-    The owner approves the plan and decision page; the leg CLOSES with PLAN HOME. Direction issues SURFACE-FREEZE;
-    only then does RED-FREEZE prove the handoff. BUILD is
-    not opened by a prose readiness verdict. Planning, surface authoring, RED authoring and BUILD never share a session.
-  → RED-FREEZE (separate fresh session, before build): the test-author writes and commits the complete behavioral
-    test/support patch from the v23 carrier and runs the repo's real command. The tests must compile, discover the
-    intended tests and fail on claimed behavior; compile-RED is never eligible for a compiled v23 leg. Undefined
-    test-local fixtures/helpers, guessed framework calls, process rows posed as tests, partial suites or unexplained
-    diagnostics are carrier gaps. Return the complete list to PLAN or SURFACE-FREEZE with no BUILD. On success, record the
-    immutable RED commit, exact changed test paths, command and failure evidence.
-  -> RED VERIFY (binding fresh refutation): the already-required fresh read-only review now inspects the frozen carrier,
-    actual RED commit/diff and runner evidence, and tries to refute its completeness and independence. It does not
-    author tests or repeat the prose skeleton exercise. Only this artifact-backed verdict may open BUILD.
-  → BUILD (autonomous): a fresh builder starts from the reviewed eligible RED-FREEZE commit, never re-authors or edits it, and
+    The owner approves the plan and decision page; the leg CLOSES with PLAN HOME. Direction issues PAIR-CANDIDATE;
+    BUILD is not opened by a prose readiness verdict. Planning, contract authoring and BUILD never share a session.
+  → PAIR-CANDIDATE (separate fresh session, before build): the contract-author creates the non-behavioral public carrier
+    and complete behavioral tests/support, fixing approved carrier gaps inside this job. It never implements behavior,
+    invents test-local production substitutes or drops a planned row. The final carrier commit passes build+hygiene;
+    its child RED commit compiles, discovers the intended tests and fails on behavior. Compile-RED, partial suites and
+    unexplained diagnostics are ineligible. Record both commits/manifests, changed paths, commands and failure evidence.
+  -> PAIR FREEZE (binding fresh refutation): the fresh read-only review inspects the carrier candidate, actual RED
+    commit/diff and runner evidence, tries to refute completeness and no-behavior boundaries, and freezes the public
+    contract+RED pair. It authors neither. Only this artifact-backed verdict may open BUILD.
+  → BUILD (autonomous): a fresh builder starts from the reviewed pair, never changes its public contract or RED, and
     implements one feature at a time, smallest-first.
     Reuse-first rule: before writing anything, search for an existing
     implementation; the duplicate you would have written becomes a call.

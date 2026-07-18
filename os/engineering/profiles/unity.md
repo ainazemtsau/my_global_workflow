@@ -84,13 +84,15 @@ First created 2026-06-13 (GasCoopGame setup, indie-game-development/g-9c41). For
 - **TFMs:** core `netstandard2.1` (Unity loads it on the default scripting runtime); tests `net8.0`.
 - .NET SDK must be installed separately for the headless build (`dotnet`) — not bundled with Unity Hub.
 
-## 6. Contract v23 SURFACE-FREEZE timing
+## 6. Contract v29 candidate/pair timing
 
-- A compiled SURFACE-FREEZE handoff runs both the headless repo-native build and the existing git-aware hygiene gate
-  before any independent RED session. Headless compile GREEN alone is not an eligible carrier.
-- Every new `Assets/**/*.cs` and its tracked `.cs.meta` are in the same freeze commit. The earlier note that a missing
-  `.meta` is tolerable for an inner-loop headless build does not make it tolerable at SURFACE-FREEZE.
-- A mechanically generable script sidecar may be created in the surface session. If correctness depends on Unity's
+- A compiled PAIR-CANDIDATE reruns both the headless repo-native build and existing git-aware hygiene after its last
+  carrier edit, then runs the real RED command. Headless compile GREEN alone is not an eligible pair.
+- Every new `Assets/**/*.cs` and its tracked `.cs.meta` are in the same carrier commit. The earlier note that a
+  missing `.meta` is tolerable for an inner-loop headless build does not make it tolerable at pair freeze.
+- A mechanically generable script sidecar may be created in PAIR-CANDIDATE. If correctness depends on Unity's
   real importer and Unity is unavailable, STOP and ask the owner to launch it; do not guess or defer the sidecar.
+- The exact carrier and RED commits freeze together only after the real test command compiles, discovers
+  the intended tests, fails on behavior, and a fresh refutation accepts the pair.
 
 END_OF_FILE: os/engineering/profiles/unity.md
