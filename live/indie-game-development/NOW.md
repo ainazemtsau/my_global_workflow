@@ -1,5 +1,5 @@
 # NOW: indie-game-development
-updated: 2026-07-17 by s-review-sphere-universal-capture-frame-001
+updated: 2026-07-18 by s-work-char-v2-published-handback-release-route-001
 bet:
   node: g-9c41
   goal: |
@@ -132,18 +132,18 @@ open_calls:
     for: "g-6d4e / В2 Leg 2 — rig + procedural locomotion + cosmetic PuppetMaster ragdoll + character material"
     issued: 2026-07-14
     call: work/c-exec-char-v2-body-rig-ragdoll-build-001-call.md
-    waiting_on: [c-exec-char-v2-reaction-core-repair-admission-003]
-    receipts: [history/2026-07-17-s-work-char-v2-reaction-core-repair-002-admission-blocked-001.md]
-    note: "Leg 2 remains NOT RUNNABLE. Owner words «Тогда разрешать пройть запись.» make admission-003 READY only for one registry-reservation commit+push+fresh-readback before the local repair; a later separate fresh binding G5 is still mandatory."
-  - id: c-exec-char-v2-reaction-core-repair-admission-003
+    waiting_on: [c-review-char-v2-published-handback-release-001]
+    receipts: [history/2026-07-17-s-work-char-v2-reaction-core-repair-002-admission-blocked-001.md, history/2026-07-18-s-work-char-v2-published-handback-release-route-001.md]
+    note: "Leg 2 remains NOT RUNNABLE. Product handback is published at dev/main 029279a after final fresh G5 CONFIRMED on candidate 0e5b2948 and integration 53453081; Direction acceptance/release review is READY. Owner ordered current Character Direction released and Leg 2 not opened without a separate decision; the review must pause this root, never make it ready."
+  - id: c-review-char-v2-published-handback-release-001
     track: characters
     status: ready
-    to: executor
-    for: "g-6d4e / В2 Leg 1 — authority-compliant admission before the bounded un-gated-seed class repair"
-    issued: 2026-07-17
-    call: work/c-exec-char-v2-reaction-core-repair-admission-003-call.md
+    to: session
+    for: "g-6d4e / published В2 Leg 1 handback — binding Direction acceptance and current Character WIP release"
+    issued: 2026-07-18
+    call: work/c-review-char-v2-published-handback-release-001-call.md
     parent: c-exec-char-v2-body-rig-ragdoll-build-001
-    note: "READY after owner «Тогда разрешать пройть запись.» Exactly one service registry-reservation commit+push+fresh-readback at current origin/dev is authorized for admission; candidate push, merge, integration, cleanup and Leg 2 remain forbidden."
+    note: "READY fresh Direction review. Exact published product RESULT/review at 029279a record candidate 0e5b2948, integration 53453081, final binding G5 CONFIRMED and Deliver 1873/1873 GREEN. Accept only after refutation/reconciliation; then release Character WIP by pausing the preserved body-rig root. Owner exact instruction: Leg 2 requires a separate decision."
 
 recurring: []
 

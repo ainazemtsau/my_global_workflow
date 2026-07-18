@@ -1,4 +1,4 @@
-CALL c-exec-char-v2-body-rig-ragdoll-build-001 — WAITING / NOT RUNNABLE
+CALL c-exec-char-v2-body-rig-ragdoll-build-001 — WAITING / NOT RUNNABLE / SEPARATE OWNER DECISION REQUIRED
 
 * id: c-exec-char-v2-body-rig-ragdoll-build-001
 * track: characters
@@ -6,20 +6,24 @@ CALL c-exec-char-v2-body-rig-ragdoll-build-001 — WAITING / NOT RUNNABLE
 * for: g-6d4e «Игровые персонажи» / В2 Leg 2 — engine-side body
 * issued: 2026-07-14; materialized from the frozen plan and legacy NOW by s-repair-now-track-mode-migration-001
 * play: execute
-* status: **WAITING ON REPAIR + BINDING G5 / NOT RUNNABLE**
+* status: **WAITING ON DIRECTION ACCEPTANCE/RELEASE REVIEW / NOT RUNNABLE**
 
 ## Dispatch gate
 
-Track-wide пауза снята владельцем в `history/2026-07-17-s-work-characters-resume-a1.md`, но этот root всё ещё
-сохранён как outstanding state, а не открыт к исполнению. Не запускать и не менять product repo, пока одновременно
-не выполнены все оставшиеся условия:
+Track-wide пауза была снята владельцем в `history/2026-07-17-s-work-characters-resume-a1.md`, но этот root всё ещё
+сохранён как outstanding state, а не открыт к исполнению. Product handback уже опубликован, однако owner 2026-07-18
+потребовал освободить текущую Character Direction и не открывать Leg 2 без отдельного решения. Не запускать и не
+менять product repo, пока одновременно не выполнены все оставшиеся условия:
 
-1. `c-exec-char-v2-reaction-core-repair-admission-003`, теперь READY после узкого owner-разрешения только на одну service registry reservation, прошёл current product admission и вернул repair-candidate checkpoint; `repair-002` сам закончился BLOCKED до первой product-записи;
-2. отдельная fresh binding G5-сессия дала по Leg 1 `CONFIRMED` с требуемым evidence;
-3. новый Direction-OS RESULT сверил и записал актуальные product authority и runnable handoff.
+1. `c-review-char-v2-published-handback-release-001` дал binding Direction-вердикт по опубликованным candidate
+   `0e5b2948`, integration `53453081` и dev/main `029279a`, включая уже записанный product fresh G5 `CONFIRMED`;
+2. тот Direction-RESULT освободил текущий Character WIP, переведя этот root в owner-paused, а не в ready;
+3. после паузы владелец отдельными новыми словами явно решил возобновить именно Leg 2; прошлые resume/repair слова
+   и опубликованный handback такой authority не дают.
 
 До этого файл — recovery artifact. Он не разрешает checkout/worktree/build/merge/push и не заменяет свежую
-pre-write admission-проверку по действующему GasCoopGame protocol/registry.
+pre-write admission-проверку по действующему GasCoopGame protocol/registry. После review он остаётся recovery
+artifact в paused-состоянии до отдельного owner resume.
 
 ## Goal
 
@@ -81,7 +85,8 @@ transform.
 
 ## Return
 
-Executor returns a product RESULT and evidence pointers to the direction. The direction opens the separate fresh G5;
-the executor does not author the next CALL, close this open_call, merge, push or declare g-6d4e/В2 complete.
+Executor returns a product RESULT and evidence pointers to the direction. The executor does not author the next CALL,
+close this open_call, merge, push or declare g-6d4e/В2 complete. Published Leg 1 evidence never auto-dispatches this
+file: after Direction acceptance/release, a separate later owner decision is still required before any refreshed Leg 2 CALL.
 
 END_OF_FILE: live/indie-game-development/work/c-exec-char-v2-body-rig-ragdoll-build-001-call.md
