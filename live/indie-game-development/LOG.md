@@ -347,4 +347,6 @@ archived: history/LOG-archive-indie-game-development.md — sessions before 2026
 
 2026-07-18 · s-work-char-v2-leg2-after-review-authorized-001 · work · characters · g-6d4e/Leg 2 route decision · owner «A — открывай Leg 2 после review» supplied the required separate decision: fresh Direction review remains READY and body-rig stays WAITING/NOT RUNNABLE until MET, then becomes READY; PARTIALLY MET/NOT MET keeps it behind a named repair/re-review blocker, no product execution started and global core default stayed unchanged · history/2026-07-18-s-work-char-v2-leg2-after-review-authorized-001.md
 
+2026-07-18 · s-review-char-v2-published-handback-release-001 · review · characters · g-6d4e/Leg 1 published handback · MET: candidate 0e5b2948 → integration 53453081 → dev/main 029279a and all six admission-003 obligations survived fresh Direction refutation; bounded reaction-core accepted, review child consumed, owner-authorized body-rig root READY, cuts add-back 0/5, product untouched · history/2026-07-18-s-review-char-v2-published-handback-release-001.md
+
 END_OF_FILE: live/indie-game-development/LOG.md

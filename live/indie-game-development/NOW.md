@@ -1,5 +1,5 @@
 # NOW: indie-game-development
-updated: 2026-07-18 by s-work-char-v2-leg2-after-review-authorized-001
+updated: 2026-07-18 by s-review-char-v2-published-handback-release-001
 bet:
   node: g-9c41
   goal: |
@@ -127,23 +127,13 @@ open_calls:
     note: "Paused in the owner-approved marketing→characters WIP swap. On a later resume, start from the committed INOMAND checkpoint and first reconcile stale-route finding dr-20260712-001."
   - id: c-exec-char-v2-body-rig-ragdoll-build-001
     track: characters
-    status: waiting
+    status: ready
     to: executor
     for: "g-6d4e / В2 Leg 2 — rig + procedural locomotion + cosmetic PuppetMaster ragdoll + character material"
     issued: 2026-07-14
     call: work/c-exec-char-v2-body-rig-ragdoll-build-001-call.md
-    waiting_on: [c-review-char-v2-published-handback-release-001]
-    receipts: [history/2026-07-17-s-work-char-v2-reaction-core-repair-002-admission-blocked-001.md, history/2026-07-18-s-work-char-v2-published-handback-release-route-001.md]
-    note: "Leg 2 remains NOT RUNNABLE until the fresh Direction review returns MET. Product handback is published at dev/main 029279a after final fresh G5 CONFIRMED on candidate 0e5b2948 and integration 53453081. Owner then gave the separate exact decision «A — открывай Leg 2 после review»: on MET the review child clears and this root becomes READY; PARTIALLY MET/NOT MET keeps it non-runnable behind an exact repair/re-review blocker. READY authorizes a fresh product executor session, not automatic dispatch."
-  - id: c-review-char-v2-published-handback-release-001
-    track: characters
-    status: ready
-    to: session
-    for: "g-6d4e / published В2 Leg 1 handback — binding Direction acceptance and Leg 2 readiness gate"
-    issued: 2026-07-18
-    call: work/c-review-char-v2-published-handback-release-001-call.md
-    parent: c-exec-char-v2-body-rig-ragdoll-build-001
-    note: "READY fresh Direction review. Exact published product RESULT/review at 029279a record candidate 0e5b2948, integration 53453081, final binding G5 CONFIRMED and Deliver 1873/1873 GREEN. Owner supplied the required separate decision verbatim: «A — открывай Leg 2 после review». On MET consume this child and make the body-rig root READY; on PARTIALLY MET/NOT MET keep the root non-runnable behind an exact repair/re-review blocker."
+    receipts: [history/2026-07-17-s-work-char-v2-reaction-core-repair-002-admission-blocked-001.md, history/2026-07-18-s-work-char-v2-published-handback-release-route-001.md, history/2026-07-18-s-review-char-v2-published-handback-release-001.md]
+    note: "READY after binding fresh Direction review MET: exact candidate 0e5b2948 → integration 53453081 → published dev/main 029279a and all six admission-003 obligations survived refutation. Leg 1 is accepted only at bounded reaction-core height; DF-13/14/15 remain routed and C1–C4 remain mandatory. Owner exact decision «A — открывай Leg 2 после review» clears the final wait. READY permits only a separate fresh product executor session with current admission; it is not automatic dispatch or product mutation."
 
 recurring: []
 

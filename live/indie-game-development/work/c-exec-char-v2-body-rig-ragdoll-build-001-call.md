@@ -1,32 +1,28 @@
-CALL c-exec-char-v2-body-rig-ragdoll-build-001 — WAITING / NOT RUNNABLE UNTIL DIRECTION REVIEW
+CALL c-exec-char-v2-body-rig-ragdoll-build-001 — READY / FRESH EXECUTOR ELIGIBLE
 
 * id: c-exec-char-v2-body-rig-ragdoll-build-001
-* track: characters
 * to: executor
+* direction: indie-game-development
+* track: characters
+* repo: ainazemtsau/GasCoopGame
+* kind: engineering
+* node: g-6d4e
 * for: g-6d4e «Игровые персонажи» / В2 Leg 2 — engine-side body
 * issued: 2026-07-14; materialized from the frozen plan and legacy NOW by s-repair-now-track-mode-migration-001
-* play: execute
-* status: **WAITING ON FRESH DIRECTION REVIEW / NOT RUNNABLE**
+* status: **READY — ELIGIBLE FOR A SEPARATE FRESH PRODUCT EXECUTOR SESSION**
 
 ## Dispatch gate
 
-Track-wide пауза была снята владельцем в `history/2026-07-17-s-work-characters-resume-a1.md`, но этот root всё ещё
-WAITING и не открыт к исполнению. Product handback уже опубликован. После первоначального требования не открывать
-Leg 2 без отдельного решения owner дал это отдельное решение дословно: «A — открывай Leg 2 после review».
-Не запускать product executor, пока одновременно не выполнены оба Direction-условия:
+Binding fresh Direction review `s-review-char-v2-published-handback-release-001` вернул **MET** по exact candidate
+`0e5b2948172574d6966bfd7bbab298489e56559c`, integration
+`53453081ba54ac558d73d87c4984a54ec28cb1b4` и published `dev == main ==
+029279a7a03af5869f32ddbb8b93aa49f2c6183f`. Review child consumed, последний wait очищен. Отдельное owner-решение
+существует дословно: «A — открывай Leg 2 после review». Поэтому этот существующий root теперь READY.
 
-1. `c-review-char-v2-published-handback-release-001` дал binding Direction-вердикт по опубликованным candidate
-   `0e5b2948`, integration `53453081` и dev/main `029279a`, включая уже записанный product fresh G5 `CONFIRMED`;
-2. тот Direction-RESULT с verdict MET consumed review child, append-нул receipt, очистил последний `waiting_on` и
-   перевёл этот существующий root в READY по owner decision «A — открывай Leg 2 после review».
-
-После этого отдельная свежая product executor-сессия обязана до любой записи перечитать current protocol/registry
-и пройти обязательную pre-write admission-проверку. READY в Direction state не является автоматическим dispatch.
-
-До MET-review файл — recovery artifact. Он не разрешает checkout/worktree/build/merge/push и не заменяет свежую
-pre-write admission-проверку по действующему GasCoopGame protocol/registry. Если review вернёт PARTIALLY MET или
-NOT MET, root остаётся non-runnable и ждёт названный repair/re-review successor. После MET root может стать READY,
-но фактическая работа начинается только отдельной fresh product executor-сессией.
+READY — только launch eligibility. Он не выбирает worktree/branch/SHA, не создаёт checkout и не разрешает
+автоматический dispatch. Отдельная свежая product executor-сессия до любой записи перечитывает current
+GasCoopGame `AGENTS.md`, protocol/registry и проходит действующую pre-write admission-проверку. Любой authority,
+tool, admission или scope conflict = STOP/checkpoint, не обход.
 
 ## Goal
 
@@ -39,8 +35,10 @@ transform.
 ## Frozen source of truth
 
 * План и исходные acceptance/cuts: `work/c-plan-characters-002-plan.md`, особенно §4 Leg 2.
-* Состояние Leg 1 и обязательные carry-forward: `knowledge/g6d4e-char-v2-leg1-reaction-core.md`.
-* Owner pause: `history/2026-07-16-s-work-gascoopgame-worktree-protocol-v2-blocked-001.md`.
+* Текущий binding Leg 1 handoff: `knowledge/g6d4e-char-v2-leg1-published-acceptance.md`.
+* Direction review receipt: `history/2026-07-18-s-review-char-v2-published-handback-release-001.md`.
+* Exact product evidence at published 029279a: `docs/results/c-exec-char-v2-reaction-core-repair-admission-003.md`
+  and `docs/reviews/review-c-exec-char-v2-reaction-core-repair-admission-003.md`.
 
 Свежая runnable-версия обязана перечитать эти файлы и текущий product repo; никакой path/branch/SHA из старых
 сессий не считается authority.
@@ -88,9 +86,13 @@ transform.
 
 ## Return
 
-Executor returns a product RESULT and evidence pointers to the direction. The executor does not author the next CALL,
-close this open_call, merge, push or declare g-6d4e/В2 complete. Published Leg 1 evidence never auto-dispatches this
-file. The separate owner decision now exists — «A — открывай Leg 2 после review» — so a MET Direction review may
-make this root READY; dispatch and product mutation still belong only to the later fresh executor session.
+Executor returns a product RESULT and exact evidence pointers HOME. The executor does not author the next CALL,
+close this open_call or declare g-6d4e/В2 complete. Product gates, merge/push or owner-eye are evidence inputs only;
+the Direction call remains open until a later valid Direction RESULT carries the required fresh binding close.
+
+## Budget
+
+One focused product executor leg. STOP with evidence before any approach substitution, extra service mutation,
+scope expansion, unavailable required tool or work beyond the frozen Leg 2 boundary.
 
 END_OF_FILE: live/indie-game-development/work/c-exec-char-v2-body-rig-ragdoll-build-001-call.md
