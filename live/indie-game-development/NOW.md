@@ -91,14 +91,14 @@ open_calls:
     issued: 2026-07-16
     call: work/c-exec-level-module-standard-v1-lv0-plan-001-call.md
     note: "READY witness + owner-approved parallel launch → history/2026-07-16-s-repair-level-lv0-parallel-launch-001.md."
-  - id: c-cartography-g-d3a8-post-sphere-frame-front-001
+  - id: c-forge-g-d3a8-gas-behavior-jobs-001
     track: canon
     status: ready
     to: session
-    for: "g-d3a8 / remap the current canon-question front after the accepted Sphere Frame and MET universal-capture review"
-    issued: 2026-07-17
-    call: work/c-cartography-g-d3a8-post-sphere-frame-front-001-call.md
-    note: "READY / OWNER-PRESENT / CARTOGRAPHY-ONLY. Reconcile the owner-approved g-d3a8 question map with the accepted non-canon extraction/custody Frame and MET universal-capture review. Do not answer a design question, run Gate Q, freeze canon, admit canon or redesign the Frame."
+    for: "g-d3a8 / bounded Canon Forge on minimal physical gas behavior-job grammar"
+    issued: 2026-07-18
+    call: work/c-forge-g-d3a8-gas-behavior-jobs-001-call.md
+    note: "READY / OWNER-PRESENT / PAPER-ONLY. Start from the accepted non-canon Sphere extraction/custody Frame and MET universal-capture review. Decide only a minimal gas behavior-job grammar; no roster, reactions, damage, economy, implementation or canon admission."
   - id: c-shape-sc-damage-001
     track: damage
     status: paused
