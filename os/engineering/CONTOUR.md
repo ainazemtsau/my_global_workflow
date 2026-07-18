@@ -18,9 +18,9 @@ Companion files: `PROJECT_SETUP.md` (bootstrap a product repo), `VALIDATION.md` 
 
 ### Contract v29 roles for newly issued compiled product-code legs
 
-A new root engineering CALL pins `engineering_contract: 29`; every successor inherits it. A CALL already open when v29
-lands is grandfathered: it and any `legacy:<origin-call-id>` successors keep their recorded CALL/product contract, and
-neither v29 Re-sync nor v29 evidence can retroactively gate their return.
+A new root engineering CALL pins `engineering_contract: 29`; every successor inherits it. At activation, unmarked
+`open_calls` are the legacy snapshot and keep their contract. A later no-feature Re-sync may run while they remain
+open without changing their artifacts; after its HOME, legacy and v29 legs may coexist, each routed by its CALL pin.
 
 For a v29 compiled leg, PLAN HOME names PAIR-CANDIDATE eligible. One fresh contract-author — the independent
 test-author, never the builder or validator — owns the bounded pre-freeze job. It may revise both the smallest
@@ -98,8 +98,8 @@ the public declarations/value contract and RED files. Counts alone prove neither
 BUILD pins both commits and may implement bodies/internal HOW, but changes neither frozen public contract nor RED. Such
 a contract/RED change returns through PAIR-CANDIDATE and pair freeze.
 
-Pre-v29 unversioned CALLs and their `legacy:` successors remain on their recorded v23 SURFACE-FREEZE route. They are
-accepted against that originating contract and are never upgraded merely because v29 is current.
+Legacy snapshot lineages keep their recorded v23 SURFACE-FREEZE route across Re-sync; new roots use v29 only after
+Re-sync HOME.
 
 The legacy cycle text below remains authority for every other gate and artifact; its old carrier wording does not
 override the route pinned by the engineering CALL.

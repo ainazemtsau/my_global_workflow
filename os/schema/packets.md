@@ -39,10 +39,13 @@ Executor CALLs (`to: executor`) add `repo: <org/repo>` and `kind: engineering | 
 when v29 lands may return unmarked; its first later successor uses `legacy:<origin-call-id>` and later successors preserve
 that marker. `legacy:` is invalid on a new root. A bounded `re-sync:<N>` CALL may only install contract N and stamp the
 repo; it runs under the repo's pre-upgrade contract and cannot carry product-feature work. The writer validates a return
-against its pinned/originating contract, never against requirements added after issuance. During rollout, a legacy
+against its pinned/originating contract, never against requirements added after issuance. The legacy snapshot is exactly
+the unmarked engineering CALLs already in `open_calls` when v29 activates; no later unmarked root is legal. A legacy
 return may only close/checkpoint its leg or issue a same-leg legacy successor; it never atomically opens Re-sync or an
-unrelated integer-pinned root. After that return applies and all older CALLs for the repo close, a later Direction
-RESULT may issue `re-sync:<N>`; the first new feature root comes only after Re-sync HOME.
+unrelated integer-pinned root. A later Direction transaction may issue `re-sync:<N>` while snapshot calls remain open:
+Re-sync changes repo authority only and neither consumes/retargets those calls nor rewrites their active artifacts.
+After Re-sync HOME, new integer-pinned roots may coexist with them; each CALL's pin, never the latest stamp, selects its
+route.
 
 Every executor stage closes with the current CALL's `return` handback HOME. A fresh-stage boundary means the handback names eligibility or the blocker only: the executor neither authors nor asks the owner to find/create the successor CALL. A Direction session consumes the handback and issues continuation through its RESULT.
 

@@ -39,9 +39,9 @@ behavioral/out-of-plan changes or exhausted retries return one complete blocker.
 meaning, both commits/manifests/diffs and runner evidence, then freezes public declarations/value contract and RED
 files. BUILD pins both, may implement bodies/internal HOW, and edits neither frozen contract nor RED; changing either
 returns through PAIR-CANDIDATE and pair freeze. The obligation inventory and `behavioral-red | evidence-only` split
-remain evidence; prose recipes, PLAN-AMEND, `N/N`, compile-RED and counts are not launch authority. An already-open
-unversioned CALL and its `legacy:` successors stay on their recorded v23 route; v29 evidence or Re-sync never blocks
-their return.
+remain evidence; prose recipes, PLAN-AMEND, `N/N`, compile-RED and counts are not launch authority. Legacy
+snapshot lineages stay on their recorded v23 route across Re-sync; after its HOME they may coexist with new
+v29-pinned legs.
 
 **Executable Plan-to-RED handoff (contract v22, historical carrier only).** The v22 prose-first route below is retained
 as migration history and does not execute for a compiled v29 leg. A prose recipe

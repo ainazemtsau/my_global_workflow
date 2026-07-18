@@ -156,7 +156,7 @@ ceiling only after the corresponding obligations are proved removed.
 | X31 | BUILD existence closes before an owner LOOK can defer. | `os/engineering/CONTOUR.md:163` |
 | X32 | Semantic completeness is judged by AI, not a proxy parser/scanner. | `os/engineering/CONTOUR.md:184` |
 | X33a | Every newly issued engineering root CALL pins its contract; same-leg successors inherit it. | `os/schema/packets.md:37` |
-| X33b | A pre-v29 open CALL and its legacy successors stay on their originating contract; drift never retroactively gates return. | `os/adapters/coding-agent.md:39` |
+| X33b | A pre-v29 open CALL and its legacy successors keep their originating route through Re-sync. | `os/adapters/coding-agent.md:39` |
 | X34a | The final pair reruns build, hygiene and RED after the last carrier edit. | `os/engineering/CONTOUR.md:91` |
 | X34b | Any frozen public-contract or RED change returns through pair candidate and freeze. | `os/engineering/CONTOUR.md:99` |
 | X35a | The reviewer independently derives mutation scope. | `os/engineering/CONTOUR.md:53` |

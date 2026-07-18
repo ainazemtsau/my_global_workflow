@@ -43,7 +43,9 @@ Contract:
     a renamed stage or new evidence from an older pinned/legacy return. Product drift may stop a new feature root whose
     pin is not installed; it never stops admission of an already-issued CALL's RESULT/HOME. A legacy return may only
     close/checkpoint its leg or issue a same-leg legacy successor; reject an atomically bundled Re-sync/new root. Admit
-    Re-sync in a later transaction only after every older CALL for that repo has closed.
+    Re-sync in a later transaction even while older legacy CALLs for that repo remain open: it may install/stamp repo
+    authority only, must preserve every snapshot call and its active artifacts, and cannot carry feature work. After
+    Re-sync HOME, new integer-pinned roots may coexist with those legacy lineages; validate each from its own pin.
   - **compiled candidate-pair guard (contract v29 marker only)** - PLAN may open only PAIR-CANDIDATE. Its result records
     the owner-approved decision-page path/count <=400 with every fixture defined or absent; exact carrier parent/commit
     and Git manifest followed by the exact RED commit/manifest; real signatures, field-preserving construction,

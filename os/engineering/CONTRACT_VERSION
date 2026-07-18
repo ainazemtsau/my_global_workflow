@@ -47,15 +47,16 @@ range. The former long narrative remains immutable Git evidence at
 | 26 | 2026-07-16 | B4 proves the old kill-list consumer-by-consumer, removes no gate/obligation ID, compacts Git-backed history, and lowers mandatory reading to 25,726 words. | `engineering-contract-v26^{commit}` |
 | 27 | 2026-07-16 | Model-neutral review independence; removed: X14(v26); added: X14(v27); N remains 239. | `engineering-contract-v27^{commit}` |
 | 28 | 2026-07-17 | Every engineering stage returns its current HOME handback; Direction alone issues successors. Removed: X41(v27); added: X41(v28); N remains 239. | `engineering-contract-v28^{commit}` |
-| 29 | 2026-07-18 | Forward-only CALL pinning plus one pair-candidate job replace early carrier freeze/line cap. Removed: X33a/X33b(v28); added: X33a/X33b(v29); reworded: G33, X07-X09, X18, X34a-X34b, X75-X76, E06-E07, E09-E12, E15, U20a-U20b; N=239. | `engineering-contract-v29^{commit}` |
+| 29 | 2026-07-18 | Hot-safe CALL pinning plus one pair-candidate job replace retroactive upgrades and early carrier relay/line cap. Removed: X33a/X33b(v28); added: X33a/X33b(v29); reworded: G33, X07-X09, X18, X34a-X34b, X75-X76, E06-E07, E09-E12, E15, U20a-U20b; N=239. | `engineering-contract-v29^{commit}` |
 
 ## Terminal Re-sync to v29
 
 Install current authority, never retired carriers.
 
 - On v28, issue bounded no-feature `re-sync:29`: install pair-candidate stabilization, replace X33a/X33b, stamp
-  contract/inventory `29`, retain ceiling `239`, then pin the selected new root to 29.
+  contract/inventory `29`, retain ceiling `239`, then pin new roots to 29. Legacy calls may remain open.
 - Pre-v29 open CALLs and `legacy:<origin-call-id>` successors keep recorded rules; v29 Re-sync/evidence is never required.
+- Re-sync changes no active legacy artifact; after its HOME, legacy and v29 legs may coexist, each routed by its CALL.
 - Behind v28: install applicable prior gates, then v29 before a new root. Existing returns stay pinned.
 - Unstamped: use current `PROJECT_SETUP.md` on activation.
 
