@@ -61,7 +61,7 @@ A **bet** is one shaped node in `NOW.md`. Its tasks (`t-1`…): `goal`, `done_wh
 
 In track-mode a continuation may be `waiting|blocked|paused`; `open_calls.status` decides whether it is dispatchable.
 
-An engineering CALL goes to the product repo. Its `return` comes HOME; only Direction issues successors. Evidence = commits/PR + checks; the OS pins no branch/path/SHA.
+An engineering CALL goes to the product repo. Its `return` comes HOME; only Direction issues successor CALLs. Evidence = commits/PR + checks; the OS pins no branch/path/SHA.
 
 ## 5. Hard gates — all mechanically checkable
 

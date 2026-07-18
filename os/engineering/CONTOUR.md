@@ -16,17 +16,17 @@ Companion files: `PROJECT_SETUP.md` (bootstrap a product repo), `VALIDATION.md` 
 
 **Validator write boundary (contract v24).** "Read-only" forbids the validator from authoring or editing source, tests, specs, rules, and evidence. It may invoke declared validation runners whose only writes are generated evidence artifacts/caches; it never edits those outputs.
 
-### Contract v29 roles for newly issued compiled product-code legs
+### Contract v29/v30 roles for newly issued compiled product-code legs
 
-A new root engineering CALL pins `engineering_contract: 29`; every successor inherits it. At activation, unmarked
-`open_calls` are the legacy snapshot and keep their contract. A later no-feature Re-sync may run while they remain
-open without changing their artifacts; after its HOME, legacy and v29 legs may coexist, each routed by its CALL pin.
+New roots pin their version; activation-snapshot calls remain legacy.
+V30 keeps v29 roles, pair semantics and gates.
+Re-sync never changes issued roots; legacy, v29 and v30 coexist by pin.
 
 For a v29 compiled leg, PLAN HOME names PAIR-CANDIDATE eligible. One fresh contract-author — the independent
 test-author, never the builder or validator — owns the bounded pre-freeze job. It may revise both the smallest
 compiler-green real public carrier and tests/support until the real command compiles, discovers the intended tests and
 fails on behavior. Carrier edits stay inside the approved construction/observation surface and contain no behavioral
-implementation. Intermediate carrier gaps stay inside this job; HOME returns only the final candidate pair or one
+implementation. Intermediate carrier gaps stay inside this job; its handoff is only the final candidate pair or one
 complete blocker after the retry cap. Binding fresh refutation then freezes the public contract+RED pair. PLAN,
 PAIR-CANDIDATE, pair refutation and BUILD are separate sessions.
 
@@ -34,9 +34,9 @@ PAIR-CANDIDATE, pair refutation and BUILD are separate sessions.
   evidence-class split. Its prose recipes are planning feedback only: they never count as authored RED and never
   authorize BUILD.
 - **Planner** — interactive session, frontier model, plan mode. Talks to the owner. A SEPARATE session from PAIR-CANDIDATE
-  and BUILD: owner approval ENDS it with PLAN HOME and NO code/tests.
-  Direction issues the next eligible stage; a v29 compiled leg starts with PAIR-CANDIDATE.
-  Planning, contract authoring and building never share one session.
+  and BUILD: owner approval ends it without code/tests. Its v29 HOME or v30 receipt hands off to a fresh
+  PAIR-CANDIDATE.
+  The planner never continues into contract authoring or BUILD.
 - **Builder** — autonomous session(s), default-tier model, a FRESH session that reads the frozen plan and reviewed carrier+RED pair (never the same session that planned). Never talks to the owner mid-run.
 - **Validator** — fresh-context, read-only (no Write/Edit), did not author the code; independence is established by authorship, context and authority separation, never by model identity: equal builder/reviewer model provenance is legal, and model availability cannot block review or delivery.
 - **Test-author / contract-author** — a separate PAIR-CANDIDATE session that reads the frozen plan, decision page and
@@ -54,7 +54,7 @@ PAIR-CANDIDATE, pair refutation and BUILD are separate sessions.
 
 **Mutation diff identity (contract v24).** Independent review evidence pins mutation-reviewed `H`; the report only echoes repo-derived `I` (declared integration-base tip), `B = merge-base(I,H)`, and `H`. Deliver recomputes and exact-matches them, rejects mutation-input changes after `H`, and handles renames/deletions per VALIDATION before it reads score.
 
-**Extension rule.** Existing product code may already exist. Under v29 the pair candidate pins its real signatures by
+**Extension rule.** Existing product code may already exist. Under v29/v30 the pair candidate pins its real signatures by
 commit instead of copying constructors and harness facts into prose. The contract-author never invents a test-local
 substitute: a missing approved construction/observation seam is added to the non-behavioral carrier; a seam outside the
 approved decision page stops with one complete blocker.
@@ -65,7 +65,7 @@ needs its own native executable carrier, or an explicit `n/a` / separate owner d
 
 ## The cycle
 
-### Contract v29 forward-only compiled route
+### Contract v29/v30 compiled route
 
 For compiled product-code legs the operative path is:
 
@@ -94,12 +94,12 @@ the existing tool-unavailable STOP. Tests must compile, be discovered and fail o
 gap never creates a HOME/CALL/branch relay; a required behavioral or out-of-plan change returns one complete blocker.
 
 Binding fresh refutation inspects the decision page, both exact commits/manifests/diffs and runner evidence, then freezes
-the public declarations/value contract and RED files. Counts alone prove neither fixture meaning nor oracle correctness.
-BUILD pins both commits and may implement bodies/internal HOW, but changes neither frozen public contract nor RED. Such
-a contract/RED change returns through PAIR-CANDIDATE and pair freeze.
+the public declarations/value contract and RED files. Counts prove neither fixture meaning nor oracle independence; a
+shared expected/actual source fails catcher-soundness. BUILD pins both commits, changes neither frozen contract nor RED,
+and returns changes to either through PAIR-CANDIDATE and pair freeze.
 
-Legacy snapshot lineages keep their recorded v23 SURFACE-FREEZE route across Re-sync; new roots use v29 only after
-Re-sync HOME.
+V29/legacy stages return HOME. A v30 root advances separate fresh stages from committed progress receipts, never an
+in-session substitute, and returns HOME only as REPORT/ESCALATE. Issued routes survive Re-sync.
 
 The legacy cycle text below remains authority for every other gate and artifact; its old carrier wording does not
 override the route pinned by the engineering CALL.
@@ -189,8 +189,8 @@ CALL (business task from a direction)
     ledger / ADR ride ALONGSIDE it for the builder and are NOT what the owner
     reads to approve (a wall of machine artifacts, or a plan buried in a scratch
     file, is not a plan).
-    The owner approves the plan and decision page; the leg CLOSES with PLAN HOME. Direction issues PAIR-CANDIDATE;
-    BUILD is not opened by a prose readiness verdict. Planning, contract authoring and BUILD never share a session.
+    Owner approval closes PLAN; v29 returns HOME and v30 commits its receipt. A fresh PAIR-CANDIDATE follows;
+    prose never opens BUILD, and the three roles never share a session.
   → PAIR-CANDIDATE (separate fresh session, before build): the contract-author creates the non-behavioral public carrier
     and complete behavioral tests/support, fixing approved carrier gaps inside this job. It never implements behavior,
     invents test-local production substitutes or drops a planned row. The final carrier commit passes build+hygiene;
@@ -307,8 +307,8 @@ CALL (business task from a direction)
     The RESULT is the leg's GATED closing artifact at a known repo path
     (PROJECT_SETUP stamps the path + fields + an executable check into the
     repo, so the agent produces it with no OS access); a prose chat summary
-    does not close the leg. Every stage emits the current CALL's HOME handback;
-    it may name eligibility/blocker but never asks for a successor; Direction issues it (#6).
+    does not close the leg. V29/legacy stages return HOME; v30 receipts advance internally until REPORT/ESCALATE HOME.
+    Direction alone issues Direction CALLs.
 ```
 
 The owner returns to a finished, verified change and checks the evidence, not every line. Tier-2 actions (publish, spend, delete non-versioned data) are never auto-approved regardless of plan approval.
@@ -319,7 +319,7 @@ The owner returns to a finished, verified change and checks the evidence, not ev
 - Kill switch and steering: a stop-file halts the run; a steer-file injects owner redirection mid-run without killing it.
 - Notifications: two channels wired at setup — "needs input" (escalation) and "finished: verdict" (run end). The owner is never polled; the run pushes.
 - Model routing: frontier + high effort for PLAN and architecture; default tier for BUILD legs; cheap tier for evaluators/plumbing. Fallback chain configured so overnight runs survive provider errors.
-- Sizing: one autonomous run ≤ the approved change; one feature leg ≤ a focused half-day equivalent. Bigger means the plan needed smaller features.
+- Sizing: a root may sequence dependency-ordered cohesive invariant/source-of-truth legs, each <= a focused half-day; split mixed surfaces before PAIR-CANDIDATE.
 - For high-ambiguity features: best-of-N parallel attempts (where the platform supports it) judged by the validator beats in-place retries.
 - Module-scoped contexts: where the platform supports it, scope builder subagents to module boundaries (module + its docs fit one context by PROJECT_SETUP design) — a recommended pattern, not a rule.
 
@@ -330,8 +330,6 @@ The owner returns to a finished, verified change and checks the evidence, not ev
 3. Validator is authoring-read-only and fresh-context, always: it may run declared validators that generate evidence artifacts/caches, but never authors or edits source, tests, specs, rules, or the generated evidence.
 4. All exploratory artifacts (scripts, test scenes) go to the single scratch dir; nothing from it reaches a commit.
 5. Done = gates green + evidence attached. A narrative claim is not done.
-6. Closing artifact is a CHECK, not prose: merge/deliver requires RESULT at its known path with required fields. Owner signals ("finish it", "merged?", "summary") trigger, never replace, the report. Only Direction issues successor CALLs (KERNEL §4).
-
-Key sources: Anthropic long-running harness & three-agent harness (planner/generator/evaluator, default-FAIL ledger, evidence gate), Claude Code best practices (/goal, hooks, fresh-context review), OpenAI Codex long-horizon guidance (plans on disk, compaction), retry research (gains plateau at ~3, non-convergence = same error repeating). Full links: os/docs/RESEARCH_BASIS.md and the engineering research session history.
+6. Closing artifact is a CHECK, not prose: merge/deliver requires RESULT at its known path with required fields. Owner signals ("finish it", "merged?", "summary") trigger, never replace, the report. Only Direction issues successor Direction CALLs; a v30 repo runner issues product-local fresh stages (KERNEL §4).
 
 END_OF_FILE: os/engineering/CONTOUR.md

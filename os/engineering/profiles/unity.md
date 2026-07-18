@@ -84,7 +84,7 @@ First created 2026-06-13 (GasCoopGame setup, indie-game-development/g-9c41). For
 - **TFMs:** core `netstandard2.1` (Unity loads it on the default scripting runtime); tests `net8.0`.
 - .NET SDK must be installed separately for the headless build (`dotnet`) — not bundled with Unity Hub.
 
-## 6. Contract v29 candidate/pair timing
+## 6. Contract v29/v30 candidate/pair timing
 
 - A compiled PAIR-CANDIDATE reruns both the headless repo-native build and existing git-aware hygiene after its last
   carrier edit, then runs the real RED command. Headless compile GREEN alone is not an eligible pair.

@@ -25,7 +25,8 @@ remain authoritative.
 ## Job lifecycle
 
 Runtime jobs are derived from tracked open calls, RESULTs, product-repo evidence,
-and owner actions. Queue identity is `(direction, track, call)`; a job may store
+and owner actions. Queue identity is `(direction, track, call)`; for a v30
+engineering root this identity survives every product stage. A job may store
 logs outside `live/**`, but the closing fact returns through RESULT/history.
 
 Statuses:
@@ -40,13 +41,28 @@ Side exits:
 - `failed`: runtime/tool failure; no state claim.
 - `cancelled`: superseded by an explicit owner or repair decision.
 
-The first high-value loop is:
+The v29/legacy stage loop is:
 
 1. executor CALL runs in a product repo;
 2. executor returns RESULT plus commit/PR/check evidence;
 3. a fresh review session tries to refute the proof against the CALL;
 4. PASS routes to writer apply; FAIL routes to rework or blocked;
 5. writer serially applies state and emits the next CALL.
+
+The v30 root loop removes those intermediate Direction applies:
+
+1. claim one integer-pinned root and keep its `open_calls` row open;
+2. launch PLAN, PAIR-CANDIDATE, binding PAIR-FREEZE, BUILD and validation as
+   separate fresh API/CLI sessions, never in-session substitutes;
+3. after each stage, verify its compact committed receipt against the pinned
+   repo route and launch only the declared eligible stage;
+4. bounded in-scope rework stays inside that root; REPORT or ESCALATE returns
+   one HOME to the Direction writer.
+
+Internal identity `(root, stage, attempt)` is runtime cache only. The durable
+receipt lives in existing product progress/evidence and points to exact commits,
+checks and review artifacts; no internal transition edits `live/**` or creates a
+Direction CALL.
 
 ## Locks
 
@@ -65,7 +81,7 @@ commands:
 
 - `status`: derive directions, active bets, track WIP limit/occupancy, calls grouped by track, decisions, and default next.
 - `collect`: render a paste-ready packet for the default or a named track.
-- `run`: start one ready call through an allowlisted session/executor/research command.
+- `run`: start one ready call; a v30 engineering root also drives its declared fresh product stages.
 - `review`: run a fresh refutation pass over an executor RESULT.
 - `apply`: invoke the writer on one RESULT with direction lock.
 - `notify`: send owner batches without changing state.
@@ -92,7 +108,7 @@ Adopt by vertical slices, not migration:
 2. executor-return -> fresh Codex/Claude review;
 3. one-direction writer apply with lock;
 4. rework routing on review failure;
-5. only then consider auto-running the next CALL.
+5. only then auto-run the next Direction CALL or a v30 root's repo-local stages.
 
 Go/no-go: keep the slice only if it reduces owner relay work, preserves
 reproducible Git evidence, and produces no new protocol violations.

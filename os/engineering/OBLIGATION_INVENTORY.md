@@ -3,7 +3,7 @@
 This file is the load-bearing census for the engineering contract. It counts what one applicable
 product leg must do, not how many words describe it. The historical `N=71` in the 2026-07-14 audit
 was a hypothesis; this is the fresh contract-v24 census made before the contract-v25 valve landed,
-re-verified by v26, with X41 replaced in v28 and the listed carrier/version duties replaced in v29.
+re-verified by v26, with routing/version duties replaced through v30.
 
 ## Counting unit
 
@@ -46,7 +46,7 @@ deliverables, and exercises fixed, refuted, owner-ack and escalation branches. I
 | Unity profile predicates (`U`) | 27 |
 | **Maximum `N`** | **239** |
 
-`N = 239` remains the contract-v29 ceiling. B4 removed no obligation id: compacting historical
+`N = 239` remains the contract-v30 ceiling. B4 removed no obligation id: compacting historical
 narrative is a reading reduction, not a semantic deletion. The post-change maximum may not exceed
 it. An addition that
 would otherwise raise `N` is legal only when the same commit names and actually removes enough
@@ -78,13 +78,13 @@ ceiling only after the corresponding obligations are proved removed.
 | G16 | Independent line-level review passes. | `os/engineering/VALIDATION.md:74` |
 | G17 | Each candidate finding is verified against actual behaviour. | `os/engineering/VALIDATION.md:76` |
 | G18 | Owner spot-check receives the gated final report. | `os/engineering/VALIDATION.md:78` |
-| G19a | Deliver-time RESULT exists. | `os/engineering/PROJECT_SETUP.md:53` |
-| G19b | Deliver-time RESULT carries every required field. | `os/engineering/PROJECT_SETUP.md:53` |
-| G20 | A non-archived frozen change activates the strong-check battery. | `os/engineering/PROJECT_SETUP.md:54` |
-| G21a | Recorded spec-silence-audit section exists. | `os/engineering/PROJECT_SETUP.md:54` |
-| G21b | Recorded spec-silence audit is non-empty. | `os/engineering/PROJECT_SETUP.md:54` |
+| G19a | Deliver-time RESULT exists. | `os/engineering/PROJECT_SETUP.md:54` |
+| G19b | Deliver-time RESULT carries every required field. | `os/engineering/PROJECT_SETUP.md:54` |
+| G20 | A non-archived frozen change activates the strong-check battery. | `os/engineering/PROJECT_SETUP.md:55` |
+| G21a | Recorded spec-silence-audit section exists. | `os/engineering/PROJECT_SETUP.md:55` |
+| G21b | Recorded spec-silence audit is non-empty. | `os/engineering/PROJECT_SETUP.md:55` |
 | G22 | Every escape-class row is dispositioned. | `os/engineering/ESCAPE-CLASSES.md:21` |
-| G23 | Deliverable-coverage check closes every promise. | `os/engineering/PROJECT_SETUP.md:54` |
+| G23 | Deliverable-coverage check closes every promise. | `os/engineering/PROJECT_SETUP.md:55` |
 | G24 | Review-evidence dependency passes. | `os/engineering/VALIDATION.md:7` |
 | G25 | Negative-control dependency passes. | `os/engineering/VALIDATION.md:9` |
 | G26 | Core-algorithm property-layer dependency passes. | `os/engineering/VALIDATION.md:11` |
@@ -151,12 +151,12 @@ ceiling only after the corresponding obligations are proved removed.
 | X28b | A re-raise with new evidence escalates to the owner. | `os/engineering/VALIDATION.md:13` |
 | X29a | Behaviour evidence comes from its real venue. | `os/engineering/VALIDATION.md:17` |
 | X29b | A source-text scan cannot be behaviour evidence. | `os/engineering/VALIDATION.md:17` |
-| X30a | Every load-bearing rule has a recorded/executable deliver dependency. | `os/engineering/PROJECT_SETUP.md:54` |
-| X30b | Every load-bearing deliver dependency has a seeded-miss proof. | `os/engineering/PROJECT_SETUP.md:54` |
+| X30a | Every load-bearing rule has a recorded/executable deliver dependency. | `os/engineering/PROJECT_SETUP.md:55` |
+| X30b | Every load-bearing deliver dependency has a seeded-miss proof. | `os/engineering/PROJECT_SETUP.md:55` |
 | X31 | BUILD existence closes before an owner LOOK can defer. | `os/engineering/CONTOUR.md:163` |
 | X32 | Semantic completeness is judged by AI, not a proxy parser/scanner. | `os/engineering/CONTOUR.md:184` |
-| X33a | Every newly issued engineering root CALL pins its contract; same-leg successors inherit it. | `os/schema/packets.md:37` |
-| X33b | A pre-v29 open CALL and its legacy successors keep their originating route through Re-sync. | `os/adapters/coding-agent.md:39` |
+| X33a | Every newly issued engineering root CALL pins its contract; Direction successors inherit it. | `os/schema/packets.md:37` |
+| X33b | Every issued pinned or legacy root keeps its originating route through later Re-sync. | `os/adapters/coding-agent.md:43` |
 | X34a | The final pair reruns build, hygiene and RED after the last carrier edit. | `os/engineering/CONTOUR.md:91` |
 | X34b | Any frozen public-contract or RED change returns through pair candidate and freeze. | `os/engineering/CONTOUR.md:99` |
 | X35a | The reviewer independently derives mutation scope. | `os/engineering/CONTOUR.md:53` |
@@ -167,7 +167,7 @@ ceiling only after the corresponding obligations are proved removed.
 | X38 | BUILD searches for reusable implementation before writing. | `os/engineering/CONTOUR.md:204` |
 | X39 | Value-bearing/measured fields are asserted equal to their source. | `os/engineering/CONTOUR.md:207` |
 | X40 | Multi-actor features exercise conflicting inputs in one tick. | `os/engineering/CONTOUR.md:208` |
-| X41 | Every engineering stage returns its current CALL handback HOME; Direction alone issues successors. | `os/engineering/CONTOUR.md:310` |
+| X41 | A v30 root stays registered across separate fresh product-stage sessions and returns HOME only as REPORT or ESCALATE. | `os/engineering/CONTOUR.md:310` |
 | X42a | A new dependency needs an owner decision. | `os/engineering/VALIDATION.md:78` |
 | X42b | A contract change needs an owner decision. | `os/engineering/VALIDATION.md:78` |
 | X42c | A tier-2 action needs an owner decision. | `os/engineering/VALIDATION.md:78` |
@@ -175,7 +175,7 @@ ceiling only after the corresponding obligations are proved removed.
 | X43a | The approved spec lives on disk. | `os/engineering/CONTOUR.md:318` |
 | X43b | The feature ledger lives on disk. | `os/engineering/CONTOUR.md:318` |
 | X43c | Per-leg progress lives on disk. | `os/engineering/CONTOUR.md:318` |
-| X44 | One feature leg is at most a focused half-day equivalent. | `os/engineering/CONTOUR.md:322` |
+| X44 | Each feature leg is one cohesive invariant/source-of-truth slice no larger than a focused half-day. | `os/engineering/CONTOUR.md:322` |
 | X45 | Narrative prose cannot close a leg; gates plus attached evidence do. | `os/engineering/CONTOUR.md:332` |
 | X46 | Review filename id matches the triggering change folder. | `os/engineering/VALIDATION.md:7` |
 | X47 | `reviewed-commit` is an ancestor of delivered HEAD. | `os/engineering/VALIDATION.md:7` |
@@ -202,9 +202,9 @@ ceiling only after the corresponding obligations are proved removed.
 | X68 | Mutation-reviewed `H` is an ancestor of delivered HEAD. | `os/engineering/VALIDATION.md:23` |
 | X69 | A post-`H` mutation-input dependency change makes evidence stale. | `os/engineering/VALIDATION.md:23` |
 | X70 | Current A/C/M/T paths and rename destinations enter mutation set `D`. | `os/engineering/VALIDATION.md:23` |
-| X71 | An engine existence proof resolves under the declared artifact root. | `os/engineering/PROJECT_SETUP.md:54` |
-| X72 | An engine existence proof is non-trivial. | `os/engineering/PROJECT_SETUP.md:54` |
-| X73 | A sibling headless test cannot discharge an engine artifact. | `os/engineering/PROJECT_SETUP.md:54` |
+| X71 | An engine existence proof resolves under the declared artifact root. | `os/engineering/PROJECT_SETUP.md:55` |
+| X72 | An engine existence proof is non-trivial. | `os/engineering/PROJECT_SETUP.md:55` |
+| X73 | A sibling headless test cannot discharge an engine artifact. | `os/engineering/PROJECT_SETUP.md:55` |
 | X74 | Data/value construction exposes the trivial behaviour needed to reach RED. | `os/engineering/CONTOUR.md:85` |
 | X75 | PAIR-CANDIDATE contract-author owns only carrier and tests/support. | `os/engineering/CONTOUR.md:43` |
 | X76 | PAIR-CANDIDATE carrier edits stay inside the approved construction/observation surface. | `os/engineering/CONTOUR.md:28` |
@@ -286,11 +286,11 @@ Each row must be answered independently `addressed | n/a because <reason>`.
 | E22 | Cumulative `docs/reviews/REFUTED.md`. | `os/engineering/CONTOUR.md:219` |
 | E23 | Per-fixed-finding class sweep record. | `os/engineering/CONTOUR.md:248` |
 | E24 | Post-build property-audit test evidence. | `os/engineering/CONTOUR.md:257` |
-| E25 | Non-trivial engine artifact existence path/measurement. | `os/engineering/PROJECT_SETUP.md:54` |
+| E25 | Non-trivial engine artifact existence path/measurement. | `os/engineering/PROJECT_SETUP.md:55` |
 | E26 | Every review/ADR file cited by the closing report. | `os/engineering/VALIDATION.md:19` |
 | E27 | Manual acceptance instructions derived from G3 scripts. | `os/engineering/CONTOUR.md:303` |
 | E28 | Gated closing `RESULT.md`/RESULT artifact. | `os/engineering/CONTOUR.md:307` |
-| E29 | On-disk per-leg progress/handoff log. | `os/engineering/PROJECT_SETUP.md:77` |
+| E29 | On-disk per-leg progress/stage-receipt log. | `os/engineering/PROJECT_SETUP.md:77` |
 | E30a | Resolving owner-ack token when its branch is used. | `os/engineering/CONTOUR.md:287` |
 | E30b | Resolving escalation token when its branch is used. | `os/engineering/CONTOUR.md:224` |
 

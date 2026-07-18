@@ -24,7 +24,7 @@ The strictest practical validation for autonomously-built code. Gates run cheap-
 
 **Mutation snapshot cleanliness (contract v24).** Before running, the reviewer-side runner fails if any declared mutation-input dependency path is staged, unstaged, or untracked; `H` therefore names the exact source/test/tool/config snapshot that produced the score rather than a nearby commit.
 
-**Compiled pair candidate (contract v29; new pinned CALLs only).** A root carrying `engineering_contract: 29` routes
+**Compiled pair candidate (contracts v29/v30; new pinned CALLs only).** Both pins use
 PLAN -> separate PAIR-CANDIDATE -> binding fresh PAIR-FREEZE refutation -> BUILD. One fresh contract-author - the
 independent test-author, never builder/validator - may stabilize both the non-behavioral public carrier and tests/support
 inside that bounded job. The owner-approved page remains at most 400 words and fully defines or omits each fixture.
@@ -38,28 +38,28 @@ fails on behavior. Permitted carrier gaps are corrected inside PAIR-CANDIDATE, n
 behavioral/out-of-plan changes or exhausted retries return one complete blocker. Fresh refutation inspects fixture
 meaning, both commits/manifests/diffs and runner evidence, then freezes public declarations/value contract and RED
 files. BUILD pins both, may implement bodies/internal HOW, and edits neither frozen contract nor RED; changing either
-returns through PAIR-CANDIDATE and pair freeze. The obligation inventory and `behavioral-red | evidence-only` split
+returns through PAIR-CANDIDATE and pair freeze. For v29 each stage returns HOME to Direction; for v30 a compact receipt
+advances the fresh repo-local stage and the one root returns only REPORT or ESCALATE HOME. The obligation inventory and `behavioral-red | evidence-only` split
 remain evidence; prose recipes, PLAN-AMEND, `N/N`, compile-RED and counts are not launch authority. Legacy
-snapshot lineages stay on their recorded v23 route across Re-sync; after its HOME they may coexist with new
-v29-pinned legs.
+snapshot lineages stay on their recorded v23 route across Re-sync; issued v29 roots keep their route when v30 activates.
 
 **Executable Plan-to-RED handoff (contract v22, historical carrier only).** The v22 prose-first route below is retained
-as migration history and does not execute for a compiled v29 leg. A prose recipe
+as migration history and does not execute for a compiled v29/v30 leg. A prose recipe
 is planning evidence, never executable evidence. The frozen spec first splits mixed rows and classifies every atomic
 obligation as `behavioral-red` or `evidence-only`: only behavioral rows enter the RED numerator and own a named test
 file/method plus exact `fixture|call|observe|source|negative`; process order, structural review, owner verdicts and
 final gates name their real evidence route and are excluded from the test count. The CALL-pinned compiled carrier route
 replaces v22's compile-RED and PLAN-AMEND launch permissions.
 
-**Fresh-refutation routing.** PAIR-CANDIDATE (v29) or legacy RED-FREEZE may hand off only to binding fresh review, never
+**Fresh-refutation routing.** PAIR-CANDIDATE (v29/v30) or legacy RED-FREEZE may hand off only to binding fresh review, never
 straight to BUILD. The reviewer reads the exact carrier, decision page, RED commit/diff and runner output; the plan's
 inventory remains comparison evidence. It tries to refute completeness, fixture meaning and independence, writes no
-tests, and for v29 freezes the exact pair. Only its artifact-backed verdict may open BUILD.
+tests, and for v29/v30 freezes the exact pair. Only its artifact-backed verdict may open BUILD.
 
 ## Gates
 
 For a compiled leg, every G0 phrase below saying the test-author works "from the spec" means the CALL-pinned compiled
-carrier route defined above; the ledger/spec remains immutable coverage evidence, not RED launch authority. Under v29
+carrier route defined above; the ledger/spec remains immutable coverage evidence, not RED launch authority. Under v29/v30
 the RED commit becomes immutable with the carrier at pair freeze; legacy v23 retains its earlier RED-FREEZE timing.
 Non-compiled repositories use a native executable carrier or an explicit owner-approved `n/a` at re-sync.
 
