@@ -349,4 +349,6 @@ archived: history/LOG-archive-indie-game-development.md — sessions before 2026
 
 2026-07-18 · s-review-char-v2-published-handback-release-001 · review · characters · g-6d4e/Leg 1 published handback · MET: candidate 0e5b2948 → integration 53453081 → dev/main 029279a and all six admission-003 obligations survived fresh Direction refutation; bounded reaction-core accepted, review child consumed, owner-authorized body-rig root READY, cuts add-back 0/5, product untouched · history/2026-07-18-s-review-char-v2-published-handback-release-001.md
 
+2026-07-18 — canon-forge/paper (g-d3a8/Q3-R, s-forge-g-d3a8-gas-behavior-jobs-001): Gate F «FRAME READY» and Gate Q «QUESTION READY» preceded a three-candidate paper comparison; owner selected A via «Мне нравится вариант А» / «В принципе, можем фиксировать. Я согласен с рекомендацией». The resulting non-canon answer is movement-first Control Obligation grammar — Counter / Brake / Time — for every gameplay gas, while future additional effects remain permitted but undefined; one-player small-Sphere handling remains valid and exact limits stay open. Separate canon admission is READY; no Frame, canon, product or implementation change occurred. → history/2026-07-18-s-forge-g-d3a8-gas-behavior-jobs-001.md
+
 END_OF_FILE: live/indie-game-development/LOG.md

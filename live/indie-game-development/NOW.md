@@ -1,5 +1,5 @@
 # NOW: indie-game-development
-updated: 2026-07-18 by s-review-char-v2-published-handback-release-001
+updated: 2026-07-18 by s-forge-g-d3a8-gas-behavior-jobs-001
 bet:
   node: g-9c41
   goal: |
@@ -91,14 +91,16 @@ open_calls:
     issued: 2026-07-16
     call: work/c-exec-level-module-standard-v1-lv0-plan-001-call.md
     note: "READY witness + owner-approved parallel launch → history/2026-07-16-s-repair-level-lv0-parallel-launch-001.md."
-  - id: c-forge-g-d3a8-gas-behavior-jobs-001
+  - id: c-forge-g-d3a8-gas-behavior-jobs-canon-admission-001
     track: canon
     status: ready
     to: session
-    for: "g-d3a8 / bounded Canon Forge on minimal physical gas behavior-job grammar"
+    for: "g-d3a8 / owner-present canon admission over q-gas-behavior-jobs-paper-decision-v1"
     issued: 2026-07-18
-    call: work/c-forge-g-d3a8-gas-behavior-jobs-001-call.md
-    note: "READY / OWNER-PRESENT / PAPER-ONLY. Start from the accepted non-canon Sphere extraction/custody Frame and MET universal-capture review. Decide only a minimal gas behavior-job grammar; no roster, reactions, damage, economy, implementation or canon admission."
+    call: work/c-forge-g-d3a8-gas-behavior-jobs-canon-admission-001-call.md
+    receipts:
+      - history/2026-07-18-s-forge-g-d3a8-gas-behavior-jobs-001.md
+    note: "READY / OWNER-PRESENT / CANON-ADMISSION ONLY. Exact OWNER-SELECTED PAPER ANSWER A: movement-first Control Obligation grammar (Counter / Brake / Time), not movement-only; future additional effects remain open. No redesign, implementation or automatic canon mutation."
   - id: c-shape-sc-damage-001
     track: damage
     status: paused
