@@ -359,4 +359,6 @@ archived: history/LOG-archive-indie-game-development.md — sessions before 2026
 
 2026-07-18 · s-review-near-gas-l1b-v29-rescue-route-001 · review · core · g-9c41/L1B-Capture: fresh Direction refutation accepted clean product Re-sync v29@82fea85f (contract/inventory 29, ceiling 239, 1792 tests, round-2 PASS), retired the legacy 559>400 cap root without successor, removed temporary contract-sync, and opened c-exec-near-gas-l1b-pair-candidate-001 pinned engineering_contract:29 on the unchanged owner-approved PLAN; WIP is 5/6 and no product work ran. → history/2026-07-18-s-review-near-gas-l1b-v29-rescue-route-001.md
 
+2026-07-18 - s-work-near-gas-l1b-pair-freeze-dispatch-001 - work - core - g-9c41/L1B-Capture: PAIR-CANDIDATE HOME met all 1-8 dispositions for clean WIN-U3 exact pair 7c2348bc->54892e68 (frozen authority unchanged, carrier +40/-9, tests/support RED +184/-11, baseline 1793/1793, positive 21 behavioral failures, NC 21/21, evidence-only 16); returning root was replaced by one engineering_contract:29 fresh artifact-backed PAIR-FREEZE refutation, with BUILD/mutation/integration/Deliver/G5 still closed and no product work run. -> history/2026-07-18-s-work-near-gas-l1b-pair-freeze-dispatch-001.md
+
 END_OF_FILE: live/indie-game-development/LOG.md

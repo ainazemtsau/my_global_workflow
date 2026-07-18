@@ -1,5 +1,5 @@
 # NOW: indie-game-development
-updated: 2026-07-18 by s-review-near-gas-l1b-v29-rescue-route-001
+updated: 2026-07-18 by s-work-near-gas-l1b-pair-freeze-dispatch-001
 bet:
   node: g-9c41
   goal: |
@@ -66,14 +66,14 @@ tracks:
   - {id: dotnet-gates, label: "Локальный запуск проверок .NET — пауза", mode: parallel, for: "local: cross-platform .NET repository-gate runner prerequisite"}
 
 open_calls:
-  - id: c-exec-near-gas-l1b-pair-candidate-001
+  - id: c-exec-near-gas-l1b-pair-freeze-001
     track: core
     status: ready
     to: executor
-    for: "g-9c41 / L1B-Capture — v29 compiled public-contract and genuine RED pair candidate"
+    for: "g-9c41 / L1B-Capture - v29 binding fresh PAIR-FREEZE refutation of exact 7c2348bc -> 54892e68 pair"
     issued: 2026-07-18
-    call: work/c-exec-near-gas-l1b-pair-candidate-001-call.md
-    note: "READY / ROOT / PAIR-CANDIDATE / engineering_contract: 29. Owner-selected WIN-U3, Target Local, current branch only; fresh readback clean at old invalidated RED 0d0cea14. Apply only the exact v29 Re-sync chain through 82fea85f and preserved corrected carrier de1cc87c on that branch; adopt frozen c-exec-near-gas-l1b-plan-001 PLAN/decision/spec/tasks/ADR unchanged. Old RED is historical only. Decision page remains <=400 words; no production-source line cap; fresh contract-author, exact carrier then RED, build+hygiene and real behavioral RED required. No PAIR-FREEZE/BUILD/Deliver or branch switch/reset/stash/clean/delete."
+    call: work/c-exec-near-gas-l1b-pair-freeze-001-call.md
+    note: "READY / ROOT / PAIR-FREEZE / engineering_contract: 29. PAIR-CANDIDATE HOME closed MET for exact clean WIN-U3 current-branch pair 7c2348bc -> 54892e68: carrier only NearGasSimulation.cs +40/-9, following tests/support-only RED across four files +184/-11; frozen PLAN authority unchanged; 1793 baseline GREEN, 21 positive intentional behavioral failures, 21 NC GREEN, 16 evidence-only rows closed. Separate fresh independent artifact-backed read-only refutation must inspect exact commits/manifests, raw evidence, carrier semantics, inventory, fixtures/oracles/NCs, independence and failure meaning. Return only BUILD eligibility or complete blocker; no BUILD/mutation/integration/Deliver/G5 or branch switch/reset/stash/clean/delete."
   - id: c-exec-unity65-mac-revision-002-build-001
     track: dotnet-gates
     status: paused
@@ -146,6 +146,6 @@ decisions:
     options: ["Доступная физическая машина", "Точный CPU/GPU/RAM-класс с арендой/покупкой к финалу", "Только throttled-прокси — финал не закрывает"]
     recommendation: "Доступная физическая машина; газ CPU-bound, поэтому CPU должен быть назван явно."
 next:
-  call: c-exec-near-gas-l1b-pair-candidate-001
+  call: c-exec-near-gas-l1b-pair-freeze-001
 
 END_OF_FILE: live/indie-game-development/NOW.md
