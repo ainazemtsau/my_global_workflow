@@ -355,4 +355,6 @@ archived: history/LOG-archive-indie-game-development.md — sessions before 2026
 
 2026-07-18 · s-work-publish-gas-behavior-paper-main-001 · work/publish · canon · g-d3a8/repository-main · owner-requested gas behavior paper answer and canon-admission routing through 9f0127b atomically pushed without force to origin/wt/indie-game-development and origin/main; exact remote readback matched, dirty legacy Sphere work-CALL stayed excluded and preserved · history/2026-07-18-s-work-publish-gas-behavior-paper-main-001.md
 
+2026-07-18 · s-work-near-gas-l1b-resync-v29-dispatch-001 · work · contract-sync · g-9c41/L1B-Capture prerequisite: owner-authorized hot-safe GasCoopGame v27→v29 Re-sync is READY on WIN-CTRL/Target Local/current dev as the sole default; WIP is 6/6, legacy cap reconciliation stays unchanged without successor, no feature root or product work opened. → history/2026-07-18-s-work-near-gas-l1b-resync-v29-dispatch-001.md
+
 END_OF_FILE: live/indie-game-development/LOG.md
