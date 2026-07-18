@@ -1,5 +1,5 @@
 # NOW: indie-game-development
-updated: 2026-07-18 by s-work-near-gas-l1b-resync-v29-dispatch-001
+updated: 2026-07-18 by s-review-near-gas-l1b-v29-rescue-route-001
 bet:
   node: g-9c41
   goal: |
@@ -57,7 +57,6 @@ tasks:
 track_wip_limit: 6
 tracks:
   - {id: core, label: "NearGas — ядро игры", mode: primary, for: g-9c41}
-  - {id: contract-sync, label: "GasCoopGame — engineering contract re-sync", mode: parallel, for: "local: GasCoopGame engineering contract re-sync v29"}
   - {id: level, label: "Уровни, модули и генераторы", mode: parallel, for: "local: Level/DA/PGG Standard v1"}
   - {id: canon, label: "Геймдизайн и канон", mode: parallel, for: g-d3a8}
   - {id: damage, label: "Газовый урон — Sc-damage", mode: parallel, for: "local: Sc-damage"}
@@ -67,22 +66,14 @@ tracks:
   - {id: dotnet-gates, label: "Локальный запуск проверок .NET — пауза", mode: parallel, for: "local: cross-platform .NET repository-gate runner prerequisite"}
 
 open_calls:
-  - id: c-exec-near-gas-l1b-resync-v29-001
-    track: contract-sync
-    status: ready
-    to: executor
-    for: "g-9c41 / NearGas L1B v29 rescue prerequisite — bounded GasCoopGame contract re-sync v27→v29"
-    issued: 2026-07-18
-    call: work/c-exec-near-gas-l1b-resync-v29-001-call.md
-    note: "READY / NO FEATURE / engineering_contract re-sync:29. Owner-selected WIN-CTRL, GasCoopGame_dev, Target Local, current dev only; install applicable v28 HOME authority plus v29 hot-safe pin/pair authority from product stamp v27, preserve every legacy NearGas artifact/call, no branch create/switch/reset/stash/clean and no new v29 feature root before HOME."
-  - id: c-exec-near-gas-l1b-surface-cap-reconcile-001
+  - id: c-exec-near-gas-l1b-pair-candidate-001
     track: core
     status: ready
     to: executor
-    for: "g-9c41 / L1B-Capture prerequisite — read-only v23 Surface freeze-parent/cap authority reconciliation"
+    for: "g-9c41 / L1B-Capture — v29 compiled public-contract and genuine RED pair candidate"
     issued: 2026-07-18
-    call: work/c-exec-near-gas-l1b-surface-cap-reconcile-001-call.md
-    note: "READY / READ-ONLY / STOP BEFORE RED: de1cc87c is preserved, but immediate-parent +28 conflicts with Direction cumulative 409ef4a7..de1cc87c = 559 additions (159 over cap). Resolve exact authority/precedence under owner-direct protocol e9d6bfd5; registry descriptive, no branch action, no Surface/RED/BUILD/product mutation."
+    call: work/c-exec-near-gas-l1b-pair-candidate-001-call.md
+    note: "READY / ROOT / PAIR-CANDIDATE / engineering_contract: 29. Owner-selected WIN-U3, Target Local, current branch only; fresh readback clean at old invalidated RED 0d0cea14. Apply only the exact v29 Re-sync chain through 82fea85f and preserved corrected carrier de1cc87c on that branch; adopt frozen c-exec-near-gas-l1b-plan-001 PLAN/decision/spec/tasks/ADR unchanged. Old RED is historical only. Decision page remains <=400 words; no production-source line cap; fresh contract-author, exact carrier then RED, build+hygiene and real behavioral RED required. No PAIR-FREEZE/BUILD/Deliver or branch switch/reset/stash/clean/delete."
   - id: c-exec-unity65-mac-revision-002-build-001
     track: dotnet-gates
     status: paused
@@ -155,6 +146,6 @@ decisions:
     options: ["Доступная физическая машина", "Точный CPU/GPU/RAM-класс с арендой/покупкой к финалу", "Только throttled-прокси — финал не закрывает"]
     recommendation: "Доступная физическая машина; газ CPU-bound, поэтому CPU должен быть назван явно."
 next:
-  call: c-exec-near-gas-l1b-resync-v29-001
+  call: c-exec-near-gas-l1b-pair-candidate-001
 
 END_OF_FILE: live/indie-game-development/NOW.md

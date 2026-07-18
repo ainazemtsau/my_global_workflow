@@ -357,4 +357,6 @@ archived: history/LOG-archive-indie-game-development.md — sessions before 2026
 
 2026-07-18 · s-work-near-gas-l1b-resync-v29-dispatch-001 · work · contract-sync · g-9c41/L1B-Capture prerequisite: owner-authorized hot-safe GasCoopGame v27→v29 Re-sync is READY on WIN-CTRL/Target Local/current dev as the sole default; WIP is 6/6, legacy cap reconciliation stays unchanged without successor, no feature root or product work opened. → history/2026-07-18-s-work-near-gas-l1b-resync-v29-dispatch-001.md
 
+2026-07-18 · s-review-near-gas-l1b-v29-rescue-route-001 · review · core · g-9c41/L1B-Capture: fresh Direction refutation accepted clean product Re-sync v29@82fea85f (contract/inventory 29, ceiling 239, 1792 tests, round-2 PASS), retired the legacy 559>400 cap root without successor, removed temporary contract-sync, and opened c-exec-near-gas-l1b-pair-candidate-001 pinned engineering_contract:29 on the unchanged owner-approved PLAN; WIP is 5/6 and no product work ran. → history/2026-07-18-s-review-near-gas-l1b-v29-rescue-route-001.md
+
 END_OF_FILE: live/indie-game-development/LOG.md
