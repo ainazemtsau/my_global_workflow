@@ -1,5 +1,5 @@
 # NOW: indie-game-development
-updated: 2026-07-18 by s-review-char-v2-published-handback-release-001
+updated: 2026-07-18 by s-work-near-gas-l1b-surface-cap-stop-001
 bet:
   node: g-9c41
   goal: |
@@ -66,14 +66,14 @@ tracks:
   - {id: dotnet-gates, label: "Локальный запуск проверок .NET — пауза", mode: parallel, for: "local: cross-platform .NET repository-gate runner prerequisite"}
 
 open_calls:
-  - id: c-exec-near-gas-l1b-red-freeze-001
+  - id: c-exec-near-gas-l1b-surface-cap-reconcile-001
     track: core
     status: ready
     to: executor
-    for: "g-9c41 / L1B-Capture prerequisite — independent immutable RED against frozen carrier 163dffaa"
-    issued: 2026-07-17
-    call: work/c-exec-near-gas-l1b-red-freeze-001-call.md
-    note: "READY: SURFACE Direction-closed GREEN at exact carrier 163dffaa (+397 cumulative source lines, decision page 326 words, build/hygiene/review GREEN); tests/test-support-only RED must compile, discover and fail on behavior; no production/BUILD. Product v27<v28 drift stays explicit → history/2026-07-17-s-work-near-gas-l1b-surface-freeze-close-001.md."
+    for: "g-9c41 / L1B-Capture prerequisite — read-only v23 Surface freeze-parent/cap authority reconciliation"
+    issued: 2026-07-18
+    call: work/c-exec-near-gas-l1b-surface-cap-reconcile-001-call.md
+    note: "READY / READ-ONLY / STOP BEFORE RED: de1cc87c is preserved, but immediate-parent +28 conflicts with Direction cumulative 409ef4a7..de1cc87c = 559 additions (159 over cap). Resolve exact authority/precedence under owner-direct protocol e9d6bfd5; registry descriptive, no branch action, no Surface/RED/BUILD/product mutation."
   - id: c-exec-unity65-mac-revision-002-build-001
     track: dotnet-gates
     status: paused
@@ -91,14 +91,16 @@ open_calls:
     issued: 2026-07-16
     call: work/c-exec-level-module-standard-v1-lv0-plan-001-call.md
     note: "READY witness + owner-approved parallel launch → history/2026-07-16-s-repair-level-lv0-parallel-launch-001.md."
-  - id: c-forge-g-d3a8-gas-behavior-jobs-001
+  - id: c-forge-g-d3a8-gas-behavior-jobs-canon-admission-001
     track: canon
     status: ready
     to: session
-    for: "g-d3a8 / bounded Canon Forge on minimal physical gas behavior-job grammar"
+    for: "g-d3a8 / owner-present canon admission over q-gas-behavior-jobs-paper-decision-v1"
     issued: 2026-07-18
-    call: work/c-forge-g-d3a8-gas-behavior-jobs-001-call.md
-    note: "READY / OWNER-PRESENT / PAPER-ONLY. Start from the accepted non-canon Sphere extraction/custody Frame and MET universal-capture review. Decide only a minimal gas behavior-job grammar; no roster, reactions, damage, economy, implementation or canon admission."
+    call: work/c-forge-g-d3a8-gas-behavior-jobs-canon-admission-001-call.md
+    receipts:
+      - history/2026-07-18-s-forge-g-d3a8-gas-behavior-jobs-001.md
+    note: "READY / OWNER-PRESENT / CANON-ADMISSION ONLY. Exact OWNER-SELECTED PAPER ANSWER A: movement-first Control Obligation grammar (Counter / Brake / Time), not movement-only; future additional effects remain open. No redesign, implementation or automatic canon mutation."
   - id: c-shape-sc-damage-001
     track: damage
     status: paused
@@ -144,6 +146,6 @@ decisions:
     options: ["Доступная физическая машина", "Точный CPU/GPU/RAM-класс с арендой/покупкой к финалу", "Только throttled-прокси — финал не закрывает"]
     recommendation: "Доступная физическая машина; газ CPU-bound, поэтому CPU должен быть назван явно."
 next:
-  call: c-exec-near-gas-l1b-red-freeze-001
+  call: c-exec-near-gas-l1b-surface-cap-reconcile-001
 
 END_OF_FILE: live/indie-game-development/NOW.md
