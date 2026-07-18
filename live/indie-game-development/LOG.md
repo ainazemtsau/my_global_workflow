@@ -351,4 +351,6 @@ archived: history/LOG-archive-indie-game-development.md — sessions before 2026
 
 2026-07-18 — canon-forge/paper (g-d3a8/Q3-R, s-forge-g-d3a8-gas-behavior-jobs-001): Gate F «FRAME READY» and Gate Q «QUESTION READY» preceded a three-candidate paper comparison; owner selected A via «Мне нравится вариант А» / «В принципе, можем фиксировать. Я согласен с рекомендацией». The resulting non-canon answer is movement-first Control Obligation grammar — Counter / Brake / Time — for every gameplay gas, while future additional effects remain permitted but undefined; one-player small-Sphere handling remains valid and exact limits stay open. Separate canon admission is READY; no Frame, canon, product or implementation change occurred. → history/2026-07-18-s-forge-g-d3a8-gas-behavior-jobs-001.md
 
+2026-07-18 · s-work-publish-gas-behavior-paper-main-001 · work/publish · canon · g-d3a8/repository-main · owner-requested gas behavior paper answer and canon-admission routing through 9f0127b atomically pushed without force to origin/wt/indie-game-development and origin/main; exact remote readback matched, dirty legacy Sphere work-CALL stayed excluded and preserved · history/2026-07-18-s-work-publish-gas-behavior-paper-main-001.md
+
 END_OF_FILE: live/indie-game-development/LOG.md
