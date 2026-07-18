@@ -134,6 +134,6 @@ log: >
   2026-07-18 · s-work-publish-gas-behavior-paper-main-001 · work/publish · canon · g-d3a8/repository-main · owner-requested gas behavior paper answer and canon-admission routing through 9f0127b atomically pushed without force to origin/wt/indie-game-development and origin/main; exact remote readback matched, dirty legacy Sphere work-CALL stayed excluded and preserved · history/2026-07-18-s-work-publish-gas-behavior-paper-main-001.md
 
 next: |
-  CALL: work/c-exec-near-gas-l1b-surface-cap-reconcile-001-call.md
+  CALL: work/c-exec-near-gas-l1b-red-freeze-001-call.md
 
 END_OF_FILE: live/indie-game-development/history/2026-07-18-s-work-publish-gas-behavior-paper-main-001.md
