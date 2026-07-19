@@ -1,5 +1,5 @@
 # NOW: indie-game-development
-updated: 2026-07-19 by s-research-program-v2-hot-migration-001
+updated: 2026-07-19 by s-work-near-gas-l1b-v29-loopback-review-open-route-001
 bet:
   node: g-9c41
   goal: |
@@ -75,14 +75,14 @@ open_calls:
     issued: 2026-07-19
     call: work/c-repair-program-v2-live-truth-001-call.md
     note: "READY / OWNER-APPROVED SOFT MIGRATION / REPAIR ONLY. Reconcile Direction NOW/dashboard with verified current NearGas L1B, Character Leg 2, aperture, Level LV0 and V30 evidence before any route rewrite or new product root. No product mutation, V30 install, frozen-call rewrite, silent close or automatic BUILD. Existing core/character work continues independently; WIP becomes 6/6."
-  - id: c-exec-near-gas-l1b-pair-candidate-correction-001
+  - id: c-ctrl-near-gas-l1b-pair-candidate-evidence-binding-001
     track: core
     status: ready
     to: executor
-    for: "g-9c41 / L1B-Capture - v29 PAIR-CANDIDATE exact-source oracle correction after BLOCKED pair freeze"
-    issued: 2026-07-18
-    call: work/c-exec-near-gas-l1b-pair-candidate-correction-001-call.md
-    note: "READY / ROOT / PAIR-CANDIDATE CORRECTION / engineering_contract: 29. Fresh independent PAIR-FREEZE task 019f7562-6fb0-7393-abfa-1551b971e6ab BLOCKED immutable pair 7c2348bc -> 54892e68; BUILD FORBIDDEN. Exact-source oracle class is incomplete across reachable retry/fault fields: post-Step ActiveSetDirty=true, non-empty PendingWakeFaces, actual Step preparation/current, separately constructed replacement candidate/read, rejecting NCs, plus missing lawful E-SCRATCH-PROOF Surface addendum/review. Fresh contract-author must be independent from that refutator and later BUILD/validation, preserve frozen PLAN/decision/spec/tasks/ADR and public behavior, produce a new direct compiler-green carrier -> tests/support RED pair on owner-selected WIN-U3/current branch, rerun real gates/slices, and return only eligibility for another fresh PAIR-FREEZE or a complete blocker. No BUILD, owner interview, re-plan, branch switch/reset/stash/clean/delete/merge/push."
+    for: "g-9c41 / L1B-Capture - v29 OPEN loopback-source review: WIN-CTRL evidence binding and correction-manifest admission"
+    issued: 2026-07-19
+    call: work/c-ctrl-near-gas-l1b-pair-candidate-evidence-binding-001-call.md
+    note: "READY / ROOT / PROCESS CONTROL / engineering_contract: 29. Independent review of 27f8aa19..4df54a2b found one Important in-scope OPEN: live TraceRunner omits raw StepPreparationSource owner/epoch, so same-wrong Step source can false-GREEN FaultInjection/Loopback. Freeze review OPEN; no mutation. WIN-CTRL must admit HBP dev@8cff0a2 for an exact three-file test-only correction manifest and install the single root validator for implementation evidence id c-exec-near-gas-l1b-pair-candidate-001: review-c-exec-near-gas-l1b-pair-candidate-001.md, mutation-c-exec-near-gas-l1b-pair-candidate-001.json, result-c-exec-near-gas-l1b-pair-candidate-001.md. Frozen PLAN stays docs-only/carry-forward; no new OpenSpec PLAN/spec. Mutation only after corrected candidate is integrated into current dev final H, fresh PAIR-FREEZE and fresh independent review GREEN; U3/Stryker forbidden. STOP final integration if c-exec-structure-aperture-authority-v1-surface-freeze-001 remains changed NOT DELIVERED/unpublished."
   - id: c-exec-unity65-mac-revision-002-build-001
     track: dotnet-gates
     status: paused
