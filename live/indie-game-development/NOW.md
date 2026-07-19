@@ -1,5 +1,5 @@
 # NOW: indie-game-development
-updated: 2026-07-19 by s-repair-program-v2-live-truth-001
+updated: 2026-07-19 by s-work-near-gas-l1b-v29-aperture-preserved-openspec-lifecycle-route-001
 bet:
   node: g-9c41
   goal: |
@@ -75,14 +75,14 @@ open_calls:
     issued: 2026-07-19
     call: work/c-map-program-v2-hot-migration-route-001-call.md
     note: "READY / DEFAULT / OWNER-PRESENT MAP. Turn the accepted soft migration and repaired live inventory into one owner-approved Program v2 track map with staged Integration Lab outcomes, explicit unlock/dependency/ownership rules and a lawful WIP rollout. No product work, V30 re-sync, frozen-root rewrite or automatic product CALL."
-  - id: c-ctrl-near-gas-l1b-v29-aperture-discovery-archive-001
+  - id: c-ctrl-near-gas-l1b-v29-aperture-preserved-openspec-lifecycle-001
     track: core
     status: ready
     to: executor
-    for: "g-9c41 / L1B-Capture - preserve archived aperture evidence while removing its false active Deliver discovery block"
+    for: "g-9c41 / L1B-Capture - make owner-authorized preserved aperture lifecycle mechanically truthfully excludable from active Deliver"
     issued: 2026-07-19
-    call: work/c-ctrl-near-gas-l1b-v29-aperture-discovery-archive-001-call.md
-    note: "READY / CONTROL-ONLY DELIVER DISCOVERY REPAIR / engineering_contract: 29. L1B root validators are GREEN at retained clean closing snapshot b6bfc8fc, but Deliver discovers unrelated PRESERVED-PAUSED aperture root c-exec-structure-aperture-authority-v1-plan-001 as active and demands mutation. Fresh control may use only authoritative archive/closure discovery mechanics to preserve its frozen objects while removing that false active enumeration. GREEN directly resumes retained L1B Deliver/dev-main publication; no aperture product work, fake mutation or gate weakening."
+    call: work/c-ctrl-near-gas-l1b-v29-aperture-preserved-openspec-lifecycle-001-call.md
+    note: "READY / PRESERVED-PAUSED OPENSPEC LIFECYCLE / engineering_contract: 29. Existing archive exclusion is gated by a living OpenSpec apply and therefore cannot truthfully exclude frozen no-successor aperture packet ea8c7b5a without false product work. One coordinated repository-process/control route may add only a mechanically gated PRESERVED-PAUSED/no-successor archival lifecycle, self-test it against active changes, perform the exact aperture move and then directly resume retained L1B snapshot b6bfc8fc Deliver/dev-main. No mutation fabrication, gate weakening or product/spec behavior change."
   - id: c-exec-unity65-mac-revision-002-build-001
     track: dotnet-gates
     status: paused

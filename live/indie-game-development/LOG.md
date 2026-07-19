@@ -386,4 +386,6 @@ archived: history/LOG-archive-indie-game-development.md — sessions before 2026
 
 2026-07-19 · s-work-near-gas-l1b-v29-aperture-discovery-archive-route-001 · work · core · g-9c41/L1B-Capture: consumed full Deliver BLOCKED only by false active discovery of the frozen PRESERVED-PAUSED aperture root. Issued one control-only authoritative archive/closure repair to preserve its immutable evidence while removing it from active G0 enumeration; GREEN directly resumes retained L1B closing snapshot b6bfc8fc without another Direction round. → history/2026-07-19-s-work-near-gas-l1b-v29-aperture-discovery-archive-route-001.md
 
+2026-07-19 · s-work-near-gas-l1b-v29-aperture-preserved-openspec-lifecycle-route-001 · work · core · g-9c41/L1B-Capture: consumed exact blocker: archive exclusion requires a living OpenSpec apply, but applying frozen no-successor aperture delta would be false product truth. Issued one coordinated mechanically gated PRESERVED-PAUSED lifecycle/control route: preserve exact packet/objects, reject unmarked or active claims, exclude only exact paused roots, then directly resume retained L1B Deliver/publication. → history/2026-07-19-s-work-near-gas-l1b-v29-aperture-preserved-openspec-lifecycle-route-001.md
+
 END_OF_FILE: live/indie-game-development/LOG.md
