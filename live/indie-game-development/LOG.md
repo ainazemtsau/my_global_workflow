@@ -392,4 +392,6 @@ archived: history/LOG-archive-indie-game-development.md — sessions before 2026
 
 2026-07-19 · s-work-near-gas-l1b-v29-terminal-home-close-001 · work · core · g-9c41/L1B-Capture: accepted terminal NearGas L1B v29 HOME at dev=main=origin/dev=origin/main 693e671b with independent PASS/GREEN, normal 1813/1813, mutation 75.18% and twice-GREEN Deliver including RELEASED readback; consumed guarded-history refresh, closed product root c-exec-near-gas-l1b-pair-candidate-001 and marked L1B-Capture done without successor, preserving all unrelated state and dirty Sphere bytes. → history/2026-07-19-s-work-near-gas-l1b-v29-terminal-home-close-001.md
 
+2026-07-19 · s-work-publish-near-gas-l1b-v29-main-001 · work/publish · core · g-9c41/repository-main: owner-requested committed Direction snapshot through 08933f2 atomically pushed without force to origin/wt/indie-game-development and origin/main; exact remote readback matched, dirty Sphere work-CALL stayed excluded and preserved. → history/2026-07-19-s-work-publish-near-gas-l1b-v29-main-001.md
+
 END_OF_FILE: live/indie-game-development/LOG.md
