@@ -381,4 +381,6 @@ archived: history/LOG-archive-indie-game-development.md — sessions before 2026
 
 2026-07-19 · s-work-near-gas-l1b-v29-refuted-register-correction-route-001 · work · core · g-9c41/L1B-Capture: consumed the exact final closing blocker at H bf76fa68: review evidence says Refuted-register none despite its existing KERNEL-G5-refuted finding. Issued one fresh independent evidence-only correction to enumerate that existing register truthfully and validate review/refuted/mutation binding before the retained WIN-CTRL closing custody may resume; no candidate, behavior, tests, mutation result/input, RESULT, Deliver or publication work. → history/2026-07-19-s-work-near-gas-l1b-v29-refuted-register-correction-route-001.md
 
+2026-07-19 · s-work-near-gas-l1b-v29-refuted-register-binding-route-001 · work · core · g-9c41/L1B-Capture: consumed independent proof that the existing KERNEL-G5-refuted finding has neither a canonical REFUTED row nor register:R-id, so header-only correction was lawfully blocked. Issued one independent evidence-only row-and-binding correction; it may commit/push only that correction, then grant the retained WIN-CTRL closing task direct Deliver/publication resume eligibility. → history/2026-07-19-s-work-near-gas-l1b-v29-refuted-register-binding-route-001.md
+
 END_OF_FILE: live/indie-game-development/LOG.md

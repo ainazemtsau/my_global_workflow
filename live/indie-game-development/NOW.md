@@ -1,5 +1,5 @@
 # NOW: indie-game-development
-updated: 2026-07-19 by s-work-near-gas-l1b-v29-refuted-register-correction-route-001
+updated: 2026-07-19 by s-work-near-gas-l1b-v29-refuted-register-binding-route-001
 bet:
   node: g-9c41
   goal: |
@@ -75,14 +75,14 @@ open_calls:
     issued: 2026-07-19
     call: work/c-repair-program-v2-live-truth-001-call.md
     note: "READY / OWNER-APPROVED SOFT MIGRATION / REPAIR ONLY. Reconcile Direction NOW/dashboard with verified current NearGas L1B, Character Leg 2, aperture, Level LV0 and V30 evidence before any route rewrite or new product root. No product mutation, V30 install, frozen-call rewrite, silent close or automatic BUILD. Existing core/character work continues independently; WIP becomes 6/6."
-  - id: c-review-near-gas-l1b-v29-refuted-register-correction-001
+  - id: c-review-near-gas-l1b-v29-refuted-register-binding-001
     track: core
     status: ready
     to: executor
-    for: "g-9c41 / L1B-Capture - independently reconcile the existing final-H refuted register before closing control resumes"
+    for: "g-9c41 / L1B-Capture - independently bind the existing refuted finding to one canonical register row before retained closing resumes"
     issued: 2026-07-19
-    call: work/c-review-near-gas-l1b-v29-refuted-register-correction-001-call.md
-    note: "READY / EVIDENCE-ONLY CORRECTION / engineering_contract: 29. Closing preflight at H=bf76fa68 stopped before Deliver because canonical review blob 8eaaa805 truthfully contains one KERNEL-G5-refuted finding while its Refuted-register says none. Fresh independent correction may reconcile only that existing register enumeration and validate review/refuted/mutation binding. Candidate, behavior, tests, mutation inputs/results, uncommitted closing drafts, U3 and refs stay preserved; return only closing-control resume eligibility or a blocker."
+    call: work/c-review-near-gas-l1b-v29-refuted-register-binding-001-call.md
+    note: "READY / EVIDENCE-ONLY REGISTER BINDING / engineering_contract: 29. Fresh review proved no lawful REFUTED row or register:R-id exists for the existing KERNEL-G5-refuted L1B finding, so header-only correction was blocked. One independent reviewer may create exactly one truthful canonical row, bind the unchanged finding/header to it, validate and commit/push that evidence-only correction. Candidate, behavior, tests, mutation inputs/results, U3 and retained closing drafts remain frozen; GREEN grants the retained WIN-CTRL closing task direct resume without another Direction round."
   - id: c-exec-unity65-mac-revision-002-build-001
     track: dotnet-gates
     status: paused
