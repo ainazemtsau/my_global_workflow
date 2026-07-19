@@ -1,5 +1,5 @@
 # NOW: indie-game-development
-updated: 2026-07-19 by s-work-near-gas-l1b-v29-aperture-preserved-openspec-lifecycle-route-001
+updated: 2026-07-19 by s-work-near-gas-l1b-v29-guarded-history-refresh-route-001
 bet:
   node: g-9c41
   goal: |
@@ -75,14 +75,14 @@ open_calls:
     issued: 2026-07-19
     call: work/c-map-program-v2-hot-migration-route-001-call.md
     note: "READY / DEFAULT / OWNER-PRESENT MAP. Turn the accepted soft migration and repaired live inventory into one owner-approved Program v2 track map with staged Integration Lab outcomes, explicit unlock/dependency/ownership rules and a lawful WIP rollout. No product work, V30 re-sync, frozen-root rewrite or automatic product CALL."
-  - id: c-ctrl-near-gas-l1b-v29-aperture-preserved-openspec-lifecycle-001
+  - id: c-review-near-gas-l1b-v29-guarded-history-refresh-001
     track: core
     status: ready
     to: executor
-    for: "g-9c41 / L1B-Capture - make owner-authorized preserved aperture lifecycle mechanically truthfully excludable from active Deliver"
+    for: "g-9c41 / L1B-Capture - refresh final review evidence for exact guarded current history before retained closing publishes"
     issued: 2026-07-19
-    call: work/c-ctrl-near-gas-l1b-v29-aperture-preserved-openspec-lifecycle-001-call.md
-    note: "READY / PRESERVED-PAUSED OPENSPEC LIFECYCLE / engineering_contract: 29. Existing archive exclusion is gated by a living OpenSpec apply and therefore cannot truthfully exclude frozen no-successor aperture packet ea8c7b5a without false product work. One coordinated repository-process/control route may add only a mechanically gated PRESERVED-PAUSED/no-successor archival lifecycle, self-test it against active changes, perform the exact aperture move and then directly resume retained L1B snapshot b6bfc8fc Deliver/dev-main. No mutation fabrication, gate weakening or product/spec behavior change."
+    call: work/c-review-near-gas-l1b-v29-guarded-history-refresh-001-call.md
+    note: "READY / FINAL GUARDED-HISTORY EVIDENCE REFRESH / engineering_contract: 29. Process control is independently GREEN at dev a9efb1d5, but L1B review-check needs current review accounting for only guarded commits 3c0dcfaf and e7247459 after H bf76fa68. Fresh evidence-only review refresh may bind Reviewed-commit to a9efb1d5 while mutation remains H only if validator confirms inputs unchanged, update RESULT/registry/dashboard provenance, then directly reauthorize retained Deliver/publication."
   - id: c-exec-unity65-mac-revision-002-build-001
     track: dotnet-gates
     status: paused
