@@ -1,5 +1,5 @@
 # NOW: indie-game-development
-updated: 2026-07-19 by s-work-near-gas-l1b-v29-loopback-review-open-route-001
+updated: 2026-07-19 by s-work-near-gas-l1b-v29-evidence-binding-control-close-001
 bet:
   node: g-9c41
   goal: |
@@ -75,14 +75,14 @@ open_calls:
     issued: 2026-07-19
     call: work/c-repair-program-v2-live-truth-001-call.md
     note: "READY / OWNER-APPROVED SOFT MIGRATION / REPAIR ONLY. Reconcile Direction NOW/dashboard with verified current NearGas L1B, Character Leg 2, aperture, Level LV0 and V30 evidence before any route rewrite or new product root. No product mutation, V30 install, frozen-call rewrite, silent close or automatic BUILD. Existing core/character work continues independently; WIP becomes 6/6."
-  - id: c-ctrl-near-gas-l1b-pair-candidate-evidence-binding-001
+  - id: c-exec-near-gas-l1b-pair-candidate-loopback-source-correction-001
     track: core
     status: ready
     to: executor
-    for: "g-9c41 / L1B-Capture - v29 OPEN loopback-source review: WIN-CTRL evidence binding and correction-manifest admission"
+    for: "g-9c41 / L1B-Capture - v29 independent three-file test-author correction of live TraceRunner Step source oracle"
     issued: 2026-07-19
-    call: work/c-ctrl-near-gas-l1b-pair-candidate-evidence-binding-001-call.md
-    note: "READY / ROOT / PROCESS CONTROL / engineering_contract: 29. Independent review of 27f8aa19..4df54a2b found one Important in-scope OPEN: live TraceRunner omits raw StepPreparationSource owner/epoch, so same-wrong Step source can false-GREEN FaultInjection/Loopback. Freeze review OPEN; no mutation. WIN-CTRL must admit HBP dev@8cff0a2 for an exact three-file test-only correction manifest and install the single root validator for implementation evidence id c-exec-near-gas-l1b-pair-candidate-001: review-c-exec-near-gas-l1b-pair-candidate-001.md, mutation-c-exec-near-gas-l1b-pair-candidate-001.json, result-c-exec-near-gas-l1b-pair-candidate-001.md. Frozen PLAN stays docs-only/carry-forward; no new OpenSpec PLAN/spec. Mutation only after corrected candidate is integrated into current dev final H, fresh PAIR-FREEZE and fresh independent review GREEN; U3/Stryker forbidden. STOP final integration if c-exec-structure-aperture-authority-v1-surface-freeze-001 remains changed NOT DELIVERED/unpublished."
+    call: work/c-exec-near-gas-l1b-pair-candidate-loopback-source-correction-001-call.md
+    note: "READY / ROOT / TEST-AUTHOR PAIR-CANDIDATE CORRECTION / engineering_contract: 29. WIN-CTRL HBP is ADMITTED-ACTIVE at dev==origin/dev==25afa4aa, seven control files committed, WIN-CTRL clean; WIN-U3 clean at exact BUILD 4df54a2b/tree 8a1c6a26. Fresh independent test-author may edit exactly NearGasL1bTestSupport.cs, NearGasL1bPropertyAssertions.cs and NearGasL1bNegativeControlTests.cs; production/carrier/BUILD/fourth path frozen. Correct real TraceRunner owner/epoch atoms; prove 62db..T test manifest RED at intended assertion and 4df+T GREEN, with raw counts. Root validator remains GREEN/N-A until candidate dev ancestor. Fresh PAIR-FREEZE then independent review required; no mutation/Stryker, integration or Deliver. Aperture NOT DELIVERED blocks final integration/mutation/Deliver only."
   - id: c-exec-unity65-mac-revision-002-build-001
     track: dotnet-gates
     status: paused
