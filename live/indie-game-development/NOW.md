@@ -1,5 +1,5 @@
 # NOW: indie-game-development
-updated: 2026-07-19 by s-work-near-gas-l1b-v29-loopback-diagnostic-topology-route-001
+updated: 2026-07-19 by s-work-near-gas-l1b-v29-pair-freeze-loopback-route-001
 bet:
   node: g-9c41
   goal: |
@@ -75,14 +75,14 @@ open_calls:
     issued: 2026-07-19
     call: work/c-repair-program-v2-live-truth-001-call.md
     note: "READY / OWNER-APPROVED SOFT MIGRATION / REPAIR ONLY. Reconcile Direction NOW/dashboard with verified current NearGas L1B, Character Leg 2, aperture, Level LV0 and V30 evidence before any route rewrite or new product root. No product mutation, V30 install, frozen-call rewrite, silent close or automatic BUILD. Existing core/character work continues independently; WIP becomes 6/6."
-  - id: c-exec-near-gas-l1b-pair-candidate-loopback-diagnostic-completion-001
+  - id: c-exec-near-gas-l1b-pair-freeze-v29-loopback-source-001
     track: core
     status: ready
     to: executor
-    for: "g-9c41 / L1B-Capture - v29 diagnostic completion for committed three-file TraceRunner source-oracle correction"
+    for: "g-9c41 / L1B-Capture - v29 fresh binding read-only PAIR-FREEZE/refutation of immutable BUILD plus T pair"
     issued: 2026-07-19
-    call: work/c-exec-near-gas-l1b-pair-candidate-loopback-diagnostic-completion-001-call.md
-    note: "READY / ROOT / DIAGNOSTIC COMPLETION / engineering_contract: 29. Test-only T=6fa101b4 directly follows BUILD 4df54a2b, tree dc4979f1, and its exact three-file manifest is immutable; 4df+T L1B 42/42 and live real-runner NC are GREEN. The failed 62db+T compile was stale CaptureTests topology, not behavioral RED; FOURTH-FILE REQUIRED proof is resolved without a candidate edit. In a disposable registry-approved copy at compiler-green frozen RED 75e0d86d (direct child of 62db), apply only binary 4df..T diff for the same three files; the verbatim targeted real-loopback positive command must compile/discover and fail only at the new live Step owner/epoch assertion. The identical command at T and existing real-runner NC must GREEN; record raw counts and remaining core/hygiene/full results. Return only PAIR-FREEZE eligibility for exact 4df+T or blocker. No fourth path, mutation/Stryker, integration, Deliver or review; aperture STOP remains later-only."
+    call: work/c-exec-near-gas-l1b-pair-freeze-v29-loopback-source-001-call.md
+    note: "READY / ROOT / FRESH BINDING READ-ONLY PAIR-FREEZE / engineering_contract: 29. Immutable BUILD 4df54a2b + test-only T=6fa101b4/tree dc4979f1 is the exact pair; T has exactly NearGasL1bTestSupport.cs, NearGasL1bPropertyAssertions.cs and NearGasL1bNegativeControlTests.cs. Frozen diagnostic 75e0 (direct child of 62db) plus only 4df..T binary overlay SHA-256 96459A1B...CB4652B/tree b1a21121 had zero fourth path and intended-assertion-only 1/1 RED; byte-identical T positive and real same-wrong owner+epoch NC are 1/1 GREEN. Full T 1835/1835, hygiene and tools/check.ps1 GREEN; U3 clean, temp removed. Fresh independent refuter inspects commits/manifests/diffs and raw evidence, carrier/test independence and hidden acceptance behavior; returns only fresh independent review eligibility or one blocker. No edits, BUILD, mutation/Stryker, integration, Deliver or owner relay; root binding N/A until dev ancestry and aperture remains later-only STOP."
   - id: c-exec-unity65-mac-revision-002-build-001
     track: dotnet-gates
     status: paused
