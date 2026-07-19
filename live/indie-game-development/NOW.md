@@ -1,5 +1,5 @@
 # NOW: indie-game-development
-updated: 2026-07-19 by s-work-near-gas-l1b-v29-final-h-review-mutation-route-001
+updated: 2026-07-19 by s-work-near-gas-l1b-v29-closing-deliver-route-001
 bet:
   node: g-9c41
   goal: |
@@ -75,14 +75,14 @@ open_calls:
     issued: 2026-07-19
     call: work/c-repair-program-v2-live-truth-001-call.md
     note: "READY / OWNER-APPROVED SOFT MIGRATION / REPAIR ONLY. Reconcile Direction NOW/dashboard with verified current NearGas L1B, Character Leg 2, aperture, Level LV0 and V30 evidence before any route rewrite or new product root. No product mutation, V30 install, frozen-call rewrite, silent close or automatic BUILD. Existing core/character work continues independently; WIP becomes 6/6."
-  - id: c-review-near-gas-l1b-v29-final-h-mutation-001
+  - id: c-ctrl-near-gas-l1b-v29-closing-deliver-001
     track: core
     status: ready
     to: executor
-    for: "g-9c41 / L1B-Capture - independently review and mutation-validate final integrated H before closing control"
+    for: "g-9c41 / L1B-Capture - commit validated evidence, Deliver and publish immutable root RELEASED"
     issued: 2026-07-19
-    call: work/c-review-near-gas-l1b-v29-final-h-mutation-001-call.md
-    note: "READY / ROOT / FRESH FINAL-H REVIEW + REVIEWER MUTATION / engineering_contract: 29. FINAL INTEGRATED H=bf76fa68; dev/origin=H, main/origin=029279a7; exact T is H ancestor and six frozen candidate blobs exact. H core+hygiene+normal 1813+full 1915 GREEN; root binding ACTIVE. Fresh non-author reviewer, not U3, must bind canonical review and mutation artifacts to H, perform same-class/G5/fix-class sweep and real mutation before any mutation-input delta. No candidate edit, evidence commit, root RESULT, Deliver or main publication. GREEN returns only closing-control eligibility."
+    call: work/c-ctrl-near-gas-l1b-v29-closing-deliver-001-call.md
+    note: "READY / ROOT / FINAL CLOSING CONTROL / engineering_contract: 29. FINAL-H review/mutation GREEN at H=bf76fa68; exact reviewer blobs 8eaaa805 review and 9ad8b746 mutation JSON, score 75.18 >= floor 70; root binding ACTIVE; H gates GREEN. WIN-CTRL may commit these bytes verbatim, create canonical seven-section root RESULT, validate review/mutation/result/fix-class/refuted/root-binding and Deliver, then non-force publish dev/main and mark RELEASED. No candidate/mutation-input delta or rerun unless mechanical stale proof; preserve U3. Return DELIVERED/RELEASED refs or blocker."
   - id: c-exec-unity65-mac-revision-002-build-001
     track: dotnet-gates
     status: paused
