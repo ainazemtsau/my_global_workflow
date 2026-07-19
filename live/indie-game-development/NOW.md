@@ -1,5 +1,5 @@
 # NOW: indie-game-development
-updated: 2026-07-19 by s-work-near-gas-l1b-v29-aperture-serialization-route-001
+updated: 2026-07-19 by s-work-near-gas-l1b-v29-aperture-serialization-repair-route-001
 bet:
   node: g-9c41
   goal: |
@@ -75,14 +75,14 @@ open_calls:
     issued: 2026-07-19
     call: work/c-repair-program-v2-live-truth-001-call.md
     note: "READY / OWNER-APPROVED SOFT MIGRATION / REPAIR ONLY. Reconcile Direction NOW/dashboard with verified current NearGas L1B, Character Leg 2, aperture, Level LV0 and V30 evidence before any route rewrite or new product root. No product mutation, V30 install, frozen-call rewrite, silent close or automatic BUILD. Existing core/character work continues independently; WIP becomes 6/6."
-  - id: c-ctrl-near-gas-l1b-v29-aperture-serialization-drain-001
+  - id: c-ctrl-near-gas-l1b-v29-aperture-serialization-repair-001
     track: core
     status: ready
     to: executor
-    for: "g-9c41 / L1B-Capture - clear the external aperture serialized-result blocker before L1B handback/integration"
+    for: "g-9c41 / L1B-Capture - losslessly preserve/pause the external aperture evidence and clear its active-result blocker"
     issued: 2026-07-19
-    call: work/c-ctrl-near-gas-l1b-v29-aperture-serialization-drain-001-call.md
-    note: "READY / ROOT / EXTERNAL SERIALIZATION CONTROL / engineering_contract: 29. FINAL-RANGE INDEPENDENT REVIEW is REVIEW GREEN for immutable 62db→75e0→4df→T=6fa101b4 (U3 clean/tree dc4979f1; prior loopback finding fixed; focused positive/NC/Step capture/full 1835+hygiene/check GREEN). L1B has no further candidate/review work. The sole known stop is external DEV-SERIALIZATION-APERTURE-RESULT-PENDING for c-exec-structure-aperture-authority-v1-surface-freeze-001. WIN-CTRL may only validate/reuse/drain/publish that existing aperture result/review evidence and stabilize refs, with no L1B edit or invented product work. GREEN returns only HANDBACK-PENDING/integration-control eligibility: later separate control transitions L1B, integrates exact T ancestry into clean dev and selects final H; final-H review/mutation remains separate."
+    call: work/c-ctrl-near-gas-l1b-v29-aperture-serialization-repair-001-call.md
+    note: "READY / ROOT / EXTERNAL SERIALIZATION CONTROL-REPAIR / engineering_contract: 29. FINAL-RANGE INDEPENDENT REVIEW remains REVIEW GREEN for immutable 62db→75e0→4df→T=6fa101b4. Actual result-check at dev/origin 25afa4aa versus main/origin 029279a7 is blocked solely by the active aperture RESULT c-exec-structure-aperture-authority-v1-surface-freeze-001 as SURFACE-FROZEN/REVIEW-GREEN/NOT DELIVERED. WIN-CTRL may only capture immutable carrier/result/review identities, preserve them raw-byte on clean no-lease WIN-U4, transition the aperture root to PRESERVED-PAUSED, and remove/revert only that incomplete active RESULT with exact lifecycle mirrors. No fake DELIVERED, L1B delta, integration, H selection, mutation or Deliver. GREEN returns only HANDBACK-PENDING/integration-control eligibility."
   - id: c-exec-unity65-mac-revision-002-build-001
     track: dotnet-gates
     status: paused
