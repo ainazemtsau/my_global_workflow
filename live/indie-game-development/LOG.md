@@ -373,4 +373,6 @@ archived: history/LOG-archive-indie-game-development.md — sessions before 2026
 
 2026-07-19 · s-work-near-gas-l1b-v29-loopback-review-dispatch-001 · work · core · g-9c41/L1B-Capture: consumed fresh PAIR-FREEZE review eligibility for immutable final range 62db→75e0→4df→T and issued one independent final-range review. It must verify the previous same-wrong loopback finding fixed, perform same-class sweep and relevant gates, and return only REVIEW GREEN HBP/integration eligibility or exact findings; no edit/BUILD/mutation/integration/Deliver. → history/2026-07-19-s-work-near-gas-l1b-v29-loopback-review-dispatch-001.md
 
+2026-07-19 · s-work-near-gas-l1b-v29-aperture-serialization-route-001 · work · core · g-9c41/L1B-Capture: consumed REVIEW GREEN for immutable 62db→75e0→4df→T and routed the sole external DEV-SERIALIZATION-APERTURE-RESULT-PENDING blocker to one WIN-CTRL drain/publish control. It changes no L1B bytes and returns only HANDBACK-PENDING/integration-control eligibility or blocker; final-H review/mutation stays separate. → history/2026-07-19-s-work-near-gas-l1b-v29-aperture-serialization-route-001.md
+
 END_OF_FILE: live/indie-game-development/LOG.md
