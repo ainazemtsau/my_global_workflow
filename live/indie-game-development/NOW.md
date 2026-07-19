@@ -75,14 +75,14 @@ open_calls:
     issued: 2026-07-19
     call: work/c-map-program-v2-hot-migration-route-001-call.md
     note: "READY / DEFAULT / OWNER-PRESENT MAP. Turn the accepted soft migration and repaired live inventory into one owner-approved Program v2 track map with staged Integration Lab outcomes, explicit unlock/dependency/ownership rules and a lawful WIP rollout. No product work, V30 re-sync, frozen-root rewrite or automatic product CALL."
-  - id: c-review-near-gas-l1b-v29-refuted-register-binding-001
+  - id: c-ctrl-near-gas-l1b-v29-aperture-discovery-archive-001
     track: core
     status: ready
     to: executor
-    for: "g-9c41 / L1B-Capture - independently bind the existing refuted finding to one canonical register row before retained closing resumes"
+    for: "g-9c41 / L1B-Capture - preserve archived aperture evidence while removing its false active Deliver discovery block"
     issued: 2026-07-19
-    call: work/c-review-near-gas-l1b-v29-refuted-register-binding-001-call.md
-    note: "READY / EVIDENCE-ONLY REGISTER BINDING / engineering_contract: 29. Fresh review proved no lawful REFUTED row or register:R-id exists for the existing KERNEL-G5-refuted L1B finding, so header-only correction was blocked. One independent reviewer may create exactly one truthful canonical row, bind the unchanged finding/header to it, validate and commit/push that evidence-only correction. Candidate, behavior, tests, mutation inputs/results, U3 and retained closing drafts remain frozen; GREEN grants the retained WIN-CTRL closing task direct resume without another Direction round."
+    call: work/c-ctrl-near-gas-l1b-v29-aperture-discovery-archive-001-call.md
+    note: "READY / CONTROL-ONLY DELIVER DISCOVERY REPAIR / engineering_contract: 29. L1B root validators are GREEN at retained clean closing snapshot b6bfc8fc, but Deliver discovers unrelated PRESERVED-PAUSED aperture root c-exec-structure-aperture-authority-v1-plan-001 as active and demands mutation. Fresh control may use only authoritative archive/closure discovery mechanics to preserve its frozen objects while removing that false active enumeration. GREEN directly resumes retained L1B Deliver/dev-main publication; no aperture product work, fake mutation or gate weakening."
   - id: c-exec-unity65-mac-revision-002-build-001
     track: dotnet-gates
     status: paused
