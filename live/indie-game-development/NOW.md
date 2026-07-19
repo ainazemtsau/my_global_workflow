@@ -1,5 +1,5 @@
 # NOW: indie-game-development
-updated: 2026-07-19 by s-work-near-gas-l1b-v29-closing-deliver-route-001
+updated: 2026-07-19 by s-work-near-gas-l1b-v29-refuted-register-correction-route-001
 bet:
   node: g-9c41
   goal: |
@@ -75,14 +75,14 @@ open_calls:
     issued: 2026-07-19
     call: work/c-repair-program-v2-live-truth-001-call.md
     note: "READY / OWNER-APPROVED SOFT MIGRATION / REPAIR ONLY. Reconcile Direction NOW/dashboard with verified current NearGas L1B, Character Leg 2, aperture, Level LV0 and V30 evidence before any route rewrite or new product root. No product mutation, V30 install, frozen-call rewrite, silent close or automatic BUILD. Existing core/character work continues independently; WIP becomes 6/6."
-  - id: c-ctrl-near-gas-l1b-v29-closing-deliver-001
+  - id: c-review-near-gas-l1b-v29-refuted-register-correction-001
     track: core
     status: ready
     to: executor
-    for: "g-9c41 / L1B-Capture - commit validated evidence, Deliver and publish immutable root RELEASED"
+    for: "g-9c41 / L1B-Capture - independently reconcile the existing final-H refuted register before closing control resumes"
     issued: 2026-07-19
-    call: work/c-ctrl-near-gas-l1b-v29-closing-deliver-001-call.md
-    note: "READY / ROOT / FINAL CLOSING CONTROL / engineering_contract: 29. FINAL-H review/mutation GREEN at H=bf76fa68; exact reviewer blobs 8eaaa805 review and 9ad8b746 mutation JSON, score 75.18 >= floor 70; root binding ACTIVE; H gates GREEN. WIN-CTRL may commit these bytes verbatim, create canonical seven-section root RESULT, validate review/mutation/result/fix-class/refuted/root-binding and Deliver, then non-force publish dev/main and mark RELEASED. No candidate/mutation-input delta or rerun unless mechanical stale proof; preserve U3. Return DELIVERED/RELEASED refs or blocker."
+    call: work/c-review-near-gas-l1b-v29-refuted-register-correction-001-call.md
+    note: "READY / EVIDENCE-ONLY CORRECTION / engineering_contract: 29. Closing preflight at H=bf76fa68 stopped before Deliver because canonical review blob 8eaaa805 truthfully contains one KERNEL-G5-refuted finding while its Refuted-register says none. Fresh independent correction may reconcile only that existing register enumeration and validate review/refuted/mutation binding. Candidate, behavior, tests, mutation inputs/results, uncommitted closing drafts, U3 and refs stay preserved; return only closing-control resume eligibility or a blocker."
   - id: c-exec-unity65-mac-revision-002-build-001
     track: dotnet-gates
     status: paused
