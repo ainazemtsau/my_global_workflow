@@ -363,4 +363,6 @@ archived: history/LOG-archive-indie-game-development.md — sessions before 2026
 
 2026-07-18 · s-work-near-gas-l1b-pair-freeze-blocked-route-001 · work · core · g-9c41/L1B-Capture: fresh independent PAIR-FREEZE BLOCKED immutable 7c2348bc->54892e68 and kept BUILD forbidden because reachable retry/fault exact-source oracles and E-SCRATCH-PROOF were incomplete; the root now routes one engineering_contract:29 PAIR-CANDIDATE correction for a new carrier->RED pair, with frozen authority/public behavior preserved and no product work or owner decision. → history/2026-07-18-s-work-near-gas-l1b-pair-freeze-blocked-route-001.md
 
+2026-07-19 · s-research-program-v2-hot-migration-001 · research · program · g-a7f2/program-parallelism-research: owner accepted a soft Program v2/V30 migration that preserves every frozen root; a sixth WIP slot now carries one live-truth repair before route/dashboard rewrite, while NearGas V29 and Character legacy continue and no product or V30 mutation is authorized. → history/2026-07-19-s-research-program-v2-hot-migration-001.md
+
 END_OF_FILE: live/indie-game-development/LOG.md

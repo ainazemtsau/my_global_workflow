@@ -1,5 +1,5 @@
 # NOW: indie-game-development
-updated: 2026-07-18 by s-work-near-gas-l1b-pair-freeze-blocked-route-001
+updated: 2026-07-19 by s-research-program-v2-hot-migration-001
 bet:
   node: g-9c41
   goal: |
@@ -57,6 +57,7 @@ tasks:
 track_wip_limit: 6
 tracks:
   - {id: core, label: "NearGas — ядро игры", mode: primary, for: g-9c41}
+  - {id: program, label: "Программа и интеграционный стенд", mode: parallel, for: "g-a7f2 / Program v2 hot migration and Integration Lab control plane"}
   - {id: level, label: "Уровни, модули и генераторы", mode: parallel, for: "local: Level/DA/PGG Standard v1"}
   - {id: canon, label: "Геймдизайн и канон", mode: parallel, for: g-d3a8}
   - {id: damage, label: "Газовый урон — Sc-damage", mode: parallel, for: "local: Sc-damage"}
@@ -66,6 +67,14 @@ tracks:
   - {id: dotnet-gates, label: "Локальный запуск проверок .NET — пауза", mode: parallel, for: "local: cross-platform .NET repository-gate runner prerequisite"}
 
 open_calls:
+  - id: c-repair-program-v2-live-truth-001
+    track: program
+    status: ready
+    to: session
+    for: "g-a7f2 / hot-migration live-truth reconciliation before Program v2 route"
+    issued: 2026-07-19
+    call: work/c-repair-program-v2-live-truth-001-call.md
+    note: "READY / OWNER-APPROVED SOFT MIGRATION / REPAIR ONLY. Reconcile Direction NOW/dashboard with verified current NearGas L1B, Character Leg 2, aperture, Level LV0 and V30 evidence before any route rewrite or new product root. No product mutation, V30 install, frozen-call rewrite, silent close or automatic BUILD. Existing core/character work continues independently; WIP becomes 6/6."
   - id: c-exec-near-gas-l1b-pair-candidate-correction-001
     track: core
     status: ready
@@ -146,6 +155,6 @@ decisions:
     options: ["Доступная физическая машина", "Точный CPU/GPU/RAM-класс с арендой/покупкой к финалу", "Только throttled-прокси — финал не закрывает"]
     recommendation: "Доступная физическая машина; газ CPU-bound, поэтому CPU должен быть назван явно."
 next:
-  call: c-exec-near-gas-l1b-pair-candidate-correction-001
+  call: c-repair-program-v2-live-truth-001
 
 END_OF_FILE: live/indie-game-development/NOW.md
