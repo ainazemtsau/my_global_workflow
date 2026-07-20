@@ -1,6 +1,6 @@
 # NOW: indie-game-development
 
-updated: 2026-07-20 by s-shape-program-v2-integration-lab-entry-001
+updated: 2026-07-20 by s-work-program-v2-legacy-lab-purge-route-001
 
 bet: null
 
@@ -17,14 +17,16 @@ tracks:
   - {id: characters, label: "Character & Gameplay Contact", mode: parallel, for: g-6d4e}
 
 open_calls:
-  - id: c-audit-program-v2-legacy-lab-surface-001
+  - id: c-exec-program-v2-legacy-lab-purge-001
     track: program
     status: ready
     to: executor
-    for: "g-9c41 / read-only deletion-boundary audit for legacy lab/demo scenes and scene-only support surface"
+    for: "g-9c41 / one bounded safe legacy-lab purge and no-growth authority close"
     issued: 2026-07-20
-    call: work/c-audit-program-v2-legacy-lab-surface-001-call.md
-    note: "READY / DEFAULT / READ-ONLY AUDIT / engineering_contract:31. Owner approved one permanent Integration Lab, real gameplay paths, minimum debug and purge-audit first. Inventory game-owned scene families and their current consumers; classify each DELETE / KEEP / BLOCKED. No PLAN, BUILD, Unity, tests, deletion or product mutation."
+    call: work/c-exec-program-v2-legacy-lab-purge-001-call.md
+    receipts:
+      - history/2026-07-20-s-work-program-v2-legacy-lab-purge-route-001.md
+    note: "READY / DEFAULT / OWNER-PRESENT V31 CLEANUP ROOT / engineering_contract:31. Audit proved four DELETE-now families and seven retained validators. Delete only the safe surface, establish one short no-new-consumers authority boundary, do not build Integration Lab or expand legacy; terminal REPORT returns directly to feature work."
 
   - id: c-exec-level-module-standard-v1-lv0-plan-001
     track: level
@@ -90,6 +92,6 @@ decisions:
     recommendation: "Доступная физическая машина; gas simulation CPU-bound, поэтому CPU должен быть назван явно."
 
 next:
-  call: c-audit-program-v2-legacy-lab-surface-001
+  call: c-exec-program-v2-legacy-lab-purge-001
 
 END_OF_FILE: live/indie-game-development/NOW.md

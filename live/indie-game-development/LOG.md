@@ -413,4 +413,6 @@ archived: history/LOG-archive-indie-game-development.md — sessions before 2026
 
 2026-07-20 · s-work-publish-integration-lab-entry-main-001 · work/publish · program · g-9c41/repository-main: owner-requested Integration Lab shape snapshot 21e3d49 was atomically fast-forwarded without force to origin/main and origin/wt/indie-game-development with exact remote readback; the ready read-only purge-audit CALL remains the unchanged default. → history/2026-07-20-s-work-publish-integration-lab-entry-main-001.md
 
+2026-07-20 · s-work-program-v2-legacy-lab-purge-route-001 · work · program · g-9c41/legacy-lab-surface-audit: consumed the clean read-only audit and owner's fast-close verdict; four unused legacy families are DELETE-now, seven scenes are frozen/no-growth validators, and one V31 cleanup root is the sole ready/default continuation before feature work. → history/2026-07-20-s-work-program-v2-legacy-lab-purge-route-001.md
+
 END_OF_FILE: live/indie-game-development/LOG.md
