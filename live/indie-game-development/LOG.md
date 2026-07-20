@@ -399,4 +399,6 @@ archived: history/LOG-archive-indie-game-development.md — sessions before 2026
 
 2026-07-20 — program/map — owner-approved Program v2 hot migration installed: nine clear directions, Integration-owned ten-milestone scene plan, six-line capability handoff and simple progress dashboard; standalone damage/.NET Gates retired, stale L1B remainder cleared, and V30-entry shape is next. → history/2026-07-20-s-map-program-v2-hot-migration-route-001.md
 
+2026-07-20 · s-work-publish-program-v2-map-main-001 · work/publish · program · g-a7f2/repository-main: exact Program v2 map 79e37e7 pushed alone to origin/wt/indie-game-development and replayed alone as abdf057 on fresh origin/main; atomic non-force readback matched, while later 6feec02 and dirty canon work stayed local. → history/2026-07-20-s-work-publish-program-v2-map-main-001.md
+
 END_OF_FILE: live/indie-game-development/LOG.md
