@@ -9,6 +9,23 @@ supersedes_as_current_map:
   g-d3a8-current-question-front-v1.md
 owner_verdict: «A»
 
+post_admission_currentness:
+  status: ROUTE_STALE_AFTER_GAS_BEHAVIOR_ADMISSION
+  changed_on: 2026-07-19
+  reason: |
+    The map's §7 current route still names Gas behavior job grammar as
+    the one next question. That question has now completed paper
+    selection and received the separate owner verdict
+    «ADMIT TO CANON».
+  live_route: |
+    Do not use the old §7 Q3-R recommendation as the current next
+    route. The only live canon-track root is:
+    c-cartography-g-d3a8-post-gas-behavior-admission-front-001.
+  preservation: |
+    Existing node descriptions and dependencies remain evidence until
+    an owner-approved superseding map is produced. This notice answers
+    no design question and promotes no historical answer.
+
 ## 1. Authority
 
 Current authority order:

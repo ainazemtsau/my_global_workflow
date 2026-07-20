@@ -1,5 +1,5 @@
 # NOW: indie-game-development
-updated: 2026-07-19 by s-work-near-gas-l1b-v29-terminal-home-close-001
+updated: 2026-07-19 by s-repair-g-d3a8-gas-behavior-admission-route-001
 bet:
   node: g-9c41
   goal: |
@@ -93,16 +93,16 @@ open_calls:
     issued: 2026-07-16
     call: work/c-exec-level-module-standard-v1-lv0-plan-001-call.md
     note: "WAITING / PRODUCT PLAN RELEASED, DIRECTION CLOSE MISSING. Product LV0 PLAN evidence exists at b16981706ece53c584848255de2bd92675b5de7b; do not relaunch the frozen PLAN CALL. The level root stays open until a separate binding Direction review/receipt reconciles the exact HOME against this CALL. Aperture RED 5af1d8db931d10cc6149a2c1f8e1023bc3b9ffb1 remains preserved and BUILD-unissued for later V30 compatibility-check/re-admission."
-  - id: c-forge-g-d3a8-gas-behavior-jobs-canon-admission-001
+  - id: c-cartography-g-d3a8-post-gas-behavior-admission-front-001
     track: canon
     status: ready
     to: session
-    for: "g-d3a8 / owner-present canon admission over q-gas-behavior-jobs-paper-decision-v1"
-    issued: 2026-07-18
-    call: work/c-forge-g-d3a8-gas-behavior-jobs-canon-admission-001-call.md
+    for: "g-d3a8 / reconcile current design-question map after gas-behavior canon admission"
+    issued: 2026-07-19
+    call: work/c-cartography-g-d3a8-post-gas-behavior-admission-front-001-call.md
     receipts:
-      - history/2026-07-18-s-forge-g-d3a8-gas-behavior-jobs-001.md
-    note: "READY / OWNER-PRESENT / CANON-ADMISSION ONLY. Exact OWNER-SELECTED PAPER ANSWER A: movement-first Control Obligation grammar (Counter / Brake / Time), not movement-only; future additional effects remain open. No redesign, implementation or automatic canon mutation."
+      - history/2026-07-19-s-repair-g-d3a8-gas-behavior-admission-route-001.md
+    note: "READY / CARTOGRAPHY ONLY / SAME CANON TRACK. c-002 is admitted; v2 still names the resolved gas-behavior question as NEXT. Reconcile the map, explicitly account for preserved floor-loop findings, and show the owner 2–3 plain-language next-question options. No automatic design answer, canon mutation, greybox or implementation."
   - id: c-shape-sc-damage-001
     track: damage
     status: paused
