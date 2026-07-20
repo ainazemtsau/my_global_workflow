@@ -423,4 +423,6 @@ archived: history/LOG-archive-indie-game-development.md — sessions before 2026
 
 2026-07-20 · s-work-publish-grid-track-resume-main-001 · work/publish · grid · g-4b92/repository-main: owner-requested coherent Direction range through c30bbbc was atomically fast-forwarded without force to origin/main and origin/wt/indie-game-development; exact remote readback matched, Grid audit remains READY/non-default and BUILD stays closed. → history/2026-07-20-s-work-publish-grid-track-resume-main-001.md
 
+2026-07-20 · s-work-program-v2-legacy-lab-purge-deliver-blocked-001 · work · program · g-9c41/legacy-lab-purge: the validated cleanup candidate removed the 24 approved tracked paths, preserved KEEP and passed fresh product G5 plus normal gates, but V31 Deliver stopped on a pre-existing Character review-evidence defect; the root remains blocked and unpublished, with WIN-U1 DRAINING. → history/2026-07-20-s-work-program-v2-legacy-lab-purge-deliver-blocked-001.md
+
 END_OF_FILE: live/indie-game-development/LOG.md

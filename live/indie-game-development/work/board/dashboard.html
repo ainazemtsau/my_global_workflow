@@ -300,23 +300,23 @@
       <section class="summary" aria-label="Текущий статус">
         <article class="panel">
           <span class="label">Текущий milestone</span>
-          <strong class="big">M2 — audit закончен, cleanup готов</strong>
+          <strong class="big">M2 — cleanup-кандидат готов, release заблокирован</strong>
           <p class="muted">Приняты 2 из 10 milestones. Это счёт результатов, не процент готовности игры.</p>
         </article>
 
         <article class="panel next">
           <span class="label">Следующий шаг</span>
-          <strong class="big">Удалить только доказанный мусор и вернуться к функционалу</strong>
-          <p><a href="../c-exec-program-v2-legacy-lab-purge-001-call.md">Открыть default CALL</a></p>
-          <p class="muted small">Один bounded V31 cleanup-root: четыре безопасных семьи удалить, семь validators оставить без новых consumers, новую Lab здесь не строить.</p>
+          <strong class="big">Проверить current Grid authority без запуска BUILD</strong>
+          <p><a href="../c-work-grid-current-authority-audit-001-call.md">Открыть default Grid audit CALL</a></p>
+          <p class="muted small">Cleanup собран и проверен, но заблокирован старым Character review-evidence defect; WIN-U1 хранит его до законного release. Готовый read-only Grid audit становится честным default и не трогает frozen candidate.</p>
         </article>
 
         <article class="panel">
           <span class="label">Фактическая загрузка NOW</span>
           <div class="status-row">
-            <span class="pill ready">3 ready</span>
+            <span class="pill ready">2 ready</span>
             <span class="pill waiting">2 waiting</span>
-            <span class="pill blocked">1 blocked</span>
+            <span class="pill blocked">2 blocked</span>
             <span class="pill paused">1 paused</span>
             <span class="pill mapped">1 decision</span>
           </div>
@@ -325,7 +325,7 @@
       </section>
 
       <aside class="note">
-        <strong>Простой вердикт: удалить четыре безопасных семьи, остальные пока не трогать.</strong> Семь спорных сцен уже не запускаются автоматически, кроме SampleScene — единственной текущей launch scene. Для них нужен не новый runtime-guard, а короткое правило: legacy validator, новых consumers не добавлять, удалить после replacement proof в настоящей Integration Lab.
+        <strong>Простой вердикт: cleanup технически готов, но ещё не выпущен.</strong> Четыре безопасные семьи удалены в сохранённом кандидате, семь validators оставлены без новых consumers, G5 и normal gates зелёные. Публикацию блокирует старый Character review-evidence defect общего Deliver-gate; до его ремонта возвращаться к feature work в WIN-U1 нельзя.
       </aside>
 
       <section id="board">
@@ -333,23 +333,23 @@
           <div><div class="eyebrow">📋 Борд</div><h2>Открытые работы и решение владельца</h2></div>
         </div>
         <article class="panel next">
-          <span class="label">READY · основная работа</span>
-          <strong>Один раз убрать доказанный legacy-мусор и закрыть тему</strong>
-          <p><code>c-exec-program-v2-legacy-lab-purge-001</code></p>
-          <p><b>Что это:</b> удалить stale V1 builder, Benchmark family, Reaction family и orphaned Dungeon Architect GasLab assets; коротко закрепить статус остальных сцен.</p>
-          <p><b>Зачем:</b> мусор перестаёт расти, но проект не теряет текущую launch scene, tests и validators.</p>
-          <p><b>Где сейчас:</b> read-only audit завершён на clean product main. Семь retained scenes уже не входят в автоматический запуск, кроме обязательной пока SampleScene.</p>
-          <p><b>Что дальше:</b> terminal REPORT закрывает cleanup; следующая Program-задача должна быть feature work, а Integration Lab появится вместе с первым реальным gameplay consumer.</p>
-          <p><a href="../legacy-lab-purge-boundary-2026-07-20.md">Прочитать простой вердикт без технической матрицы →</a></p>
+          <span class="label">BLOCKED · основная работа</span>
+          <strong>Cleanup готов, но общий Deliver-gate не разрешает выпуск</strong>
+          <p><code>c-exec-program-v2-legacy-lab-purge-release-001</code></p>
+          <p><b>Что это:</b> сохранённый V31-кандидат удаляет 24 tracked paths четырёх доказанно неиспользуемых семейств и закрепляет короткое правило no-growth для семи временных validators.</p>
+          <p><b>Зачем:</b> мусор перестаёт расти, а SampleScene, Character V2, Core/Sandbox, topology, render и Dungeon Architect support остаются нетронутыми.</p>
+          <p><b>Где сейчас:</b> candidate <code>72c7c8c6</code> прошёл fresh non-author G5 и normal gates 1829/1829. Он есть только в локальном dev; общий Deliver RED из-за старого Character review-файла, который не учитывает более поздний source commit. Push, merge и release не выполнялись; WIN-U1 остаётся DRAINING.</p>
+          <p><b>Что дальше:</b> отдельный владелец Character review-evidence должен законно закрыть внешний defect. После GREEN Deliver сериализованный Control публикует тот же frozen candidate, проверяет readback и освобождает WIN-U1; только тогда можно вернуться к feature work.</p>
+          <p><a href="../c-exec-program-v2-legacy-lab-purge-release-001-call.md">Открыть blocked release continuation →</a> · <a href="../legacy-lab-purge-boundary-2026-07-20.md">Прочитать простой вердикт →</a></p>
         </article>
         <article class="panel" style="margin-top:14px">
-          <span class="label">READY · Grid · параллельная подготовка</span>
+          <span class="label">READY · DEFAULT · Grid · подготовка</span>
           <strong>Проверить реальное состояние Grid и подготовить основу мастер-плана</strong>
           <p><code>c-work-grid-current-authority-audit-001</code></p>
           <p><b>Что это:</b> read-only аудит текущего продукта: Grid, слои, версии состояния, Object ↔ Layer, разрушение, отдельный aperture-долг, Wind и multiplayer seams.</p>
           <p><b>Зачем:</b> Grid должен завершиться раньше зависимых функций, но реализацию нельзя начинать по старым предположениям или сразу превращать один Resolver в огромный модуль.</p>
           <p><b>Где сейчас:</b> направление активировано. Planning brief сохранён как вход, а не как принятая архитектура; BUILD, Wind/Water-заглушки и сцена закрыты.</p>
-          <p><b>Что дальше:</b> вернуть владельцу доказательную карту текущего состояния и quality-first порядок: последовательные общие контракты, затем только безопасные независимые ветви. Это READY, но не default.</p>
+          <p><b>Что дальше:</b> вернуть владельцу доказательную карту текущего состояния и quality-first порядок: последовательные общие контракты, затем только безопасные независимые ветви. Это текущий READY default.</p>
           <p><a href="../c-work-grid-current-authority-audit-001-call.md">Открыть Grid audit CALL →</a></p>
         </article>
         <article class="panel" style="margin-top:14px">
@@ -431,6 +431,7 @@
           <details open>
             <summary><strong>20 июля</strong></summary>
             <ul class="remaining">
+              <li>Legacy cleanup-кандидат завершён и прошёл fresh product G5 + normal gates, но не выпущен: общий Deliver остановился на pre-existing Character review-evidence defect. Кандидат сохранён, origin не менялся, WIN-U1 остаётся DRAINING.</li>
               <li>Grid / Layers / World Change активирован как quality-first подготовительный трек: первым идёт read-only current-authority аудит; BUILD закрыт, а внутренняя параллельность разрешена только после фиксации общих контрактов.</li>
               <li>Read-only purge-аудит завершён: четыре scene/support families доказаны как безопасный DELETE, семь остаются временными validators, Character V2/shared support — KEEP.</li>
               <li>Владелец выбрал быстрый путь: удалить только доказанный мусор, запретить рост legacy и после одного cleanup-root вернуться к функционалу.</li>
@@ -493,17 +494,17 @@
 
         <div class="track-grid">
           <article class="track primary">
-            <div class="track-top"><div><div class="track-id">g-9c41 · primary</div><h3>Integration Lab & Product Proof</h3></div><span class="pill ready">ready</span></div>
+            <div class="track-top"><div><div class="track-id">g-9c41 · primary</div><h3>Integration Lab & Product Proof</h3></div><span class="pill blocked">blocked</span></div>
             <dl class="facts">
-              <div class="fact"><dt>Сейчас</dt><dd>Audit закончен: четыре DELETE-now families, семь frozen/no-growth validators; самой Lab scene ещё нет.</dd></div>
+              <div class="fact"><dt>Сейчас</dt><dd>Cleanup-кандидат готов и G5-clean: 24 paths удалены, семь validators сохранены, no-growth policy записана. Release заблокирован внешним Character review-evidence defect.</dd></div>
               <div class="fact"><dt>Вклад</dt><dd>Playable product skeleton, generated Level profiles, real gameplay-path intake, smoke и финальный product proof.</dd></div>
-              <div class="fact"><dt>Текущий root</dt><dd><a href="../c-exec-program-v2-legacy-lab-purge-001-call.md">Один safe cleanup-root</a>; min-spec decision остаётся на потом.</dd></div>
+              <div class="fact"><dt>Текущий root</dt><dd><a href="../c-exec-program-v2-legacy-lab-purge-release-001-call.md">Release continuation</a> остаётся BLOCKED; WIN-U1 хранит неопубликованный frozen candidate.</dd></div>
               <div class="fact"><dt>Authority</dt><dd><a href="../program-v2-integration-lab-plan.md">Global scene plan</a> + current product V31 · проверено 2026-07-20.</dd></div>
-              <div class="fact"><dt>Conflict</dt><dd>Cleanup должен одним current-authority решением supersede-ить обещания отдельных permanent Labs, не переписывая исторические ADR как будто их не было.</dd></div>
+              <div class="fact"><dt>Conflict</dt><dd>Не cleanup-diff, а общий Deliver требует починить старое Character review-evidence; менять чужой review или gate внутри этого root запрещено.</dd></div>
             </dl>
             <ul class="remaining">
-              <li><strong>Следом:</strong> удалить четыре безопасных families и запретить новые consumers семи retained validators.</li>
-              <li>После cleanup REPORT перейти к настоящему feature slice; Lab/drop contract появляется только под его consumer.</li>
+              <li><strong>Следом:</strong> закрыть внешний Character review-evidence defect и повторить Deliver без изменения frozen cleanup candidate.</li>
+              <li>Только после публикации/readback и release WIN-U1 перейти к настоящему feature slice; Lab/drop contract появляется только под его consumer.</li>
               <li>Принять M3–M8 с first-hand proof.</li>
               <li>Свести M9 и отдельно доказать любые co-op claims.</li>
             </ul>
@@ -531,7 +532,7 @@
             <dl class="facts">
               <div class="fact"><dt>Сейчас</dt><dd>Направление активно для read-only current-authority аудита; V31 implementation/drop не принят.</dd></div>
               <div class="fact"><dt>Вклад</dt><dd>Coordinates, ownership, commit clock, universal events и topology revisions.</dd></div>
-              <div class="fact"><dt>Текущий root</dt><dd><a href="../c-work-grid-current-authority-audit-001-call.md">Grid current-authority audit</a> — READY/non-default, без BUILD.</dd></div>
+              <div class="fact"><dt>Текущий root</dt><dd><a href="../c-work-grid-current-authority-audit-001-call.md">Grid current-authority audit</a> — READY/default, без BUILD.</dd></div>
               <div class="fact"><dt>Authority</dt><dd>Fresh product Grid/Layer source + SPEC/ADR/tests; старый snapshot перечитывается, а не принимается как freshness lock.</dd></div>
               <div class="fact"><dt>Conflict</dt><dd>Object ↔ Layer и aperture RED — разные долги; current wind пока gas-local, не доказанный второй слой.</dd></div>
             </dl>

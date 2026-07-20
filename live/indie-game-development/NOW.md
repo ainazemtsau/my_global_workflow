@@ -1,6 +1,6 @@
 # NOW: indie-game-development
 
-updated: 2026-07-20 by s-map-grid-track-resume-001
+updated: 2026-07-20 by s-work-program-v2-legacy-lab-purge-deliver-blocked-001
 
 bet: null
 
@@ -18,16 +18,17 @@ tracks:
   - {id: grid, label: "Grid / Layers / World Change", mode: parallel, for: g-4b92}
 
 open_calls:
-  - id: c-exec-program-v2-legacy-lab-purge-001
+  - id: c-exec-program-v2-legacy-lab-purge-release-001
     track: program
-    status: ready
+    status: blocked
     to: executor
-    for: "g-9c41 / one bounded safe legacy-lab purge and no-growth authority close"
+    for: "g-9c41 / release the preserved legacy-lab purge candidate after the external Deliver baseline is green"
     issued: 2026-07-20
-    call: work/c-exec-program-v2-legacy-lab-purge-001-call.md
+    call: work/c-exec-program-v2-legacy-lab-purge-release-001-call.md
+    unblock_when: "The pre-existing Character review-evidence defect is closed so tools/check.ps1 -Deliver is GREEN on the preserved cleanup lineage; then serialized WIN-CTRL may publish/read back the root and release WIN-U1."
     receipts:
-      - history/2026-07-20-s-work-program-v2-legacy-lab-purge-route-001.md
-    note: "READY / DEFAULT / OWNER-PRESENT V31 CLEANUP ROOT / engineering_contract:31. Audit proved four DELETE-now families and seven retained validators. Delete only the safe surface, establish one short no-new-consumers authority boundary, do not build Integration Lab or expand legacy; terminal REPORT returns directly to feature work."
+      - history/2026-07-20-s-work-program-v2-legacy-lab-purge-deliver-blocked-001.md
+    note: "BLOCKED / V31 RELEASE CONTINUATION / ROOT NOT RELEASED. Product candidate 72c7c8c6 removes the 24 approved tracked paths, preserves KEEP, adds the <=400-word no-growth policy, passes fresh non-author G5 and normal gates (1829/1829), and is integrated only in local dev through c5c21c13 with blocker evidence baf8513c. Deliver is RED solely because pre-existing review-c-exec-char-v2-source-router-repair-001 does not account for source commit 413149ce after reviewed commit 8a0e33ec. No push/merge/release; origin refs remain 45b15623; WIN-U1 is DRAINING with lease preserved. Do not dispatch or return to feature work until unblock_when is true."
 
   - id: c-exec-level-module-standard-v1-lv0-plan-001
     track: level
@@ -92,7 +93,7 @@ open_calls:
     call: work/c-work-grid-current-authority-audit-001-call.md
     receipts:
       - history/2026-07-20-s-map-grid-track-resume-001.md
-    note: "READY / NON-DEFAULT / PREPARATION ONLY. Reconcile fresh product Grid/Layers/World Change truth, Object ↔ Layer and separate aperture debt; classify Wind and multiplayer seams; return owner-readable audit plus bounded planning choices. No BUILD, stubs, Water/Wind implementation or Integration Lab mutation. Quality first: internal parallel work only after common contracts are frozen; Grid is prioritized ahead of dependent feature tracks."
+    note: "READY / DEFAULT / PREPARATION ONLY. Reconcile fresh product Grid/Layers/World Change truth, Object ↔ Layer and separate aperture debt; classify Wind and multiplayer seams; return owner-readable audit plus bounded planning choices. No BUILD, stubs, Water/Wind implementation or Integration Lab mutation. Quality first: internal parallel work only after common contracts are frozen; Grid is prioritized ahead of dependent feature tracks."
 
 recurring: []
 
@@ -104,6 +105,6 @@ decisions:
     recommendation: "Доступная физическая машина; gas simulation CPU-bound, поэтому CPU должен быть назван явно."
 
 next:
-  call: c-exec-program-v2-legacy-lab-purge-001
+  call: c-work-grid-current-authority-audit-001
 
 END_OF_FILE: live/indie-game-development/NOW.md
