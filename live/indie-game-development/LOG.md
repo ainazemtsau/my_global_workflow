@@ -394,4 +394,6 @@ archived: history/LOG-archive-indie-game-development.md — sessions before 2026
 
 2026-07-19 · s-work-publish-near-gas-l1b-v29-main-001 · work/publish · core · g-9c41/repository-main: owner-requested committed Direction snapshot through 08933f2 atomically pushed without force to origin/wt/indie-game-development and origin/main; exact remote readback matched, dirty Sphere work-CALL stayed excluded and preserved. → history/2026-07-19-s-work-publish-near-gas-l1b-v29-main-001.md
 
+2026-07-20 · s-work-remove-empty-sphere-call-001 · work · canon · g-d3a8/Sphere-capture: owner directed deletion of the locally empty dirty legacy Sphere CALL; removed only c-work-sphere-universal-capture-frame-001-call.md, preserved all live routing/history and unrelated .claude/ dirt. → history/2026-07-20-s-work-remove-empty-sphere-call-001.md
+
 END_OF_FILE: live/indie-game-development/LOG.md
