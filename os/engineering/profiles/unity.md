@@ -39,9 +39,10 @@ First created 2026-06-13 (GasCoopGame setup, indie-game-development/g-9c41). For
   headless `dotnet test`. A **self-written source-text scanner/parser** over `.cs` / `.shader` /
   `.hlsl` is FORBIDDEN as behavior evidence — it proves text-presence, not rendering — and a negative
   control / property test never attaches to it (hardening a scanner is the arms-race engine). The
-  dependency-boundary gate stays the real headless COMPILE (§4), which EXECUTES, not a scan. Unity MCP
-  dropped / Editor not launched ⇒ STOP and ask the owner to launch it (contract v16), never a scan
-  stand-in.
+  dependency-boundary gate stays the real headless COMPILE (§4), which EXECUTES, not a scan. Commit raw
+  `tests-run`/query JSON with proof id/required actor and an exact manifest of product/test dependency blobs, selection and Unity/package/project identity; the gate derives that scope from frozen/repo authority and recomputes it.
+  Equal manifests reuse valid JSON across merges and process changes; changed inputs or missing/invalid JSON owe a new run.
+  MCP/Editor unavailable STOPs only when that run is owed; never use a scan stand-in.
 
 - **Contract v24 mutation scope:** `-Deliver` independently derives changed `Assets/<Game>/Core/**/*.cs` files from the authoritative review diff and fails before score comparison if any is absent from the report's normalized explicit `scopeFiles`. The fresh reviewer derives that scope and runs mutation; builder-authored globs/reports/scores are not evidence. The runner derives exact file inputs from the diff and defaults concurrency to `min(24, max(4, floor(logicalProcessors / 2)))` (explicit override recorded). Scope is file-scoped, not line-scoped: a touched hot core file is mutated whole and may still take a long time.
 

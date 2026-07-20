@@ -177,8 +177,8 @@ ceiling only after the corresponding obligations are proved removed.
 | X45 | Narrative prose cannot close a leg; gates plus attached evidence do. | `os/engineering/CONTOUR.md:333` |
 | X46 | Review filename id matches the triggering change folder. | `os/engineering/VALIDATION.md:11` |
 | X47 | `reviewed-commit` is an ancestor of delivered HEAD. | `os/engineering/VALIDATION.md:11` |
-| X48a | Product review stales only when an exact product-input manifest entry changes. | `os/engineering/VALIDATION.md:3` |
-| X48b | Every post-review `fixed <commit>` resolves and accounts for a changed product input. | `os/engineering/VALIDATION.md:3` |
+| X48a | A product proof is reused only for the same obligation while its exact evidence inputs match. | `os/engineering/VALIDATION.md:3` |
+| X48b | Every post-review `fixed <commit>` resolves and accounts for a changed review input. | `os/engineering/VALIDATION.md:3` |
 | X49 | Every review finding records a concrete `file:line` site. | `os/engineering/VALIDATION.md:11` |
 | X50 | A class-sibling site inside the diff fails as an anti-dodge. | `os/engineering/VALIDATION.md:11` |
 | X51 | Every refuted finding carries a verification marker. | `os/engineering/VALIDATION.md:11` |
@@ -281,7 +281,7 @@ Each row must be answered independently `addressed | n/a because <reason>`.
 | E17 | Mutation report with normalized scope, score and concurrency. | `os/engineering/VALIDATION.md:25` |
 | E18 | Mutation `I/B/H` and `removedFiles` metadata. | `os/engineering/VALIDATION.md:27` |
 | E19 | Full-suite gate output. | `os/engineering/VALIDATION.md:74` |
-| E20 | Executed end-to-end run artifact. | `os/engineering/VALIDATION.md:76` |
+| E20 | Valid raw venue-run artifact with proof identity and exact evidence-input manifest. | `os/engineering/VALIDATION.md:3,76` |
 | E21 | `docs/reviews/review-<id>.md`. | `os/engineering/CONTOUR.md:212` |
 | E22 | Cumulative `docs/reviews/REFUTED.md`. | `os/engineering/CONTOUR.md:219` |
 | E23 | Per-fixed-finding class sweep record. | `os/engineering/CONTOUR.md:248` |
@@ -311,7 +311,7 @@ Each row must be answered independently `addressed | n/a because <reason>`.
 | U10 | Engine deliverable has a non-trivial committed/run existence proof. | `os/engineering/profiles/unity.md:26` |
 | U11 | Engine behaviour is proved by EditMode/PlayMode or live MCP. | `os/engineering/profiles/unity.md:34` |
 | U12 | Observable look is confirmed by owner-eye. | `os/engineering/profiles/unity.md:38` |
-| U13 | Unavailable Unity MCP/Editor triggers STOP. | `os/engineering/profiles/unity.md:43` |
+| U13 | Unavailable Unity MCP/Editor STOPs only when no reusable exact-input artifact exists. | `os/engineering/profiles/unity.md:43` |
 | U14 | Every tracked new `Assets/**/*.cs` has tracked `.cs.meta`. | `os/engineering/profiles/unity.md:67` |
 | U15 | Orphan `.cs.meta` fails hygiene. | `os/engineering/profiles/unity.md:69` |
 | U16 | Mutation scope derives changed `Assets/<Game>/Core/**/*.cs`. | `os/engineering/profiles/unity.md:46` |
