@@ -1,6 +1,6 @@
 # NOW: indie-game-development
 
-updated: 2026-07-20 by s-cartography-g-d3a8-post-gas-behavior-admission-front-001
+updated: 2026-07-20 by s-repair-build-tooling-parking-001
 
 bet: null
 
@@ -10,7 +10,6 @@ track_wip_limit: 9
 
 tracks:
   - {id: program, label: "Integration Lab & Product Proof", mode: primary, for: g-9c41}
-  - {id: build-tooling, label: "Build & Tooling", mode: parallel, for: g-c5d1}
   - {id: level, label: "Level & Environment", mode: parallel, for: g-8f20}
   - {id: canon, label: "Design & Canon", mode: parallel, for: g-d3a8}
   - {id: visual, label: "Presentation", mode: parallel, for: g-7e15}

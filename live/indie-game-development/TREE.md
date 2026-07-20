@@ -1,6 +1,6 @@
 # Goal tree: indie-game-development
 
-owner_approved: 2026-07-20 — history/2026-07-20-s-map-program-v2-hot-migration-route-001.md
+owner_approved: 2026-07-20 — history/2026-07-20-s-map-program-v2-hot-migration-route-001.md; 2026-07-20 — history/2026-07-20-s-repair-build-tooling-parking-001.md («припаркую», g-c5d1 parked)
 
 - id: g-a7f2
   goal: Выпущенная в Steam коммерческая co-op игра строится вокруг gas + grid, изменения пространства и экспедиционной игры; продукт технически силён, понятен игрокам и приносит реальный доход.
@@ -64,8 +64,8 @@ owner_approved: 2026-07-20 — history/2026-07-20-s-map-program-v2-hot-migration
       goal: "Build & Tooling: version, build, validators и shared tooling воспроизводимо снимают конкретные cross-track blockers."
       done_when: Каждый bounded task имеет named product consumer, first-hand proof и не создаёт отдельную техническую authority.
       why: Общие инструменты нужны как сервис продукту, а не как бесконечный самостоятельный roadmap.
-      status: parallel
-      detail: Standalone .NET Gates retired; current root c-shape-program-v2-v30-entry-001.
+      status: parked
+      detail: Standalone .NET Gates retired; V30 route superseded by installed V31; no live root, wake only for a concrete named product consumer → history/2026-07-20-s-repair-build-tooling-parking-001.md.
 
     - id: g-2f8c
       goal: "Marketing & Audience: реальные product proofs превращаются в позиционирование, storefront, публикации, аудиторию и коммерческий signal."

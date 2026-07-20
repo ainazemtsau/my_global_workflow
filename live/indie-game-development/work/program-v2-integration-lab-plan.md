@@ -240,7 +240,8 @@ Conflict Guard review до запуска.
 
 Назначение: устранять конкретные общие workflow/version/build blockers.
 
-Текущее состояние: standalone `.NET Gates` retired; V30 entry проверен и superseded current V31 authority.
+Текущее состояние: parked в live routing после проверки V30 entry; standalone `.NET Gates` retired,
+V30 superseded current V31 authority. Пробуждение только от конкретного named product consumer.
 
 Осталось для текущей сцены:
 
