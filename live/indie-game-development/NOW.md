@@ -1,98 +1,42 @@
 # NOW: indie-game-development
-updated: 2026-07-19 by s-repair-g-d3a8-gas-behavior-admission-route-001
-bet:
-  node: g-9c41
-  goal: |
-    Доставленный NearGas L1a проверяемо наблюдаем через ровно пять internal observation families:
-    retry snapshot, fault injection, handler classification, kernel rows и loopback trace; observer не меняет authority, atomicity и deterministic Step.
-  appetite: |
-    3 focused days; владелец выбрал «а» 2026-07-16. Шесть задач по ≤0.5 focused day; продления нет.
-  kill_by: |
-    Automatic review 2026-07-24 или при исчерпании 3 focused days, что раньше. Kill без продления, если acceptance <5/5,
-    любая family требует cut capability, observer меняет L1a semantics/order/atomicity или fresh G5 опровергает любую family.
-  forecast: |
-    Ранний сигнал = L1B-Acceptance: 5/5 falsifiable positive/negative oracles на реальном L1a path без excluded dependency.
-    Ожидаем внутреннюю instrumentability + binding evidence за 6 half-day tasks, но не Unity/gameplay/M1 delivery.
-    Cross-bet 34+ route остаётся ledger, не cap; 24.07 остаётся контрольным review, не stop.
-    next_if_true: fresh review закрывает L1B только как internal instrumentability и возвращает владельцу выбор следующей ставки из route; нет automatic L2/C1/Unity launch.
-  against: |
-    Логи могут наблюдать суррогат, неоднозначно связывать retry/fault/handler или влиять на timing/order. Любой такой сигнал
-    переключает ставку в NOT MET/review; fake-harness обход запрещён.
-    next_if_false: L1a остаётся DELIVERED, v22 — FORBIDDEN; L1B закрывается NOT MET с названной failed family и возвращается на owner review без surrogate workaround.
-  cut_list: ["Нет L2 resource admission, work/memory bounds и performance ceiling.", "Нет C1 committed digest или новой checksum authority.", "Нет Unity cutover, debug UI и gameplay wiring.", "Нет workers/concurrency.", "Нет S4, Level/DA/PGG, common scene, real network и two-machine proof.", "Нет общего telemetry/export/persistence/replay framework."]
-  lens_verdicts:
-    commercial_traction: "not_needed: внешнего сигнала нет; это короткий capped технический мост к M1."
-    core_gameplay_depth: "not_needed: механики и player decisions не заявляются."
-    coop_first: "not_needed: loopback = internal diagnostic, не co-op evidence."
-    technical_feasibility: "L1B-Acceptance→L1B-G5: falsifiability, passive observer, deterministic integrated trace и fresh refutation."
-    scope_production: "L1B-Acceptance + L1B-G5: cuts проверяются до PLAN и на close."
-    audience_workflow: "not_needed: internal trace не объявляется публичным артефактом."
 
-tasks:
-  - id: L1B-Acceptance
-    goal: "[session] Frozen owner-approved child acceptance различает real L1a observability и surrogate evidence для 5/5 families."
-    done_when: "5/5 families имеют falsifiable positive/negative oracle; adversarial dry-run не требует cut capability; владелец принял artifact."
-    status: done
-  - id: L1B-PLAN
-    goal: "[executor] Owner-approved product PLAN фиксирует evaluator, rollback и disjoint observation ownership без authority/Unity/C1/L2 expansion."
-    done_when: "PLAN frozen по current v26 contract; владелец принял; next handoff соблюдает compiled-carrier/RED guards."
-    status: done
-  - id: L1B-Capture
-    goal: "[executor] Retry snapshot и fault injection дают стабильное пассивное наблюдение реального L1a path."
-    done_when: "Genuine RED ловит retry/fault planted controls; delivery не меняет L1a result/order/atomicity."
-    status: done
-  - id: L1B-Classify
-    goal: "[executor] Handler classification и kernel rows однозначно связывают attempt/generation/phase."
-    done_when: "Planted misclassification ловится; rows коррелируются без C1 digest и authority change."
-    status: open
-  - id: L1B-Trace
-    goal: "[executor] Loopback trace сводит 5/5 families в один детерминированный internal scenario."
-    done_when: "Trace различает agree/planted divergence и не заявляет real-network, gameplay или M1 delivery."
-    status: open
-  - id: L1B-G5
-    goal: "[session] Fresh binding refutation даёт честный verdict по 5/5 families, passive-observer invariant и cuts."
-    done_when: "Separate fresh review reruns first-hand gates, пытается опровергнуть каждую family и закрывает только по 5/5 + scope GREEN."
-    status: open
+updated: 2026-07-20 by s-map-program-v2-hot-migration-route-001
 
-track_wip_limit: 6
+bet: null
+
+tasks: []
+
+track_wip_limit: 9
+
 tracks:
-  - {id: core, label: "NearGas — ядро игры", mode: primary, for: g-9c41}
-  - {id: program, label: "Программа и интеграционный стенд", mode: parallel, for: "g-a7f2 / Program v2 hot migration and Integration Lab control plane"}
-  - {id: level, label: "Уровни, модули и генераторы", mode: parallel, for: "local: Level/DA/PGG Standard v1"}
-  - {id: canon, label: "Геймдизайн и канон", mode: parallel, for: g-d3a8}
-  - {id: damage, label: "Газовый урон — Sc-damage", mode: parallel, for: "local: Sc-damage"}
-  - {id: visual, label: "Визуал и движение газа", mode: parallel, for: g-7e15}
-  - {id: marketing, label: "Маркетинг и аудитория", mode: parallel, for: g-2f8c}
-  - {id: characters, label: "Игровые персонажи", mode: parallel, for: g-6d4e}
-  - {id: dotnet-gates, label: "Локальный запуск проверок .NET — пауза", mode: parallel, for: "local: cross-platform .NET repository-gate runner prerequisite"}
+  - {id: program, label: "Integration Lab & Product Proof", mode: primary, for: g-9c41}
+  - {id: build-tooling, label: "Build & Tooling", mode: parallel, for: g-c5d1}
+  - {id: level, label: "Level & Environment", mode: parallel, for: g-8f20}
+  - {id: canon, label: "Design & Canon", mode: parallel, for: g-d3a8}
+  - {id: visual, label: "Presentation", mode: parallel, for: g-7e15}
+  - {id: marketing, label: "Marketing & Audience", mode: parallel, for: g-2f8c}
+  - {id: characters, label: "Character & Gameplay Contact", mode: parallel, for: g-6d4e}
 
 open_calls:
-  - id: c-map-program-v2-hot-migration-route-001
-    track: program
+  - id: c-shape-program-v2-v30-entry-001
+    track: build-tooling
     status: ready
     to: session
-    for: "g-a7f2 / owner-approved Program v2 track map and staged Integration Lab route"
-    issued: 2026-07-19
-    call: work/c-map-program-v2-hot-migration-route-001-call.md
-    note: "READY / DEFAULT / OWNER-PRESENT MAP. Turn the accepted soft migration and repaired live inventory into one owner-approved Program v2 track map with staged Integration Lab outcomes, explicit unlock/dependency/ownership rules and a lawful WIP rollout. No product work, V30 re-sync, frozen-root rewrite or automatic product CALL."
-  - id: c-exec-unity65-mac-revision-002-build-001
-    track: dotnet-gates
-    status: paused
-    to: executor
-    for: "g-9c41 / local .NET gate runner prerequisite"
-    issued: 2026-07-12
-    call: work/c-exec-unity65-mac-revision-002-build-001-call.md
-    paused_by: history/2026-07-17-s-repair-near-gas-l1b-track-rebase-001.md
-    note: "Preserved non-priority legacy CALL; resume only after pre-v21 refs reconcile to current authority and a fresh full-packet check → history/2026-07-12-s-repair-unity65-mac-revision-002-route-001.md."
+    for: "g-c5d1 / current-authority V30 entry and re-sync decision"
+    issued: 2026-07-20
+    call: work/c-shape-program-v2-v30-entry-001-call.md
+    note: "READY / DEFAULT / SHAPE ONLY. Prove current V29/V30/product truth. Return exactly one lawful no-feature re-sync:30 CALL, or an evidence-backed skip with bounded Integration/Gas/Grid shape choices. No product mutation, Level review, Character relaunch or legacy .NET Gates track."
+
   - id: c-exec-level-module-standard-v1-lv0-plan-001
     track: level
     status: waiting
     waiting_on: [direction-review-receipt-b1698170]
     to: executor
-    for: "g-9c41 / parallel owner-present Level/Module Standard v1 LV0 PLAN"
+    for: "g-8f20 / inherited Level LV0 PLAN Direction receipt"
     issued: 2026-07-16
     call: work/c-exec-level-module-standard-v1-lv0-plan-001-call.md
-    note: "WAITING / PRODUCT PLAN RELEASED, DIRECTION CLOSE MISSING. Product LV0 PLAN evidence exists at b16981706ece53c584848255de2bd92675b5de7b; do not relaunch the frozen PLAN CALL. The level root stays open until a separate binding Direction review/receipt reconciles the exact HOME against this CALL. Aperture RED 5af1d8db931d10cc6149a2c1f8e1023bc3b9ffb1 remains preserved and BUILD-unissued for later V30 compatibility-check/re-admission."
+    note: "WAITING / DO NOT RELAUNCH. Product LV0 PLAN evidence exists at b16981706ece53c584848255de2bd92675b5de7b, but binding Direction close is missing. When the owner activates Level, first reconcile exact HOME, current V30 and product truth; preserved aperture RED 5af1d8db931d10cc6149a2c1f8e1023bc3b9ffb1 remains evidence, not permission to issue BUILD."
+
   - id: c-cartography-g-d3a8-post-gas-behavior-admission-front-001
     track: canon
     status: ready
@@ -102,53 +46,52 @@ open_calls:
     call: work/c-cartography-g-d3a8-post-gas-behavior-admission-front-001-call.md
     receipts:
       - history/2026-07-19-s-repair-g-d3a8-gas-behavior-admission-route-001.md
-    note: "READY / CARTOGRAPHY ONLY / SAME CANON TRACK. c-002 is admitted; v2 still names the resolved gas-behavior question as NEXT. Reconcile the map, explicitly account for preserved floor-loop findings, and show the owner 2–3 plain-language next-question options. No automatic design answer, canon mutation, greybox or implementation."
-  - id: c-shape-sc-damage-001
-    track: damage
-    status: paused
-    to: session
-    for: Sc-damage
-    issued: 2026-07-09
-    call: work/c-shape-sc-damage-call.md
-    paused_by: history/2026-07-17-s-work-characters-resume-a1.md
-    note: "Owner paused this mechanically preserved legacy frontier. Its v19/base/canon assumptions are stale; a separate review should retire or rehome it without deleting the future damage obligation from core SPEC/knowledge."
+    note: "READY / CARTOGRAPHY ONLY / SAME WORKING CANON PROCESS. c-002 is admitted; reconcile the stale question map, preserve floor-loop findings and return 2–3 plain-language next-question options. No automatic design answer, canon mutation, greybox or implementation."
+
   - id: c-visual-009
     track: visual
     status: blocked
     to: executor
-    for: "g-7e15 / preserved visual motion work"
+    for: "g-7e15 / inherited visual motion work"
     issued: 2026-07-10
     call: work/c-visual-009-movement-data-plan-call.md
-    unblock_when: "M0+C1+L3+I1 are delivered/reviewed and immutable per-Step data exists; later visuals also require E1/D1/X1."
+    unblock_when: "A fresh V30/Conflict Guard review proves that the legacy prerequisites and read-model contract still match current product authority; the old M0+C1+L3+I1 wording alone is not permission to launch."
+    note: "BLOCKED / LEGACY ROOT. Presentation remains mapped, but c-visual-009 must be reconciled against current V30/product truth before any dispatch."
+
   - id: c-marketing-wake-001
     track: marketing
     status: paused
     to: session
-    for: "g-2f8c / minimal marketing wake"
+    for: "g-2f8c / minimal Marketing & Audience wake"
     issued: 2026-07-11
     call: work/marketing/claude-code-handoff-c-marketing-wake-001-2026-07-12.md
     paused_by: history/2026-07-17-s-work-characters-resume-a1.md
-    note: "Paused in the owner-approved marketing→characters WIP swap. On a later resume, start from the committed INOMAND checkpoint and first reconcile stale-route finding dr-20260712-001."
+    note: "PAUSED BY OWNER-CONTROLLED LOAD. On resume, keep the existing marketing-forge internals and first reconcile stale-route finding dr-20260712-001; accepted product proof comes from Integration/Presentation."
+
   - id: c-exec-char-v2-body-rig-ragdoll-build-001
     track: characters
     status: waiting
     waiting_on: [product-task-019f73c8-8fb0-7633-812f-ed45acc19af6]
     to: executor
-    for: "g-6d4e / В2 Leg 2 — rig + procedural locomotion + cosmetic PuppetMaster ragdoll + character material"
+    for: "g-6d4e / V2 Leg 2 — rig + procedural locomotion + cosmetic PuppetMaster ragdoll + character material"
     issued: 2026-07-14
     call: work/c-exec-char-v2-body-rig-ragdoll-build-001-call.md
-    receipts: [history/2026-07-17-s-work-char-v2-reaction-core-repair-002-admission-blocked-001.md, history/2026-07-18-s-work-char-v2-published-handback-release-route-001.md, history/2026-07-18-s-review-char-v2-published-handback-release-001.md]
-    note: "WAITING / PRODUCT REVIEW-CLOSING IN PROGRESS. Task 019f73c8-8fb0-7633-812f-ed45acc19af6 has built the Leg 2 code/art/evidence and reports fresh G4 MET; do not dispatch this frozen CALL again. It currently waits for the owner's live LOOK, then binding G5, product RESULT/Deliver and a valid Direction close. The legacy lineage keeps its issued contract; it does not gate V30, but its later shared-dev integration remains serialized after the active L1B control lineage."
+    receipts:
+      - history/2026-07-17-s-work-char-v2-reaction-core-repair-002-admission-blocked-001.md
+      - history/2026-07-18-s-work-char-v2-published-handback-release-route-001.md
+      - history/2026-07-18-s-review-char-v2-published-handback-release-001.md
+    note: "WAITING / PRODUCT REVIEW-CLOSING IN PROGRESS. Do not dispatch this frozen CALL again. It waits for owner LOOK, binding G5, product RESULT/Deliver and valid Direction close. A future Player Simulation / Actor Layer is fresh V30 work and cannot expand this lineage retroactively."
 
 recurring: []
 
 decisions:
   - id: d-m1-min-spec-hardware-001
-    track: core
-    q: "d-m1-min-spec-hardware-001 — какое конкретное слабое железо становится binding min-spec финального прогона М1?"
+    track: program
+    q: "d-m1-min-spec-hardware-001 — какое конкретное слабое железо становится binding min-spec финального прогона M1?"
     options: ["Доступная физическая машина", "Точный CPU/GPU/RAM-класс с арендой/покупкой к финалу", "Только throttled-прокси — финал не закрывает"]
-    recommendation: "Доступная физическая машина; газ CPU-bound, поэтому CPU должен быть назван явно."
+    recommendation: "Доступная физическая машина; gas simulation CPU-bound, поэтому CPU должен быть назван явно."
+
 next:
-  call: c-map-program-v2-hot-migration-route-001
+  call: c-shape-program-v2-v30-entry-001
 
 END_OF_FILE: live/indie-game-development/NOW.md
