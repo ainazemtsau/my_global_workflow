@@ -1,6 +1,6 @@
 # NOW: indie-game-development
 
-updated: 2026-07-20 by s-work-program-v2-legacy-lab-purge-deliver-blocked-001
+updated: 2026-07-20 by s-work-grid-current-authority-audit-cross-track-checkpoint-001
 
 bet: null
 
@@ -84,16 +84,17 @@ open_calls:
       - history/2026-07-18-s-review-char-v2-published-handback-release-001.md
     note: "WAITING / PRODUCT REVIEW-CLOSING IN PROGRESS. Do not dispatch this frozen CALL again. It waits for owner LOOK, binding G5, product RESULT/Deliver and valid Direction close. A future Player Simulation / Actor Layer is fresh V31 work and cannot expand this lineage retroactively."
 
-  - id: c-work-grid-current-authority-audit-001
+  - id: c-work-grid-current-authority-audit-verdict-001
     track: grid
     status: ready
     to: session
-    for: "g-4b92 / current-authority Grid audit and quality-first master-plan front"
+    for: "g-4b92 / owner verdict on saved current-authority Grid audit and hybrid legacy-first planning front"
     issued: 2026-07-20
-    call: work/c-work-grid-current-authority-audit-001-call.md
+    call: work/c-work-grid-current-authority-audit-verdict-001-call.md
     receipts:
       - history/2026-07-20-s-map-grid-track-resume-001.md
-    note: "READY / DEFAULT / PREPARATION ONLY. Reconcile fresh product Grid/Layers/World Change truth, Object ↔ Layer and separate aperture debt; classify Wind and multiplayer seams; return owner-readable audit plus bounded planning choices. No BUILD, stubs, Water/Wind implementation or Integration Lab mutation. Quality first: internal parallel work only after common contracts are frozen; Grid is prioritized ahead of dependent feature tracks."
+      - history/2026-07-20-s-work-grid-current-authority-audit-cross-track-checkpoint-001.md
+    note: "READY / DEFAULT / OWNER-PRESENT / PREPARATION ONLY. Full draft audit and the owner's simple temporary cross-track recovery file are saved. Owner must explicitly accept/correct factual findings and separately accept/defer the hybrid legacy-first route; prior `ok` accepted only the file mechanism. No BUILD, product work, aperture repair, Wind/Water stub, Multiplayer track or Integration Lab mutation."
 
 recurring: []
 
@@ -105,6 +106,6 @@ decisions:
     recommendation: "Доступная физическая машина; gas simulation CPU-bound, поэтому CPU должен быть назван явно."
 
 next:
-  call: c-work-grid-current-authority-audit-001
+  call: c-work-grid-current-authority-audit-verdict-001
 
 END_OF_FILE: live/indie-game-development/NOW.md
