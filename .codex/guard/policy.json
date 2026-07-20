@@ -5,6 +5,7 @@
   "product_repos": [
     "C:/projects/Unity/GasCoopGame"
   ],
+  "product_write_ack_pattern": "owner_ack_product_write:slot-release-repair-2026-07-20",
   "allowed_product_git_verbs": [
     "status",
     "diff",
