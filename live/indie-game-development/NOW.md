@@ -18,14 +18,14 @@ tracks:
   - {id: characters, label: "Character & Gameplay Contact", mode: parallel, for: g-6d4e}
 
 open_calls:
-  - id: c-shape-program-v2-v30-entry-001
-    track: build-tooling
+  - id: c-shape-program-v2-integration-lab-entry-001
+    track: program
     status: ready
     to: session
-    for: "g-c5d1 / current-authority V30 entry and re-sync decision"
+    for: "g-9c41 / choose one common Integration Lab entry without duplicating the planned NearGas lab"
     issued: 2026-07-20
-    call: work/c-shape-program-v2-v30-entry-001-call.md
-    note: "READY / DEFAULT / SHAPE ONLY. Prove current V29/V30/product truth. Return exactly one lawful no-feature re-sync:30 CALL, or an evidence-backed skip with bounded Integration/Gas/Grid shape choices. No product mutation, Level review, Character relaunch or legacy .NET Gates track."
+    call: work/c-shape-program-v2-integration-lab-entry-001-call.md
+    note: "READY / DEFAULT / SHAPE ONLY. Current product is lawfully on V31; the historical V30 route is superseded and needs no re-sync. Reconcile common Lab ownership against planned NearGasSimulationLab before any scene, PLAN or BUILD. No product mutation or new feature task."
 
   - id: c-exec-level-module-standard-v1-lv0-plan-001
     track: level
@@ -35,7 +35,7 @@ open_calls:
     for: "g-8f20 / inherited Level LV0 PLAN Direction receipt"
     issued: 2026-07-16
     call: work/c-exec-level-module-standard-v1-lv0-plan-001-call.md
-    note: "WAITING / DO NOT RELAUNCH. Product LV0 PLAN evidence exists at b16981706ece53c584848255de2bd92675b5de7b, but binding Direction close is missing. When the owner activates Level, first reconcile exact HOME, current V30 and product truth; preserved aperture RED 5af1d8db931d10cc6149a2c1f8e1023bc3b9ffb1 remains evidence, not permission to issue BUILD."
+    note: "WAITING / DO NOT RELAUNCH. Product LV0 PLAN evidence exists at b16981706ece53c584848255de2bd92675b5de7b, but binding Direction close is missing. When the owner activates Level, first reconcile exact HOME, current V31 and product truth; preserved aperture RED 5af1d8db931d10cc6149a2c1f8e1023bc3b9ffb1 remains evidence, not permission to issue BUILD."
 
   - id: c-forge-g-d3a8-visual-contract-001
     track: canon
@@ -54,8 +54,8 @@ open_calls:
     for: "g-7e15 / inherited visual motion work"
     issued: 2026-07-10
     call: work/c-visual-009-movement-data-plan-call.md
-    unblock_when: "A fresh V30/Conflict Guard review proves that the legacy prerequisites and read-model contract still match current product authority; the old M0+C1+L3+I1 wording alone is not permission to launch."
-    note: "BLOCKED / LEGACY ROOT. Presentation remains mapped, but c-visual-009 must be reconciled against current V30/product truth before any dispatch."
+    unblock_when: "A fresh V31/Conflict Guard review proves that the legacy prerequisites and read-model contract still match current product authority; the old M0+C1+L3+I1 wording alone is not permission to launch."
+    note: "BLOCKED / LEGACY ROOT. Presentation remains mapped, but c-visual-009 must be reconciled against current V31/product truth before any dispatch."
 
   - id: c-marketing-wake-001
     track: marketing
@@ -79,7 +79,7 @@ open_calls:
       - history/2026-07-17-s-work-char-v2-reaction-core-repair-002-admission-blocked-001.md
       - history/2026-07-18-s-work-char-v2-published-handback-release-route-001.md
       - history/2026-07-18-s-review-char-v2-published-handback-release-001.md
-    note: "WAITING / PRODUCT REVIEW-CLOSING IN PROGRESS. Do not dispatch this frozen CALL again. It waits for owner LOOK, binding G5, product RESULT/Deliver and valid Direction close. A future Player Simulation / Actor Layer is fresh V30 work and cannot expand this lineage retroactively."
+    note: "WAITING / PRODUCT REVIEW-CLOSING IN PROGRESS. Do not dispatch this frozen CALL again. It waits for owner LOOK, binding G5, product RESULT/Deliver and valid Direction close. A future Player Simulation / Actor Layer is fresh V31 work and cannot expand this lineage retroactively."
 
 recurring: []
 
@@ -91,6 +91,6 @@ decisions:
     recommendation: "Доступная физическая машина; gas simulation CPU-bound, поэтому CPU должен быть назван явно."
 
 next:
-  call: c-shape-program-v2-v30-entry-001
+  call: c-shape-program-v2-integration-lab-entry-001
 
 END_OF_FILE: live/indie-game-development/NOW.md
