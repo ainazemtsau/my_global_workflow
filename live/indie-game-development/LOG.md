@@ -417,4 +417,6 @@ archived: history/LOG-archive-indie-game-development.md — sessions before 2026
 
 2026-07-20 · s-work-grid-object-layer-resolver-handoff-001 · work · program · g-4b92/object-layer-resolver-handoff: a self-contained Grid/Layers planning brief now records the Object ↔ Layer Resolver problem, ownership, performance/determinism boundaries, Gas/Multiplayer dependencies and a hard no-Water/no-Wind-scope guard. → history/2026-07-20-s-work-grid-object-layer-resolver-handoff-001.md
 
+2026-07-20 — local/canon-forge paper verdict (g-d3a8/V0 visual-development contract, s-forge-g-d3a8-visual-contract-001): owner verdict «ПРИНИМАЮ ЭТОТ ПРОЦЕСС» selected the plain text → comparable visual series → feedback → explicit rules → inherited references workflow as an OWNER-SELECTED PAPER ANSWER; accidental details/placeholders remain non-binding, old environment material remains historical, old gas visuals remain invalid, no images or canon mutation occurred, and a separate canon-admission CALL was issued. → history/2026-07-20-s-forge-g-d3a8-visual-contract-001.md
+
 END_OF_FILE: live/indie-game-development/LOG.md
