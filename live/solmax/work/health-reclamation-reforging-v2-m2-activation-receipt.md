@@ -4,7 +4,7 @@ applied_at: 2026-07-17
 direction: solmax
 activation_scope_id: solmax/hr-m2-first-live-v1
 apply_disposition: applied
-lifecycle_status: TEST_MODE_ACTIVE_AWAITING_OWNER_ACCEPTANCE
+lifecycle_status: OWNER_ACCEPTED_READY_TO_EXIT_TEST_MODE
 effective_definition: 4ed9cd1542ce8d6bf327b7aba443db759b77f92b
 closing_evidence_only: d4c22f4903eb5b2ea7ccecb4b577084be522d66f
 definition_tree: a6a44173df821892cf6ee64736ca77e5505e7fbc
@@ -182,17 +182,19 @@ usefulness verdict.
   path leaves test mode and t-7 pending until the owner explicitly accepts.
 - Private writer: intentionally absent; any capture request remains
   `not-saved` and returns a private portable continuation.
-- t-7: final owner acceptance. It closes only when the owner explicitly says
-  the process works, satisfies him and may leave test mode; a fresh review then
-  records separate structural, owner-usefulness and reuse verdicts.
+- t-7: closed by the owner's 2026-07-20 final acceptance after self-directed
+  testing. The private Project's visible test label/instruction was not edited
+  by this review; this receipt records readiness to leave test mode, not a
+  hidden carrier configuration change.
 - Recurring reliability and demonstrated substrate reuse: NOT_YET_PROVEN.
 - M3: unopened; it still requires a separate PLAN, full A3/A4/A5 packet and
   owner decisions.
 
-Next legitimate action: self-directed real use in the private Project. The
-owner returns only when he has feedback to correct or is ready to give the t-7
-final verdict. This receipt plus the exact effective definition and any private
-portable continuation are sufficient to resume without the prior activation
-transcript. No personal continuation is stored here.
+Next legitimate action: an owner-supplied next SolMax candidate is selected in
+a new session. Health Reclamation remains bounded to the exact effective
+definition and retained limits above. This receipt plus the exact effective
+definition and any private portable continuation are sufficient to resume
+without the prior activation transcript. No personal continuation is stored
+here.
 
 END_OF_FILE: live/solmax/work/health-reclamation-reforging-v2-m2-activation-receipt.md

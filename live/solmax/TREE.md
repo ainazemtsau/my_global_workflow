@@ -10,6 +10,7 @@ owner_approved:
     - '2026-07-06: owner approved pausing Zaratusta live-use/product repair and routing to a new reusable operating-substrate architecture node. Owner words: "Заратустра ставится в блок ... мы переключаемся вот на этот режим ... сначала ... надо вот архитектуру, где она применяется, как там с ней работать ... в новой сессии ... начали ... над новой нодой."'
     - '2026-07-06: owner approved option A for umbrella placement repair. Owner words: "Option A". TREE root becomes g-solmax; existing Zaratusta tree moves under g-zara as first product/application branch; g-operating-substrate is added as a parked sibling architecture/spec route.'
     - '2026-07-12: owner approved g-operating-substrate-first-process-creator as the complete bounded first Process Creator bootstrap and active bet. Appetite B means 3 focused execution days without cutting mandatory bounded functionality. Owner words: "A".'
+    - '2026-07-20: owner approved closing the first Process Creator bet after self-directed testing. Owner words: "сейчас больше удовлетворяет" and "Я хочу, чтобы мы закрыли задачи ... чтобы я в ChatGPT, в проекте SolMax, смог обсудить новую задачу". The review records the late close as dropped, not a deadline PASS.'
 
 tree_validity:
   state: solmax_umbrella_placement_approved
@@ -203,7 +204,7 @@ root:
         first consumer/failure-case and evidence source.
       children:
         - id: g-operating-substrate-first-process-creator
-          status: active
+          status: dropped  # 2026-07-20 review: kill_by was 2026-07-17; G3 has no extension.
           appetite: 3 focused execution days
           kill_by: |
             metric: |
