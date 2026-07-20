@@ -293,22 +293,22 @@
           <a href="../program-v2-track-handoff-template.md">Handoff</a>
         </nav>
       </div>
-      <div class="updated">Обновлено 20 июля 2026<br>по RESULT s-repair-build-tooling-parking-001</div>
+      <div class="updated">Обновлено 20 июля 2026<br>по RESULT s-shape-program-v2-integration-lab-entry-001</div>
     </header>
 
     <main>
       <section class="summary" aria-label="Текущий статус">
         <article class="panel">
           <span class="label">Текущий milestone</span>
-          <strong class="big">M1 — версия для нового старта подтверждена</strong>
+          <strong class="big">M2 — граница одной постоянной Lab утверждена</strong>
           <p class="muted">Приняты 2 из 10 milestones. Это счёт результатов, не процент готовности игры.</p>
         </article>
 
         <article class="panel next">
           <span class="label">Следующий шаг</span>
-          <strong class="big">M2 — договориться, что именно будет общей сценой</strong>
-          <p><a href="../c-shape-program-v2-integration-lab-entry-001-call.md">Открыть default CALL</a></p>
-          <p class="muted small">Только shape: решить, как общий стенд соотносится с планируемым газовым стендом. Без изменений игры.</p>
+          <strong class="big">Read-only аудит перед очисткой старых сцен</strong>
+          <p><a href="../c-audit-program-v2-legacy-lab-surface-001-call.md">Открыть default CALL</a></p>
+          <p class="muted small">Только inventory и DELETE / KEEP / BLOCKED. Без Unity, тестов, удаления, PLAN или продуктовых правок.</p>
         </article>
 
         <article class="panel">
@@ -325,7 +325,7 @@
       </section>
 
       <aside class="note">
-        <strong>Открытых принятых конфликтов сейчас нет.</strong> Проверка версии закончена: V31 уже применена к продукту, а старый маршрут V30 больше не нужен. Перед созданием общей сцены надо только сверить её с уже запланированным газовым стендом; любое расхождение помечается <strong>CONFLICT / NEEDS RECONCILIATION</strong>.
+        <strong>Граница сцены принята, но product authority требует reconciliation.</strong> В продукте пока нет ни готовой IntegrationLab, ни NearGasSimulationLab, а текущий Gas PROGRAM ещё планирует отдельный газовый стенд и временное retention старых сцен. Аудит должен назвать точные конфликтующие clauses и зависимости до любого purge; неизвестная зависимость получает <strong>BLOCKED</strong>, а не догадку.
       </aside>
 
       <section id="board">
@@ -334,12 +334,12 @@
         </div>
         <article class="panel next">
           <span class="label">READY · основная работа</span>
-          <strong>Выбрать один общий вход в тестовую сцену</strong>
-          <p><code>c-shape-program-v2-integration-lab-entry-001</code></p>
-          <p><b>Что это:</b> короткая проверка, будет ли общий стенд отдельной оболочкой, частью будущего газового стенда или требуется согласование.</p>
-          <p><b>Зачем:</b> чтобы не создать две сцены, которые решают одну задачу по-разному.</p>
-          <p><b>Где сейчас:</b> версия V31 уже установлена; сама сцена ещё не создаётся.</p>
-          <p><b>Что дальше:</b> после решения появится ровно один маленький продуктовый шаг — либо честный blocker.</p>
+          <strong>Провести read-only аудит старых lab/demo scenes</strong>
+          <p><code>c-audit-program-v2-legacy-lab-surface-001</code></p>
+          <p><b>Что это:</b> точный inventory сцен, их scene-only компонентов и всех текущих consumers с verdict DELETE / KEEP / BLOCKED.</p>
+          <p><b>Зачем:</b> начать одну постоянную Integration Lab без мусора, но не удалить действующую authority или validator.</p>
+          <p><b>Где сейчас:</b> владелец утвердил одну Lab, реальные gameplay paths и минимум debug; продукт не менялся.</p>
+          <p><b>Что дальше:</b> audit HOME разрешит отдельный owner-present purge PLAN либо вернёт один точный blocker.</p>
         </article>
         <article class="panel" style="margin-top:14px">
           <span class="label">READY · Геймдизайн и канон</span>
@@ -362,8 +362,8 @@
 
       <section id="problems">
         <div class="section-head">
-          <div><div class="eyebrow">Проблемы</div><h2>Открытые находки, не относящиеся к новой общей сцене</h2></div>
-          <p>Ни одна из них не является разрешением начать или остановить M2.</p>
+          <div><div class="eyebrow">Проблемы</div><h2>Открытые находки вне текущего purge-аудита</h2></div>
+          <p>Ни одна из них не расширяет audit и не разрешает продуктовые изменения.</p>
         </div>
         <div class="panel">
           <ul class="remaining">
@@ -383,6 +383,8 @@
           <details open>
             <summary><strong>20 июля</strong></summary>
             <ul class="remaining">
+              <li>Утверждена одна постоянная Integration Lab: generated Level profiles, реальные gameplay paths и только минимально нужный debug. Отдельные постоянные track labs не принимаются автоматически.</li>
+              <li>First-hand проверка нашла 12 разрозненных product scenes, но не готовую IntegrationLab или NearGasSimulationLab; следующим открыт только read-only purge-аудит.</li>
               <li>Установлена Program v2 карта: направления, общий план, handoff и панель.</li>
               <li>Проверено, что V30 уже заменена применённой V31; вместо повторной установки выбран следующий shape общего entry point.</li>
               <li>Карта canon-вопросов v3 принята: c-002 resolved/admitted, прежний visual gas недействителен, а следующий шаг определяет правила безопасной AI-визуализации без выбора конкретного стиля или изображения.</li>
@@ -418,7 +420,7 @@
         <div class="milestones">
           <article class="milestone complete"><div class="check">✓</div><div><b>M0. Program map</b><span>Направления, владельцы, handoff, Conflict Guard и dashboard.</span></div></article>
           <article class="milestone complete"><div class="check">✓</div><div><b>M1. Current-authority entry</b><span>V30 проверен и заменён уже установленной V31; новая работа не запускалась.</span></div></article>
-          <article class="milestone current"><div class="check">→</div><div><b>M2. Static Lab shell</b><span>Сначала выбрать единый entry point; затем fixture slots и common smoke без live-sim claims.</span></div></article>
+          <article class="milestone current"><div class="check">→</div><div><b>M2. Clean Integration Lab base</b><span>Сначала read-only purge-аудит; затем одна playable Lab с Level profiles и реальными gameplay paths.</span></div></article>
           <article class="milestone"><div class="check">4</div><div><b>M3. Grid / Layers seam</b><span>Committed revisions и universal events минимум для двух consumers.</span></div></article>
           <article class="milestone"><div class="check">5</div><div><b>M4. Live Gas</b><span>Authoritative gas step в Lab через принятый seam.</span></div></article>
           <article class="milestone"><div class="check">6</div><div><b>M5. World Change</b><span>Controlled topology change и реакция заинтересованных слоёв.</span></div></article>
@@ -435,38 +437,38 @@
             <div class="eyebrow">Продуктовые направления</div>
             <h2>Кто что делает и что осталось</h2>
           </div>
-          <p>Gas и Grid остаются припаркованными: сначала нужен один ясный смысл общей сцены, затем — только реальные CALL.</p>
+          <p>Gas и Grid остаются припаркованными до audit boundary; их конкретный Lab-функционал формируется отдельными shape/PLAN только по мере необходимости.</p>
         </div>
 
         <div class="track-grid">
           <article class="track primary">
             <div class="track-top"><div><div class="track-id">g-9c41 · primary</div><h3>Integration Lab & Product Proof</h3></div><span class="pill ready">ready</span></div>
             <dl class="facts">
-              <div class="fact"><dt>Сейчас</dt><dd>Версия для нового старта подтверждена; самой Lab scene ещё нет.</dd></div>
-              <div class="fact"><dt>Вклад</dt><dd>Общая сцена, serial intake drops, smoke и финальный product proof.</dd></div>
-              <div class="fact"><dt>Текущий root</dt><dd><a href="../c-shape-program-v2-integration-lab-entry-001-call.md">Выбрать ownership общего entry point</a>; min-spec decision остаётся на потом.</dd></div>
+              <div class="fact"><dt>Сейчас</dt><dd>Одна постоянная Lab утверждена; самой scene ещё нет, старый surface не очищен.</dd></div>
+              <div class="fact"><dt>Вклад</dt><dd>Playable product skeleton, generated Level profiles, real gameplay-path intake, smoke и финальный product proof.</dd></div>
+              <div class="fact"><dt>Текущий root</dt><dd><a href="../c-audit-program-v2-legacy-lab-surface-001-call.md">Read-only scene/support purge-аудит</a>; min-spec decision остаётся на потом.</dd></div>
               <div class="fact"><dt>Authority</dt><dd><a href="../program-v2-integration-lab-plan.md">Global scene plan</a> + current product V31 · проверено 2026-07-20.</dd></div>
-              <div class="fact"><dt>Conflict</dt><dd>Не принят. Shape сверит common Lab с планируемым NearGasSimulationLab до создания shell.</dd></div>
+              <div class="fact"><dt>Conflict</dt><dd>Product Gas PROGRAM ещё планирует отдельную NearGasSimulationLab и retention старых сцен; audit назовёт точные clauses и dependencies.</dd></div>
             </dl>
             <ul class="remaining">
-              <li><strong>Следом:</strong> выбрать единую границу common Lab и NearGas lab.</li>
-              <li>Зафиксировать drop contract и common smoke.</li>
+              <li><strong>Следом:</strong> классифицировать старые scene/support families DELETE / KEEP / BLOCKED без продуктовых правок.</li>
+              <li>После отдельного purge PLAN зафиксировать Lab/drop contract и common smoke.</li>
               <li>Принять M3–M8 с first-hand proof.</li>
               <li>Свести M9 и отдельно доказать любые co-op claims.</li>
             </ul>
           </article>
 
           <article class="track">
-            <div class="track-top"><div><div class="track-id">g-1a63</div><h3>Gas Simulation</h3></div><span class="pill paused">parked until Lab choice</span></div>
+            <div class="track-top"><div><div class="track-id">g-1a63</div><h3>Gas Simulation</h3></div><span class="pill paused">parked until audit</span></div>
             <dl class="facts">
               <div class="fact"><dt>Сейчас</dt><dd>NearGas L1B foundation delivered/released at <code>693e671b</code>; scene drop ещё не принят.</dd></div>
               <div class="fact"><dt>Вклад</dt><dd>Authoritative gas behavior, types, equipment inputs и gas consequences.</dd></div>
-              <div class="fact"><dt>Текущий root</dt><dd>Нет: V31 Gas shape появится только после решения о common Lab.</dd></div>
+              <div class="fact"><dt>Текущий root</dt><dd>Нет: V31 Gas shape появится отдельно после purge-аудита.</dd></div>
               <div class="fact"><dt>Authority</dt><dd>Current product SPEC/ADR + terminal <a href="../../history/2026-07-19-s-work-near-gas-l1b-v29-terminal-home-close-001.md">L1B close</a>.</dd></div>
               <div class="fact"><dt>Conflict</dt><dd>Не зафиксирован; current product contract должен быть перечитан.</dd></div>
             </dl>
             <ul class="remaining">
-              <li><strong>Следом:</strong> fresh V31 Gas shape после решения о common Lab.</li>
+              <li><strong>Следом:</strong> fresh V31 Gas shape после purge-аудита; source/debug идут через real production event.</li>
               <li>Доказать deterministic behavior в своём harness.</li>
               <li>Вернуть M4 live-gas drop через committed Grid seam.</li>
               <li>Позднее доказать M5 reaction и gas consequence; rendering не здесь.</li>
@@ -474,16 +476,16 @@
           </article>
 
           <article class="track">
-            <div class="track-top"><div><div class="track-id">g-4b92</div><h3>Grid / Layers / World Change</h3></div><span class="pill paused">parked until Lab choice</span></div>
+            <div class="track-top"><div><div class="track-id">g-4b92</div><h3>Grid / Layers / World Change</h3></div><span class="pill paused">parked until audit</span></div>
             <dl class="facts">
               <div class="fact"><dt>Сейчас</dt><dd>Архитектурная роль принята; V31 implementation/drop не принят.</dd></div>
               <div class="fact"><dt>Вклад</dt><dd>Coordinates, ownership, commit clock, universal events и topology revisions.</dd></div>
-              <div class="fact"><dt>Текущий root</dt><dd>Нет: минимальный seam slice формируется после решения о common Lab.</dd></div>
+              <div class="fact"><dt>Текущий root</dt><dd>Нет: минимальный seam slice формируется отдельно после purge-аудита.</dd></div>
               <div class="fact"><dt>Authority</dt><dd>Current product Grid/Layer SPEC/ADR; маршрут проверен 2026-07-20.</dd></div>
               <div class="fact"><dt>Conflict</dt><dd>Нет. Gas-only notification явно запрещено картой.</dd></div>
             </dl>
             <ul class="remaining">
-              <li><strong>Следом:</strong> fresh V31 Grid shape после решения о common Lab.</li>
+              <li><strong>Следом:</strong> fresh V31 Grid shape после purge-аудита.</li>
               <li>Доказать committed read/event для двух разных consumers.</li>
               <li>Fail-closed на stale и live mid-tick cross-layer read.</li>
               <li>Вернуть M3 seam и M5 world-change drops; consumer algorithms не здесь.</li>

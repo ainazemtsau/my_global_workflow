@@ -1,6 +1,6 @@
 # NOW: indie-game-development
 
-updated: 2026-07-20 by s-repair-build-tooling-parking-001
+updated: 2026-07-20 by s-shape-program-v2-integration-lab-entry-001
 
 bet: null
 
@@ -17,14 +17,14 @@ tracks:
   - {id: characters, label: "Character & Gameplay Contact", mode: parallel, for: g-6d4e}
 
 open_calls:
-  - id: c-shape-program-v2-integration-lab-entry-001
+  - id: c-audit-program-v2-legacy-lab-surface-001
     track: program
     status: ready
-    to: session
-    for: "g-9c41 / choose one common Integration Lab entry without duplicating the planned NearGas lab"
+    to: executor
+    for: "g-9c41 / read-only deletion-boundary audit for legacy lab/demo scenes and scene-only support surface"
     issued: 2026-07-20
-    call: work/c-shape-program-v2-integration-lab-entry-001-call.md
-    note: "READY / DEFAULT / SHAPE ONLY. Current product is lawfully on V31; the historical V30 route is superseded and needs no re-sync. Reconcile common Lab ownership against planned NearGasSimulationLab before any scene, PLAN or BUILD. No product mutation or new feature task."
+    call: work/c-audit-program-v2-legacy-lab-surface-001-call.md
+    note: "READY / DEFAULT / READ-ONLY AUDIT / engineering_contract:31. Owner approved one permanent Integration Lab, real gameplay paths, minimum debug and purge-audit first. Inventory game-owned scene families and their current consumers; classify each DELETE / KEEP / BLOCKED. No PLAN, BUILD, Unity, tests, deletion or product mutation."
 
   - id: c-exec-level-module-standard-v1-lv0-plan-001
     track: level
@@ -90,6 +90,6 @@ decisions:
     recommendation: "Доступная физическая машина; gas simulation CPU-bound, поэтому CPU должен быть назван явно."
 
 next:
-  call: c-shape-program-v2-integration-lab-entry-001
+  call: c-audit-program-v2-legacy-lab-surface-001
 
 END_OF_FILE: live/indie-game-development/NOW.md

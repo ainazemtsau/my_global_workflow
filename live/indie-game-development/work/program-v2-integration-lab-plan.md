@@ -2,7 +2,7 @@
 
 owner: g-9c41 / Integration Lab & Product Proof
 approved: 2026-07-20 — s-map-program-v2-hot-migration-route-001
-last_verified: 2026-07-20 against current Direction and product V31 state; product facts must be refreshed by the next Integration Lab ownership shape
+last_verified: 2026-07-20 by s-shape-program-v2-integration-lab-entry-001 against clean product main 45b15623; the next audit must refresh every dependency
 status: active global route; product implementation not started by this map
 
 ## Для чего существует этот файл
@@ -24,7 +24,7 @@ status: active global route; product implementation not started by this map
 ```text
 направление делает bounded work
         ↓
-проверяет результат в своём fixture/lab
+проверяет результат через свой bounded validator; отдельная scene живёт только пока это необходимо
         ↓
 возвращает six-line handoff через Direction RESULT
         ↓
@@ -35,6 +35,8 @@ writer обновляет этот план и перегенерирует dash
 
 Направление не редактирует этот файл и HTML напрямую. Если drop не принят, он остаётся в своём
 направлении с названным blocker; Integration Lab не копирует незавершённую работу внутрь общей сцены.
+Track-specific fixture/harness не становится второй постоянной Lab автоматически и удаляется после
+утраты роли действующего validator.
 
 ## Authority и Conflict Guard
 
@@ -63,14 +65,21 @@ writer обновляет этот план и перегенерирует dash
   `origin/main` — V31, и product уже имеет принятый process-only `re-sync:31`; V30 re-sync полностью
   superseded. Новый product root всё равно перечитывает current product authority, а не получает
   разрешение на feature автоматически.
-- Static Integration Lab scene, универсальный Grid drop, живой Gas drop и остальные scene drops этой
-  картой не заявлены как существующие.
+- First-hand inventory clean product `main` `45b15623` нашёл 12 разрозненных `.unity` scenes, но не
+  нашёл существующей `IntegrationLab` или `NearGasSimulationLab`. Ни одна старая scene не принята как
+  будущий общий entry point.
+- Владелец утвердил одну постоянную Integration Lab: playable product skeleton с уровнями разных
+  размеров/профилей через Dungeon Architect, реальными gameplay paths и только минимально нужным debug.
+  Module-specific controls формируются отдельно по мере необходимости, а не заранее как generic framework.
+- Старые lab/demo scenes и scene-only support surface являются кандидатами на удаление без переноса
+  legacy. До любого purge обязателен read-only dependency audit `DELETE / KEEP / BLOCKED`; текущий
+  product PROGRAM с отдельной NearGasSimulationLab и retention старых сцен требует reconciliation.
 
 ## Прогресс общей сцены
 
-Текущий этап: **M1 — current-authority entry доказан**.
+Текущий этап: **M2 — граница одной постоянной Integration Lab утверждена; продуктовая база ещё не начата**.
 
-Следующий рекомендованный шаг: **shape ownership общего Integration Lab entry перед M2 static shell**.
+Следующий рекомендованный шаг: **read-only purge-аудит scene/support surface перед любым PLAN или удалением**.
 
 Счёт: **2 из 10 milestones приняты; 8 остаются**. Это счёт принятых результатов, не процент готовности
 игры и не оценка effort.
@@ -79,8 +88,9 @@ writer обновляет этот план и перегенерирует dash
   six-line handoff и простой dashboard приняты.
 - [x] **M1. Current-authority entry** — V30 route проверен и superseded: `origin/main` имеет current
   engineering contract V31, а product stamped/re-synced V31. Новый feature root не создавался.
-- [ ] **M2. Static Integration Lab shell** — маленькая hand-authored сцена с одним entry point,
-  fixture slots, common smoke и machine-readable capture; без заявления live simulation.
+- [ ] **M2. Clean Integration Lab base** — после read-only purge-аудита одна постоянная playable scene,
+  принимающая Dungeon Architect level profiles и реальные gameplay paths; без generic Lab framework,
+  дублирующих постоянных track scenes и заявлений о ещё не принятых модулях.
 - [ ] **M3. Universal Grid / Layers seam** — committed revisions, event transport и как минимум два
   независимых consumer layers; без gas-specific notification.
 - [ ] **M4. Live Gas drop** — authoritative gas step работает в Lab через принятый Grid seam и имеет
@@ -98,18 +108,20 @@ writer обновляет этот план и перегенерирует dash
   отдельный co-op acceptance действительно пройден.
 
 Milestones задают зависимости, а не обязательную последовательность всей внутренней работы. Например,
-Gas и Grid могут готовить независимые harness proofs параллельно после M1, но Integration принимает M4
-только после совместимого M3 seam. Level может стартовать позднее по выбору владельца и не блокирует
-ранний static Lab.
+Gas и Grid могут готовить bounded validator proofs параллельно после M1, но Integration принимает M4
+только после совместимого M3 seam. Level scale/profile contract формируется своим треком; permanent Lab
+принимает его результат, не заменяя Level-specific proof и не закрепляя сейчас точный room envelope.
 
 ## Рекомендованная первая продуктовая волна после M1
 
-Три совместимых, но раздельно владеющих результата:
+Сначала один чистый boundary-result, затем совместимые, но раздельно владеющие capability results:
 
-1. **Integration Lab:** только маленький static shell и контракт приёма drops.
-2. **Grid / Layers / World Change:** universal committed-event seam и минимальный proof с двумя
+1. **Integration Lab:** read-only audit старых scene/support families; только затем owner-present purge PLAN.
+2. **Level / Generation:** bounded profile от малого до большого generated level для постоянной Lab;
+   точные размеры и acceptance принадлежат отдельной Level-сессии.
+3. **Grid / Layers / World Change:** universal committed-event seam и минимальный proof с двумя
    consumers.
-3. **Gas Simulation:** bounded live-gas capability, работающая против принятого seam/fixture.
+4. **Gas Simulation:** bounded live-gas capability через реальные gameplay source/events и принятый seam.
 
 Это рекомендация порядка, не квота активных треков. Владелец запускает столько направлений, сколько
 считает полезным. Dashboard показывает фактическую загрузку, но не предлагает «добрать до лимита».
@@ -120,13 +132,17 @@ Gas и Grid могут готовить независимые harness proofs п
 
 Назначение: держать глобальный маршрут, принимать drops и доказывать совместную сцену.
 
-Текущее состояние: карта готова; самой Lab scene ещё нет.
+Текущее состояние: ownership утверждён; самой Lab scene ещё нет, а старый surface не очищен.
 
 Осталось до M9:
 
-- [ ] Сначала shape-only определить, является ли общий entry point новой оболочкой, частью
-  `NearGasSimulationLab` или требует reconciliation; только затем формировать bounded PLAN/BUILD для M2 static shell.
-- [ ] Зафиксировать минимальный scene/drop contract и общий smoke, не дублируя contracts треков.
+- [ ] Сначала read-only классифицировать старые scene/support families как `DELETE / KEEP / BLOCKED` и
+  назвать конфликтующие clauses product authority; ничего не удалять в audit.
+- [ ] Отдельным owner-present purge PLAN удалить только доказанно ненужное; не переносить legacy ради сохранения.
+- [ ] Сформировать bounded M2 PLAN для одной постоянной playable Integration Lab: Level profiles и
+  реальные gameplay paths; debug только как тонкий вызов того же production event/command.
+- [ ] Зафиксировать минимальный scene/drop contract и общий smoke, не дублируя contracts треков и не
+  создавая generic Lab framework заранее.
 - [ ] Принимать M3–M8 только с six-line handoff и first-hand proof.
 - [ ] На каждом приёме обновлять milestone, остаток и conflict state через Direction RESULT.
 - [ ] Свести одну playable proof loop и отдельно проверить любые co-op claims.
@@ -143,7 +159,7 @@ Gas и Grid могут готовить независимые harness proofs п
 
 Осталось до M4/M5:
 
-- [ ] После Integration Lab ownership shape перечитать current Gas SPEC/product и сформировать свежий V31 shape/PLAN.
+- [ ] После purge-аудита перечитать current Gas SPEC/product и отдельно сформировать свежий V31 shape/PLAN.
 - [ ] Сверить transport/types/equipment inputs с универсальным committed Grid seam.
 - [ ] Доказать deterministic positive/negative gas behavior в track-owned harness.
 - [ ] Вернуть scene-ready M4 drop без rendering и без surrogate path.
@@ -160,7 +176,7 @@ Gas и Grid могут готовить независимые harness proofs п
 
 Осталось до M3/M5:
 
-- [ ] После Integration Lab ownership shape сверить current SPEC/ADR и выбрать минимальный настоящий seam slice.
+- [ ] После purge-аудита сверить current SPEC/ADR и отдельно выбрать минимальный настоящий seam slice.
 - [ ] Доказать common coordinates, cell→region/sector ownership и commit clock.
 - [ ] Доказать publish/subscribe для минимум двух разных consumers, не только Gas.
 - [ ] Запретить live mid-tick cross-layer read и planted stale revision.

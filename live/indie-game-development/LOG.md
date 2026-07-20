@@ -409,4 +409,6 @@ archived: history/LOG-archive-indie-game-development.md — sessions before 2026
 
 2026-07-20 · s-work-reconcile-visible-branch-diff-001 · work · program · g-a7f2/repository-branch-reconciliation: reconciled local and remote wt histories into main without force, restored the one missing slot-release friction record, and aligned main, origin/wt and the local worktree so the former +4907/-1632 comparison is empty. → history/2026-07-20-s-work-reconcile-visible-branch-diff-001.md
 
+2026-07-20 · s-shape-program-v2-integration-lab-entry-001 · shape · program · g-9c41/integration-lab-entry: owner approved one permanent playable Integration Lab with generated Level profiles, real gameplay paths and minimum debug; no existing scene was accepted, no product work began, and one V31 read-only DELETE/KEEP/BLOCKED purge audit is the sole next step. → history/2026-07-20-s-shape-program-v2-integration-lab-entry-001.md
+
 END_OF_FILE: live/indie-game-development/LOG.md
