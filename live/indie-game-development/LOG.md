@@ -407,4 +407,6 @@ archived: history/LOG-archive-indie-game-development.md — sessions before 2026
 
 2026-07-20 · s-repair-build-tooling-parking-001 · repair · build-tooling · g-c5d1/park-after-v31: owner parked Build & Tooling after V31 completed its only root; the live track id was retired without a placeholder task, while TREE/global plan/dashboard retain the service direction and Program remains default. → history/2026-07-20-s-repair-build-tooling-parking-001.md
 
+2026-07-20 · s-work-reconcile-visible-branch-diff-001 · work · program · g-a7f2/repository-branch-reconciliation: reconciled local and remote wt histories into main without force, restored the one missing slot-release friction record, and aligned main, origin/wt and the local worktree so the former +4907/-1632 comparison is empty. → history/2026-07-20-s-work-reconcile-visible-branch-diff-001.md
+
 END_OF_FILE: live/indie-game-development/LOG.md
