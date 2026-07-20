@@ -411,4 +411,6 @@ archived: history/LOG-archive-indie-game-development.md — sessions before 2026
 
 2026-07-20 · s-shape-program-v2-integration-lab-entry-001 · shape · program · g-9c41/integration-lab-entry: owner approved one permanent playable Integration Lab with generated Level profiles, real gameplay paths and minimum debug; no existing scene was accepted, no product work began, and one V31 read-only DELETE/KEEP/BLOCKED purge audit is the sole next step. → history/2026-07-20-s-shape-program-v2-integration-lab-entry-001.md
 
+2026-07-20 · s-work-publish-integration-lab-entry-main-001 · work/publish · program · g-9c41/repository-main: owner-requested Integration Lab shape snapshot 21e3d49 was atomically fast-forwarded without force to origin/main and origin/wt/indie-game-development with exact remote readback; the ready read-only purge-audit CALL remains the unchanged default. → history/2026-07-20-s-work-publish-integration-lab-entry-main-001.md
+
 END_OF_FILE: live/indie-game-development/LOG.md
