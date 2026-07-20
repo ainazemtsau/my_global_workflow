@@ -1,6 +1,6 @@
 # NOW: indie-game-development
 
-updated: 2026-07-20 by s-forge-g-d3a8-visual-contract-001
+updated: 2026-07-20 by s-map-grid-track-resume-001
 
 bet: null
 
@@ -15,6 +15,7 @@ tracks:
   - {id: visual, label: "Presentation", mode: parallel, for: g-7e15}
   - {id: marketing, label: "Marketing & Audience", mode: parallel, for: g-2f8c}
   - {id: characters, label: "Character & Gameplay Contact", mode: parallel, for: g-6d4e}
+  - {id: grid, label: "Grid / Layers / World Change", mode: parallel, for: g-4b92}
 
 open_calls:
   - id: c-exec-program-v2-legacy-lab-purge-001
@@ -81,6 +82,17 @@ open_calls:
       - history/2026-07-18-s-work-char-v2-published-handback-release-route-001.md
       - history/2026-07-18-s-review-char-v2-published-handback-release-001.md
     note: "WAITING / PRODUCT REVIEW-CLOSING IN PROGRESS. Do not dispatch this frozen CALL again. It waits for owner LOOK, binding G5, product RESULT/Deliver and valid Direction close. A future Player Simulation / Actor Layer is fresh V31 work and cannot expand this lineage retroactively."
+
+  - id: c-work-grid-current-authority-audit-001
+    track: grid
+    status: ready
+    to: session
+    for: "g-4b92 / current-authority Grid audit and quality-first master-plan front"
+    issued: 2026-07-20
+    call: work/c-work-grid-current-authority-audit-001-call.md
+    receipts:
+      - history/2026-07-20-s-map-grid-track-resume-001.md
+    note: "READY / NON-DEFAULT / PREPARATION ONLY. Reconcile fresh product Grid/Layers/World Change truth, Object ↔ Layer and separate aperture debt; classify Wind and multiplayer seams; return owner-readable audit plus bounded planning choices. No BUILD, stubs, Water/Wind implementation or Integration Lab mutation. Quality first: internal parallel work only after common contracts are frozen; Grid is prioritized ahead of dependent feature tracks."
 
 recurring: []
 

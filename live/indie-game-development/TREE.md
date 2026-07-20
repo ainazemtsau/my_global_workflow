@@ -1,6 +1,6 @@
 # Goal tree: indie-game-development
 
-owner_approved: 2026-07-20 — history/2026-07-20-s-map-program-v2-hot-migration-route-001.md; 2026-07-20 — history/2026-07-20-s-repair-build-tooling-parking-001.md («припаркую», g-c5d1 parked)
+owner_approved: 2026-07-20 — history/2026-07-20-s-map-program-v2-hot-migration-route-001.md; 2026-07-20 — history/2026-07-20-s-repair-build-tooling-parking-001.md («припаркую», g-c5d1 parked); 2026-07-20 — history/2026-07-20-s-map-grid-track-resume-001.md («Принимаю активацию Grid по этому маршруту», g-4b92 parallel)
 
 - id: g-a7f2
   goal: Выпущенная в Steam коммерческая co-op игра строится вокруг gas + grid, изменения пространства и экспедиционной игры; продукт технически силён, понятен игрокам и приносит реальный доход.
@@ -29,8 +29,8 @@ owner_approved: 2026-07-20 — history/2026-07-20-s-map-program-v2-hot-migration
           goal: "Grid / Layers / World Change: общий address/ownership space, commit clock и event transport связывают независимые слои и публикуют topology changes."
           done_when: Минимум два разных consumer layers одинаково принимают committed revision/event; stale и live mid-tick cross-layer access fail-closed.
           why: Газ, ветер, оборудование, взрывы и будущие слои должны общаться через универсальный seam, а не gas-only уведомление или god object.
-          status: parked
-          detail: work/program-v2-integration-lab-plan.md#3-grid--layers--world-change
+          status: parallel
+          detail: work/program-v2-integration-lab-plan.md#3-grid--layers--world-change; preparation route — history/2026-07-20-s-map-grid-track-resume-001.md
 
         - id: g-8f20
           goal: "Level & Environment: hand-authored и procedural sources создают валидное пространство через replaceable ingestion contract."
