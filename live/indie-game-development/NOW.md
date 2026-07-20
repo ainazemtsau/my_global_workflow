@@ -1,5 +1,5 @@
 # NOW: indie-game-development
-updated: 2026-07-18 by s-work-near-gas-l1b-surface-cap-stop-001
+updated: 2026-07-19 by s-work-near-gas-l1b-v29-terminal-home-close-001
 bet:
   node: g-9c41
   goal: |
@@ -40,7 +40,7 @@ tasks:
   - id: L1B-Capture
     goal: "[executor] Retry snapshot и fault injection дают стабильное пассивное наблюдение реального L1a path."
     done_when: "Genuine RED ловит retry/fault planted controls; delivery не меняет L1a result/order/atomicity."
-    status: open
+    status: done
   - id: L1B-Classify
     goal: "[executor] Handler classification и kernel rows однозначно связывают attempt/generation/phase."
     done_when: "Planted misclassification ловится; rows коррелируются без C1 digest и authority change."
@@ -57,6 +57,7 @@ tasks:
 track_wip_limit: 6
 tracks:
   - {id: core, label: "NearGas — ядро игры", mode: primary, for: g-9c41}
+  - {id: program, label: "Программа и интеграционный стенд", mode: parallel, for: "g-a7f2 / Program v2 hot migration and Integration Lab control plane"}
   - {id: level, label: "Уровни, модули и генераторы", mode: parallel, for: "local: Level/DA/PGG Standard v1"}
   - {id: canon, label: "Геймдизайн и канон", mode: parallel, for: g-d3a8}
   - {id: damage, label: "Газовый урон — Sc-damage", mode: parallel, for: "local: Sc-damage"}
@@ -66,14 +67,14 @@ tracks:
   - {id: dotnet-gates, label: "Локальный запуск проверок .NET — пауза", mode: parallel, for: "local: cross-platform .NET repository-gate runner prerequisite"}
 
 open_calls:
-  - id: c-exec-near-gas-l1b-surface-cap-reconcile-001
-    track: core
+  - id: c-map-program-v2-hot-migration-route-001
+    track: program
     status: ready
-    to: executor
-    for: "g-9c41 / L1B-Capture prerequisite — read-only v23 Surface freeze-parent/cap authority reconciliation"
-    issued: 2026-07-18
-    call: work/c-exec-near-gas-l1b-surface-cap-reconcile-001-call.md
-    note: "READY / READ-ONLY / STOP BEFORE RED: de1cc87c is preserved, but immediate-parent +28 conflicts with Direction cumulative 409ef4a7..de1cc87c = 559 additions (159 over cap). Resolve exact authority/precedence under owner-direct protocol e9d6bfd5; registry descriptive, no branch action, no Surface/RED/BUILD/product mutation."
+    to: session
+    for: "g-a7f2 / owner-approved Program v2 track map and staged Integration Lab route"
+    issued: 2026-07-19
+    call: work/c-map-program-v2-hot-migration-route-001-call.md
+    note: "READY / DEFAULT / OWNER-PRESENT MAP. Turn the accepted soft migration and repaired live inventory into one owner-approved Program v2 track map with staged Integration Lab outcomes, explicit unlock/dependency/ownership rules and a lawful WIP rollout. No product work, V30 re-sync, frozen-root rewrite or automatic product CALL."
   - id: c-exec-unity65-mac-revision-002-build-001
     track: dotnet-gates
     status: paused
@@ -85,12 +86,13 @@ open_calls:
     note: "Preserved non-priority legacy CALL; resume only after pre-v21 refs reconcile to current authority and a fresh full-packet check → history/2026-07-12-s-repair-unity65-mac-revision-002-route-001.md."
   - id: c-exec-level-module-standard-v1-lv0-plan-001
     track: level
-    status: ready
+    status: waiting
+    waiting_on: [direction-review-receipt-b1698170]
     to: executor
     for: "g-9c41 / parallel owner-present Level/Module Standard v1 LV0 PLAN"
     issued: 2026-07-16
     call: work/c-exec-level-module-standard-v1-lv0-plan-001-call.md
-    note: "READY witness + owner-approved parallel launch → history/2026-07-16-s-repair-level-lv0-parallel-launch-001.md."
+    note: "WAITING / PRODUCT PLAN RELEASED, DIRECTION CLOSE MISSING. Product LV0 PLAN evidence exists at b16981706ece53c584848255de2bd92675b5de7b; do not relaunch the frozen PLAN CALL. The level root stays open until a separate binding Direction review/receipt reconciles the exact HOME against this CALL. Aperture RED 5af1d8db931d10cc6149a2c1f8e1023bc3b9ffb1 remains preserved and BUILD-unissued for later V30 compatibility-check/re-admission."
   - id: c-forge-g-d3a8-gas-behavior-jobs-canon-admission-001
     track: canon
     status: ready
@@ -129,13 +131,14 @@ open_calls:
     note: "Paused in the owner-approved marketing→characters WIP swap. On a later resume, start from the committed INOMAND checkpoint and first reconcile stale-route finding dr-20260712-001."
   - id: c-exec-char-v2-body-rig-ragdoll-build-001
     track: characters
-    status: ready
+    status: waiting
+    waiting_on: [product-task-019f73c8-8fb0-7633-812f-ed45acc19af6]
     to: executor
     for: "g-6d4e / В2 Leg 2 — rig + procedural locomotion + cosmetic PuppetMaster ragdoll + character material"
     issued: 2026-07-14
     call: work/c-exec-char-v2-body-rig-ragdoll-build-001-call.md
     receipts: [history/2026-07-17-s-work-char-v2-reaction-core-repair-002-admission-blocked-001.md, history/2026-07-18-s-work-char-v2-published-handback-release-route-001.md, history/2026-07-18-s-review-char-v2-published-handback-release-001.md]
-    note: "READY after binding fresh Direction review MET: exact candidate 0e5b2948 → integration 53453081 → published dev/main 029279a and all six admission-003 obligations survived refutation. Leg 1 is accepted only at bounded reaction-core height; DF-13/14/15 remain routed and C1–C4 remain mandatory. Owner exact decision «A — открывай Leg 2 после review» clears the final wait. READY permits only a separate fresh product executor session with current admission; it is not automatic dispatch or product mutation."
+    note: "WAITING / PRODUCT REVIEW-CLOSING IN PROGRESS. Task 019f73c8-8fb0-7633-812f-ed45acc19af6 has built the Leg 2 code/art/evidence and reports fresh G4 MET; do not dispatch this frozen CALL again. It currently waits for the owner's live LOOK, then binding G5, product RESULT/Deliver and a valid Direction close. The legacy lineage keeps its issued contract; it does not gate V30, but its later shared-dev integration remains serialized after the active L1B control lineage."
 
 recurring: []
 
@@ -146,6 +149,6 @@ decisions:
     options: ["Доступная физическая машина", "Точный CPU/GPU/RAM-класс с арендой/покупкой к финалу", "Только throttled-прокси — финал не закрывает"]
     recommendation: "Доступная физическая машина; газ CPU-bound, поэтому CPU должен быть назван явно."
 next:
-  call: c-exec-near-gas-l1b-surface-cap-reconcile-001
+  call: c-map-program-v2-hot-migration-route-001
 
 END_OF_FILE: live/indie-game-development/NOW.md
