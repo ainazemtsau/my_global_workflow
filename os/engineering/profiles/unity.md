@@ -62,8 +62,8 @@ First created 2026-06-13 (GasCoopGame setup, indie-game-development/g-9c41). For
   (`dotnet sln x.slnx add` works on SDK 9+). For CI on older SDKs, target the `.csproj` paths, not
   the slnx, so the SDK version doesn't matter.
 - **Hand-authored core/test files have no `.meta`** until Unity imports them — fine for headless
-  `dotnet` build; Unity generates `.meta` on first import. Run a batchmode import in the dev
-  worktree to finalize asmdef GUID references before wiring adapters.
+  `dotnet` build; Unity generates `.meta` on first import. Run a batchmode import in the selected
+  task slot to finalize asmdef GUID references before wiring adapters.
 - **`.meta`-tracking hygiene gate (git-aware) — a tracked `.cs` requires a tracked `.cs.meta`:**
   the hygiene script (§2) FAILS when a git-tracked `Assets/**/*.cs` has no git-tracked `.cs.meta`
   sibling (or an orphan `.cs.meta` exists). This catches the refresh→commit timing gap — a `.cs`
@@ -74,10 +74,10 @@ First created 2026-06-13 (GasCoopGame setup, indie-game-development/g-9c41). For
   no Unity reference in the core csproj → any `using UnityEngine;` in core fails `dotnet build`.
 
 ## 5. Setup notes
-- **Dev-worktree pattern (Unity + agent coexistence):** owner keeps Unity open on `main`; the agent
-  works in a persistent sibling git worktree (`<repo>_dev`, branch `dev`) — edits, `dotnet`, Unity
-  batchmode — then merges `dev`→`main` when gates are green. ONE persistent worktree, not per-feature.
-  Encode the rule in the repo's AGENTS.md.
+- **Permanent-slot pattern:** setup binds each fixed task worktree to one permanent branch. A task
+  selects an available slot; it never creates or switches branches/worktrees. Released clean branches
+  fast-forward to published `dev`; occupied or paused bytes remain untouched. Handoff cites exact SHA;
+  after integration the same branch fast-forwards and becomes available. Encode the mapping in AGENTS.md.
 - **Unity version:** pick the latest **LTS** (e.g. 6.3 = `6000.3.x`) for commercial builds, NOT the
   tech stream (`6000.4.x`, numerically higher but non-LTS). Install via Unity Hub — manual, agents
   cannot drive the Hub GUI; treat "install Unity + create project" as the owner's physical step.

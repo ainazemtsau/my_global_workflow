@@ -49,13 +49,13 @@ range. The former long narrative remains immutable Git evidence at
 | 28 | 2026-07-17 | Every engineering stage returns its current HOME handback; Direction alone issues successors. Removed: X41(v27); added: X41(v28); N remains 239. | `engineering-contract-v28^{commit}` |
 | 29 | 2026-07-18 | Hot-safe CALL pinning plus one pair-candidate job replace retroactive upgrades and early carrier relay/line cap. Removed: X33a/X33b(v28); added: X33a/X33b(v29); reworded: G33, X07-X09, X18, X34a-X34b, X75-X76, E06-E07, E09-E12, E15, U20a-U20b; N=239. | `engineering-contract-v29^{commit}` |
 | 30 | 2026-07-18 | One pinned root replaces Direction relays between fresh product stages. Removed: X41(v29); added: X41(v30); reworded: X33a-X33b, X44, E29; N=239. | `engineering-contract-v30^{commit}` |
-| 31 | 2026-07-20 | Lifecycle-safe, input-exact root closure. Removed: G08, G21a, G43, X22, X38, X41(v30), X43a-X43c, X48(v30); added: X41a-X41g, X48a-X48b, X53a; reworded: E29; N=239. | `engineering-contract-v31^{commit}` |
+| 31 | 2026-07-20 | Lifecycle-safe, input-exact root closure plus permanent slot branches. Removed: G08, G21a, G43, X22, X38, X41(v30), X43a-X43c, X48(v30); added: X41a-X41g, X48a-X48b, X53a; reworded: E29; N=239. | `engineering-contract-v31^{commit}` |
 
 ## Terminal Re-sync to v31
 
 Install current authority, never retired carriers.
 
-- On v29/v30, issue bounded no-feature `re-sync:31`: install the v30 root route plus v31 closing controls,
+- On v29/v30, issue bounded no-feature `re-sync:31`: install the v30 root route plus v31 closing/permanent-slot controls,
   stamp contract/inventory `31`, retain ceiling `239`, then pin new roots to 31. Older roots may remain open.
 - Issued legacy/v29/v30 roots keep recorded rules; v31 is never required for their returns.
 - Re-sync changes no active artifact; afterward all pinned routes coexist.
