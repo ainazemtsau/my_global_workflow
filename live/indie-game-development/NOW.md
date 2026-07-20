@@ -1,6 +1,6 @@
 # NOW: indie-game-development
 
-updated: 2026-07-20 by s-shape-program-v2-v30-entry-001
+updated: 2026-07-20 by s-cartography-g-d3a8-post-gas-behavior-admission-front-001
 
 bet: null
 
@@ -37,17 +37,16 @@ open_calls:
     call: work/c-exec-level-module-standard-v1-lv0-plan-001-call.md
     note: "WAITING / DO NOT RELAUNCH. Product LV0 PLAN evidence exists at b16981706ece53c584848255de2bd92675b5de7b, but binding Direction close is missing. When the owner activates Level, first reconcile exact HOME, current V31 and product truth; preserved aperture RED 5af1d8db931d10cc6149a2c1f8e1023bc3b9ffb1 remains evidence, not permission to issue BUILD."
 
-  - id: c-cartography-g-d3a8-post-gas-behavior-admission-front-001
+  - id: c-forge-g-d3a8-visual-contract-001
     track: canon
     status: ready
     to: session
-    for: "g-d3a8 / reconcile current design-question map after gas-behavior canon admission"
-    issued: 2026-07-19
-    call: work/c-cartography-g-d3a8-post-gas-behavior-admission-front-001-call.md
+    for: "g-d3a8 / minimal visual-development contract before gas/Sphere visual plates"
+    issued: 2026-07-20
+    call: work/c-forge-g-d3a8-visual-contract-001-call.md
     receipts:
-      - history/2026-07-19-s-repair-g-d3a8-gas-behavior-admission-route-001.md
-    note: "READY / CARTOGRAPHY ONLY / SAME WORKING CANON PROCESS. c-002 is admitted; reconcile the stale question map, preserve floor-loop findings and return 2–3 plain-language next-question options. No automatic design answer, canon mutation, greybox or implementation."
-
+      - history/2026-07-20-s-cartography-g-d3a8-post-gas-behavior-admission-front-001.md
+    note: "READY / OWNER-PRESENT / PAPER VISUAL CONTRACT. Owner approved visual-by-default paper work but reset all current visual authority: old environment material is revisable historical evidence, old gas visualization is invalid, and minimal production cost is a constraint rather than frozen art. Define image statuses, placeholders, intentional locks and replacement rules first. Current CALL remains text-only; first plate-generating question after the contract is gas/Sphere readability for Counter / Brake / Time. No image generation, canon mutation, product or implementation."
   - id: c-visual-009
     track: visual
     status: blocked
