@@ -12,7 +12,7 @@ The tier — not the agent's judgment — decides whether the owner is interrupt
 
 ## Stage 1: manual relay
 
-For v29/legacy work, the owner carries a Direction CALL to the executor, then carries each current-stage HOME to a fresh Direction session/writer; that session emits the successor CALL. For a v30 engineering root the owner carries the root once: its repo runner launches the separate fresh stages and returns only REPORT or ESCALATE HOME. If that runner cannot launch truly separate sessions, the v30 root stops before work instead of collapsing roles or reviving owner stage relays. Decision inbox = `NOW.md → decisions`, surfaced by sessions and by pulse.
+For v29/legacy work, the owner carries a Direction CALL to the executor, then carries each current-stage HOME to a fresh Direction session/writer; that session emits the successor CALL. For a v30/v31 engineering root the owner carries the root once: its repo runner launches the separate fresh stages and returns only REPORT or ESCALATE HOME. If that runner cannot launch truly separate sessions, the root stops before work instead of collapsing roles or reviving owner stage relays. Decision inbox = `NOW.md → decisions`, surfaced by sessions and by pulse.
 
 ## Stage 2: runtime-assisted relay
 
@@ -27,7 +27,7 @@ Owner's manual work shrinks to: choose a ready CALL card grouped by track (defau
 
 A loop (cron + agentic CLI, or a small service) that:
 - claims eligible ready calls (default first unless policy says otherwise) and runs separate API/CLI sessions without overlapping product writes;
-- chains v29/legacy RESULT → writer → issued CALL, and v30 product-stage receipts inside one root, without human hops;
+- chains v29/legacy RESULT → writer → issued CALL, and v30/v31 product-stage receipts inside one root, without human hops;
 - pushes only two kinds of notification to the owner: a tier-2 decision batch, and pulse digests. Four response verbs: approve / edit / reject-with-reason / answer.
 - hard caps: ≤N interrupts/day (default 3 batches); any run exceeding its CALL budget stops and surfaces as blocked, never silently retries.
 

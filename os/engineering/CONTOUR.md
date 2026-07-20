@@ -16,11 +16,11 @@ Companion files: `PROJECT_SETUP.md` (bootstrap a product repo), `VALIDATION.md` 
 
 **Validator write boundary (contract v24).** "Read-only" forbids the validator from authoring or editing source, tests, specs, rules, and evidence. It may invoke declared validation runners whose only writes are generated evidence artifacts/caches; it never edits those outputs.
 
-### Contract v29/v30 roles for newly issued compiled product-code legs
+### Contract v29-v31 roles for newly issued compiled product-code legs
 
 New roots pin their version; activation-snapshot calls remain legacy.
-V30 keeps v29 roles, pair semantics and gates.
-Re-sync never changes issued roots; legacy, v29 and v30 coexist by pin.
+V30/v31 keep v29 roles, pair semantics and gates.
+Re-sync never changes issued roots; legacy and integer pins coexist.
 
 For a v29 compiled leg, PLAN HOME names PAIR-CANDIDATE eligible. One fresh contract-author — the independent
 test-author, never the builder or validator — owns the bounded pre-freeze job. It may revise both the smallest
@@ -34,7 +34,7 @@ PAIR-CANDIDATE, pair refutation and BUILD are separate sessions.
   evidence-class split. Its prose recipes are planning feedback only: they never count as authored RED and never
   authorize BUILD.
 - **Planner** — interactive session, frontier model, plan mode. Talks to the owner. A SEPARATE session from PAIR-CANDIDATE
-  and BUILD: owner approval ends it without code/tests. Its v29 HOME or v30 receipt hands off to a fresh
+  and BUILD: owner approval ends it without code/tests. Its v29 HOME or v30/v31 receipt hands off to a fresh
   PAIR-CANDIDATE.
   The planner never continues into contract authoring or BUILD.
 - **Builder** — autonomous session(s), default-tier model, a FRESH session that reads the frozen plan and reviewed carrier+RED pair (never the same session that planned). Never talks to the owner mid-run.
@@ -54,7 +54,7 @@ PAIR-CANDIDATE, pair refutation and BUILD are separate sessions.
 
 **Mutation diff identity (contract v24).** Independent review evidence pins mutation-reviewed `H`; the report only echoes repo-derived `I` (declared integration-base tip), `B = merge-base(I,H)`, and `H`. Deliver recomputes and exact-matches them, rejects mutation-input changes after `H`, and handles renames/deletions per VALIDATION before it reads score.
 
-**Extension rule.** Existing product code may already exist. Under v29/v30 the pair candidate pins its real signatures by
+**Extension rule.** Existing product code may already exist. Under v29-v31 the pair candidate pins its real signatures by
 commit instead of copying constructors and harness facts into prose. The contract-author never invents a test-local
 substitute: a missing approved construction/observation seam is added to the non-behavioral carrier; a seam outside the
 approved decision page stops with one complete blocker.
@@ -65,7 +65,7 @@ needs its own native executable carrier, or an explicit `n/a` / separate owner d
 
 ## The cycle
 
-### Contract v29/v30 compiled route
+### Contract v29-v31 compiled route
 
 For compiled product-code legs the operative path is:
 
@@ -98,8 +98,8 @@ the public declarations/value contract and RED files. Counts prove neither fixtu
 shared expected/actual source fails catcher-soundness. BUILD pins both commits, changes neither frozen contract nor RED,
 and returns changes to either through PAIR-CANDIDATE and pair freeze.
 
-V29/legacy stages return HOME. A v30 root advances separate fresh stages from committed progress receipts, never an
-in-session substitute, and returns HOME only as REPORT/ESCALATE. Issued routes survive Re-sync.
+V29/legacy stages return HOME. V30/v31 roots advance separate fresh stages from committed progress receipts, never an
+in-session substitute, and return HOME only as REPORT/ESCALATE. Issued routes survive Re-sync.
 
 The legacy cycle text below remains authority for every other gate and artifact; its old carrier wording does not
 override the route pinned by the engineering CALL.
@@ -189,7 +189,7 @@ CALL (business task from a direction)
     ledger / ADR ride ALONGSIDE it for the builder and are NOT what the owner
     reads to approve (a wall of machine artifacts, or a plan buried in a scratch
     file, is not a plan).
-    Owner approval closes PLAN; v29 returns HOME and v30 commits its receipt. A fresh PAIR-CANDIDATE follows;
+    Owner approval closes PLAN; v29 returns HOME and v30/v31 commits its receipt. A fresh PAIR-CANDIDATE follows;
     prose never opens BUILD, and the three roles never share a session.
   → PAIR-CANDIDATE (separate fresh session, before build): the contract-author creates the non-behavioral public carrier
     and complete behavioral tests/support, fixing approved carrier gaps inside this job. It never implements behavior,
@@ -201,8 +201,8 @@ CALL (business task from a direction)
     contract+RED pair. It authors neither. Only this artifact-backed verdict may open BUILD.
   → BUILD (autonomous): a fresh builder starts from the reviewed pair, never changes its public contract or RED, and
     implements one feature at a time, smallest-first.
-    Reuse-first rule: before writing anything, search for an existing
-    implementation; the duplicate you would have written becomes a call.
+
+
     Make-time obligations on any tests the builder writes itself too: assert
     every value-bearing/measured field EQUAL to its source (not merely
     present), and for any feature with >1 concurrent actor exercise multi-actor
@@ -228,8 +228,7 @@ CALL (business task from a direction)
     un-accounted source commits is stale and FAILs.
     Builder may not edit the ledger or the spec; flipping a ledger entry
     to passing requires opened evidence (hook-enforced where supported).
-  → RETRY policy: a failed gate returns its findings verbatim into the next
-    attempt. ≤2 retries in-context; then one fresh-context retry with a
+  → RETRY policy: ≤2 retries in-context; then one fresh-context retry with a
     rewritten prompt; the same finding class recurring twice = non-convergence
     → stop early. Hard cap: 3 retries per gate.
   → A FIX IS A CHANGE, not a patch: a fix made during VALIDATE/RETRY that ADDS
@@ -307,7 +306,7 @@ CALL (business task from a direction)
     The RESULT is the leg's GATED closing artifact at a known repo path
     (PROJECT_SETUP stamps the path + fields + an executable check into the
     repo, so the agent produces it with no OS access); a prose chat summary
-    does not close the leg. V29/legacy stages return HOME; v30 receipts advance internally until REPORT/ESCALATE HOME.
+    does not close the leg. V29/legacy stages return HOME; v30/v31 receipts advance internally until REPORT/ESCALATE HOME.
     Direction alone issues Direction CALLs.
 ```
 
@@ -315,9 +314,11 @@ The owner returns to a finished, verified change and checks the evidence, not ev
 
 ## Run mechanics (platform-neutral contract)
 
-- State on disk, never in conversation: approved spec + ledger + progress log live in the product repo; any fresh session resumes from them in under a minute. Assume interruption.
 - Kill switch and steering: a stop-file halts the run; a steer-file injects owner redirection mid-run without killing it.
 - Notifications: two channels wired at setup — "needs input" (escalation) and "finished: verdict" (run end). The owner is never polled; the run pushes.
+- V31 root receipts share `ACTIVE`, `PRESERVED-PAUSED`, or `RELEASED` across discovery, apply, mutation and Deliver. Only ACTIVE is eligible; paused is custody-only until re-admission; released is terminal. Machine booleans accept only JSON `true|false`; strings fail.
+- V31 retry routing returns only to the earliest invalid stage: plan/out-of-plan → ESCALATE; carrier/RED → PAIR-CANDIDATE+freeze; implementation → BUILD/VALIDATE; process/tool → process proof; closing evidence → closing checks.
+- V31 closing uses one control lease from a clean committed checkout, carries no draft across sessions, and orders evidence commits → RESULT/mirrors → gates → publish/readback → `RELEASED`.
 - Model routing: frontier + high effort for PLAN and architecture; default tier for BUILD legs; cheap tier for evaluators/plumbing. Fallback chain configured so overnight runs survive provider errors.
 - Sizing: a root may sequence dependency-ordered cohesive invariant/source-of-truth legs, each <= a focused half-day; split mixed surfaces before PAIR-CANDIDATE.
 - For high-ambiguity features: best-of-N parallel attempts (where the platform supports it) judged by the validator beats in-place retries.
@@ -330,6 +331,6 @@ The owner returns to a finished, verified change and checks the evidence, not ev
 3. Validator is authoring-read-only and fresh-context, always: it may run declared validators that generate evidence artifacts/caches, but never authors or edits source, tests, specs, rules, or the generated evidence.
 4. All exploratory artifacts (scripts, test scenes) go to the single scratch dir; nothing from it reaches a commit.
 5. Done = gates green + evidence attached. A narrative claim is not done.
-6. Closing artifact is a CHECK, not prose: merge/deliver requires RESULT at its known path with required fields. Owner signals ("finish it", "merged?", "summary") trigger, never replace, the report. Only Direction issues successor Direction CALLs; a v30 repo runner issues product-local fresh stages (KERNEL §4).
+6. Closing artifact is a CHECK, not prose: merge/deliver requires RESULT at its known path with required fields. Owner signals ("finish it", "merged?", "summary") trigger, never replace, the report. Only Direction issues successor Direction CALLs; a v30/v31 repo runner issues product-local fresh stages (KERNEL §4).
 
 END_OF_FILE: os/engineering/CONTOUR.md

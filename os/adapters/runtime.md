@@ -25,7 +25,7 @@ remain authoritative.
 ## Job lifecycle
 
 Runtime jobs are derived from tracked open calls, RESULTs, product-repo evidence,
-and owner actions. Queue identity is `(direction, track, call)`; for a v30
+and owner actions. Queue identity is `(direction, track, call)`; for a v30/v31
 engineering root this identity survives every product stage. A job may store
 logs outside `live/**`, but the closing fact returns through RESULT/history.
 
@@ -49,7 +49,7 @@ The v29/legacy stage loop is:
 4. PASS routes to writer apply; FAIL routes to rework or blocked;
 5. writer serially applies state and emits the next CALL.
 
-The v30 root loop removes those intermediate Direction applies:
+The v30/v31 root loop removes those intermediate Direction applies:
 
 1. claim one integer-pinned root and keep its `open_calls` row open;
 2. launch PLAN, PAIR-CANDIDATE, binding PAIR-FREEZE, BUILD and validation as
@@ -60,14 +60,47 @@ The v30 root loop removes those intermediate Direction applies:
    one HOME to the Direction writer.
 
 Internal identity `(root, stage, attempt)` is runtime cache only. The durable
-receipt lives in existing product progress/evidence and points to exact commits,
-checks and review artifacts; no internal transition edits `live/**` or creates a
-Direction CALL.
+receipt lives in product progress/evidence; no internal transition edits
+`live/**` or creates a Direction CALL.
+
+### V31 root control
+
+Every durable receipt names one shared lifecycle:
+
+- `ACTIVE`: the named stage may run when its eligibility is green;
+- `PRESERVED-PAUSED`: retained history/custody only; it cannot drive discovery,
+  apply, mutation or Deliver until a new committed ACTIVE admission;
+- `RELEASED`: publication/readback completed; the root is terminal and immutable.
+
+Receipts record stage, exact product/process input manifests, outputs, verdict,
+evidence, retry class/count, eligibility and closing lease. Product inputs and
+process inputs are separate: a process-only change reruns the process proof it
+governs, never an unchanged product review. A `fixed <sha>` is eligible only when
+Git resolves it as a commit and it accounts for the changed product input.
+Boolean receipt/config fields require JSON booleans; truthy strings fail.
+
+Before retry, classify what invalidated the receipt and return only to the
+earliest affected stage:
+
+- owner-locked plan/spec/scope or out-of-plan behavior -> ESCALATE;
+- frozen carrier/RED -> PAIR-CANDIDATE then binding PAIR-FREEZE;
+- implementation -> BUILD then affected validation;
+- process/tool/config -> its process proof and dependent evidence;
+- closing evidence/register/citation -> closing checks only.
+
+Closing has one control lease for the root. Its checkout must be clean and
+committed before acquisition; drafts never transfer between sessions. The owner
+of that lease performs one recoverable order: evidence commits (including an
+atomic finding + REFUTED row + citation) -> RESULT/mirrors -> gates ->
+publish/readback -> RELEASED receipt. Failure leaves the root ACTIVE at the last
+committed receipt. Only RELEASED yields REPORT HOME; a genuine decision/blocker
+yields ESCALATE HOME.
 
 ## Locks
 
 - One writer apply per direction at a time.
 - One runtime claim per `(direction, track, call)`; retry resumes that identity instead of launching a duplicate.
+- One v31 closing-control lease per root; only its clean committed checkout may stage closing files.
 - Product executor jobs use separate branches/worktrees or an explicit
   owner-approved shared worktree.
 - Runtime must not start two agents that can edit overlapping files
@@ -81,7 +114,7 @@ commands:
 
 - `status`: derive directions, active bets, track WIP limit/occupancy, calls grouped by track, decisions, and default next.
 - `collect`: render a paste-ready packet for the default or a named track.
-- `run`: start one ready call; a v30 engineering root also drives its declared fresh product stages.
+- `run`: start one ready call; a v30/v31 engineering root also drives its declared fresh product stages.
 - `review`: run a fresh refutation pass over an executor RESULT.
 - `apply`: invoke the writer on one RESULT with direction lock.
 - `notify`: send owner batches without changing state.
@@ -108,7 +141,7 @@ Adopt by vertical slices, not migration:
 2. executor-return -> fresh Codex/Claude review;
 3. one-direction writer apply with lock;
 4. rework routing on review failure;
-5. only then auto-run the next Direction CALL or a v30 root's repo-local stages.
+5. only then auto-run the next Direction CALL or a v30/v31 root's repo-local stages.
 
 Go/no-go: keep the slice only if it reduces owner relay work, preserves
 reproducible Git evidence, and produces no new protocol violations.

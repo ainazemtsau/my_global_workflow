@@ -48,11 +48,14 @@ neither consumes/retargets them nor rewrites active artifacts. After Re-sync HOM
 CALL's pin, never the latest stamp, selects its route.
 
 Routing follows that pin. Each v29/legacy executor stage closes with its current HOME handback; Direction consumes it
-and issues continuation. A v30 root instead stays registered from PLAN through REPORT. Its repo runner launches every
-declared stage as a separate fresh session from a compact committed receipt in existing progress/evidence: stage, exact
-inputs/outputs, verdict, evidence pointers and eligibility. Receipts are not CALL/RESULT packets, never touch `live/**`,
-and point to immutable authority instead of copying it. HOME returns only at gated REPORT or ESCALATE; only Direction
-issues a later Direction CALL.
+and issues continuation. V30/v31 roots stay registered from PLAN through REPORT while the repo runner launches each
+declared stage as a separate fresh session. Its compact committed receipt records lifecycle, stage, exact product/process
+inputs and outputs, verdict, evidence, retry class/count, eligibility and closing lease. Receipts are not CALL/RESULT
+packets and never touch `live/**`. V31 shares `ACTIVE | PRESERVED-PAUSED | RELEASED` across discovery, apply, mutation
+and Deliver: paused is custody-only until re-admitted; released is terminal; Boolean fields accept JSON booleans only.
+It retries only the earliest stage invalidated
+by an exact input change and serializes closing as evidence → RESULT/mirrors → gates → publish/readback → RELEASED.
+HOME returns only at gated REPORT or genuine ESCALATE; only Direction issues a later Direction CALL.
 
 ## RESULT
 

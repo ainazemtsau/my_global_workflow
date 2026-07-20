@@ -3,7 +3,7 @@
 This file is the load-bearing census for the engineering contract. It counts what one applicable
 product leg must do, not how many words describe it. The historical `N=71` in the 2026-07-14 audit
 was a hypothesis; this is the fresh contract-v24 census made before the contract-v25 valve landed,
-re-verified by v26, with routing/version duties replaced through v30.
+re-verified by v26, with routing/version duties replaced through v31.
 
 ## Counting unit
 
@@ -38,15 +38,15 @@ deliverables, and exercises fixed, refuted, owner-ack and escalation branches. I
 
 | Category | Count |
 |---|---:|
-| Gate predicates (`G`) | 49 |
-| Cross-cutting axes (`X`) | 97 |
+| Gate predicates (`G`) | 46 |
+| Cross-cutting axes (`X`) | 100 |
 | Escape-class rows (`R`) | 16 |
 | Required spec payloads (`S`) | 19 |
 | Required artifacts/evidence objects (`E`) | 31 |
 | Unity profile predicates (`U`) | 27 |
 | **Maximum `N`** | **239** |
 
-`N = 239` remains the contract-v30 ceiling. B4 removed no obligation id: compacting historical
+`N = 239` remains the contract-v31 ceiling. B4 removed no obligation id: compacting historical
 narrative is a reading reduction, not a semantic deletion. The post-change maximum may not exceed
 it. An addition that
 would otherwise raise `N` is legal only when the same commit names and actually removes enough
@@ -55,66 +55,63 @@ rows, moving text to a product repo, or replacing two predicates with one senten
 A one-for-one replacement names both ids and leaves `N` unchanged. A later batch may lower this
 ceiling only after the corresponding obligations are proved removed.
 
-## G - gate predicates (49)
+## G - gate predicates (46)
 
 | ID | Independently fail-capable predicate | Authority |
 |---|---|---|
-| G01 | Acceptance contract is frozen before BUILD. | `os/engineering/VALIDATION.md:66` |
-| G02 | Formatter passes. | `os/engineering/VALIDATION.md:68` |
-| G03 | Strict lint passes. | `os/engineering/VALIDATION.md:68` |
-| G04 | Typecheck passes. | `os/engineering/VALIDATION.md:68` |
-| G05 | Dependency-boundary check passes. | `os/engineering/VALIDATION.md:68` |
-| G06 | Dead-code/unused-export check passes. | `os/engineering/VALIDATION.md:68` |
-| G07 | Duplicate-helper check passes. | `os/engineering/VALIDATION.md:68` |
-| G08 | Hardcoded-value check passes. | `os/engineering/VALIDATION.md:68` |
-| G09 | Secret check passes. | `os/engineering/VALIDATION.md:68` |
-| G10 | Magic-literal check passes. | `os/engineering/VALIDATION.md:68` |
-| G11 | Full test suite is green. | `os/engineering/VALIDATION.md:70` |
-| G12 | Changed-file suite repeats deterministically. | `os/engineering/VALIDATION.md:93` |
-| G13 | Diff-scoped mutation score meets the configured floor. | `os/engineering/VALIDATION.md:70` |
-| G14a | Core property tests use a real property-testing framework. | `os/engineering/VALIDATION.md:70` |
-| G14b | Core property tests carry the declared Property category. | `os/engineering/VALIDATION.md:70` |
-| G15 | A scripted end-to-end scenario runs per feature. | `os/engineering/VALIDATION.md:72` |
-| G16 | Independent line-level review passes. | `os/engineering/VALIDATION.md:74` |
-| G17 | Each candidate finding is verified against actual behaviour. | `os/engineering/VALIDATION.md:76` |
-| G18 | Owner spot-check receives the gated final report. | `os/engineering/VALIDATION.md:78` |
-| G19a | Deliver-time RESULT exists. | `os/engineering/PROJECT_SETUP.md:54` |
-| G19b | Deliver-time RESULT carries every required field. | `os/engineering/PROJECT_SETUP.md:54` |
-| G20 | A non-archived frozen change activates the strong-check battery. | `os/engineering/PROJECT_SETUP.md:55` |
-| G21a | Recorded spec-silence-audit section exists. | `os/engineering/PROJECT_SETUP.md:55` |
-| G21b | Recorded spec-silence audit is non-empty. | `os/engineering/PROJECT_SETUP.md:55` |
+| G01 | Acceptance contract is frozen before BUILD. | `os/engineering/VALIDATION.md:70` |
+| G02 | Formatter passes. | `os/engineering/VALIDATION.md:72` |
+| G03 | Strict lint passes. | `os/engineering/VALIDATION.md:72` |
+| G04 | Typecheck passes. | `os/engineering/VALIDATION.md:72` |
+| G05 | Dependency-boundary check passes. | `os/engineering/VALIDATION.md:72` |
+| G06 | Dead-code/unused-export check passes. | `os/engineering/VALIDATION.md:72` |
+| G07 | Duplicate-helper check passes. | `os/engineering/VALIDATION.md:72` |
+| G09 | Secret check passes. | `os/engineering/VALIDATION.md:72` |
+| G10 | Magic-literal check passes. | `os/engineering/VALIDATION.md:72` |
+| G11 | Full test suite is green. | `os/engineering/VALIDATION.md:74` |
+| G12 | Changed-file suite repeats deterministically. | `os/engineering/VALIDATION.md:96` |
+| G13 | Diff-scoped mutation score meets the configured floor. | `os/engineering/VALIDATION.md:74` |
+| G14a | Core property tests use a real property-testing framework. | `os/engineering/VALIDATION.md:74` |
+| G14b | Core property tests carry the declared Property category. | `os/engineering/VALIDATION.md:74` |
+| G15 | A scripted end-to-end scenario runs per feature. | `os/engineering/VALIDATION.md:76` |
+| G16 | Independent line-level review passes. | `os/engineering/VALIDATION.md:78` |
+| G17 | Each candidate finding is verified against actual behaviour. | `os/engineering/VALIDATION.md:80` |
+| G18 | Owner spot-check receives the gated final report. | `os/engineering/VALIDATION.md:82` |
+| G19a | Deliver-time RESULT exists. | `os/engineering/PROJECT_SETUP.md:61` |
+| G19b | Deliver-time RESULT carries every required field. | `os/engineering/PROJECT_SETUP.md:61` |
+| G20 | A non-archived frozen change activates the strong-check battery. | `os/engineering/PROJECT_SETUP.md:62` |
+| G21b | Recorded spec-silence audit is non-empty. | `os/engineering/PROJECT_SETUP.md:62` |
 | G22 | Every escape-class row is dispositioned. | `os/engineering/ESCAPE-CLASSES.md:21` |
-| G23 | Deliverable-coverage check closes every promise. | `os/engineering/PROJECT_SETUP.md:55` |
-| G24 | Review-evidence dependency passes. | `os/engineering/VALIDATION.md:7` |
-| G25 | Negative-control dependency passes. | `os/engineering/VALIDATION.md:9` |
-| G26 | Core-algorithm property-layer dependency passes. | `os/engineering/VALIDATION.md:11` |
-| G27 | Refuted-register dependency passes. | `os/engineering/VALIDATION.md:13` |
-| G28 | Fix-class-closure dependency passes. | `os/engineering/VALIDATION.md:15` |
-| G29 | Every cited local review/ADR artifact exists at HEAD. | `os/engineering/VALIDATION.md:19` |
-| G30 | Mutation scope covers independently derived `D` before score. | `os/engineering/VALIDATION.md:21` |
-| G31a | Mutation `I/B/H` endpoints exact-match repo-derived identity. | `os/engineering/VALIDATION.md:23` |
-| G31b | Mutation `removedFiles` exact-matches deletes and rename sources. | `os/engineering/VALIDATION.md:23` |
-| G32 | Mutation-input snapshot is clean. | `os/engineering/VALIDATION.md:25` |
-| G33 | Pair-candidate eligibility passes after final carrier and real RED proof, before BUILD. | `os/engineering/VALIDATION.md:27` |
-| G34a | RED compiles before BUILD. | `os/engineering/VALIDATION.md:36` |
-| G34b | The intended RED tests are discovered before BUILD. | `os/engineering/VALIDATION.md:36` |
-| G34c | RED fails on claimed behaviour before BUILD. | `os/engineering/VALIDATION.md:37` |
-| G35 | Test-like files exist only in the legal test root. | `os/engineering/VALIDATION.md:89` |
-| G36 | No orphaned test file remains. | `os/engineering/VALIDATION.md:90` |
-| G37 | Scratch content cannot reach a commit. | `os/engineering/VALIDATION.md:91` |
-| G38 | Main has no skipped/disabled tests. | `os/engineering/VALIDATION.md:92` |
-| G39 | Unit tests contain no sleep-waits. | `os/engineering/VALIDATION.md:93` |
-| G40 | Unit tests contain no real-network dependency. | `os/engineering/VALIDATION.md:93` |
-| G41 | Unit tests contain no real-clock dependency. | `os/engineering/VALIDATION.md:93` |
-| G42 | Every test asserts. | `os/engineering/VALIDATION.md:94` |
-| G43 | Module test-to-source ratio stays within its tripwire. | `os/engineering/VALIDATION.md:96` |
+| G23 | Deliverable-coverage check closes every promise. | `os/engineering/PROJECT_SETUP.md:62` |
+| G24 | Review-evidence dependency passes. | `os/engineering/VALIDATION.md:11` |
+| G25 | Negative-control dependency passes. | `os/engineering/VALIDATION.md:13` |
+| G26 | Core-algorithm property-layer dependency passes. | `os/engineering/VALIDATION.md:15` |
+| G27 | Refuted-register dependency passes. | `os/engineering/VALIDATION.md:17` |
+| G28 | Fix-class-closure dependency passes. | `os/engineering/VALIDATION.md:19` |
+| G29 | Every cited local review/ADR artifact exists at HEAD. | `os/engineering/VALIDATION.md:23` |
+| G30 | Mutation scope covers independently derived `D` before score. | `os/engineering/VALIDATION.md:25` |
+| G31a | Mutation `I/B/H` endpoints exact-match repo-derived identity. | `os/engineering/VALIDATION.md:27` |
+| G31b | Mutation `removedFiles` exact-matches deletes and rename sources. | `os/engineering/VALIDATION.md:27` |
+| G32 | Mutation-input snapshot is clean. | `os/engineering/VALIDATION.md:29` |
+| G33 | Pair-candidate eligibility passes after final carrier and real RED proof, before BUILD. | `os/engineering/VALIDATION.md:31` |
+| G34a | RED compiles before BUILD. | `os/engineering/VALIDATION.md:40` |
+| G34b | The intended RED tests are discovered before BUILD. | `os/engineering/VALIDATION.md:40` |
+| G34c | RED fails on claimed behaviour before BUILD. | `os/engineering/VALIDATION.md:41` |
+| G35 | Test-like files exist only in the legal test root. | `os/engineering/VALIDATION.md:92` |
+| G36 | No orphaned test file remains. | `os/engineering/VALIDATION.md:93` |
+| G37 | Scratch content cannot reach a commit. | `os/engineering/VALIDATION.md:94` |
+| G38 | Main has no skipped/disabled tests. | `os/engineering/VALIDATION.md:95` |
+| G39 | Unit tests contain no sleep-waits. | `os/engineering/VALIDATION.md:96` |
+| G40 | Unit tests contain no real-network dependency. | `os/engineering/VALIDATION.md:96` |
+| G41 | Unit tests contain no real-clock dependency. | `os/engineering/VALIDATION.md:96` |
+| G42 | Every test asserts. | `os/engineering/VALIDATION.md:97` |
 
-## X - cross-cutting axes (97)
+## X - cross-cutting axes (100)
 
 | ID | Independently removable axis | Authority |
 |---|---|---|
 | X01 | A CALL names one load-bearing approach; no lesser disjunction. | `os/engineering/CONTOUR.md:10` |
-| X02 | A substitute or silent stretch needs recorded owner acknowledgement. | `os/engineering/VALIDATION.md:5` |
+| X02 | A substitute or silent stretch needs recorded owner acknowledgement. | `os/engineering/VALIDATION.md:9` |
 | X03 | Architectural choices are discussed with the owner. | `os/engineering/CONTOUR.md:115` |
 | X04 | An architectural choice is recorded in an ADR. | `os/engineering/CONTOUR.md:119` |
 | X05 | User-perceivable behaviour is an owner-signed acceptance property. | `os/engineering/CONTOUR.md:117` |
@@ -136,23 +133,22 @@ ceiling only after the corresponding obligations are proved removed.
 | X17c | The builder cannot edit acceptance criteria. | `os/engineering/CONTOUR.md:229` |
 | X18 | Frozen public contract+RED stays unchanged until explicit re-stabilization. | `os/engineering/CONTOUR.md:98` |
 | X19 | CALL/repo artifacts, not global tools, define execution authority. | `os/engineering/TOOLING.md:21` |
-| X20a | An unavailable required tool causes STOP. | `os/engineering/CONTOUR.md:276` |
-| X20b | A tool-unavailable STOP contacts the owner naming the tool. | `os/engineering/CONTOUR.md:277` |
-| X21 | Proceeding past a required STOP needs explicit written owner ack. | `os/engineering/CONTOUR.md:287` |
-| X22 | A failed gate's findings return verbatim into retry. | `os/engineering/CONTOUR.md:231` |
-| X23 | Retry count is capped at three per gate. | `os/engineering/CONTOUR.md:234` |
-| X24 | The same finding class twice stops as non-convergence. | `os/engineering/CONTOUR.md:233` |
-| X25 | A behaviour-changing fix re-enters spec/RED discipline. | `os/engineering/CONTOUR.md:235` |
-| X26a | Findings are classified by invariant, not surface site. | `os/engineering/CONTOUR.md:243` |
-| X26b | The invariant's predicted sibling sites are swept. | `os/engineering/CONTOUR.md:250` |
-| X27a | In-scope review findings gate the leg. | `os/engineering/VALIDATION.md:7` |
-| X27b | Class-sibling review findings route out with a pointer. | `os/engineering/VALIDATION.md:7` |
-| X28a | Refuted findings persist in the cumulative register. | `os/engineering/VALIDATION.md:13` |
-| X28b | A re-raise with new evidence escalates to the owner. | `os/engineering/VALIDATION.md:13` |
-| X29a | Behaviour evidence comes from its real venue. | `os/engineering/VALIDATION.md:17` |
-| X29b | A source-text scan cannot be behaviour evidence. | `os/engineering/VALIDATION.md:17` |
-| X30a | Every load-bearing rule has a recorded/executable deliver dependency. | `os/engineering/PROJECT_SETUP.md:55` |
-| X30b | Every load-bearing deliver dependency has a seeded-miss proof. | `os/engineering/PROJECT_SETUP.md:55` |
+| X20a | An unavailable required tool causes STOP. | `os/engineering/CONTOUR.md:275` |
+| X20b | A tool-unavailable STOP contacts the owner naming the tool. | `os/engineering/CONTOUR.md:276` |
+| X21 | Proceeding past a required STOP needs explicit written owner ack. | `os/engineering/CONTOUR.md:286` |
+| X23 | Retry count is capped at three per gate. | `os/engineering/CONTOUR.md:233` |
+| X24 | The same finding class twice stops as non-convergence. | `os/engineering/CONTOUR.md:232` |
+| X25 | A behaviour-changing fix re-enters spec/RED discipline. | `os/engineering/CONTOUR.md:234` |
+| X26a | Findings are classified by invariant, not surface site. | `os/engineering/CONTOUR.md:242` |
+| X26b | The invariant's predicted sibling sites are swept. | `os/engineering/CONTOUR.md:249` |
+| X27a | In-scope review findings gate the leg. | `os/engineering/VALIDATION.md:11` |
+| X27b | Class-sibling review findings route out with a pointer. | `os/engineering/VALIDATION.md:11` |
+| X28a | Refuted findings persist in the cumulative register. | `os/engineering/VALIDATION.md:17` |
+| X28b | A re-raise with new evidence escalates to the owner. | `os/engineering/VALIDATION.md:17` |
+| X29a | Behaviour evidence comes from its real venue. | `os/engineering/VALIDATION.md:21` |
+| X29b | A source-text scan cannot be behaviour evidence. | `os/engineering/VALIDATION.md:21` |
+| X30a | Every load-bearing rule has a recorded/executable deliver dependency. | `os/engineering/PROJECT_SETUP.md:62` |
+| X30b | Every load-bearing deliver dependency has a seeded-miss proof. | `os/engineering/PROJECT_SETUP.md:62` |
 | X31 | BUILD existence closes before an owner LOOK can defer. | `os/engineering/CONTOUR.md:163` |
 | X32 | Semantic completeness is judged by AI, not a proxy parser/scanner. | `os/engineering/CONTOUR.md:184` |
 | X33a | Every newly issued engineering root CALL pins its contract; Direction successors inherit it. | `os/schema/packets.md:37` |
@@ -161,50 +157,54 @@ ceiling only after the corresponding obligations are proved removed.
 | X34b | Any frozen public-contract or RED change returns through pair candidate and freeze. | `os/engineering/CONTOUR.md:99` |
 | X35a | The reviewer independently derives mutation scope. | `os/engineering/CONTOUR.md:53` |
 | X35b | The reviewer independently runs mutation. | `os/engineering/CONTOUR.md:53` |
-| X36a | Mutation scope is honestly file-scoped. | `os/engineering/VALIDATION.md:21` |
-| X36b | Mutation records adaptive concurrency or an explicit override. | `os/engineering/VALIDATION.md:21` |
-| X37 | A core-algorithm leg runs a post-build property audit of the actual diff. | `os/engineering/CONTOUR.md:257` |
-| X38 | BUILD searches for reusable implementation before writing. | `os/engineering/CONTOUR.md:204` |
+| X36a | Mutation scope is honestly file-scoped. | `os/engineering/VALIDATION.md:25` |
+| X36b | Mutation records adaptive concurrency or an explicit override. | `os/engineering/VALIDATION.md:25` |
+| X37 | A core-algorithm leg runs a post-build property audit of the actual diff. | `os/engineering/CONTOUR.md:256` |
 | X39 | Value-bearing/measured fields are asserted equal to their source. | `os/engineering/CONTOUR.md:207` |
 | X40 | Multi-actor features exercise conflicting inputs in one tick. | `os/engineering/CONTOUR.md:208` |
-| X41 | A v30 root stays registered across separate fresh product-stage sessions and returns HOME only as REPORT or ESCALATE. | `os/engineering/CONTOUR.md:310` |
-| X42a | A new dependency needs an owner decision. | `os/engineering/VALIDATION.md:78` |
-| X42b | A contract change needs an owner decision. | `os/engineering/VALIDATION.md:78` |
-| X42c | A tier-2 action needs an owner decision. | `os/engineering/VALIDATION.md:78` |
-| X42d | An escalation needs an owner decision. | `os/engineering/VALIDATION.md:78` |
-| X43a | The approved spec lives on disk. | `os/engineering/CONTOUR.md:318` |
-| X43b | The feature ledger lives on disk. | `os/engineering/CONTOUR.md:318` |
-| X43c | Per-leg progress lives on disk. | `os/engineering/CONTOUR.md:318` |
-| X44 | Each feature leg is one cohesive invariant/source-of-truth slice no larger than a focused half-day. | `os/engineering/CONTOUR.md:322` |
-| X45 | Narrative prose cannot close a leg; gates plus attached evidence do. | `os/engineering/CONTOUR.md:332` |
-| X46 | Review filename id matches the triggering change folder. | `os/engineering/VALIDATION.md:7` |
-| X47 | `reviewed-commit` is an ancestor of delivered HEAD. | `os/engineering/VALIDATION.md:7` |
-| X48 | Every later source commit is accounted by a fixed disposition. | `os/engineering/VALIDATION.md:7` |
-| X49 | Every review finding records a concrete `file:line` site. | `os/engineering/VALIDATION.md:7` |
-| X50 | A class-sibling site inside the diff fails as an anti-dodge. | `os/engineering/VALIDATION.md:7` |
-| X51 | Every refuted finding carries a verification marker. | `os/engineering/VALIDATION.md:7` |
-| X52 | Review rounds are at most three or carry a resolving escalation. | `os/engineering/VALIDATION.md:7` |
-| X53 | A review with refutations carries a `refuted-register:` line. | `os/engineering/VALIDATION.md:13` |
-| X54 | Every appended refuted-register row id resolves. | `os/engineering/VALIDATION.md:13` |
-| X55 | Every `register:<row-id>` citation resolves. | `os/engineering/VALIDATION.md:13` |
-| X56 | Every touching register row is marked still-holds, re-opened, or n/a. | `os/engineering/VALIDATION.md:13` |
-| X57 | A recurring fixed class re-opens the earlier row. | `os/engineering/VALIDATION.md:15` |
+| X41a | A v31 root stays registered across separate fresh stages and returns HOME only as REPORT or ESCALATE. | `os/engineering/CONTOUR.md:309` |
+| X41b | One lifecycle gates discovery, apply, mutation and Deliver; paused is custody-only and released is terminal. | `os/engineering/CONTOUR.md:319` |
+| X41c | One closing-control lease serializes each root's closing writes. | `os/engineering/CONTOUR.md:321` |
+| X41d | Closing order is evidence, RESULT/mirrors, gates, publish/readback, RELEASED. | `os/engineering/CONTOUR.md:321` |
+| X41e | Retry classification returns only to the earliest stage invalidated by changed authority. | `os/engineering/CONTOUR.md:320` |
+| X41f | Closing starts from a clean committed checkout and transfers no drafts. | `os/engineering/CONTOUR.md:321` |
+| X41g | V31 machine Boolean markers reject truthy strings. | `os/engineering/CONTOUR.md:319` |
+| X42a | A new dependency needs an owner decision. | `os/engineering/VALIDATION.md:82` |
+| X42b | A contract change needs an owner decision. | `os/engineering/VALIDATION.md:82` |
+| X42c | A tier-2 action needs an owner decision. | `os/engineering/VALIDATION.md:82` |
+| X42d | An escalation needs an owner decision. | `os/engineering/VALIDATION.md:82` |
+| X44 | Each feature leg is one cohesive invariant/source-of-truth slice no larger than a focused half-day. | `os/engineering/CONTOUR.md:323` |
+| X45 | Narrative prose cannot close a leg; gates plus attached evidence do. | `os/engineering/CONTOUR.md:333` |
+| X46 | Review filename id matches the triggering change folder. | `os/engineering/VALIDATION.md:11` |
+| X47 | `reviewed-commit` is an ancestor of delivered HEAD. | `os/engineering/VALIDATION.md:11` |
+| X48a | Product review stales only when an exact product-input manifest entry changes. | `os/engineering/VALIDATION.md:3` |
+| X48b | Every post-review `fixed <commit>` resolves and accounts for a changed product input. | `os/engineering/VALIDATION.md:3` |
+| X49 | Every review finding records a concrete `file:line` site. | `os/engineering/VALIDATION.md:11` |
+| X50 | A class-sibling site inside the diff fails as an anti-dodge. | `os/engineering/VALIDATION.md:11` |
+| X51 | Every refuted finding carries a verification marker. | `os/engineering/VALIDATION.md:11` |
+| X52 | Review rounds are at most three or carry a resolving escalation. | `os/engineering/VALIDATION.md:11` |
+| X53 | A review with refutations carries a `refuted-register:` line. | `os/engineering/VALIDATION.md:17` |
+| X53a | A new refuted finding, register row and citation land in one evidence commit. | `os/engineering/VALIDATION.md:5` |
+| X54 | Every appended refuted-register row id resolves. | `os/engineering/VALIDATION.md:17` |
+| X55 | Every `register:<row-id>` citation resolves. | `os/engineering/VALIDATION.md:17` |
+| X56 | Every touching register row is marked still-holds, re-opened, or n/a. | `os/engineering/VALIDATION.md:17` |
+| X57 | A recurring fixed class re-opens the earlier row. | `os/engineering/VALIDATION.md:19` |
 | X58 | The owner-approved decision page is at most 400 words. | `os/engineering/CONTOUR.md:77` |
 | X59 | Every decision-page fixture fully defines inputs, domains, and mappings or is absent. | `os/engineering/CONTOUR.md:78` |
 | X60 | The carrier exposes real public signatures. | `os/engineering/CONTOUR.md:85` |
 | X61 | Data/value construction preserves every field. | `os/engineering/CONTOUR.md:85` |
 | X62 | Acceptance meaning is not moved into documentation comments. | `os/engineering/CONTOUR.md:86` |
 | X63 | BUILD pins both reviewed carrier and RED commits. | `os/engineering/CONTOUR.md:98` |
-| X64 | Every acceptance property has a committed wrong implementation. | `os/engineering/VALIDATION.md:9` |
-| X65 | Each negative-control test proves the property's own assertion rejects that wrong implementation. | `os/engineering/VALIDATION.md:9` |
-| X66 | Every headless core-algorithm coverage row carries a `prop:` token. | `os/engineering/VALIDATION.md:11` |
-| X67 | Every `prop:` token resolves to the signed property table and category. | `os/engineering/VALIDATION.md:11` |
-| X68 | Mutation-reviewed `H` is an ancestor of delivered HEAD. | `os/engineering/VALIDATION.md:23` |
-| X69 | A post-`H` mutation-input dependency change makes evidence stale. | `os/engineering/VALIDATION.md:23` |
-| X70 | Current A/C/M/T paths and rename destinations enter mutation set `D`. | `os/engineering/VALIDATION.md:23` |
-| X71 | An engine existence proof resolves under the declared artifact root. | `os/engineering/PROJECT_SETUP.md:55` |
-| X72 | An engine existence proof is non-trivial. | `os/engineering/PROJECT_SETUP.md:55` |
-| X73 | A sibling headless test cannot discharge an engine artifact. | `os/engineering/PROJECT_SETUP.md:55` |
+| X64 | Every acceptance property has a committed wrong implementation. | `os/engineering/VALIDATION.md:13` |
+| X65 | Each negative-control test proves the property's own assertion rejects that wrong implementation. | `os/engineering/VALIDATION.md:13` |
+| X66 | Every headless core-algorithm coverage row carries a `prop:` token. | `os/engineering/VALIDATION.md:15` |
+| X67 | Every `prop:` token resolves to the signed property table and category. | `os/engineering/VALIDATION.md:15` |
+| X68 | Mutation-reviewed `H` is an ancestor of delivered HEAD. | `os/engineering/VALIDATION.md:27` |
+| X69 | A post-`H` mutation-input dependency change makes evidence stale. | `os/engineering/VALIDATION.md:27` |
+| X70 | Current A/C/M/T paths and rename destinations enter mutation set `D`. | `os/engineering/VALIDATION.md:27` |
+| X71 | An engine existence proof resolves under the declared artifact root. | `os/engineering/PROJECT_SETUP.md:62` |
+| X72 | An engine existence proof is non-trivial. | `os/engineering/PROJECT_SETUP.md:62` |
+| X73 | A sibling headless test cannot discharge an engine artifact. | `os/engineering/PROJECT_SETUP.md:62` |
 | X74 | Data/value construction exposes the trivial behaviour needed to reach RED. | `os/engineering/CONTOUR.md:85` |
 | X75 | PAIR-CANDIDATE contract-author owns only carrier and tests/support. | `os/engineering/CONTOUR.md:43` |
 | X76 | PAIR-CANDIDATE carrier edits stay inside the approved construction/observation surface. | `os/engineering/CONTOUR.md:28` |
@@ -251,12 +251,12 @@ Each row must be answered independently `addressed | n/a because <reason>`.
 | S10b | Deliverable-coverage disposition for every owner-locked decision. | `os/engineering/CONTOUR.md:150` |
 | S11 | `headless|engine` class for every coverage row. | `os/engineering/CONTOUR.md:153` |
 | S12 | Atomic obligation inventory with `behavioral-red|evidence-only` split. | `os/engineering/CONTOUR.md:173` |
-| S13 | Negative-control coverage. | `os/engineering/VALIDATION.md:9` |
-| S14a | Property-coverage section for a core algorithm. | `os/engineering/VALIDATION.md:11` |
-| S14b | Permutation-metamorphic property row. | `os/engineering/VALIDATION.md:11` |
-| S14c | Fault-injection-all-exit-paths property row. | `os/engineering/VALIDATION.md:11` |
-| S14d | Multi-actor-one-tick property row. | `os/engineering/VALIDATION.md:11` |
-| S14e | Boundary-biased property row. | `os/engineering/VALIDATION.md:11` |
+| S13 | Negative-control coverage. | `os/engineering/VALIDATION.md:13` |
+| S14a | Property-coverage section for a core algorithm. | `os/engineering/VALIDATION.md:15` |
+| S14b | Permutation-metamorphic property row. | `os/engineering/VALIDATION.md:15` |
+| S14c | Fault-injection-all-exit-paths property row. | `os/engineering/VALIDATION.md:15` |
+| S14d | Multi-actor-one-tick property row. | `os/engineering/VALIDATION.md:15` |
+| S14e | Boundary-biased property row. | `os/engineering/VALIDATION.md:15` |
 
 ## E - artifacts and evidence objects (31)
 
@@ -278,20 +278,20 @@ Each row must be answered independently `addressed | n/a because <reason>`.
 | E14 | RED command and failure output. | `os/engineering/CONTOUR.md:198` |
 | E15 | Binding fresh public-contract+RED freeze record. | `os/engineering/CONTOUR.md:199` |
 | E16 | BUILD implementation commit/diff. | `os/engineering/CONTOUR.md:202` |
-| E17 | Mutation report with normalized scope, score and concurrency. | `os/engineering/VALIDATION.md:21` |
-| E18 | Mutation `I/B/H` and `removedFiles` metadata. | `os/engineering/VALIDATION.md:23` |
-| E19 | Full-suite gate output. | `os/engineering/VALIDATION.md:70` |
-| E20 | Executed end-to-end run artifact. | `os/engineering/VALIDATION.md:72` |
+| E17 | Mutation report with normalized scope, score and concurrency. | `os/engineering/VALIDATION.md:25` |
+| E18 | Mutation `I/B/H` and `removedFiles` metadata. | `os/engineering/VALIDATION.md:27` |
+| E19 | Full-suite gate output. | `os/engineering/VALIDATION.md:74` |
+| E20 | Executed end-to-end run artifact. | `os/engineering/VALIDATION.md:76` |
 | E21 | `docs/reviews/review-<id>.md`. | `os/engineering/CONTOUR.md:212` |
 | E22 | Cumulative `docs/reviews/REFUTED.md`. | `os/engineering/CONTOUR.md:219` |
 | E23 | Per-fixed-finding class sweep record. | `os/engineering/CONTOUR.md:248` |
-| E24 | Post-build property-audit test evidence. | `os/engineering/CONTOUR.md:257` |
-| E25 | Non-trivial engine artifact existence path/measurement. | `os/engineering/PROJECT_SETUP.md:55` |
-| E26 | Every review/ADR file cited by the closing report. | `os/engineering/VALIDATION.md:19` |
-| E27 | Manual acceptance instructions derived from G3 scripts. | `os/engineering/CONTOUR.md:303` |
-| E28 | Gated closing `RESULT.md`/RESULT artifact. | `os/engineering/CONTOUR.md:307` |
-| E29 | On-disk per-leg progress/stage-receipt log. | `os/engineering/PROJECT_SETUP.md:77` |
-| E30a | Resolving owner-ack token when its branch is used. | `os/engineering/CONTOUR.md:287` |
+| E24 | Post-build property-audit test evidence. | `os/engineering/CONTOUR.md:256` |
+| E25 | Non-trivial engine artifact existence path/measurement. | `os/engineering/PROJECT_SETUP.md:62` |
+| E26 | Every review/ADR file cited by the closing report. | `os/engineering/VALIDATION.md:23` |
+| E27 | Manual acceptance instructions derived from G3 scripts. | `os/engineering/CONTOUR.md:302` |
+| E28 | Gated closing `RESULT.md`/RESULT artifact. | `os/engineering/CONTOUR.md:306` |
+| E29 | Root progress receipt with lifecycle, exact manifests, verdict, retry, eligibility and lease. | `os/engineering/PROJECT_SETUP.md:83` |
+| E30a | Resolving owner-ack token when its branch is used. | `os/engineering/CONTOUR.md:286` |
 | E30b | Resolving escalation token when its branch is used. | `os/engineering/CONTOUR.md:224` |
 
 ## U - maximizing Unity profile predicates (27)

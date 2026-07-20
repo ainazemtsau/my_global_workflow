@@ -1,5 +1,9 @@
 # Validation — the gate pipeline
 
+**V31 closure hardening.** Review records exact reviewed/delivered `product-inputs` manifests (`path + blob/commit`) and a separate `process-inputs` manifest. Only a changed product input stales product review; each such post-review change needs a `fixed <commit>` disposition whose SHA resolves to a relevant Git object. A process/tool change reruns its process proof, not unchanged product review. This replaces broad source-root accounting only for v31 roots; older pins keep their rule.
+
+On first recording, a refuted finding, its `REFUTED.md` row and the review citation land in one evidence commit. Deliver rejects a partial or cross-inconsistent triad; `none` is legal only with zero refuted findings.
+
 The strictest practical validation for autonomously-built code. Gates run cheap-to-expensive; a change is done only when all gates are green with attached evidence. Thresholds live in the repo's `validation.config`; rubric in its `REVIEW.md`. Per-repo customization changes thresholds and rubric content — never the gate order or the independence rules. Threshold and rubric changes follow the repo's `docs/FRICTION.md` discipline: an explicit owner request, or ≥2 entries on the same point.
 
 **Enabled ≠ written.** A gate counts as ENABLED in a repo only when the repo's deliver-time check FAILS if that gate's evidence is missing or below threshold. A gate that lives only as prose — here, or in the repo's AGENTS.md / REVIEW.md — with nothing the deliver check trips on, is NOT enabled and never makes a leg deliverable. PROJECT_SETUP wires every load-bearing gate below as an executable-or-recorded deliver dependency, each with a seeded-miss test — with one named exception, stated here rather than claimed enabled: **G3** (scripted end-to-end execution) is still validator-run, not yet a recorded deliver dependency (FRICTION-watch). The **review axis** — the independent line review (**G4**) and the finding refutation (**G5** here / KERNEL-G5 fresh-session) — is wired as of contract v10: writer-side now (`os/adapters/coding-agent.md` G10, reaching every repo before its re-sync) and a product deliver dependency once the repo §Re-syncs (§Review-evidence below). **The same applies to a DELIVERABLE, not just a gate: every artifact the PLAN promises owns a default-FAIL ledger row whose closure needs an existence proof the deliver check trips on if absent — a runnable check, or for an engine-side / non-headless artifact a RECORDED existence proof (a committed scene/prefab/asset path the check `Test-Path`s, or a recorded MCP/batch-run artifact). An owner-acceptance / eyeball axis may DEFER THE LOOK at an artifact that already passed that existence check; it may never absorb the BUILD. Existence proves the artifact is PRESENT, never that it is the NAMED approach: an engine row whose substrate/mechanism (its recorded `approach:` token, CONTOUR §Boundary) differs from the one the CALL named as its de-risk target needs a recorded owner-ack to stand, the same as a cut — a real-but-substituted artifact, AND a silent stretch/normalization crutch the named approach did not require, is the existence gate's blind spot, closed here, not waved through green. For any leg that substituted an approach or claimed the named one infeasible, the fresh-session refutation (KERNEL G5) must try to refute THAT claim against the named code, not only value==source. Coverage is keyed to the plan's PROMISES — each `done_when` bullet gets a disposition, so none can be silently omitted — and cutting a promised deliverable needs a recorded owner decision, never a self-authored drop (CONTOUR §c). A deliverable with no failing row, or one discharged only by an "owner may wait without failing the leg" clause, is the gate hole's mirror: invisible to "all gates green," exactly as a prose-only gate is.** This is the one class the deliver gate currently exempts — close it the same way. The two skipped most often, because they are cost- or judgment-heavy, are **G2 mutation** (a suite that runs but never records a mutation score has not enabled G2) and the **PLAN spec-silence audit** (CONTOUR §b — the recorded unconstrained-regimes list, which now WALKS the cross-kind escape-class registry `os/engineering/ESCAPE-CLASSES.md` row-by-row — an unmarked class is the same hole as a missing audit, and a catcher that does not exercise the regime its property must hold under is green where the bug does not live); both are deliver dependencies, not optional prose. When this file hardens a gate, an already-set-up repo does NOT inherit it automatically (setup runs once) — it re-syncs via its `docs/FRICTION.md` (PROJECT_SETUP §Re-sync); until then that repo's deliver check is stale and cannot claim the hardened gate is enabled.
@@ -24,7 +28,7 @@ The strictest practical validation for autonomously-built code. Gates run cheap-
 
 **Mutation snapshot cleanliness (contract v24).** Before running, the reviewer-side runner fails if any declared mutation-input dependency path is staged, unstaged, or untracked; `H` therefore names the exact source/test/tool/config snapshot that produced the score rather than a nearby commit.
 
-**Compiled pair candidate (contracts v29/v30; new pinned CALLs only).** Both pins use
+**Compiled pair candidate (contracts v29-v31; new pinned CALLs only).** These pins use
 PLAN -> separate PAIR-CANDIDATE -> binding fresh PAIR-FREEZE refutation -> BUILD. One fresh contract-author - the
 independent test-author, never builder/validator - may stabilize both the non-behavioral public carrier and tests/support
 inside that bounded job. The owner-approved page remains at most 400 words and fully defines or omits each fixture.
@@ -38,34 +42,34 @@ fails on behavior. Permitted carrier gaps are corrected inside PAIR-CANDIDATE, n
 behavioral/out-of-plan changes or exhausted retries return one complete blocker. Fresh refutation inspects fixture
 meaning, both commits/manifests/diffs and runner evidence, then freezes public declarations/value contract and RED
 files. BUILD pins both, may implement bodies/internal HOW, and edits neither frozen contract nor RED; changing either
-returns through PAIR-CANDIDATE and pair freeze. For v29 each stage returns HOME to Direction; for v30 a compact receipt
+returns through PAIR-CANDIDATE and pair freeze. For v29 each stage returns HOME to Direction; for v30/v31 a compact receipt
 advances the fresh repo-local stage and the one root returns only REPORT or ESCALATE HOME. The obligation inventory and `behavioral-red | evidence-only` split
 remain evidence; prose recipes, PLAN-AMEND, `N/N`, compile-RED and counts are not launch authority. Legacy
-snapshot lineages stay on their recorded v23 route across Re-sync; issued v29 roots keep their route when v30 activates.
+snapshot lineages stay on their recorded v23 route across Re-sync; issued v29/v30 roots keep their routes when v31 activates.
 
 **Executable Plan-to-RED handoff (contract v22, historical carrier only).** The v22 prose-first route below is retained
-as migration history and does not execute for a compiled v29/v30 leg. A prose recipe
+as migration history and does not execute for a compiled v29-v31 leg. A prose recipe
 is planning evidence, never executable evidence. The frozen spec first splits mixed rows and classifies every atomic
 obligation as `behavioral-red` or `evidence-only`: only behavioral rows enter the RED numerator and own a named test
 file/method plus exact `fixture|call|observe|source|negative`; process order, structural review, owner verdicts and
 final gates name their real evidence route and are excluded from the test count. The CALL-pinned compiled carrier route
 replaces v22's compile-RED and PLAN-AMEND launch permissions.
 
-**Fresh-refutation routing.** PAIR-CANDIDATE (v29/v30) or legacy RED-FREEZE may hand off only to binding fresh review, never
+**Fresh-refutation routing.** PAIR-CANDIDATE (v29-v31) or legacy RED-FREEZE may hand off only to binding fresh review, never
 straight to BUILD. The reviewer reads the exact carrier, decision page, RED commit/diff and runner output; the plan's
 inventory remains comparison evidence. It tries to refute completeness, fixture meaning and independence, writes no
-tests, and for v29/v30 freezes the exact pair. Only its artifact-backed verdict may open BUILD.
+tests, and for v29-v31 freezes the exact pair. Only its artifact-backed verdict may open BUILD.
 
 ## Gates
 
 For a compiled leg, every G0 phrase below saying the test-author works "from the spec" means the CALL-pinned compiled
-carrier route defined above; the ledger/spec remains immutable coverage evidence, not RED launch authority. Under v29/v30
+carrier route defined above; the ledger/spec remains immutable coverage evidence, not RED launch authority. Under v29-v31
 the RED commit becomes immutable with the carrier at pair freeze; legacy v23 retains its earlier RED-FREEZE timing.
 Non-compiled repositories use a native executable carrier or an explicit owner-approved `n/a` at re-sync.
 
 **G0 — Contract freeze (before build).** Acceptance criteria per feature, machine-readable, negotiated with the validator before code exists. The builder cannot edit them. No criteria → no build. The failing acceptance tests realizing those criteria are written by an independent test-author from the spec — not the builder — committed in the CALL-pinned RED artifact, made immutable before BUILD and fresh-reviewed, and the builder cannot edit them (same protection as the criteria); the builder makes them pass. An independently-authored, spec-derived oracle is the only thing that catches a misreading the builder's own tests would share (mutation testing cannot — a wrong-but-consistent test still kills mutants).
 
-**G1 — Mechanical.** Format, strict lint, typecheck, dependency-boundary check, dead-code / unused-export check, duplicate-helper detection, rules against hardcoded values/secrets/magic literals. One command; runs constantly (hooks), not just at the end.
+**G1 — Mechanical.** Format, strict lint, typecheck, dependency-boundary check, dead-code / unused-export check, duplicate-helper detection, rules against secrets/magic literals. One command; runs constantly (hooks), not just at the end.
 
 **G2 — Tests.** Full suite green and deterministic. Coverage % is NOT a gate — agent-written tests look good and lie (measured ~57% mutation kill rate). The gate is **file-level diff-scoped mutation testing** with the scope-integrity dependency above and a score ≥ the configured kill-rate floor, plus property-based tests for core logic; for any feature with >1 concurrent actor the generators must cover multi-actor / conflicting-input-in-one-tick regimes, not a single-actor happy path. Property tests for core-class logic run on a real property-testing framework (CsCheck; FsCheck 3.x fallback only where the repo already carries F#) under `[Category("Property")]` — not hand-rolled loops passed off as coverage — and cover at minimum: **permutation-metamorphic** properties (an outcome that must be invariant to insertion/iteration order — a hash keyed to insertion order is a bug, not a feature) and **boundary-biased** generators (inputs weighted at/adjacent to type and domain limits, not uniform random, which under-samples exactly the seam a review later finds by hand). Core invariants (conservation, atomicity, non-negativity, determinism, domain-safety) are property-tested on ALL paths INCLUDING the failure/exception paths a guard introduces — a tripped guard must leave them intact (the tick stays atomic and conserving), not only the success path; a guard tested to fire but never tested to be atomic is half-tested, and the untested half is where the next review finding lives. The kill-rate floor is a REQUIRED key in `validation.config`, and the run records both the normalized file scope and achieved score as an artifact the deliver check reads: a repo whose gate runs the suite but records no mutation scope/score, whose scope omits a changed eligible file, or whose config omits the floor, has not enabled G2 (see *Enabled ≠ written*). Mutation cannot catch a wrong-but-consistent test (a misread spec the builder's own tests share) — that is G0's independent test-author and the spec-silence audit; G2 catches the weak/lying test.
 
@@ -79,7 +83,6 @@ Non-compiled repositories use a native executable carrier or an explicit owner-a
 
 ## Retry & escalation policy (uniform across gates)
 
-- A failed gate returns its findings verbatim into the next attempt — retries without the findings are wasted.
 - ≤2 retries in-context, then 1 fresh-context retry with a rewritten prompt. Hard cap 3 per gate.
 - The same finding class recurring twice = non-convergence → stop immediately, don't burn the rest of the budget.
 - Escalation to the owner is a designed terminal state, not a failure: budget exhausted, non-convergence, or an out-of-plan decision. The escalation carries the question, the findings, and 2–3 options with a recommendation.
@@ -93,7 +96,6 @@ Non-compiled repositories use a native executable carrier or an explicit owner-a
 5. No sleep-waits / real network / real clock in unit tests; changed-file suite runs twice — differing results = flaky = fail.
 6. Every test asserts something (assertion-free tests fail lint).
 7. Dead-code and duplicate-utility gates (unused exports fail; similarity checker over helper dirs).
-8. Test-to-source ratio budget per module — a tripwire that flags sprawl for review instead of letting it accumulate.
 
 Rule 1+3 together are the direct answer to "test scenes multiplied across the game project": scenes have exactly one legal home with a runner, throwaways have exactly one legal home that cannot be committed.
 

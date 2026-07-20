@@ -46,7 +46,7 @@ Contract:
     Re-sync in a later transaction even while older legacy CALLs for that repo remain open: it may install/stamp repo
     authority only, must preserve every snapshot call and its active artifacts, and cannot carry feature work. After
     Re-sync HOME, new integer-pinned roots may coexist with older lineages; validate each from its own pin.
-  - **compiled candidate-pair guard (contract v29/v30 markers)** - PLAN proceeds only to PAIR-CANDIDATE. Its receipt records
+  - **compiled candidate-pair guard (contract v29-v31 markers)** - PLAN proceeds only to PAIR-CANDIDATE. Its receipt records
     the owner-approved decision-page path/count <=400 with every fixture defined or absent; exact carrier parent/commit
     and Git manifest followed by the exact RED commit/manifest; real signatures, field-preserving construction,
     trivial reachability, no behavioral implementation and no meaning in `///`; build+hygiene GREEN after the last
@@ -56,10 +56,12 @@ Contract:
     never an intermediate owner/Direction relay. Binding fresh refutation freezes the public contract and RED files.
     BUILD pins both commits, may implement bodies/internal HOW, and changes neither frozen contract nor RED; such a
     change returns through PAIR-CANDIDATE and pair freeze. The writer checks evidence shape, not truth, and adds no parser.
-    Under v29 each stage returns HOME and Direction issues the next CALL. Under v30 these are product-local receipts:
+    Under v29 each stage returns HOME and Direction issues the next CALL. Under v30/v31 these are product-local receipts:
     the one root stays registered until gated REPORT or ESCALATE, and pair eligibility alone cannot close/checkpoint it
     or issue a Direction successor. The terminal HOME references the existing progress/review artifacts for every fresh
-    stage; the writer checks route/evidence shape, never replays or semantically re-reviews the product run.
+    stage; the writer checks route/evidence shape, never replays or semantically re-reviews the product run. A v31 HOME
+    also references the lifecycle/input manifests, retry dispositions and single closing lease. REPORT requires the
+    ordered RELEASED receipt; ESCALATE remains ACTIVE. PRESERVED-PAUSED is custody, never implementation evidence.
   - **compiled carrier and RED handoff guard (legacy v23 only; pre-v29 unversioned or `legacy:` CALLs)** - for a compiled product-code leg, a PLAN or PLAN-AMEND RESULT may open only SURFACE-FREEZE, never RED/EXEC/BUILD; the retired v22 prose PLAN-AMEND carrier is not launch authority. SURFACE-FREEZE may open independent RED-FREEZE only when evidence records: exact freeze commit and parent; its Git manifest (not a prose folder list); the owner-approved decision-page path and word count <=400 with every named fixture fully defined or absent; skeleton production-source additions <=400 from `git diff --numstat <parent>..<freeze>` (excess = STOP and split, never a raised cap); real public signatures with field-preserving data/value construction and no acceptance meaning moved into `///`; repo-native build and hygiene GREEN; and all mandatory platform sidecars tracked in the same commit (Unity: each new `Assets/**/*.cs` has tracked `.cs.meta`; unavailable real importer = tool-unavailable STOP). RED-FREEZE changes tests/test-support only, pins the carrier, and may open only binding fresh RED refutation; its repo-native test command must compile, discover the intended tests and fail on behavior, never compile-RED. The fresh review may open BUILD only when it attempts to refute the exact carrier, fixture meaning, actual immutable RED commit/diff and runner evidence; the plan's complete `behavioral-red | evidence-only` inventory remains comparison evidence. BUILD pins both reviewed commits, forbids edits/re-authoring of frozen RED and the frozen public surface, and returns to SURFACE-FREEZE if the public carrier changes. A prose `N/N`, v22 recipe table, test count or named-blocker-only GREEN never satisfies this guard. For a non-compiled repo, require its declared native executable carrier or an explicit owner-approved `n/a`; never copy the C# mechanism. The writer checks recorded evidence shape, not semantic truth, and never substitutes a parser/regex/conformance tool.
   - the `next` CALL's goal is an outcome with no method/procedure paraphrase (CALL hygiene, schema/packets.md).
   - **builder-return is not close (engineering RESULTs)** — a product-repo RESULT, owner playtest summary, merge/push request, or prose like "formally closed on dev/dev2" is evidence input, not authority to clear `NOW.open_calls` or mark done. The writer may close the pending engineering work only when the Direction-OS RESULT/checkpoint carries the required close evidence: deliverable reconciliation plus the binding fresh-session G5/review (or stricter gate) named by the CALL/state. Product gates, screenshots, owner-eye, merge, and push may support that close; they do not replace it. A CALL phrase such as "no heavy multi-agent refutation" reduces fan-out only and is not a G5 waiver. If close evidence is absent, bounce or checkpoint by replacing the returning id with a continuation CALL for the same work; never improvise a "merged therefore closed" state.
@@ -110,13 +112,13 @@ Contract:
   tool; discovery or installation alone is never a blocker.
 - The run contract installed in the repo's root AGENTS.md at setup governs the run (roles, gates, retry/escalation). No run contract → the repo is uninitialized: stop and report — the first CALL for this repo is setup per `os/engineering/PROJECT_SETUP.md` (interactive: stack interview with the owner).
 - Exit report (= the RESULT's evidence): descriptive commits or PR link, diff summary, output of the checks run (tests/build), explicit list of assumptions made, anything cut for budget.
-- Routing follows the CALL pin: every v29/legacy stage returns HOME for Direction continuation; one v30 root instead remains open while its repo runner launches separate fresh stages from committed receipts, and returns HOME only at gated REPORT or ESCALATE. Neither route asks the owner to construct a successor.
+- Routing follows the CALL pin: every v29/legacy stage returns HOME for Direction continuation; a v30/v31 root remains open while its repo runner launches separate fresh stages from committed receipts, and returns HOME only at gated REPORT or ESCALATE. Neither route asks the owner to construct a successor.
 - "Done" is the CALL's done_when verified by a runnable check, not the agent's assertion. A task that can't carry a runnable check should say how it is to be verified instead — at CALL time, not after.
 - Blockers surface early: if the task looks infeasible or 2x over budget, stop and report — a fast "blocked, because" is a good result; days of silent struggle are not. A required tool/harness being UNAVAILABLE (engine Editor not running, a needed MCP disconnected, headless-test license absent) is a blocker: STOP and tell the owner which tool to launch — never a workaround or crutch around it; any exception stands only on the owner's explicit written ack (CONTOUR ESCALATE).
 
 ## Sizing rule
 
-One feature leg is one cohesive invariant/source-of-truth slice and ≤ a focused half-day. An approved root may contain several dependency-ordered legs; its v30 repo runner, not the owner or Direction, sequences them. A mixed leg is split before PAIR-CANDIDATE.
+One feature leg is one cohesive invariant/source-of-truth slice and ≤ a focused half-day. An approved root may contain several dependency-ordered legs; its v30/v31 repo runner, not the owner or Direction, sequences them. A mixed leg is split before PAIR-CANDIDATE.
 
 ## Running thinking sessions here too
 
