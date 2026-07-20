@@ -1,1014 +1,560 @@
-<title>Полигон M1 — путь к сильной интеграционной сцене</title>
-<style>
-  :root{
-    --bg:#f4f7f7; --panel:#ffffff; --panel2:#eef3f3; --ink:#182427; --muted:#5c6f74; --line:#d9e2e3;
-    --accent:#0d8f7c; --accent-ink:#0a6e60; --accent-soft:#d7efe9;
-    --warn:#a8690f; --warn-soft:#f6e8d0; --danger:#b23a2c; --danger-soft:#f4ddd9; --ok:#2e7d3a; --ok-soft:#dcefdd;
-    --owner:#5b4a9e; --owner-soft:#e6e1f5;
-    --chip-bg:#e7eeee;
-  }
-  @media (prefers-color-scheme: dark){
-    :root{
-      --bg:#0e1517; --panel:#151e21; --panel2:#1a2529; --ink:#e6eeef; --muted:#8fa4a8; --line:#26363b;
-      --accent:#43d8bd; --accent-ink:#7ce8d4; --accent-soft:#123a34;
-      --warn:#e5b45c; --warn-soft:#3a2c12; --danger:#e57a6a; --danger-soft:#3d1f1a; --ok:#7ecc86; --ok-soft:#1b3320;
-      --owner:#b3a3ec; --owner-soft:#2a2440;
-      --chip-bg:#1e2b2f;
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Indie Game Development — Program v2</title>
+  <style>
+    :root {
+      color-scheme: dark;
+      --bg: #0d1015;
+      --panel: #151a22;
+      --panel-2: #1a202a;
+      --line: #2a3441;
+      --text: #f2f5f7;
+      --muted: #a9b3bf;
+      --soft: #7d8997;
+      --accent: #8ee7c5;
+      --accent-2: #8fc7ff;
+      --ready: #9fe7c2;
+      --waiting: #f2cf7c;
+      --blocked: #ff9b9b;
+      --paused: #aab4c0;
+      --done: #79d8ad;
+      --shadow: 0 12px 32px rgba(0, 0, 0, .22);
     }
-  }
-  :root[data-theme="dark"]{
-    --bg:#0e1517; --panel:#151e21; --panel2:#1a2529; --ink:#e6eeef; --muted:#8fa4a8; --line:#26363b;
-    --accent:#43d8bd; --accent-ink:#7ce8d4; --accent-soft:#123a34;
-    --warn:#e5b45c; --warn-soft:#3a2c12; --danger:#e57a6a; --danger-soft:#3d1f1a; --ok:#7ecc86; --ok-soft:#1b3320;
-    --owner:#b3a3ec; --owner-soft:#2a2440;
-    --chip-bg:#1e2b2f;
-  }
-  :root[data-theme="light"]{
-    --bg:#f4f7f7; --panel:#ffffff; --panel2:#eef3f3; --ink:#182427; --muted:#5c6f74; --line:#d9e2e3;
-    --accent:#0d8f7c; --accent-ink:#0a6e60; --accent-soft:#d7efe9;
-    --warn:#a8690f; --warn-soft:#f6e8d0; --danger:#b23a2c; --danger-soft:#f4ddd9; --ok:#2e7d3a; --ok-soft:#dcefdd;
-    --owner:#5b4a9e; --owner-soft:#e6e1f5;
-    --chip-bg:#e7eeee;
-  }
-  *{box-sizing:border-box}
-  body{
-    background:var(--bg); color:var(--ink);
-    font-family:"Segoe UI", system-ui, -apple-system, sans-serif;
-    font-size:15px; line-height:1.55; margin:0; padding:0 20px 80px;
-  }
-  .wrap{max-width:1160px; margin:0 auto}
-  h1,h2,h3{font-family:"Bahnschrift","Arial Narrow","Segoe UI",sans-serif; text-wrap:balance; margin:0}
-  .mono{font-family:"Cascadia Mono",Consolas,monospace}
 
-  header.hero{padding:56px 0 28px; border-bottom:2px solid var(--line)}
-  .eyebrow{font-family:"Cascadia Mono",Consolas,monospace; font-size:12px; letter-spacing:.14em; text-transform:uppercase; color:var(--accent); margin-bottom:10px}
-  h1{font-size:44px; line-height:1.05; font-weight:700; letter-spacing:.01em}
-  .hero p.lead{max-width:70ch; color:var(--muted); font-size:16.5px; margin:16px 0 0}
-  .hero p.lead b{color:var(--ink)}
-  .hero .stamp{margin-top:18px; display:flex; gap:8px; flex-wrap:wrap}
-  .stamp span{font-family:"Cascadia Mono",Consolas,monospace; font-size:12px; padding:4px 10px; border:1px solid var(--line); border-radius:3px; color:var(--muted); background:var(--panel)}
+    * { box-sizing: border-box; }
 
-  section{margin-top:52px}
-  .sec-head{display:flex; align-items:baseline; gap:14px; border-bottom:2px solid var(--line); padding-bottom:10px; margin-bottom:22px}
-  .sec-head h2{font-size:26px; text-transform:uppercase; letter-spacing:.03em}
-  .sec-head .tag{font-family:"Cascadia Mono",Consolas,monospace; font-size:12px; color:var(--muted)}
-  .note{color:var(--muted); font-size:13.5px; max-width:80ch}
+    html { scroll-behavior: smooth; }
 
-  /* Инвентарь */
-  .tracks{display:grid; grid-template-columns:repeat(auto-fill,minmax(260px,1fr)); gap:14px}
-  .track{background:var(--panel); border:1px solid var(--line); border-radius:6px; padding:16px 16px 14px; display:flex; flex-direction:column; gap:10px}
-  .track h3{font-size:16.5px; letter-spacing:.02em}
-  .bar{height:8px; background:var(--panel2); border-radius:4px; overflow:hidden; border:1px solid var(--line)}
-  .bar i{display:block; height:100%; background:var(--accent)}
-  .pct{font-family:"Cascadia Mono",Consolas,monospace; font-size:12px; color:var(--muted)}
-  .track ul{margin:0; padding:0; list-style:none; font-size:13.5px}
-  .track li{padding:2px 0 2px 20px; position:relative}
-  .track li.done::before{content:"✓"; position:absolute; left:0; color:var(--ok); font-weight:700}
-  .track li.miss::before{content:"✗"; position:absolute; left:0; color:var(--danger); font-weight:700}
-  .track li.miss{color:var(--muted)}
+    body {
+      margin: 0;
+      background:
+        radial-gradient(circle at 12% -10%, rgba(86, 150, 180, .16), transparent 30rem),
+        radial-gradient(circle at 92% 4%, rgba(89, 190, 147, .12), transparent 28rem),
+        var(--bg);
+      color: var(--text);
+      font: 15px/1.55 Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
 
-  /* Даты */
-  .dates{display:flex; gap:0; overflow-x:auto; border:1px solid var(--line); border-radius:6px; background:var(--panel)}
-  .date{min-width:150px; flex:1; padding:14px 14px 12px; border-right:1px solid var(--line)}
-  .date:last-child{border-right:none}
-  .date .d{font-family:"Cascadia Mono",Consolas,monospace; font-size:15px; font-weight:700; color:var(--accent-ink)}
-  .date .d.red{color:var(--danger)}
-  .date .t{font-size:13px; margin-top:4px}
-  .date .s{font-size:12px; color:var(--muted); margin-top:2px}
+    a { color: var(--accent-2); text-underline-offset: 3px; }
+    a:hover { color: #c4e3ff; }
 
-  .callout{border-left:4px solid var(--warn); background:var(--warn-soft); padding:14px 18px; border-radius:0 6px 6px 0; margin-top:18px; font-size:14px; max-width:100ch}
-  .callout.accent{border-left-color:var(--accent); background:var(--accent-soft)}
-  .callout b{letter-spacing:.01em}
+    .shell {
+      width: min(1180px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 28px 0 64px;
+    }
 
-  /* Волны */
-  .wave{background:var(--panel); border:1px solid var(--line); border-radius:6px; margin-bottom:18px; overflow:hidden}
-  .wave-head{display:flex; align-items:baseline; gap:14px; flex-wrap:wrap; padding:14px 18px; background:var(--panel2); border-bottom:1px solid var(--line)}
-  .wave-head .num{font-family:"Bahnschrift","Arial Narrow",sans-serif; font-size:22px; font-weight:700; color:var(--accent)}
-  .wave-head h3{font-size:18px}
-  .wave-head .dt{font-family:"Cascadia Mono",Consolas,monospace; font-size:12.5px; color:var(--muted); margin-left:auto}
-  .lanes{display:grid; grid-template-columns:repeat(auto-fit,minmax(230px,1fr)); gap:0}
-  .lane{padding:12px 16px 14px; border-right:1px solid var(--line); border-top:1px solid var(--line)}
-  .lane:first-child{border-left:none}
-  .lane h4{margin:0 0 8px; font-size:12px; font-family:"Cascadia Mono",Consolas,monospace; letter-spacing:.1em; text-transform:uppercase; color:var(--muted)}
-  .lane ul{margin:0; padding-left:16px; font-size:13.5px}
-  .lane li{margin:4px 0}
-  .lane.owner{background:var(--owner-soft)}
-  .lane.owner h4{color:var(--owner)}
-  .wave .milestone{padding:12px 18px; border-top:1px solid var(--line); font-size:14px; background:var(--panel)}
-  .wave .milestone b{color:var(--accent-ink)}
+    header {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 24px;
+      padding: 10px 0 24px;
+      border-bottom: 1px solid var(--line);
+    }
 
-  /* Развилки */
-  .forks{display:grid; grid-template-columns:repeat(auto-fill,minmax(330px,1fr)); gap:14px}
-  .fork{background:var(--panel); border:1px solid var(--line); border-radius:6px; padding:16px; display:flex; flex-direction:column; gap:8px}
-  .fork .top{display:flex; gap:8px; align-items:center}
-  .fork .id{font-family:"Cascadia Mono",Consolas,monospace; font-size:12px; font-weight:700; background:var(--chip-bg); padding:3px 8px; border-radius:3px}
-  .fork .dl{font-family:"Cascadia Mono",Consolas,monospace; font-size:12px; color:var(--danger); margin-left:auto}
-  .fork h3{font-size:15.5px; line-height:1.35}
-  .fork ul{margin:2px 0 0; padding-left:18px; font-size:13.5px; color:var(--muted)}
-  .fork li{margin:3px 0}
-  .fork li.rec{color:var(--ink)}
-  .fork li.rec::marker{color:var(--ok)}
-  .fork .why{font-size:13px; color:var(--muted); border-top:1px dashed var(--line); padding-top:8px; margin-top:2px}
+    h1, h2, h3, p { margin-top: 0; }
+    h1 { margin-bottom: 6px; font-size: clamp(28px, 4vw, 44px); line-height: 1.08; letter-spacing: -.035em; }
+    h2 { margin-bottom: 14px; font-size: 21px; letter-spacing: -.015em; }
+    h3 { margin-bottom: 8px; font-size: 17px; }
+    p:last-child { margin-bottom: 0; }
 
-  /* Риски */
-  .risks{counter-reset:r; display:flex; flex-direction:column; gap:10px}
-  .risk{background:var(--panel); border:1px solid var(--line); border-left:4px solid var(--danger); border-radius:0 6px 6px 0; padding:12px 16px; font-size:14px}
-  .risk b{display:block; margin-bottom:2px}
-  .risk span{color:var(--muted)}
+    .eyebrow {
+      margin-bottom: 9px;
+      color: var(--accent);
+      font-size: 12px;
+      font-weight: 750;
+      letter-spacing: .11em;
+      text-transform: uppercase;
+    }
 
-  .odds{display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:14px; margin-bottom:18px}
-  .odd{background:var(--panel); border:1px solid var(--line); border-radius:6px; padding:16px}
-  .odd .n{font-family:"Bahnschrift","Arial Narrow",sans-serif; font-size:38px; font-weight:700; color:var(--accent); font-variant-numeric:tabular-nums}
-  .odd .n.warn{color:var(--warn)}
-  .odd p{margin:6px 0 0; font-size:13.5px; color:var(--muted)}
+    .subtitle { max-width: 750px; color: var(--muted); }
+    .updated { flex: 0 0 auto; color: var(--soft); font-size: 13px; text-align: right; }
 
-  /* Клей */
-  .glue{display:grid; grid-template-columns:repeat(auto-fill,minmax(300px,1fr)); gap:14px}
-  .glue .g{background:var(--panel); border:1px solid var(--line); border-radius:6px; padding:14px 16px}
-  .glue .g h3{font-size:15px; margin-bottom:6px}
-  .glue .g p{margin:0; font-size:13.5px; color:var(--muted)}
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 9px;
+      margin: 18px 0 0;
+    }
 
-  .calls{display:flex; flex-direction:column; gap:10px; margin-top:12px}
-  .call{background:var(--panel); border:1px solid var(--line); border-left:4px solid var(--accent); border-radius:0 6px 6px 0; padding:12px 18px 10px}
-  .call.wait{border-left-color:var(--warn)}
-  .call.closed{border-left-color:var(--ok)}
-  .call .head{display:flex; align-items:baseline; gap:10px; flex-wrap:wrap; margin-bottom:5px}
-  .call .head b{font-size:15.5px}
-  .call .id{font-family:"Cascadia Mono",Consolas,monospace; font-size:11px; color:var(--muted)}
-  .call .st{font-size:11.5px; padding:2px 8px; border-radius:3px; background:var(--chip-bg); font-weight:600; letter-spacing:.02em}
-  .call p{margin:3px 0; font-size:13.5px; line-height:1.5}
-  .call p .l{color:var(--muted); font-weight:600}
-  h3.subhead{margin:28px 0 4px; font-size:18px; font-family:"Bahnschrift","Arial Narrow",sans-serif}
+    nav a {
+      padding: 7px 11px;
+      border: 1px solid var(--line);
+      border-radius: 9px;
+      background: rgba(255,255,255,.025);
+      color: var(--muted);
+      text-decoration: none;
+    }
 
-  details.day{border:1px solid var(--line); border-radius:6px; background:var(--panel); margin-bottom:8px}
-  details.day summary{cursor:pointer; padding:10px 16px; font-family:"Bahnschrift","Arial Narrow",sans-serif; font-size:15px; font-weight:700; letter-spacing:.03em}
-  details.day summary .cnt{font-family:"Cascadia Mono",Consolas,monospace; font-size:11.5px; color:var(--muted); font-weight:400; margin-left:8px}
-  details.day ul{margin:0; padding:2px 18px 12px 34px; font-size:13.5px}
-  details.day li{margin:4px 0}
-  details.day li b{color:var(--accent-ink)}
+    nav a:hover { border-color: #506071; color: var(--text); }
 
-  .mtx-wrap{overflow-x:auto; border:1px solid var(--line); border-radius:6px; background:var(--panel)}
-  table.mtx{width:100%; border-collapse:collapse; font-size:13px; min-width:760px}
-  .mtx th{font-family:"Cascadia Mono",Consolas,monospace; font-size:11px; letter-spacing:.08em; text-transform:uppercase; color:var(--muted); text-align:left; padding:8px 10px; border-bottom:2px solid var(--line); background:var(--panel2)}
-  .mtx td{padding:6px 10px; border-bottom:1px solid var(--line); vertical-align:top}
-  .mtx tr.grp td{font-family:"Bahnschrift","Arial Narrow",sans-serif; font-size:13.5px; font-weight:700; text-transform:uppercase; letter-spacing:.05em; background:var(--panel2); color:var(--accent-ink)}
-  .mtx td.a{white-space:nowrap; font-variant-numeric:tabular-nums}
-  .legend{display:flex; gap:16px; flex-wrap:wrap; font-size:12.5px; color:var(--muted); margin:10px 0 14px}
+    main { display: grid; gap: 34px; margin-top: 26px; }
 
-  .gloss{font-size:13px; color:var(--muted); border-top:1px solid var(--line); margin-top:44px; padding-top:16px; max-width:100ch}
-  .gloss b{color:var(--ink)}
-  .check ul{font-size:13.5px; color:var(--muted); padding-left:18px}
-  .check li{margin:4px 0}
-  @media (prefers-reduced-motion: no-preference){ html{scroll-behavior:smooth} }
-</style>
+    .summary {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr 1fr;
+      gap: 14px;
+    }
 
-<div class="wrap">
+    .panel {
+      padding: 19px;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      background: linear-gradient(150deg, rgba(255,255,255,.03), transparent 58%), var(--panel);
+      box-shadow: var(--shadow);
+    }
 
-<header class="hero">
-  <div class="eyebrow">ОНО ДЫШИТ - главная панель направления - обновлено 19.07 - NEARGAS L1B V29 RELEASED - CHARACTER CLOSING</div>
-  <h1>Полигон M1 — путь к сильной интеграционной сцене</h1>
-  <p class="lead"><b>Финиш:</b> одна регулируемая сцена, где DA собирает проверенные модули, PGG может наполнять их только на этапе авторинга, персонаж подключён через стабильный сокет, газ живёт под одним авторитетом, а сеть, названное слабое железо, телеметрия и снимки позволяют честно испытывать всё вместе. NearGas-dashboard ниже по иерархии: это подробная техническая панель одного газового трека, не roadmap всей цели.</p>
-  <div class="stamp"><span>track-mode: 9 треков · primary core · default Program v2 map · WIP 6/6 · ready 2 · waiting 2 · blocked 1 · paused 3</span><span>program READY: owner-present Program v2 track map and staged Integration Lab route</span><span>NearGas L1B v29 DELIVERED / RELEASED: dev = main = origin/dev = origin/main @693e671b</span><span>core executor root CLOSED: c-exec-near-gas-l1b-pair-candidate-001; L1B-Capture DONE; no successor</span><span>normal 1813/1813 · mutation 75.18 ≥ 70 · Deliver twice GREEN including RELEASED readback</span><span>core still occupies track WIP through pending min-spec decision d-m1-min-spec-hardware-001</span><span>Level WAITING: product LV0 PLAN RELEASED @b1698170; binding Direction review still missing</span><span>Character WAITING: Leg 2 code/art/evidence built; G4 MET; owner LOOK → binding G5 → RESULT/Deliver</span><span>aperture RED 5af1d8db immutable and preserved; BUILD was not issued</span><span>V30 exists only as local Direction tag/branch @2e7d4b51; installation still requires a separate re-sync:30</span><span>c-002 admitted; canon cartography READY; visual BLOCKED; .NET runner, marketing and damage PAUSED</span></div>
-</header>
+    .panel strong.big {
+      display: block;
+      margin-bottom: 6px;
+      font-size: 20px;
+      line-height: 1.25;
+    }
 
-<section id="m1-route">
-  <div class="sec-head"><h2>🧭 Маршрут к сцене</h2><span class="tag">историческая база · сейчас пересобирается в Program v2 map</span></div>
-  <div class="callout accent"><b>Статус этой секции:</b> принятый cross-bet маршрут остаётся evidence и не удаляется, но его старые READY/порядковые формулировки больше не являются диспетчеризацией. Живой статус находится в Борде ниже; default Program v2 map превратит эту базу в новую owner-approved карту треков и стадий Integration Lab. Сам маршрут не открывает BUILD.</div>
-  <div class="mtx-wrap"><table class="mtx">
-    <tr><th>Работа</th><th>Сейчас</th><th>Параллельно с чем</th><th>Почему / следующий гейт</th></tr>
-    <tr><td><b>NearGas L1B v29</b><br><span class="mono">five passive observation families · terminal HOME</span></td><td class="a">✅ DELIVERED / RELEASED</td><td>product root закрыт; successor не создан</td><td>dev, main и обе origin-ref совпадают на <code>693e671b</code>. Independent review PASS/GREEN, normal 1813/1813, mutation 75.18% при floor 70%; Deliver прошёл дважды, включая post-RELEASED readback. Public API, gameplay behavior, atomicity и deterministic Step не изменены.</td></tr>
-    <tr><td><b>NearGas L1a — experimental carrier</b><br><span class="mono">product dev/main@400ef8ec</span></td><td class="a">✅ DELIVERED</td><td>закрыт; повторный mutation запрещён</td><td>Skeleton → genuine independent RED → BUILD → fresh review/G5. Deliver GREEN, focused 71/71, tick 8/8, normal 1714/1714, unfiltered 1793/1793; existing mutation 72.78% reused read-only.</td></tr>
-    <tr><td><b>Общий маршрут Полигона M1</b><br><span class="mono">work/poligon-m1-integration-route.md</span></td><td class="a">✅ ПРИНЯТ</td><td>cross-bet direction route</td><td>34 обязательных логических legs + условные — текущий ledger, не cap; executor CALL не выпущен.</td></tr>
-    <tr><td><b>Engineering workflow B1–B4 + worktree protocol</b></td><td class="a">✅ RE-SYNCED · v29</td><td>clean local product dev@82fea85f</td><td>Contract/inventory 29, ceiling 239; v28 HOME authority и v29 integer pins/pair route установлены. Full 1792-test check и independent review round 2 GREEN; protected NearGas/PLAN bytes сохранены, product feature не менялся.</td></tr>
-    <tr><td><b>Character V2 Leg 2</b><br><span class="mono">c-exec-char-v2-body-rig-ragdoll-build-001</span></td><td class="a">🟠 WAITING · REVIEW/CLOSING</td><td>не блокирует V30; shared-dev merge после L1B</td><td>Код, арт и engine evidence построены; fresh G4 MET. Product task ждёт owner LOOK, затем binding G5, RESULT/Deliver и Direction close. Frozen CALL не запускать повторно.</td></tr>
-    <tr><td><b>Level / DA / PGG LV0 PLAN</b></td><td class="a">🟠 WAITING · PRODUCT RELEASED</td><td>Direction review debt; BUILD не открыт</td><td>Exact product evidence существует на <b>b1698170</b>. Product release не равен Direction close: нужен отдельный binding review/receipt. Aperture RED <b>5af1d8db</b> сохранён, его BUILD не выдавался.</td></tr>
-    <tr><td><b>Visual / network / final evidence</b></td><td class="a">🔴 ПОЗЖЕ</td><td>только после своих foundation gates</td><td>Visual LOCKED; сеть и две машины завершают интеграцию, а не стартуют её вслепую.</td></tr>
-  </table></div>
+    .label {
+      display: block;
+      margin-bottom: 8px;
+      color: var(--soft);
+      font-size: 11px;
+      font-weight: 760;
+      letter-spacing: .09em;
+      text-transform: uppercase;
+    }
 
-  <div class="calls">
-    <div class="call">
-      <div class="head"><span class="st">1 · L1A DELIVERED · L1B V29 DELIVERED / RELEASED</span><b>Gas authority</b><span class="id">NearGas PROGRAM — дочерний маршрут</span></div>
-      <p><span class="l">Финиш трассы:</span> один engine-free владелец симуляции, bounded memory/work, deterministic Step, один Unity-путь и доказуемый replay/state identity.</p>
-      <p><span class="l">Где сейчас:</span> L1a DELIVERED по разрешённому владельцем experimental-маршруту skeleton → genuine independent RED → BUILD → fresh refutation. Поведенческий артефакт опубликован на <b>400ef8ec</b>; published product main/origin @<b>2d995d69</b> содержат последующие protocol/docs и owner-approved L1B PLAN, а clean local dev продвинут no-feature Re-sync до <b>82fea85f</b>. L1a Deliver, focused 71/71, tick 8/8, normal 1714/1714 и unfiltered 1793/1793 GREEN; binding fresh G5 PASS без Critical/Important.</p>
-      <p><span class="l">Где сейчас:</span> NearGas L1B v29 полностью DELIVERED / RELEASED на <b>693e671b</b>: пять passive observation families доставлены, source-identity/Step fault capture и real loopback trace исправлены, independent review PASS/GREEN, normal 1813/1813, mutation 75.18% и два полных Deliver GREEN. Product root закрыт, нового product CALL нет; frozen candidate и WIN-U3/WIN-U4 после интеграции не менялись.</p>
-    </div>
-    <div class="call">
-      <div class="head"><span class="st">2 · LV0 PRODUCT PLAN RELEASED · DIRECTION REVIEW MISSING · NO BUILD</span><b>Level / Dungeon Architect / PGG</b><span class="id">c-exec-level-module-standard-v1-lv0-plan-001</span></div>
-      <p><span class="l">Что уже доказано:</span> PGG способен испечь dependency-free static prefab, который проходит через SnapGridFlow в BuiltSceneRoomReader. Провал production-stage был не провалом PGG: отсутствовал наш стандарт сетки 0,5 м, сокетов, порталов, exact occupancy/apertures и anchors.</p>
-      <p><span class="l">Правильная граница:</span> Phase 1 — project-owned full-3D Level/Module Contract + validators; Phase 2 — DA runtime composition и PGG только как editor-time bake/import; Phase 3 — production modules/content.</p>
-      <p><span class="l">Что дальше:</span> exact product PLAN уже RELEASED на <b>b1698170</b>, поэтому исходный executor CALL повторно не запускается. Direction ещё не закрыл root: отдельная binding review/receipt должна сопоставить HOME с исходным done_when. Immutable aperture RED <b>5af1d8db</b> остаётся BUILD-unissued evidence для compatibility-check/re-admission после V30 cutover.</p>
-    </div>
-    <div class="call">
-      <div class="head"><span class="st">3 · LEG 2 BUILT · G4 MET · OWNER LOOK/G5/DELIVER PENDING</span><b>Character</b><span class="id">c-exec-char-v2-body-rig-ragdoll-build-001</span></div>
-      <p><span class="l">Финиш трассы:</span> reusable player prefab читает авторитетную позу через стабильный адаптер; внешний вид и PuppetMaster-рэгдолл не владеют сетевой позицией (Кандидат A).</p>
-      <p><span class="l">Где сейчас:</span> product task <code>019f73c8…</code> построил Leg 2 code/art/engine evidence, исправил две G4 P1-находки и получил fresh G4 MET. Unity подготовлен к живому LOOK; frozen executor CALL не является новой READY-задачей.</p>
-      <p><span class="l">Граница:</span> root остаётся открытым до owner LOOK, binding G5, product RESULT/Deliver и отдельного Direction close. Character не блокирует V30 cutover; NearGas L1B closing уже RELEASED, а будущая публикация Character всё равно получает собственный последовательный merge-slot.</p>
-    </div>
-    <div class="call wait">
-      <div class="head"><span class="st">4 · НЕ ОТДЕЛЬНЫЙ GAS LAB</span><b>Integration lab</b><span class="id">единая сцена Полигона M1</span></div>
-      <p><span class="l">Назначение:</span> не ещё одна техническая песочница, а место, где уровень, персонаж, газ, controlled breach, приборы, pause/manual step, snapshots и тестовые сценарии встречаются вместе.</p>
-      <p><span class="l">Граница:</span> NearGasSimulationLab остаётся внутренним стендом gas PROGRAM. Общая M1-сцена получает собственный маршрут только после согласованной dependency-map; склейка компонентов и merge-гейты последовательны.</p>
-    </div>
-    <div class="call wait">
-      <div class="head"><span class="st">5 · LOCKED</span><b>Visual</b><span class="id">g-7e15 / c-visual-009</span></div>
-      <p><span class="l">Почему закрыто:</span> visual PLAN ждёт M0+C1+L3+I1; motion BUILD требует committed immutable per-Step data, а moving-source/door/destruction visual — E1/D1/X1.</p>
-      <p><span class="l">Параллельность:</span> подготовительные решения сохраняются, но новый PLAN/BUILD нельзя называть runnable до снятия этих замков.</p>
-    </div>
-    <div class="call wait">
-      <div class="head"><span class="st">6 · FINAL EVIDENCE</span><b>Network, min-spec и доказательства</b><span class="id">две машины · профиль · sync · capture</span></div>
-      <p><span class="l">Финиш трассы:</span> одна и та же сцена проходит на двух реальных машинах, HUD показывает deterministic agree/divergence, ловит planted divergence и показывает admission ceiling, прогон укладывается в профиль названного слабого железа и отдаёт повторяемые snapshots/телеметрию. Потеря пира/хоста не зависает молча: текущий прогон явно и контролируемо завершается; host migration вырезана.</p>
-      <p><span class="l">Порядок:</span> инструменты и критерии можно планировать заранее; binding network/min-spec run идёт после объединения foundation-трасс. Последний merge и финальная проверка не параллелятся.</p>
-    </div>
+    .muted { color: var(--muted); }
+    .small { font-size: 13px; }
+
+    .next {
+      border-color: rgba(142, 231, 197, .36);
+      background: linear-gradient(150deg, rgba(91, 210, 162, .10), transparent 62%), var(--panel);
+    }
+
+    .status-row { display: flex; flex-wrap: wrap; gap: 7px; }
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 4px 8px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      color: var(--muted);
+      font-size: 12px;
+      white-space: nowrap;
+    }
+    .pill::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: currentColor; }
+    .ready { color: var(--ready); }
+    .waiting { color: var(--waiting); }
+    .blocked { color: var(--blocked); }
+    .paused { color: var(--paused); }
+    .mapped { color: var(--accent-2); }
+    .done { color: var(--done); }
+
+    .note {
+      padding: 14px 16px;
+      border-left: 3px solid var(--waiting);
+      border-radius: 0 10px 10px 0;
+      background: rgba(242, 207, 124, .07);
+      color: var(--muted);
+    }
+
+    .section-head {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 20px;
+      margin-bottom: 14px;
+    }
+
+    .section-head p { margin: 0; color: var(--muted); }
+
+    .milestones {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px;
+    }
+
+    .milestone {
+      display: grid;
+      grid-template-columns: 28px 1fr;
+      gap: 11px;
+      padding: 14px;
+      border: 1px solid var(--line);
+      border-radius: 11px;
+      background: var(--panel);
+    }
+
+    .check {
+      display: grid;
+      width: 25px;
+      height: 25px;
+      place-items: center;
+      border: 1px solid #45515f;
+      border-radius: 7px;
+      color: var(--soft);
+      font-weight: 800;
+    }
+
+    .milestone.complete { border-color: rgba(121, 216, 173, .35); background: rgba(121, 216, 173, .06); }
+    .milestone.complete .check { border-color: var(--done); background: rgba(121, 216, 173, .15); color: var(--done); }
+    .milestone.current { border-color: rgba(143, 199, 255, .45); background: rgba(143, 199, 255, .06); }
+    .milestone.current .check { border-color: var(--accent-2); color: var(--accent-2); }
+    .milestone b { display: block; margin-bottom: 2px; }
+    .milestone span { color: var(--muted); font-size: 13px; }
+
+    .track-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+    .track {
+      display: flex;
+      min-width: 0;
+      flex-direction: column;
+      gap: 13px;
+      padding: 18px;
+      border: 1px solid var(--line);
+      border-radius: 13px;
+      background: var(--panel);
+    }
+
+    .track.primary { border-color: rgba(142, 231, 197, .38); }
+    .track-top { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; }
+    .track h3 { margin: 0; }
+    .track-id { color: var(--soft); font: 12px ui-monospace, SFMono-Regular, Consolas, monospace; }
+
+    .facts { display: grid; gap: 10px; }
+    .fact {
+      display: grid;
+      grid-template-columns: 94px 1fr;
+      gap: 10px;
+      padding-top: 9px;
+      border-top: 1px solid rgba(81, 95, 112, .35);
+    }
+    .fact:first-child { padding-top: 0; border-top: 0; }
+    .fact dt { color: var(--soft); font-size: 12px; }
+    .fact dd { min-width: 0; margin: 0; color: var(--muted); }
+
+    .remaining { margin: 0; padding-left: 18px; color: var(--muted); }
+    .remaining li + li { margin-top: 4px; }
+    .remaining strong { color: var(--text); }
+
+    .service { background: linear-gradient(145deg, rgba(143, 199, 255, .04), transparent 62%), var(--panel); }
+
+    table { width: 100%; border-collapse: collapse; }
+    th, td { padding: 12px 13px; border-bottom: 1px solid var(--line); text-align: left; vertical-align: top; }
+    th { color: var(--soft); font-size: 11px; letter-spacing: .07em; text-transform: uppercase; }
+    td { color: var(--muted); }
+    td:first-child { color: var(--text); font-weight: 650; }
+
+    details {
+      border: 1px solid var(--line);
+      border-radius: 11px;
+      background: var(--panel);
+    }
+    summary { padding: 14px 16px; cursor: pointer; color: var(--muted); font-weight: 650; }
+    details > div { padding: 0 16px 16px; color: var(--muted); }
+
+    footer {
+      margin-top: 42px;
+      padding-top: 18px;
+      border-top: 1px solid var(--line);
+      color: var(--soft);
+      font-size: 12px;
+    }
+
+    @media (max-width: 860px) {
+      .summary { grid-template-columns: 1fr; }
+      .milestones, .track-grid { grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 560px) {
+      .shell { width: min(100% - 20px, 1180px); padding-top: 16px; }
+      header, .section-head { display: block; }
+      .updated { margin-top: 12px; text-align: left; }
+      .fact { grid-template-columns: 1fr; gap: 2px; }
+      table, thead, tbody, tr, th, td { display: block; }
+      thead { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0,0,0,0); }
+      tr { padding: 10px 0; border-bottom: 1px solid var(--line); }
+      td { padding: 4px 0; border: 0; }
+    }
+  </style>
+</head>
+<body>
+  <div class="shell">
+    <header>
+      <div>
+        <div class="eyebrow">Indie Game Development / Program v2</div>
+        <h1>Путь к тестовой сцене</h1>
+        <p class="subtitle">Простой статус направлений и точный остаток до общего product proof. Integration Lab принимает проверенные результаты; каждый трек отвечает за свою часть.</p>
+        <nav aria-label="Основные документы">
+          <a href="../../NOW.md">NOW</a>
+          <a href="../../TREE.md">TREE</a>
+          <a href="../program-v2-integration-lab-plan.md">Глобальный план</a>
+          <a href="../program-v2-track-handoff-template.md">Handoff</a>
+        </nav>
+      </div>
+      <div class="updated">Обновлено 20 июля 2026<br>по RESULT s-map-program-v2-hot-migration-route-001</div>
+    </header>
+
+    <main>
+      <section class="summary" aria-label="Текущий статус">
+        <article class="panel">
+          <span class="label">Текущий milestone</span>
+          <strong class="big">M0 — карта и control plane готовы</strong>
+          <p class="muted">Принят 1 из 10 milestones. Это счёт результатов, не процент готовности игры.</p>
+        </article>
+
+        <article class="panel next">
+          <span class="label">Следующий шаг</span>
+          <strong class="big">M1 — доказать V30 entry</strong>
+          <p><a href="../c-shape-program-v2-v30-entry-001-call.md">Открыть default CALL</a></p>
+          <p class="muted small">Только shape: re-sync:30 CALL или доказанный skip. Без product changes.</p>
+        </article>
+
+        <article class="panel">
+          <span class="label">Фактическая загрузка NOW</span>
+          <div class="status-row">
+            <span class="pill ready">2 ready</span>
+            <span class="pill waiting">2 waiting</span>
+            <span class="pill blocked">1 blocked</span>
+            <span class="pill paused">1 paused</span>
+            <span class="pill mapped">1 decision</span>
+          </div>
+          <p class="muted small" style="margin-top:12px">Это наблюдение, не цель заполнить лимит. Сколько направлений запускать, решает владелец.</p>
+        </article>
+      </section>
+
+      <aside class="note">
+        <strong>Открытых принятых конфликтов сейчас нет.</strong> Перед новой работой обязательны три recheck: фактический V30 entry, Level LV0 Direction receipt и актуальность legacy Presentation prerequisites. Любое расхождение помечается <strong>CONFLICT / NEEDS RECONCILIATION</strong>.
+      </aside>
+
+      <section id="roadmap">
+        <div class="section-head">
+          <div>
+            <div class="eyebrow">Глобальный план</div>
+            <h2>Что осталось до общей сцены</h2>
+          </div>
+          <p><a href="../program-v2-integration-lab-plan.md">Подробный authority/index →</a></p>
+        </div>
+
+        <div class="milestones">
+          <article class="milestone complete"><div class="check">✓</div><div><b>M0. Program map</b><span>Направления, владельцы, handoff, Conflict Guard и dashboard.</span></div></article>
+          <article class="milestone current"><div class="check">→</div><div><b>M1. V30 entry</b><span>Доказать re-sync requirement или законный skip.</span></div></article>
+          <article class="milestone"><div class="check">3</div><div><b>M2. Static Lab shell</b><span>Один entry point, fixture slots, common smoke; пока без live-sim claims.</span></div></article>
+          <article class="milestone"><div class="check">4</div><div><b>M3. Grid / Layers seam</b><span>Committed revisions и universal events минимум для двух consumers.</span></div></article>
+          <article class="milestone"><div class="check">5</div><div><b>M4. Live Gas</b><span>Authoritative gas step в Lab через принятый seam.</span></div></article>
+          <article class="milestone"><div class="check">6</div><div><b>M5. World Change</b><span>Controlled topology change и реакция заинтересованных слоёв.</span></div></article>
+          <article class="milestone"><div class="check">7</div><div><b>M6. Character Contact</b><span>Actor authority отдельно от Character View.</span></div></article>
+          <article class="milestone"><div class="check">8</div><div><b>M7. Level / Generation</b><span>Procedural output через replaceable ingestion contract.</span></div></article>
+          <article class="milestone"><div class="check">9</div><div><b>M8. Presentation</b><span>Читаемое состояние, budget и воспроизводимый capture.</span></div></article>
+          <article class="milestone"><div class="check">10</div><div><b>M9. Product Proof</b><span>Одна representative playable loop; только доказанные claims.</span></div></article>
+        </div>
+      </section>
+
+      <section id="product-tracks">
+        <div class="section-head">
+          <div>
+            <div class="eyebrow">Продуктовые направления</div>
+            <h2>Кто что делает и что осталось</h2>
+          </div>
+          <p>Gas и Grid утверждены, но появятся в NOW только с реальными CALL после M1.</p>
+        </div>
+
+        <div class="track-grid">
+          <article class="track primary">
+            <div class="track-top"><div><div class="track-id">g-9c41 · primary</div><h3>Integration Lab & Product Proof</h3></div><span class="pill mapped">mapped</span></div>
+            <dl class="facts">
+              <div class="fact"><dt>Сейчас</dt><dd>Глобальный план готов; самой Lab scene ещё нет.</dd></div>
+              <div class="fact"><dt>Вклад</dt><dd>Общая сцена, serial intake drops, smoke и финальный product proof.</dd></div>
+              <div class="fact"><dt>Текущий root</dt><dd>Нет feature CALL; есть min-spec decision <code>d-m1-min-spec-hardware-001</code>.</dd></div>
+              <div class="fact"><dt>Authority</dt><dd><a href="../program-v2-integration-lab-plan.md">Global scene plan</a> · проверено 2026-07-20.</dd></div>
+              <div class="fact"><dt>Conflict</dt><dd>Нет. Новый shell запрещён до M1 entry verdict.</dd></div>
+            </dl>
+            <ul class="remaining">
+              <li><strong>Следом:</strong> после M1 сформировать bounded M2 static shell.</li>
+              <li>Зафиксировать drop contract и common smoke.</li>
+              <li>Принять M3–M8 с first-hand proof.</li>
+              <li>Свести M9 и отдельно доказать любые co-op claims.</li>
+            </ul>
+          </article>
+
+          <article class="track">
+            <div class="track-top"><div><div class="track-id">g-1a63</div><h3>Gas Simulation</h3></div><span class="pill paused">parked until M1</span></div>
+            <dl class="facts">
+              <div class="fact"><dt>Сейчас</dt><dd>NearGas L1B foundation delivered/released at <code>693e671b</code>; scene drop ещё не принят.</dd></div>
+              <div class="fact"><dt>Вклад</dt><dd>Authoritative gas behavior, types, equipment inputs и gas consequences.</dd></div>
+              <div class="fact"><dt>Текущий root</dt><dd>Нет: lawful V30 shape создаётся после M1.</dd></div>
+              <div class="fact"><dt>Authority</dt><dd>Current product SPEC/ADR + terminal <a href="../../history/2026-07-19-s-work-near-gas-l1b-v29-terminal-home-close-001.md">L1B close</a>.</dd></div>
+              <div class="fact"><dt>Conflict</dt><dd>Не зафиксирован; current product contract должен быть перечитан.</dd></div>
+            </dl>
+            <ul class="remaining">
+              <li><strong>Следом:</strong> fresh V30 Gas shape после M1.</li>
+              <li>Доказать deterministic behavior в своём harness.</li>
+              <li>Вернуть M4 live-gas drop через committed Grid seam.</li>
+              <li>Позднее доказать M5 reaction и gas consequence; rendering не здесь.</li>
+            </ul>
+          </article>
+
+          <article class="track">
+            <div class="track-top"><div><div class="track-id">g-4b92</div><h3>Grid / Layers / World Change</h3></div><span class="pill paused">parked until M1</span></div>
+            <dl class="facts">
+              <div class="fact"><dt>Сейчас</dt><dd>Архитектурная роль принята; V30 implementation/drop не принят.</dd></div>
+              <div class="fact"><dt>Вклад</dt><dd>Coordinates, ownership, commit clock, universal events и topology revisions.</dd></div>
+              <div class="fact"><dt>Текущий root</dt><dd>Нет: минимальный seam slice формируется после M1.</dd></div>
+              <div class="fact"><dt>Authority</dt><dd>Current product Grid/Layer SPEC/ADR; маршрут проверен 2026-07-20.</dd></div>
+              <div class="fact"><dt>Conflict</dt><dd>Нет. Gas-only notification явно запрещено картой.</dd></div>
+            </dl>
+            <ul class="remaining">
+              <li><strong>Следом:</strong> fresh V30 Grid shape после M1.</li>
+              <li>Доказать committed read/event для двух разных consumers.</li>
+              <li>Fail-closed на stale и live mid-tick cross-layer read.</li>
+              <li>Вернуть M3 seam и M5 world-change drops; consumer algorithms не здесь.</li>
+            </ul>
+          </article>
+
+          <article class="track">
+            <div class="track-top"><div><div class="track-id">g-8f20</div><h3>Level & Environment</h3></div><span class="pill waiting">waiting</span></div>
+            <dl class="facts">
+              <div class="fact"><dt>Сейчас</dt><dd>LV0 product PLAN reported RELEASED at <code>b1698170</code>; Direction receipt отсутствует.</dd></div>
+              <div class="fact"><dt>Вклад</dt><dd>Geometry, connectivity, apertures и replaceable generator ingestion.</dd></div>
+              <div class="fact"><dt>Текущий root</dt><dd><a href="../c-exec-level-module-standard-v1-lv0-plan-001-call.md">Legacy LV0 CALL</a> — waiting, не перезапускать.</dd></div>
+              <div class="fact"><dt>Authority</dt><dd>Frozen product HOME + fresh current product/V30 при активации.</dd></div>
+              <div class="fact"><dt>Conflict</dt><dd>Direction close debt; это recheck, а не доказательство ошибки продукта.</dd></div>
+            </dl>
+            <ul class="remaining">
+              <li><strong>Следом:</strong> только когда владелец активирует Level — reconcile LV0/V30/product.</li>
+              <li>Проверить structural/aperture contract.</li>
+              <li>Доказать вертикальные и боковые пути в своей сцене.</li>
+              <li>Вернуть M7 procedural drop с reproducible seed.</li>
+            </ul>
+          </article>
+
+          <article class="track">
+            <div class="track-top"><div><div class="track-id">g-6d4e</div><h3>Character & Gameplay Contact</h3></div><span class="pill waiting">closing</span></div>
+            <dl class="facts">
+              <div class="fact"><dt>Сейчас</dt><dd>Legacy Character Leg 2 построен и находится в product review/closing.</dd></div>
+              <div class="fact"><dt>Вклад</dt><dd>Player Simulation / Actor Layer + отдельный Character View.</dd></div>
+              <div class="fact"><dt>Текущий root</dt><dd><a href="../c-exec-char-v2-body-rig-ragdoll-build-001-call.md">Frozen Leg 2 CALL</a> — не запускать повторно.</dd></div>
+              <div class="fact"><dt>Authority</dt><dd>Текущий lineage receipts в NOW; проверено 2026-07-20.</dd></div>
+              <div class="fact"><dt>Conflict</dt><dd>Нет. Новая Actor Layer не расширяет старый Leg 2.</dd></div>
+            </dl>
+            <ul class="remaining">
+              <li><strong>Следом:</strong> owner LOOK → binding G5 → Deliver → Direction close.</li>
+              <li>Свежий V30 PLAN решает layer vs module над seam.</li>
+              <li>Доказать contact/reaction и non-authoritative view.</li>
+              <li>Вернуть M6 reusable prefab + actor contract.</li>
+            </ul>
+          </article>
+
+          <article class="track">
+            <div class="track-top"><div><div class="track-id">g-7e15</div><h3>Presentation</h3></div><span class="pill blocked">blocked</span></div>
+            <dl class="facts">
+              <div class="fact"><dt>Сейчас</dt><dd>Legacy motion-data route сохранён, но prerequisites устарели и требуют recheck.</dd></div>
+              <div class="fact"><dt>Вклад</dt><dd>Gas/world/character readability, VFX, budget и capture.</dd></div>
+              <div class="fact"><dt>Текущий root</dt><dd><a href="../c-visual-009-movement-data-plan-call.md">c-visual-009</a> — blocked, не разрешение на dispatch.</dd></div>
+              <div class="fact"><dt>Authority</dt><dd>Fresh read models + current product/V30 before launch.</dd></div>
+              <div class="fact"><dt>Conflict</dt><dd>Legacy M0+C1+L3+I1 prerequisites ещё не reconciled.</dd></div>
+            </dl>
+            <ul class="remaining">
+              <li><strong>Следом:</strong> Conflict Guard review, когда появятся нужные read models.</li>
+              <li>Выбрать bounded visual proof и performance budget.</li>
+              <li>Доказать читаемость без simulation authority.</li>
+              <li>Вернуть M8 capture-ready drop.</li>
+            </ul>
+          </article>
+        </div>
+      </section>
+
+      <section id="service-lanes">
+        <div class="section-head">
+          <div>
+            <div class="eyebrow">Сервисные направления</div>
+            <h2>Поддерживают сцену, но не заменяют продуктовую работу</h2>
+          </div>
+        </div>
+
+        <div class="track-grid">
+          <article class="track service">
+            <div class="track-top"><div><div class="track-id">g-d3a8</div><h3>Design & Canon</h3></div><span class="pill ready">ready</span></div>
+            <dl class="facts">
+              <div class="fact"><dt>Сейчас</dt><dd>Gas-behavior c-002 admitted; question map требует cartography.</dd></div>
+              <div class="fact"><dt>Текущий root</dt><dd><a href="../c-cartography-g-d3a8-post-gas-behavior-admission-front-001-call.md">Открыть cartography CALL</a>.</dd></div>
+              <div class="fact"><dt>Осталось</dt><dd>Обновить вопросы, сохранить floor-loop findings, решать только реальные blockers milestone.</dd></div>
+              <div class="fact"><dt>Authority</dt><dd>Существующий canon-forge; внутреннее устройство сохранено.</dd></div>
+              <div class="fact"><dt>Conflict</dt><dd>Нет зафиксированного.</dd></div>
+            </dl>
+          </article>
+
+          <article class="track service">
+            <div class="track-top"><div><div class="track-id">g-c5d1</div><h3>Build & Tooling</h3></div><span class="pill ready">ready / default</span></div>
+            <dl class="facts">
+              <div class="fact"><dt>Сейчас</dt><dd>Standalone .NET Gates retired; V30 entry требует fresh shape.</dd></div>
+              <div class="fact"><dt>Текущий root</dt><dd><a href="../c-shape-program-v2-v30-entry-001-call.md">c-shape-program-v2-v30-entry-001</a>.</dd></div>
+              <div class="fact"><dt>Осталось</dt><dd>Доказать current state; вернуть re-sync:30 CALL или evidence-backed skip.</dd></div>
+              <div class="fact"><dt>Authority</dt><dd>Current product + Direction V30 packets; re-read обязателен.</dd></div>
+              <div class="fact"><dt>Conflict</dt><dd>Неизвестный entry status — предмет текущего CALL, не принятый конфликт.</dd></div>
+            </dl>
+          </article>
+
+          <article class="track service">
+            <div class="track-top"><div><div class="track-id">g-2f8c</div><h3>Marketing & Audience</h3></div><span class="pill paused">paused</span></div>
+            <dl class="facts">
+              <div class="fact"><dt>Сейчас</dt><dd>Существующий marketing-forge сохранён; storefront и audience — вложенные outcomes.</dd></div>
+              <div class="fact"><dt>Текущий root</dt><dd><a href="../marketing/claude-code-handoff-c-marketing-wake-001-2026-07-12.md">Wake CALL</a> — paused владельцем.</dd></div>
+              <div class="fact"><dt>Осталось</dt><dd>На wake reconcile <code>dr-20260712-001</code>; использовать только accepted capture/proof.</dd></div>
+              <div class="fact"><dt>Authority</dt><dd>Существующий marketing-forge; внутреннее устройство сохранено.</dd></div>
+              <div class="fact"><dt>Conflict</dt><dd>Stale-route finding должен быть разобран при пробуждении.</dd></div>
+            </dl>
+          </article>
+        </div>
+      </section>
+
+      <section>
+        <div class="section-head">
+          <div>
+            <div class="eyebrow">Передача результата</div>
+            <h2>Как Integration держит руку на пульсе</h2>
+          </div>
+          <p><a href="../program-v2-track-handoff-template.md">Полные правила →</a></p>
+        </div>
+        <div class="panel">
+          <table>
+            <thead><tr><th>Поле</th><th>Что сообщает трек</th></tr></thead>
+            <tbody>
+              <tr><td>status</td><td>accepted-candidate, blocked, not-ready или superseded</td></tr>
+              <tr><td>result</td><td>Что фактически изменилось или доказано</td></tr>
+              <tr><td>proof</td><td>First-hand checks, revision, capture и negative control</td></tr>
+              <tr><td>scene_drop</td><td>Что именно может принять Integration; <code>none</code>, если принимать нечего</td></tr>
+              <tr><td>blocker</td><td>Один точный blocker/conflict либо <code>none</code></td></tr>
+              <tr><td>next</td><td>Один bounded шаг или owner decision</td></tr>
+            </tbody>
+          </table>
+          <p class="muted small" style="margin-top:14px">Трек возвращает блок через Direction RESULT. Writer валидирует его, Integration принимает drop, затем обновляются global plan и этот render. Прямые правки dashboard из продуктовой сессии запрещены.</p>
+        </div>
+      </section>
+
+      <section>
+        <div class="section-head"><div><div class="eyebrow">История карты</div><h2>Retired и superseded</h2></div></div>
+        <details>
+          <summary>Показать старые маршруты</summary>
+          <div>
+            <ul>
+              <li><strong>damage standalone</strong> — retired; gas consequence теперь у Gas Simulation, Character только потребляет результат.</li>
+              <li><strong>.NET Gates standalone</strong> — retired; конкретные tooling blockers принадлежат Build & Tooling.</li>
+              <li><strong>core</strong> — split между Integration, Gas и Grid.</li>
+              <li><strong>program</strong> — superseded Integration Lab & Product Proof.</li>
+              <li><strong>visual</strong> — renamed Presentation; legacy c-visual-009 остаётся blocked evidence.</li>
+              <li><strong>L1B-Classify / Trace / G5</strong> — не остаток: terminal L1B evidence уже закрывает их на revision 693e671b.</li>
+            </ul>
+          </div>
+        </details>
+      </section>
+    </main>
+
+    <footer>
+      Dashboard — render, не authority. При расхождении сначала читать current product, SPEC/ADR/PLAN, <a href="../../NOW.md">NOW</a>, <a href="../../TREE.md">TREE</a> и <a href="../program-v2-integration-lab-plan.md">global plan</a>.
+    </footer>
   </div>
-</section>
-
-<section>
-  <div class="sec-head"><h2>📋 Борд — живой статус</h2><span class="tag">обновлено 19.07 · track-mode: 9 треков · primary core · default Program v2 map · WIP 6/6 · CALL: ready 2 / waiting 2 / blocked 1 / paused 3 · истина всегда NOW.md + git</span></div>
-  <div class="callout accent"><b>Единственный дом этой панели — репозиторий:</b> live/indie-game-development/work/board/dashboard.html; открывается в Chrome с диска, обновляется ТОЛЬКО здесь (внешних зеркал не ведём — правило владельца 2026-07-11). Живой статус — эта секция; панель — рендер: решения по ней, противоречащей NOW, не принимаются.</div>
-  <div class="callout"><b>Как читать параллельность:</b> один <code>NOW.next</code> задаёт только рекомендуемый следующий Direction-шаг. NearGas L1B v29 product root уже RELEASED и больше не имеет executor CALL. Character продолжает review/закрытие; Level ждёт Direction review, поэтому оба WAITING и не запускаются повторно.</div>
-  <div class="callout accent"><b>Мягкий переход принят владельцем:</b> старые root завершаются по своим frozen-контрактам; V30 получат только реадмиссированные и новые root после настоящего product re-sync. NearGas V29 теперь RELEASED; Character не блокирует cutover. Local tag/branch V30 @<code>2e7d4b51</code> остаётся подготовленным кандидатом, а не действующим контрактом, пока отдельный <code>re-sync:30</code> не установлен.</div>
-  <div class="callout accent"><b>NearGas L1B v29 — terminal HOME:</b> пять passive observation families полностью DELIVERED / RELEASED на <code>693e671b</code>. Independent review PASS/GREEN; normal 1813/1813; mutation 75.18% при floor 70%; Deliver дважды GREEN, включая post-RELEASED readback. Root <code>c-exec-near-gas-l1b-pair-candidate-001</code> и Direction task <code>L1B-Capture</code> закрыты без successor. Global WIP остаётся 6/6 только потому, что core сохраняет отдельное pending min-spec решение.</div>
-  <div class="callout accent"><b>Character тоже всё ещё в работе:</b> Leg 2 code/art/evidence собраны, fresh G4 MET. Остались owner LOOK, binding G5, product RESULT/Deliver и Direction close. Его frozen root WAITING и не должен запускаться повторно.</div>
-  <div class="callout"><b>Level и aperture:</b> LV0 product PLAN RELEASED @<code>b1698170</code>, но Direction review/receipt отсутствует. Aperture имеет immutable RED @<code>5af1d8db</code>; BUILD никогда не выдавался. Эти факты не закрывают Level и не открывают старый BUILD — они входят в будущую Program v2/V30 карту.</div>
-  <div class="callout"><b>⚠ Демо: определения сейчас НЕТ — это открытый пункт, а не план.</b> Концепт изменился (11.07 принята новая рамка игры: расследование почти невидимого газа → план → добыча/операция → эвакуация). Старый октябрьский демо-план с панели ВЫРЕЗАН — его история лежит в git. 12.07 владелец установил Canon Forge v3 как единственный живой paper-only маршрут, затем отдельным вердиктом «ADMIT TO CANON» допустил «Цель стоит запуска» как предварительную карточку c-001 (нужен-грейбокс). Это не готовая механика: fun, кооперация, рантайм-читаемость, темп давления, стоимость движка и коммерческий сигнал не доказаны; точные правила газа, активации, добычи, экономики, инвентаря и кооперации остаются открыты. Проверенные даты фестов сохранены ниже как справочник, а не как план.</div>
-  <div class="callout"><b>Старое «13 / 24.07» закрыто, а не продлено.</b> Review дал NOT MET при 0/10 end-to-end; прогноз был одновременно optimistic и привязан к неверному механизму Phase0→A0→S4. Числового потолка по-прежнему нет, 24 июля остаётся контрольным review, а 34+ route — ledger, не cap и не delivery.</div>
-  <div class="mtx-wrap"><table class="mtx">
-    <tr><th>Трек</th><th>Режим / scope</th><th>Текущий CALL-статус</th><th>WIP</th></tr>
-    <tr><td><b>core — NearGas, ядро игры</b></td><td>PRIMARY · g-9c41</td><td class="a">NO EXECUTOR ROOT: L1B v29 RELEASED; pending min-spec decision remains</td><td>1</td></tr>
-    <tr><td><b>program — программа и интеграционный стенд</b></td><td>parallel · g-a7f2 / hot migration</td><td class="a">READY · DEFAULT: owner-present Program v2 track map + staged Integration Lab</td><td>1</td></tr>
-    <tr><td><b>dotnet-gates — локальный запуск проверок .NET</b></td><td>parallel · существующий runner prerequisite</td><td class="a">PAUSED: сохранён, не запускать</td><td>0</td></tr>
-    <tr><td><b>level — уровни, модули и генераторы</b></td><td>parallel · Level/DA/PGG</td><td class="a">WAITING: product PLAN RELEASED @b1698170; Direction review/receipt missing</td><td>1</td></tr>
-    <tr><td><b>canon — геймдизайн и канон</b></td><td>parallel · g-d3a8</td><td class="a">READY PARALLEL: owner-present admission exact paper answer A; no redesign or automatic canon mutation</td><td>1</td></tr>
-    <tr><td><b>damage — газовый урон</b></td><td>parallel · Sc-damage</td><td class="a">PAUSED: stale legacy frontier; retirement/rehome review captured</td><td>0</td></tr>
-    <tr><td><b>visual — визуал и движение газа</b></td><td>parallel · g-7e15</td><td class="a">BLOCKED: legacy LOCKED</td><td>1</td></tr>
-    <tr><td><b>marketing — маркетинг и аудитория</b></td><td>parallel · g-2f8c</td><td class="a">PAUSED: owner-approved WIP swap</td><td>0</td></tr>
-    <tr><td><b>characters — игровые персонажи</b></td><td>parallel · g-6d4e</td><td class="a">WAITING: Leg 2 built, G4 MET; owner LOOK → binding G5 → RESULT/Deliver</td><td>1</td></tr>
-  </table></div>
-
-  <h3 class="subhead">Открытые работы</h3>
-  <div class="calls">
-    <div class="call">
-      <div class="head"><span class="st">NOW.next · READY · PROGRAM · OWNER-PRESENT MAP · WIP 6/6</span><b>Собрать понятную карту Program v2 и этапов Integration Lab</b><span class="id">c-map-program-v2-hot-migration-route-001</span></div>
-      <p><span class="l">Что это:</span> следующая Direction-сессия превращает принятую мягкую миграцию и этот исправленный снимок в одну карту: какие направления являются отдельными треками, кто чем владеет, что можно делать параллельно и какое доказательство открывает следующий этап общей сцены.</p>
-      <p><span class="l">Зачем:</span> старый маршрут смешивает газ, grid/world, Level, Character, visual и финальную интеграцию. Новая карта должна убрать двойное владение и показать путь от раннего статического Integration Lab к live gas/world change и затем к product proof.</p>
-      <p><span class="l">Где сейчас:</span> NearGas L1B v29 terminal DELIVERED / RELEASED и больше не имеет executor root; Character продолжает review/закрытие, Level ждёт Direction review, aperture RED сохранён, V30 ещё не установлен. Исследовательские названия треков остаются кандидатами, а не скрытым решением.</p>
-      <p><span class="l">Что дальше:</span> owner-present map утверждает компактные узлы и порядок разблокировок. В этой сессии не запускаются product CALL, BUILD или V30 re-sync; результатом станет один следующий bounded Direction-шаг.</p>
-    </div>
-    <div class="call">
-      <div class="head"><span class="st">READY PARALLEL · OWNER-PRESENT · CANON-ADMISSION ONLY · NO REDESIGN</span><b>Решить, входит ли выбранная грамматика поведения газа в канон</b><span class="id">c-forge-g-d3a8-gas-behavior-jobs-canon-admission-001</span></div>
-      <p><span class="l">Что это:</span> отдельная текстовая сессия рассматривает ровно существующий paper artifact <code>q-gas-behavior-jobs-paper-decision-v1.md</code>. Его ответ A требует для каждого gameplay gas хотя бы одну читаемую физическую Control Obligation: Counter, Brake или Time.</p>
-      <p><span class="l">Зачем:</span> владелец уже выбрал этот ответ как полезную movement-first основу, но Canon Forge намеренно разделяет paper-согласованность и закон игры. Без отдельного admission выбранная грамматика не имеет canon authority.</p>
-      <p><span class="l">Где сейчас:</span> Frame и вопрос прошли точными словами «FRAME READY» и «QUESTION READY»; владелец выбрал A и уточнил, что movement-first не означает movement-only. Один игрок может контролировать небольшой Шар; точные пределы, helper scaling, roster и дополнительные эффекты остаются открыты. Текущий канон по-прежнему содержит только c-001.</p>
-      <p><span class="l">Что дальше:</span> владелец выбирает один из трёх вердиктов: <b>ADMIT TO CANON</b>, <b>HOLD PAPER-ONLY</b> или <b>REJECT AS CANON CANDIDATE</b>. Внутри admission нельзя переделывать ответ, определять radiation/reactions/damage или запускать implementation; canon меняется только после точного ADMIT verdict.</p>
-    </div>
-    <div class="call wait">
-      <div class="head"><span class="st">WAITING · PRODUCT PLAN RELEASED · BINDING DIRECTION REVIEW MISSING</span><b>Принять LV0 PLAN для Level/Module Standard v1 на Direction-высоте</b><span class="id">c-exec-level-module-standard-v1-lv0-plan-001</span></div>
-      <p><span class="l">Что это:</span> product LV0 PLAN уже существует на exact commit <code>b1698170</code>; исходный executor CALL не является новой работой.</p>
-      <p><span class="l">Зачем:</span> product release сам по себе не доказывает все исходные Direction obligations. Нужен отдельный binding review/receipt, который сопоставит HOME и done_when без повторного PLAN.</p>
-      <p><span class="l">Где сейчас:</span> root WAITING. D1=A/D2=A и восемь правил Level Standard сохраняются. Aperture RED <code>5af1d8db</code> immutable, BUILD не выдавался.</p>
-      <p><span class="l">Что дальше:</span> отдельная Direction review-сессия либо закрывает LV0 PLAN по exact evidence, либо называет один blocker. Реализация LV1/LV2 и aperture BUILD до этого не открыты.</p>
-    </div>
-    <div class="call wait">
-      <div class="head"><span class="st">PAUSED · отдельный track dotnet-gates · НЕ ЗАПУСКАТЬ</span><b>Перенести репозиторные ворота с обязательного PowerShell на локальный .NET runner</b><span class="id">c-exec-unity65-mac-revision-002-build-001</span></div>
-      <p><span class="l">Что это:</span> отдельная headless BUILD-сессия переносит существующие проверки в один локальный .NET 8 runner для macOS, Windows и Linux. PowerShell и shell остаются только необязательными тонкими переходниками; сами правила и все проверки от ложного зелёного обязаны сохраниться.</p>
-      <p><span class="l">Зачем:</span> Mac-проверка Unity упёрлась в обязательный PowerShell. Runner снимает только эту инфраструктурную предпосылку и не меняет игру, Unity, FishNet или сетевой протокол.</p>
-      <p><span class="l">Где сейчас:</span> owner-delegated repair сохранил этот неприоритетный CALL в отдельном paused-треке, чтобы NearGas стал единственным root core без удаления legacy evidence. OS хранит owner-approved PLAN id <b>7a3e747</b>, но fresh authority/full-packet всё ещё не доказаны; BUILD и ворота не запускались.</p>
-      <p><span class="l">Что дальше:</span> ничего до отдельного явного resume владельца. После resume новый repair обязан доказать точную committed authority и проверить полный current-contract packet; Unity/FishNet revision-001, Windows validation, merge и push остаются закрыты.</p>
-    </div>
-    <div class="call wait">
-      <div class="head"><span class="st">WAITING · LEG 2 BUILT · G4 MET · OWNER LOOK/G5/DELIVER PENDING</span><b>Игровые персонажи: риг, локомоция и косметический ragdoll</b><span class="id">c-exec-char-v2-body-rig-ragdoll-build-001</span></div>
-      <p><span class="l">Что это:</span> Leg 2 строит тело персонажа поверх подтверждённого ядра реакции: rig, procedural locomotion, изолированный косметический PuppetMaster ragdoll и собственный материал.</p>
-      <p><span class="l">Зачем:</span> это видимая половина В2, но она не должна проводиться через непроверенную not-ready семантику источника.</p>
-      <p><span class="l">Где сейчас:</span> task <code>019f73c8…</code> уже выполнил Leg 2 code/art/evidence и repair двух G4 P1; повторный fresh G4 вернул MET. Unity оставлен на proof-сцене для живого LOOK.</p>
-      <p><span class="l">Что дальше:</span> владелец смотрит реальный flop/get-up; затем task проводит binding G5, product RESULT/Deliver и возвращает HOME. Direction закрывает root отдельно. Character не блокирует V30, но shared-dev publication сериализуется после L1B.</p>
-    </div>
-    <div class="call">
-      <div class="head"><span class="st">PAUSED · OWNER-APPROVED WIP SWAP</span><b>Маркетинг: минимальное пробуждение</b><span class="id">c-marketing-wake-001 · открыта 11.07</span></div>
-      <p><span class="l">Что это:</span> open_call уже прошёл стартовый substrate checkpoint. Студия = <b>INOMAND</b>, единый хэндл = <b>@inomandgames</b>; `inomand.com` куплен, входящая accounts@ проверена, Steamworks показывает ноль приложений и один неиспользованный credit, internal capsule triptych и предварительный B1 channel strategy сохранены.</p>
-      <p><span class="l">Где сейчас:</span> Chinvat отменён как кандидат имени студии и не является названием игры. Название игры, Steam App, публичные аккаунты, q-channels, money-path, autonomous marketing-expert loop и AI production pipeline остаются открыты; open_call не закрыт.</p>
-      <p><span class="l">Правило:</span> деньги — последний ресурс; никаких аккаунтов, публикаций, писем, Steam App или трат без отдельного owner-«да». Реального публичного gameplay capture пока нет.</p>
-      <p><span class="l">Что дальше:</span> ничего до отдельного owner resume. Затем продолжать только от `work/marketing/claude-code-handoff-c-marketing-wake-001-2026-07-12.md` и сначала сверить stale-route finding dr-20260712-001.</p>
-    </div>
-    <div class="call wait">
-      <div class="head"><span class="st">BLOCKED · legacy LOCKED · СТАРУЮ СБОРКУ НЕ ВОЗОБНОВЛЯТЬ</span><b>Визуал: живое движение газа</b><span class="id">c-visual-009 · сохранённая работа</span></div>
-      <p><span class="l">Что это:</span> будущая работа над читаемым движением газа по честным данным симуляции. Старая начатая сборка сохранена только как материал для последующего согласования.</p>
-      <p><span class="l">Почему заперто:</span> она построена вокруг старого владельца данных, старой контрольной суммы и старых сцен. Продолжить её буквально — вернуть уже отвергнутую архитектуру.</p>
-      <p><span class="l">Точные ключи:</span> новый PLAN разрешён только после готовых Unity migration, committed identity, единственного Unity-authority пути и их интеграционной проверки (M0+C1+L3+I1). Движение дополнительно ждёт достаточные неизменяемые данные каждого шага; если L3 их не даст, сначала строится отдельный минимальный data seam.</p>
-      <p><span class="l">Дальнейшие замки:</span> визуал движущихся источников ждёт E1, дверей — D1, разрушения — X1. Никакой visual BUILD сейчас не открыт.</p>
-    </div>
-    <div class="call wait">
-      <div class="head"><span class="st">PAUSED · STALE LEGACY FRONTIER</span><b>Дизайн урона от газа</b><span class="id">c-shape-sc-damage-001 · открыта 09.07</span></div>
-      <p><span class="l">Что это:</span> проектная сессия про первое последствие газа для игрока — как накопленная «доза» превращается во вред (удушье, отравление и т.д.).</p>
-      <p><span class="l">Зачем:</span> без последствий газ не опасен, и кооперативу нечего преодолевать. Технически движок готов: доза игрока уже считается, не хватает именно дизайна.</p>
-      <p><span class="l">Где сейчас:</span> CALL механически сохранился при track-mode migration, но его contract v19, product base и canon-развилка устарели. Это не причина вести отдельную текущую разработку.</p>
-      <p><span class="l">Что дальше:</span> сейчас PAUSED. Рекомендуемый отдельный review — retire/rehome этот stale frontier и сохранить будущую обязанность «газ имеет последствия» в core SPEC/knowledge для нового shape, когда current canon/core route созреет.</p>
-    </div>
-  </div>
-
-    <div class="call"><div class="head"><span class="st">READY · КАРТОГРАФИЯ</span><b>Карта следующих вопросов канона после принятия c-002</b><span class="id">c-cartography-g-d3a8-post-gas-behavior-admission-front-001</span></div><p><span class="l">Что это:</span> c-002 закрепляет Counter / Brake / Time. Следующий шаг — пересобрать карту вопросов, а не выбрать дизайн автоматически.</p><p><span class="l">Что дальше:</span> будут 2–3 простых варианта с рекомендацией; выбор остаётся за владельцем. Грейбокс и продуктовая работа не открываются.</p></div>
-  <h3 class="subhead">Ждёт тебя (батч)</h3>
-  <div class="calls">
-    <div class="call wait">
-      <div class="head"><span class="st">РЕШЕНИЕ ОСТАЛОСЬ · track core</span><b>Назвать слабое железо финального прогона</b><span class="id">d-m1-min-spec-hardware-001</span></div>
-      <p><span class="l">Что случилось:</span> все пять дополнений к приёмке М1 ратифицированы. Теперь «слабое железо» не может остаться абстрактным: газовая симуляция CPU-bound, а текущий профиль называет только GPU-класс и 16 GB RAM.</p>
-      <p><span class="l">Вопрос:</span> что становится binding min-spec: доступная физическая машина; точный CPU/GPU/RAM-класс с арендой или покупкой к финалу; или только throttled-прокси, который не закроет финальную приёмку.</p>
-      <p><span class="l">Рекомендация:</span> выбрать доступную физическую машину и явно назвать её CPU, GPU и RAM; тогда финальные 50/100 ms имеют реальный якорь.</p>
-    </div>
-  </div>
-  <div class="callout"><b>Не показывается как живой owner-вопрос:</b> требование поддержки восьми уже является owner direction, а не пунктом NOW.decisions. Frame/TREE/canon-law truth закрыта, но canon-board снова рендерит старые 1–4/solo и admission-дрейф — это открытая repair-находка <code>dr-20260711-004</code>, а не новый вопрос владельцу. Former P0, broad Q1 и broad Q4 больше не являются текущими prerequisite-вопросами: их Frame-часть принята, а остатки разнесены в downstream Q6/Q8 и другие узкие узлы. Q3-R уже имеет exact OWNER-SELECTED PAPER ANSWER; текущий design-вход — только отдельный canon admission этого неизменяемого artifact. Co-op остаётся proof_later. Старый merge-gate Phase 0 удалён из живого рендера: Phase 0 = NOT DELIVERED / NEVER RESUME.</div>
-
-  <h3 class="subhead">Закрыто недавно — чем кончилось</h3>
-  <div class="calls">
-    <div class="call closed">
-      <div class="head"><span class="st">✓ TERMINAL HOME · DELIVERED / RELEASED · NO SUCCESSOR</span><b>NearGas L1B v29 полностью доставлен</b><span class="id">s-work-near-gas-l1b-v29-terminal-home-close-001 · 19.07</span></div>
-      <p><span class="l">Что закрыто:</span> product root <code>c-exec-near-gas-l1b-pair-candidate-001</code>, returning guarded-history review CALL и Direction task <code>L1B-Capture</code>. Пять passive observation families доставлены; source-identity/Step fault capture и настоящий loopback trace исправлены.</p>
-      <p><span class="l">Чем доказано:</span> <code>dev = main = origin/dev = origin/main = 693e671b</code>; WIN-CTRL/WIN-MAIN clean; independent review PASS/GREEN; normal 1813/1813; mutation 75.18% при floor 70%; полный Deliver GREEN дважды, включая прогон после RELEASED.</p>
-      <p><span class="l">Что сохранено:</span> public API, ordinary gameplay behavior, atomicity и deterministic Step не изменены; WIN-U3/WIN-U4, frozen candidate и dirty Sphere CALL не тронуты. Successor и новый product CALL не создавались. Core executor root освобождён, но глобальный WIP остаётся 6/6 из-за отдельного pending min-spec решения.</p>
-    </div>
-    <div class="call closed">
-      <div class="head"><span class="st">🛑 PAIR-FREEZE BLOCKED · BUILD FORBIDDEN · EXACT-SOURCE CORRECTION READY</span><b>Fresh refutator опроверг полноту NearGas L1B RED oracle</b><span class="id">s-work-near-gas-l1b-pair-freeze-blocked-route-001 · 18.07</span></div>
-      <p><span class="l">Что выдержало проверку:</span> exact pair <b>7c2348bc -&gt; 54892e68</b>, frozen identities/manifests, read-only independence, build/hygiene/v29 checker/scans, baseline 1793/1793, positive 21 intended failures, controls 21/21 и combined 21 failed + 21 passed.</p>
-      <p><span class="l">Что опровергнуто:</span> current fixtures/controls не независимо связывают reachable source values: post-Step ActiveSetDirty=true, non-empty PendingWakeFaces, actual Step preparation/current и separately constructed replacement candidate/read. Wrong-source implementations могут дать false GREEN. E-SCRATCH-PROOF также ссылается на отсутствующий lawful Surface addendum/review.</p>
-      <p><span class="l">Чем кончилось:</span> старая pair остаётся immutable, но BUILD FORBIDDEN. Returning freeze root закрыт BLOCKED и заменён ровно одним <b>c-exec-near-gas-l1b-pair-candidate-correction-001</b>, pin 29: frozen PLAN/public behavior сохраняются, fresh independent contract-author строит новую carrier-&gt;RED pair и возвращает только eligibility для ещё одной fresh freeze либо complete blocker. Direction не делал product work и не спрашивал владельца.</p>
-    </div>
-    <div class="call closed">
-      <div class="head"><span class="st">PAIR-CANDIDATE MET 1-8 - EXACT PAIR READY FOR FRESH FREEZE</span><b>NearGas L1B получил exact compiler-green carrier и genuine RED</b><span class="id">s-work-near-gas-l1b-pair-freeze-dispatch-001 - 18.07</span></div>
-      <p><span class="l">Что принято:</span> clean WIN-U3/current-branch HOME на exact pair <b>7c2348bc -&gt; 54892e68</b>. Carrier меняет только NearGasSimulation.cs +40/-9 и не содержит BUILD behavior; следующий RED меняет только четыре tests/test-support files +184/-11.</p>
-      <p><span class="l">Какие реальные gates:</span> Release build и hygiene GREEN, baseline 1793/1793 GREEN, 21 positive tests падают только на intended behavioral assertions, 21 negative controls GREEN, все 16 evidence-only rows имеют disposition. Frozen PLAN/decision/spec/tasks/ADR и owner verdict сохранены byte-identical.</p>
-      <p><span class="l">Что дальше:</span> этот dated dispatch выпустил <b>c-exec-near-gas-l1b-pair-freeze-001</b>, pin 29. Более новая карточка выше фиксирует terminal outcome: fresh refutation BLOCKED exact-source oracle class, BUILD остался закрыт, а единственный root/default теперь — bounded PAIR-CANDIDATE correction для новой pair.</p>
-    </div>
-    <div class="call closed">
-      <div class="head"><span class="st">✓ RE-SYNC v29 GREEN · LEGACY ROOT RETIRED · PAIR-CANDIDATE READY</span><b>NearGas L1B переведён на новый pinned pair route</b><span class="id">s-review-near-gas-l1b-v29-rescue-route-001 · 18.07</span></div>
-      <p><span class="l">Что проверено:</span> complete product HOME на clean local dev@<b>82fea85f</b>: contract/inventory 29, ceiling 239, full 1792/1792 check и independent review round 2 PASS. Protected Assets/tests/frozen PLAN bytes не изменились; fixed boolean-coercion finding имеет class+sweep.</p>
-      <p><span class="l">Что закрыто:</span> bounded contract-sync root и временный track закрыты. Legacy cumulative route 409ef4a7..de1cc87c = 559 additions &gt; 400 признан NOT MET и закрыт без successor по прямой owner authority; old RED 0d0cea14 остаётся invalidated history.</p>
-      <p><span class="l">Что дальше:</span> ровно один root <b>c-exec-near-gas-l1b-pair-candidate-001</b> READY/default с <code>engineering_contract: 29</code>. Он принимает frozen PLAN/decision/spec/tasks/ADR без изменений, работает только на owner-selected WIN-U3/current branch и должен вернуть exact carrier→RED pair для отдельной fresh refutation. BUILD и product work этой Direction-сессией не запускались.</p>
-    </div>
-    <div class="call closed">
-      <div class="head"><span class="st">🛑 STOP BEFORE RED · CAP AUTHORITY CONFLICT · READ-ONLY NEXT</span><b>Completed NearGas carrier сохранён, но не допущен к новому RED</b><span class="id">s-work-near-gas-l1b-surface-cap-stop-001 · 18.07</span></div>
-      <p><span class="l">Что проверено:</span> de1cc87c имеет sole parent 787cd525, one-file +28/-6 immediate diff, build GREEN, baseline 1793/1793, hygiene GREEN и independent diff review PASS. Prior RED 0d0cea14 сохранился unchanged, но carrier change его инвалидировал.</p>
-      <p><span class="l">Что опровергнуто:</span> Direction cumulative range от original parent 409ef4a7 даёт 559 additions: NearGasSimulation 417, Reactions 37, VoxelField 105. Это на 159 выше cap 400; даже pre-correction 787cd525 уже имеет 537.</p>
-      <p><span class="l">Чем кончилось:</span> duplicate Surface draft удалён, новый RED/BUILD тогда не открылся. Последующий v29 rescue сохранил этот STOP как history, закрыл read-only reconciliation root без successor и открыл отдельный integer-29 PAIR-CANDIDATE; legacy carrier не объявлен RED-eligible.</p>
-    </div>
-    <div class="call closed">
-      <div class="head"><span class="st">✓ OWNER-SELECTED PAPER ANSWER · NON-CANON · ADMISSION READY</span><b>Грамматика поведения газа выбрана как movement-first Control Obligation</b><span class="id">s-forge-g-d3a8-gas-behavior-jobs-001 · 18.07</span></div>
-      <p><span class="l">Что было:</span> Q3-R спрашивал, какое минимальное физическое различие между газами должно менять реальные решения одной универсальной системы добычи и переноски Шаров, а не только цвет или числовую силу.</p>
-      <p><span class="l">Чем кончилось:</span> после Gate F «FRAME READY» и Gate Q «QUESTION READY» владелец выбрал A. Минимальная movement/control грамматика — <b>Counter / Brake / Time</b>; новый job обязан менять позицию добычи, объём, остановку, контроль, тайминг или маршрут. Volume остаётся силой, shell — общей выносливостью.</p>
-      <p><span class="l">Что осталось открытым:</span> ответ movement-first, не movement-only: дополнительные эффекты возможны позже, но radiation, damage, reactions и modifier taxonomy не выбраны. Один игрок может вести небольшой Шар, а точные пределы и scaling не определены. Frame и canon не менялись; следующий шаг — отдельный owner-present admission exact artifact.</p>
-    </div>
-    <div class="call closed">
-      <div class="head"><span class="st">✓ DIRECTION REVIEW MET · LEG 1 ACCEPTED BOUNDED · LEG 2 READY</span><b>Опубликованный Character reaction-core выдержал свежую попытку опровержения</b><span class="id">s-review-char-v2-published-handback-release-001 · 18.07</span></div>
-      <p><span class="l">Что проверено:</span> exact candidate <b>0e5b2948</b> → integration <b>53453081</b> → published dev/main <b>029279a</b>, оба published evidence-artifact и все шесть admission-003 obligations. Три независимых read-only pre-pass’а дали 0 опровержений по 11 claims; связывающий verdict вынесен этой fresh Direction review-сессией.</p>
-      <p><span class="l">Чем кончилось:</span> MET только на высоте engine-free reaction/provenance core. Review child consumed, receipt добавлен, а существующий body-rig root стал READY по owner «A — открывай Leg 2 после review».</p>
-      <p><span class="l">Что осталось открытым:</span> DF-13/14/15 routed; C1–C4 и весь engine-side rig/locomotion/ragdoll/material/owner-eye/G5 ещё впереди. Product repo читался без mutation; отдельный executor не запущен; core default сохранён.</p>
-    </div>
-    <div class="call closed">
-      <div class="head"><span class="st">✓ OWNER A · REVIEW FIRST · MET ОТКРОЕТ LEG 2</span><b>После Direction review персонажи продолжаются без промежуточной паузы</b><span class="id">s-work-char-v2-leg2-after-review-authorized-001 · 18.07</span></div>
-      <p><span class="l">Что было:</span> опубликованный reaction-core уже GREEN, но свежий Direction review ещё не проведён; прежний маршрут трактовал освобождение Character WIP как будущую паузу body-rig root.</p>
-      <p><span class="l">Вердикт владельца:</span> точные слова <b>«A — открывай Leg 2 после review»</b>.</p>
-      <p><span class="l">Чем кончилось:</span> review остаётся обязательным и следующим. До MET body-rig WAITING и NOT RUNNABLE; MET делает существующий root READY, а PARTIALLY MET/NOT MET оставляет его закрытым за named repair/re-review blocker. Никакая product-сессия не запускалась; core default сохранён.</p>
-    </div>
-    <div class="call closed">
-      <div class="head"><span class="st">✓ PRODUCT HANDBACK PUBLISHED · DIRECTION REVIEW READY · NO LEG 2</span><b>Character reaction-core вернулся домой на отдельное Direction-принятие</b><span class="id">s-work-char-v2-published-handback-release-route-001 · 18.07</span></div>
-      <p><span class="l">Что было:</span> admission-003 разрешал узкий provenance repair, но его product RESULT прямо запрещал считать публикацию Direction-close и просил отдельный owner-issued CALL.</p>
-      <p><span class="l">Чем кончилось:</span> authenticated readback exact <b>029279a</b> подтвердил final fresh G5 CONFIRMED на candidate <b>0e5b2948</b>, integration <b>53453081</b>, GREEN Deliver и 1873/1873. Returning engineering child заменён отдельным review child; body-rig остался WAITING. Тогдашняя pause-интерпретация позже superseded точным owner-A решением в карточке выше.</p>
-    </div>
-    <div class="call closed">
-      <div class="head"><span class="st">✓ OWNER A · M0 SOURCE DECIDED · DELIVERY ЕЩЁ ВПЕРЕДИ</span><b>M0 сводит Windows-работу и существующую Mac-миграцию</b><span class="id">s-work-m0-source-decision-001 · 18.07</span></div>
-      <p><span class="l">Что было:</span> формулировка ошибочно звучала так, будто Mac ещё только должен начать миграцию. Владелец уточнил: Mac уже в основном мигрирован и сейчас догоняет работу, которая делается на Windows.</p>
-      <p><span class="l">Вердикт владельца:</span> точные слова <b>«принимаю A»</b>.</p>
-      <p><span class="l">Чем кончилось:</span> версия остаётся <b>Unity 6000.5.3f1</b>. Исходник — exact committed Git-состояние текущей Windows-работы, выбранное свежей product authority; существующая Mac-миграция обновляется поверх него. M0 должен получить один проверенный commit для обеих машин, а не переносить целую папку проекта.</p>
-      <p><span class="l">Что не закрыто:</span> сама миграция ещё не объявлена Direction-доставленной, product BUILD не запускался, текущий NearGas default и остальные три owner-вопроса не менялись.</p>
-    </div>
-    <div class="call closed">
-      <div class="head"><span class="st">✓ OWNER-APPROVED CARTOGRAPHY · NON-CANON · Q3-R READY</span><b>Текущий post-Sphere фронт вопросов g-d3a8 утверждён</b><span class="id">s-cartography-g-d3a8-post-sphere-frame-front-001 · 18.07</span></div>
-      <p><span class="l">Что было:</span> принятая extraction/custody Frame и MET-review универсального захвата сделали прежний широкий маршрут P0→Q1→Q4 устаревшим, но требовалась явная карта всех surviving downstream-вопросов без design-ответа и без продвижения в канон.</p>
-      <p><span class="l">Чем кончилось:</span> владелец дословно выбрал «A». Карта v2 стала текущей routing/dependency authority; former P0/Q1/Q4 разнесены по settled Frame и downstream остаткам, universal capture сохранён non-canon, а Q3-R gas behavior-job grammar открыт как единственный следующий bounded Canon Forge вопрос. TREE, CHARTER, canon, product и primary core default не менялись.</p>
-    </div>
-    <div class="call closed">
-      <div class="head"><span class="st">✓ REVIEW MET · NON-CANON · QUESTION-MAP READY</span><b>Универсальный захват Шаром выдержал свежую попытку опровержения</b><span class="id">s-review-sphere-universal-capture-frame-001 · 17.07</span></div>
-      <p><span class="l">Чем кончилось:</span> в принятой extraction/custody Frame не осталось активного требования gas-to-shell incompatibility, damage от типа газа, обязательных специальных Шаров или отдельной shell-совместимости для смеси. Возможные mixed-gas последствия остаются только будущими общими gas-to-gas правилами.</p>
-      <p><span class="l">Границы:</span> general physical load и rupture сохранены, но тип газа сам по себе не является их причиной. Frame остаётся non-canon; Gate Q, canon admission, product, damage и implementation не запускались.</p>
-      <p><span class="l">Маршрут:</span> владелец выбрал «A»: незавершённый g-d3a8 и canon-track сохранены, завершённый review-root заменён новой картой вопросов. Этот маршрут не пересматривает принятую Frame и не выбирает следующий дизайн-ответ заранее.</p>
-    </div>
-    <div class="call closed">
-      <div class="head"><span class="st">✓ SURFACE-FREEZE GREEN · EXACT CARRIER · RED READY</span><b>NearGas L1B получил compiler-green observation surface</b><span class="id">s-work-near-gas-l1b-surface-freeze-close-001 · 17.07</span></div>
-      <p><span class="l">Чем кончилось:</span> Direction принял полный product HOME и закрыл только surface-stage на exact carrier <b>163dffaa</b>. Cumulative freeze-parent = 409ef4a7; manifest — три production-файла, +397/-10; decision page — 326 слов.</p>
-      <p><span class="l">Почему GREEN:</span> internal one-shot context, four raw-family immutable carriers и exact no-op sites скомпилированы без public L1a change; Unity compilation, build, 1793 existing tests, full hygiene и fresh non-author review exact commit GREEN. Новых C# files не было, existing sidecars tracked.</p>
-      <p><span class="l">Что не закрыто:</span> carrier пока ничего не записывает и не бросает. Independent RED, binding artifact refutation, production BUILD, five-family behavior и full L1B остаются впереди; `L1B-Capture` не помечена done.</p>
-    </div>
-    <div class="call closed">
-      <div class="head"><span class="st">✓ РАЗРЕШЕНИЕ ЗАПИСАНО · REPAIR READY · LEG 2 ЕЩЁ ЗАКРЫТ</span><b>Разрешена одна служебная запись для Character repair</b><span class="id">s-work-char-v2-repair-reservation-authorized-001 · 17.07</span></div>
-      <p><span class="l">Вердикт владельца:</span> точные слова <b>«Тогда разрешать пройть запись.»</b> в ответ на вопрос A/B/C.</p>
-      <p><span class="l">Чем кончилось:</span> admission-003 теперь READY. Новая product-сессия может записать в общий список, что рабочее место занято ремонтом, отправить только эту запись и проверить, что она дошла; затем выполнить узкий repair локально.</p>
-      <p><span class="l">Что не разрешено:</span> отправлять игровой код или repair-кандидат, делать merge, чистить старые рабочие места, открывать Leg 2 или считать весь Character-направление закрытым. После repair всё ещё нужна отдельная свежая проверка.</p>
-    </div>
-    <div class="call closed">
-      <div class="head"><span class="st">✓ CHECKPOINT · BLOCKED BEFORE PRODUCT WRITE · SAVED WIP PRESERVED</span><b>Character reaction repair остановлен на admission-conflict</b><span class="id">s-work-char-v2-reaction-core-repair-002-admission-blocked-001 · 17.07</span></div>
-      <p><span class="l">Чем кончилось:</span> current product AGENTS/registry прочитаны first. Они требуют committed+pushed+fresh-read-back reservation на origin/dev, но CALL запрещал push. Поэтому не было ни admission, ни candidate.</p>
-      <p><span class="l">Что сохранено:</span> archival refs и content-addressed capsule character-p2a остались нетронуты; registry readback уже фиксирует 51 SHA-256, 22 ZIP CRC и 916 exact working-byte paths GREEN. U3/U4 свободны, но не admitted.</p>
-      <p><span class="l">Что не запускалось:</span> product diff, commit, push, restore, cleanup, rebase, gates, reviewer, G5, merge и Leg 2. В том checkpoint repair successor был оставлен BLOCKED до решения владельца; более новая карточка выше фиксирует последующее разрешение. Global core default не менялся.</p>
-    </div>
-    <div class="call closed">
-      <div class="head"><span class="st">✓ EXACT DIFF OWNER-ACCEPTED · NON-CANON FRAME UPDATED</span><b>Универсальная добыча Шарами записана без gas-to-shell матрицы</b><span class="id">s-work-sphere-universal-capture-frame-001 · 17.07</span></div>
-      <p><span class="l">Вердикт владельца:</span> точные слова <b>«Принять diff как есть»</b>.</p>
-      <p><span class="l">Чем кончилось:</span> Frame теперь однозначно разрешает любому стандартному Шару захватывать любой gameplay gas; тип газа сам по себе не повреждает и не дестабилизирует Шар. Mixed-gas outcomes оставлены только будущим общим правилам gas-to-gas, а специализация PARKED до playable evidence.</p>
-      <p><span class="l">Что не изменилось:</span> extraction/custody, shell/gas/volume, physical carry, readability и non-canon authority сохранены. Gate Q, canon admission, damage, roster, реакции, thresholds, rupture и implementation не запускались.</p>
-    </div>
-    <div class="call closed">
-      <div class="head"><span class="st">✓ PLAN RELEASED · REVIEW + GATE GREEN · NO IMPLEMENTATION</span><b>NearGas L1B docs-only PLAN опубликован и возвращён HOME</b><span class="id">s-work-near-gas-l1b-plan-publication-close-001 · 16.07</span></div>
-      <p><span class="l">Вердикт владельца:</span> точные слова <b>«Принимаю PLAN»</b> заморозили seven-artifact candidate <b>92331e30</b>.</p>
-      <p><span class="l">Чем кончилось:</span> current process contract v27 убрал невалидный model-family availability gate, но сохранил fresh non-author/read-only review. Independent review не нашёл Critical/Important; dedicated PLAN-publication gate GREEN; registry прошёл ADMITTED-ACTIVE → HANDBACK-PENDING → RELEASED; product dev/main/origin сведены на <b>2d995d69</b>.</p>
-      <p><span class="l">Что дальше:</span> эта лега не выпустила SURFACE-FREEZE, RED или BUILD. Глобальный next остаётся high-level extraction research; Level LV0 PLAN сохраняется отдельным clean candidate @4e03d054 с owner verdict PENDING; characters остаются PAUSED.</p>
-    </div>
-    <div class="call closed">
-      <div class="head"><span class="st">✓ QUESTION BLOCKED · WRONG ALTITUDE · NO PAPER/CANON</span><b>Узкий Q1 Simple Gas Extraction остановлен</b><span class="id">s-research-q-simple-gas-extraction-001 · 16.07</span></div>
-      <p><span class="l">Что было:</span> Canon Forge входил через bounded P0 alignment и Q1 о простом заборе газа в растущий Пузырь.</p>
-      <p><span class="l">Чем кончилось:</span> владелец оставил Gate F FRAME READY словами «Вариант A», но прямо попросил не называть добычу отдельным вопросом и сначала обработать её как высокоуровневую концепцию. Paper candidates не создавались, OWNER-SELECTED PAPER ANSWER и canon admission отсутствуют.</p>
-      <p><span class="l">Что дальше:</span> открыт owner-present research whole-mechanic landscape. После фактического owner verdict карта вопросов будет пересобрана из выбранного направления; старый Q1 автоматически не возвращается.</p>
-    </div>
-    <div class="call closed">
-      <div class="head"><span class="st">✓ ARCHITECTURAL BASIS OWNER-ACCEPTED · D1=A · D2=A</span><b>Единый Standard v1 для project-owned levels/modules</b><span class="id">s-research-level-module-standard-v1-001 → s-repair-level-module-standard-v1-owner-acceptance-001 · 16.07</span></div>
-      <p><span class="l">Что было:</span> нужно было восстановить уже доказанные lower seams и заполнить только отсутствующие project-owned contracts, validators и old-task decision package.</p>
-      <p><span class="l">Чем кончилось:</span> кандидат разделяет reusable Project Module Contract и assembled Built Level Manifest, фиксирует 50/25 cm integer 3D, 1:N rooms, six-face portals, exact structure, WHERE/WHAT metadata, PGG cleanup, четыре validator boundaries и horizontal/stacked 1/2/3/4-module fixtures.</p>
-      <p><span class="l">Что дальше:</span> владелец принял candidate как архитектурную основу, выбрал sparse 25 cm cell/sub-face truth и represent+validate ±Z с loud unsupported admission. Старые Phase 0 и Phase-0-gated PLAN остаются неисполняемыми. Теперь отдельный параллельный LV0 CALL READY: fresh current product contract, product-owned admission и owner-approved freeze восьми названных implementation-правил. Unity и BUILD не открыты.</p>
-    </div>
-    <div class="call closed">
-      <div class="head"><span class="st">✓ OWNER A · DASHBOARD TRUTH SYNCHRONIZED</span><b>Direction и NearGas owner boards приведены к текущему состоянию</b><span class="id">s-repair-direction-neargas-dashboard-truth-001 · 16.07</span></div>
-      <p><span class="l">Что было неверно:</span> Direction всё ещё показывал protocol delivery blocker и PLAN как только READY; NearGas ждал повторный Deliver, называл DA/L1B не запущенными и не имел отдельной L1b-ступени.</p>
-      <p><span class="l">Чем кончилось:</span> Direction теперь показывает protocol RELEASED @5cd18250 и docs-only PLAN ADMITTED-ACTIVE @accc677d; NearGas board синхронизирован в его законной product-ветке @<b>94d09d00</b>. Отдельно восстановлены P0&#8594;Q1 и честная открытая canon-board render-находка.</p>
-      <p><span class="l">Что не изменилось:</span> NOW/TREE/CHARTER и инженерные ворота. Финальный PLAN verdict всё ещё pending; implementation, tests, SURFACE-FREEZE, RED, BUILD и Unity не заявлены.</p>
-    </div>
-    <div class="call closed">
-      <div class="head"><span class="st">✓ CHECKPOINT · OWNER INPUT A · FINAL VERDICT PENDING</span><b>NearGas L1B PLAN получил preflight-направление и product admission</b><span class="id">s-work-near-gas-l1b-plan-owner-a-checkpoint-001 · 16.07</span></div>
-      <p><span class="l">Слова владельца:</span> точный ответ <b>A</b> выбрал минимальное preflight-направление; это input для planner, а не одобрение готового PLAN.</p>
-      <p><span class="l">Что произошло после:</span> product registry закрыл protocol rows как RELEASED и отдельным commit <b>accc677d</b> допустил docs-only L1B PLAN-ветку. Planner собирает PLAN/decision/spec/ledger/ADR.</p>
-      <p><span class="l">Что дальше:</span> показать владельцу читаемый проект и получить отдельный фактический verdict; до него PLAN не frozen и никакой carrier/RED/BUILD не открыт.</p>
-    </div>
-    <div class="call closed">
-      <div class="head"><span class="st">✓ DELIVERED · DIRECTION-CLOSED GREEN · L1B PLAN UNBLOCKED</span><b>GasCoopGame worktree protocol v2 — bounded delivery repair</b><span class="id">s-work-gascoopgame-worktree-protocol-v2-delivery-repair-close-001 · 16.07</span></div>
-      <p><span class="l">Чем кончилось:</span> canonical Characters/NearGas folder meta committed без смены Unity identity; семь legacy WIP и unrelated refs сохранены content-addressed manifest'ами. Product main/dev и tracking refs опубликованы на <b>5cd18250</b>, оба checkout clean.</p>
-      <p><span class="l">Что проверено отдельно:</span> exact diff/meta blobs/current refs, 1714/1714, hygiene/scans/DF-5, current result gate, 79/79 negative controls и persisted Unity EditMode 36/36. Post-publication общий no-delta Deliver ожидаемо проверяет весь historical catalog; это документированный не-leg режим, не failure текущего result.</p>
-      <p><span class="l">Что произошло позже:</span> L1B PLAN принят точными словами «Принимаю PLAN», independently reviewed, прошёл dedicated publication gate и RELEASED на product@2d995d69 без SURFACE/RED/BUILD. Characters остаются PAUSED.</p>
-    </div>
-    <div class="call closed">
-      <div class="head"><span class="st">✓ OWNER A · BOUNDED REPAIR AUTHORIZED</span><b>Disposition blocker worktree protocol v2</b><span class="id">s-work-gascoopgame-worktree-protocol-v2-blocker-a-001 · 16.07</span></div>
-      <p><span class="l">Вердикт владельца:</span> точный ответ <b>A</b> разрешил один bounded successor repair только двух guarded folder meta с preservation proof от fresh current-state baseline.</p>
-      <p><span class="l">Что признано:</span> отсутствующую historical start-of-task byte identity первой попытки восстановить нельзя; новый proof её не заменяет и не становится evidence задним числом.</p>
-      <p><span class="l">Что произошло после:</span> repair выполнен и Direction-closed GREEN на product@5cd18250; L1B-PLAN разблокирован. Characters остаются PAUSED.</p>
-    </div>
-    <div class="call closed">
-      <div class="head"><span class="st">✓ CHECKPOINT · BLOCKED · БЕЗ SCOPE EXPANSION</span><b>GasCoopGame worktree protocol v2 — product handback</b><span class="id">s-work-gascoopgame-worktree-protocol-v2-blocked-001 · 16.07</span></div>
-      <p><span class="l">Что сделано:</span> product-owned committed admission, registry lifecycle, dated inventory и truthful dashboard реализованы на dev@767a8f8f; committed diff только protocol/docs.</p>
-      <p><span class="l">Почему BLOCKED:</span> closing Deliver RED на DF-5 из-за двух preserved untracked meta; clean exact-commit checkout не заменяет integrated dev. По другой legacy-грязи отсутствует точный исторический start manifest.</p>
-      <p><span class="l">Что остановлено:</span> дополнительный review-loop, preservation project, topology redesign, characters, DA и L1B implementation. Merge/push, cleanup и meta choice не выполнялись.</p>
-      <p><span class="l">Что произошло после:</span> владелец выбрал A; successor repair доставлен и отдельно проверен. Затем L1B PLAN принят, independently reviewed и RELEASED @product 2d995d69; character repair остаётся paused.</p>
-    </div>
-    <div class="call closed">
-      <div class="head"><span class="st">✓ DONE · OWNER «accepted» · 5/5 FROZEN</span><b>NearGas L1B child acceptance</b><span class="id">s-work-near-gas-l1b-acceptance-001 · 16.07</span></div>
-      <p><span class="l">Вердикт владельца:</span> после readable brief владелец ответил точным словом «accepted».</p>
-      <p><span class="l">Чем кончилось:</span> ровно retry snapshot, fault injection, handler classification, kernel rows и loopback trace получили actual-path positive oracle, planted negative, evidence source и forbidden inference. Surrogate, observer effect и cut capability fail-closed дают RED.</p>
-      <p><span class="l">Что произошло позже:</span> protocol HOME закрыт GREEN; product registry допустил PLAN @accc677d; владелец затем сказал «Принимаю PLAN», и exact candidate @92331e30 прошёл review/gate и RELEASED @2d995d69. L1a остаётся DELIVERED, v22 — FORBIDDEN; SURFACE-FREEZE/RED/BUILD и Unity/gameplay/M1 delivery не заявлены.</p>
-    </div>
-    <div class="call closed">
-      <div class="head"><span class="st">✓ OWNER-APPROVED · PROTOCOL A</span><b>GasCoopGame worktree routing v2</b><span class="id">s-repair-gascoopgame-worktree-routing-v2-001 · 16.07</span></div>
-      <p><span class="l">Вердикт владельца:</span> A — физическая topology authority живёт в product repo; Direction хранит outcomes, конфликты, зависимости и статус, но не раздаёт local paths/branches/SHAs.</p>
-      <p><span class="l">Чем кончилось:</span> девять checkout'ов и 33 local refs классифицированы; canonical L1a mutation 72.78 отделена от stale core/exp evidence. Main остаётся integration-only, dev — единственным persistent Unity+MCP workspace; p2a0 временно grandfathered, остальные legacy venues frozen/forensic или retirement candidates.</p>
-      <p><span class="l">Что произошло после:</span> character repair поставлен владельцем на паузу; bounded successor repair двух meta доставил protocol на main/dev@5cd18250 и разблокировал только L1B product PLAN.</p>
-    </div>
-    <div class="call closed">
-      <div class="head"><span class="st">✓ OWNER-APPROVED · ACTIVE BET</span><b>Bounded ставка NearGas L1B</b><span class="id">c-shape-near-gas-l1b-001 · 16.07</span></div>
-      <p><span class="l">Вердикт владельца:</span> «принимаю ставку L1B»; до этого appetite выбран словом «а» = 3 focused days.</p>
-      <p><span class="l">Чем кончилось:</span> L1B активирована на ровно 5 internal observation families с шестью half-day tasks, реальными cuts и fresh G5. 24.07 — automatic control review; продления нет.</p>
-      <p><span class="l">Что произошло позже:</span> L1B-Acceptance закрыта owner «accepted», protocol HOME GREEN, а L1B PLAN после отдельного «Принимаю PLAN» independently reviewed и RELEASED @product 2d995d69. RED/BUILD не открыты; L1a остаётся DELIVERED, v22 — FORBIDDEN.</p>
-    </div>
-    <div class="call closed">
-      <div class="head"><span class="st">✓ CLOSED · NOT MET · OWNER SELECTED L1B</span><b>Старая ставка Полигона M1 13/24</b><span class="id">c-review-poligon-m1-route-reset-001 · 16.07</span></div>
-      <p><span class="l">Вердикт:</span> 0/10 условий доказаны end-to-end в одной общей сцене. Регулируемый DA-уровень, gas gameplay, breach/flood, HUD divergence и admission имеют только частичные foundations; S4, две реальные машины и названное слабое железо отсутствуют.</p>
-      <p><span class="l">Прогноз:</span> wrong-mechanism + optimistic: исходный Phase0→A0→S4 маршрут умер, а принятый 34+ cross-bet route оказался леджером зависимостей, не delivery и не cap. Ставка закрыта без продления; 24.07 остаётся контрольным review.</p>
-      <p><span class="l">Следом:</span> из трёх вариантов владелец дважды ответил «L1B»; отдельная shape-сессия теперь активировала bounded 3-focused-day ставку.</p>
-    </div>
-    <div class="call closed">
-      <div class="head"><span class="st">✓ CLOSED · OWNER-APPROVED</span><b>Живые player-count поверхности согласованы с Frame v2 и обязательной восьмёркой</b><span class="id">c-repair-eight-player-live-consistency-sweep-001 · 15.07</span></div>
-      <p><span class="l">Вердикт владельца:</span> «ОДОБРЯЮ ПАКЕТ CONSISTENCY-ПОПРАВОК, включая G9-правки TREE g-9c41 и g-5b07, правку нормативной knowledge-расшифровки, player-count/Frame-v2 правки canon-board и синхронизацию review-render; историю не менять.»</p>
-      <p><span class="l">Чем кончилось:</span> g-9c41 исправлен на меняющиеся группы 4–8 с обязательной поддержкой полной восьмёрки, OPEN нижним пределом ниже четырёх и без текущей solo-цели; clean 1-player, две машины и two-human grey-box сохранены как engineering/test hygiene. g-5b07 остаётся PARKED / DEFERRED с явными owner и wake condition; normative knowledge и текущие renders синхронизированы.</p>
-      <p><span class="l">Что не менялось:</span> исторические RESULT/архивы, CHARTER, canon law и карточки, Frame-v2 accepted content, product repositories, механики и unrelated branches.</p>
-    </div>
-    <div class="call closed">
-      <div class="head"><span class="st">✓ OWNER-APPROVED · CANON LAW AMENDED</span><b>Верхний закон канона согласован с обязательной восьмёркой</b><span class="id">c-repair-canon-frame-v2-eight-player-001 · 15.07</span></div>
-      <p><span class="l">Чем кончилось:</span> владелец сказал «ОДОБРЯЮ КАНОН-ПОПРАВКУ». Активная норма «1–4 / solo-startable» заменена на меняющиеся группы 4–8, обязательную поддержку восьми, OPEN нижний предел ниже четырёх и отсутствие текущей solo-цели.</p>
-      <p><span class="l">Что сохранено:</span> старая норма осталась историческим provenance в AMENDMENTS.md; Frame v2 целиком не канонизирован, c-001 и остальные карточки не менялись.</p>
-      <p><span class="l">Что дальше:</span> live consistency sweep уже закрыт owner-approved; отдельный paper-only вопрос о кооперации остаётся READY PARALLEL.</p>
-    </div>
-    <div class="call closed">
-      <div class="head"><span class="st">✓ OWNER-APPROVED · TREE RECONCILED</span><b>Frame v2 и обязательная восьмёрка отражены в g-d3a8</b><span class="id">c-map-g-d3a8-frame-v2-reconciliation-001 · 15.07</span></div>
-      <p><span class="l">Чем кончилось:</span> старая карточка g-d3a8 полностью заменена: текущая whole-game basis = Frame v2, не канон; primary range = меняющиеся группы 4–8; полная восьмёрка обязательна; нижняя граница ниже четырёх OPEN; соло не текущая цель.</p>
-      <p><span class="l">Что записано:</span> явная лестница FRAME → OWNER-SELECTED PAPER ANSWER → отдельный CANON ADMISSION и пять остающихся макроразвилок с честными evidence limits.</p>
-      <p><span class="l">Что дальше:</span> canon top-law repair и live consistency sweep уже закрыты owner-approved; co-op composition остаётся READY PARALLEL / PAPER-ONLY, Sc-damage всё ещё HELD. Инженерный NOW.next не менялся.</p>
-    </div>
-    <div class="call closed">
-      <div class="head"><span class="st">✓ МАРШРУТ ПРИНЯТ · БЕЗ ЧИСЛОВОГО CAP</span><b>Сильная интеграционная сцена Полигона M1</b><span class="id">M1-Integration-ROUTE · 14.07</span></div>
-      <p><span class="l">Чем кончилось:</span> владелец сказал «Да, именно так» про отсутствие числового ограничения и 24.07 как контрольный review, затем «Маршрут принимаю».</p>
-      <p><span class="l">Что записано:</span> единый finish, cuts, шесть трасс, площадки/conflicts/proofs/merge gates, матрица параллельности и честный текущий ledger: 34 обязательных логических product legs плюс условные. Это accounting, не потолок.</p>
-      <p><span class="l">Граница:</span> product не менялся, старой Phase 0 нет, Level successor не выпущен. Fresh review закрыл старую 13/24 ставку NOT MET; позднее L1B acceptance была frozen owner «accepted», но product launch по-прежнему не открыт.</p>
-    </div>
-    <div class="call closed">
-      <div class="head"><span class="st">✓ РАТИФИЦИРОВАНО 5 ИЗ 5</span><b>Критерии приёмки Полигона М1</b><span class="id">d-m1-acceptance-criteria-001 · 14.07</span></div>
-      <p><span class="l">Что было:</span> пять дополнений жили только в вырезанной устаревшей лестнице, поэтому финальная планка М1 могла тихо потерять CPU-, sync- и flood-доказательства.</p>
-      <p><span class="l">Чем кончилось:</span> владелец сказал «ратифицировать все пять с этими уточнениями». Финал требует названное слабое железо, HUD-лампу agree/divergence с plant-самопроверкой и видимый admission ceiling.</p>
-      <p><span class="l">Граница:</span> потеря пира/хоста явно завершает текущий прогон; late join/host migration и production-звук в М1 не входят. Осталось назвать конкретное min-spec железо.</p>
-    </div>
-    <div class="call closed">
-      <div class="head"><span class="st">PLAN-AMEND ПРИНЯТ · ПОЗДНИЙ CHECKPOINT НАШЁЛ НОВЫЕ GAPS</span><b>L1: construction/fault поправка не закрыла весь executable corpus</b><span class="id">c-exec-near-gas-core-authority-001-plan-amend-001 · 13.07</span></div>
-      <p><span class="l">Что было:</span> первый independent spec-only RED остановился до test commit: frozen spec не позволял законно собрать admitted generation и выбрать обязательные внутренние точки отказа.</p>
-      <p><span class="l">Чем кончилось:</span> владелец дословно подтвердил construction A + fault A. PLAN-AMEND @a58ee356, влитый в origin/main@32107343, фиксирует public owned <code>Create(...)</code>, immutable Core handler type maps, literal valid recipe и operation-local internal <code>NearGasFaultSite</code>/ForTesting entries в тех же production paths.</p>
-      <p><span class="l">Проверка на тот момент:</span> fresh Direction-сессия подтвердила именно construction A / fault A и seven-file planning-only diff. Поздний execute-002@5c783e07 доказал, что вывод нельзя было расширять на готовность всей RED-suite: ещё девять групп bindings отсутствуют.</p>
-      <p><span class="l">Граница сейчас:</span> это историческая owner-approved поправка, не разрешение повторно запускать EXECUTE. Original BUILD и execute-002 остаются CHECKPOINT / NOT DELIVERED; v21 требует семантически проверить весь frozen packet целиком.</p>
-    </div>
-    <div class="call closed">
-      <div class="head"><span class="st">⚠ NOW СТАВИТ DONE · REPAIR P1</span><b>PuppetMaster: owner выбрал Candidate A, но lifecycle G5 не закрыт</b><span class="id">M1-P2a0 · dr-20260711-001</span></div>
-      <p><span class="l">Что было:</span> живой спайк проверял, может ли PuppetMaster показывать удар, падение и подъём, не становясь недетерминированным сетевым владельцем позиции.</p>
-      <p><span class="l">Owner-факт:</span> после игры в стенд владелец сказал «Кандидат A — да»: авторитетная позиция принадлежит ядру/контроллеру, рэгдолл PuppetMaster — только локальный косметический вид. B отклонён из-за PhysX на авторитетном пути.</p>
-      <p><span class="l">Почему repair:</span> записанный done_when всё ещё требует bounded-C и fresh G5, а RESULT закрытия прямо говорит, что оба не доставлены и owner-eye использован вместо fresh G5. KERNEL G5 и карта площадок запрещают срезать этот гейт. До repair карточка не является доказанным lifecycle close.</p>
-    </div>
-    <div class="call closed">
-      <div class="head"><span class="st">✓ L1 PLAN ЗАМОРОЖЕН И BINDING-ПРОВЕРЕН</span><b>Один Core-владелец, атомарный Step и вариант A</b><span class="id">c-exec-near-gas-core-authority-001 · закрыта 13.07</span></div>
-      <p><span class="l">Чем кончилось:</span> владелец подтвердил рекомендованный вариант A и движение по плану. Frozen PLAN @1e4e78c с простым объяснением, spec/tasks/ADR/evidence map и отчётом влит в main @13917123; отдельная свежая refutation подтвердила каждый PLAN done_when.</p>
-      <p><span class="l">Что именно принято:</span> L1 строит серийного concurrency-ready владельца с candidate/swap и одним полным commit. Реальные workers сознательно вынесены в отдельную будущую легу после delivered L1/L2/C1 и свежего профиля; если профиль не покажет нужды, она останется припаркованной.</p>
-      <p><span class="l">Граница:</span> это закрытый PLAN, а не доставленная функция. Product code, независимый RED, BUILD и Unity не запускались; отдельный BUILD-заказ выпущен только после этой проверки.</p>
-      <p><span class="l">Что произошло после:</span> independent RED нашёл две недоопределённости до test commit; owner-approved PLAN-AMEND @a58ee356 закрыл их и выдержал отдельную binding-refutation. Original BUILD остаётся историческим NOT DELIVERED checkpoint; вместо продолжения выпущен новый EXECUTE от origin/main@32107343.</p>
-    </div>
-    <div class="call closed">
-      <div class="head"><span class="st">✓ ПРОГРАММА ПРИНЯТА</span><b>Единая дорога gas simulation вместо монолитного Phase 0</b><span class="id">PROGRAM · принято 12.07</span></div>
-      <p><span class="l">Что было:</span> старый Phase 0 пытался одновременно решить источники, владельца симуляции, Unity-жизненный цикл, чтение состояния, replay, очистку legacy и будущий визуал. Он перестал быть честно исполнимым как одна работа.</p>
-      <p><span class="l">Чем кончилось:</span> принята последовательная программа: одно атомарное ядро → ограничения ресурсов → дешёвая сверка состояния → точная Unity-версия → единственный Unity-путь → интеграция → PlayerSense → replay → удаление старых путей. После этого отдельно идут масштаб, runtime-источники, двери и разрушение.</p>
-      <p><span class="l">Граница:</span> принят маршрут, а не доставка его легов. Ни одна новая инженерная лега этим решением не стала зелёной и никакой BUILD не был разрешён.</p>
-    </div>
-    <div class="call closed">
-      <div class="head"><span class="st">✓ ЗАКРЫТ КАК МАРШРУТ · NOT DELIVERED</span><b>Старый Phase 0: источники газа</b><span class="id">c-exec-lv-ingest-phase0-001</span></div>
-      <p><span class="l">Что было:</span> длинный цикл строил источник газа внутри авторитетного пути, но обнаружил более глубокую проблему: у симуляции не было одного владельца и одной атомарной транзакции.</p>
-      <p><span class="l">Чем кончилось:</span> работа не объявлена сделанной и не влита. Её полезные требования перенесены в новую программу, исходный пакет сохранён как история и помечен «никогда не возобновлять».</p>
-      <p><span class="l">Что вместо него:</span> dashboard, исходный L1 PLAN и его узкий construction/fault PLAN-AMEND закрыты и binding-проверены. Сейчас следующим идёт новый serial concurrency-ready L1 EXECUTE от origin/main@32107343; old BUILD checkpoint не возобновляется.</p>
-    </div>
-    <div class="call closed">
-      <div class="head"><span class="st">✓ RUNNER PLAN ЗАМОРОЖЕН</span><b>Локальный .NET-маршрут репозиторных ворот</b><span class="id">c-exec-unity65-mac-revision-002 · закрыта 12.07</span></div>
-      <p><span class="l">Что было:</span> обязательный PowerShell мешал воспроизводимым локальным воротам на Mac и блокировал честное продолжение Unity 6.5 closeout.</p>
-      <p><span class="l">Чем кончилось:</span> frozen authority @7a3e747 определила один BCL-only .NET 8 runner, полный перенос всех существующих gate-смыслов и seeded-miss проверок, локальный режим без автоматических загрузок и только тонкие необязательные shell-адаптеры. Никакой BUILD, тест, gate, Unity, merge или push не запускался.</p>
-      <p><span class="l">Что дальше:</span> отдельный runner BUILD зарегистрирован как неприоритетная параллельная линия. Только после его доказанной доставки Direction OS сможет выпустить новый CALL на продолжение Unity/FishNet revision-001.</p>
-    </div>
-    <div class="call closed">
-      <div class="head"><span class="st">✓ ДОПУЩЕНО В КАНОН</span><b>«Цель стоит запуска» — первая канон-карточка</b><span class="id">c-research-q-investigation-readiness-canon-admission-001 · закрыта 12.07</span></div>
-      <p><span class="l">Что было:</span> отдельная owner-present сессия должна была дать один из трёх вердиктов по точному бумажному ответу «Цель стоит запуска»: принять в канон, оставить только бумажным или отклонить как кандидата.</p>
-      <p><span class="l">Чем кончилось:</span> твой дословный вердикт — «ADMIT TO CANON». Появилась первая в истории канон-карточка c-001 (предварительная, нужен-грейбокс): группа сознательно начинает операцию, когда нашла ценность, оправдывающую первое серьёзное действие; расследование напряжённо и прерываемо, а мир может отобрать эту развилку раньше сознательного решения.</p>
-      <p><span class="l">Граница результата:</span> канонизирован только точный ограниченный ответ + поправка о расследовании + уточнение о давлении. Fun, настоящая кооперация, читаемость в рантайме, темп давления, стоимость движка и рынок НЕ доказаны (это решает только грейбокс); точные источники, темп и правила давления остаются открытыми.</p>
-      <p><span class="l">Что дальше:</span> нового дизайн-вопроса не открыто. Следующий вопрос канона стартует только новым явным CALL под Canon Forge v3 (Gate F → Gate Q); текущий инженерный next не затронут.</p>
-    </div>
-    <div class="call closed">
-      <div class="head"><span class="st">✓ V3 УСТАНОВЛЕН · V2 УБРАН ИЗ LIVE</span><b>Ремонт полномочий процесса после пилота</b><span class="id">c-repair-canon-post-pilot-route-001 · закрыта 12.07</span></div>
-      <p><span class="l">Что было:</span> пилот v3 прошёл, но отдельного перехода «какой процесс теперь действует» не существовало; поэтому допуск бумажного ответа открылся без управляющего маршрута.</p>
-      <p><span class="l">Чем кончилось:</span> владелец дословно постановил «УСТАНОВИТЬ V3 КАК ДЕЙСТВУЮЩИЙ ПРОЦЕСС» и разрешил удалить прежние поверхности, чтобы не плодить legacy. Canon Forge v3 — единственный живой маршрут; Кузница v2 не fallback. Исполняемые v2-инструкции заменены в OS play и canon START/README/SESSION/QUEUE, а пустой INDEX больше не обещает карточку из v2.</p>
-      <p><span class="l">Граница результата в момент ремонта:</span> тогда «Цель стоит запуска» оставался выбранным бумажным ответом; ни ADMIT, ни HOLD, ни REJECT ещё не выдавались.</p>
-      <p><span class="l">Что произошло после:</span> отдельный admission завершился 12.07 дословным «ADMIT TO CANON»; появилась preliminary-карточка c-001. Эта карточка ремонта остаётся историей своего шага, а не текущим статусом admission.</p>
-    </div>
-    <div class="call closed">
-      <div class="head"><span class="st">✓ REVISED PLAN ЗАМОРОЖЕН</span><b>Unity 6.5: контракт ремонта после выбора A</b><span class="id">c-exec-unity65-mac-revision-plan-001 · закрыта 12.07</span></div>
-      <p><span class="l">Что было:</span> требовалась новая traceable authority, потому что старый frozen-план запрещал изменение сетевого wire и не мог быть переписан задним числом.</p>
-      <p><span class="l">Чем кончилось:</span> твоё дословное «A» заморожено в successor PLAN @8a344e9: полный scene handle для одинаковых версий, явный отказ разных версий до декодирования, без dual codec и без изменения остальных сетевых инвариантов.</p>
-      <p><span class="l">Что дальше:</span> первоначально был открыт отдельный fresh BUILD, но новый runner PLAN @7a3e747 сделал его преждевременным. Сейчас Unity/FishNet BUILD снят с готовых работ: сначала отдельно доставляется локальный .NET runner, затем Direction OS выпускает новый resume-заказ.</p>
-    </div>
-    <div class="call closed">
-      <div class="head"><span class="st">✓ ВЫБРАН ВАРИАНТ A · REVISED</span><b>Unity 6.5: маршрут после опровержения candidate</b><span class="id">d-unity65-mac-revision-route-001 · закрыто 12.07</span></div>
-      <p><span class="l">Что было:</span> решить, доводить ли Unity 6.5 с несовместимым 64-битным сетевым handle, сохранять старый 32-битный wire через дополнительное mapping или остаться на 6.3 LTS.</p>
-      <p><span class="l">Чем кончилось:</span> твой дословный ответ — «A». Продолжаем Unity 6000.5.3f1; новые сборки могут иметь coordinated несовместимость scene-handle wire, но обязаны явно отвергать другую версию протокола до декодирования. Это не разрешение мержить df1e5ca.</p>
-      <p><span class="l">Что дальше:</span> открыт отдельный PLAN-only заказ. После твоего одобрения нового плана BUILD стартует свежей сессией и заново проходит все ворота.</p>
-    </div>
-    <div class="call closed">
-      <div class="head"><span class="st">✓ ПРОЦЕСС ПРИНЯТ</span><b>Исправленный бумажный пилот Canon Forge v3</b><span class="id">c-review-canon-process-v3-revised-pilot-001 · закрыта 11.07</span></div>
-      <p><span class="l">Что было:</span> после провала первого пилота процесс получил два обязательных шлюза: сначала текущая рамка всей игры, затем доказанное происхождение конкретного вопроса; только после них разрешено сравнение бумажных кандидатов.</p>
-      <p><span class="l">Чем кончилось:</span> полная цепочка FRAME READY → QUESTION READY → разные бумажные кандидаты → выбранный владельцем ответ прошла 12 из 12 критериев без повторения ошибки «вопрос взят из воздуха». Дословный вердикт владельца: «ACCEPTED».</p>
-      <p><span class="l">Граница результата:</span> на момент закрытия 11.07 принят был только итог пилота: процесс ещё не был установлен, канон не менялся, а ответ «Цель стоит запуска» не стал законом игры.</p>
-      <p><span class="l">Что дальше:</span> 12.07 отдельный ремонт получил новый owner-verdict и установил v3. Этот исторический «ACCEPTED» остаётся только evidence пилота; admission ответа всё равно требует отдельного решения.</p>
-    </div>
-    <div class="call closed">
-      <div class="head"><span class="st">✓ BLOCKED · СНАЧАЛА РЕМОНТ</span><b>Допуск бумажного ответа в канон</b><span class="id">c-research-q-investigation-readiness-canon-admission-001 · закрыта 11.07</span></div>
-      <p><span class="l">Что было:</span> отдельная сессия должна была дать один из трёх вердиктов по точному ответу «Цель стоит запуска»: принять в канон, оставить только бумажным или отклонить как кандидата.</p>
-      <p><span class="l">Чем кончилось:</span> ни один из трёх вердиктов не выдан. Владелец потребовал сначала исправить конфликт порядка; проверка обнаружила разрыв полномочий между приостановленной v2 и принятой по пилоту, но не установленной v3. Канон не менялся.</p>
-      <p><span class="l">Что дальше:</span> ремонт c-repair-canon-post-pilot-route-001 закрыт 12.07 установкой v3; повторный admission 12.07 завершился твоим вердиктом «ADMIT TO CANON» — ответ стал предварительной канон-карточкой c-001.</p>
-    </div>
-    <div class="call closed">
-      <div class="head"><span class="st">✓ «БУДИТЬ МИНИМАЛЬНО»</span><b>Будить маркетинг?</b><span class="id">d-marketing-wake-001 · закрыто 11.07</span></div>
-      <p><span class="l">Что было:</span> страница Steam к 31.08 зависит от внешних несжимаемых сроков (ревью Valve, возможный fallback-художник капсулы) — будить трек или осознанно переносить дату.</p>
-      <p><span class="l">Чем кончилось 11.07:</span> ты выбрал «будить минимально» и позже расширил мандат research-слоем; никаких публичных действий без отдельного «да» не разрешено.</p>
-      <p><span class="l">Что произошло после:</span> 12.07 checkpoint заменил прежний Chinvat на owner-approved INOMAND/@inomandgames, сохранил домен/accounts@/Steamworks/internal capsule/B1 evidence и передал точный открытый остаток в Claude. Название игры и Steam App всё ещё не выбраны.</p>
-    </div>
-    <div class="call closed">
-      <div class="head"><span class="st">✓ ВОПРОС УХОДИТ В КАНОН</span><b>Где живёт «газ заставляет кооперироваться»</b><span class="id">d-coop-interdependence-repin-001 · закрыто 11.07</span></div>
-      <p><span class="l">Что было:</span> обязательство из ранней карты (газовый мир должен ВЫНУЖДАТЬ кооперацию) осталось ничьим после выпадения своего узла — риск позднего жёсткого блокера.</p>
-      <p><span class="l">Чем кончилось:</span> твоя формулировка: «этот вопрос отдельно должен в каноне обсуждаться; к урону перейдём только когда спека будет готова». Обязательство записано кандидатом в очередь канона (через гейт легитимности), а дизайн урона теперь явно ждёт готовой канон-спеки — это закреплено в состоянии направления.</p>
-      <p><span class="l">Что дальше:</span> канон-сессия берёт кандидата из work/canon-question-candidates-2026-07-11.md в свою очередь; там же второй кандидат — «первый публично показываемый срез» (твоя идея из обсуждения маркетинга).</p>
-    </div>
-    <div class="call closed">
-      <div class="head"><span class="st">✓ ВЫБРАН БУМАЖНЫЙ ОТВЕТ</span><b>Когда группа готова начинать операцию</b><span class="id">c-research-q-investigation-readiness-001 · закрыта 11.07</span></div>
-      <p><span class="l">Что было:</span> первый вопрос принятой рамки — сколько нужно понять о почти невидимом газе и пути, прежде чем начать добычу, а не продолжать расследование или отступить.</p>
-      <p><span class="l">Чем кончилось:</span> ты выбрал «Цель стоит запуска»: группа сознательно начинает операцию, когда нашла ценность, которая оправдывает первое серьёзное действие, меняющее ситуацию. Полная разведка, точный прогноз и гарантированный выход не требуются.</p>
-      <p><span class="l">Твоя поправка:</span> расследование напряжённо с самого входа и может быть прервано преждевременной активацией; вынужденная импровизация не означает, что группа автоматически была готова.</p>
-      <p><span class="l">Что остаётся открытым:</span> точные причины и частота активации, правила газа, добыча, экономика, инвентарь, доказательство настоящей кооперации и проверка удовольствия в игре. Ответ пока бумажный и канон не меняет.</p>
-    </div>
-    <div class="call closed">
-      <div class="head"><span class="st">✓ ВЫБРАН ВАРИАНТ А</span><b>Порядок работ над игроком и PuppetMaster</b><span class="id">d-player-shell-parallel-001</span></div>
-      <p><span class="l">Что было:</span> решить, строить ли обычный контроллер первым, ждать финального персонажа или сначала проверить физическую власть PuppetMaster над root.</p>
-      <p><span class="l">Чем кончилось:</span> владелец согласился со spike-first. Маршрут перешёл от первого lab-checkpoint к PLAN 002 и отдельному `GasCoopGame_p2a0_002`; последний committed executor RESULT снова CHECKPOINT / NOT DELIVERED. Production-контроллер ждёт будущего A/B/C/reject verdict; spike поглощён существующим M1-5 и ничего не мержит.</p>
-    </div>
-    <div class="call closed">
-      <div class="head"><span class="st">✓ ПЛАН ЗАМОРОЖЕН</span><b>Фундамент контрольной суммы — план</b><span class="id">c-exec-poligon-checksum-foundation-plan-001</span></div>
-      <p><span class="l">Что было:</span> спроектировать замену медленному полному пересчёту «отпечатка» симуляции (28 мс на большом уровне) дешёвой сверкой синхронности.</p>
-      <p><span class="l">Чем кончилось:</span> план одобрен тобой и заморожен. Стройка сознательно заперта до вливания шага 1 — чтобы не строить на движущемся основании.</p>
-    </div>
-    <div class="call closed">
-      <div class="head"><span class="st">✓ FRAME READY · CURRENT WHOLE-GAME BASIS</span><b>Minimum Game Frame v2 принята</b><span class="id">c-repair-minimum-game-frame-v2-001 · 14.07</span></div>
-      <p><span class="l">Что было:</span> Frame v1 честно описывала одну экспедицию, но откладывала забег, экономику и persistence; research draft одновременно смешивал полезную архитектуру с гипотезами и примерами.</p>
-      <p><span class="l">Чем кончилось:</span> владелец сказал «FRAME READY». Текущая owner-approved основа связывает короткий конечный забег, регулярную газовую ценность, безопасный возврат, инструменты, артефакты-исключения, полный вайп, быстрый restart, Шар/Пузырь и состав 4–8.</p>
-      <p><span class="l">Граница:</span> это рамка, не канон; TREE, CHARTER, продукт и реализация не менялись. Следом READY сверка g-d3a8, а co-op composition остаётся HELD до неё.</p>
-    </div>
-    <div class="call closed">
-      <div class="head"><span class="st">✓ «QUESTION READY»</span><b>Проверка происхождения первого вопроса канона</b></div>
-      <p><span class="l">Чем кончилось:</span> вопрос «готовы ли начинать операцию?» признан легитимным — у него есть место в рамке, источник и причина «почему сейчас». Последующий бумажный разбор уже закрыт выбранным ответом «Цель стоит запуска» (карточка выше).</p>
-    </div>
-    <div class="call closed">
-      <div class="head"><span class="st">✓ ЗАКРЫТ, итог двоякий</span><b>Эксперимент с генератором комнат (PGG)</b><span class="id">c-spike-pgg-001</span></div>
-      <p><span class="l">Что было:</span> быстрый бросовый эксперимент — годится ли купленный генератор для авторинга комнат уровня.</p>
-      <p><span class="l">Чем кончилось:</span> комната честно испечена в совместимый с нашим конвейером пакет — авторинг работает. Но этап производственного конвейера провален: модулям нужен наш собственный стандарт (сетка 0,5 м, сокеты, порталы). Поэтому стандарт теперь официально идёт раньше адаптеров DA/PGG.</p>
-    </div>
-    <div class="call closed">
-      <div class="head"><span class="st">✓ ВАРИАНТ А СОХРАНЁН · СТАРЫЙ CALL SUPERSEDED</span><b>Порядок создания платформы уровней</b><span class="id">d-level-platform-phasing-001 · обновлён маршрут 14.07</span></div>
-      <p><span class="l">Что было:</span> решить, оставлять ли прежнюю Phase 1 сразу про Dungeon Architect или сначала определить общий стандарт модулей и автоматические проверки.</p>
-      <p><span class="l">Чем кончилось:</span> Phase 1 теперь означает независимый от технологии 3D-контракт уровня/модуля и валидаторы; прежняя DA/PGG-интеграция стала Phase 2; production-контент и крупные вертикальные модули — Phase 3.</p>
-      <p><span class="l">Что дальше:</span> подготовленный PLAN с зависимостью от Phase 0 MERGED помечен <b>SUPERSEDED / NEVER ISSUE</b>: Phase 0 уже NOT DELIVERED / NEVER RESUME. Смысл A не потерян; новый successor рождается из общего M1 route после appetite accounting. BUILD этим решением не разрешён.</p>
-    </div>
-  </div>
-
-  <h3 class="subhead">Контроль-слой — как этим пользоваться</h3>
-  <div class="callout ok" style="border-left-color:var(--ok); background:var(--ok-soft)">В любом новом чате работают фразы: <b>«что можем делать»</b> — покажет этот борд свежим; <b>«делай рефакторинг»</b> — запустит ночную линию по бэклогу; <b>«дневное ревью»</b> — сверка направления с записью находок; <b>«давай пройдёмся по развилкам»</b> — решения из «Ждёт тебя» по одному, с вариантами и рекомендациями; <b>«обнови борд»</b> — принудительная перегенерация панели.</div>
-
-  <h3 class="subhead">Словарь борда</h3>
-  <p class="note" style="max-width:none; margin:4px 0 0"><b>лег</b> — одна порция инженерной работы, проходящая полный контроль качества (план → стройка → независимая проверка); примерно день. · <b>dev / main</b> — dev = единственный долгоживущий рабочий Unity+MCP workspace; main = чистая integration-площадка без прямой работы и Editor. · <b>worktree</b> — дополнительная рабочая копия одного Git-репозитория; имя папки не доказывает ветку или статус, поэтому authority хранится в product registry. · <b>мерж-гейт</b> — твоё «да» на вливание работы в основную ветку. · <b>PLAN / BUILD</b> — две отдельные сессии одной работы: сначала план (ты одобряешь и он замораживается), потом стройка строго по нему. · <b>G5 / опровержение</b> — независимая свежая проверка, которая ПЫТАЕТСЯ доказать, что сделано неправильно; не смогла — работа принята. · <b>контрольная сумма (чексум)</b> — число-«отпечаток» состояния симуляции; совпадает у всех игроков — значит игра синхронна. · <b>ставка / аппетит / стоп-линия</b> — текущая большая цель / её бюджет в легах / дата или лимит, после которого работа не продлевается молча. · <b>спайк</b> — быстрый бросовый эксперимент ради ответа на один вопрос: код выбрасывается, знание остаётся. · <b>канон / рамка / якорь</b> — закон игры / принятая основа дизайна (ещё не закон) / материал, который нравится и хранится, но не закон.</p>
-
-  <h3 style="margin:26px 0 10px; font-size:18px">Проблемы (дневное ревью)</h3>
-  <div class="calls">
-    <div class="call wait">
-      <div class="head"><span class="st">P1 · REPAIR · KNOWN</span><b>P2a0 помечен done без записанного fresh G5</b><span class="id">dr-20260711-001</span></div>
-      <p><span class="l">Что случилось:</span> NOW сохранил heavy done_when с bounded-C + fresh G5, но close RESULT прямо говорит, что оба не доставлены и owner-eye стал заменой G5. Карта площадок одновременно всё ещё держит старый P2a0 call 001 и Phase 0 in flight.</p>
-      <p><span class="l">Почему P1:</span> KERNEL G5 и сама карта говорят, что гейт не срезается; статус done и живая lane-карта сейчас взаимоисключающи.</p>
-      <p><span class="l">Кто чинит:</span> `c-repair-daily-p2a0-lanes-routing-20260713-001`; Phase 0 не переоткрывать и owner-eye не называть fresh G5.</p>
-    </div>
-    <div class="call wait">
-      <div class="head"><span class="st">P1 · NIGHT · KNOWN · CANON-BOARD RENDER DRIFT</span><b>Канон-борд всё ещё показывает старые player-count и admission</b><span class="id">dr-20260711-004</span></div>
-      <p><span class="l">Что является истиной:</span> Frame/TREE/canon law и Direction уже закрепляют меняющиеся группы 4–8, обязательную полную восьмёрку, OPEN нижний предел ниже четырёх и отсутствие текущей solo-цели.</p>
-      <p><span class="l">Что осталось неверным:</span> live canon-board всё ещё рендерит активные <code>1–4 / solo-startable</code>; INDEX/QUEUE/card c-001 и несколько утверждений борда также расходятся о завершённом <code>ADMIT TO CANON</code>.</p>
-      <p><span class="l">Кто чинит:</span> будущая bounded регенерация canon-board закрывает оба render remainder; сам canon content этой находкой не меняется.</p>
-    </div>
-    <div class="call wait">
-      <div class="head"><span class="st">P1 · REPAIR · KNOWN</span><b>Маркетинговый open_call всё ещё стартует до INOMAND checkpoint</b><span class="id">dr-20260712-001</span></div>
-      <p><span class="l">Что случилось:</span> committed checkpoint уже закрепил INOMAND/@inomandgames, домен/accounts@, Steamworks и B1 evidence, но NOW.note всё ещё говорит READY от брифа 11.07. Старый маршрут способен повторить старт и вернуть отменённый Chinvat.</p>
-      <p><span class="l">Почему P1:</span> это живая open_call-инструкция; неверная точка старта дублирует работу и противоречит owner-approved identity.</p>
-      <p><span class="l">Кто чинит:</span> repair-сессия по `c-repair-daily-marketing-routing-20260712-001`; сам маркетинг, аккаунты и публичные действия не выполняются.</p>
-    </div>
-    <div class="call wait">
-      <div class="head"><span class="st">P2 · REPAIR · KNOWN</span><b>LOG и history не образуют полностью разрешимый журнал</b><span class="id">dr-20260711-002</span></div>
-      <p><span class="l">Что случилось:</span> семь LOG-ссылок ведут в отсутствующие имена history-файлов; семь history-файлов не имеют точного обязательного END_OF_FILE-трейлера. Восьмой прежний miss — walkthrough с addenda — уже заканчивается корректным трейлером, поэтому не считается.</p>
-      <p><span class="l">Почему P2:</span> это ломает проверяемую трассу сессий, но текущую ставку прямо сейчас не закрывает и не переоткрывает.</p>
-      <p><span class="l">Кто чинит:</span> repair-сессия по готовому CALL `c-repair-daily-history-integrity-20260712-001`; потерянный RESULT из воздуха не восстанавливается.</p>
-    </div>
-    <div class="call wait">
-      <div class="head"><span class="st">P2 · NIGHT · KNOWN</span><b>Актуальные TREE/knowledge содержат 21 висячую ссылку</b><span class="id">dr-20260711-003</span></div>
-      <p><span class="l">Что случилось:</span> пятнадцать названных документов были перенесены в `work/archive/` или `knowledge/`, но 21 ссылка в TREE/SPEC/knowledge осталась на старых несуществующих `work/...` путях.</p>
-      <p><span class="l">Почему P2:</span> читатель не может перейти к заявленному evidence по текущей ссылке.</p>
-      <p><span class="l">Кто чинит:</span> ночная линия меняет только пути ссылок; смысл, статусы и код не затрагиваются.</p>
-    </div>
-  </div>
-
-  <h3 style="margin:26px 0 10px; font-size:18px">Журнал — последние 3 дня</h3>
-  <p class="note" style="margin:0 0 10px">Рендер из LOG.md (полный архив — там); старше трёх дней с панели уходит. Сегодняшний день раскрыт.</p>
-  <details class="day" open>
-    <summary>19 июля <span class="cnt">· DIRECTION MAIN PUBLISHED @08933f2 · NEARGAS L1B V29 DELIVERED / RELEASED @693e671b · no successor · Character closing · Level review debt explicit · ready 2 / waiting 2 / blocked 1 / paused 3 · WIP 6/6 via pending core decision</span></summary>
-    <ul>
-      <li><b>c-002 принят в предварительный канон:</b> «ADMIT TO CANON» закрепил минимальную Control Obligation grammar Counter / Brake / Time. Старый admission-root заменён READY картографией: она обновит v2-карту, разберёт сохранённые floor-loop находки и вернёт владельцу варианты следующего вопроса; default Program v2 сохранён.</li>
-      <li><b>Committed Direction-срез опубликован в main:</b> по прямой команде владельца <code>08933f2</code> без force отправлен одной atomic операцией одновременно в <code>origin/main</code> и <code>origin/wt/indie-game-development</code>. Fresh <code>git ls-remote</code> и fetch readback вернули тот же SHA для обеих refs. Незакоммиченный Sphere work-CALL не был staged, committed, reset или опубликован и сохранён локально.</li>
-      <li><b>NearGas L1B v29 принят как terminal HOME:</b> пять passive observation families DELIVERED / RELEASED; source-identity/Step fault capture и real loopback trace исправлены без изменения public API, gameplay behavior, atomicity или deterministic Step. Product refs dev/main/origin-dev/origin-main совпадают на <b>693e671b</b>, WIN-CTRL/WIN-MAIN clean, independent review PASS/GREEN, normal 1813/1813, mutation 75.18% ≥ 70, Deliver дважды GREEN включая post-RELEASED run. Guarded-history CALL consumed, product root и L1B-Capture закрыты без successor; dirty Sphere bytes сохранены. Executor root освобождён, но WIP остаётся 6/6 из-за отдельного pending min-spec решения.</li>
-      <li><b>Живая картина исправлена и принята владельцем:</b> L1B и Character обозначены как review/closing работа, а не DONE и не повтор исходного запуска. У L1B final-H review/mutation GREEN, но closing fail-closed вернул новый узкий Refuted-register correction READY; Character Leg 2 built + G4 MET и ждёт owner LOOK/G5/Deliver. Level product PLAN RELEASED @<b>b1698170</b>, но Direction review отсутствует; aperture RED <b>5af1d8db</b> сохранён без BUILD. V30 @<b>2e7d4b51</b> остаётся local/uninstalled до NearGas V29 RELEASED. Default теперь owner-present <b>c-map-program-v2-hot-migration-route-001</b>; WIP 6/6, product bytes не менялись.</li>
-      <li><b>Начат безопасный переход к Program v2:</b> владелец после разбора V29/V30 сказал «Окей, давай тогда, ну, что первым делом будем делать? Давай к этому приступать». В новый параллельный track <b>program</b> выпущен один default repair <b>c-repair-program-v2-live-truth-001</b>: он сверяет Direction NOW/dashboard с фактическими NearGas, Character, aperture и Level evidence до route rewrite. WIP стал 6/6. Существующие root, contracts, tasks и product bytes не изменены; V30 install, re-sync и новые BUILD не разрешены.</li>
-      <li><b>NearGas retained close остановлен ожидаемым review accounting:</b> process control GREEN at <code>a9efb1d5</code>; only guarded commits <code>3c0dcfaf</code>/<code>e7247459</code> follow L1B H. Новый <b>c-review-near-gas-l1b-v29-guarded-history-refresh-001</b> independently refreshes review provenance and canonical evidence, preserving mutation H unless real v2 validator says stale; GREEN resumes Deliver/publication.</li>
-    </ul>
-  </details>
-  <details class="day">
-    <summary>18 июля <span class="cnt">· GasCoopGame Re-sync v29 GREEN @82fea85f · NearGas pair 7c2348bc->54892e68 PAIR-FREEZE BLOCKED / BUILD FORBIDDEN · exact-source PAIR-CANDIDATE correction READY/DEFAULT · WIN-U3 Target Local current branch · legacy cap root CLOSED without successor · Direction main PUBLISHED @9f0127b · g-d3a8 PAPER ANSWER A NON-CANON · canon admission READY · Character Leg 2 READY · 8 tracks · WIP 5/6 · ready 4 / waiting 0 / blocked 1 / paused 3</span></summary>
-    <ul>
-      <li><b>Fresh NearGas PAIR-FREEZE закрылся BLOCKED и вернул root на bounded correction:</b> independent read-only task <b>019f7562-6fb0-7393-abfa-1551b971e6ab</b> сохранил clean <b>54892e68</b>, current branch и все bytes, подтвердил exact pair/manifests и реальные gates (baseline 1793/1793, positive 21 intended failures, controls 21/21), но опроверг complete exact-source oracle. Reachable ActiveSetDirty/PendingWakeFaces, actual Step preparation/current и replacement candidate/read не имеют независимой source binding; current NCs допускают wrong-source false GREEN, E-SCRATCH-PROOF не имеет lawful Surface addendum/review. Pair 7c2348bc-&gt;54892e68 immutable, BUILD FORBIDDEN. Default теперь <b>c-exec-near-gas-l1b-pair-candidate-correction-001</b>, pin 29, для новой direct carrier-&gt;RED pair и последующей fresh freeze; frozen authority/public behavior сохранены, owner input и product work отсутствуют.</li>
-      <li><b>NearGas L1B PAIR-CANDIDATE HOME закрыт MET и выпущен PAIR-FREEZE:</b> clean WIN-U3 current branch содержит exact carrier <b>7c2348bc</b> -&gt; tests/support-only RED <b>54892e68</b>; frozen authority byte-identical. Release build/hygiene GREEN, baseline 1793/1793, positive 21 intended behavioral failures, NC 21/21 GREEN, evidence-only 16 closed. Returning root заменён ровно одним <b>c-exec-near-gas-l1b-pair-freeze-001</b>, pin 29, для fresh independent artifact-backed read-only refutation. BUILD, mutation, integration, Deliver и G5 не запускались; Sphere/.claude bytes сохранены.</li>
-      <li><b>NearGas L1B v29 rescue-route прошёл fresh Direction refutation:</b> clean product HOME @<b>82fea85f</b> принят GREEN — contract/inventory 29, ceiling 239, 1792/1792 и independent review round 2 PASS. Re-sync root и временный contract-sync track закрыты; legacy 409ef4a7..de1cc87c = 559&gt;400 root закрыт без successor, old RED 0d0cea14 сохранён historical/invalidated. Новый default — ровно один <b>c-exec-near-gas-l1b-pair-candidate-001</b>, pin 29, owner-selected WIN-U3/current branch, frozen PLAN принят без изменений; no source cap, все quality gates сохранены, product work/BUILD не запускались.</li>
-      <li><b>HISTORICAL CHECKPOINT / SUPERSEDED — Hot-safe NearGas L1B rescue стартовал с product Re-sync:</b> по прямой owner authority был выпущен один <b>c-exec-near-gas-l1b-resync-v29-001</b> с marker <code>engineering_contract: re-sync:29</code> на WIN-CTRL/current dev без feature work. Более новая строка выше фиксирует terminal outcome: HOME GREEN, временный track закрыт, legacy root retired и новый pin-29 PAIR-CANDIDATE READY.</li>
-      <li><b>Gas-behavior paper answer и admission route опубликованы в Direction main:</b> по прямой команде владельца «запуш и залей в main и запуш в main» commit <b>9f0127b</b> atomic non-force push’ем отправлен одновременно в <code>origin/wt/indie-game-development</code> и <code>origin/main</code>. <code>git ls-remote</code> и fresh fetch вернули один exact SHA <b>9f0127b</b> для обеих refs. Незакоммиченный legacy Sphere work-CALL не был staged, committed, reset или опубликован и сохранён как есть. Publication не меняет non-canon paper authority, Frame, canon, product или core default.</li>
-      <li><b>HISTORICAL CHECKPOINT / SUPERSEDED — NearGas остановился до RED на конфликте v23 cap basis:</b> carrier <b>de1cc87c</b> имел immediate +28/-6, но cumulative <b>409ef4a7..de1cc87c</b> = 559 additions, 159 over cap; prior RED <b>0d0cea14</b> invalidated. Тогда core default стал read-only reconciliation. Более новая terminal строка выше закрывает этот root без successor и переносит продолжение в отдельный integer-29 PAIR-CANDIDATE.</li>
-      <li><b>Q3-R получил owner-selected paper answer A:</b> Gate F «FRAME READY» и Gate Q «QUESTION READY» предшествовали сравнению трёх кандидатов; владелец сказал «Мне нравится вариант А» и «В принципе, можем фиксировать. Я согласен с рекомендацией». Текущая минимальная movement/control грамматика — Counter / Brake / Time для каждого gameplay gas. Она movement-first, не movement-only; будущие дополнительные эффекты разрешены, но не определены. Один игрок сохраняет small-Sphere handling, точные пределы открыты. Artifact остаётся non-canon; новый <b>c-forge-g-d3a8-gas-behavior-jobs-canon-admission-001</b> READY для отдельного owner-present admission. Frame, canon, product и core default не менялись.</li>
-      <li><b>Fresh Direction review принял Character Leg 1 на bounded reaction-core высоте:</b> exact candidate <b>0e5b2948</b> → integration <b>53453081</b> → dev/main <b>029279a</b>, published RESULT/review и шесть admission-003 obligations выдержали refutation; три независимых in-session pre-pass’а дали 0/11 refuted, а binding verdict этой отдельной review-сессии — MET. Review child consumed; owner «A — открывай Leg 2 после review» сделал существующий body-rig root READY. DF-13/14/15 routed, C1–C4 сохранены; product mutation и executor dispatch не происходили, core default не менялся.</li>
-      <li><b>Owner A открыл маршрут Leg 2 после review:</b> точные слова «A — открывай Leg 2 после review» являются требовавшимся отдельным решением и supersede прежнюю pause-интерпретацию. Fresh Direction review остаётся следующим обязательным шагом: до MET body-rig WAITING; на MET root становится READY; на PARTIALLY MET/NOT MET остаётся non-runnable за named repair/re-review blocker. Product execution не запускалась, core default сохранён.</li>
-      <li><b>Опубликованный Character reaction-core handback принят как checkpoint:</b> exact candidate <b>0e5b2948</b> прошёл final fresh binding G5, вошёл в integration <b>53453081</b> с сохранением всех 17 candidate blobs и опубликован на dev/main <b>029279a</b>; Deliver GREEN, 1873/1873. Engineering child consumed, отдельный <b>c-review-char-v2-published-handback-release-001</b> READY для binding Direction verdict. Первоначальная route-интерпретация держала Leg 2 закрытым до отдельного owner decision; это решение теперь дано отдельной строкой выше. Core default и unrelated tracks сохранены.</li>
-      <li><b>M0 source policy получил owner A:</b> владелец сказал «принимаю A». Binding версия остается Unity 6000.5.3f1; исходник - exact committed Git-состояние текущей Windows-работы, а существующая Mac-миграция догоняет его. Delivery требует один exact reviewed commit для обеих машин; перенос whole project folder запрещен. Product work и остальные owner-вопросы не менялись.</li>
-      <li><b>Post-Sphere карта текущих вопросов g-d3a8 утверждена:</b> владелец дословно ответил «A». Former P0, broad Q1 и broad Q4 больше не являются текущим prerequisite-маршрутом; их принятые extraction/custody и universal-capture части остаются non-canon Frame locks, а открытые остатки разнесены по downstream-вопросам. Единственный следующий bounded Canon Forge root — <b>c-forge-g-d3a8-gas-behavior-jobs-001</b> по Q3-R; canon admission, roster, реакции, damage, economy и implementation не запускались. Primary core и <code>NOW.next</code> сохранены.</li>
-    </ul>
-  </details>
-  <details class="day">
-    <summary>17 июля <span class="cnt">· Direction main PUBLISHED @92ea8fb · Sphere universal-capture Frame UPDATED NON-CANON · fresh review MET · canon question-map READY PARALLEL · Characters repair READY with one service-record permission · NearGas SURFACE GREEN @163dffaa · tests-only RED-FREEZE default READY · body-rig WAITING · marketing+damage PAUSED · 8 tracks · WIP 5/6 · ready 4 / waiting 1 / blocked 1 / paused 3 · no behavior/BUILD</span></summary>
-    <ul>
-      <li><b>Текущий Sphere review/cartography срез опубликован в main:</b> по прямой команде владельца commit <b>92ea8fb</b> atomic non-force push’ем отправлен одновременно в <code>origin/wt/indie-game-development</code> и <code>origin/main</code>. <code>git ls-remote</code> и fresh fetch вернули один exact SHA <b>92ea8fb</b> для обеих refs. Локально повреждённый старый Sphere work-CALL не был staged, committed, reset или опубликован и сохранён как есть.</li>
-      <li><b>Universal Sphere capture прошёл свежую проверку со статусом MET:</b> в owner-approved non-canon extraction/custody Frame не осталось active gas-to-shell incompatibility, shell damage от типа газа, обязательной special-Sphere категории или отдельного mixed-gas Sphere outcome. Общая физическая нагрузка и rupture сохранены независимо от типа газа; gas-to-gas последствия остаются неопределёнными. Владелец выбрал «A»: canon-track и незавершённый g-d3a8 сохранены, завершённый review-root заменён READY картой текущих вопросов <b>c-cartography-g-d3a8-post-sphere-frame-front-001</b>; Gate Q и canon admission не запускались.</li>
-      <li><b>NearGas L1B SURFACE-FREEZE закрыт на Direction-высоте GREEN:</b> product HOME принёс exact carrier <b>163dffaa</b>, actual parent e15914cd, cumulative freeze-parent 409ef4a7, three-file manifest +397/-10, decision page 326 слов, tracked sidecars, preserved public L1a signatures и GREEN Unity/build/1793 tests/full hygiene/fresh exact-commit review. Surface-root заменён independent tests/test-support-only <b>c-exec-near-gas-l1b-red-freeze-001</b>. L1B tasks остаются open; RED behavior, binding refutation, BUILD и full L1B не заявлены. Product stamp v27&lt;Direction v28 показан честно.</li>
-      <li><b>Владелец разрешил одну служебную запись для Character repair:</b> точные слова «Тогда разрешать пройть запись.» закрыли вопрос A/B/C вариантом A. admission-003 стал READY: в новой product-сессии можно отправить только запись о занятом рабочем месте и проверить доставку. Игровой кандидат, merge, cleanup, Leg 2 и Direction close не разрешены; отдельная свежая проверка после repair остаётся обязательной.</li>
-      <li><b>Текущий committed Direction-срез опубликован в main:</b> по прямой команде владельца commits <b>f0163b3</b> и <b>0c327f4</b> atomic non-force push’ем отправлены одновременно в <code>origin/wt/indie-game-development</code> и <code>origin/main</code>. Git readback и authenticated GitHub API показали один SHA <b>0c327f4</b>; незакоммиченный Characters partial apply в публикацию не вошёл и сохранён локально.</li>
-      <li><b>Character repair-002 был остановлен до первой product-записи:</b> current product authority требует registry reservation commit+push+fresh-readback на origin/dev, а тот CALL запрещал push. Saved WIP остался в verified capsule/refs; U3/U4 были свободны, но не admitted; product diff/commit/push/gates/review нулевые. В том checkpoint successor был BLOCKED и вопрос A/B/C был открыт; более новая запись журнала выше фиксирует разрешение владельца.</li>
-      <li><b>Characters возобновлён по owner варианту A:</b> marketing и дополнительно damage поставлены на паузу; WIP перешёл 6/6→5/6, default core/NearGas сохранён. Repair-002 перепакован под product-owned worktree protocol v2 без назначения path/branch/SHA и стал READY; body-rig root WAITING на repair + отдельный binding G5. Damage оказался механически сохранённым stale frontier; retirement/rehome вынесен в отдельный review, необратимого удаления нет.</li>
-      <li><b>Universal-capture diff принят и записан в non-canon Frame:</b> владелец сказал «Принять diff как есть». Любой стандартный Шар захватывает любой gameplay gas; тип газа сам по себе не повреждает оболочку; mixed-gas outcomes остаются только будущим общим gas-to-gas rules, а специализация PARKED за playable evidence. Extraction/custody и остальные границы сохранены; свежая review-сессия READY.</li>
-      <li><b>Владелец выбрал универсальную добычу газа Шарами:</b> каждый стандартный Шар может добывать и удерживать любой gameplay gas; тип газа сам по себе не повреждает оболочку. Отдельная gas-to-shell compatibility matrix исключена из текущего baseline, а специализация оставлена PARKED до playable evidence. Canon, damage, реакции газов и implementation не менялись; в canon-треке READY узкая owner-present правка существующей non-canon рамки.</li>
-      <li><b>Пятисемейная рамка добычи Шарами сохранена:</b> owner-approved, non-canon документ фиксирует concept-space, пять равно раскрытых семейств, выбранный extraction/custody гибрид и все OPEN границы. Canon и product не изменены; в canon-треке READY новый root CALL на видимые low-dimensional foreign-gas contact outcomes.</li>
-      <li><b>Подготовленный NearGas dispatch встроен через track-mode repair:</b> CALL <b>c-exec-near-gas-l1b-surface-freeze-001</b> стал единственным ready root/default в core. Старый неприоритетный .NET runner не удалён: он сохранён отдельным paused-треком <b>dotnet-gates</b>. Итог — 8 треков, WIP 6/6, 4 ready / 2 blocked / 3 paused; extraction и Level остаются READY PARALLEL, product code не менялся.</li>
-      <li><b>Первый кодовый этап NearGas L1B выпущен:</b> по owner «можешь приступать к следующему шагу» self-contained SURFACE-FREEZE CALL просит только compiler-green carriers и точные no-op sites поверх принятого PLAN @92331e30/released product @2d995d69. Behavior, tests, RED, BUILD, Unity, Level и characters этим Direction шагом не тронуты.</li>
-      <li><b>Track-mode опубликован и получил owner guide:</b> migration commit <b>00c4b41</b> fast-forward отправлен в direction branch и main с exact remote readback. NOW не менялся: 7 треков, primary core, default canon/extraction, WIP 6/6, CALL 3 ready / 3 blocked / 2 paused. Памятка <code>work/track-mode-owner-operations-guide.md</code> показывает pause, resume, retirement, новый трек, изменение лимита и swap marketing→characters без промежуточного 7/6.</li>
-      <li><b>Legacy single-frontier NOW мигрирован в track-mode:</b> владелец одобрил вариант A. Сохранены текущая NearGas L1B ставка, все восемь open_calls, pending min-spec decision и default c-research-extraction-concept-landscape-001. Статусы выведены только из явных READY / HELD / LOCKED / PAUSED свидетельств: Level, extraction и marketing READY; Unity runner, Sc-damage и visual BLOCKED; оба character CALL PAUSED. Primary = core, default = canon/extraction, owner-approved WIP limit = 6 и occupancy = 6/6. Ничего не запускалось, не закрывалось и не объявлялось выполненным.</li>
-    </ul>
-  </details>
-</section>
-
-<section>
-  <div class="sec-head"><h2>Где мы</h2><span class="tag">готовность по трекам · экспертная оценка · снимок 16.07</span></div>
-  <div class="tracks">
-    <div class="track">
-      <h3>Симуляция газа</h3>
-      <div class="bar"><i style="width:10%"></i></div><div class="pct">новая foundation-дорога: 1 из 10 стадий доставлена</div>
-      <ul>
-        <li class="done">Единая программа и порядок маленьких легов приняты</li>
-        <li class="done">Старый Phase 0 сохранён как NOT DELIVERED evidence и больше не запускается</li>
-        <li class="done">Владельческое dashboard-зеркало построено, проверено и принято владельцем</li>
-        <li class="done">L1a DELIVERED experimental @400ef8ec; old v22 route retired/forbidden; B1–B4 complete; product Re-sync v29 GREEN @82fea85f; L1B acceptance 5/5 frozen owner «accepted»</li>
-        <li class="miss">L1B v29: final review GREEN; external aperture serialization control precedes any handback/integration; mutation/Deliver forbidden</li>
-        <li class="miss">M1-GAS-PROBE/CORE и engine S4/A1 ждут исходный source после foundation</li>
-      </ul>
-    </div>
-    <div class="track">
-      <h3>Сеть / кооп</h3>
-      <div class="bar"><i style="width:25%"></i></div><div class="pct">~25% · не собиралась целиком</div>
-      <ul>
-        <li class="done">Детерминизм доказан (внутри процесса)</li>
-        <li class="done">FishNet-шина на локалхосте</li>
-        <li class="miss">Реальный газ ни разу не шёл по сети</li>
-        <li class="miss">Нет host/join, лобби, второй машины</li>
-        <li class="miss">Интернет-задержки не проверены</li>
-      </ul>
-    </div>
-    <div class="track">
-      <h3>Игровая оболочка</h3>
-      <div class="bar"><i style="width:8%"></i></div><div class="pct">~8% · V1 seam смёржен; узкий V2 Leg 1 repair готов к новой product-сессии</div>
-      <ul>
-        <li class="done">V1 PLAN: reusable prefab + authoritative-position socket + follow-camera заморожен</li>
-        <li class="miss">В1 (socket + drop-in капсула) done и <b>смёржен в main</b> — сейм в продукте есть. Но живого <b>тела</b> всё ещё нет: прежний В2 Leg 1 candidate был опровергнут по полному классу готовности позы; admission-003 теперь READY только с одной разрешённой служебной записью, затем нужен repair и отдельная свежая проверка. Leg 2 (риг + локомоция + рэгдолл + свой материал) не начат. Demo рендерит magenta (дефолтный URP Lit.mat → фикс своим материалом в Leg 2)</li>
-        <li class="miss">Пузыря нет в движке — глагол не существует</li>
-        <li class="miss">Нет UI, меню, экрана смерти</li>
-        <li class="miss">Ни одного standalone-билда за всю историю</li>
-      </ul>
-    </div>
-    <div class="track">
-      <h3>Дизайн ядра</h3>
-      <div class="bar"><i style="width:45%"></i></div><div class="pct">~45% · ядро есть, процесс стоит</div>
-      <ul>
-        <li class="done">Конституция ратифицирована (7 опор)</li>
-        <li class="done">Ядро приколото: пузырь, 3 фазы, разведка</li>
-        <li class="done">Компас отказов работает</li>
-        <li class="done">Canon Forge v3 установлен; c-001 preliminary admitted</li>
-        <li class="miss">Фан не проверен: грейбокса не было</li>
-      </ul>
-    </div>
-    <div class="track">
-      <h3>Визуал газа</h3>
-      <div class="bar"><i style="width:0%"></i></div><div class="pct">LOCKED · старая сборка не исполняется</div>
-      <ul>
-        <li class="done">Старые визуальные результаты и dirty BUILD сохранены</li>
-        <li class="miss">Fresh PLAN ждёт M0+C1+L3+I1</li>
-        <li class="miss">Motion BUILD ждёт committed-per-Step данные или отдельный data seam</li>
-        <li class="miss">Moving-source / door / destruction ждут E1 / D1 / X1</li>
-      </ul>
-    </div>
-    <div class="track">
-      <h3>Уровни / контент</h3>
-      <div class="bar"><i style="width:8%"></i></div><div class="pct">route доказан частично · contract/BUILD впереди</div>
-      <ul>
-        <li class="done">PGG editor-time static prefab → Dungeon Architect SnapGridFlow → reader доказан</li>
-        <li class="done">Phase 1 Level/Module Contract → Phase 2 DA+PGG → Phase 3 content ратифицирован</li>
-        <li class="done">Старый Phase 0 не продолжает посадку источников</li>
-        <li class="miss">Старый Phase-0-gated Level PLAN superseded; свежий PLAN successor ждёт M1 route</li>
-        <li class="miss">Runtime sources/doors/destruction идут позже отдельными командами</li>
-        <li class="miss">Готового игрового уровня нет</li>
-      </ul>
-    </div>
-    <div class="track">
-      <h3>Маркетинг / Steam</h3>
-      <div class="bar"><i style="width:25%"></i></div><div class="pct">~25% · INOMAND checkpoint сохранён, route stale</div>
-      <ul>
-        <li class="done">Steamworks: аккаунт + банк/налоги + выплаты — сделано</li>
-        <li class="done">Фундамент подписан: «мы никто» → живой клип решает</li>
-        <li class="done">INOMAND/@inomandgames заменил Chinvat; домен и accounts@ checkpointed</li>
-        <li class="miss">NOW route ещё требует отдельного marketing repair; публичные аккаунты не открыты</li>
-        <li class="miss">Нет страницы, капсулы, трейлера, скриншотов</li>
-      </ul>
-    </div>
-    <div class="track">
-      <h3>Звук</h3>
-      <div class="bar"><i style="width:0%"></i></div><div class="pct">0% · нигде не упомянут</div>
-      <ul>
-        <li class="miss">Не существует ни планом, ни файлом</li>
-        <li class="miss">А «разведка по звуку» — несущая механика</li>
-      </ul>
-    </div>
-  </div>
-  <div class="callout"><b>Что было «неразберихой»:</b> подробный gas PROGRAM стал визуально выглядеть как весь план M1, а ratified Level/DA/PGG и новый character route жили отдельными документами. A1 возвращает одну верхнюю карту: gas остаётся обязательной дочерней трассой, но финиш определяется общей интеграционной сценой и доказательствами на ней.</div>
-</section>
-
-<section>
-  <div class="sec-head"><h2>Справочник: даты фестов</h2><span class="tag">проверено по официальным докам Steamworks · 10.07.2026 · это факты, не план — решения об участии не приняты</span></div>
-  <div class="dates">
-    <div class="date"><div class="d red">31.08</div><div class="t">Регистрация на Next Fest закрывается</div><div class="s">страница Steam обязана быть ПУБЛИЧНОЙ к этому дню</div></div>
-    <div class="date"><div class="d">≈15.09</div><div class="t">Публичная сборка «в идеале» уже живая</div><div class="s">сборки за месяц+ до феста собирают заметно больше</div></div>
-    <div class="date"><div class="d red">21.09</div><div class="t">Сборка + страница на ревью Valve</div><div class="s">чтобы попасть в пресс-превью 8.10</div></div>
-    <div class="date"><div class="d red">05.10</div><div class="t">Абсолютный дедлайн подачи на фест</div><div class="s">если участие вообще будет решено</div></div>
-    <div class="date"><div class="d">19–26.10</div><div class="t">Steam Next Fest</div><div class="s">участие = сжечь единственный слот игры</div></div>
-    <div class="date"><div class="d">26.10–2.11</div><div class="t">Scream Fest V (хоррор)</div><div class="s">слот НЕ сжигает; «ОНО ДЫШИТ» подходит по жанру</div></div>
-    <div class="date"><div class="d">11.12</div><div class="t">Денежный гейт хартии</div><div class="s">&gt;$0 внешних денег — Steam-выручки к этой дате не будет ни в одном сценарии</div></div>
-  </div>
-  <div class="callout"><b>Ключевые факты для будущего решения</b> (само решение не принято и не может быть принято, пока нет определения демо): Next Fest для одной игры бывает <b>один раз навсегда</b>; регистрация к 31.08 — бесплатная и обратимая (участие сжигает слот, регистрация — нет; механику отзыва проверить у Valve письменно); холодный заход без базы вишлистов даёт медианно ~300–800 вишлистов за фест; Scream Fest V (26.10–2.11) слот НЕ сжигает. Единственная временнáя точка с решением сейчас — «будить ли маркетинг» в «Ждёт тебя» (страница к 31.08 зависит от внешних сроков).</div>
-</section>
-
-
-
-
-
-<section>
-  <div class="sec-head"><h2>Дочерняя инженерная дорога: gas PROGRAM</h2><span class="tag">обязательна для M1, но не подменяет Level/DA/PGG, character, visual и final evidence</span></div>
-  <div class="callout accent"><b>Сейчас:</b> NearGas L1a DELIVERED @400ef8ec; old v22 RETIRED/FORBIDDEN. NearGas L1B v29 terminal DELIVERED / RELEASED @<code>693e671b</code>: пять passive observation families, independent PASS/GREEN, normal 1813/1813, mutation 75.18% и два GREEN Deliver с post-RELEASED readback. Guarded-history root закрыт без successor; frozen authority, public behavior, atomicity и deterministic Step не изменились.</div>
-  <div class="tracks">
-    <div class="track"><h3>1 · Чистый фундамент</h3><ul><li class="done">L1a — DELIVERED experimental @400ef8ec; B1–B4 complete</li><li class="done">L1B acceptance — 5/5 FROZEN, owner «accepted»</li><li class="done">L1B PLAN — OWNER-APPROVED/FROZEN @92331e30; review + RESULT + PLAN gate GREEN; RELEASED @2d995d69; adopted unchanged by v29 root</li><li class="done">Product contract — Re-sync v29 GREEN @82fea85f; contract/inventory 29, ceiling 239, independent review PASS</li><li class="done">L1B v29 — five passive observation families DELIVERED / RELEASED @693e671b; review PASS, normal 1813/1813, mutation 75.18%, Deliver twice GREEN</li><li class="miss">L2 — честные ограничения ресурсов</li><li class="miss">C1 — быстрая сверка committed-состояния</li><li class="miss">M0 — Unity 6000.5.3f1; текущая Windows-работа и существующая Mac-миграция должны сойтись в один exact reviewed Git commit для обеих машин (owner A)</li><li class="miss">L3 + I1 — единственный Unity-путь и интеграционная проверка</li><li class="miss">L4→L6 + I2 — PlayerSense, replay, удаление legacy</li></ul></div>
-    <div class="track"><h3>2 · Масштаб после фундамента</h3><ul><li class="miss">A0 — наблюдение активности ядра</li><li class="miss">M1-GAS-PROBE/CORE — ждёт исходный source</li><li class="miss">Engine S4/A1 — дальняя свёртка, тоже ждёт source</li></ul></div>
-    <div class="track"><h3>3 · Живые изменения мира</h3><ul><li class="miss">R0 — выбрать порядок команд и политику миграции</li><li class="miss">E1 — движущиеся/включаемые источники</li><li class="miss">D1 — двери</li><li class="miss">T1/X1 — сохранение газа при изменении/разрушении структуры</li><li class="miss">LAB + I3 — единый финальный стенд и проверка</li></ul></div>
-    <div class="track"><h3>4 · Визуал</h3><ul><li class="miss">PLAN LOCKED до M0+C1+L3+I1</li><li class="miss">Motion BUILD ждёт committed-per-Step данные</li><li class="miss">Moving source / door / destruction ждут E1 / D1 / X1</li><li class="done">Старая грязная сборка сохранена и не используется как evidence</li></ul></div>
-  </div>
-  <div class="callout"><b>Чего здесь намеренно нет:</b> архитектурной стены текста, старой лестницы Phase 0→checksum→A0→GAS-CORE и прежнего стенда P0/P1/P2. Полная техническая карта живёт в принятой PROGRAM; NearGas dashboard синхронизируется в той же активной docs-only PLAN-leg и не выдаёт draft за owner-approved PLAN.</div>
-</section>
-
-<section>
-  <div class="sec-head"><h2>Правила безопасной параллельности</h2><span class="tag">protocol A DELIVERED · committed admission per disjoint leg · один Editor и serial integration</span></div>
-  <div class="tracks">
-    <div class="track">
-      <h3>1 · Разделение authority</h3>
-      <ul>
-        <li class="done">Direction хранит outcomes, conflict surface, dependencies и READY/HELD/LOCKED</li>
-        <li class="done">Product AGENTS + registry владеют fresh paths, branches, SHAs, Editor identity и lifecycle</li>
-        <li class="done">Protocol delivery @5cd18250 Direction-closed; старая lane-карта не launch authority</li>
-      </ul>
-    </div>
-    <div class="track">
-      <h3>2 · Mutable сейчас — audit snapshot</h3>
-      <ul>
-        <li class="done">main clean и integration-only; Unity там не открыт</li>
-        <li class="done">dev — persistent Unity+MCP; canonical folder meta committed, protocol delivery closed GREEN</li>
-        <li class="miss">preserved character exception — CALL READY, но любой write только после fresh committed admission; Direction не назначает старый path/branch/SHA</li>
-      </ul>
-    </div>
-    <div class="track">
-      <h3>3 · Legacy не трогаем без proof</h3>
-      <ul>
-        <li class="miss">core / dev_2 / lab / pgg_spike = FROZEN или FORENSIC</li>
-        <li class="miss">exp / policy = RETIRE-CANDIDATE только после lossless preservation proof</li>
-        <li class="done">Reset/delete/move/rebase/merge и выбор meta GUID требуют отдельного owning CALL</li>
-      </ul>
-    </div>
-    <div class="track">
-      <h3>4 · Disjoint product legs по admission</h3>
-      <ul>
-        <li class="done">Каждый мутирующий leg сначала получает отдельную committed pre-write admission</li>
-        <li class="done">Disjoint headless legs могут идти параллельно; registry transitions сериализованы</li>
-        <li class="done">Один live Unity Editor и вся integration остаются последовательными</li>
-        <li class="done">Clean evidence checkout короткоживущий и не подменяет integrated-dev closing gate</li>
-        <li class="done">Binding fresh G5 остаётся отдельной сессией и не срезается</li>
-      </ul>
-    </div>
-  </div>
-  <div class="callout accent"><b>Текущий маршрут:</b> NearGas L1B v29 terminal DELIVERED / RELEASED @693e671b, core executor root закрыт без successor. Program v2 map и canon cartography READY; c-002 предварительно принят в канон. Level WAITING на Direction review после product RELEASED; Character WAITING на LOOK/G5/Deliver после built+G4 MET. Frozen candidate, mutation artifact и U3/U4 сохранены. Marketing, damage и старый .NET runner PAUSED.</div>
-</section>
-
-<section>
-  <div class="sec-head"><h2>Матрица: всё, что нужно игре</h2><span class="tag">полный охват · класс автономности по каждой строке · блокеры названы</span></div>
-  <div class="legend"><span>🟢 автономно — запуск + короткая валидация вывода</span><span>🟡 автономно, финальный вердикт твой</span><span>🟠 ты нужен в процессе</span><span>🔴 заблокировано (блокер назван)</span><span>·</span><span>✅ есть · 🔧 в работе/готово к запуску · ⬜ не начато</span></div>
-  <div class="mtx-wrap"><table class="mtx">
-    <tr><th>Что нужно</th><th>Статус</th><th class="a">Автономность</th><th>Как / блокер</th></tr>
-    <tr class="grp"><td colspan="4">Движок · принятая gas PROGRAM</td></tr>
-    <tr><td>Простое владельческое dashboard-зеркало</td><td>✅</td><td class="a">🟢</td><td>построено, проверено отдельной сессией и принято владельцем после живого Chrome-просмотра</td></tr>
-    <tr><td>L1→L3 + I1: один Core-владелец, честные лимиты, committed identity, Unity migration/cutover</td><td>🔧</td><td class="a">✅ L1a DELIVERED · L1B V29 RELEASED</td><td>L1a experimental @400ef8ec доставлен и binding-проверен. L1B v29 @693e671b доставил пять passive observation families, прошёл independent review, normal 1813/1813, mutation 75.18% и два Deliver; product root закрыт без successor. M0, L2, C1 и workers остаются впереди.</td></tr>
-    <tr><td>L4→L6 + I2: PlayerSense, replay, удаление старых путей</td><td>⬜</td><td class="a">🟡/🟠</td><td>строго после интеграционно проверенного L3</td></tr>
-    <tr><td>A0 + M1-GAS + engine S4/A1</td><td>⬜</td><td class="a">🟠</td><td>после I2; M1/S4 сначала требуют восстановить точный исходный source</td></tr>
-    <tr><td>Runtime sources / doors / topology / destruction / final LAB</td><td>⬜</td><td class="a">🟠</td><td>R0 выбирает правила; затем E1→D1→P1→T1→X1→LAB→I3</td></tr>
-    <tr><td>Visual motion и дальнейшие feature-визуалы</td><td>🔴</td><td class="a">🟠</td><td>LOCKED: PLAN ждёт M0+C1+L3+I1; motion/data и E1/D1/X1 добавляют свои замки</td></tr>
-    <tr class="grp"><td colspan="4">Оболочка игры</td></tr>
-    <tr><td>Контроллер игрока + камера</td><td>🔧</td><td class="a">🟢 repair READY · body-rig WAITING</td><td>В1 G5-CONFIRMED и смёржен. В2 Leg 1 admission-003 готов после разрешения на одну служебную запись; игровой кандидат не публикуется. Leg 2 остаётся закрыт до repair + отдельного binding G5.</td></tr>
-    <tr><td>Глагол «пузырь» v0</td><td>⬜</td><td class="a">🟠</td><td>ядро + дизайн-вердикты по ходу; 🔴 частично канон (наполнение)</td></tr>
-    <tr><td>Меню / host-join / экраны конца</td><td>⬜</td><td class="a">🟢</td><td>прототип-лента, валидация глазами разово</td></tr>
-    <tr><td>HUD игрока (доза, опасность)</td><td>⬜</td><td class="a">🟡</td><td>после подключения дозы</td></tr>
-    <tr><td>Настройки (звук/графика/чувствительность)</td><td>⬜</td><td class="a">🟢</td><td>стандартный блок, автономно</td></tr>
-    <tr class="grp"><td colspan="4">Контент · Арт · 3D</td></tr>
-    <tr><td>Project-owned full-3D Level/Module Contract + validators</td><td>🔧</td><td class="a">🟠 BASIS ACCEPTED · LV0 HELD</td><td>Standard v1 architecture owner-accepted с D1=A / D2=A; старый Phase-0-gated CALL superseded, отдельный owner-approved LV0 PLAN ещё не выпущен</td></tr>
-    <tr><td>Dungeon Architect runtime + PGG editor-time authoring</td><td>🔧</td><td class="a">🟡 после contract</td><td>PGG spike доказал static prefab → SnapGridFlow → reader; runtime PGG запрещён, Phase 2 ждёт project contract</td></tr>
-    <tr><td>Research: низкополи модульный кит (стены/пропсы) под DA</td><td>⬜</td><td class="a">🟢</td><td>шорт-лист из 3 → ты выбираешь; токено-ёмко, риск 0</td></tr>
-    <tr><td>Research: модель персонажа + анимации</td><td>⬜</td><td class="a">🟢</td><td>asset-store/AI-варианты, шорт-лист</td></tr>
-    <tr><td>Визуальный wrapper (свет/туман/палитра)</td><td>🔧</td><td class="a">🟡</td><td>визуальная линия, owner-eye</td></tr>
-    <tr><td>Гайд стиля (Prey-2017/Breathedge референсы)</td><td>⬜</td><td class="a">🟡</td><td>драфт автономно, тон — твой вердикт</td></tr>
-    <tr><td>Капсула: бриф + AI-концепты + котировки</td><td>🔧</td><td class="a">🟡</td><td>разблокирована 11.07 («будить минимально»); в объёме wake-заказа, style-lock ждёт скринов из М1</td></tr>
-    <tr class="grp"><td colspan="4">Звук (сейчас 0%)</td></tr>
-    <tr><td>Каталог нужных звуков (разведка газа, телеграф, взрыв, шаги, UI)</td><td>⬜</td><td class="a">🟢</td><td>из дизайн-якорей, автономно</td></tr>
-    <tr><td>Пайплайн AI-SFX + паки (генерация → отбор)</td><td>⬜</td><td class="a">🟢/🟡</td><td>setup автономно; отбор — твои уши батчем</td></tr>
-    <tr><td>Решение по аудио-стеку (Unity audio vs FMOD)</td><td>⬜</td><td class="a">🟢</td><td>research + рекомендация (для первой публичной сборки почти наверняка Unity)</td></tr>
-    <tr><td>Proximity voice: совместимость с локстепом</td><td>⬜</td><td class="a">🟢</td><td>research; must-know-early из маркет-исследования</td></tr>
-    <tr class="grp"><td colspan="4">Сеть · Опс</td></tr>
-    <tr><td>Steam transport / lobby / invite-flow research</td><td>⬜</td><td class="a">🟢</td><td>FishNet+Steam sockets, NAT/relay — бумага+прототип</td></tr>
-    <tr><td>Телеметрия плейтестов (метрики, сбор)</td><td>⬜</td><td class="a">🟢</td><td>дизайн сейчас, сборка после билда</td></tr>
-    <tr><td>Облачная Windows-VM (машина №2)</td><td>⬜</td><td class="a">🟢</td><td>setup к сетевому спайку</td></tr>
-    <tr class="grp"><td colspan="4">Маркетинг · Steam</td></tr>
-    <tr><td>INOMAND identity/substrate и открытый остаток маркетинга</td><td>🔧</td><td class="a">🟢 после route repair</td><td>INOMAND/@inomandgames, домен и accounts@ уже checkpointed; публичные действия и spend только после отдельного owner «да»</td></tr>
-    <tr><td>Scream Fest V: дедлайн + условия</td><td>⬜</td><td class="a">🟢</td><td>web-research, полчаса</td></tr>
-    <tr><td>Письмо Valve: механика отзыва регистрации</td><td>⬜</td><td class="a">🟢</td><td>драфт готовлю, отправляешь ты</td></tr>
-    <tr><td>Английский текст страницы от хука</td><td>⬜</td><td class="a">🟡</td><td>драфт автономно; voice-gate твой</td></tr>
-    <tr><td>GIF-пайплайн (закладки камер стенда → клипы)</td><td>⬜</td><td class="a">🟢</td><td>дизайн сейчас, работает после стенда</td></tr>
-    <tr><td>Mailing list + лендинг</td><td>⬜</td><td class="a">🟢</td><td>free-tier, автономно</td></tr>
-    <tr><td>Апп игры в Steamworks (если не создан)</td><td>⬜</td><td class="a">🟠</td><td>твой аккаунт, ~10 мин + $100</td></tr>
-    <tr><td>Steam Playtest канал</td><td>⬜</td><td class="a">🟢</td><td>🔴 нужен первый standalone-билд</td></tr>
-    <tr class="grp"><td colspan="4">Дизайн · Канон</td></tr>
-    <tr><td>Canon Forge v3</td><td>✅</td><td class="a">🟡</td><td>установлен как действующий paper-only процесс; c-001 preliminary admitted, нужен-грейбокс</td></tr>
-    <tr><td>Параллелизация канона (несколько сессий)</td><td>⬜</td><td class="a">🟠</td><td>обсуждаем В КАНОНЕ: независимые ветки графа + сверка консистентности</td></tr>
-    <tr><td>Определение демо</td><td>⬜</td><td class="a">🔴</td><td>НЕТ и сейчас не строится: концепт изменился (рамка 11.07); станет возможным после разбора «готовы ли начинать операцию» + закона газа + решения по маркетинг-датам</td></tr>
-    <tr><td>Позиционирование / hook</td><td>⬜</td><td class="a">🟡</td><td>🔴 мягкий: якоря есть, канон-вердикта нет; драфт-варианты автономно</td></tr>
-    <tr class="grp"><td colspan="4">Инфра · QA · Рефакторинг</td></tr>
-    <tr><td>Автономный рефакторинг-трек (ядро: доказуемо нулевое изменение)</td><td>⬜</td><td class="a">🟢</td><td>байт-идентичные голдены + чексум + mutation не хуже + G5; только свободные зоны; мерж — в холостые слоты</td></tr>
-    <tr><td>Бэклог-скан кандидатов (dead code, дубли, TODO, шум)</td><td>⬜</td><td class="a">🟢</td><td>read-only скан, риск 0</td></tr>
-    <tr><td>Чинка шума -Deliver (MERGED-doc fallback)</td><td>⬜</td><td class="a">🟢</td><td>рекуррентная заноза каждого закрытия</td></tr>
-    <tr><td>Один-клик билд-скрипт + smoke на второй машине</td><td>⬜</td><td class="a">🟢</td><td>прототип-лента</td></tr>
-    <tr><td>Min-spec: research эквивалентов + твоё решение</td><td>⬜</td><td class="a">🟢+🟠</td><td>research автономно; назвать железо — ты</td></tr>
-    <tr><td>OS: главная M1-панель + явная параллельность</td><td>✅</td><td class="a">🟢</td><td>Track-mode: 9 треков, WIP 6/6; default = owner-present Program v2 map. Ready 2 / waiting 2 / blocked 1 / paused 3. NearGas L1B RELEASED без executor root; core WIP удерживает отдельное pending min-spec решение. Character и Level WAITING; canon READY; V30 пока local/uninstalled.</td></tr>
-    <tr><td>OS main подтяжка (приостановка канона)</td><td>⬜</td><td class="a">🟠</td><td>писарь готовит, пушишь ты</td></tr>
-    <tr><td>Ремонт выпавших сторожей NOW (3 решения + сессия-сторож)</td><td>⬜</td><td class="a">🟡</td><td>из отчёта о «потерянной оптимизации»</td></tr>
-  </table></div>
-  <div class="wave">
-    <div class="wave-head"><span class="num">🌙</span><h3>Ночной рефакторинг: процесс запуска</h3><span class="dt">твоя команда: «делай рефакторинг» · мерж — утренним батчем</span></div>
-    <div class="lanes">
-      <div class="lane"><h4>Вечером (ты, 1 минута)</h4><ul>
-        <li>Новый чат: <b>«делай рефакторинг»</b> — всё</li>
-        <li>Опционально: «только ядро» / «только доки» / «N штук»</li>
-      </ul></div>
-      <div class="lane"><h4>Ночью (само)</h4><ul>
-        <li>Пред-полёт: читает борд/NOW — какие зоны СВОБОДНЫ от летящих легов; занятые зоны не трогает</li>
-        <li>Берёт верхние элементы из work/refactor/backlog.md, чьи зоны свободны</li>
-        <li>Каждый элемент — свой worktree/ветка, параллельно</li>
-        <li>Доказательство на каждом: голдены байт-в-байт + чексум + 1525 тестов + mutation не хуже + оба скана</li>
-        <li>Следом на каждый — G5-опровержение свежей сессией («поведение изменилось? найди») — тоже ночью</li>
-        <li>Что не доказалось — ОТКАТ и пометка в бэклоге, в отчёт честно</li>
-      </ul></div>
-      <div class="lane"><h4>Утром (ты, ~5 минут)</h4><ul>
-        <li>Отчёт в борде: «доказано N, отклонено M, ждут мержа»</li>
-        <li>Мерж в main — твой батч (ворота не ослабляем): смотришь отчёт → «мержи» → очередь мержей по одному с полным прогоном</li>
-      </ul></div>
-      <div class="lane"><h4>Границы ночного</h4><ul>
-        <li>Ночью — только headless-доказуемые зоны: ядро, тесты, tools, доки</li>
-        <li>Адаптер/рендер-рефакторы — дневные (нужен твой 5-мин глаз)</li>
-        <li>Строго ноль изменения поведения; никаких «попутных улучшений»</li>
-        <li>В main ночью не мержится НИЧЕГО</li>
-      </ul></div>
-    </div>
-    <div class="milestone"><b>Для установки:</b> (1) бэклог work/refactor/backlog.md — наполняется стартовым read-only сканом; (2) локальная пьеса plays/refactor-night.md с этим процессом; (3) строка-указатель в NOW, чтобы фраза «делай рефакторинг» из любого нового чата находила пьесу. Позже можно повесить на расписание — но старт всегда работает и вручную.</div>
-  </div>
-</section>
-
-<section>
-  <div class="sec-head"><h2>Финишная сцена Полигона M1</h2><span class="tag">главная цель · маршрут принят 14.07 · NearGasSimulationLab = внутренний gas-стенд</span></div>
-  <div class="callout accent"><b>Одна сильная сцена вместо набора несвязанных песочниц:</b> DA собирает минимальный проверенный module set; хотя бы один модуль проходит PGG editor-time bake; reusable player prefab подключён к авторитетной позе; газ имеет pause/manual-step и приборы; controlled breach и full flood наблюдаемы; один сценарий повторяется на двух машинах и слабом железе со snapshots/телеметрией.</div>
-  <div class="callout"><b>Что остаётся дочерним:</b> L3 NearGasSimulationLab строится внутри gas PROGRAM и доказывает газовую интеграцию. Он не считается автоматически всей M1-сценой. Принятый `work/poligon-m1-integration-route.md` фиксирует точные merge points, текущий 34+ ledger без cap и cuts; прежняя Phase 0 и старый level CALL не возвращаются.</div>
-</section>
-
-
-
-
-
-
-
-
-
-<div class="gloss">
-  <b>Словарик:</b> <b>трек</b> — отдельная текущая линия работы с собственными CALL; <b>primary</b> — трек текущей ставки, а <b>default</b> — CALL, который выберет «продолжаем»; <b>WIP-лимит</b> — сколько треков одновременно занимают рабочие слоты (ready, waiting, blocked и pending decision считаются, paused — нет); <b>грейбокс</b> — уровень из серых болванок без арта, чтобы проверить геймплей; <b>standalone-билд</b> — игра как отдельный .exe, а не запуск из редактора Unity; <b>вертикальный срез</b> — маленький кусок игры, где есть всё сразу (управление, цель, смерть, звук), а не одна система целиком; <b>капсула</b> — обложка игры в Steam, главный конверсионный арт; <b>вишлист</b> — «в желаемое» в Steam, главная валюта до релиза; <b>слот Next Fest</b> — право участвовать, даётся игре один раз навсегда; <b>прототип-лента</b> — отдельная «песочница» в проекте для быстрого кода оболочки, не трогающая проверенное ядро симуляции; <b>телеметрия</b> — автоматический сбор данных, как играют люди (сколько минут, где умерли); <b>min-spec</b> — слабый компьютер, на котором игра обязана работать.
-  <br><br>Оценки готовности — экспертные (сверка всех репозиториев 10.07.2026), не измерения. Даты Steam — из официальной документации Steamworks на 10.07.2026.
-</div>
-
-</div>
-
+</body>
+</html>
 <!-- END_OF_FILE: live/indie-game-development/work/board/dashboard.html -->
