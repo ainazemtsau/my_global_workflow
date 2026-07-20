@@ -421,4 +421,6 @@ archived: history/LOG-archive-indie-game-development.md — sessions before 2026
 
 2026-07-20 · s-map-grid-track-resume-001 · map · grid · g-4b92/track-resume: owner activated Grid as a quality-first preparation track; one read-only current-authority audit is READY/non-default, BUILD stays closed, and internal parallel work is allowed only after common contracts are frozen. → history/2026-07-20-s-map-grid-track-resume-001.md
 
+2026-07-20 · s-work-publish-grid-track-resume-main-001 · work/publish · grid · g-4b92/repository-main: owner-requested coherent Direction range through c30bbbc was atomically fast-forwarded without force to origin/main and origin/wt/indie-game-development; exact remote readback matched, Grid audit remains READY/non-default and BUILD stays closed. → history/2026-07-20-s-work-publish-grid-track-resume-main-001.md
+
 END_OF_FILE: live/indie-game-development/LOG.md
