@@ -328,6 +328,82 @@
         <strong>Открытых принятых конфликтов сейчас нет.</strong> Перед новой работой обязательны три recheck: фактический V30 entry, Level LV0 Direction receipt и актуальность legacy Presentation prerequisites. Любое расхождение помечается <strong>CONFLICT / NEEDS RECONCILIATION</strong>.
       </aside>
 
+      <section id="board">
+        <div class="section-head">
+          <div><div class="eyebrow">📋 Борд</div><h2>Открытая работа и решение владельца</h2></div>
+        </div>
+        <article class="panel next">
+          <span class="label">READY · default work</span>
+          <strong>Проверить, какой V30 entry действительно разрешён</strong>
+          <p><code>c-shape-program-v2-v30-entry-001</code></p>
+          <p><b>Что это:</b> короткая проверка текущей product authority перед любым новым маршрутом.</p>
+          <p><b>Зачем:</b> не открыть повторно устаревший re-sync или product work.</p>
+          <p><b>Где сейчас:</b> продукт не меняется; допустимый результат только один bounded re-sync CALL или доказанный skip.</p>
+          <p><b>Что дальше:</b> после этого появится ровно один честный следующий шаг либо blocker.</p>
+        </article>
+        <article class="panel" style="margin-top:14px">
+          <span class="label">READY · Геймдизайн и канон</span>
+          <strong>Согласовать правила визуальных артефактов до первых пластин газа и Шара</strong>
+          <p><code>c-forge-g-d3a8-visual-contract-001</code></p>
+          <p><b>Что это:</b> текстовая сессия о статусах reference, scratch, placeholder и candidate, а также о том, что именно фиксирует выбранная владельцем пластина.</p>
+          <p><b>Зачем:</b> можно активно прорабатывать игру на бумаге и с AI-визуализацией, не превращая случайные детали генерации в канон.</p>
+          <p><b>Где сейчас:</b> карта вопросов v3 готова. Ни один визуальный дизайн и ни одно изображение не выбраны; старый визуал газа недействителен, а окружение остаётся пересматриваемым reference.</p>
+          <p><b>Что дальше:</b> после owner-selected paper contract отдельным вопросом станет читаемость Counter, Brake и Time для газа и Шара. Это не product или implementation маршрут.</p>
+        </article>
+        <article class="panel" style="margin-top:14px">
+          <span class="label">ЖДЁТ РЕШЕНИЯ ВЛАДЕЛЬЦА</span>
+          <strong>Какое слабое железо обязано выдержать финальную проверку</strong>
+          <p><code>d-m1-min-spec-hardware-001</code></p>
+          <p><b>Что случилось:</b> для финального доказательства позже понадобится реальная нижняя граница железа.</p>
+          <p><b>Вопрос:</b> выбрать доступную физическую машину, точный класс CPU/GPU/RAM или признать, что один замедленный режим не закрывает проверку.</p>
+          <p><b>Рекомендация:</b> доступная физическая машина с явно названным CPU, потому что расчёт газа в первую очередь нагружает процессор.</p>
+        </article>
+      </section>
+
+      <section id="problems">
+        <div class="section-head">
+          <div><div class="eyebrow">Проблемы</div><h2>Открытые находки</h2></div>
+          <p>Ни одна из них не разрешает начать или остановить текущий V30 entry.</p>
+        </div>
+        <div class="panel">
+          <ul class="remaining">
+            <li><strong>dr-20260711-001 · срочно:</strong> старое закрытие P2a0 противоречит обязательной независимой проверке; нужна отдельная починка жизненного цикла.</li>
+            <li><strong>dr-20260711-004 · срочно:</strong> канон-борд отстаёт от принятой рамки игроков; нужен отдельный рендер канон-борда.</li>
+            <li><strong>dr-20260712-001 · срочно:</strong> маркетинговый маршрут отстаёт от сохранённого checkpoint; его исправляют только в маркетинговом треке.</li>
+            <li><strong>dr-20260711-002 · важно:</strong> семь ссылок журнала ведут на отсутствующие history-файлы; это отдельная чистка истории.</li>
+            <li><strong>dr-20260711-003 · важно:</strong> часть ссылок TREE/knowledge ведёт в неверные пути; это отдельная починка ссылок.</li>
+          </ul>
+          <p class="muted small">Источник: <a href="../review/findings.md">живой леджер находок</a>. Здесь показаны только открытые пункты.</p>
+        </div>
+      </section>
+
+      <section id="journal">
+        <div class="section-head"><div><div class="eyebrow">Журнал</div><h2>Последние три дня</h2></div></div>
+        <div class="panel">
+          <details open>
+            <summary><strong>20 июля</strong></summary>
+            <ul class="remaining">
+              <li>Program v2 карта установлена; перед дальнейшей работой проверяется актуальный V30 entry без product changes.</li>
+              <li>Карта canon-вопросов v3 принята: c-002 resolved/admitted, прежний visual gas недействителен, а следующий шаг определяет правила безопасной AI-визуализации без выбора конкретного стиля или изображения.</li>
+            </ul>
+          </details>
+          <details>
+            <summary><strong>19 июля</strong></summary>
+            <ul class="remaining">
+              <li>NearGas L1B получил terminal HOME на <code>693e671b</code>; это foundation, но не готовая общая сцена.</li>
+              <li>Program v2 был подготовлен без перезапуска замороженных Character, Level и других legacy маршрутов.</li>
+            </ul>
+          </details>
+          <details>
+            <summary><strong>18 июля</strong></summary>
+            <ul class="remaining">
+              <li>Character Leg 2 оставлен в отдельном review/closing маршруте; новая общая сцена его не расширяет.</li>
+              <li>Канон получил paper answer о поведении газа; product task и scene из этого не следуют.</li>
+            </ul>
+          </details>
+        </div>
+      </section>
+
       <section id="roadmap">
         <div class="section-head">
           <div>
