@@ -2,7 +2,7 @@
 
 owner: g-9c41 / Integration Lab & Product Proof
 approved: 2026-07-20 — s-map-program-v2-hot-migration-route-001
-last_verified: 2026-07-20 against current Direction state; product facts must be refreshed by the next V30-entry CALL
+last_verified: 2026-07-20 against current Direction and product V31 state; product facts must be refreshed by the next Integration Lab ownership shape
 status: active global route; product implementation not started by this map
 
 ## Для чего существует этот файл
@@ -59,25 +59,26 @@ writer обновляет этот план и перегенерирует dash
   расширять новой Actor Layer задним числом.
 - Level LV0 product PLAN reported RELEASED at `b1698170`, но binding Direction review отсутствует.
   Старый PLAN не перезапускается; проверка делается только при активации Level.
-- V30 существует в Direction history, но следующий bounded shape обязан заново доказать фактическое
-  состояние Direction и product. До этого никакая карточка не имеет права предполагать, что re-sync
-  уже применён.
+- V30 существует в Direction history как исторический route. Current engineering authority на
+  `origin/main` — V31, и product уже имеет принятый process-only `re-sync:31`; V30 re-sync полностью
+  superseded. Новый product root всё равно перечитывает current product authority, а не получает
+  разрешение на feature автоматически.
 - Static Integration Lab scene, универсальный Grid drop, живой Gas drop и остальные scene drops этой
   картой не заявлены как существующие.
 
 ## Прогресс общей сцены
 
-Текущий этап: **M0 — карта и control plane готовы**.
+Текущий этап: **M1 — current-authority entry доказан**.
 
-Следующий рекомендованный шаг: **M1 — доказать V30 entry и вернуть один законный маршрут**.
+Следующий рекомендованный шаг: **shape ownership общего Integration Lab entry перед M2 static shell**.
 
-Счёт: **1 из 10 milestones принят; 9 остаются**. Это счёт принятых результатов, не процент готовности
+Счёт: **2 из 10 milestones приняты; 8 остаются**. Это счёт принятых результатов, не процент готовности
 игры и не оценка effort.
 
 - [x] **M0. Program map и control plane** — направления, владельцы, Conflict Guard, global plan,
   six-line handoff и простой dashboard приняты.
-- [ ] **M1. V30 entry** — доказать current Direction/product truth; либо один no-feature `re-sync:30`
-  CALL, либо evidence-backed skip и следующие shape choices.
+- [x] **M1. Current-authority entry** — V30 route проверен и superseded: `origin/main` имеет current
+  engineering contract V31, а product stamped/re-synced V31. Новый feature root не создавался.
 - [ ] **M2. Static Integration Lab shell** — маленькая hand-authored сцена с одним entry point,
   fixture slots, common smoke и machine-readable capture; без заявления live simulation.
 - [ ] **M3. Universal Grid / Layers seam** — committed revisions, event transport и как минимум два
@@ -123,7 +124,8 @@ Gas и Grid могут готовить независимые harness proofs п
 
 Осталось до M9:
 
-- [ ] После M1 сформировать bounded PLAN/BUILD для M2 static shell.
+- [ ] Сначала shape-only определить, является ли общий entry point новой оболочкой, частью
+  `NearGasSimulationLab` или требует reconciliation; только затем формировать bounded PLAN/BUILD для M2 static shell.
 - [ ] Зафиксировать минимальный scene/drop contract и общий smoke, не дублируя contracts треков.
 - [ ] Принимать M3–M8 только с six-line handoff и first-hand proof.
 - [ ] На каждом приёме обновлять milestone, остаток и conflict state через Direction RESULT.
@@ -141,7 +143,7 @@ Gas и Grid могут готовить независимые harness proofs п
 
 Осталось до M4/M5:
 
-- [ ] После M1 перечитать current Gas SPEC/product и сформировать свежий V30 shape/PLAN.
+- [ ] После Integration Lab ownership shape перечитать current Gas SPEC/product и сформировать свежий V31 shape/PLAN.
 - [ ] Сверить transport/types/equipment inputs с универсальным committed Grid seam.
 - [ ] Доказать deterministic positive/negative gas behavior в track-owned harness.
 - [ ] Вернуть scene-ready M4 drop без rendering и без surrogate path.
@@ -154,11 +156,11 @@ Gas и Grid могут готовить независимые harness proofs п
 
 Назначение: универсальная связь независимых слоёв и authoritative публикация изменения мира.
 
-Текущее состояние: архитектурная роль принята картой; отдельный V30 implementation/drop ещё не принят.
+Текущее состояние: архитектурная роль принята картой; отдельный V31 implementation/drop ещё не принят.
 
 Осталось до M3/M5:
 
-- [ ] После M1 сверить current SPEC/ADR и выбрать минимальный настоящий seam slice.
+- [ ] После Integration Lab ownership shape сверить current SPEC/ADR и выбрать минимальный настоящий seam slice.
 - [ ] Доказать common coordinates, cell→region/sector ownership и commit clock.
 - [ ] Доказать publish/subscribe для минимум двух разных consumers, не только Gas.
 - [ ] Запретить live mid-tick cross-layer read и planted stale revision.
@@ -176,7 +178,7 @@ Gas и Grid могут готовить независимые harness proofs п
 
 Осталось до M7:
 
-- [ ] Когда владелец активирует Level, сначала сверить frozen LV0 HOME, current product и V30.
+- [ ] Когда владелец активирует Level, сначала сверить frozen LV0 HOME, current product и V31.
 - [ ] Закрыть или исправить Direction receipt; старый PLAN не запускать повторно.
 - [ ] Проверить geometry/connectivity/aperture contract и generator adapters.
 - [ ] Доказать вертикальные и боковые пути в track-owned scene.
@@ -194,7 +196,7 @@ Gas и Grid могут готовить независимые harness proofs п
 Осталось до M6:
 
 - [ ] Закончить owner LOOK, binding G5, product RESULT/Deliver и Direction close текущего Leg 2.
-- [ ] После close и M1 сформировать свежий V30 PLAN для Player Simulation / Actor Layer.
+- [ ] После close и M1 сформировать свежий V31 PLAN для Player Simulation / Actor Layer.
 - [ ] Решить по evidence: полноценный grid layer или bounded module над Grid/Layer seam.
 - [ ] Сохранить Character View отдельным consumer authoritative state.
 - [ ] Доказать movement/contact/reaction без превращения ragdoll/view в authority.
@@ -206,7 +208,7 @@ Gas и Grid могут готовить независимые harness proofs п
 
 Назначение: читаемый gas/world/character state и capture-ready визуальный результат.
 
-Текущее состояние: legacy `c-visual-009` blocked; его prerequisites и карточка должны пройти V30/
+Текущее состояние: legacy `c-visual-009` blocked; его prerequisites и карточка должны пройти V31/
 Conflict Guard review до запуска.
 
 Осталось до M8:
@@ -238,14 +240,13 @@ Conflict Guard review до запуска.
 
 Назначение: устранять конкретные общие workflow/version/build blockers.
 
-Текущее состояние: standalone `.NET Gates` retired; готов новый Direction shape
-`c-shape-program-v2-v30-entry-001`.
+Текущее состояние: standalone `.NET Gates` retired; V30 entry проверен и superseded current V31 authority.
 
 Осталось для текущей сцены:
 
-- [ ] Доказать current V29/V30/product state и выбрать один lawful entry.
-- [ ] Если нужен re-sync, вернуть один no-feature `re-sync:30` engineering CALL.
-- [ ] Если re-sync уже применён, зафиксировать evidence-backed skip.
+- [x] Доказать current V29/V30/product state и выбрать один lawful entry: V30 superseded by installed V31.
+- [x] Не выдавать ложный `re-sync:30`: product `re-sync:31` уже принят, feature не запускалась.
+- [ ] Добавлять re-sync/tooling только если будущая конкретная работа докажет named product consumer.
 - [ ] Добавлять validators/tooling только из доказанного cross-track need.
 - [ ] Не создавать постоянный технический roadmap без product consumer.
 

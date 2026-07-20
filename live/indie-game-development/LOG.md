@@ -399,4 +399,6 @@ archived: history/LOG-archive-indie-game-development.md — sessions before 2026
 
 2026-07-20 — program/map — owner-approved Program v2 hot migration installed: nine clear directions, Integration-owned ten-milestone scene plan, six-line capability handoff and simple progress dashboard; standalone damage/.NET Gates retired, stale L1B remainder cleared, and V30-entry shape is next. → history/2026-07-20-s-map-program-v2-hot-migration-route-001.md
 
+2026-07-20 · s-shape-program-v2-v30-entry-001 · shape · build-tooling · g-c5d1/v30-entry: first-hand authority check found the historical V30 route fully superseded by current product-installed V31; no re-sync or product work issued, and the owner selected a shape-only common Integration Lab entry as the single next step. → history/2026-07-20-s-shape-program-v2-v30-entry-001.md
+
 END_OF_FILE: live/indie-game-development/LOG.md
