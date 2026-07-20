@@ -54,7 +54,7 @@ closing controls. Only Direction issues Direction CALLs.
   Classify changed authority and retry only the earliest invalid stage. Review freshness compares exact product-input
   manifests; process inputs have separate proof, and every `fixed <commit>` must resolve and touch a changed product input.
 - **V31 closing addendum.** One control lease starts clean and committed; no draft crosses sessions. Order evidence
-  commits -> RESULT/mirrors -> gates -> publish/readback -> RELEASED. A new refutation commits its finding, register row
+  commits -> RESULT/mirrors -> gates -> RELEASED commit -> publish/readback. A new refutation commits its finding, register row
   and citation together.
 - Strict formatter + linter + typechecker, single command, fast; wired as save/pre-commit/CI AND as agent hooks (PostToolUse format/typecheck with failures fed back).
 - Test layout: `tests/<module>/` mirroring `src/` (game engines: ONE registered test-scene root with a runner — never ad-hoc scenes). Hygiene gates from VALIDATION.md §hygiene wired into CI from day one.

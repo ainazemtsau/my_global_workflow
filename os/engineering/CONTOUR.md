@@ -318,7 +318,7 @@ The owner returns to a finished, verified change and checks the evidence, not ev
 - Notifications: two channels wired at setup — "needs input" (escalation) and "finished: verdict" (run end). The owner is never polled; the run pushes.
 - V31 root receipts share `ACTIVE`, `PRESERVED-PAUSED`, or `RELEASED` across discovery, apply, mutation and Deliver. Only ACTIVE is eligible; paused is custody-only until re-admission; released is terminal. Machine booleans accept only JSON `true|false`; strings fail.
 - V31 retry routing returns only to the earliest invalid stage: plan/out-of-plan → ESCALATE; carrier/RED → PAIR-CANDIDATE+freeze; implementation → BUILD/VALIDATE; process/tool → process proof; closing evidence → closing checks.
-- V31 closing uses one control lease from a clean committed checkout, carries no draft across sessions, and orders evidence commits → RESULT/mirrors → gates → publish/readback → `RELEASED`.
+- V31 closing uses one control lease from a clean committed checkout, carries no draft across sessions, and orders evidence → RESULT/mirrors → gates → `RELEASED` commit → publish/readback.
 - Model routing: frontier + high effort for PLAN and architecture; default tier for BUILD legs; cheap tier for evaluators/plumbing. Fallback chain configured so overnight runs survive provider errors.
 - Sizing: a root may sequence dependency-ordered cohesive invariant/source-of-truth legs, each <= a focused half-day; split mixed surfaces before PAIR-CANDIDATE.
 - For high-ambiguity features: best-of-N parallel attempts (where the platform supports it) judged by the validator beats in-place retries.

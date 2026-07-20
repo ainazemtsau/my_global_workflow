@@ -91,10 +91,10 @@ earliest affected stage:
 Closing has one control lease for the root. Its checkout must be clean and
 committed before acquisition; drafts never transfer between sessions. The owner
 of that lease performs one recoverable order: evidence commits (including an
-atomic finding + REFUTED row + citation) -> RESULT/mirrors -> gates ->
-publish/readback -> RELEASED receipt. Failure leaves the root ACTIVE at the last
-committed receipt. Only RELEASED yields REPORT HOME; a genuine decision/blocker
-yields ESCALATE HOME.
+atomic finding + REFUTED row + citation) -> RESULT/mirrors -> gates -> RELEASED
+commit -> publish/readback. Failure leaves the root ACTIVE at the last verified
+receipt; an un-read-back RELEASED commit is ineffective. Only read-back RELEASED
+yields REPORT HOME; a genuine decision/blocker yields ESCALATE HOME.
 
 ## Locks
 

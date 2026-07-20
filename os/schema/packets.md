@@ -54,7 +54,7 @@ inputs and outputs, verdict, evidence, retry class/count, eligibility and closin
 packets and never touch `live/**`. V31 shares `ACTIVE | PRESERVED-PAUSED | RELEASED` across discovery, apply, mutation
 and Deliver: paused is custody-only until re-admitted; released is terminal; Boolean fields accept JSON booleans only.
 It retries only the earliest stage invalidated
-by an exact input change and serializes closing as evidence → RESULT/mirrors → gates → publish/readback → RELEASED.
+by an exact input change and serializes closing as evidence → RESULT/mirrors → gates → RELEASED commit → publish/readback.
 HOME returns only at gated REPORT or genuine ESCALATE; only Direction issues a later Direction CALL.
 
 ## RESULT

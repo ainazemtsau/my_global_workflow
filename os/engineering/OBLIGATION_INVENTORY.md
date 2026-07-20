@@ -165,7 +165,7 @@ ceiling only after the corresponding obligations are proved removed.
 | X41a | A v31 root stays registered across separate fresh stages and returns HOME only as REPORT or ESCALATE. | `os/engineering/CONTOUR.md:309` |
 | X41b | One lifecycle gates discovery, apply, mutation and Deliver; paused is custody-only and released is terminal. | `os/engineering/CONTOUR.md:319` |
 | X41c | One closing-control lease serializes each root's closing writes. | `os/engineering/CONTOUR.md:321` |
-| X41d | Closing order is evidence, RESULT/mirrors, gates, publish/readback, RELEASED. | `os/engineering/CONTOUR.md:321` |
+| X41d | Closing order is evidence, RESULT/mirrors, gates, RELEASED commit, publish/readback. | `os/engineering/CONTOUR.md:321` |
 | X41e | Retry classification returns only to the earliest stage invalidated by changed authority. | `os/engineering/CONTOUR.md:320` |
 | X41f | Closing starts from a clean committed checkout and transfers no drafts. | `os/engineering/CONTOUR.md:321` |
 | X41g | V31 machine Boolean markers reject truthy strings. | `os/engineering/CONTOUR.md:319` |
