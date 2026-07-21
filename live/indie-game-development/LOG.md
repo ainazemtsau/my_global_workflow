@@ -433,4 +433,6 @@ archived: history/LOG-archive-indie-game-development.md — sessions before 2026
 
 2026-07-21 · s-work-grid-v1-critical-path-plan-scope-checkpoint-001 · work · grid · g-4b92/v1-critical-path-plan: the Grid V1 plan was checkpointed after two correction rounds; its continuation now centers the generic Layer/Object Resolver boundary, leaves consumer behavior in its own tracks, and keeps BUILD closed. → history/2026-07-21-s-work-grid-v1-critical-path-plan-scope-checkpoint-001.md
 
+2026-07-21 · s-map-gas-track-resume-001 · map · gas · g-1a63/track-resume: owner chose `A`, activating Gas Simulation as a planning-only parallel track with one fresh V31 authority-audit root; Grid remains default, BUILD stays closed, and Wind is a separate deferred layer outcome rather than Gas scope. → history/2026-07-21-s-map-gas-track-resume-001.md
+
 END_OF_FILE: live/indie-game-development/LOG.md

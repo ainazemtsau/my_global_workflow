@@ -1,6 +1,6 @@
 # NOW: indie-game-development
 
-updated: 2026-07-21 by s-work-grid-v1-critical-path-plan-scope-checkpoint-001
+updated: 2026-07-21 by s-map-gas-track-resume-001
 
 bet: null
 
@@ -16,6 +16,7 @@ tracks:
   - {id: marketing, label: "Marketing & Audience", mode: parallel, for: g-2f8c}
   - {id: characters, label: "Character & Gameplay Contact", mode: parallel, for: g-6d4e}
   - {id: grid, label: "Grid / Layers / World Change", mode: parallel, for: g-4b92}
+  - {id: gas, label: "Gas Simulation", mode: parallel, for: g-1a63}
 
 open_calls:
   - id: c-exec-program-v2-legacy-lab-purge-release-001
@@ -97,6 +98,17 @@ open_calls:
       - history/2026-07-20-s-work-grid-current-authority-audit-verdict-001.md
       - history/2026-07-21-s-work-grid-v1-critical-path-plan-scope-checkpoint-001.md
     note: "READY / DEFAULT / OWNER-PRESENT / PLAN ONLY / SAME POSITION. The previous planning session checkpointed after two correction rounds: its first draft was too technical, and its simplified draft incorrectly assigned Gas/Character integration work to Grid while failing to center the generic Resolver and layer-to-layer boundary. Grid owns only shared spatial/commit/change infrastructure plus the generic Object↔Layer Resolver; Gas, Water, Wind, Character, Loot and other behavior remain in their own tracks. Produce a plain owner brief first and keep executor detail subordinate. No product work, separate dashboard, or BUILD."
+
+  - id: c-work-gas-v1-current-authority-audit-001
+    track: gas
+    status: ready
+    to: session
+    for: "g-1a63 / owner-present Gas V1 current-authority audit and planning front"
+    issued: 2026-07-21
+    call: work/c-work-gas-v1-current-authority-audit-001-call.md
+    receipts:
+      - history/2026-07-21-s-map-gas-track-resume-001.md
+    note: "READY / NON-DEFAULT / OWNER-PRESENT / READ-ONLY PLANNING. Reconcile current V31/product truth, delivered Gas foundations, stale legacy roads and cross-track dependencies before a detailed Gas master plan. Plan independent Gas behavior/harness work now; Grid-dependent committed adapters/contact wait for contract freeze. Wind is an owner-selected separate deferred layer outcome, not Gas scope, a stub or a current Grid V1 blocker. No product work or BUILD."
 
 recurring: []
 

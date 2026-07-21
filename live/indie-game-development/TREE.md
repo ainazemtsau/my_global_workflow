@@ -1,6 +1,6 @@
 # Goal tree: indie-game-development
 
-owner_approved: 2026-07-20 — history/2026-07-20-s-map-program-v2-hot-migration-route-001.md; 2026-07-20 — history/2026-07-20-s-repair-build-tooling-parking-001.md («припаркую», g-c5d1 parked); 2026-07-20 — history/2026-07-20-s-map-grid-track-resume-001.md («Принимаю активацию Grid по этому маршруту», g-4b92 parallel)
+owner_approved: 2026-07-20 — history/2026-07-20-s-map-program-v2-hot-migration-route-001.md; 2026-07-20 — history/2026-07-20-s-repair-build-tooling-parking-001.md («припаркую», g-c5d1 parked); 2026-07-20 — history/2026-07-20-s-map-grid-track-resume-001.md («Принимаю активацию Grid по этому маршруту», g-4b92 parallel); 2026-07-21 — history/2026-07-21-s-map-gas-track-resume-001.md («A», g-1a63 parallel)
 
 - id: g-a7f2
   goal: Выпущенная в Steam коммерческая co-op игра строится вокруг gas + grid, изменения пространства и экспедиционной игры; продукт технически силён, понятен игрокам и приносит реальный доход.
@@ -22,8 +22,8 @@ owner_approved: 2026-07-20 — history/2026-07-20-s-map-program-v2-hot-migration
           goal: "Gas Simulation: authoritative слой газа вычисляет типы, перенос, взаимодействия и игровые последствия на committed topology/grid revisions."
           done_when: Детерминированный harness и negative controls доказывают gas behavior и scene-ready drop, включая реакцию на committed topology change.
           why: Центральная системная механика должна развиваться отдельно от сцены, grid transport и rendering.
-          status: parked
-          detail: work/program-v2-integration-lab-plan.md#2-gas-simulation
+          status: parallel
+          detail: work/program-v2-integration-lab-plan.md#2-gas-simulation; planning-only activation — history/2026-07-21-s-map-gas-track-resume-001.md
 
         - id: g-4b92
           goal: "Grid / Layers / World Change: общий address/ownership space, commit clock и event transport связывают независимые слои и публикуют topology changes."

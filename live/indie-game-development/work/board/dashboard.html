@@ -293,7 +293,7 @@
           <a href="../program-v2-track-handoff-template.md">Handoff</a>
         </nav>
       </div>
-      <div class="updated">Обновлено 21 июля 2026<br>по RESULT s-work-grid-v1-critical-path-plan-scope-checkpoint-001</div>
+      <div class="updated">Обновлено 21 июля 2026<br>по RESULT s-map-gas-track-resume-001</div>
     </header>
 
     <main>
@@ -314,7 +314,7 @@
         <article class="panel">
           <span class="label">Фактическая загрузка NOW</span>
           <div class="status-row">
-            <span class="pill ready">2 ready</span>
+            <span class="pill ready">3 ready</span>
             <span class="pill waiting">2 waiting</span>
             <span class="pill blocked">2 blocked</span>
             <span class="pill paused">1 paused</span>
@@ -351,6 +351,16 @@
           <p><b>Где сейчас:</b> factual audit и быстрый маршрут A сохраняются, но Grid V1 plan не принят и файл плана не создан. Gas, Water, Wind, Character и Loot остаются владельцами своего поведения; BUILD закрыт.</p>
           <p><b>Что дальше:</b> простыми словами принять Grid-owned каркас и Resolver, отдельную consumer-driven связь Layer↔Layer, handoffs в треки-владельцы, порядок/параллельность и решение по dashboard.</p>
           <p><a href="../c-work-grid-v1-critical-path-plan-002-call.md">Открыть исправленный Grid V1 plan CALL →</a> · <a href="../grid-current-authority-audit-2026-07-20.md">Прочитать принятый audit →</a> · <a href="../grid-object-layer-interaction-resolver-brief.md">Открыть Resolver input →</a></p>
+        </article>
+        <article class="panel" style="margin-top:14px">
+          <span class="label">READY · Gas Simulation · аудит перед PLAN</span>
+          <strong>Сверить текущий Gas V1 и подготовить честный фронт планирования</strong>
+          <p><code>c-work-gas-v1-current-authority-audit-001</code></p>
+          <p><b>Что это:</b> отдельная owner-present read-only сессия, которая сверит нынешний продукт, принятые Gas-решения, уже доставленные foundations и старые маршруты перед новым master plan.</p>
+          <p><b>Зачем:</b> NearGas L1B закрыт, но scene-ready M4 drop ещё не доказан; старые Sc-damage и другие CALL нельзя перезапускать по памяти. Сначала нужно отделить актуальное от устаревшего.</p>
+          <p><b>Где сейчас:</b> Gas активирован как parallel planning-трек. Независимые behavior/harness части можно планировать уже сейчас; committed adapters и contact ждут Grid contract freeze. Wind выбран отдельным, но отложенным слоем и не входит в Gas.</p>
+          <p><b>Что дальше:</b> получить простую текущую карту Gas, зависимости и 2–3 маршрута следующего детального плана. Product work и BUILD не запускаются; Direction default остаётся у Grid.</p>
+          <p><a href="../c-work-gas-v1-current-authority-audit-001-call.md">Открыть Gas current-authority audit CALL →</a> · <a href="../cross-track-recovery-notes-2026-07-20.md">Открыть recovery notes →</a></p>
         </article>
         <article class="panel" style="margin-top:14px">
           <span class="label">READY · Геймдизайн и канон</span>
@@ -431,6 +441,7 @@
           <details open>
             <summary><strong>21 июля</strong></summary>
             <ul class="remaining">
+              <li>Владелец выбрал A: Gas Simulation активирован как planning-only parallel track. Fresh V31/current-authority audit READY и не меняет default Grid; Wind зафиксирован как отдельный deferred layer outcome, не Gas scope и не текущий Grid V1 blocker.</li>
               <li>Grid V1 planning-сессия остановлена после двух correction rounds: план не принят, BUILD и dashboard work не открыты. Следующая свежая сессия ставит в центр общий Object↔Layer Resolver и отдельную связь Layer↔Layer, а Gas/Water/Wind/Character/Loot оставляет их собственным трекам.</li>
               <li>Owner-requested Grid planning state опубликован и прочитан обратно на origin/main и origin/wt/indie-game-development; detailed plan CALL оставался READY/default, BUILD закрыт.</li>
             </ul>
@@ -513,19 +524,19 @@
           </article>
 
           <article class="track">
-            <div class="track-top"><div><div class="track-id">g-1a63</div><h3>Gas Simulation</h3></div><span class="pill paused">parked until cleanup</span></div>
+            <div class="track-top"><div><div class="track-id">g-1a63</div><h3>Gas Simulation</h3></div><span class="pill ready">ready · audit</span></div>
             <dl class="facts">
-              <div class="fact"><dt>Сейчас</dt><dd>NearGas L1B foundation delivered/released at <code>693e671b</code>; scene drop ещё не принят.</dd></div>
+              <div class="fact"><dt>Сейчас</dt><dd>Трек активирован planning-only. NearGas L1B foundation delivered/released at <code>693e671b</code>; scene-ready M4 drop ещё не принят.</dd></div>
               <div class="fact"><dt>Вклад</dt><dd>Authoritative gas behavior, types, equipment inputs и gas consequences.</dd></div>
-              <div class="fact"><dt>Текущий root</dt><dd>Нет: V31 Gas shape появится отдельно после cleanup REPORT.</dd></div>
+              <div class="fact"><dt>Текущий root</dt><dd><a href="../c-work-gas-v1-current-authority-audit-001-call.md">Gas V1 current-authority audit</a> — READY/non-default, owner-present и без BUILD.</dd></div>
               <div class="fact"><dt>Authority</dt><dd>Current product SPEC/ADR + terminal <a href="../../history/2026-07-19-s-work-near-gas-l1b-v29-terminal-home-close-001.md">L1B close</a>.</dd></div>
-              <div class="fact"><dt>Conflict</dt><dd>Не зафиксирован; current product contract должен быть перечитан.</dd></div>
+              <div class="fact"><dt>Conflict</dt><dd>Старые Gas-road статусы и CALL устарели; committed adapter/contact зависит от будущего Grid contract freeze. Wind — самостоятельный deferred layer, не часть Gas.</dd></div>
             </dl>
             <ul class="remaining">
-              <li><strong>Следом:</strong> fresh V31 Gas shape после cleanup REPORT; source/debug идут через real production event.</li>
-              <li>Доказать deterministic behavior в своём harness.</li>
-              <li>Вернуть M4 live-gas drop через committed Grid seam.</li>
-              <li>Позднее доказать M5 reaction и gas consequence; rendering не здесь.</li>
+              <li><strong>Следом:</strong> first-hand current inventory и простой owner verdict по Gas planning front.</li>
+              <li>Независимые Gas behavior/harness части планировать сейчас; public cross-layer signatures не фиксировать до Grid freeze.</li>
+              <li>После принятого Grid seam вернуть committed Gas adapter/contact и M4 live-gas drop без gas-only обхода.</li>
+              <li>Позднее доказать M5 topology reaction и gas consequence; Wind, rendering и permanent Lab не здесь.</li>
             </ul>
           </article>
 
