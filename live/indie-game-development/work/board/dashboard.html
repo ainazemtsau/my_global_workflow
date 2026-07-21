@@ -293,7 +293,7 @@
           <a href="../program-v2-track-handoff-template.md">Handoff</a>
         </nav>
       </div>
-      <div class="updated">Обновлено 21 июля 2026<br>по RESULT s-work-grid-v1-g01-product-plan-lifecycle-blocked-001</div>
+      <div class="updated">Обновлено 21 июля 2026<br>по RESULT s-work-grid-v1-g01-v31-refreeze-repair-authorized-001</div>
     </header>
 
     <main>
@@ -306,19 +306,19 @@
 
         <article class="panel next">
           <span class="label">Следующий шаг</span>
-          <strong class="big">Решить, разрешать ли узкую V31 receipt repair</strong>
-          <p><a href="../../history/2026-07-21-s-work-grid-v1-g01-product-plan-lifecycle-blocked-001.md">Открыть точный Grid blocker и варианты</a></p>
-          <p class="muted small">Exact-12 PLAN принят, а разрешённая однострочная R-005 re-freeze уже зафиксирована. Текущий lifecycle-check не умеет правдиво связать изменившийся freeze identity с прежней receipt-chain. До отдельного решения cleanup, G02 и completion закрыты.</p>
+          <strong class="big">Запустить узкий V31 re-freeze receipt repair</strong>
+          <p><a href="../c-exec-grid-v1-g01-v31-refreeze-receipt-repair-001-call.md">Передать READY/default root продуктовому исполнителю</a></p>
+          <p class="muted small">Владелец разрешил ровно один product-process root. Он сначала проходит реальный product PLAN-gate, затем может исправить только truthful receipt-chain и заново доказать exact re-freeze. Frozen Grid PLAN, cleanup, G02 и progress 0/11 не меняются.</p>
         </article>
 
         <article class="panel">
           <span class="label">Фактическая загрузка NOW</span>
           <div class="status-row">
-            <span class="pill ready">3 ready</span>
+            <span class="pill ready">4 ready</span>
             <span class="pill waiting">2 waiting</span>
             <span class="pill blocked">2 blocked</span>
             <span class="pill paused">1 paused</span>
-            <span class="pill mapped">2 decisions</span>
+            <span class="pill mapped">1 decision</span>
           </div>
           <p class="muted small" style="margin-top:12px">Это наблюдение, не цель заполнить лимит. Сколько направлений запускать, решает владелец.</p>
         </article>
@@ -353,14 +353,14 @@
           <p><a href="../launch-control/c-work-launch-control-stabilization-baseline-001-call.md">Открыть baseline-сессию →</a> · <a href="../../history/2026-07-21-s-map-launch-control-track-add-002.md">Прочитать принятое основание трека →</a></p>
         </article>
         <article class="panel next" style="margin-top:14px">
-          <span class="label">ЖДЁТ РЕШЕНИЯ ВЛАДЕЛЬЦА · DEFAULT · Grid · PRODUCT-PROCESS BLOCKER · 0/11</span>
-          <strong>Разрешить узкую V31-починку receipt-chain или остановить Grid</strong>
-          <p><code>d-grid-v1-g01-v31-refreeze-repair-001</code></p>
-          <p><b>Что это:</b> один выбор о новом отдельном product-process root. Он должен научить V31 правдиво представлять owner-authorized однострочную re-freeze того же PLAN-root; это не продолжение cleanup и не техническая Grid-реализация.</p>
-          <p><b>Зачем:</b> владелец уже принял exact-12 PLAN и разрешил единственную R-005 правку. Но текущий <code>tools/root-lifecycle-check.ps1:43</code> запрещает successor receipt менять freeze commit или frozen spec identity, поэтому новая честная receipt-chain сейчас невозможна.</p>
-          <p><b>Где сейчас:</b> original freeze <code>b5cbd7f7</code> и его review относятся к старому spec blob <code>9af71bbe</code>. Разрешённая re-freeze чисто зафиксирована в <code>3e0c3922</code> с новым blob <code>f6c53075</code>; WIN-U1 AVAILABLE, но новый receipt, fresh review, PlanPublication, release и G01 completion отсутствуют. Grid остаётся parallel/unretired 0/11.</p>
-          <p><b>Что дальше:</b> выбрать <code>AUTHORIZE V31 RE-FREEZE RECEIPT REPAIR</code> или <code>HOLD GRID</code>. Рекомендация — разрешить отдельный узкий repair только для lifecycle/receipt representation и его доказательств. План, exact-12 список, cleanup, G02 и progress менять нельзя.</p>
-          <p><a href="../../history/2026-07-21-s-work-grid-v1-g01-product-plan-lifecycle-blocked-001.md">Прочитать точный blocker →</a> · <a href="../grid-v1-executor-plan.md">Прочитать current accepted Direction plan →</a> · <a href="../c-exec-grid-v1-g01-product-plan-001-call.md">Прочитать возвращённый G01 CALL →</a></p>
+          <span class="label">READY · DEFAULT · Grid · V31 PRODUCT-PROCESS REPAIR · PLAN GATE FIRST · 0/11</span>
+          <strong>Сделать owner-authorized re-freeze законной частью receipt-chain</strong>
+          <p><code>c-exec-grid-v1-g01-v31-refreeze-receipt-repair-001</code></p>
+          <p><b>Что это:</b> один bounded contract-31 engineering root только для repo-local lifecycle authority/tooling, process tests и доказательств. Это не cleanup и не техническая реализация Grid.</p>
+          <p><b>Зачем:</b> exact-12 PLAN уже принят, а R-005 re-freeze уже существует. Без честной связи старого и нового freeze identity обязательный V31 gate не допускает новый receipt, fresh review и PlanPublication-close.</p>
+          <p><b>Где сейчас:</b> владелец дал точную авторизацию <code>AUTHORIZE V31 RE-FREEZE RECEIPT REPAIR</code>. Original freeze <code>b5cbd7f7/9af71bbe</code> и re-freeze <code>3e0c3922/f6c53075</code> остаются неизменными входами. Новый root READY/default; продукт ещё не запускался, Grid остаётся parallel/unretired 0/11.</p>
+          <p><b>Что дальше:</b> fresh product executor перечитывает V31 authority, показывает владельцу подробный repair PLAN, если этого требует product gate, и только после реального verdict выполняет минимальный process repair. Затем обязательны seeded misses, fresh independent review, PlanPublication и gated RELEASED HOME либо один exact ESCALATE. Cleanup и G02 закрыты.</p>
+          <p><a href="../c-exec-grid-v1-g01-v31-refreeze-receipt-repair-001-call.md">Открыть repair CALL →</a> · <a href="../../history/2026-07-21-s-work-grid-v1-g01-v31-refreeze-repair-authorized-001.md">Прочитать owner authorization RESULT →</a> · <a href="../../history/2026-07-21-s-work-grid-v1-g01-product-plan-lifecycle-blocked-001.md">Прочитать исходный blocker →</a></p>
         </article>
         <article class="panel" style="margin-top:14px">
           <span class="label">READY · Gas Simulation · NODE 1 PLAN · NON-DEFAULT</span>
@@ -451,6 +451,7 @@
           <details open>
             <summary><strong>21 июля</strong></summary>
             <ul class="remaining">
+              <li>Владелец точными словами <code>AUTHORIZE V31 RE-FREEZE RECEIPT REPAIR</code> разрешил один отдельный contract-31 product-process root. Он может изменить только repo-local lifecycle authority/tooling и process-proof, обязан сохранить frozen Grid PLAN <code>3e0c3922</code>, пройти настоящий product PLAN-gate, fresh review и PlanPublication и вернуть gated HOME либо exact ESCALATE. Новый root READY/default; продукт ещё не запускался, cleanup и G02 закрыты, Grid остаётся parallel/unretired 0/11.</li>
               <li>Владелец принял полный Grid G01 product PLAN точными словами <code>ACCEPT WITH EXACT-12 EXCEPTION</code> и затем разрешил только однострочную R-005 re-freeze. План фиксирует девять current-authority paths и ровно двенадцать whole-file legacy deletions, но V31 lifecycle-check не может правдиво связать новый freeze <code>3e0c3922</code>/<code>f6c53075</code> с прежней receipt-chain. Старые receipt/review/gate evidence относятся только к старому freeze; G01 completion, cleanup и G02 закрыты, Grid остаётся 0/11, а default теперь одно решение об отдельном bounded product-process repair.</li>
               <li>Владелец отклонил лишнюю симметричную формулировку HOLD и повторно зафиксировал, что Grid — самое приоритетное направление, а legacy cleanup идёт первым. Один documentation-only V31 G01 product PLAN-root теперь READY/default; он готовит полный current-product план и просит владельца только о финальном verdict по готовому артефакту. Grid остаётся parallel/unretired 0/11; cleanup execution, PAIR-CANDIDATE, BUILD и G02 не открыты. Процессный дефект повторного запроса уже выраженного launch intent сохранён для отдельного maintenance.</li>
               <li>Binding fresh review не смог опровергнуть упрощённую Grid document-authority boundary exact plan blob <code>2c95e10f</code>: self-covering ledger и clause-tombstone machinery отсутствуют, каждый legacy normative file вне девятипутевого allowlist удаляется целиком, deleted/history bytes доступны только по отдельному owner-directed research CALL, а невозможная lawful deletion блокирует G01 и G02. G02–G11 и technical ownership/gates не изменены; Grid остаётся parallel/unretired 0/11, один owner-present G01 PLAN disposition READY/non-default, product work закрыт.</li>
@@ -586,16 +587,16 @@
           </article>
 
           <article class="track">
-            <div class="track-top"><div><div class="track-id">g-4b92</div><h3>Grid / Layers / World Change</h3></div><span class="pill mapped">awaiting decision · 0/11</span></div>
+            <div class="track-top"><div><div class="track-id">g-4b92</div><h3>Grid / Layers / World Change</h3></div><span class="pill ready">ready V31 repair · 0/11</span></div>
             <dl class="facts">
-              <div class="fact"><dt>Сейчас</dt><dd>Exact-12 product PLAN принят владельцем, и его единственная R-005 correction re-frozen в <code>3e0c3922</code>. V31 lifecycle не умеет правдиво связать изменившийся freeze identity с прежней receipt-chain; product progress остаётся 0 из 11 legs.</dd></div>
+              <div class="fact"><dt>Сейчас</dt><dd>Владелец разрешил один bounded V31 receipt repair. Exact-12 product PLAN и R-005 re-freeze <code>3e0c3922</code> остаются frozen inputs; product progress остаётся 0 из 11 legs.</dd></div>
               <div class="fact"><dt>Вклад</dt><dd>Общее пространство и подтверждённые изменения, универсальный Object↔Layer Resolver и безопасная основа для consumer-driven Layer↔Layer связей.</dd></div>
-              <div class="fact"><dt>Текущий root</dt><dd>Открытого product root нет. Default — решение <code>d-grid-v1-g01-v31-refreeze-repair-001</code>: разрешить отдельный узкий V31 receipt repair или HOLD Grid. Cleanup implementation и G02 закрыты.</dd></div>
-              <div class="fact"><dt>Authority</dt><dd><a href="../grid-v1-executor-plan.md">Current accepted Direction plan</a> blob <code>2c95e10f</code> + exact owner verdict <code>ACCEPT WITH EXACT-12 EXCEPTION</code> + <a href="../../history/2026-07-21-s-work-grid-v1-g01-product-plan-lifecycle-blocked-001.md">product lifecycle blocker</a>.</dd></div>
-              <div class="fact"><dt>Conflict</dt><dd><code>tools/root-lifecycle-check.ps1:43</code> запрещает successor receipt менять plan-freeze commit/spec identity. Truthful transition <code>b5cbd7f7/9af71bbe → 3e0c3922/f6c53075</code> поэтому не проходит mandatory gate; unchained receipt и unchecked field запрещены как обход.</dd></div>
+              <div class="fact"><dt>Текущий root</dt><dd><a href="../c-exec-grid-v1-g01-v31-refreeze-receipt-repair-001-call.md"><code>c-exec-grid-v1-g01-v31-refreeze-receipt-repair-001</code></a> — READY/default, contract 31, PLAN gate first. Cleanup implementation и G02 закрыты.</dd></div>
+              <div class="fact"><dt>Authority</dt><dd><a href="../grid-v1-executor-plan.md">Current accepted Direction plan</a> blob <code>2c95e10f</code> + exact owner words <code>AUTHORIZE V31 RE-FREEZE RECEIPT REPAIR</code> + <a href="../../history/2026-07-21-s-work-grid-v1-g01-product-plan-lifecycle-blocked-001.md">exact lifecycle blocker</a>.</dd></div>
+              <div class="fact"><dt>Conflict</dt><dd>Root обязан доказать truthful transition <code>b5cbd7f7/9af71bbe → 3e0c3922/f6c53075</code> без unchained receipt, unchecked field, generic bypass или изменения frozen Grid meaning. Более широкая authority need возвращает exact ESCALATE.</dd></div>
             </dl>
             <ul class="remaining">
-              <li><strong>Следом:</strong> владелец выбирает AUTHORIZE узкого product-process repair или HOLD. При AUTHORIZE сначала создаётся отдельный bounded root, затем на новом freeze заново проходят receipt, fresh review, PlanPublication и close; автоматического G01 completion нет.</li>
+              <li><strong>Следом:</strong> fresh executor запускает только repair root. Сначала подробный product PLAN и реальный owner verdict, затем минимальный process diff, negative controls, fresh review, PlanPublication и gated HOME; автоматического G01 completion или cleanup нет.</li>
               <li>G01–G04 строго serial; после G04 Layer-path и Object-path параллелятся только при доказанном полном разделении рабочих поверхностей и последовательном merge.</li>
               <li>Gas/Wind/Character/Level/Program/Integration behavior и реальные adapters остаются у владельцев; synthetic layers дают только Grid-internal proof.</li>
               <li>Dashboard остаётся одной секцией существующей панели; отдельный render и BUILD не открыты.</li>
