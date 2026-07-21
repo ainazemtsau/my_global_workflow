@@ -1,6 +1,6 @@
 # NOW: indie-game-development
 
-updated: 2026-07-21 by s-work-grid-v1-g01-product-plan-disposition-001
+updated: 2026-07-21 by s-work-grid-v1-g01-product-plan-lifecycle-blocked-001
 
 bet: null
 
@@ -97,18 +97,6 @@ open_calls:
       - history/2026-07-18-s-review-char-v2-published-handback-release-001.md
     note: "WAITING / PRODUCT REVIEW-CLOSING IN PROGRESS. Do not dispatch this frozen CALL again. It waits for owner LOOK, binding G5, product RESULT/Deliver and valid Direction close. A future Player Simulation / Actor Layer is fresh V31 work and cannot expand this lineage retroactively."
 
-  - id: c-exec-grid-v1-g01-product-plan-001
-    track: grid
-    status: ready
-    to: executor
-    for: "g-4b92 / owner-approved current-product PLAN for the documentation-only Grid V1 G01 cleanup"
-    issued: 2026-07-21
-    call: work/c-exec-grid-v1-g01-product-plan-001-call.md
-    receipts:
-      - history/2026-07-21-s-review-grid-v1-document-authority-boundary-reset-001.md
-      - history/2026-07-21-s-work-grid-v1-g01-product-plan-disposition-001.md
-    note: "READY / DEFAULT / OWNER-ADMITTED / V31 / PRODUCT PLAN ONLY / NO CLEANUP EXECUTION. The owner reaffirmed that Grid is the highest-priority direction and that legacy cleanup is its first step. This single root authors and obtains owner approval for the current-product G01 PLAN only; it may not execute cleanup, open PAIR-CANDIDATE/BUILD or start G02. Grid remains parallel/unretired at 0/11 until product evidence returns."
-
   - id: c-work-gas-v1-live-composition-plan-001
     track: gas
     status: ready
@@ -128,8 +116,12 @@ decisions:
     q: "d-m1-min-spec-hardware-001 — какое конкретное слабое железо становится binding min-spec финального прогона M1?"
     options: ["Доступная физическая машина", "Точный CPU/GPU/RAM-класс с арендой/покупкой к финалу", "Только throttled-прокси — финал не закрывает"]
     recommendation: "Доступная физическая машина; gas simulation CPU-bound, поэтому CPU должен быть назван явно."
+  - id: d-grid-v1-g01-v31-refreeze-repair-001
+    track: grid
+    q: "Разрешить отдельный bounded product-process repair, чтобы V31 receipt-chain могла правдиво принять owner-authorized one-line PLAN re-freeze и затем заново пройти review/PlanPublication?"
+    options: ["AUTHORIZE V31 RE-FREEZE RECEIPT REPAIR", "HOLD GRID"]
+    recommendation: "AUTHORIZE V31 RE-FREEZE RECEIPT REPAIR; accepted exact-12 PLAN and corrected freeze already exist. Repair may touch only the truthful V31 lifecycle/receipt representation and its proof; Grid meaning, cleanup, G02 and progress stay closed."
 
-next:
-  call: c-exec-grid-v1-g01-product-plan-001
+next: awaiting_decision
 
 END_OF_FILE: live/indie-game-development/NOW.md
