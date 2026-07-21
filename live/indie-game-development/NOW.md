@@ -1,6 +1,6 @@
 # NOW: indie-game-development
 
-updated: 2026-07-21 by s-work-grid-v1-document-authority-correction-001
+updated: 2026-07-21 by s-review-grid-v1-document-authority-amendment-001
 
 bet: null
 
@@ -85,16 +85,16 @@ open_calls:
       - history/2026-07-18-s-review-char-v2-published-handback-release-001.md
     note: "WAITING / PRODUCT REVIEW-CLOSING IN PROGRESS. Do not dispatch this frozen CALL again. It waits for owner LOOK, binding G5, product RESULT/Deliver and valid Direction close. A future Player Simulation / Actor Layer is fresh V31 work and cannot expand this lineage retroactively."
 
-  - id: c-review-grid-v1-document-authority-amendment-001
+  - id: c-work-grid-v1-document-authority-correction-002
     track: grid
     status: ready
     to: session
-    for: "g-4b92 / binding fresh review of the owner-accepted document-authority amendment"
+    for: "g-4b92 / same-position correction of the refuted Grid V1 document-authority amendment"
     issued: 2026-07-21
-    call: work/c-review-grid-v1-document-authority-amendment-001-call.md
+    call: work/c-work-grid-v1-document-authority-correction-002-call.md
     receipts:
-      - history/2026-07-21-s-work-grid-v1-document-authority-correction-001.md
-    note: "READY / DEFAULT / FRESH INDEPENDENT REVIEW / PLANNING ARTIFACT ONLY / NO PRODUCT MUTATION. Owner accepted the full amendment with exact words `Принимаю поправку целиком`. The accepted executor plan now names one literal-path/blob current corpus, full tracked-text inventory, exactly one archive-with-proof or tracked-delete disposition per old document, repo/input/output enforcement, seeded negative control and mandatory deletion fallback. This review must try to refute that boundary; the earlier technical review predates the amendment. No G01, product root, slot, test, BUILD or engineering CALL exists; Grid remains parallel at 0/11."
+      - history/2026-07-21-s-review-grid-v1-document-authority-amendment-001.md
+    note: "READY / DEFAULT / OWNER-PRESENT / SAME-POSITION CORRECTION / PLANNING ARTIFACT ONLY / NO PRODUCT MUTATION. Binding fresh review REFUTED the accepted amendment on coupled authority holes: its universal later-CALL rule needs a corpus before G01 exists; the manifest is in its own literal path/blob allowlist without an external self-anchor; the tracked inventory does not fence executor-discoverable ignored/history inputs or define link/disposition identity; free-text current-only/provenance claims can be laundered through a valid but irrelevant allowlisted citation; and section 8 still points to the consumed pre-amendment review. Exact owner words `Принимаю поправку целиком`, technical Grid mechanics, eleven legs, owners, gates and deletion fallback remain intact. Correct only this documentary boundary, obtain owner words, then return to fresh review. No G01, product root, slot, test, BUILD or engineering CALL exists; Grid remains parallel at 0/11."
 
   - id: c-work-gas-v1-live-composition-plan-001
     track: gas
@@ -117,6 +117,6 @@ decisions:
     recommendation: "Доступная физическая машина; gas simulation CPU-bound, поэтому CPU должен быть назван явно."
 
 next:
-  call: c-review-grid-v1-document-authority-amendment-001
+  call: c-work-grid-v1-document-authority-correction-002
 
 END_OF_FILE: live/indie-game-development/NOW.md
