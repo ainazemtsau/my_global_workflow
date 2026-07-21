@@ -476,4 +476,6 @@ archived: history/LOG-archive-indie-game-development.md — sessions before 2026
 
 2026-07-21 · s-work-grid-v1-document-authority-boundary-reset-001 · work · grid · g-4b92/document-authority-boundary: owner rejected registry complexity and chose whole-file tracked deletion when archive isolation is uncertain; the accepted plan now has no manifest/ledger/gridref/clause machinery, Git history is research-only evidence, one binding review is READY/non-default, Grid stays parallel at 0/11 and product work remains closed. → history/2026-07-21-s-work-grid-v1-document-authority-boundary-reset-001.md
 
+2026-07-21 · s-work-publish-grid-boundary-reset-main-001 · work/publish · grid · g-4b92/repository-main: owner-requested Grid boundary reset 40c72425 was fast-forwarded without force to origin/wt/indie-game-development and origin/main with exact SHA/plan-blob readback; whole-file tracked deletion and research-only Git history are published, Grid review remains READY/non-default at 0/11, Launch Control remains default and product work stays closed. → history/2026-07-21-s-work-publish-grid-boundary-reset-main-001.md
+
 END_OF_FILE: live/indie-game-development/LOG.md
