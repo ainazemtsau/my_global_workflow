@@ -1,15 +1,16 @@
 # NOW: indie-game-development
 
-updated: 2026-07-21 by s-work-grid-v1-document-authority-correction-002
+updated: 2026-07-21 by s-map-launch-control-track-add-002
 
 bet: null
 
 tasks: []
 
-track_wip_limit: 9
+track_wip_limit: 99
 
 tracks:
   - {id: program, label: "Integration Lab & Product Proof", mode: primary, for: g-9c41}
+  - {id: launch-control, label: "Demo & Launch Control", mode: parallel, for: g-b847}
   - {id: level, label: "Level & Environment", mode: parallel, for: g-8f20}
   - {id: canon, label: "Design & Canon", mode: parallel, for: g-d3a8}
   - {id: visual, label: "Presentation", mode: parallel, for: g-7e15}
@@ -30,6 +31,17 @@ open_calls:
     receipts:
       - history/2026-07-20-s-work-program-v2-legacy-lab-purge-deliver-blocked-001.md
     note: "BLOCKED / V31 RELEASE CONTINUATION / ROOT NOT RELEASED. Product candidate 72c7c8c6 removes the 24 approved tracked paths, preserves KEEP, adds the <=400-word no-growth policy, passes fresh non-author G5 and normal gates (1829/1829), and is integrated only in local dev through c5c21c13 with blocker evidence baf8513c. Deliver is RED solely because pre-existing review-c-exec-char-v2-source-router-repair-001 does not account for source commit 413149ce after reviewed commit 8a0e33ec. No push/merge/release; origin refs remain 45b15623; WIN-U1 is DRAINING with lease preserved. Do not dispatch or return to feature work until unblock_when is true."
+
+  - id: c-work-launch-control-stabilization-baseline-001
+    track: launch-control
+    status: ready
+    to: session
+    for: "g-b847 / owner-present Stabilization Baseline, Dispatch & Process-Adaptation Contract"
+    issued: 2026-07-21
+    call: work/launch-control/c-work-launch-control-stabilization-baseline-001-call.md
+    receipts:
+      - history/2026-07-21-s-map-launch-control-track-add-002.md
+    note: "READY / DEFAULT / OWNER-PRESENT / PLANNING ONLY / NO DASHBOARD YET / NO DIRECTIVE DISPATCH / NO OS MUTATION. First establish one owner-approved release baseline: Demo Contract, target and fallback, dependency network, resource-constrained forecast, risks, cuts, gates, lawful Release Directive representation, dynamic owner/AI capacity rules, bounded Process Adaptation Authority and a plain-language dashboard specification. The numeric WIP value is compatibility-only and is not a capacity model."
 
   - id: c-exec-level-module-standard-v1-lv0-plan-001
     track: level
@@ -117,6 +129,6 @@ decisions:
     recommendation: "Доступная физическая машина; gas simulation CPU-bound, поэтому CPU должен быть назван явно."
 
 next:
-  call: c-review-grid-v1-document-authority-amendment-002
+  call: c-work-launch-control-stabilization-baseline-001
 
 END_OF_FILE: live/indie-game-development/NOW.md

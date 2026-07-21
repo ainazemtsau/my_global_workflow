@@ -1,6 +1,6 @@
 # Goal tree: indie-game-development
 
-owner_approved: 2026-07-20 — history/2026-07-20-s-map-program-v2-hot-migration-route-001.md; 2026-07-20 — history/2026-07-20-s-repair-build-tooling-parking-001.md («припаркую», g-c5d1 parked); 2026-07-20 — history/2026-07-20-s-map-grid-track-resume-001.md («Принимаю активацию Grid по этому маршруту», g-4b92 parallel); 2026-07-21 — history/2026-07-21-s-map-gas-track-resume-001.md («A», g-1a63 parallel)
+owner_approved: 2026-07-20 — history/2026-07-20-s-map-program-v2-hot-migration-route-001.md; 2026-07-20 — history/2026-07-20-s-repair-build-tooling-parking-001.md («припаркую», g-c5d1 parked); 2026-07-20 — history/2026-07-20-s-map-grid-track-resume-001.md («Принимаю активацию Grid по этому маршруту», g-4b92 parallel); 2026-07-21 — history/2026-07-21-s-map-gas-track-resume-001.md («A», g-1a63 parallel); 2026-07-21 — history/2026-07-21-s-map-launch-control-track-add-002.md («Можем сохранять его», g-b847 parallel)
 
 - id: g-a7f2
   goal: Выпущенная в Steam коммерческая co-op игра строится вокруг gas + grid, изменения пространства и экспедиционной игры; продукт технически силён, понятен игрокам и приносит реальный доход.
@@ -59,6 +59,14 @@ owner_approved: 2026-07-20 — history/2026-07-20-s-map-program-v2-hot-migration
       why: Технические возможности должны превращаться в решения игрока и узнаваемую игру.
       status: parallel
       detail: Существующий canon-forge сохраняется; current root c-cartography-g-d3a8-post-gas-behavior-admission-front-001.
+
+    - id: g-b847
+      goal: "Demo & Launch Control: выбранная стратегия демо и Steam Next Fest остаётся исполнимой через понятный Demo Contract, связанную цепочку обязательных результатов, динамический owner/AI dispatch и адаптируемый по evidence управляющий процесс."
+      done_when: |
+        Целевой фестиваль и fallback приняты; Demo Contract задаёт player promise, MUST/SHOULD/CUT, quality floor, explicit non-goals и внешний acceptance; цепочка работ, определяющая дату демо, forecast, top risks, cuts и gates остаются актуальными; Launch Control формулирует Release Directives, а целевые треки отвечают ACCEPT/COUNTER/BLOCKED через существующие CALL/RESULT routes; отдельный management dashboard обычными словами показывает курс и Today Command; фактическая нагрузка определяется динамически по owner-focus, безопасной AI-параллельности, review throughput, зависимостям и collisions; собственный управляющий процесс пересматривается по evidence о throughput и friction, а изменения os/** маршрутизируются в отдельную owner-authorized maintenance session.
+      why: Без отдельного владельца календаря, demo scope, cross-track demand, ежедневной AI-capacity и адаптации управляющего процесса качественная локальная работа может не сложиться в демо к выбранной дате.
+      status: parallel
+      detail: history/2026-07-21-s-map-launch-control-track-add-002.md
 
     - id: g-c5d1
       goal: "Build & Tooling: version, build, validators и shared tooling воспроизводимо снимают конкретные cross-track blockers."
