@@ -455,4 +455,6 @@ archived: history/LOG-archive-indie-game-development.md — sessions before 2026
 
 2026-07-21 · s-work-gas-v1-master-plan-accepted-001 · work · gas · g-1a63/v1-master-plan: owner accepted the nine-node Gas V1 master plan with exact words `Окей, подтверждаю план.`; the route now leads from released NearGas foundation through live composition, sources, committed state, generated levels, full-level scale, world change, player consequences and Multiplayer proof to one permanent Integration intake, with separate owner-present planning before every node; node-1 detailed PLAN is READY/non-default, Grid remains default and BUILD stays closed. → history/2026-07-21-s-work-gas-v1-master-plan-accepted-001.md
 
+2026-07-21 · s-work-publish-grid-document-authority-main-001 · work/publish · grid · g-4b92/repository-main: owner-requested Grid documentation-authority gate through 022bf58d was fast-forwarded without force to origin/main with exact SHA/artifact readback; CORRECTION FIRST and the READY/default planning correction remain, Grid stays 0/11 and product execution closed, while the independently published compatible Gas commit ca19da0b is preserved. → history/2026-07-21-s-work-publish-grid-document-authority-main-001.md
+
 END_OF_FILE: live/indie-game-development/LOG.md
