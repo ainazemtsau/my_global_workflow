@@ -1,6 +1,6 @@
 # NOW: indie-game-development
 
-updated: 2026-07-21 by s-map-gas-track-resume-001
+updated: 2026-07-21 by s-work-grid-v1-critical-path-plan-accepted-001
 
 bet: null
 
@@ -85,19 +85,20 @@ open_calls:
       - history/2026-07-18-s-review-char-v2-published-handback-release-001.md
     note: "WAITING / PRODUCT REVIEW-CLOSING IN PROGRESS. Do not dispatch this frozen CALL again. It waits for owner LOOK, binding G5, product RESULT/Deliver and valid Direction close. A future Player Simulation / Actor Layer is fresh V31 work and cannot expand this lineage retroactively."
 
-  - id: c-work-grid-v1-critical-path-plan-002
+  - id: c-work-grid-v1-executor-plan-001
     track: grid
     status: ready
     to: session
-    for: "g-4b92 / owner-present Grid-owned Resolver master-plan correction"
+    for: "g-4b92 / owner-present current-product Grid V1 executor plan and exact source/legacy appendix"
     issued: 2026-07-21
-    call: work/c-work-grid-v1-critical-path-plan-002-call.md
+    call: work/c-work-grid-v1-executor-plan-001-call.md
     receipts:
       - history/2026-07-20-s-map-grid-track-resume-001.md
       - history/2026-07-20-s-work-grid-current-authority-audit-cross-track-checkpoint-001.md
       - history/2026-07-20-s-work-grid-current-authority-audit-verdict-001.md
       - history/2026-07-21-s-work-grid-v1-critical-path-plan-scope-checkpoint-001.md
-    note: "READY / DEFAULT / OWNER-PRESENT / PLAN ONLY / SAME POSITION. The previous planning session checkpointed after two correction rounds: its first draft was too technical, and its simplified draft incorrectly assigned Gas/Character integration work to Grid while failing to center the generic Resolver and layer-to-layer boundary. Grid owns only shared spatial/commit/change infrastructure plus the generic Object↔Layer Resolver; Gas, Water, Wind, Character, Loot and other behavior remain in their own tracks. Produce a plain owner brief first and keep executor detail subordinate. No product work, separate dashboard, or BUILD."
+      - history/2026-07-21-s-work-grid-v1-critical-path-plan-accepted-001.md
+    note: "READY / DEFAULT / OWNER-PRESENT / PLAN ONLY / NO PRODUCT MUTATION. The owner accepted the plain Grid V1 master plan with exact words `Принять план с обязательным Multiplayer handoff/gate`. Grid owns shared spatial/commit/change infrastructure, the generic Object↔Layer Resolver and generic Layer↔Layer read boundary; consumer behavior and real adapters stay with their tracks. Re-read fresh product authority and produce only the subordinate exact source/legacy executor plan. Synthetic layers do not close M3; a real second consumer and mandatory two-peer proof remain named acceptance gates. No branch/worktree, tests, Unity, separate dashboard or BUILD."
 
   - id: c-work-gas-v1-current-authority-audit-001
     track: gas
@@ -120,6 +121,6 @@ decisions:
     recommendation: "Доступная физическая машина; gas simulation CPU-bound, поэтому CPU должен быть назван явно."
 
 next:
-  call: c-work-grid-v1-critical-path-plan-002
+  call: c-work-grid-v1-executor-plan-001
 
 END_OF_FILE: live/indie-game-development/NOW.md

@@ -435,4 +435,6 @@ archived: history/LOG-archive-indie-game-development.md — sessions before 2026
 
 2026-07-21 · s-map-gas-track-resume-001 · map · gas · g-1a63/track-resume: owner chose `A`, activating Gas Simulation as a planning-only parallel track with one fresh V31 authority-audit root; Grid remains default, BUILD stays closed, and Wind is a separate deferred layer outcome rather than Gas scope. → history/2026-07-21-s-map-gas-track-resume-001.md
 
+2026-07-21 · s-work-grid-v1-critical-path-plan-accepted-001 · work · grid · g-4b92/v1-critical-path-plan: owner accepted the plain Grid V1 master plan with a mandatory Multiplayer handoff/gate; consumer behavior remains track-owned, and one exact source-level planning continuation is READY/default with BUILD closed. → history/2026-07-21-s-work-grid-v1-critical-path-plan-accepted-001.md
+
 END_OF_FILE: live/indie-game-development/LOG.md
