@@ -431,4 +431,6 @@ archived: history/LOG-archive-indie-game-development.md — sessions before 2026
 
 2026-07-21 · s-work-publish-grid-v1-planning-state-main-001 · work/publish · grid · g-4b92/repository-main: owner-requested Grid audit/route-A state through 22202e5 was atomically fast-forwarded without force to origin/main and origin/wt/indie-game-development; exact remote readback matched, the detailed Grid V1 planning CALL remains READY/default, and BUILD stays closed. → history/2026-07-21-s-work-publish-grid-v1-planning-state-main-001.md
 
+2026-07-21 · s-work-grid-v1-critical-path-plan-scope-checkpoint-001 · work · grid · g-4b92/v1-critical-path-plan: the Grid V1 plan was checkpointed after two correction rounds; its continuation now centers the generic Layer/Object Resolver boundary, leaves consumer behavior in its own tracks, and keeps BUILD closed. → history/2026-07-21-s-work-grid-v1-critical-path-plan-scope-checkpoint-001.md
+
 END_OF_FILE: live/indie-game-development/LOG.md

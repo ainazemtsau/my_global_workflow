@@ -1,6 +1,6 @@
 # NOW: indie-game-development
 
-updated: 2026-07-20 by s-work-grid-current-authority-audit-verdict-001
+updated: 2026-07-21 by s-work-grid-v1-critical-path-plan-scope-checkpoint-001
 
 bet: null
 
@@ -84,18 +84,19 @@ open_calls:
       - history/2026-07-18-s-review-char-v2-published-handback-release-001.md
     note: "WAITING / PRODUCT REVIEW-CLOSING IN PROGRESS. Do not dispatch this frozen CALL again. It waits for owner LOOK, binding G5, product RESULT/Deliver and valid Direction close. A future Player Simulation / Actor Layer is fresh V31 work and cannot expand this lineage retroactively."
 
-  - id: c-work-grid-v1-critical-path-plan-001
+  - id: c-work-grid-v1-critical-path-plan-002
     track: grid
     status: ready
     to: session
-    for: "g-4b92 / owner-present detailed Grid V1 critical-path plan"
-    issued: 2026-07-20
-    call: work/c-work-grid-v1-critical-path-plan-001-call.md
+    for: "g-4b92 / owner-present Grid-owned Resolver master-plan correction"
+    issued: 2026-07-21
+    call: work/c-work-grid-v1-critical-path-plan-002-call.md
     receipts:
       - history/2026-07-20-s-map-grid-track-resume-001.md
       - history/2026-07-20-s-work-grid-current-authority-audit-cross-track-checkpoint-001.md
       - history/2026-07-20-s-work-grid-current-authority-audit-verdict-001.md
-    note: "READY / DEFAULT / OWNER-PRESENT / PLAN ONLY. Owner chose `A`: factual audit and focused hybrid legacy-first route are accepted under explicit Grid priority/deadline pressure. Produce one detailed plan for fence → minimal contract freeze → Structure/NearGas → Actor/Object contact → exact aperture/world change → immediate legacy retirement → permanent Lab handoff. Sequential execution remains default; Wind, generic flow, full Multiplayer, damage and Lab BUILD stay outside the critical path. No product work or BUILD."
+      - history/2026-07-21-s-work-grid-v1-critical-path-plan-scope-checkpoint-001.md
+    note: "READY / DEFAULT / OWNER-PRESENT / PLAN ONLY / SAME POSITION. The previous planning session checkpointed after two correction rounds: its first draft was too technical, and its simplified draft incorrectly assigned Gas/Character integration work to Grid while failing to center the generic Resolver and layer-to-layer boundary. Grid owns only shared spatial/commit/change infrastructure plus the generic Object↔Layer Resolver; Gas, Water, Wind, Character, Loot and other behavior remain in their own tracks. Produce a plain owner brief first and keep executor detail subordinate. No product work, separate dashboard, or BUILD."
 
 recurring: []
 
@@ -107,6 +108,6 @@ decisions:
     recommendation: "Доступная физическая машина; gas simulation CPU-bound, поэтому CPU должен быть назван явно."
 
 next:
-  call: c-work-grid-v1-critical-path-plan-001
+  call: c-work-grid-v1-critical-path-plan-002
 
 END_OF_FILE: live/indie-game-development/NOW.md
