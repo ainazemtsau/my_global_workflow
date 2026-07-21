@@ -363,14 +363,14 @@
           <p><a href="../c-work-gas-v1-current-authority-audit-001-call.md">Открыть Gas current-authority audit CALL →</a> · <a href="../cross-track-recovery-notes-2026-07-20.md">Открыть recovery notes →</a></p>
         </article>
         <article class="panel" style="margin-top:14px">
-          <span class="label">READY · Геймдизайн и канон</span>
-          <strong>Решить, допускается ли принятый visual-development process в канон</strong>
-          <p><code>c-forge-g-d3a8-visual-contract-canon-admission-001</code></p>
-          <p><b>Что это:</b> owner-present admission уже выбранного paper-процесса; сам процесс здесь не переделывается.</p>
-          <p><b>Зачем:</b> отделить рабочий способ создания сравнительных пластин от фактического визуального канона игры.</p>
-          <p><b>Где сейчас:</b> paper answer принят как рабочий процесс, но ещё не admitted в canon authority; изображения и конкретный стиль не выбраны.</p>
-          <p><b>Что дальше:</b> выбрать ADMIT TO CANON, HOLD PAPER-ONLY или REJECT AS CANON CANDIDATE. Product и image generation не запускаются.</p>
-          <p><a href="../c-forge-g-d3a8-visual-contract-canon-admission-001-call.md">Открыть canon-admission CALL →</a></p>
+          <span class="label">READY · OWNER-PRESENT · Геймдизайн и канон · TEXT ONLY</span>
+          <strong>Согласовать c-003 с ещё text-only границей Canon Forge</strong>
+          <p><code>c-cartography-g-d3a8-visual-workflow-reconciliation-001</code></p>
+          <p><b>Что это:</b> отдельная owner-present картография процесса после admission c-003; она согласует только маршрут между действующим visual-development contract и нынешним запретом Forge на изображения.</p>
+          <p><b>Зачем:</b> c-003 уже делает binding только явно записанные visual rules и relations, но сам Canon Forge пока text-only. Нельзя открыть V1, смешав paper authority, owner selection и canon admission.</p>
+          <p><b>Где сейчас:</b> owner сказал «ADMIT TO CANON»; c-003 создана как действующая process-карточка. Внешний вид, изображения, environment, gas, Sphere, character, camera и UI не выбраны.</p>
+          <p><b>Что дальше:</b> показать владельцу точный минимальный process/map diff и получить его слова. До этого не генерировать и не выбирать изображения, не отвечать V1 и не менять c-003.</p>
+          <p><a href="../c-cartography-g-d3a8-visual-workflow-reconciliation-001-call.md">Открыть text-only reconciliation CALL →</a></p>
         </article>
         <article class="panel" style="margin-top:14px">
           <span class="label">WAITING · Level &amp; Environment</span>
@@ -441,6 +441,7 @@
           <details open>
             <summary><strong>21 июля</strong></summary>
             <ul class="remaining">
+              <li>Владелец сказал «ADMIT TO CANON»: точный visual-development contract стал действующей process-карточкой c-003. Внешний вид и изображения не выбраны; следующий canon root — только text-only согласование c-003 с границей Canon Forge, без запуска V1.</li>
               <li>Принятый Grid V1 master plan с обязательным Multiplayer handoff/gate опубликован в <code>origin/main</code> обычным fast-forward без force; exact remote readback подтвердил принятый файл. Следующий executor-plan остаётся READY/default, BUILD закрыт; отдельный plumbing-ref worktree не менялся.</li>
               <li>Владелец принял простой Grid V1 master plan точными словами «Принять план с обязательным Multiplayer handoff/gate». Grid владеет общим spatial/commit/change каркасом и Resolver, consumer behavior остаётся у своих треков; synthetic proof не закрывает M3, а co-op-ready требует отдельный two-peer proof. Следующий exact source/legacy plan READY/default, BUILD закрыт.</li>
               <li>Владелец выбрал A: Gas Simulation активирован как planning-only parallel track. Fresh V31/current-authority audit READY и не меняет default Grid; Wind зафиксирован как отдельный deferred layer outcome, не Gas scope и не текущий Grid V1 blocker.</li>

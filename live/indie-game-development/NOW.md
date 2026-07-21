@@ -1,6 +1,6 @@
 # NOW: indie-game-development
 
-updated: 2026-07-21 by s-work-grid-v1-critical-path-plan-accepted-001
+updated: 2026-07-21 by s-forge-g-d3a8-visual-contract-canon-admission-001
 
 bet: null
 
@@ -41,16 +41,16 @@ open_calls:
     call: work/c-exec-level-module-standard-v1-lv0-plan-001-call.md
     note: "WAITING / DO NOT RELAUNCH. Product LV0 PLAN evidence exists at b16981706ece53c584848255de2bd92675b5de7b, but binding Direction close is missing. When the owner activates Level, first reconcile exact HOME, current V31 and product truth; preserved aperture RED 5af1d8db931d10cc6149a2c1f8e1023bc3b9ffb1 remains evidence, not permission to issue BUILD."
 
-  - id: c-forge-g-d3a8-visual-contract-canon-admission-001
+  - id: c-cartography-g-d3a8-visual-workflow-reconciliation-001
     track: canon
     status: ready
     to: session
-    for: "g-d3a8 / canon admission of the exact visual-development contract paper answer"
-    issued: 2026-07-20
-    call: work/c-forge-g-d3a8-visual-contract-canon-admission-001-call.md
+    for: "g-d3a8 / reconcile admitted visual workflow with the still-text-only Canon Forge boundary"
+    issued: 2026-07-21
+    call: work/c-cartography-g-d3a8-visual-workflow-reconciliation-001-call.md
     receipts:
-      - history/2026-07-20-s-forge-g-d3a8-visual-contract-001.md
-    note: "READY / OWNER-PRESENT / ADMISSION ONLY. Review the exact existing q-visual-development-contract-paper-decision-v1.md without redesign. Verdict: ADMIT TO CANON / HOLD PAPER-ONLY / REJECT AS CANON CANDIDATE. No images, actual visual design, canon mutation before verdict, product or implementation. If admitted, do not launch V1 image generation until the text-only Canon Forge boundary is separately reconciled."
+      - history/2026-07-21-s-forge-g-d3a8-visual-contract-canon-admission-001.md
+    note: "READY / OWNER-PRESENT / TEXT ONLY. c-003 is admitted, but local/canon-forge still forbids images. Reconcile only that process/map boundary and obtain an exact owner-approved diff. Do not generate images, answer V1, choose appearance or modify c-003."
   - id: c-visual-009
     track: visual
     status: blocked

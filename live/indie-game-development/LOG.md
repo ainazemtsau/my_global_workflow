@@ -439,4 +439,6 @@ archived: history/LOG-archive-indie-game-development.md — sessions before 2026
 
 2026-07-21 · s-work-publish-grid-v1-accepted-plan-main-001 · work/publish · grid · g-4b92/repository-main: owner-requested accepted Grid V1 plan commit 20fe3d79 was fast-forwarded without force to origin/main with exact remote readback; the planning-only executor-plan CALL remains READY/default, BUILD stays closed, and the unrequested worktree remote ref remains unchanged. → history/2026-07-21-s-work-publish-grid-v1-accepted-plan-main-001.md
 
+2026-07-21 — local/canon-forge canon admission (g-d3a8/V0, s-forge-g-d3a8-visual-contract-canon-admission-001): owner verdict «ADMIT TO CANON» admits the exact visual-development contract as canon process card c-003; no appearance or image was created, and canon routing moves first to text-only visual-workflow reconciliation before V1. → history/2026-07-21-s-forge-g-d3a8-visual-contract-canon-admission-001.md
+
 END_OF_FILE: live/indie-game-development/LOG.md
