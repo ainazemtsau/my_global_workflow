@@ -1,6 +1,6 @@
 # NOW: indie-game-development
 
-updated: 2026-07-21 by s-review-grid-v1-executor-plan-001
+updated: 2026-07-21 by s-work-grid-v1-launch-control-handoff-001
 
 bet: null
 
@@ -85,16 +85,17 @@ open_calls:
       - history/2026-07-18-s-review-char-v2-published-handback-release-001.md
     note: "WAITING / PRODUCT REVIEW-CLOSING IN PROGRESS. Do not dispatch this frozen CALL again. It waits for owner LOOK, binding G5, product RESULT/Deliver and valid Direction close. A future Player Simulation / Actor Layer is fresh V31 work and cannot expand this lineage retroactively."
 
-  - id: c-work-grid-v1-launch-control-handoff-001
+  - id: c-work-grid-v1-document-authority-correction-001
     track: grid
     status: ready
     to: session
-    for: "g-4b92 / owner-present planning-only launch control before any future G01 admission"
+    for: "g-4b92 / owner-present correction of the single-current-documentation authority boundary"
     issued: 2026-07-21
-    call: work/c-work-grid-v1-launch-control-handoff-001-call.md
+    call: work/c-work-grid-v1-document-authority-correction-001-call.md
     receipts:
+      - history/2026-07-21-s-work-grid-v1-launch-control-handoff-001.md
       - history/2026-07-21-s-review-grid-v1-executor-plan-001.md
-    note: "READY / DEFAULT / OWNER-PRESENT / PLANNING ONLY / NO PRODUCT MUTATION. Binding fresh-session G5 could not refute the accepted Grid V1 executor plan against the locally observed clean product snapshot f6e4f725. Grid remains parallel and product progress is 0/11. This session prepares one binary launch-control handoff for possible later G01 admission, pins fresh v31/registry/venue/serialization checks and records the owner's exact words. It cannot issue G01, PAIR-CANDIDATE, BUILD or any engineering CALL, allocate a product venue, run product checks, amend the plan or retire the track."
+    note: "READY / DEFAULT / OWNER-PRESENT / PLANNING ONLY / CORRECTION FIRST / NO PRODUCT MUTATION. Owner accepted docs-before-code but rejected a minimal clause supersession: only one current documentation corpus may guide executors; every old document that can influence Grid must be mechanically fenced from authority with repo enforcement, stale-reference checks, a seeded negative control and fresh refutation, or be deleted from the current working tree while Git history remains. Amend only the accepted plan's G01 document-authority boundary and consistent F1/no-drift clauses with the owner's exact approval. No G01, product root, slot, test, BUILD or engineering CALL exists; Grid remains parallel at 0/11."
 
   - id: c-work-gas-v1-master-plan-001
     track: gas
@@ -118,6 +119,6 @@ decisions:
     recommendation: "Доступная физическая машина; gas simulation CPU-bound, поэтому CPU должен быть назван явно."
 
 next:
-  call: c-work-grid-v1-launch-control-handoff-001
+  call: c-work-grid-v1-document-authority-correction-001
 
 END_OF_FILE: live/indie-game-development/NOW.md

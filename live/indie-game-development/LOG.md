@@ -451,4 +451,6 @@ archived: history/LOG-archive-indie-game-development.md — sessions before 2026
 
 2026-07-21 · s-work-publish-grid-v1-review-main-001 · work/publish · grid · g-4b92/repository-main: owner-requested Grid executor-plan and binding-review commits through a1f3129d were fast-forwarded without force to origin/main with exact remote readback; launch-control remains READY/default at 0/11, product work stays closed, and the unrequested worktree remote ref remains unchanged. → history/2026-07-21-s-work-publish-grid-v1-review-main-001.md
 
+2026-07-21 · s-work-grid-v1-launch-control-handoff-001 · work · grid · g-4b92/v1-launch-control-handoff: owner accepted docs-before-code but required one mechanically enforced current documentation authority with archive-or-delete fallback; disposition is CORRECTION FIRST, one owner-present plan-amendment continuation is READY/default, Grid remains parallel at 0/11 and product execution stays closed. → history/2026-07-21-s-work-grid-v1-launch-control-handoff-001.md
+
 END_OF_FILE: live/indie-game-development/LOG.md
