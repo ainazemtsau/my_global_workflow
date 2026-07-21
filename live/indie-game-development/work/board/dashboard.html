@@ -293,7 +293,7 @@
           <a href="../program-v2-track-handoff-template.md">Handoff</a>
         </nav>
       </div>
-      <div class="updated">Обновлено 21 июля 2026<br>по RESULT s-review-grid-v1-document-authority-boundary-reset-001</div>
+      <div class="updated">Обновлено 21 июля 2026<br>по RESULT s-work-grid-v1-g01-product-plan-disposition-001</div>
     </header>
 
     <main>
@@ -306,9 +306,9 @@
 
         <article class="panel next">
           <span class="label">Следующий шаг</span>
-          <strong class="big">Собрать общий baseline демо и запуска</strong>
-          <p><a href="../launch-control/c-work-launch-control-stabilization-baseline-001-call.md">Открыть planning-сессию Demo &amp; Launch Control</a></p>
-          <p class="muted small">Сначала вместе с владельцем принимаются Demo Contract, целевая и запасная стратегии, зависимости, прогноз, риски, cuts, gates и правила безопасной ежедневной загрузки. Отдельная management-панель, регулярный запуск и требования другим трекам появятся только после baseline и ручного dry run.</p>
+          <strong class="big">Составить продуктовый PLAN первого Grid cleanup</strong>
+          <p><a href="../c-exec-grid-v1-g01-product-plan-001-call.md">Передать V31 G01 PLAN-root продуктовому исполнителю</a></p>
+          <p class="muted small">Grid снова является явным приоритетом владельца. Этот root сначала перечитывает свежую product authority, собирает один полный owner-readable PLAN и просит только финальный verdict по готовому плану. Сам cleanup, PAIR-CANDIDATE, BUILD и G02 в этом root не запускаются.</p>
         </article>
 
         <article class="panel">
@@ -343,7 +343,7 @@
           <p><a href="../c-exec-program-v2-legacy-lab-purge-release-001-call.md">Открыть blocked release continuation →</a> · <a href="../legacy-lab-purge-boundary-2026-07-20.md">Прочитать простой вердикт →</a></p>
         </article>
         <article class="panel" style="margin-top:14px">
-          <span class="label">READY · DEFAULT · DEMO &amp; LAUNCH CONTROL · ТОЛЬКО ПЛАНИРОВАНИЕ</span>
+          <span class="label">READY · NON-DEFAULT · DEMO &amp; LAUNCH CONTROL · ТОЛЬКО ПЛАНИРОВАНИЕ</span>
           <strong>Принять исходную систему управления демо и сроками</strong>
           <p><code>c-work-launch-control-stabilization-baseline-001</code></p>
           <p><b>Что это:</b> отдельная owner-present сессия, которая связывает обещание демо, выбранный Steam Next Fest и запасной вариант с реальными зависимостями, прогнозом, рисками, cuts и датами решений.</p>
@@ -353,14 +353,14 @@
           <p><a href="../launch-control/c-work-launch-control-stabilization-baseline-001-call.md">Открыть baseline-сессию →</a> · <a href="../../history/2026-07-21-s-map-launch-control-track-add-002.md">Прочитать принятое основание трека →</a></p>
         </article>
         <article class="panel" style="margin-top:14px">
-          <span class="label">READY · NON-DEFAULT · Grid · OWNER-PRESENT DISPOSITION · 0/11</span>
-          <strong>Решить, допускать ли один G01 product PLAN</strong>
-          <p><code>c-work-grid-v1-g01-product-plan-disposition-001</code></p>
-          <p><b>Что это:</b> короткая owner-present развилка после binding review: допустить один documentation-only G01 PLAN или оставить Grid закрытым.</p>
-          <p><b>Зачем:</b> fresh review не смог опровергнуть whole-file tracked deletion, короткий current allowlist, research-only Git history и fail-closed deletion rule. Это снимает прежний ledger/clause blocker, но само по себе не является разрешением на продуктовую работу.</p>
-          <p><b>Где сейчас:</b> accepted plan blob <code>2c95e10f</code> получил binding verdict <code>could-not-refute</code>. G02–G11, Wind, Multiplayer и технические gates не изменены; Grid parallel/unretired, progress 0/11, product root/slot/test/engineering CALL отсутствуют.</p>
-          <p><b>Что дальше:</b> владелец выбирает <code>ADMIT ONE G01 PLAN</code> или <code>HOLD GRID</code>. До его фактических слов G01 и G02 закрыты; correction-003 и новый document-authority loop запрещены.</p>
-          <p><a href="../c-work-grid-v1-g01-product-plan-disposition-001-call.md">Открыть disposition-сессию →</a> · <a href="../../history/2026-07-21-s-review-grid-v1-document-authority-boundary-reset-001.md">Прочитать binding review →</a> · <a href="../grid-v1-executor-plan.md">Прочитать current accepted plan →</a></p>
+          <span class="label">READY · DEFAULT · Grid · V31 PRODUCT PLAN ONLY · 0/11</span>
+          <strong>Составить и принять продуктовый PLAN первого Grid cleanup</strong>
+          <p><code>c-exec-grid-v1-g01-product-plan-001</code></p>
+          <p><b>Что это:</b> один documentation-only product root, который превращает уже принятую tracked-delete boundary в полный current-product G01 PLAN. Это планирование реализации cleanup, не сама уборка.</p>
+          <p><b>Зачем:</b> legacy normative Grid documents должны целиком уйти из current tree до новой реализации, а девять allowlisted current-authority paths — стать единственным обычным источником требований. Git history остаётся только research-evidence по отдельному запросу владельца.</p>
+          <p><b>Где сейчас:</b> владелец повторно зафиксировал, что Grid — самое приоритетное направление и legacy cleanup идёт первым. Accepted plan blob <code>2c95e10f</code> имеет binding verdict <code>could-not-refute</code>; один V31 PLAN-root READY/default. Grid остаётся parallel/unretired, progress 0/11.</p>
+          <p><b>Что дальше:</b> вручную передать CALL продуктовому исполнителю. Он перечитывает fresh product authority, возвращает один готовый owner-readable PLAN и отвлекает владельца только для финального verdict или реального material blocker. Cleanup, PAIR-CANDIDATE, BUILD и G02 пока закрыты; correction-003 не существует.</p>
+          <p><a href="../c-exec-grid-v1-g01-product-plan-001-call.md">Открыть G01 PLAN-root →</a> · <a href="../../history/2026-07-21-s-work-grid-v1-g01-product-plan-disposition-001.md">Прочитать owner disposition →</a> · <a href="../grid-v1-executor-plan.md">Прочитать current accepted plan →</a></p>
         </article>
         <article class="panel" style="margin-top:14px">
           <span class="label">READY · Gas Simulation · NODE 1 PLAN · NON-DEFAULT</span>
@@ -451,6 +451,7 @@
           <details open>
             <summary><strong>21 июля</strong></summary>
             <ul class="remaining">
+              <li>Владелец отклонил лишнюю симметричную формулировку HOLD и повторно зафиксировал, что Grid — самое приоритетное направление, а legacy cleanup идёт первым. Один documentation-only V31 G01 product PLAN-root теперь READY/default; он готовит полный current-product план и просит владельца только о финальном verdict по готовому артефакту. Grid остаётся parallel/unretired 0/11; cleanup execution, PAIR-CANDIDATE, BUILD и G02 не открыты. Процессный дефект повторного запроса уже выраженного launch intent сохранён для отдельного maintenance.</li>
               <li>Binding fresh review не смог опровергнуть упрощённую Grid document-authority boundary exact plan blob <code>2c95e10f</code>: self-covering ledger и clause-tombstone machinery отсутствуют, каждый legacy normative file вне девятипутевого allowlist удаляется целиком, deleted/history bytes доступны только по отдельному owner-directed research CALL, а невозможная lawful deletion блокирует G01 и G02. G02–G11 и technical ownership/gates не изменены; Grid остаётся parallel/unretired 0/11, один owner-present G01 PLAN disposition READY/non-default, product work закрыт.</li>
               <li>По прямой команде владельца упрощённая Grid document-authority boundary опубликована обычным fast-forward без force одновременно в <code>origin/wt/indie-game-development</code> и <code>origin/main</code>. Exact readback обеих refs подтвердил <code>40c72425</code> и plan blob <code>2c95e10f</code>: старые normative files целиком удаляются из current product tree, Git history остаётся research-only evidence, Grid review READY/non-default at 0/11, Launch Control default и product-work closure сохранены.</li>
               <li>Владелец остановил усложнение Grid document-authority: никаких manifest/ledger/gridref/clause registries и нового archive folder. Каждый старый нормативный документ вне короткого current allowlist должен быть целиком tracked-delete из product tree; Git history сохраняется только как evidence для отдельного owner-directed research. Один binding review READY/non-default, correction-003 и product work не открыты, Grid 0/11.</li>
@@ -584,16 +585,16 @@
           </article>
 
           <article class="track">
-            <div class="track-top"><div><div class="track-id">g-4b92</div><h3>Grid / Layers / World Change</h3></div><span class="pill ready">ready disposition · 0/11</span></div>
+            <div class="track-top"><div><div class="track-id">g-4b92</div><h3>Grid / Layers / World Change</h3></div><span class="pill ready">ready G01 PLAN · 0/11</span></div>
             <dl class="facts">
               <div class="fact"><dt>Сейчас</dt><dd>Binding fresh review could-not-refute простой tracked-delete-only boundary: старые normative files удаляются целиком, без archive/manifest/ledger/clause registry. Product progress остаётся 0 из 11 legs.</dd></div>
               <div class="fact"><dt>Вклад</dt><dd>Общее пространство и подтверждённые изменения, универсальный Object↔Layer Resolver и безопасная основа для consumer-driven Layer↔Layer связей.</dd></div>
-              <div class="fact"><dt>Текущий root</dt><dd><code>c-work-grid-v1-g01-product-plan-disposition-001</code> — owner-present выбор между одним G01 PLAN и HOLD; non-default, product root пока не существует.</dd></div>
+              <div class="fact"><dt>Текущий root</dt><dd><code>c-exec-grid-v1-g01-product-plan-001</code> — единственный V31 documentation-only G01 product PLAN; READY/default по прямым словам владельца о приоритете Grid. Cleanup implementation в этот root не входит.</dd></div>
               <div class="fact"><dt>Authority</dt><dd><a href="../grid-v1-executor-plan.md">Current accepted executor plan</a> blob <code>2c95e10f</code> + owner words + <a href="../../history/2026-07-21-s-review-grid-v1-document-authority-boundary-reset-001.md">binding boundary-reset review</a>.</dd></div>
-              <div class="fact"><dt>Conflict</dt><dd>Предыдущие ledger/self-reference и clause-tombstone проблемы удалены вместе с самим механизмом; fresh review не нашёл нового blocker. Git history ordinary work не читает, а G01/G02 остаются закрыты до фактических слов владельца.</dd></div>
+              <div class="fact"><dt>Conflict</dt><dd>Предыдущие ledger/self-reference и clause-tombstone проблемы удалены вместе с самим механизмом; fresh review не нашёл нового blocker. Git history ordinary work не читает. Следующий допустимый blocker — только реальный конфликт fresh product authority или невозможная lawful tracked deletion.</dd></div>
             </dl>
             <ul class="remaining">
-              <li><strong>Следом:</strong> владелец выбирает <code>ADMIT ONE G01 PLAN</code> или <code>HOLD GRID</code>; correction-003 и execution до выбора запрещены.</li>
+              <li><strong>Следом:</strong> product executor составляет полный owner-readable G01 PLAN; владелец подключается один раз для финального verdict. После принятого PLAN отдельный execution root выполняет cleanup; G02 остаётся закрыт до принятого, опубликованного и binding-reviewed результата G01.</li>
               <li>G01–G04 строго serial; после G04 Layer-path и Object-path параллелятся только при доказанном полном разделении рабочих поверхностей и последовательном merge.</li>
               <li>Gas/Wind/Character/Level/Program/Integration behavior и реальные adapters остаются у владельцев; synthetic layers дают только Grid-internal proof.</li>
               <li>Dashboard остаётся одной секцией существующей панели; отдельный render и BUILD не открыты.</li>

@@ -480,4 +480,6 @@ archived: history/LOG-archive-indie-game-development.md — sessions before 2026
 
 2026-07-21 · s-review-grid-v1-document-authority-boundary-reset-001 · review · grid · g-4b92/v1-document-authority-boundary-reset-review-001: binding fresh review could not refute the whole-file tracked-delete boundary, exact current allowlist, research-only Git history or deletion-failure block; Grid stays parallel/unretired at 0/11, cut add-back is 0 with none missed, and one owner-present G01 product-PLAN disposition is READY/non-default while all product work remains closed. → history/2026-07-21-s-review-grid-v1-document-authority-boundary-reset-001.md
 
+2026-07-21 · s-work-grid-v1-g01-product-plan-disposition-001 · work · grid · g-4b92/v1-g01-product-plan-disposition-001: owner rejected the redundant HOLD framing and reaffirmed Grid as the highest-priority direction with legacy cleanup first; one V31 documentation-only G01 product PLAN root is READY/default, Grid stays parallel/unretired at 0/11, G02 and cleanup execution remain closed, and the launch-intent dedup defect is captured for separate maintenance. → history/2026-07-21-s-work-grid-v1-g01-product-plan-disposition-001.md
+
 END_OF_FILE: live/indie-game-development/LOG.md

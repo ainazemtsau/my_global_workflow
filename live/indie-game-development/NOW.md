@@ -1,6 +1,6 @@
 # NOW: indie-game-development
 
-updated: 2026-07-21 by s-review-grid-v1-document-authority-boundary-reset-001
+updated: 2026-07-21 by s-work-grid-v1-g01-product-plan-disposition-001
 
 bet: null
 
@@ -41,7 +41,7 @@ open_calls:
     call: work/launch-control/c-work-launch-control-stabilization-baseline-001-call.md
     receipts:
       - history/2026-07-21-s-map-launch-control-track-add-002.md
-    note: "READY / DEFAULT / OWNER-PRESENT / PLANNING ONLY / NO DASHBOARD YET / NO DIRECTIVE DISPATCH / NO OS MUTATION. First establish one owner-approved release baseline: Demo Contract, target and fallback, dependency network, resource-constrained forecast, risks, cuts, gates, lawful Release Directive representation, dynamic owner/AI capacity rules, bounded Process Adaptation Authority and a plain-language dashboard specification. The numeric WIP value is compatibility-only and is not a capacity model."
+    note: "READY / NON-DEFAULT / OWNER-PRESENT / PLANNING ONLY / NO DASHBOARD YET / NO DIRECTIVE DISPATCH / NO OS MUTATION. First establish one owner-approved release baseline: Demo Contract, target and fallback, dependency network, resource-constrained forecast, risks, cuts, gates, lawful Release Directive representation, dynamic owner/AI capacity rules, bounded Process Adaptation Authority and a plain-language dashboard specification. The numeric WIP value is compatibility-only and is not a capacity model. Grid is now default by the owner's explicit priority words."
 
   - id: c-exec-level-module-standard-v1-lv0-plan-001
     track: level
@@ -97,16 +97,17 @@ open_calls:
       - history/2026-07-18-s-review-char-v2-published-handback-release-001.md
     note: "WAITING / PRODUCT REVIEW-CLOSING IN PROGRESS. Do not dispatch this frozen CALL again. It waits for owner LOOK, binding G5, product RESULT/Deliver and valid Direction close. A future Player Simulation / Actor Layer is fresh V31 work and cannot expand this lineage retroactively."
 
-  - id: c-work-grid-v1-g01-product-plan-disposition-001
+  - id: c-exec-grid-v1-g01-product-plan-001
     track: grid
     status: ready
-    to: session
-    for: "g-4b92 / owner-present disposition for one possible documentation-only G01 product PLAN"
+    to: executor
+    for: "g-4b92 / owner-approved current-product PLAN for the documentation-only Grid V1 G01 cleanup"
     issued: 2026-07-21
-    call: work/c-work-grid-v1-g01-product-plan-disposition-001-call.md
+    call: work/c-exec-grid-v1-g01-product-plan-001-call.md
     receipts:
       - history/2026-07-21-s-review-grid-v1-document-authority-boundary-reset-001.md
-    note: "READY / NON-DEFAULT / OWNER-PRESENT / DISPOSITION ONLY / NO PRODUCT ROOT YET. Binding fresh review could not refute whole-file tracked deletion, the exact current allowlist, research-only Git history or the deletion-failure block. Grid remains parallel/unretired at 0/11; G01/G02 and all engineering work stay closed until the owner's actual disposition words. No correction-003 or further document-authority loop."
+      - history/2026-07-21-s-work-grid-v1-g01-product-plan-disposition-001.md
+    note: "READY / DEFAULT / OWNER-ADMITTED / V31 / PRODUCT PLAN ONLY / NO CLEANUP EXECUTION. The owner reaffirmed that Grid is the highest-priority direction and that legacy cleanup is its first step. This single root authors and obtains owner approval for the current-product G01 PLAN only; it may not execute cleanup, open PAIR-CANDIDATE/BUILD or start G02. Grid remains parallel/unretired at 0/11 until product evidence returns."
 
   - id: c-work-gas-v1-live-composition-plan-001
     track: gas
@@ -129,6 +130,6 @@ decisions:
     recommendation: "Доступная физическая машина; gas simulation CPU-bound, поэтому CPU должен быть назван явно."
 
 next:
-  call: c-work-launch-control-stabilization-baseline-001
+  call: c-exec-grid-v1-g01-product-plan-001
 
 END_OF_FILE: live/indie-game-development/NOW.md
