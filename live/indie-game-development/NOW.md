@@ -1,6 +1,6 @@
 # NOW: indie-game-development
 
-updated: 2026-07-21 by s-review-grid-v1-document-authority-amendment-001
+updated: 2026-07-21 by s-work-grid-v1-document-authority-correction-002
 
 bet: null
 
@@ -85,16 +85,16 @@ open_calls:
       - history/2026-07-18-s-review-char-v2-published-handback-release-001.md
     note: "WAITING / PRODUCT REVIEW-CLOSING IN PROGRESS. Do not dispatch this frozen CALL again. It waits for owner LOOK, binding G5, product RESULT/Deliver and valid Direction close. A future Player Simulation / Actor Layer is fresh V31 work and cannot expand this lineage retroactively."
 
-  - id: c-work-grid-v1-document-authority-correction-002
+  - id: c-review-grid-v1-document-authority-amendment-002
     track: grid
     status: ready
     to: session
-    for: "g-4b92 / same-position correction of the refuted Grid V1 document-authority amendment"
+    for: "g-4b92 / binding fresh review of the owner-approved simplified Grid V1 document-authority correction"
     issued: 2026-07-21
-    call: work/c-work-grid-v1-document-authority-correction-002-call.md
+    call: work/c-review-grid-v1-document-authority-amendment-002-call.md
     receipts:
-      - history/2026-07-21-s-review-grid-v1-document-authority-amendment-001.md
-    note: "READY / DEFAULT / OWNER-PRESENT / SAME-POSITION CORRECTION / PLANNING ARTIFACT ONLY / NO PRODUCT MUTATION. Binding fresh review REFUTED the accepted amendment on coupled authority holes: its universal later-CALL rule needs a corpus before G01 exists; the manifest is in its own literal path/blob allowlist without an external self-anchor; the tracked inventory does not fence executor-discoverable ignored/history inputs or define link/disposition identity; free-text current-only/provenance claims can be laundered through a valid but irrelevant allowlisted citation; and section 8 still points to the consumed pre-amendment review. Exact owner words `Принимаю поправку целиком`, technical Grid mechanics, eleven legs, owners, gates and deletion fallback remain intact. Correct only this documentary boundary, obtain owner words, then return to fresh review. No G01, product root, slot, test, BUILD or engineering CALL exists; Grid remains parallel at 0/11."
+      - history/2026-07-21-s-work-grid-v1-document-authority-correction-002.md
+    note: "READY / DEFAULT / BINDING FRESH REVIEW / PLANNING ARTIFACT ONLY / NO PRODUCT MUTATION. The owner accepted the simplified correction with exact words `Окей, принимаю прощённую correction 2 по шести правилам.` Corrected plan blob 8af16563 separates pre/post-G01 identity, externally anchors the non-self-referential manifest, keeps a base-pinned rename/split/delete ledger, requires actual input isolation or tracked deletion, and assigns file/access checks to mechanics while fresh review owns meaning. The review must attack all prior RED classes and the three negative controls. If refuted again, the chain stops rather than opening correction-003. No G01, product root, slot, test, BUILD or engineering CALL exists; Grid remains parallel at 0/11."
 
   - id: c-work-gas-v1-live-composition-plan-001
     track: gas
@@ -117,6 +117,6 @@ decisions:
     recommendation: "Доступная физическая машина; gas simulation CPU-bound, поэтому CPU должен быть назван явно."
 
 next:
-  call: c-work-grid-v1-document-authority-correction-002
+  call: c-review-grid-v1-document-authority-amendment-002
 
 END_OF_FILE: live/indie-game-development/NOW.md

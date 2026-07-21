@@ -464,4 +464,6 @@ archived: history/LOG-archive-indie-game-development.md — sessions before 2026
 
 2026-07-21 · s-review-grid-v1-document-authority-amendment-001 · review · grid · g-4b92/v1-document-authority-amendment-review: binding fresh review refuted the accepted Grid document-authority amendment on pre-G01 corpus bootstrap, manifest self-identity, input/inventory/disposition and free-text provenance closure, plus its stale handoff; one same-position planning correction is READY/default, Grid remains parallel at 0/11, product execution stays closed, and cut add-back is 0 with none missed. → history/2026-07-21-s-review-grid-v1-document-authority-amendment-001.md
 
+2026-07-21 · s-work-grid-v1-document-authority-correction-002 · work · grid · g-4b92/v1-document-authority-correction-002: owner accepted the simplified six-rule Grid document-authority correction; the plan now separates pre/post-G01 identity, externally anchors its manifest, preserves a stable disposition ledger and mandatory isolation-or-delete fallback, and routes only to one binding fresh review while Grid remains parallel at 0/11 and product execution stays closed. → history/2026-07-21-s-work-grid-v1-document-authority-correction-002.md
+
 END_OF_FILE: live/indie-game-development/LOG.md

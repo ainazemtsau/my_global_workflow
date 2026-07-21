@@ -293,7 +293,7 @@
           <a href="../program-v2-track-handoff-template.md">Handoff</a>
         </nav>
       </div>
-      <div class="updated">Обновлено 21 июля 2026<br>по RESULT s-review-grid-v1-document-authority-amendment-001</div>
+      <div class="updated">Обновлено 21 июля 2026<br>по RESULT s-work-grid-v1-document-authority-correction-002</div>
     </header>
 
     <main>
@@ -306,9 +306,9 @@
 
         <article class="panel next">
           <span class="label">Следующий шаг</span>
-          <strong class="big">Исправить опровергнутую Grid document-authority границу</strong>
-          <p><a href="../c-work-grid-v1-document-authority-correction-002-call.md">Открыть owner-present planning correction</a></p>
-          <p class="muted small">Binding fresh review нашёл круговой bootstrap corpus до G01, self-reference manifest, незакрытые ignored/history inputs и free-text provenance, а также stale handoff на старый review. Исправляется только эта документальная граница; product work остаётся закрыт.</p>
+          <strong class="big">Свежо проверить упрощённую Grid document-authority поправку</strong>
+          <p><a href="../c-review-grid-v1-document-authority-amendment-002-call.md">Открыть binding fresh review</a></p>
+          <p class="muted small">Владелец принял шесть простых правил: до и после G01 действуют разные identity, manifest не ссылается на себя, судьба старых документов не теряется, недоказуемый архив удаляется, а смысл проверяет отдельное ревью. До его вердикта product work остаётся закрыт.</p>
         </article>
 
         <article class="panel">
@@ -343,14 +343,14 @@
           <p><a href="../c-exec-program-v2-legacy-lab-purge-release-001-call.md">Открыть blocked release continuation →</a> · <a href="../legacy-lab-purge-boundary-2026-07-20.md">Прочитать простой вердикт →</a></p>
         </article>
         <article class="panel" style="margin-top:14px">
-          <span class="label">READY · DEFAULT · Grid · OWNER-PRESENT CORRECTION</span>
-          <strong>Замкнуть document-authority без круговой или скрытой authority</strong>
-          <p><code>c-work-grid-v1-document-authority-correction-002</code></p>
-          <p><b>Что это:</b> одна planning-only поправка в том же месте после binding verdict <code>refuted</code>. Она исправляет bootstrap до G01, identity manifest, inventory/disposition/input fence, free-text provenance и stale handoff.</p>
-          <p><b>Зачем:</b> принятый текст обещает механическую единственную authority, но текущий CALL уже нарушает требование назвать ещё не существующий corpus, manifest не имеет внешнего self-anchor, ignored/history input может пройти мимо tracked inventory, а валидная ссылка может маскировать неподдержанный тезис.</p>
-          <p><b>Где сейчас:</b> точные слова владельца «Принимаю поправку целиком» и технический Grid-route сохранены, но не отменяют RED. Grid остаётся parallel/unretired и 0/11; G01, product root, slot, test и engineering CALL не открыты.</p>
-          <p><b>Что дальше:</b> показать владельцу один точный исправляющий diff и получить его actual words. Даже чистая поправка откроет только отдельный fresh review; до него product work запрещён.</p>
-          <p><a href="../c-work-grid-v1-document-authority-correction-002-call.md">Открыть correction →</a> · <a href="../grid-v1-executor-plan.md">Прочитать current accepted plan →</a> · <a href="../../history/2026-07-21-s-review-grid-v1-document-authority-amendment-001.md">Прочитать binding refutation →</a></p>
+          <span class="label">READY · DEFAULT · Grid · BINDING FRESH REVIEW</span>
+          <strong>Проверить принятую упрощённую поправку перед любым G01</strong>
+          <p><code>c-review-grid-v1-document-authority-amendment-002</code></p>
+          <p><b>Что это:</b> отдельная свежая проверка исправленного planning-файла. Она не проектирует Grid заново и не запускает продуктовую работу.</p>
+          <p><b>Зачем:</b> прошлое ревью нашло пять дыр в документальной защите. Владелец принял упрощённое исправление: будущий файл не требуется заранее, manifest не включает себя, история каждого документа сохраняется, архив требует реальной изоляции, а смысл не подменяется проверкой хеша.</p>
+          <p><b>Где сейчас:</b> точные слова владельца «Окей, принимаю прощённую correction 2 по шести правилам.» записаны в plan blob <code>8af16563</code>. Grid остаётся parallel/unretired и 0/11; G01, product root, slot, test и engineering CALL не открыты.</p>
+          <p><b>Что дальше:</b> fresh review пытается опровергнуть все прежние ошибки и три контрольных обхода. Чистый вердикт разрешит только отдельное обсуждение допуска G01; повторное опровержение остановит цепочку без автоматической correction-003.</p>
+          <p><a href="../c-review-grid-v1-document-authority-amendment-002-call.md">Открыть fresh review →</a> · <a href="../grid-v1-executor-plan.md">Прочитать current accepted plan →</a> · <a href="../../history/2026-07-21-s-work-grid-v1-document-authority-correction-002.md">Прочитать принятую correction →</a></p>
         </article>
         <article class="panel" style="margin-top:14px">
           <span class="label">READY · Gas Simulation · NODE 1 PLAN · NON-DEFAULT</span>
@@ -441,6 +441,7 @@
           <details open>
             <summary><strong>21 июля</strong></summary>
             <ul class="remaining">
+              <li>Владелец принял упрощённую Grid V1 document-authority correction точными словами «Окей, принимаю прощённую correction 2 по шести правилам.» План теперь разделяет правила до и после G01, фиксирует manifest без self-reference, сохраняет судьбу документов после rename/split/delete, требует реальную input isolation или tracked deletion и отдаёт проверку смысла отдельному fresh review. Ровно один такой review READY/default; Grid остаётся parallel 0/11, product work закрыт.</li>
               <li>Binding fresh review опроверг принятую Grid V1 document-authority поправку: правило для каждого later CALL требует corpus до его создания в G01, manifest не имеет некругового self-anchor, tracked inventory не закрывает ignored/history inputs и устойчивые dispositions, free-text тезис можно отмыть валидной, но нерелевантной ссылкой, а section 8 всё ещё ведёт к consumed pre-amendment review. Технический Grid-route, deletion fallback и Git-history preservation сохранены; одна owner-present correction READY/default, Grid parallel 0/11, product work закрыт.</li>
               <li>Владелец принял полную Grid V1 document-authority поправку точными словами «Принимаю поправку целиком». Accepted plan теперь требует полный tracked-text inventory, один literal-path/blob current corpus, ровно один archive-with-proof или tracked-delete disposition для каждого старого документа, repo/input/output guards, seeded miss и обязательное удаление при недоказуемом архиве. Grid остаётся parallel и 0/11; READY/default только свежая проверка поправки, без G01 или product work.</li>
               <li>Принятый девятиступенчатый Gas V1 master plan и node-1 planning continuation опубликованы обычным fast-forward без force одновременно в <code>origin/wt/indie-game-development</code> и <code>origin/main</code>. Exact remote readback обеих refs подтвердил snapshot <code>ca19da0b</code>, accepted plan, обязательные full-level scale и Multiplayer gates, Gas READY/non-default и сохранённый Grid document-authority correction как default; BUILD закрыт.</li>
@@ -566,16 +567,16 @@
           </article>
 
           <article class="track">
-            <div class="track-top"><div><div class="track-id">g-4b92</div><h3>Grid / Layers / World Change</h3></div><span class="pill ready">ready · authority correction</span></div>
+            <div class="track-top"><div><div class="track-id">g-4b92</div><h3>Grid / Layers / World Change</h3></div><span class="pill ready">ready · fresh review</span></div>
             <dl class="facts">
-              <div class="fact"><dt>Сейчас</dt><dd>Binding fresh review дал <code>refuted</code>: принятая document-authority поправка не замыкает bootstrap, self-identity manifest, фактические inputs и semantic provenance. Product progress остаётся 0 из 11 legs.</dd></div>
+              <div class="fact"><dt>Сейчас</dt><dd>Владелец принял упрощённую document-authority correction по шести правилам. Исправленный planning artifact ждёт одной binding fresh проверки; product progress остаётся 0 из 11 legs.</dd></div>
               <div class="fact"><dt>Вклад</dt><dd>Общее пространство и подтверждённые изменения, универсальный Object↔Layer Resolver и безопасная основа для consumer-driven Layer↔Layer связей.</dd></div>
-              <div class="fact"><dt>Текущий root</dt><dd><a href="../c-work-grid-v1-document-authority-correction-002-call.md">Owner-present correction опровергнутой поправки</a> — READY/default; он не открывает product root, слот или engineering CALL.</dd></div>
-              <div class="fact"><dt>Authority</dt><dd><a href="../grid-v1-executor-plan.md">Current accepted executor plan</a> blob <code>c00b6e3b</code> + <a href="../../history/2026-07-21-s-review-grid-v1-document-authority-amendment-001.md">binding refutation matrix</a>. Exact owner words и прежний technical review сохраняются только для тех claims, которые review не опроверг.</dd></div>
-              <div class="fact"><dt>Conflict</dt><dd>До-G01 CALL обязан назвать ещё не существующий corpus; manifest включён в собственный blob allowlist; ignored/history input и valid-citation laundering обходят заявленный fence; section 8 ведёт к consumed review. До correction + owner verdict + нового fresh review product work запрещён.</dd></div>
+              <div class="fact"><dt>Текущий root</dt><dd><a href="../c-review-grid-v1-document-authority-amendment-002-call.md">Binding fresh review принятой correction</a> — READY/default; он не открывает product root, слот или engineering CALL.</dd></div>
+              <div class="fact"><dt>Authority</dt><dd><a href="../grid-v1-executor-plan.md">Current accepted executor plan</a> blob <code>8af16563</code> + <a href="../../history/2026-07-21-s-work-grid-v1-document-authority-correction-002.md">owner-approved correction receipt</a> + прежняя <a href="../../history/2026-07-21-s-review-grid-v1-document-authority-amendment-001.md">refutation matrix</a>.</dd></div>
+              <div class="fact"><dt>Conflict</dt><dd>Поправка ещё не имеет binding fresh verdict. До него G01 и весь product execution закрыты; если review снова найдёт контрпример, цепочка останавливается без correction-003 и возвращается к отдельному решению владельца.</dd></div>
             </dl>
             <ul class="remaining">
-              <li><strong>Следом:</strong> один exact correction diff закрывает все RED rows и возвращается только к fresh planning-artifact review после actual owner words.</li>
+              <li><strong>Следом:</strong> одна свежая сессия пытается опровергнуть все прежние RED-классы и контрольные обходы; чистый результат открывает только planning launch-control.</li>
               <li>G01–G04 строго serial; после G04 Layer-path и Object-path параллелятся только при доказанном полном разделении рабочих поверхностей и последовательном merge.</li>
               <li>Gas/Wind/Character/Level/Program/Integration behavior и реальные adapters остаются у владельцев; synthetic layers дают только Grid-internal proof.</li>
               <li>Dashboard остаётся одной секцией существующей панели; отдельный render и BUILD не открыты.</li>
