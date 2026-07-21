@@ -1,6 +1,6 @@
 # NOW: indie-game-development
 
-updated: 2026-07-21 by s-work-grid-v1-document-authority-boundary-reset-001
+updated: 2026-07-21 by s-review-grid-v1-document-authority-boundary-reset-001
 
 bet: null
 
@@ -97,17 +97,16 @@ open_calls:
       - history/2026-07-18-s-review-char-v2-published-handback-release-001.md
     note: "WAITING / PRODUCT REVIEW-CLOSING IN PROGRESS. Do not dispatch this frozen CALL again. It waits for owner LOOK, binding G5, product RESULT/Deliver and valid Direction close. A future Player Simulation / Actor Layer is fresh V31 work and cannot expand this lineage retroactively."
 
-  - id: c-review-grid-v1-document-authority-boundary-reset-001
+  - id: c-work-grid-v1-g01-product-plan-disposition-001
     track: grid
     status: ready
     to: session
-    for: "g-4b92 / binding fresh review of the tracked-delete-only document-authority boundary"
+    for: "g-4b92 / owner-present disposition for one possible documentation-only G01 product PLAN"
     issued: 2026-07-21
-    call: work/c-review-grid-v1-document-authority-boundary-reset-001-call.md
+    call: work/c-work-grid-v1-g01-product-plan-disposition-001-call.md
     receipts:
-      - history/2026-07-21-s-review-grid-v1-document-authority-amendment-002.md
-      - history/2026-07-21-s-work-grid-v1-document-authority-boundary-reset-001.md
-    note: "READY / NON-DEFAULT / REVIEW ONLY / NO CORRECTION LOOP / NO PRODUCT LAUNCH. Owner rejected registry complexity and chose whole-file tracked deletion when archive isolation is uncertain. The exact plan blob removes manifest/ledger/gridref/clause machinery, keeps Git history research-only, and leaves Grid parallel at 0/11. Review may not open correction-003, product PLAN or engineering work."
+      - history/2026-07-21-s-review-grid-v1-document-authority-boundary-reset-001.md
+    note: "READY / NON-DEFAULT / OWNER-PRESENT / DISPOSITION ONLY / NO PRODUCT ROOT YET. Binding fresh review could not refute whole-file tracked deletion, the exact current allowlist, research-only Git history or the deletion-failure block. Grid remains parallel/unretired at 0/11; G01/G02 and all engineering work stay closed until the owner's actual disposition words. No correction-003 or further document-authority loop."
 
   - id: c-work-gas-v1-live-composition-plan-001
     track: gas
