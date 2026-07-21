@@ -486,4 +486,6 @@ archived: history/LOG-archive-indie-game-development.md — sessions before 2026
 
 2026-07-21 · s-work-grid-v1-g01-v31-refreeze-repair-authorized-001 · work · grid · g-4b92/G01-V31-REFREEZE-REPAIR: owner exact words `AUTHORIZE V31 RE-FREEZE RECEIPT REPAIR` admitted one contract-31 product-process root for truthful same-root PLAN re-freeze receipt, fresh review and PlanPublication; Grid stays parallel at 0/11, frozen exact-12 meaning and cleanup/G02 closure remain unchanged, and no product work was launched here. → history/2026-07-21-s-work-grid-v1-g01-v31-refreeze-repair-authorized-001.md
 
+2026-07-21 · s-work-launch-control-stabilization-baseline-checkpoint-001 · work · launch-control · g-b847/stabilization-baseline: checkpoint after repeated scope/communication failure; Launch Control root remains valid, no baseline is claimed accepted, mechanics/hook/evidence deep-dives are removed from the management session, and one fresh recovery root will present the complete plain-language release strategy, milestone chain, five-day gate, forecast, risk/cut model, Daily Command and dashboard specification in one coherent draft. → history/2026-07-21-s-work-launch-control-stabilization-baseline-checkpoint-001.md
+
 END_OF_FILE: live/indie-game-development/LOG.md

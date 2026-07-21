@@ -1,6 +1,6 @@
 # NOW: indie-game-development
 
-updated: 2026-07-21 by s-work-grid-v1-g01-v31-refreeze-repair-authorized-001
+updated: 2026-07-21 by s-work-launch-control-stabilization-baseline-checkpoint-001
 
 bet: null
 
@@ -32,16 +32,16 @@ open_calls:
       - history/2026-07-20-s-work-program-v2-legacy-lab-purge-deliver-blocked-001.md
     note: "BLOCKED / V31 RELEASE CONTINUATION / ROOT NOT RELEASED. Product candidate 72c7c8c6 removes the 24 approved tracked paths, preserves KEEP, adds the <=400-word no-growth policy, passes fresh non-author G5 and normal gates (1829/1829), and is integrated only in local dev through c5c21c13 with blocker evidence baf8513c. Deliver is RED solely because pre-existing review-c-exec-char-v2-source-router-repair-001 does not account for source commit 413149ce after reviewed commit 8a0e33ec. No push/merge/release; origin refs remain 45b15623; WIN-U1 is DRAINING with lease preserved. Do not dispatch or return to feature work until unblock_when is true."
 
-  - id: c-work-launch-control-stabilization-baseline-001
+  - id: c-work-launch-control-stabilization-baseline-recovery-001
     track: launch-control
     status: ready
     to: session
-    for: "g-b847 / owner-present Stabilization Baseline, Dispatch & Process-Adaptation Contract"
+    for: "g-b847 / fresh recovery of the complete plain-language release-control baseline"
     issued: 2026-07-21
-    call: work/launch-control/c-work-launch-control-stabilization-baseline-001-call.md
+    call: work/launch-control/c-work-launch-control-stabilization-baseline-recovery-001-call.md
     receipts:
-      - history/2026-07-21-s-map-launch-control-track-add-002.md
-    note: "READY / NON-DEFAULT / OWNER-PRESENT / PLANNING ONLY / NO DASHBOARD YET / NO DIRECTIVE DISPATCH / NO OS MUTATION. First establish one owner-approved release baseline: Demo Contract, target and fallback, dependency network, resource-constrained forecast, risks, cuts, gates, lawful Release Directive representation, dynamic owner/AI capacity rules, bounded Process Adaptation Authority and a plain-language dashboard specification. The numeric WIP value is compatibility-only and is not a capacity model. Grid is now default by the owner's explicit priority words."
+      - history/2026-07-21-s-work-launch-control-stabilization-baseline-checkpoint-001.md
+    note: "READY / DEFAULT / FRESH-SESSION RECOVERY / OWNER INPUTS COMPLETE. Present one coherent release strategy and full baseline draft; do not reopen gameplay mechanics, hook frameworks or validation-instrument design. The artifact must show target/fallback, release milestones, first five-day gate, current date-determining chain, scenario forecast, risks/cuts, track obligations, Daily Command, dynamic parallelism, process adaptation and dashboard fields in ordinary Russian. No dispatch, dashboard, recurring control, product mutation or OS change before owner acceptance."
 
   - id: c-exec-level-module-standard-v1-lv0-plan-001
     track: level
@@ -129,6 +129,6 @@ decisions:
     options: ["Доступная физическая машина", "Точный CPU/GPU/RAM-класс с арендой/покупкой к финалу", "Только throttled-прокси — финал не закрывает"]
     recommendation: "Доступная физическая машина; gas simulation CPU-bound, поэтому CPU должен быть назван явно."
 next:
-  call: c-exec-grid-v1-g01-v31-refreeze-receipt-repair-001
+  call: c-work-launch-control-stabilization-baseline-recovery-001
 
 END_OF_FILE: live/indie-game-development/NOW.md
