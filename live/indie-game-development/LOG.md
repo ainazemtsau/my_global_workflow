@@ -472,4 +472,6 @@ archived: history/LOG-archive-indie-game-development.md — sessions before 2026
 
 2026-07-21 · s-review-grid-v1-document-authority-amendment-002 · review · grid · g-4b92/v1-document-authority-amendment-review-002: binding fresh review refuted correction-002 because the disposition ledger remains self-covering/underspecified and cannot mechanically prove clause-level tombstones for sections removed inside retained files; the correction chain stops at an owner decision, Grid stays parallel at 0/11, deletion fallback/history and the technical route remain unchanged, and cut add-back is 0 with none missed. → history/2026-07-21-s-review-grid-v1-document-authority-amendment-002.md
 
+2026-07-21 · s-work-publish-launch-control-main-001 · work/publish · launch-control · g-b847/repository-main: owner-requested Launch Control commit 4f27739c plus compatible current Grid state were published without force to origin/wt/indie-game-development and merged into origin/main at 7af8e32f with exact SHA/artifact readback; the baseline remains READY/default, the Grid decision and prior publication receipt are preserved, and no dashboard, recurring control, directive, OS or product work starts. → history/2026-07-21-s-work-publish-launch-control-main-001.md
+
 END_OF_FILE: live/indie-game-development/LOG.md
