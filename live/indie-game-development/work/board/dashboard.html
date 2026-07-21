@@ -293,7 +293,7 @@
           <a href="../program-v2-track-handoff-template.md">Handoff</a>
         </nav>
       </div>
-      <div class="updated">Обновлено 21 июля 2026<br>по RESULT s-work-grid-v1-launch-control-handoff-001</div>
+      <div class="updated">Обновлено 21 июля 2026<br>по RESULT s-work-gas-v1-master-plan-accepted-001</div>
     </header>
 
     <main>
@@ -353,14 +353,14 @@
           <p><a href="../c-work-grid-v1-document-authority-correction-001-call.md">Открыть planning-only поправку →</a> · <a href="../grid-v1-g01-launch-control-handoff.md">Прочитать простой launch control →</a> · <a href="../grid-v1-executor-plan.md">Прочитать принятый executor plan →</a></p>
         </article>
         <article class="panel" style="margin-top:14px">
-          <span class="label">READY · Gas Simulation · MASTER PLAN</span>
-          <strong>Собрать ступенчатую карту Gas V1</strong>
-          <p><code>c-work-gas-v1-master-plan-001</code></p>
-          <p><b>Что это:</b> owner-present planning-сессия, которая покажет весь путь Gas Simulation от выпущенного подробного ядра до результата для полного уровня, сети и общей сцены.</p>
-          <p><b>Зачем:</b> владелец принял полный master plan сейчас, но потребовал не проектировать все задачи заранее. Карта обязана разбить путь на крупные узлы; каждый узел получит отдельный подробный план и владельческое решение до реализации.</p>
-          <p><b>Где сейчас:</b> аудит принят. NearGas — выпущенная detailed foundation, а не готовая система полного уровня. Обязательные будущие узлы включают live composition, runtime sources, подтверждённое чтение, generated-level intake, оптимизацию примерно 150 комнат, world change, player consequence и сетевой handoff. Gas владеет симуляцией; Multiplayer/Program — сетевой сессией и доставкой действий.</p>
-          <p><b>Что дальше:</b> записать понятную карту узлов, зависимостей, доказательств и owner gates. Способ оптимизации обсуждается отдельно перед её реализацией; exact Grid signatures ждут contract freeze. Product work и BUILD не открываются, Direction default остаётся у Grid.</p>
-          <p><a href="../c-work-gas-v1-master-plan-001-call.md">Открыть Gas V1 master-plan CALL →</a> · <a href="../gas-v1-current-authority-audit-2026-07-21.md">Прочитать принятый Gas audit →</a></p>
+          <span class="label">READY · Gas Simulation · NODE 1 PLAN · NON-DEFAULT</span>
+          <strong>Подробно спланировать первый живой Gas tick</strong>
+          <p><code>c-work-gas-v1-live-composition-plan-001</code></p>
+          <p><b>Что это:</b> owner-present подробный план только первого узла принятой девятиступенчатой дороги Gas V1: подключить выпущенную NearGas foundation к одному законному production simulation loop.</p>
+          <p><b>Зачем:</b> без одного детерминированного владельца тика источники, Level, игроки и сеть будут подключаться к лабораторной заготовке, а не к настоящей игровой capability.</p>
+          <p><b>Где сейчас:</b> владелец принял весь master plan словами «Окей, подтверждаю план». Реализация по-прежнему закрыта; текущие transport, types, reactions, forced flow и атомарность должны сохраниться.</p>
+          <p><b>Что дальше:</b> свежо перечитать product authority, показать владельцу материальные варианты composition boundary и принять один подробный план. До отдельного вердикта нельзя открывать BUILD или executor CALL. Direction default остаётся у Grid.</p>
+          <p><a href="../c-work-gas-v1-live-composition-plan-001-call.md">Открыть node-1 planning CALL →</a> · <a href="../gas-v1-master-plan.md">Прочитать принятый Gas V1 master plan →</a> · <a href="../gas-v1-current-authority-audit-2026-07-21.md">Прочитать принятый Gas audit →</a></p>
         </article>
         <article class="panel" style="margin-top:14px">
           <span class="label">READY · OWNER-PRESENT · Геймдизайн и канон · TEXT ONLY</span>
@@ -441,6 +441,7 @@
           <details open>
             <summary><strong>21 июля</strong></summary>
             <ul class="remaining">
+              <li>Владелец подтвердил девятиступенчатый Gas V1 master plan словами «Окей, подтверждаю план». Маршрут ведёт от live deterministic composition через runtime sources, committed publication, generated Level, обязательный full-level scale, world change и player consequence к реальному Multiplayer proof и одной permanent Integration intake. Каждый узел сначала получает отдельный owner-present подробный план; сейчас READY/non-default только план узла 1, BUILD закрыт, Grid остаётся default.</li>
               <li>Владелец принял порядок «сначала документы, потом код», но потребовал строгую единственную документационную authority: старая документация должна быть механически ограждена от влияния на executor или удалена из текущего рабочего дерева с сохранением Git history. Нынешняя минимальная G01-граница недостаточна, поэтому verdict <code>CORRECTION FIRST</code>; одна owner-present поправка плана READY/default, Grid остаётся parallel и 0/11, product work закрыт.</li>
               <li>Принятый Grid V1 executor plan и его binding review опубликованы в <code>origin/main</code> обычным fast-forward без force. Exact remote readback подтвердил verdict <code>could-not-refute</code>, Grid остаётся parallel и 0/11, а READY/default по-прежнему только planning-only launch-control handoff; product work и G01 не открыты, отдельный worktree remote ref не менялся.</li>
               <li>Binding fresh-session G5 не смог опровергнуть принятый Grid V1 executor plan против текущего локально наблюдаемого чистого product snapshot <code>f6e4f725</code>. Exact matrix, одиннадцать bounded legs, serial foundation, fail-serial post-G04 окно, реальные Gas+Wind gates, обязательный two-peer proof и no-drift chain сохранились. Grid остаётся parallel и 0/11; READY/default только owner-present planning launch-control handoff, без G01 или product root.</li>
@@ -533,19 +534,29 @@
           </article>
 
           <article class="track">
-            <div class="track-top"><div><div class="track-id">g-1a63</div><h3>Gas Simulation</h3></div><span class="pill ready">ready · master plan</span></div>
+            <div class="track-top"><div><div class="track-id">g-1a63</div><h3>Gas Simulation</h3></div><span class="pill ready">ready · node 1 plan</span></div>
             <dl class="facts">
-              <div class="fact"><dt>Сейчас</dt><dd>Current-authority audit принят. NearGas L1B foundation выпущена на <code>693e671b</code>, но live composition, scale, world change, player consequence и network composition отсутствуют.</dd></div>
-              <div class="fact"><dt>Вклад</dt><dd>Детерминированная симуляция газа, types/reactions/sources, Gas-side scale proof, committed read/output и последствия для потребителей.</dd></div>
-              <div class="fact"><dt>Текущий root</dt><dd><a href="../c-work-gas-v1-master-plan-001-call.md">Ступенчатый Gas V1 master plan</a> — READY/non-default, owner-present и без BUILD.</dd></div>
-              <div class="fact"><dt>Authority</dt><dd><a href="../gas-v1-current-authority-audit-2026-07-21.md">Accepted current-authority audit</a> + terminal <a href="../../history/2026-07-19-s-work-near-gas-l1b-v29-terminal-home-close-001.md">L1B close</a> + current product SPEC/ADR.</dd></div>
-              <div class="fact"><dt>Conflict</dt><dd>Старые тексты противоречат друг другу о подробной и дальней authority. Scale-модель выбирается отдельным owner gate; exact committed adapter/contact ждёт Grid freeze. Wind остаётся самостоятельным deferred layer.</dd></div>
+              <div class="fact"><dt>Сейчас</dt><dd><a href="../gas-v1-master-plan.md">Девятиступенчатый Gas V1 master plan</a> принят владельцем. NearGas L1B foundation выпущена на <code>693e671b</code>; product progress по новой дороге ещё не начат.</dd></div>
+              <div class="fact"><dt>Вклад</dt><dd>Детерминированная симуляция газа, runtime sources, committed read/output, generated-Level intake, full-level scale, world reaction, player consequence и доказуемый Multiplayer handoff.</dd></div>
+              <div class="fact"><dt>Текущий root</dt><dd><a href="../c-work-gas-v1-live-composition-plan-001-call.md">Подробный план live deterministic composition</a> — READY/non-default, owner-present и без BUILD.</dd></div>
+              <div class="fact"><dt>Authority</dt><dd><a href="../gas-v1-master-plan.md">Accepted master plan</a> + <a href="../gas-v1-current-authority-audit-2026-07-21.md">accepted current-authority audit</a> + terminal <a href="../../history/2026-07-19-s-work-near-gas-l1b-v29-terminal-home-close-001.md">L1B close</a>. Successor первым делом перечитывает product authority.</dd></div>
+              <div class="fact"><dt>Conflict</dt><dd>Точная composition seam ещё не выбрана. Grid signatures ждут contract freeze; min-spec и scale optimization требуют отдельных решений; Program/Multiplayer сохраняет session, identity, input order и network runtime.</dd></div>
             </dl>
+            <ol class="remaining">
+              <li><strong>Live composition:</strong> один законный детерминированный Gas tick в обычной игре.</li>
+              <li><strong>Runtime sources:</strong> игровые объекты создают, меняют, перемещают и удаляют утечки.</li>
+              <li><strong>Committed publication:</strong> потребители читают одну законченную revision, digest и ordered events.</li>
+              <li><strong>Generated-Level intake:</strong> Gas принимает комнаты, коридоры, вертикальность, стены, двери и проёмы настоящего генератора.</li>
+              <li><strong>Full-level scale:</strong> обязательное proof примерно на 150 комнатах, длинных/вертикальных путях и восьми активных местах; min-spec и optimization approach принимаются отдельно.</li>
+              <li><strong>World change:</strong> Gas детерминированно реагирует на двери, проломы и authoritative topology changes.</li>
+              <li><strong>Player consequence:</strong> committed Actor contact превращается в typed authoritative consequence без власти view/cosmetic collider.</li>
+              <li><strong>Multiplayer proof:</strong> loopback недостаточен; обязательны real two-machine Gas equality и поздний final eight-player product proof.</li>
+              <li><strong>Integration intake:</strong> один permanent Lab принимает полный Gas drop в настоящей сцене.</li>
+            </ol>
             <ul class="remaining">
-              <li><strong>Следом:</strong> одна понятная карта крупных Gas-owned узлов, зависимостей, proof gates и отдельных будущих detailed PLAN.</li>
-              <li>Scale node обязан покрыть около 150 комнат, размеры примерно 8×4×8 м, длинные/вертикальные пути и восемь активных мест; способ оптимизации отдельно принимает владелец до BUILD.</li>
-              <li>Gas возвращает deterministic reducer, ordinary digest и нагрузочное evidence; Program/Multiplayer отдельно владеет identity/input/session и возвращает real network proof.</li>
-              <li>Grid signatures ждут contract freeze; Level, Actor и Integration остаются handoffs. Giant hangars, independent Wind, rendering, balance и late join не входят.</li>
+              <li><strong>Следом:</strong> принять подробный план только узла 1; любой BUILD остаётся закрыт до фактических слов владельца.</li>
+              <li>Gas владеет simulation/evidence; Grid, Level/Structure, Character/Actor, Program/Multiplayer, Integration, Presentation и Design/Canon сохраняют свои границы.</li>
+              <li>Giant hangars, independent Wind, late join, dedicated server, вторая permanent Lab, rendering, balance и production roster не входят в Gas V1 promise.</li>
             </ul>
           </article>
 

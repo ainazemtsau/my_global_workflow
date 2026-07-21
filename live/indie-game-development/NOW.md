@@ -1,6 +1,6 @@
 # NOW: indie-game-development
 
-updated: 2026-07-21 by s-work-grid-v1-launch-control-handoff-001
+updated: 2026-07-21 by s-work-gas-v1-master-plan-accepted-001
 
 bet: null
 
@@ -97,17 +97,16 @@ open_calls:
       - history/2026-07-21-s-review-grid-v1-executor-plan-001.md
     note: "READY / DEFAULT / OWNER-PRESENT / PLANNING ONLY / CORRECTION FIRST / NO PRODUCT MUTATION. Owner accepted docs-before-code but rejected a minimal clause supersession: only one current documentation corpus may guide executors; every old document that can influence Grid must be mechanically fenced from authority with repo enforcement, stale-reference checks, a seeded negative control and fresh refutation, or be deleted from the current working tree while Git history remains. Amend only the accepted plan's G01 document-authority boundary and consistent F1/no-drift clauses with the owner's exact approval. No G01, product root, slot, test, BUILD or engineering CALL exists; Grid remains parallel at 0/11."
 
-  - id: c-work-gas-v1-master-plan-001
+  - id: c-work-gas-v1-live-composition-plan-001
     track: gas
     status: ready
     to: session
-    for: "g-1a63 / owner-present staged Gas V1 master plan"
+    for: "g-1a63 / owner-present detailed plan for Gas V1 node 1 — live deterministic Gas composition"
     issued: 2026-07-21
-    call: work/c-work-gas-v1-master-plan-001-call.md
+    call: work/c-work-gas-v1-live-composition-plan-001-call.md
     receipts:
-      - history/2026-07-21-s-map-gas-track-resume-001.md
-      - history/2026-07-21-s-work-gas-v1-current-authority-audit-accepted-001.md
-    note: "READY / NON-DEFAULT / OWNER-PRESENT / PLAN ONLY / NO PRODUCT MUTATION. The owner accepted a full Gas V1 master plan now with staged implementation, then clarified that it must remain a route map: every major node receives its own detailed owner-present plan before implementation, especially full-level optimization. The accepted audit separates the released detailed NearGas foundation from missing live composition, runtime sources, committed publication, generated-level scale, world-change, player consequence and multiplayer proof. Gas owns simulation/evidence only; Program/Multiplayer owns session/identity/input delivery and must return the mandatory network proof. Target scale is about 150 rooms averaging roughly 8x4x8 m with size variation and long/vertical routes; giant hangars stay paused. Grid-dependent signatures wait for contract freeze, independent Wind stays deferred, default remains Grid and BUILD stays closed."
+      - history/2026-07-21-s-work-gas-v1-master-plan-accepted-001.md
+    note: "READY / NON-DEFAULT / OWNER-PRESENT / PLAN BEFORE BUILD. The owner accepted the nine-node Gas V1 master plan with exact words `Окей, подтверждаю план.` This root plans only node 1: connect the released NearGas foundation to one lawful production simulation tick and prove deterministic composition. It must re-read current product authority first-hand, present any material composition choice to the owner, preserve current behavior and atomicity, and open no BUILD before acceptance. Grid remains default."
 
 recurring: []
 

@@ -453,4 +453,6 @@ archived: history/LOG-archive-indie-game-development.md — sessions before 2026
 
 2026-07-21 · s-work-grid-v1-launch-control-handoff-001 · work · grid · g-4b92/v1-launch-control-handoff: owner accepted docs-before-code but required one mechanically enforced current documentation authority with archive-or-delete fallback; disposition is CORRECTION FIRST, one owner-present plan-amendment continuation is READY/default, Grid remains parallel at 0/11 and product execution stays closed. → history/2026-07-21-s-work-grid-v1-launch-control-handoff-001.md
 
+2026-07-21 · s-work-gas-v1-master-plan-accepted-001 · work · gas · g-1a63/v1-master-plan: owner accepted the nine-node Gas V1 master plan with exact words `Окей, подтверждаю план.`; the route now leads from released NearGas foundation through live composition, sources, committed state, generated levels, full-level scale, world change, player consequences and Multiplayer proof to one permanent Integration intake, with separate owner-present planning before every node; node-1 detailed PLAN is READY/non-default, Grid remains default and BUILD stays closed. → history/2026-07-21-s-work-gas-v1-master-plan-accepted-001.md
+
 END_OF_FILE: live/indie-game-development/LOG.md
