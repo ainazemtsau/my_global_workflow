@@ -466,4 +466,6 @@ archived: history/LOG-archive-indie-game-development.md — sessions before 2026
 
 2026-07-21 · s-work-grid-v1-document-authority-correction-002 · work · grid · g-4b92/v1-document-authority-correction-002: owner accepted the simplified six-rule Grid document-authority correction; the plan now separates pre/post-G01 identity, externally anchors its manifest, preserves a stable disposition ledger and mandatory isolation-or-delete fallback, and routes only to one binding fresh review while Grid remains parallel at 0/11 and product execution stays closed. → history/2026-07-21-s-work-grid-v1-document-authority-correction-002.md
 
+2026-07-21 · s-work-publish-grid-document-authority-correction-002-main-001 · work/publish · grid · g-4b92/repository-main: owner-requested Grid document-authority amendment, binding refutation and accepted simplified correction through 046c510b were rebased over the fresh Canon commit and fast-forwarded without force to origin/main with exact SHA/artifact readback; fresh review-002 remains READY/default at 0/11, product work stays closed and origin/wt remains unchanged. → history/2026-07-21-s-work-publish-grid-document-authority-correction-002-main-001.md
+
 END_OF_FILE: live/indie-game-development/LOG.md
