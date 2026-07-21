@@ -1,6 +1,6 @@
 # NOW: indie-game-development
 
-updated: 2026-07-21 by s-work-gas-v1-master-plan-accepted-001
+updated: 2026-07-21 by s-cartography-g-d3a8-visual-workflow-reconciliation-001
 
 bet: null
 
@@ -41,16 +41,16 @@ open_calls:
     call: work/c-exec-level-module-standard-v1-lv0-plan-001-call.md
     note: "WAITING / DO NOT RELAUNCH. Product LV0 PLAN evidence exists at b16981706ece53c584848255de2bd92675b5de7b, but binding Direction close is missing. When the owner activates Level, first reconcile exact HOME, current V31 and product truth; preserved aperture RED 5af1d8db931d10cc6149a2c1f8e1023bc3b9ffb1 remains evidence, not permission to issue BUILD."
 
-  - id: c-cartography-g-d3a8-visual-workflow-reconciliation-001
+  - id: c-forge-g-d3a8-gas-sphere-visual-readability-v1-001
     track: canon
     status: ready
     to: session
-    for: "g-d3a8 / reconcile admitted visual workflow with the still-text-only Canon Forge boundary"
+    for: "g-d3a8 / V1 controlled visual readability of Counter / Brake / Time"
     issued: 2026-07-21
-    call: work/c-cartography-g-d3a8-visual-workflow-reconciliation-001-call.md
+    call: work/c-forge-g-d3a8-gas-sphere-visual-readability-v1-001-call.md
     receipts:
-      - history/2026-07-21-s-forge-g-d3a8-visual-contract-canon-admission-001.md
-    note: "READY / OWNER-PRESENT / TEXT ONLY. c-003 is admitted, but local/canon-forge still forbids images. Reconcile only that process/map boundary and obtain an exact owner-approved diff. Do not generate images, answer V1, choose appearance or modify c-003."
+      - history/2026-07-21-s-cartography-g-d3a8-visual-workflow-reconciliation-001.md
+    note: "READY / NON-DEFAULT / OWNER-PRESENT / VISUAL QUESTION / c-003. One graph and one Canon Forge; format follows the question. Begin under the current Forge gates. Old gas visuals remain invalid. Environment, character, camera and UI are non-binding placeholders unless separately selected. No final roster, reactions, damage, controls, renderer, implementation, production assets or empirical claims. Owner selection remains paper/visual authority; canon admission is separate."
   - id: c-visual-009
     track: visual
     status: blocked

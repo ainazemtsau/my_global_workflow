@@ -19,6 +19,12 @@ owner_verdict: |
 
   «А так утверждаю вариант А, вот, но прими во внимание мои заметки.»
 
+reconciled_on: 2026-07-21
+reconciliation_verdict: |
+  «ПРИНИМАЮ ПРОСТОЙ МАРШРУТ: один граф тем, один Canon Forge,
+  формат ответа определяется типом вопроса; dashboard позже как
+  представление тех же данных.»
+
 ## 1. Authority
 
 Current authority order:
@@ -30,11 +36,17 @@ Current authority order:
    not canon.
 5. Current canon INDEX and its listed cards:
    - c-001 investigation readiness;
-   - c-002 gas behavior jobs.
+   - c-002 gas behavior jobs;
+   - c-003 visual-development contract.
 6. Historical questions, old maps, old StyleBible material, screenshots,
    generated images and previous answers — evidence only.
 
 This map answers no gameplay- or visual-design question.
+
+This is one graph of game topics and their sourced questions.
+Dependencies decide what can be discussed now; `answer_shape` selects
+the working format. A visual question stays in the same graph and uses
+the same Canon Forge.
 
 ### Paper and visual completeness rule
 
@@ -112,7 +124,10 @@ It does not answer:
 - run structure;
 - implementation.
 
-The next selected question is the minimal visual-development contract.
+V0 is RESOLVED / ADMITTED as c-003.
+
+After the approved Canon Forge reconciliation is applied, V1 is the next
+selected question.
 
 ## 3. Classification vocabulary
 
@@ -121,7 +136,6 @@ standing:
 - settled_non_canon_frame
 - canon_resolved
 - ready_design
-- needs_visual_contract
 - historical_re_admission_required
 - open_design
 - proof_nonblocking
@@ -145,10 +159,12 @@ accepted current Frames
   + c-001 investigation readiness
   + c-002 Counter / Brake / Time
      |
-     +--> V0 minimal visual-development contract       [READY / NEXT]
+     +--> V0 minimal visual-development contract       [CANON RESOLVED /
+     |                                                   c-003]
      |       |
+     |       | owner-approved simple Forge format reconciliation
      |       v
-     |     V1 gas + Sphere visual readability          [NEEDS PREFACE]
+     |     V1 gas + Sphere visual readability          [READY / NEXT CALL]
      |       |-----------------------------|
      |       v                             v
      |     F2 bounded bad-state scene      C1 later evidence
@@ -288,30 +304,25 @@ forge_handoff:
 ### V0 — Minimal visual-development contract
 
 plain_question:
-  What minimum rules let us attach AI-generated images to design questions
-  without accidentally treating placeholders, old screenshots or random
-  generated details as canon?
+  What minimum rules let us attach AI-generated images to design
+  questions without accidentally treating placeholders, old screenshots
+  or random generated details as canon?
 why_it_matters:
-  The owner wants the game developed maximally through text and images, but
-  current visual authority is unclear and the active Forge play is still
-  text-only.
+  The admitted contract lets visual questions use generated material
+  without granting authority to placeholders, historical screenshots or
+  accidental details.
 answer_shape: invariant
-status: ready
-standing: ready_design
+status: downstream
+standing: canon_resolved
 dependency_type: hard_prerequisite
 depends_on:
   - current owner visual reset
   - current INDEX authority model
   - historical visual materials as evidence only
 dependency_reason:
-  No gameplay prerequisite is missing. The contract must exist before
-  visual plates can receive controlled authority.
-blocks:
-  - V1 gas and Sphere visual readability plates
-  - future visual-by-default Canon Forge route
-  - controlled environment redesign
-  - character visual foundation
-  - consistent gameplay mockups
+  The exact V0 artifact completed Gate F, Gate Q, owner paper selection
+  and separate canon admission as c-003.
+blocks: []
 do_not_solve_here:
   - exact environment style
   - exact gas look
@@ -331,30 +342,22 @@ confusion_traps:
   - demanding a full art bible before any useful image
 forge_handoff:
   plain_question:
-    Which visual artifact statuses and authority rules let us use
-    generative images aggressively while keeping every accidental detail
-    revisable?
+    No current Forge handoff.
   why_now:
-    The owner approved visual-by-default work and explicitly reset current
-    visual authority.
+    V0 is resolved and admitted as c-003.
   must_decide:
-    Image eligibility verdicts, artifact statuses, placeholder rules,
-    intentional-lock annotation, owner selection rule, revision rule and
-    the current disposition of old environment/gas material.
+    Nothing unless a formal replacement of c-003 is proposed.
   must_not_decide:
-    The actual appearance of environment, gas, Sphere, character, camera,
-    UI or final assets.
+    Any actual appearance or silent extension of c-003.
   parent_locks:
-    No current visual canon exists; old gas visuals are invalid; minimal
-    production cost matters; paper and visual work do not wait for
-    implementation.
+    c-003 in full; old gas visuals remain invalid; only explicitly named
+    properties can receive authority.
   expected_answer_shape: invariant
   first_owner_question:
-    When you approve one generated image, what exact parts should become
-    binding and what must remain accidental?
+    What exact current evidence justifies replacing c-003?
   return_to_graph_if:
-    The contract requires a concrete gas, character or environment answer
-    instead of authority rules.
+    A future bounded question exposes a direct contradiction with c-003
+    rather than an ordinary application of it.
 
 ### V1 — Gas and Sphere visual readability
 
@@ -366,16 +369,18 @@ why_it_matters:
   c-002 defines which decisions differ, but no valid visual language exists
   for reading those differences.
 answer_shape: visual_plate
-status: needs_preface
-standing: needs_visual_contract
+status: ready
+standing: ready_design
 dependency_type: visual_anchor
 depends_on:
-  - V0
+  - c-003
+  - reconciled local/canon-forge
   - c-002
   - accepted Sphere Frame
 dependency_reason:
-  Counter / Brake / Time are known, but image authority, placeholders and
-  plate-selection rules must be fixed first.
+  c-003 now defines visual authority and the reconciled single Forge
+  provides the lawful format route. The actual visual answer remains
+  fully open.
 blocks:
   - gas visual language
   - Sphere visual language
@@ -405,21 +410,22 @@ forge_handoff:
     Which field, Sphere and motion signs make Counter, Brake and Time
     visually distinguishable before and during commitment?
   why_now:
-    Immediately after V0.
+    It is the next selected question after the applied reconciliation.
+    It opens only through a fresh explicit owner-present CALL.
   must_decide:
     Visual information hierarchy across open gas, growing Sphere, closed
     cargo and near-loss-of-control sequence.
   must_not_decide:
     Final roster, renderer, controls, reactions, damage or implementation.
   parent_locks:
-    c-002; universal Sphere; gas movement; volume as strength; shell as
-    general endurance; no old gas image authority.
+    c-002; c-003; universal Sphere; gas movement; volume as strength;
+    shell as general endurance; no old gas image authority.
   expected_answer_shape: visual_plate
   first_owner_question:
     In one otherwise identical scene, what must change on screen so you can
     tell which physical obligation the gas creates?
   return_to_graph_if:
-    A candidate plate depends on an undefined gas law, character foundation
+    A candidate depends on an undefined gas law, character foundation
     or visual-contract rule.
 
 ### D0 — Investigation pressure sources
@@ -1112,6 +1118,26 @@ canon and must be read through current Frames and c-002.
 
 ## 9. Current owner-selected route
 
+Exactly one current canon-track root after this reconciliation
+transaction:
+
+V1 &mdash; visual readability of Counter / Brake / Time across open gas,
+growing Sphere, closed cargo and near-loss-of-control sequence.
+
+The fresh V1 CALL uses the owner-selected simple route:
+
+- one graph, not a second visual Forge;
+- one Canon Forge, not a parallel visual authority;
+- answer format follows the question;
+- c-003 permits controlled visual research in a visual question;
+- owner selection, canon admission and evidence remain distinct.
+
+V0 is resolved as the minimal operating contract for visual work. It did
+not select a final look, roster, reactions, damage, controls, renderer,
+production assets or empirical claims.
+
+<!-- Superseded pre-reconciliation route (non-authoritative historical
+     record):
 Exactly one current canon-track root:
 
 V0 — minimal visual-development contract.
@@ -1132,6 +1158,8 @@ After V0, the intended first substantive visual question is:
 V1 — visual readability of Counter / Brake / Time across open gas,
 growing Sphere, closed cargo and near-loss-of-control sequence.
 
+-->
+
 Other genuinely ready but not selected questions:
 
 - D0 investigation pressure sources;
@@ -1151,8 +1179,9 @@ Return to cartography rather than inventing a substitute when Forge finds:
 - a hidden prerequisite in character, camera, environment or Sphere design;
 - a wrong answer shape;
 - an undefined entity;
-- a contradiction with current Frames or c-002;
-- a process conflict between text-only Forge and required image work;
+- a contradiction with current Frames, c-002 or c-003;
+- a process conflict with one graph / one Forge / answer-format-follows-
+  question route;
 - owner judgment that the session is solving the wrong question.
 
 END_OF_FILE: live/indie-game-development/work/canon-maps/g-d3a8-current-question-front-v3.md
