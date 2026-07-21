@@ -1,6 +1,6 @@
 # NOW: indie-game-development
 
-updated: 2026-07-21 by s-work-gas-v1-current-authority-audit-accepted-001
+updated: 2026-07-21 by s-work-grid-v1-executor-plan-accepted-001
 
 bet: null
 
@@ -85,20 +85,16 @@ open_calls:
       - history/2026-07-18-s-review-char-v2-published-handback-release-001.md
     note: "WAITING / PRODUCT REVIEW-CLOSING IN PROGRESS. Do not dispatch this frozen CALL again. It waits for owner LOOK, binding G5, product RESULT/Deliver and valid Direction close. A future Player Simulation / Actor Layer is fresh V31 work and cannot expand this lineage retroactively."
 
-  - id: c-work-grid-v1-executor-plan-001
+  - id: c-review-grid-v1-executor-plan-001
     track: grid
     status: ready
     to: session
-    for: "g-4b92 / owner-present current-product Grid V1 executor plan and exact source/legacy appendix"
+    for: "g-4b92 / fresh independent review of the accepted Grid V1 executor plan before any product root"
     issued: 2026-07-21
-    call: work/c-work-grid-v1-executor-plan-001-call.md
+    call: work/c-review-grid-v1-executor-plan-001-call.md
     receipts:
-      - history/2026-07-20-s-map-grid-track-resume-001.md
-      - history/2026-07-20-s-work-grid-current-authority-audit-cross-track-checkpoint-001.md
-      - history/2026-07-20-s-work-grid-current-authority-audit-verdict-001.md
-      - history/2026-07-21-s-work-grid-v1-critical-path-plan-scope-checkpoint-001.md
-      - history/2026-07-21-s-work-grid-v1-critical-path-plan-accepted-001.md
-    note: "READY / DEFAULT / OWNER-PRESENT / PLAN ONLY / NO PRODUCT MUTATION. The owner accepted the plain Grid V1 master plan with exact words `Принять план с обязательным Multiplayer handoff/gate`. Grid owns shared spatial/commit/change infrastructure, the generic Object↔Layer Resolver and generic Layer↔Layer read boundary; consumer behavior and real adapters stay with their tracks. Re-read fresh product authority and produce only the subordinate exact source/legacy executor plan. Synthetic layers do not close M3; a real second consumer and mandatory two-peer proof remain named acceptance gates. No branch/worktree, tests, Unity, separate dashboard or BUILD."
+      - history/2026-07-21-s-work-grid-v1-executor-plan-accepted-001.md
+    note: "READY / DEFAULT / FRESH INDEPENDENT REVIEW / NO PRODUCT MUTATION. The owner accepted the exact Grid V1 executor plan and selected deferred standalone Wind as the second real consumer after the shared foundation. The accepted artifact freezes the source/legacy matrix, eleven <=focused-half-day Grid legs, serial G01-G04 foundation, conditional post-G04 two-lane window, named consumer handoffs, mandatory two-peer gate and no-drift launch control. Current product progress is 0/11 legs launched. Historical plans are evidence, not launch authority; current one-mutating-Core rule remains binding unless a later explicit no-overlap disposition changes it. This review may return binding evidence or one correction position, but cannot issue G01/BUILD/worktree/tests/Unity."
 
   - id: c-work-gas-v1-master-plan-001
     track: gas
@@ -122,6 +118,6 @@ decisions:
     recommendation: "Доступная физическая машина; gas simulation CPU-bound, поэтому CPU должен быть назван явно."
 
 next:
-  call: c-work-grid-v1-executor-plan-001
+  call: c-review-grid-v1-executor-plan-001
 
 END_OF_FILE: live/indie-game-development/NOW.md
