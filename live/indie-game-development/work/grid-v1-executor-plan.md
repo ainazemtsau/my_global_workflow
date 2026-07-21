@@ -8,7 +8,8 @@ executor_owner_verdict_raw: «Так, принимаю, гриту один exec
 owner_clarification_raw: «F-tri система будет винт, ну, ветер. Это не столь важно, да, для нас сейчас. Нам нужно сделать сначала основы.»
 document_authority_amendment_owner_verdict_raw: «Принимаю поправку целиком»
 document_authority_correction_002_owner_verdict_raw: «Окей, принимаю прощённую correction 2 по шести правилам.»
-recorded_meaning: Grid V1 executor plan принят; вторым настоящим consumer layer выбран отдельный будущий Wind, но сначала строится общая Grid-основа.
+document_authority_boundary_reset_owner_verdict_raw: «Если ты не уверен, что папку, удаляй нахер тогда их.»
+recorded_meaning: Grid V1 executor plan принят; вторым настоящим consumer layer выбран отдельный будущий Wind; G01 использует простой tracked-delete boundary без archive ledger, а Git history доступна только как evidence по явному research-запросу владельца.
 
 ## 1. Простая картина
 
@@ -167,22 +168,18 @@ First-hand snapshot 2026-07-21:
 
 **F1 — complete documentation-authority cleanup.**
 
-- Base and inventory: G01 сначала pin-ит exact product commit `B`. Полный tracked universe строится из
-  `git ls-tree -r -z --full-tree B`, не из текущего index/working tree, и сохраняется в base-pinned
-  `docs/grid-v1-authority-disposition.jsonl`. Каждый исходный path/mode/blob остаётся строкой ledger.
-- Stable identity and references: rename сохраняет исходный `source_id`; split создаёт child ids со ссылкой
-  на parent; tracked deletion оставляет tombstone. Единственная нормативная reference grammar — explicit
-  `gridref:<source_id>#<clause_id>` в machine-readable полях; literal path/blob служат проверяемой identity.
-  Свободный, dynamic или неоднозначный reference не угадывается: он получает `unknown` и блокирует G01.
-- Ambient inputs: ignored, untracked, generated, archive-disposed и Git-history bytes не объявляются
-  отсутствующими по clean status. Grid session законна только в input-isolated venue, который на уровне
-  доступа показывает разрешённый current tree/corpus, deny-ит эти классы и выдаёт read/deny receipt.
-  Prompt prohibition, отсутствие citation или обычный clean worktree не считаются proof. Если такой fence
-  нельзя доказать, G01 остаётся blocked.
-- Disposition: каждый старый normative document/section получает ровно один `archive-with-proof` или
-  `tracked-delete`. Archive законен только при literal inventory, stable ledger и фактическом input denial;
-  иначе item удаляется из current tree обычным tracked commit. Невозможная lawful deletion блокирует G01
-  и держит G02 закрытым. Git history сохраняется без rewrite/prune, но Grid venue не получает его как input.
+- Boundary: G01 использует tracked-delete-only route. Никакого archive folder, manifest, disposition ledger,
+  `gridref`, clause registry или self-hash в product tree не создаётся.
+- Whole-file rule: каждый legacy normative file удаляется из current tree целиком. Если в нём есть ещё нужный
+  current смысл, этот смысл сначала заново формулируется в allowlisted current authority; старый файл всё равно
+  удаляется целиком. Частично сохранённый legacy-файл и clause-level tombstone запрещены.
+- Current set: root `AGENTS.md`, Core `AGENTS.md` и normal checks содержат короткий exact-path allowlist current
+  Grid authority. Любой другой tracked document, который пытается задавать Grid requirements/method, — RED.
+- Historical evidence: Git history сохраняется без rewrite/prune, но не является input обычной planning/engineering
+  сессии. Читать удалённые документы можно только по отдельному явному owner-directed `research` CALL; результат
+  остаётся evidence и не становится authority без нового owner-approved current document.
+- Fallback: если какой-либо legacy normative file нельзя lawful tracked-delete из current tree, G01 остаётся
+  blocked и G02 закрыт. Это единственный fallback; недоказуемая архивная изоляция больше не обсуждается.
 
 **F2 — exact aperture.**
 
@@ -214,46 +211,36 @@ cannot fit, it checkpoints/splits implementation of the same outcome without exp
 
 ### G01 — Complete documentation-authority cleanup
 
-- Phase boundary: pre-G01 Direction planning/correction/review pin-ят exact accepted-plan blob и receipts;
-  ещё не существующий corpus им не требуется. Первый G01 bootstrap pin-ит этот plan/review, product `B`,
-  fixed output paths и bootstrap identity, но не future manifest/blob/bundle, которые сам должен создать.
-  После принятого G01 product execution законен только с exact уже существующим corpus receipt.
-- Outcome and non-self identity: G01 создаёт один `Grid V1 Current Authority Corpus` с fixed manifest
-  `docs/grid-v1-current-authority.json` и fixed ledger
-  `docs/grid-v1-authority-disposition.jsonl`. Manifest не включает себя или ledger в `members` и не хранит
-  собственный blob/corpus id. Это ровно два mechanically checked control-file exceptions; третье исключение
-  или self-entry — RED. Отдельный binding Direction review внешне pin-ит product commit, оба fixed paths/
-  blobs и вычисленный из canonical manifest `corpus_id`; следующий CALL несёт этот exact receipt.
-- Exact initial members после закрытия G01:
+- Phase boundary: первый G01 root pin-ит accepted Direction plan/review и exact product commit `B`, но не identity
+  собственных будущих outputs. После G01 отдельный binding Direction review pin-ит resulting product commit и
+  exact blobs current allowlist; только этот уже существующий receipt открывает G02.
+- Exact current allowlist после закрытия G01:
   `AGENTS.md`; `Assets/GasCoopGame/Core/AGENTS.md`; `validation.config`;
   `openspec/specs/sim-core/spec.md`;
   `docs/adr/ADR-P-0015-c-exec-grid-v1-g01-document-authority-001-current-grid-authority.md`;
   `openspec/changes/c-exec-grid-v1-g01-document-authority-001/PLAN.md`, `proposal.md`, `tasks.md` и
-  `specs/sim-core/spec.md`. Во время cleanup старые материалы доступны только как fenced disposition
-  evidence, не как requirements/method.
-- Lifecycle: corpus-authoring CALL pin-ит существующий corpus и объявляет только будущие output paths.
-  Лишь отдельный CALL после фактического создания, owner acceptance и fresh review pin-ит resulting bundle
-  paths/blobs для execution. Ни один CALL не обязан назвать identity собственного будущего output.
-- Inventory/disposition: ledger покрывает весь F1 base universe, candidate additions, explicit `gridref`
-  edges и rename/split/delete lineage; zero missing, duplicate, ambiguous или `unknown`. Current source/tests
-  могут быть cited только как `product_fact`, не как documentation authority. Каждый legacy normative item
-  имеет ровно один archive/delete disposition; скрытая historical normative section запрещена.
+  `specs/sim-core/spec.md`. Root/Core `AGENTS.md` прямо запрещают обычным sessions использовать Git history,
+  deleted documents или иной не-allowlisted text как Grid requirements/method; исключение — отдельный
+  owner-directed research CALL, только как evidence.
+- Cleanup: от `B` строится одноразовый candidate list для review, не maintained registry. Каждый candidate вне
+  current allowlist tracked-delete-ится целым файлом. `git diff --name-status B..result` плюс scan current tree
+  доказывают exact deletions и отсутствие другого normative Grid document; никаких rename/split/tombstone rows.
 - Mechanical proof: `tools/grid-document-authority-check.ps1`, self-test и wiring в normal check,
-  PlanPublication и Deliver проверяют manifest/receipt identity, paths/blobs, ledger completeness,
-  `gridref` grammar, declared citations и input-fence receipt. Они не утверждают citation relevance,
-  proposition entailment или семантическое отсутствие legacy meaning.
+  PlanPublication и Deliver проверяют exact allowlist paths/blobs, отсутствие запрещённых legacy paths/text
+  в current tree, отсутствие ссылок current authority на deleted/history inputs и наличие root/Core access rules.
+  Они не утверждают citation relevance, proposition entailment или семантическое отсутствие legacy meaning.
 - Semantic proof: отдельная fresh session проверяет current-only смысл и пытается протащить (a) valid, но
   нерелевантную allowlisted citation с unsupported тезисом, (b) paraphrased legacy clause без stale имени и
-  (c) ignored/history input. Первые два обязаны дать semantic `refuted`, третий — mechanical denial/RED;
+  (c) deleted/history input без явного owner research CALL. Первые два обязаны дать semantic `refuted`, третий —
+  mechanical denial/RED; research-evidence не может само стать current authority;
   до общего binding `could-not-refute` G01 не закрыт.
 - Conflict: G01 может менять только documentation, OpenSpec, root/Core repo authority,
-  `validation.config`, checker/input-fence proof и wiring существующих gates. Никаких `.cs`, Unity assets,
+  `validation.config`, checker/access proof и wiring существующих gates. Никаких `.cs`, Unity assets,
   gameplay tests, Grid production root или изменения K/N/F2/D mechanics.
-- Rollback: публикация атомарна. Любой RED отменяет принятие G01 и держит G02 закрытым. Непроверяемый
-  archive item получает tracked deletion, после чего inventory/proof/refutation повторяются. Если lawful
-  deletion пока невозможен, G01 остаётся blocked; старая authority не становится допустимой. Git history
-  сохраняется без rewrite/prune.
-- Removal trigger: none; current corpus и guard остаются maintained authority, а G02 закрыт до принятой,
+- Rollback: публикация атомарна. Любой RED отменяет принятие G01 и держит G02 закрытым. Неясный legacy candidate
+  не запускает новую correction: он tracked-delete-ится целиком; если lawful deletion невозможен, G01 blocked.
+  Git history сохраняется без rewrite/prune.
+- Removal trigger: none; current allowlist и guard остаются maintained authority, а G02 закрыт до принятой,
   опубликованной и binding-reviewed G01 cleanup.
 
 ### G02 — Common spatial map
@@ -332,9 +319,9 @@ cannot fit, it checkpoints/splits implementation of the same outcome without exp
 ### G11 — Retirement readiness + handoff pack
 
 - Outcome: fresh exact inventory, every removal trigger/rollback, five consumer handoffs and one existing-dashboard Grid section.
-- Proof: zero ambiguous dispositions; not-yet-migrated legacy remains; synthetic/real acceptance stays separate.
+- Proof: zero ambiguous removal candidates; not-yet-migrated source legacy remains; synthetic/real acceptance stays separate.
 - Conflict: Grid docs/tests inventory and Direction render through valid RESULT only.
-- Rollback: restore prior ledger/dashboard section; source authority unchanged.
+- Rollback: restore prior handoff/dashboard section; source authority unchanged.
 - Removal trigger: this pack itself authorizes no deletion; each named owner later needs green replacement + zero consumers.
 
 ## 5. Sequence, sessions and conditional parallelism
@@ -370,23 +357,23 @@ not eleven strategic goals. Durable control is:
 3. every RESULT is saved verbatim in history and committed;
 4. the existing dashboard renders current phase/leg/handoffs/blockers, but is not authority.
 
-Before G01, Direction planning/review CALLs cite this accepted plan blob and the current correction/review receipts;
-they do not name a corpus that does not exist. The G01 bootstrap CALL also pins product `B` and fixed output paths,
-but not future blobs. After an artifact exists, owner acceptance and fresh review externally pin its exact corpus/
-bundle receipt; only then may an execution CALL cite those existing identities. A later corpus-authoring CALL cites
-the prior corpus and declared output paths, never the identity of its own future output. Consumed CALL ids never relaunch.
+Before G01, Direction planning/review CALLs cite this accepted plan blob and the boundary-reset review receipt. The
+G01 root pins product `B` and declared current-authority paths, but not future blobs. После G01 fresh review внешне
+pin-ит resulting product commit и exact blobs current allowlist; only then may G02 cite those existing identities.
+Consumed CALL ids never relaunch.
 
 Authority order before G01 is current product hard rules/facts → accepted Direction plan/review → current bounded
-CALL. After G01 it is current product hard rules/facts → externally pinned current corpus → accepted Grid meaning →
+CALL. After G01 it is current product hard rules/facts → externally pinned current allowlist → accepted Grid meaning →
 closed predecessor identities → current bounded CALL. Historical PLAN/CALL/ADR/dashboard/result/review and Git
-history remain evidence only and are not exposed as requirements/method without the proved input fence.
+history remain evidence only; ordinary sessions do not read them, and only an explicit owner-directed research CALL
+may inspect them without promoting them to current authority.
 
-At every start: phase-valid identity, dependency close, old-CALL non-relaunch, clean venue/conflict and input-fence
-checks run. Mechanical gates own only paths/blobs/ledger/reference/citation-presence/access proof. Separate fresh
+At every start: phase-valid identity, dependency close, old-CALL non-relaunch, clean venue/conflict and current-only
+access checks run. Mechanical gates own only paths/blobs/allowlist/reference/citation-presence/access proof. Separate fresh
 refutation owns relevance, entailment, current-only meaning and paraphrased legacy. A builder cannot amend plan,
-corpus, ledger or repo authority. Any such change needs a separate owner-present artifact, exact owner words and
-fresh review. If actual archive/input isolation cannot be proved, tracked deletion is mandatory; Git history remains
-intact but fenced.
+current allowlist or repo authority. Any such change needs a separate owner-present artifact, exact owner words and
+fresh review. G01 creates no archive or disposition registry: legacy normative files leave the current tree by tracked
+deletion, while Git history remains intact as owner-requested research evidence only.
 
 The earlier master-plan statement «second consumer unknown» is superseded only by the later owner choice Wind.
 All other accepted master-plan ownership and gates remain unchanged.
@@ -431,18 +418,18 @@ and blockers. No separate render. Current product progress is **0/11 Grid legs l
 are not implementation credit.
 
 Cuts: no Water; no current Wind implementation; no Gas/Character/Loot behavior; no aperture repair; no network/session
-code in Grid; no Integration scene; no speculative framework; no mass legacy deletion.
+code in Grid; no Integration scene; no speculative framework; no source/assets mass deletion. G01 documentation
+deletion is limited to legacy normative files outside the exact current allowlist.
 
 Main risks and controls: authority conflict → G01; destructive reads → new G04; dual authority → no shim; Resolver
 scope creep → contacts only; synthetic mistaken for real → separate labels; hidden world scan → G08/G10 counters;
 local determinism mistaken for co-op → mandatory Program gate; leg too large → same-outcome checkpoint/split.
 
-Next planning handoff after this owner-approved correction: exactly one newly issued fresh independent Direction
-review of the exact corrected-plan blob and the three negative-control classes above. Consumed
-`c-review-grid-v1-executor-plan-001` and refuted `c-review-grid-v1-document-authority-amendment-001` never relaunch.
-The review opens no product/engineering root. Only its binding `could-not-refute` may later route a separate
-owner-present launch-control disposition for possible G01; another refutation stops this correction chain instead
-of automatically opening correction-003.
+Next planning handoff after this owner-approved boundary reset: exactly one fresh independent Direction review of
+the exact reset-plan blob. It checks only that ledger/clause machinery is gone, whole-file tracked deletion is binding,
+history is research-only, G02–G11 are unchanged and no product work opened. Consumed/refuted review ids never relaunch.
+There is no correction-003 and no further document-authority correction loop: `could-not-refute` may route one separate
+owner-present G01 product PLAN; `refuted` leaves Grid blocked for an honest new owner direction, without product work.
 
 ## 9. Explicit not-run list
 

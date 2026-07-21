@@ -1,6 +1,6 @@
 # NOW: indie-game-development
 
-updated: 2026-07-21 by s-review-grid-v1-document-authority-amendment-002
+updated: 2026-07-21 by s-work-grid-v1-document-authority-boundary-reset-001
 
 bet: null
 
@@ -97,6 +97,18 @@ open_calls:
       - history/2026-07-18-s-review-char-v2-published-handback-release-001.md
     note: "WAITING / PRODUCT REVIEW-CLOSING IN PROGRESS. Do not dispatch this frozen CALL again. It waits for owner LOOK, binding G5, product RESULT/Deliver and valid Direction close. A future Player Simulation / Actor Layer is fresh V31 work and cannot expand this lineage retroactively."
 
+  - id: c-review-grid-v1-document-authority-boundary-reset-001
+    track: grid
+    status: ready
+    to: session
+    for: "g-4b92 / binding fresh review of the tracked-delete-only document-authority boundary"
+    issued: 2026-07-21
+    call: work/c-review-grid-v1-document-authority-boundary-reset-001-call.md
+    receipts:
+      - history/2026-07-21-s-review-grid-v1-document-authority-amendment-002.md
+      - history/2026-07-21-s-work-grid-v1-document-authority-boundary-reset-001.md
+    note: "READY / NON-DEFAULT / REVIEW ONLY / NO CORRECTION LOOP / NO PRODUCT LAUNCH. Owner rejected registry complexity and chose whole-file tracked deletion when archive isolation is uncertain. The exact plan blob removes manifest/ledger/gridref/clause machinery, keeps Git history research-only, and leaves Grid parallel at 0/11. Review may not open correction-003, product PLAN or engineering work."
+
   - id: c-work-gas-v1-live-composition-plan-001
     track: gas
     status: ready
@@ -111,12 +123,6 @@ open_calls:
 recurring: []
 
 decisions:
-  - id: d-grid-v1-document-authority-refutation-002
-    track: grid
-    q: "Correction-002 снова refuted: что делать с Grid V1 document-authority boundary, пока Grid остаётся 0/11 и G01 закрыт?"
-    options: ["Отдельно переосмыслить G01 boundary и сравнить explicit ledger/clause schema с tracked-delete-only baseline", "Явно разрешить correction-003 только для ledger self-rule и clause-level dispositions", "Поставить Grid launch-control на паузу без нового correction root"]
-    recommendation: "Переосмыслить G01 boundary, а не автоматически патчить третий раз: два correction rounds показали, что сначала надо решить, оправдан ли archive/ledger механизм по сравнению с более простой tracked-delete-only границей."
-
   - id: d-m1-min-spec-hardware-001
     track: program
     q: "d-m1-min-spec-hardware-001 — какое конкретное слабое железо становится binding min-spec финального прогона M1?"

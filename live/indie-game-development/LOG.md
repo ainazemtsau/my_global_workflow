@@ -474,4 +474,6 @@ archived: history/LOG-archive-indie-game-development.md — sessions before 2026
 
 2026-07-21 · s-work-publish-launch-control-main-001 · work/publish · launch-control · g-b847/repository-main: owner-requested Launch Control commit 4f27739c plus compatible current Grid state were published without force to origin/wt/indie-game-development and merged into origin/main at 7af8e32f with exact SHA/artifact readback; the baseline remains READY/default, the Grid decision and prior publication receipt are preserved, and no dashboard, recurring control, directive, OS or product work starts. → history/2026-07-21-s-work-publish-launch-control-main-001.md
 
+2026-07-21 · s-work-grid-v1-document-authority-boundary-reset-001 · work · grid · g-4b92/document-authority-boundary: owner rejected registry complexity and chose whole-file tracked deletion when archive isolation is uncertain; the accepted plan now has no manifest/ledger/gridref/clause machinery, Git history is research-only evidence, one binding review is READY/non-default, Grid stays parallel at 0/11 and product work remains closed. → history/2026-07-21-s-work-grid-v1-document-authority-boundary-reset-001.md
+
 END_OF_FILE: live/indie-game-development/LOG.md
