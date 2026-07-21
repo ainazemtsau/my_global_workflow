@@ -2,9 +2,11 @@
 
 status: ACCEPTED
 accepted: 2026-07-21
+amended: 2026-07-21
 master_owner_verdict: «Принять план с обязательным Multiplayer handoff/gate»
 executor_owner_verdict_raw: «Так, принимаю, гриту один executor plan»
 owner_clarification_raw: «F-tri система будет винт, ну, ветер. Это не столь важно, да, для нас сейчас. Нам нужно сделать сначала основы.»
+document_authority_amendment_owner_verdict_raw: «Принимаю поправку целиком»
 recorded_meaning: Grid V1 executor plan принят; вторым настоящим consumer layer выбран отдельный будущий Wind, но сначала строится общая Grid-основа.
 
 ## 1. Простая картина
@@ -162,12 +164,27 @@ First-hand snapshot 2026-07-21:
 
 ### FIX SEPARATELY
 
-**F1 — active legacy authority clauses.**
+**F1 — complete documentation-authority cleanup.**
 
-- Artifacts: affected clauses в `openspec/specs/sim-core/spec.md` и historical ADR-0016 KEEP decision.
-- Evidence: они расходятся с accepted Grid plan и factual NearGas route.
-- Replacement trigger: G01 docs-only product PLAN/spec/ADR supersession before source work.
-- Rollback/removal: при непринятой supersession G02 не открывается; historical ADR не переписывается.
+- Artifacts: полный tracked instruction/document/evidence universe, способный попасть в контекст Grid
+  executor: root и nested `AGENTS.md`, `validation.config`, repo runners, `docs/**`, `openspec/**`,
+  README/instruction/policy/dashboard/registry, PLAN/SPEC/ADR/tasks/result/review/CALL-like artifacts и
+  любой tracked text, который ссылается на них. Universe строится от pinned product commit через полный
+  `git ls-files -z`, repo-relative links обходятся транзитивно, а independent validator пересчитывает
+  ту же границу; filename- или keyword-only поиск недостаточен.
+- Evidence: living clauses расходятся с accepted Grid route, а discoverable historical materials могут
+  направить executor. Разрешённый current-файл не может смешивать current и legacy normative clauses:
+  старые clauses удаляются из актуального текста или становятся отдельным old document с disposition.
+- Replacement trigger: G01 создаёт и публикует один `Grid V1 Current Authority Corpus`, атомарно очищает
+  каждый in-scope legacy document/section, устанавливает repo guard + self-test и получает owner acceptance
+  плюс binding fresh review до G02.
+- Rollback/removal: каждый old document получает ровно один взаимоисключающий disposition —
+  `archive-with-proof` либо `tracked-delete`. Archive законен только при literal path/blob inventory,
+  механическом исключении из executor input/context, repo-level запрете archive/Git-history authority,
+  validator coverage, красном seeded negative control и binding fresh `could-not-refute`. Если любой
+  элемент отсутствует, файл удаляется из current tree обычным tracked commit; Git history не
+  переписывается. Конфликт с реально current authority другого трека блокирует G01 и держит G02 закрытым,
+  а не разрешает старую authority или догадку.
 
 **F2 — exact aperture.**
 
@@ -197,13 +214,46 @@ Focused tests: `tests/GasCoopGame.Core.Tests/Grid/**`. Existing Core assembly re
 framework/assembly. Every leg is one cohesive outcome and ≤ one focused half-day. If fresh execution
 cannot fit, it checkpoints/splits implementation of the same outcome without expanding ownership.
 
-### G01 — Legacy fence / authority supersession
+### G01 — Complete documentation-authority cleanup
 
-- Outcome: active product authority names the new route and exact K/N/F/D fence before code.
-- Proof: no competing current LayerRegistry/RevisionFeed requirement; source unchanged.
-- Conflict: living SPEC, new Grid change/ADR; historical ADR remains immutable evidence.
-- Rollback: revert new docs and keep G02 closed.
-- Removal trigger: none; it only makes later migration lawful.
+- Outcome: до любого production source work продукт содержит ровно один именованный corpus —
+  `Grid V1 Current Authority Corpus`, с machine-readable root
+  `docs/grid-v1-current-authority.json`. Manifest содержит только literal repo-relative paths, Git blob
+  identities и роли; glob, `latest`, неявные directory descendants и свободная трактовка запрещены.
+- Exact base allowlist после закрытия G01:
+  `AGENTS.md`; `Assets/GasCoopGame/Core/AGENTS.md`; `validation.config`;
+  `docs/grid-v1-current-authority.json`; `openspec/specs/sim-core/spec.md`;
+  `docs/adr/ADR-P-0015-c-exec-grid-v1-g01-document-authority-001-current-grid-authority.md`.
+  Будущий G01 planning bundle ограничен literal paths
+  `openspec/changes/c-exec-grid-v1-g01-document-authority-001/PLAN.md`, `proposal.md`, `tasks.md` и
+  `specs/sim-core/spec.md`. Во время inventory старые файлы читаются только как untrusted evidence для
+  disposition, не как требования.
+- Corpus lifecycle: после G01 любой новый Grid leg входит в corpus только атомарным manifest update с
+  exact paths/blobs его owner-approved и freshly reviewed PLAN bundle. В каждый момент существует один
+  `corpus_id`; предыдущий bundle сразу становится `evidence_only`. Closed receipts доказывают только
+  identity/verdict/checks. Historical PLAN/CALL/ADR/dashboard/result/review и Git history не задают
+  требования или метод.
+- Inventory/disposition: полный F1 universe пересчитан независимо; zero missing, zero duplicate, zero
+  ambiguous. Каждый old document имеет ровно один `archive-with-proof | tracked-delete`. Разрешённый
+  current-файл current-only; скрытая historical normative section запрещена.
+- Proof: root/Core repo authority называют один corpus и fail-closed запрещают unlisted/archive/history
+  authority. Новый `tools/grid-document-authority-check.ps1`, его self-test и wiring в normal check,
+  PlanPublication и Deliver проверяют manifest schema, literal paths/blobs, current-only clauses,
+  incoming/outgoing links, stale citations и каждый новый inventory member. Каждый нормативный Grid
+  output — PLAN/spec/tasks/ADR/review/result — имеет mechanically checked provenance только к allowlist;
+  ungrounded тезис или перенесённый legacy-смысл RED. Seeded negative control добавляет stale
+  document/reference и ungrounded output: gate обязан упасть, а после удаления seed стать GREEN. Отдельная
+  свежая сессия пытается обойти input fence, протащить archive/history citation и воспроизвести legacy-
+  смысл без current basis; до binding `could-not-refute` G01 не закрыт.
+- Conflict: G01 может менять только documentation, OpenSpec, root/Core repo authority,
+  `validation.config`, checker/self-test и wiring существующих gates. Никаких `.cs`, Unity assets,
+  gameplay tests, Grid production root или изменения K/N/F2/D mechanics.
+- Rollback: публикация атомарна. Любой RED отменяет принятие G01 и держит G02 закрытым. Непроверяемый
+  archive item получает tracked deletion, после чего inventory/proof/refutation повторяются. Если lawful
+  deletion пока невозможен, G01 остаётся blocked; старая authority не становится допустимой. Git history
+  сохраняется без rewrite/prune.
+- Removal trigger: none; current corpus и guard остаются maintained authority, а G02 закрыт до принятой,
+  опубликованной и binding-reviewed G01 cleanup.
 
 ### G02 — Common spatial map
 
@@ -320,14 +370,22 @@ not eleven strategic goals. Durable control is:
 4. the existing dashboard renders current phase/leg/handoffs/blockers, but is not authority.
 
 Every later Grid CALL must cite this plan, its exact G-leg, dependencies, allowed/forbidden surfaces, proof,
-rollback and removal trigger. Authority order is current product hard rules/facts → this accepted Grid meaning →
-closed predecessor receipts → current bounded CALL. Historical plans are evidence only unless this plan explicitly
-carries a clause forward.
+rollback and removal trigger. It also names exactly one `corpus_id`, the exact manifest blob and the exact active-leg
+bundle paths/blobs. A CALL may narrow accepted meaning but cannot redefine it. Authority order remains current
+product hard rules/facts → the one manifest allowlist → this accepted Grid meaning → closed predecessor receipt
+identities → current bounded CALL. Historical plans/CALLs/ADRs/results/reviews/dashboards and Git history are
+evidence only and never provide requirements or method.
 
-At every start: fresh product/registry/contract read, dependency close check, accepted-plan identity check,
-old-CALL non-relaunch check, clean allocated venue and conflict-surface check. Material conflict returns STOP/
-checkpoint. A builder cannot amend the plan; any meaning/ownership/sequence/gate change needs a separate
-owner-present amendment preserving the prior accepted version and citing new owner words.
+At every start: fresh product/registry/contract read, dependency close check, accepted-plan and corpus identity
+check, independent inventory recomputation, old-CALL non-relaunch check, clean allocated venue and conflict-surface
+check. Source/tests may be read as current product facts but do not become documentation authority. Every normative
+PLAN/spec/tasks/ADR/review/result output must resolve its provenance only to current allowlist entries; any new or
+moved document, stale link, unlisted input, archive/history citation or ungrounded output returns STOP/checkpoint.
+
+A builder cannot amend the plan, corpus manifest, allowlist or repo authority. Any meaning/ownership/sequence/gate
+or corpus change needs a separate owner-present planning artifact preserving the prior accepted version, citing new
+owner words and receiving fresh review. If archive isolation cannot be mechanically proved, tracked deletion from
+the current tree is mandatory and Git history remains intact.
 
 The earlier master-plan statement «second consumer unknown» is superseded only by the later owner choice Wind.
 All other accepted master-plan ownership and gates remain unchanged.
