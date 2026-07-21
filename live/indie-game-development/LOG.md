@@ -449,4 +449,6 @@ archived: history/LOG-archive-indie-game-development.md — sessions before 2026
 
 2026-07-21 · s-review-grid-v1-executor-plan-001 · review · grid · g-4b92/v1-executor-plan-review: binding fresh-session G5 could not refute the accepted Grid V1 executor plan against current product authority at f6e4f725; Grid remains parallel at 0/11, all product work stays closed, and one planning-only launch-control handoff is READY/default; cut add-back 0, none missed. → history/2026-07-21-s-review-grid-v1-executor-plan-001.md
 
+2026-07-21 · s-work-publish-grid-v1-review-main-001 · work/publish · grid · g-4b92/repository-main: owner-requested Grid executor-plan and binding-review commits through a1f3129d were fast-forwarded without force to origin/main with exact remote readback; launch-control remains READY/default at 0/11, product work stays closed, and the unrequested worktree remote ref remains unchanged. → history/2026-07-21-s-work-publish-grid-v1-review-main-001.md
+
 END_OF_FILE: live/indie-game-development/LOG.md
