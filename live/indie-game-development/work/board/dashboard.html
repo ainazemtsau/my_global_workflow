@@ -293,7 +293,7 @@
           <a href="../program-v2-track-handoff-template.md">Handoff</a>
         </nav>
       </div>
-      <div class="updated">Обновлено 21 июля 2026<br>по RESULT s-work-grid-v1-executor-plan-accepted-001</div>
+      <div class="updated">Обновлено 21 июля 2026<br>по RESULT s-review-grid-v1-executor-plan-001</div>
     </header>
 
     <main>
@@ -306,9 +306,9 @@
 
         <article class="panel next">
           <span class="label">Следующий шаг</span>
-          <strong class="big">Независимо проверить принятый Grid V1 executor plan</strong>
-          <p><a href="../c-review-grid-v1-executor-plan-001-call.md">Открыть fresh review CALL</a></p>
-          <p class="muted small">Точный appendix принят: старое разложено по четырём судьбам, одиннадцать малых Grid legs сохранены, Wind назван вторым будущим real consumer, а условная параллельность не обходит правило одного изменяющего Core leg. Сейчас нужен отдельный refutation-pass; product work всё ещё закрыт.</p>
+          <strong class="big">Подготовить launch-control handoff для возможного будущего G01</strong>
+          <p><a href="../c-work-grid-v1-launch-control-handoff-001-call.md">Открыть planning-only CALL</a></p>
+          <p class="muted small">Binding fresh-session G5 не смог опровергнуть принятый Grid V1 executor plan на текущем product snapshot. Grid остаётся parallel и 0/11: следующий шаг только объясняет владельцу точную admission-границу; G01, product root и engineering CALL всё ещё закрыты.</p>
         </article>
 
         <article class="panel">
@@ -343,14 +343,14 @@
           <p><a href="../c-exec-program-v2-legacy-lab-purge-release-001-call.md">Открыть blocked release continuation →</a> · <a href="../legacy-lab-purge-boundary-2026-07-20.md">Прочитать простой вердикт →</a></p>
         </article>
         <article class="panel" style="margin-top:14px">
-          <span class="label">READY · DEFAULT · Grid · INDEPENDENT REVIEW</span>
-          <strong>Попытаться опровергнуть принятый Grid V1 executor plan до реализации</strong>
-          <p><code>c-review-grid-v1-executor-plan-001</code></p>
-          <p><b>Что это:</b> свежая отдельная проверка exact source/legacy appendix, одиннадцати малых legs, consumer handoffs, Multiplayer gate и правил исполнения без drift.</p>
-          <p><b>Зачем:</b> владелец принял маршрут, но следующий агент должен не подтвердить его церемониально, а попробовать найти текущий product conflict, потерянное условие удаления, слишком большой leg или небезопасную параллельность.</p>
-          <p><b>Где сейчас:</b> полный план сохранён; product progress остаётся 0/11. Gas и будущий самостоятельный Wind названы двумя real consumers, synthetic proof их не заменяет. Действующее правило одного изменяющего Core leg сохраняется до отдельного доказанного no-overlap решения после четвёртого шага.</p>
-          <p><b>Что дальше:</b> review возвращает binding could-not-refute evidence либо одну точную correction-позицию. Ни review, ни эта planning-сессия не открывают G01, ветку, worktree, тесты или BUILD.</p>
-          <p><a href="../c-review-grid-v1-executor-plan-001-call.md">Открыть review CALL →</a> · <a href="../grid-v1-executor-plan.md">Прочитать принятый executor plan →</a> · <a href="../grid-v1-critical-path-plan.md">Прочитать master plan →</a></p>
+          <span class="label">READY · DEFAULT · Grid · OWNER-PRESENT · PLANNING ONLY</span>
+          <strong>Зафиксировать admission-границу перед возможным будущим G01</strong>
+          <p><code>c-work-grid-v1-launch-control-handoff-001</code></p>
+          <p><b>Что это:</b> понятный владельцу launch-control handoff, который собирает в одном месте принятый план, binding review, свежие v31/registry/venue prerequisites и точную границу будущего docs-only G01.</p>
+          <p><b>Зачем:</b> independent G5 не нашёл correction-позицию, но review не является разрешением на продуктовую работу. До следующего инженерного шага нужно отдельно показать, какие факты дают admission, а какой конфликт обязан остановить запуск.</p>
+          <p><b>Где сейчас:</b> verdict <code>could-not-refute</code> на локально наблюдаемом чистом snapshot <code>f6e4f725</code>. Grid остаётся parallel/unretired, product progress 0/11; Gas и будущий самостоятельный Wind всё ещё требуют собственных реальных proofs.</p>
+          <p><b>Что дальше:</b> подготовить бинарный owner-readable handoff и записать точные слова владельца. Эта сессия не выдаёт G01, PAIR-CANDIDATE, BUILD или engineering CALL, не выбирает слот и не запускает product checks.</p>
+          <p><a href="../c-work-grid-v1-launch-control-handoff-001-call.md">Открыть launch-control CALL →</a> · <a href="../../history/2026-07-21-s-review-grid-v1-executor-plan-001.md">Прочитать binding review →</a> · <a href="../grid-v1-executor-plan.md">Прочитать принятый executor plan →</a></p>
         </article>
         <article class="panel" style="margin-top:14px">
           <span class="label">READY · Gas Simulation · MASTER PLAN</span>
@@ -441,6 +441,7 @@
           <details open>
             <summary><strong>21 июля</strong></summary>
             <ul class="remaining">
+              <li>Binding fresh-session G5 не смог опровергнуть принятый Grid V1 executor plan против текущего локально наблюдаемого чистого product snapshot <code>f6e4f725</code>. Exact matrix, одиннадцать bounded legs, serial foundation, fail-serial post-G04 окно, реальные Gas+Wind gates, обязательный two-peer proof и no-drift chain сохранились. Grid остаётся parallel и 0/11; READY/default только owner-present planning launch-control handoff, без G01 или product root.</li>
               <li>Владелец принял точный Grid V1 executor plan и уточнил, что вторым настоящим consumer layer после общей основы будет отдельный Wind. Сохранены exact legacy dispositions, одиннадцать малых product legs, строгая последовательность первых четырёх шагов, условная двухветочная работа только после доказанного no-overlap, защита от старых планов и mandatory two-peer gate. Product progress остаётся 0/11; fresh independent review READY/default, BUILD закрыт.</li>
               <li>Принятый Gas V1 current-authority audit и следующий planning-only master-plan CALL опубликованы в <code>origin/main</code> обычным fast-forward без force; exact remote readback подтвердил audit, масштаб примерно 150 комнат и границу Gas simulation ↔ Multiplayer runtime. Gas остаётся READY/non-default, Grid — default, BUILD закрыт; отдельный worktree remote ref не менялся.</li>
               <li>Владелец принял полный ступенчатый Gas V1 master plan сейчас и уточнил границу: это карта крупных узлов, а не преждевременный технический план каждой задачи; каждый узел, особенно оптимизация уровня примерно из 150 комнат, отдельно обсуждается перед реализацией. Gas владеет только симуляцией и доказательствами, сетевой runtime остаётся Program/Multiplayer handoff. Один master-plan CALL READY/non-default, Grid остаётся default, BUILD закрыт.</li>
@@ -547,16 +548,16 @@
           </article>
 
           <article class="track">
-            <div class="track-top"><div><div class="track-id">g-4b92</div><h3>Grid / Layers / World Change</h3></div><span class="pill ready">ready · plan review</span></div>
+            <div class="track-top"><div><div class="track-id">g-4b92</div><h3>Grid / Layers / World Change</h3></div><span class="pill ready">ready · launch control</span></div>
             <dl class="facts">
-              <div class="fact"><dt>Сейчас</dt><dd>Точный Grid V1 executor plan принят; product progress 0 из 11 legs. Следом идёт независимое опровержение плана, не implementation.</dd></div>
+              <div class="fact"><dt>Сейчас</dt><dd>Binding fresh-session G5 не смог опровергнуть принятый Grid V1 executor plan на snapshot <code>f6e4f725</code>. Product progress остаётся 0 из 11 legs; review не является implementation credit.</dd></div>
               <div class="fact"><dt>Вклад</dt><dd>Общее пространство и подтверждённые изменения, универсальный Object↔Layer Resolver и безопасная основа для consumer-driven Layer↔Layer связей.</dd></div>
-              <div class="fact"><dt>Текущий root</dt><dd><a href="../c-review-grid-v1-executor-plan-001-call.md">Fresh review принятого executor plan</a> — READY/default, read-only и без product mutation.</dd></div>
-              <div class="fact"><dt>Authority</dt><dd><a href="../grid-v1-executor-plan.md">Accepted executor plan</a> хранит exact source/legacy matrix, eleven-leg ladder, safe parallel control, handoffs и no-drift rules; <a href="../grid-v1-critical-path-plan.md">master plan</a> остаётся его plain parent.</dd></div>
-              <div class="fact"><dt>Conflict</dt><dd>Gas и будущий отдельный Wind выбраны real M3/M5 consumers, но Wind ещё не построен. Текущий one-mutating-Core rule запрещает concurrent BUILD до отдельного post-G04 no-overlap disposition; co-op-ready ждёт two-peer identity/input/order proof.</dd></div>
+              <div class="fact"><dt>Текущий root</dt><dd><a href="../c-work-grid-v1-launch-control-handoff-001-call.md">Owner-present planning-only launch control</a> — READY/default; он не открывает G01, слот или engineering CALL.</dd></div>
+              <div class="fact"><dt>Authority</dt><dd><a href="../grid-v1-executor-plan.md">Accepted executor plan</a> + <a href="../../history/2026-07-21-s-review-grid-v1-executor-plan-001.md">binding review</a> + fresh current product v31/registry при каждом будущем start.</dd></div>
+              <div class="fact"><dt>Conflict</dt><dd>Gas и будущий отдельный Wind выбраны real M3/M5 consumers, но Wind ещё не построен. G01 сначала обязан законно supersede-ить living authority; concurrent Core BUILD остаётся запрещён до отдельного post-G04 no-overlap disposition; co-op-ready ждёт two-peer identity/input/order proof.</dd></div>
             </dl>
             <ul class="remaining">
-              <li><strong>Следом:</strong> fresh review пытается опровергнуть план; только binding close может позже разрешить подготовку G01.</li>
+              <li><strong>Следом:</strong> показать владельцу точную admission-границу будущего docs-only G01 и получить бинарные слова без открытия product root.</li>
               <li>G01–G04 строго serial; после G04 Layer-path и Object-path параллелятся только при доказанном полном разделении рабочих поверхностей и последовательном merge.</li>
               <li>Gas/Wind/Character/Level/Program/Integration behavior и реальные adapters остаются у владельцев; synthetic layers дают только Grid-internal proof.</li>
               <li>Dashboard остаётся одной секцией существующей панели; отдельный render и BUILD не открыты.</li>
