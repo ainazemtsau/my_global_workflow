@@ -293,7 +293,7 @@
           <a href="../program-v2-track-handoff-template.md">Handoff</a>
         </nav>
       </div>
-      <div class="updated">Обновлено 21 июля 2026<br>по RESULT s-map-launch-control-track-add-002</div>
+      <div class="updated">Обновлено 21 июля 2026<br>по RESULT s-review-grid-v1-document-authority-amendment-002</div>
     </header>
 
     <main>
@@ -314,11 +314,11 @@
         <article class="panel">
           <span class="label">Фактическая загрузка NOW</span>
           <div class="status-row">
-            <span class="pill ready">4 ready</span>
+            <span class="pill ready">3 ready</span>
             <span class="pill waiting">2 waiting</span>
             <span class="pill blocked">2 blocked</span>
             <span class="pill paused">1 paused</span>
-            <span class="pill mapped">1 decision</span>
+            <span class="pill mapped">2 decisions</span>
           </div>
           <p class="muted small" style="margin-top:12px">Это наблюдение, не цель заполнить лимит. Сколько направлений запускать, решает владелец.</p>
         </article>
@@ -353,14 +353,14 @@
           <p><a href="../launch-control/c-work-launch-control-stabilization-baseline-001-call.md">Открыть baseline-сессию →</a> · <a href="../../history/2026-07-21-s-map-launch-control-track-add-002.md">Прочитать принятое основание трека →</a></p>
         </article>
         <article class="panel" style="margin-top:14px">
-          <span class="label">READY · NON-DEFAULT · Grid · BINDING FRESH REVIEW</span>
-          <strong>Проверить принятую упрощённую поправку перед любым G01</strong>
-          <p><code>c-review-grid-v1-document-authority-amendment-002</code></p>
-          <p><b>Что это:</b> отдельная свежая проверка исправленного planning-файла. Она не проектирует Grid заново и не запускает продуктовую работу.</p>
-          <p><b>Зачем:</b> прошлое ревью нашло пять дыр в документальной защите. Владелец принял упрощённое исправление: будущий файл не требуется заранее, manifest не включает себя, история каждого документа сохраняется, архив требует реальной изоляции, а смысл не подменяется проверкой хеша.</p>
-          <p><b>Где сейчас:</b> точные слова владельца «Окей, принимаю прощённую correction 2 по шести правилам.» записаны в plan blob <code>8af16563</code>. Grid остаётся parallel/unretired и 0/11; G01, product root, slot, test и engineering CALL не открыты.</p>
-          <p><b>Что дальше:</b> fresh review пытается опровергнуть все прежние ошибки и три контрольных обхода. Чистый вердикт разрешит только отдельное обсуждение допуска G01; повторное опровержение остановит цепочку без автоматической correction-003.</p>
-          <p><a href="../c-review-grid-v1-document-authority-amendment-002-call.md">Открыть fresh review →</a> · <a href="../grid-v1-executor-plan.md">Прочитать current accepted plan →</a> · <a href="../../history/2026-07-21-s-work-grid-v1-document-authority-correction-002.md">Прочитать принятую correction →</a></p>
+          <span class="label">ЖДЁТ ВЛАДЕЛЬЦА · NON-DEFAULT · Grid · CORRECTION CHAIN STOPPED</span>
+          <strong>Выбрать судьбу document-authority boundary после второго refutation</strong>
+          <p><code>d-grid-v1-document-authority-refutation-002</code></p>
+          <p><b>Что случилось:</b> binding fresh review подтвердил исправления pre-G01 identity, manifest anchor, input-isolation-or-delete, mechanical/semantic split и consumed handoff, но нашёл два связанных пробела в disposition ledger.</p>
+          <p><b>Вопрос:</b> отдельно переосмыслить G01 boundary, явно разрешить узкую correction-003 или поставить Grid launch-control на паузу?</p>
+          <p><b>Где сейчас:</b> ledger должен охватывать собственный post-base файл без явного self-rule, а base inventory не назначает обязательную clause identity/tombstone секции, удалённой внутри сохранённого файла. Поэтому G01 остаётся закрыт; Grid parallel/unretired и 0/11, без product root, slot, test или engineering CALL.</p>
+          <p><b>Рекомендация:</b> переосмыслить G01 boundary и честно сравнить explicit ledger/clause schema с tracked-delete-only baseline. После двух correction rounds не открывать correction-003 автоматически.</p>
+          <p><a href="../../history/2026-07-21-s-review-grid-v1-document-authority-amendment-002.md">Прочитать binding refutation →</a> · <a href="../grid-v1-executor-plan.md">Прочитать current accepted plan →</a></p>
         </article>
         <article class="panel" style="margin-top:14px">
           <span class="label">READY · Gas Simulation · NODE 1 PLAN · NON-DEFAULT</span>
@@ -451,6 +451,7 @@
           <details open>
             <summary><strong>21 июля</strong></summary>
             <ul class="remaining">
+              <li>Binding fresh review refuted Grid V1 correction-002: external pin снимает manifest self-reference, но disposition ledger должен охватить собственный post-base файл без явного self-rule, а path/blob inventory не доказывает tombstone секции, удалённой внутри сохранённого файла. Correction chain остановлен на owner decision без correction-003; Grid остаётся parallel 0/11, deletion fallback и Git history сохранены, product work закрыт.</li>
               <li>Владелец принял отдельный Demo &amp; Launch Control с правом формулировать release-потребности и после отдельного одобрения адаптировать собственный управляющий процесс по фактическим evidence. Первым и единственным новым root открыт planning-only Stabilization Baseline; он стал READY/default, Grid review сохранился READY, а отдельная management-панель, ежедневный цикл, Release Directive, OS-изменения и продуктовая работа ещё не создавались.</li>
               <li>Владелец принял упрощённую Grid V1 document-authority correction точными словами «Окей, принимаю прощённую correction 2 по шести правилам.» План теперь разделяет правила до и после G01, фиксирует manifest без self-reference, сохраняет судьбу документов после rename/split/delete, требует реальную input isolation или tracked deletion и отдаёт проверку смысла отдельному fresh review. Ровно один такой review READY/default; Grid остаётся parallel 0/11, product work закрыт.</li>
               <li>Binding fresh review опроверг принятую Grid V1 document-authority поправку: правило для каждого later CALL требует corpus до его создания в G01, manifest не имеет некругового self-anchor, tracked inventory не закрывает ignored/history inputs и устойчивые dispositions, free-text тезис можно отмыть валидной, но нерелевантной ссылкой, а section 8 всё ещё ведёт к consumed pre-amendment review. Технический Grid-route, deletion fallback и Git-history preservation сохранены; одна owner-present correction READY/default, Grid parallel 0/11, product work закрыт.</li>
@@ -578,16 +579,16 @@
           </article>
 
           <article class="track">
-            <div class="track-top"><div><div class="track-id">g-4b92</div><h3>Grid / Layers / World Change</h3></div><span class="pill ready">ready · fresh review</span></div>
+            <div class="track-top"><div><div class="track-id">g-4b92</div><h3>Grid / Layers / World Change</h3></div><span class="pill mapped">owner decision · 0/11</span></div>
             <dl class="facts">
-              <div class="fact"><dt>Сейчас</dt><dd>Владелец принял упрощённую document-authority correction по шести правилам. Исправленный planning artifact ждёт одной binding fresh проверки; product progress остаётся 0 из 11 legs.</dd></div>
+              <div class="fact"><dt>Сейчас</dt><dd>Binding fresh review refuted correction-002 на self-coverage disposition ledger и отсутствующей clause-level tombstone для секции внутри сохранённого файла. Product progress остаётся 0 из 11 legs.</dd></div>
               <div class="fact"><dt>Вклад</dt><dd>Общее пространство и подтверждённые изменения, универсальный Object↔Layer Resolver и безопасная основа для consumer-driven Layer↔Layer связей.</dd></div>
-              <div class="fact"><dt>Текущий root</dt><dd><a href="../c-review-grid-v1-document-authority-amendment-002-call.md">Binding fresh review принятой correction</a> — READY/default; он не открывает product root, слот или engineering CALL.</dd></div>
-              <div class="fact"><dt>Authority</dt><dd><a href="../grid-v1-executor-plan.md">Current accepted executor plan</a> blob <code>8af16563</code> + <a href="../../history/2026-07-21-s-work-grid-v1-document-authority-correction-002.md">owner-approved correction receipt</a> + прежняя <a href="../../history/2026-07-21-s-review-grid-v1-document-authority-amendment-001.md">refutation matrix</a>.</dd></div>
-              <div class="fact"><dt>Conflict</dt><dd>Поправка ещё не имеет binding fresh verdict. До него G01 и весь product execution закрыты; если review снова найдёт контрпример, цепочка останавливается без correction-003 и возвращается к отдельному решению владельца.</dd></div>
+              <div class="fact"><dt>Текущий root</dt><dd><code>d-grid-v1-document-authority-refutation-002</code> — решение владельца: reframe G01 boundary, явно разрешить correction-003 или поставить Grid launch-control на паузу.</dd></div>
+              <div class="fact"><dt>Authority</dt><dd><a href="../grid-v1-executor-plan.md">Current accepted executor plan</a> blob <code>8af16563</code> + <a href="../../history/2026-07-21-s-review-grid-v1-document-authority-amendment-002.md">binding correction-002 refutation</a> + owner-approved correction receipt.</dd></div>
+              <div class="fact"><dt>Conflict</dt><dd>Manifest identity, access fence, semantic controls и deletion fallback выдержали; ledger/section disposition completeness — нет. G01 и весь Grid product execution закрыты до нового явного owner route.</dd></div>
             </dl>
             <ul class="remaining">
-              <li><strong>Следом:</strong> одна свежая сессия пытается опровергнуть все прежние RED-классы и контрольные обходы; чистый результат открывает только planning launch-control.</li>
+              <li><strong>Следом:</strong> владелец выбирает reframe, явно разрешённую correction-003 или паузу; автоматического следующего correction root нет.</li>
               <li>G01–G04 строго serial; после G04 Layer-path и Object-path параллелятся только при доказанном полном разделении рабочих поверхностей и последовательном merge.</li>
               <li>Gas/Wind/Character/Level/Program/Integration behavior и реальные adapters остаются у владельцев; synthetic layers дают только Grid-internal proof.</li>
               <li>Dashboard остаётся одной секцией существующей панели; отдельный render и BUILD не открыты.</li>

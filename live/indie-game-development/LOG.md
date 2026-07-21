@@ -468,4 +468,6 @@ archived: history/LOG-archive-indie-game-development.md — sessions before 2026
 
 2026-07-21 · s-map-launch-control-track-add-002 · map · launch-control · g-b847/track-add-v2: owner approved Demo & Launch Control with Release Directive and bounded Process Adaptation authority, a separate plain-language management dashboard, stabilization-first ordering and dynamic daily/event-driven AI dispatch; track_wip_limit becomes a hidden compatibility ceiling of 99 rather than capacity, one planning-only baseline root becomes default, Grid stays READY, and no dashboard, recurring control, directive, maintenance or product work starts. → history/2026-07-21-s-map-launch-control-track-add-002.md
 
+2026-07-21 · s-review-grid-v1-document-authority-amendment-002 · review · grid · g-4b92/v1-document-authority-amendment-review-002: binding fresh review refuted correction-002 because the disposition ledger remains self-covering/underspecified and cannot mechanically prove clause-level tombstones for sections removed inside retained files; the correction chain stops at an owner decision, Grid stays parallel at 0/11, deletion fallback/history and the technical route remain unchanged, and cut add-back is 0 with none missed. → history/2026-07-21-s-review-grid-v1-document-authority-amendment-002.md
+
 END_OF_FILE: live/indie-game-development/LOG.md
