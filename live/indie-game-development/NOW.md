@@ -1,6 +1,6 @@
 # NOW: indie-game-development
 
-updated: 2026-07-21 by s-forge-g-d3a8-visual-contract-canon-admission-001
+updated: 2026-07-21 by s-work-gas-v1-current-authority-audit-accepted-001
 
 bet: null
 
@@ -100,16 +100,17 @@ open_calls:
       - history/2026-07-21-s-work-grid-v1-critical-path-plan-accepted-001.md
     note: "READY / DEFAULT / OWNER-PRESENT / PLAN ONLY / NO PRODUCT MUTATION. The owner accepted the plain Grid V1 master plan with exact words `Принять план с обязательным Multiplayer handoff/gate`. Grid owns shared spatial/commit/change infrastructure, the generic Object↔Layer Resolver and generic Layer↔Layer read boundary; consumer behavior and real adapters stay with their tracks. Re-read fresh product authority and produce only the subordinate exact source/legacy executor plan. Synthetic layers do not close M3; a real second consumer and mandatory two-peer proof remain named acceptance gates. No branch/worktree, tests, Unity, separate dashboard or BUILD."
 
-  - id: c-work-gas-v1-current-authority-audit-001
+  - id: c-work-gas-v1-master-plan-001
     track: gas
     status: ready
     to: session
-    for: "g-1a63 / owner-present Gas V1 current-authority audit and planning front"
+    for: "g-1a63 / owner-present staged Gas V1 master plan"
     issued: 2026-07-21
-    call: work/c-work-gas-v1-current-authority-audit-001-call.md
+    call: work/c-work-gas-v1-master-plan-001-call.md
     receipts:
       - history/2026-07-21-s-map-gas-track-resume-001.md
-    note: "READY / NON-DEFAULT / OWNER-PRESENT / READ-ONLY PLANNING. Reconcile current V31/product truth, delivered Gas foundations, stale legacy roads and cross-track dependencies before a detailed Gas master plan. Plan independent Gas behavior/harness work now; Grid-dependent committed adapters/contact wait for contract freeze. Wind is an owner-selected separate deferred layer outcome, not Gas scope, a stub or a current Grid V1 blocker. No product work or BUILD."
+      - history/2026-07-21-s-work-gas-v1-current-authority-audit-accepted-001.md
+    note: "READY / NON-DEFAULT / OWNER-PRESENT / PLAN ONLY / NO PRODUCT MUTATION. The owner accepted a full Gas V1 master plan now with staged implementation, then clarified that it must remain a route map: every major node receives its own detailed owner-present plan before implementation, especially full-level optimization. The accepted audit separates the released detailed NearGas foundation from missing live composition, runtime sources, committed publication, generated-level scale, world-change, player consequence and multiplayer proof. Gas owns simulation/evidence only; Program/Multiplayer owns session/identity/input delivery and must return the mandatory network proof. Target scale is about 150 rooms averaging roughly 8x4x8 m with size variation and long/vertical routes; giant hangars stay paused. Grid-dependent signatures wait for contract freeze, independent Wind stays deferred, default remains Grid and BUILD stays closed."
 
 recurring: []
 
