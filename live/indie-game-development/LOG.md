@@ -518,4 +518,6 @@ archived: history/LOG-archive-indie-game-development.md — sessions before 2026
 
 2026-07-22 · s-work-launch-control-demo-control-room-foundation-001 · work · launch-control · g-b847/demo-control-room-foundation-001: one exact source-linked Demo Control Room foundation candidate now connects the unchanged Demo Contract to separate October/February routes, resource-feasible Runway, all nine current tracks, inherited WIP and a four-line day brief; it is not accepted, launches no foreign work, and one fresh independent review is READY/default before owner fix-or-accept. → history/2026-07-22-s-work-launch-control-demo-control-room-foundation-001.md
 
+2026-07-22 · s-review-launch-control-demo-control-room-foundation-001 · review · launch-control · g-b847/demo-control-room-foundation-review-001: binding fresh review REFUTED exact candidate b1a99098 on an unsupported 10 August latest-safe claim, obsolete global-routing labels and a mixed setup/operational day brief; WIP, Grid-before-Gas-as-candidate, Demo boundaries and route anchors survived, cuts add-back 0/7, and one exact correction continuation is READY without foreign launch. → history/2026-07-22-s-review-launch-control-demo-control-room-foundation-001.md
+
 END_OF_FILE: live/indie-game-development/LOG.md

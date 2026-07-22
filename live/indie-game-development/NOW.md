@@ -1,6 +1,6 @@
 # NOW: indie-game-development
 
-updated: 2026-07-22 by s-work-launch-control-demo-control-room-foundation-001
+updated: 2026-07-22 by s-review-launch-control-demo-control-room-foundation-001
 
 bet: null
 
@@ -32,16 +32,16 @@ open_calls:
       - history/2026-07-20-s-work-program-v2-legacy-lab-purge-deliver-blocked-001.md
     note: "BLOCKED / V31 RELEASE CONTINUATION / ROOT NOT RELEASED. Product candidate 72c7c8c6 removes the 24 approved tracked paths, preserves KEEP, adds the <=400-word no-growth policy, passes fresh non-author G5 and normal gates (1829/1829), and is integrated only in local dev through c5c21c13 with blocker evidence baf8513c. Deliver is RED solely because pre-existing review-c-exec-char-v2-source-router-repair-001 does not account for source commit 413149ce after reviewed commit 8a0e33ec. No push/merge/release; origin refs remain 45b15623; WIN-U1 is DRAINING with lease preserved. Do not dispatch or return to feature work until unblock_when is true."
 
-  - id: c-review-launch-control-demo-control-room-foundation-001
+  - id: c-work-launch-control-demo-control-room-foundation-correction-001
     track: launch-control
     status: ready
     to: session
-    for: "g-b847 / fresh independent refutation of the exact Demo Control Room foundation candidate"
+    for: "g-b847 / exact correction of the refuted Demo Control Room foundation candidate"
     issued: 2026-07-22
-    call: work/launch-control/c-review-launch-control-demo-control-room-foundation-001-call.md
+    call: work/launch-control/c-work-launch-control-demo-control-room-foundation-correction-001-call.md
     receipts:
-      - history/2026-07-22-s-work-launch-control-demo-control-room-foundation-001.md
-    note: "READY / DEFAULT / FRESH INDEPENDENT REVIEW / EXACT CANDIDATE NOT ACCEPTED / NO FOREIGN DISPATCH. Artifact work/launch-control/demo-control-room.md at expected Git blob b1a990983ec790fcfad8e876cb3f252091196b4b is one derived projection over TREE/NOW/RESULT evidence. Refute every foundation promise, the inferred inherited WIP, current track dispositions, route/resource realism and the four-line day brief. A clean verdict may open only owner fix-or-accept; a refutation may open only exact correction."
+      - history/2026-07-22-s-review-launch-control-demo-control-room-foundation-001.md
+    note: "READY / EXACT CORRECTION ONLY / CANDIDATE NOT ACCEPTED / NO FOREIGN DISPATCH. Binding fresh review refuted artifact blob b1a990983ec790fcfad8e876cb3f252091196b4b on three bounded points: 10 August is not proved as a latest-safe cut date; default/non-default routing became obsolete after global NOW.next removal; and the four-line 22 July brief mixes setup/review with a conditional later Canon outcome instead of one operational owner-primary. Preserve the WIP finding that Character closing plus Program release are unfinished product lineages, preserve zero new background BUILD and Grid only as a future admitted candidate, and change no product or foreign track."
 
   - id: c-exec-level-module-standard-v1-lv0-plan-001
     track: level
