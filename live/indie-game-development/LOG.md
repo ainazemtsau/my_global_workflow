@@ -530,4 +530,6 @@ archived: history/LOG-archive-indie-game-development.md — sessions before 2026
 
 2026-07-22 · s-review-launch-control-demo-control-room-foundation-correction-002 · review · launch-control · g-b847/demo-control-room-foundation-correction-002-review-001: binding fresh review COULD-NOT-REFUTE exact candidate 1d39f9f; two current corrections, three prior fixes, seven promises, nine-track projection and Demo/route/resource boundaries survived, current actual product/external-world result remains NONE, and one owner fix-or-accept brief is READY without acceptance or product/Canon/foreign launch. → history/2026-07-22-s-review-launch-control-demo-control-room-foundation-correction-002.md
 
+2026-07-22 · s-work-launch-control-demo-control-room-foundation-accepted-001 · work · launch-control · g-b847/demo-control-room-foundation-fix-or-accept-001: owner accepted the could-not-refute Demo Control Room foundation for operational trial with `Окей, давай завершим, попробуем по ней работу.`; status-only finalization preserves product result NONE and all Demo/route/WIP/foreign-authority boundaries, and one owner-present first operating plan is READY without Daily Command or automatic product/Canon/foreign launch. → history/2026-07-22-s-work-launch-control-demo-control-room-foundation-accepted-001.md
+
 END_OF_FILE: live/indie-game-development/LOG.md
