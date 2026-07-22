@@ -490,4 +490,6 @@ archived: history/LOG-archive-indie-game-development.md — sessions before 2026
 
 2026-07-22 · s-work-launch-control-stabilization-baseline-accepted-001 · work · launch-control · g-b847/stabilization-baseline-recovery: владелец принял полный release-control baseline и gate 2026-07-26; October 2026 остаётся условной целью, February 2027 — fallback, денежный gate — 2026-12-11, и ровно один ручной Daily Command dry run открыт READY/default без отдельного dashboard, recurring control или product dispatch. → history/2026-07-22-s-work-launch-control-stabilization-baseline-accepted-001.md
 
+2026-07-22 · s-work-publish-launch-control-stabilization-baseline-main-001 · work/publish · launch-control · g-b847/repository-main: owner-requested Direction range through accepted baseline d341122e was fast-forward pushed without force to origin/wt/indie-game-development and origin/main with exact two-ref SHA and artifact readback; the manual Daily Command remains READY/default, compatible Grid receipts are preserved, and no dashboard, recurring control, directive, OS or product work was opened. → history/2026-07-22-s-work-publish-launch-control-stabilization-baseline-main-001.md
+
 END_OF_FILE: live/indie-game-development/LOG.md
