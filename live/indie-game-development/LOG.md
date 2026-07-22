@@ -498,4 +498,6 @@ archived: history/LOG-archive-indie-game-development.md — sessions before 2026
 
 2026-07-22 · s-work-launch-control-daily-command-structure-checkpoint-001 · work · launch-control · g-b847/daily-command-dry-run-001: owner corrected the unaccepted morning draft to require one current-milestone operating plan before every Daily Command; the rule is persisted, the 2026-07-26 gate stays open, and one fresh M0-plan continuation is READY/default. → history/2026-07-22-s-work-launch-control-daily-command-structure-checkpoint-001.md
 
+2026-07-22 · s-work-publish-launch-control-m0-structure-main-001 · work/publish · launch-control · g-b847/repository-main: owner-requested Direction range b80c5674..2152cf0d was fast-forward published without force to origin/wt/indie-game-development and origin/main with exact remote readback; released Grid G01 and the mandatory M0-plan-before-Daily-Command rule are now in main, while the fresh M0 planning continuation remains READY/default. → history/2026-07-22-s-work-publish-launch-control-m0-structure-main-001.md
+
 END_OF_FILE: live/indie-game-development/LOG.md

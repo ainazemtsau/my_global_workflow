@@ -293,7 +293,7 @@
           <a href="../program-v2-track-handoff-template.md">Handoff</a>
         </nav>
       </div>
-      <div class="updated">Обновлено 22 июля 2026<br>по RESULT s-work-launch-control-daily-command-structure-checkpoint-001</div>
+      <div class="updated">Обновлено 22 июля 2026<br>по RESULT s-work-publish-launch-control-m0-structure-main-001</div>
     </header>
 
     <main>
@@ -451,6 +451,7 @@
           <details open>
             <summary><strong>22 июля</strong></summary>
             <ul class="remaining">
+              <li>По прямой команде владельца три совместимых Direction-коммита после предыдущей публикации перенесены обычным fast-forward без force в рабочую удалённую ветку и <code>main</code>. Удалённый readback подтвердил одно состояние: Grid G01 выпущен, следующий Grid-шаг подготовлен, а Launch Control теперь обязательно строит план этапа до 26 июля перед новым Daily Command. Текущая свежая сессия Launch Control остаётся READY/default; продукт, чужие планы и правила проверки не менялись.</li>
               <li>Первый утренний план Launch Control не принят: он называл следующие Grid/Gas-действия, но не доказывал темп до ближайшего этапа. Владелец одобрил обязательную цепочку «цель демо → этапы → план ближайшего этапа → результат дня → пополнение работы в течение дня» и попросил чистую сессию. Правило записано в Launch Control; этап до 26 июля остаётся открытым, а одна свежая сессия теперь должна сначала принять план оставшихся дней и только затем Daily Command.</li>
               <li>Владелец разрешил прямой выпуск уже проверенной Grid-очистки и отдельно отложил ремонт workflow. Product <code>dev</code>, <code>main</code> и <code>slot/win-u1</code> опубликованы на <code>1a6373b8</code>: все 12 legacy-файлов отсутствуют, обе существующие истории сохранены, focused checks зелёные, WIN-U1 чистый и AVAILABLE. G01 завершён как 1/11; G02 common spatial map подготовлен READY/non-default с обычным PLAN-gate, но не запущен.</li>
               <li>По прямому STOP владельца старый Grid receipt-repair маршрут отменён. В отдельной product-сессии создан чистый candidate <code>47bfe67e</code>: удалены ровно 12 принятых legacy-файлов, обновлены только четыре current-authority файла, а пять frozen PLAN-артефактов сохранены byte-for-byte. Fresh non-author review не смог опровергнуть scope или semantics. Выпуск остановлен только обязательным Deliver, который требует запрещённые legacy PAIR/receipt stages и падает на unrecognized NegativeControl venue <code>N/A</code>; candidate сохранён на <code>slot/win-u1</code>, старый CALL снят без successor, <code>dev/main/origin</code> не менялись.</li>
