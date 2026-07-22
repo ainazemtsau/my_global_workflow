@@ -1,20 +1,30 @@
 # g-d3a8 — Current Design Question Front v3
 
-status: OWNER-APPROVED CARTOGRAPHY
+status: HISTORICAL / SUPERSEDED CARTOGRAPHY
 approved_on: 2026-07-20
-authority: routing, dependency and visual-work authority only; not Frame, not a paper answer, not canon, not image authority
-governing_process: Canon Forge v3
-routing_status: SUSPENDED
+historical_authority: |
+  Dependency, question and visual-work provenance only; not Frame, not a
+  paper answer, not canon, not image authority, not backlog and not scheduler.
+governing_process_at_creation: Canon Forge v3
+routing_status: SUPERSEDED
 routing_suspended_on: 2026-07-22
+routing_superseded_on: 2026-07-22
+superseded_by:
+  live/indie-game-development/work/demo-workflow/
+  demo-driven-design-canon-workflow-v1.md
 routing_suspension_owner_words: |
   «если пришёл неправильный вопрос, это всё, мы эту структуру строили,
   чтобы правильно вопросы задавать. Значит, она полностью не работает.»
 
   «100% процесс полностью нужно менять (или значительно обновлять)»
+routing_supersession_owner_words: |
+  «ПРИНИМАЮ DEMO-DRIVEN DESIGN & CANON WORKFLOW V1»
 live_effect: |
-  This map remains historical dependency and question evidence only.
-  No node in it is dispatchable and no READY / NEXT statement in it may
-  open work until an owner-approved replacement workflow supersedes it.
+  This map remains historical dependency, question and visual-work evidence
+  only. No node is dispatchable; no READY, NEXT, eligibility statement or
+  dependency order in this file can open, prioritize or imply work.
+  An old question requires a fresh complete accepted Demo Contract parent
+  trace or one exact owner override under the replacement workflow.
 supersedes_as_current_map:
   live/indie-game-development/work/canon-maps/
   g-d3a8-current-question-front-v2.md

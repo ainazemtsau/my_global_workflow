@@ -1,6 +1,6 @@
 # NOW: indie-game-development
 
-updated: 2026-07-22 by s-work-launch-control-demo-control-room-foundation-correction-001
+updated: 2026-07-22 by s-work-g-d3a8-demo-workflow-rebuild-accepted-001
 
 bet: null
 
@@ -53,16 +53,18 @@ open_calls:
     call: work/c-exec-level-module-standard-v1-lv0-plan-001-call.md
     note: "WAITING / DO NOT RELAUNCH. Product LV0 PLAN evidence exists at b16981706ece53c584848255de2bd92675b5de7b, but binding Direction close is missing. When the owner activates Level, first reconcile exact HOME, current V31 and product truth; preserved aperture RED 5af1d8db931d10cc6149a2c1f8e1023bc3b9ffb1 remains evidence, not permission to issue BUILD."
 
-  - id: c-work-g-d3a8-demo-workflow-rebuild-001
+  - id: c-cartography-g-d3a8-demo-experience-tree-pilot-001
     track: canon
-    status: ready
+    status: waiting
+    waiting_on: [owner-approved-launch-control-demo-contract]
     to: session
-    for: "g-d3a8 / owner-present replacement of question-first Canon workflow with Demo Experience Tree, Canon Ledger, parented execution and Markdown-first visual portal"
+    for: "g-d3a8 / minimal owner-present Demo Experience Tree pilot: one immediate experience-spine child of the accepted Demo Contract"
     issued: 2026-07-22
-    call: work/demo-workflow/c-work-g-d3a8-demo-workflow-rebuild-001-call.md
+    call: work/demo-workflow/c-cartography-g-d3a8-demo-experience-tree-pilot-001-call.md
     receipts:
-      - history/2026-07-22-s-work-g-d3a8-markdown-first-portal-acceptance-001.md
-    note: "READY / NON-DEFAULT / OWNER-PRESENT / PROCESS REBUILD ONLY / NO DESIGN QUESTION / NO PORTAL BUILD. The owner explicitly said Canon may continue independently while Demo Control Room is rebuilt, but the now-unblocked Demo Control Room refit is the current default. Draft and co-create one exact replacement workflow artifact. Preserve accepted canon and Frames. Current question-front is suspended as scheduling authority. The accepted portal contract requires Markdown/media authority and a replaceable generated read-only site; Zensical is only the first renderer candidate. Do not generate images, define demo content, implement the portal, create AI pipelines or mutate os/**."
+      - history/2026-07-22-s-work-g-d3a8-demo-workflow-rebuild-accepted-001.md
+      - work/demo-workflow/demo-driven-design-canon-workflow-v1.md
+    note: "WAITING / LOCAL CANON HANDOFF / NO META-CHOICE / NO DESIGN DISPATCH. The owner accepted Demo-Driven Design & Canon Workflow v1 and explicitly required the Canon track to retain its own next CALL. Start only after Launch Control records one real owner-approved Demo Contract and exact acceptance receipt for work/launch-control/demo-control-room.md. Then propose only one immediate experience-spine child for owner approve/correct/reject under local/canon-cartography. No old question migration, Canon Forge, READY/NEXT tree data, portal/product work or automatic successor."
   - id: c-visual-009
     track: visual
     status: blocked

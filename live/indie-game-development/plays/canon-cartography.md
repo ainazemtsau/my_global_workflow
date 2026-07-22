@@ -1,42 +1,70 @@
-# Play: local/canon-cartography
+# Play: local/canon-cartography — Demo Parent Expansion v2
 
-Purpose: map ONE canon cluster before `local/canon-forge` freezes cards. This play does not answer canon. It makes the next canon questions clear: what must be discussed first, what must be discussed together, what is downstream, what needs visual/proof anchors, and what returns to the graph if a forge session finds a gap.
+status: ACTIVE
+installed_on: 2026-07-22
+owner_verdict: "ПРИНИМАЮ DEMO-DRIVEN DESIGN & CANON WORKFLOW V1"
+supersedes: canon-cartography question-front and cluster-routing authority
 
-Reads: the cluster's open question notes, frozen parent cards, area MOC, relevant `live/indie-game-development/history/` sessions, `TREE.md` node `g-d3a8`, `CHARTER.md`, and mechanic/lore/art knowledge gates when relevant.
+Purpose: |
+  Expand one exact accepted Demo Experience Tree parent by one immediate child.
+  Preserve useful dependency analysis without building a global question front,
+  backlog, READY set or recommendation for what work becomes current.
 
-Writes: no canon cards directly. RESULT may propose exact question-note/MOC/play updates for a writer. OS state changes only through RESULT: LOG line, history file, captures, decisions, next CALL.
+Reads:
+  - live/indie-game-development/NOW.md
+  - live/indie-game-development/CHARTER.md
+  - live/indie-game-development/TREE.md
+  - live/indie-game-development/work/demo-workflow/
+    demo-driven-design-canon-workflow-v1.md
+  - the exact accepted Demo Contract and Demo Experience Tree artifact named
+    by the active CALL
+  - applicable Frames, Canon Decision Ledger entries and linked historical
+    question/media evidence named by the active CALL
 
-Precondition: owner or a prior checkpoint names a canon cluster that is too broad, repeatedly mis-forged, or likely to hide prerequisite questions.
+Writes:
+  One proposed immediate child in the named Demo Experience Tree artifact via
+  RESULT; NOW/history/LOG changes only through RESULT. No canon answer, design
+  candidate or direct repository write.
 
 ## Steps
 
-1. **Frame cluster** — name the cluster, anchor question, why cartography is needed, and the owner symptom that triggered it.
-2. **Inventory** — list existing frozen parents, open/downstream questions, rejected alternatives, and owner corrections. Do not answer the design.
-3. **Plain questions** — rewrite each candidate node as a simple owner-facing question. If it cannot be stated plainly, mark it unclear.
-4. **Classify graph** — for max 15 nodes, assign:
-   `plain_question`, `why_it_matters`, `answer_shape`, `status`, `dependency_type`, `blocks`,
-   `do_not_solve_here`, `needs_anchor`, `confusion_traps`, `forge_handoff`.
-5. **Route** — recommend the next canon-forge call, 1–2 alternatives, and why the rejected routes are worse.
-6. **Owner sign (owner)** — owner approves the map, steers it, or asks to split/re-run. No graph is treated as accepted without owner words. `(owner)`
+1. **Accepted parent** — name the exact accepted parent and its complete path
+   to the Demo Contract. Determine the one legal next child type in the order:
+   `demo → experience spine → beat/situation → observable outcome → required
+   capability → decision gap → evidence/build`. If the parent is missing,
+   unresolved or skipped, return BLOCKED. An owner override must carry the
+   fields required by the approved workflow.
 
-## Field values
+2. **Immediate child draft** — draft only one child with plain-language
+   meaning, why it is required by the parent, acceptance condition, inherited
+   accepted truth, exact non-scope and unresolved dimensions. Historical
+   questions and media may inform the draft but are never migrated
+   automatically.
 
-`answer_shape`: invariant / payload_model / loop_spine / scenario_grammar / taxonomy / visual_plate / equipment_model / economy_model / proof.
+3. **Trace and negative check** — prove no level was skipped; the child does
+   not answer its own downstream gap; no `READY`, priority, NEXT, queue order
+   or automatic successor is encoded; unresolved parentage blocks descendants.
 
-`status`: ready / needs_preface / blocked / downstream / proof_later / unclear.
+4. **Owner sign (owner)** — show the one child artifact and record the owner's
+   exact approve/correct/reject words. Approval accepts only this parent-child
+   relation and content; it does not activate design work.
 
-`dependency_type`: hard_prerequisite / co_frame / downstream / visual_anchor / implementation_downstream / economy_downstream / proof_downstream.
-
-`needs_anchor`: none / verbal_scene / diagram / visual_plate / greybox.
-
-`forge_handoff` must include: `plain_question`, `why_now`, `must_decide`, `must_not_decide`, `parent_locks`, `expected_answer_shape`, `first_owner_question`, `return_to_graph_if`.
+5. **Close** — emit one RESULT containing only the exact accepted tree-artifact
+   edit or the exact block. Do not issue a Canon Forge CALL unless the owner or
+   Launch Control separately selects the resulting decision gap as current.
 
 ## Done when
 
-RESULT contains an owner-readable cluster map; every node has the graph fields above; dependencies explain WHY they block; next canon-forge CALL is ready; gap/rebalance rule is stated; owner approval words are cited; no canon answer is frozen.
+One immediate child is owner-approved with a complete Demo Contract trace, or
+the expansion is honestly blocked; no global question graph, automatic
+migration, routing front, design answer, visual candidate or successor is
+created.
 
-## Gap rule
+## Notes
 
-If later canon-forge finds a hidden prerequisite, unclear plain question, wrong answer shape, visual/proof need, or owner says the session is going the wrong way, it checkpoints a `gap_event` and returns to this play instead of inventing canon.
+- The former current-question-front remains historical evidence only.
+- Dependency type and rationale may be recorded only to explain this exact
+  parent-child relation.
+- A broad cluster inventory belongs in historical research, not live routing.
 
 END_OF_FILE: live/indie-game-development/plays/canon-cartography.md

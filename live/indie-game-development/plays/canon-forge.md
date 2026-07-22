@@ -1,108 +1,81 @@
-# Play: local/canon-forge — Canon Forge v3
+# Play: local/canon-forge — Demo-Driven Canon v4
 
 status: ACTIVE
-installed_on: 2026-07-12
-owner_verdict: "УСТАНОВИТЬ V3 КАК ДЕЙСТВУЮЩИЙ ПРОЦЕСС"
+installed_on: 2026-07-22
+owner_verdict: "ПРИНИМАЮ DEMO-DRIVEN DESIGN & CANON WORKFLOW V1"
+supersedes: Canon Forge v3 as design-routing authority
 
 Purpose: |
-  Управлять единым переходом от Minimum Game Frame к owner-selected answer
-  и отдельному owner-present canon
-  admission. Тип вопроса определяет формат ответа. Selection, authority,
-  canon admission и evidence остаются
-  разными переходами.
-
-Authority:
-  - This play is the sole active design-to-canon route.
-  - Canon Forge v2 is removed from live routing and is not a fallback.
-  - Gates F/Q and text-candidate discipline come from:
-    live/indie-game-development/work/
-    canon-process-v3-paper-only-pilot-brief.md
-  - Visual questions follow the current canon card:
-    canon/c-003-visual-development-contract.md
-  - For an explicit visual question, c-003 replaces only the pilot
-    brief's text-only format restriction. Both gates and all authority
-    transitions remain unchanged.
-  - Current owner instruction and Direction OS state outrank stale
-    sources.
+  Resolve one explicitly selected Demo Experience Tree decision gap, or run
+  one separate canon-admission verdict over an exact existing selected
+  artifact. This play never chooses the next question.
 
 Reads:
   - live/indie-game-development/NOW.md
   - live/indie-game-development/CHARTER.md
   - live/indie-game-development/TREE.md
-  - live/indie-game-development/work/
-    canon-process-v3-paper-only-pilot-brief.md
-  - the current Minimum Game Frame and exact question artifacts named by
-    the active CALL
-  - canon repository:
-    CONSTITUTION.md, CORE.md, INDEX.md, QUEUE.md,
-    canon/c-003-visual-development-contract.md and directly relevant
-    canon cards
+  - live/indie-game-development/work/demo-workflow/
+    demo-driven-design-canon-workflow-v1.md
+  - the exact accepted Demo Contract and Demo Experience Tree artifact named
+    by the active CALL
+  - applicable accepted Frames
+  - canon CONSTITUTION.md, CORE.md, INDEX.md, QUEUE.md, c-003 and directly
+    relevant canon cards
+  - exact linked media/evidence named by the active CALL
 
-Hard boundaries:
-  - One Forge; format follows question.
-  - Use text, diagram or sequence when sufficient. A visual question
-    named by the active CALL may use c-003 formats and must obey c-003.
-  - No Unity scene, greybox, runtime A/B build, setup, playtest, tuning,
-    implementation or production-asset work.
-  - No candidate generation before both FRAME READY and QUESTION READY.
-  - A blocked gate stays on the same missing basis or question.
-  - An OWNER-SELECTED PAPER ANSWER or OWNER-SELECTED PLATE is not canon.
-  - Canon admission requires a separate owner-present verdict on the
-    exact selected artifact.
-  - No question auto-starts from QUEUE.md.
-  - No process or canon mutation occurs before its owner verdict.
-  - Stale v2 files, old chats and git-history text have no live authority.
+Writes:
+  One bounded work artifact or one canon-admission proposal via RESULT;
+  NOW/history/LOG changes only through RESULT. No direct repository writes.
 
-Steps:
-  1. Authority and scope:
-     load the active CALL, current frame, process specification and current
-     canon sources; state exactly what is and is not being decided.
+## Steps
 
-  2. Gate F:
-     establish or verify the current owner-readable Minimum Game Frame.
-     Return FRAME READY, FRAME REVISED or FRAME BLOCKED with the owner's
-     words recorded verbatim.
+1. **Parent trace** — verify the CALL names one complete accepted path:
+   `Demo Contract → experience spine → beat/situation → observable outcome →
+   required capability → decision gap`, or one exact owner override naming the
+   missing parent, reason, scope, expiry and return condition. Missing or
+   unresolved parent means BLOCKED: no candidate, image, evidence child or
+   implementation route starts.
 
-  3. Gate Q:
-     for one sourced current question, establish frame location, exact
-     unresolved player decision, provenance, why-now, blockers, entity
-     meanings and non-scope. Return QUESTION READY or QUESTION BLOCKED with
-     the owner's words recorded verbatim.
+2. **Scope and maturity** — state the exact gap, exact non-scope, inherited
+   Frame/canon truth, linked node, claim class, cheapest valid evidence lane
+   (`paper | visual | prototype | playtest | performance | external`),
+   comparison criteria, falsifier and evidence limit. Visual work obeys c-003.
 
-  4. Candidate comparison:
-     only after both gates pass, choose the minimum useful format.
-     Define local criteria and a shared situation when useful; generate
-     privately, hard-kill weak directions and show one explanatory artifact
-     or 2–3 comparable candidates.
-     Visual work follows c-003. Otherwise return BLOCKED honestly.
+3. **Resolve or route evidence** — paper/visual work may be co-created here in
+   the minimum useful format; when comparison is needed, use 2–3 comparable
+   candidates in one matched situation. Prototype, playtest, performance or
+   external work is returned as an exact evidence requirement for a lawful
+   owning-track route; this session does not fake that evidence or create an
+   illegal cross-track child.
 
-  5. Owner selection:
-     record the owner's exact words. Save the selected text answer or
-     plate with its rules, placeholders, non-binding details, production
-     check and unverified dimensions. It is paper/visual authority, not
-     canon.
+4. **Owner selection (owner)** — record the owner's exact words. A selected
+   paper answer or plate receives only its declared paper/visual authority,
+   rules, placeholders, non-binding details and unverified claims. Revision or
+   a discovered parent gap keeps the same node open or blocked. No successor
+   is inferred.
 
-  6. Canon admission:
-     run only as a separate owner-present CALL over one exact existing paper
-     artifact. Allowed verdicts are ADMIT TO CANON, HOLD PAPER-ONLY or
-     REJECT AS CANON CANDIDATE. No branch opens another design topic or
-     implementation task.
+5. **Canon admission (owner)** — run only when the active CALL explicitly names
+   one exact existing selected artifact for admission. Allowed verdicts:
+   `ADMIT TO CANON | HOLD PAPER-ONLY | REJECT AS CANON CANDIDATE`. Admission
+   updates the Canon Decision Ledger only; it creates no priority, READY state,
+   NEXT item or adjacent design work.
 
-  7. Close:
-     emit one RESULT. The session never edits repositories directly.
-     A writer applies only the owner-approved state/process/canon diff.
+6. **Close** — emit one RESULT. Clear or checkpoint only the active CALL.
+   Closing a prerequisite never activates a descendant. A later design root
+   requires a separate explicit owner/Launch Control selection and CALL.
 
-Done when:
-  The active CALL reaches its bounded owner verdict; format matches the
-  question; Frame and Question gates, owner selection, paper/visual
-  authority, separate canon admission and evidence remain explicit; no stale
-  route auto-starts; the RESULT cites every owner step verbatim.
+## Done when
 
-Postconditions:
+The selected gap or admission reaches an exact owner verdict or an honest
+parent/evidence block; authority and evidence limits are explicit; accepted
+truth is preserved; no `READY → NEXT`, automatic successor, stale map/QUEUE
+dispatch, unparented visual work or silent canon promotion occurs.
 
-- The play remains the single Canon Forge.
-- The play remains within the local-play 600-word budget.
-- The paper-only pilot brief governs Gate F, Gate Q and text comparison.
-- c-003 changes only the allowed format for an explicit visual question.
+## Notes
+
+- At most one selected Canon design root is active.
+- Old question maps and QUEUE are historical evidence, not scheduling inputs.
+- The generated portal is a replaceable read-only view over Markdown/media.
+- No Demo Contract content, product implementation or portal build is implied.
 
 END_OF_FILE: live/indie-game-development/plays/canon-forge.md
