@@ -320,4 +320,70 @@ Optional Press Preview и SHOULD/CUT scope уходят первыми. MUST, ho
 | October official gates and eligibility | [Steamworks October 2026](https://partner.steamgames.com/doc/marketing/upcoming_events/nextfest/2026october?l=english) |
 | February official gates | [Steamworks February 2027](https://partner.steamgames.com/doc/marketing/upcoming_events/nextfest/feb_2027) |
 
+## 14. Canon readiness refill — вторая принятая Active Wave
+
+После первого Canon `COUNTER` владелец выбрал ровно одну новую волну точными
+словами: `Так, давай сегодня вот именно это, следующие 60 минут, это задача, не
+выдумывай ничего, вот именно нужно отправить запрос как минимум, чтобы начал. Не
+знаю, займет 60 минут, не 60, именно чтобы канун, трек канона доделал свои
+планы. То есть полностью запустить, чтобы он там как-то эффективно, быстро
+закончился своим и был готов к принятию наших требований.`
+
+`60 минут` — блок внимания владельца, не обещание срока, SLA или hard stop.
+Grid, Gas, Character, Hook cards и product work не выбраны.
+
+### Fresh truth и resource graph
+
+- **Product/external result:** по-прежнему **НЕТ**; Hook, Contract, playable
+  demo и публичный результат отсутствуют.
+- **Direction/Canon authority:** принятый Demo-Driven workflow rebuild уже
+  binding-закрыт receipt `s-work-g-d3a8-demo-workflow-rebuild-accepted-001` и
+  опубликован во внешний Canon как `6296cdbe`; его нельзя ложно переоткрывать
+  как незавершённый.
+- **Новая lineage:** live owner authority сообщает о более свежей
+  process/plan работе, но committed Direction state, clean внешний Canon и
+  доступные Codex receipts не дают ей stable id. Это обязательный первый proof
+  target request, а не разрешение придумать внутреннюю задачу.
+- **Split surface:** внешний Canon одновременно показывает Demo-Driven v4 в
+  `AMENDMENTS/CONSTITUTION/QUEUE/board` и старый v3 во входных
+  `README/START/SESSION`. Это material evidence для reconciliation, но не
+  доказательство scope новой lineage.
+- **Agents/tasks:** доступен completed task применения workflow и live source
+  task с owner authority; отдельного active Canon execution task при admission
+  не найдено. После commit target request явно dispatch'ится в новую свежую
+  Codex-задачу.
+- **Files/worktrees:** Direction стартовал с clean tracked HEAD `a69718ca`,
+  NOW blob `d601626`, strategy blob `c1d4f29`; внешний Canon clean и совпадает
+  с `origin/main@6296cdbe`. Чужой untracked `.claude/` не затрагивается.
+- **Editor/machine/product:** Unity, dotnet и git work processes не запущены и
+  для Markdown/task disposition не нужны. Product worktrees и shared runtime
+  surfaces эта волна не занимает.
+- **Scarce surface:** owner attention и один binding Canon Direction
+  close/receipt. Временная оценка не заменяет receipt.
+
+### Выбранный поток
+
+Active Wave размера **1**: auxiliary request
+`c-outcome-canon-current-process-plan-readiness-001` просит Canon вернуть только
+`ACCEPT`, `COUNTER` или `BLOCKED` на один observable need — фактическая текущая
+process/plan lineage binding-закрыта либо явно cut, demo-design routing surface
+освобождена, Canon готов принять следующий lawful requirement.
+
+**Observable exit:** exact stable lineage + owning Canon close/receipt + полный
+учёт остатка планов + fresh Direction/external-Canon readback. Если lineage или
+законный исполнитель не идентифицируются, exit — точный blocker и unblock
+evidence, не выдуманный план.
+
+**Immediate refill:** disposition, owner-verdict gate, exact blocker, expiry или
+другой material result немедленно возвращают Диспетчерскую к fresh admission.
+Ни request, ни его dispatch не меняют waiting pilot и не открывают Hook,
+Contract, product, portal или автоматический successor.
+
+### Daily Brief — ровно четыре строки
+
+1. **Product/external result:** **НЕТ** — Hook, Contract, playable demo и публичный результат отсутствуют.
+2. **Proof + limit:** workflow принят и опубликован как `6296cdbe`, но owner сообщает о более свежей незакрытой lineage; её stable id/receipt пока не найден, а внешние v3/v4 entry surfaces расходятся.
+3. **Missing + selected flow:** ближайший результат — binding Canon readiness close; выбран ровно один READY outcome request, который сначала обязан назвать фактическую lineage.
+4. **Other flows + next event:** Grid, Gas, Character, cards и product исключены; следующее точное событие — evidence-backed Canon `ACCEPT/COUNTER/BLOCKED`, после которого refill запускается немедленно.
+
 END_OF_FILE: live/indie-game-development/work/launch-control/demo-control-room.md

@@ -293,28 +293,28 @@
           <a href="../program-v2-track-handoff-template.md">Handoff</a>
         </nav>
       </div>
-      <div class="updated">Обновлено 22 июля 2026<br>по RESULT s-work-canon-demo-hook-discovery-process-readiness-counter-001</div>
+      <div class="updated">Обновлено 22 июля 2026<br>по RESULT s-work-launch-control-demo-control-room-canon-readiness-launch-001</div>
     </header>
 
     <main>
       <section class="summary" aria-label="Текущий статус">
         <article class="panel">
           <span class="label">Текущий релизный этап</span>
-          <strong class="big">Canon дал COUNTER: сначала закончить собственный процесс и планы</strong>
-          <p class="muted">Владелец назначил следующие <code>60 минут</code> точно на завершение текущей процессной/плановой работы Canon до состояния «готов принимать требования Диспетчерской». Поэтому Hook-карточки сейчас не делаются: их заменяет один bounded readiness outcome с binding close/receipt и освобождённой demo-design поверхностью.</p>
+          <strong class="big">Active Wave 1: только Canon readiness-request</strong>
+          <p class="muted">Владелец направил следующий блок внимания на завершение фактической текущей process/plan lineage Canon до binding close/receipt, полного учёта остатка и освобождённой demo-design поверхности. <code>60 минут</code> — блок внимания, не обещание срока. Grid, Gas, Character, Hook cards и product work не выбраны.</p>
         </article>
 
         <article class="panel next">
           <span class="label">Следующее законное событие</span>
-          <strong class="big">Пересобрать Active Wave по свежим ресурсам</strong>
-          <p><a href="../launch-control/c-work-launch-control-demo-control-room-canon-disposition-refill-001-call.md">Открыть refill Диспетчерской</a></p>
-          <p class="muted small">Первый Canon-request закрыт как <code>COUNTER</code>. Refill обязан использовать точный owner verdict: не выбирать Grid/Gas/Character, а оформить законный запуск Canon readiness по фактической текущей lineage. Сам COUNTER не является запуском и не разрешает выдумывать внутреннюю задачу.</p>
+          <strong class="big">Получить evidence-backed Canon disposition</strong>
+          <p><a href="../launch-control/c-outcome-canon-current-process-plan-readiness-001-call.md">Открыть Canon readiness request</a></p>
+          <p class="muted small">Запрос сначала обязан назвать stable lineage: старый Demo-Driven rebuild уже binding-закрыт и не может быть переоткрыт под ложным именем. Следующее событие — только <code>ACCEPT</code> с owning close/receipt, эквивалентный <code>COUNTER</code> либо точный <code>BLOCKED</code>.</p>
         </article>
 
         <article class="panel">
           <span class="label">Фактическая загрузка NOW</span>
           <div class="status-row">
-            <span class="pill ready">3 ready</span>
+            <span class="pill ready">4 ready</span>
             <span class="pill waiting">3 waiting</span>
             <span class="pill blocked">2 blocked</span>
             <span class="pill paused">1 paused</span>
@@ -343,14 +343,24 @@
           <p><a href="../c-exec-program-v2-legacy-lab-purge-release-001-call.md">Открыть blocked release continuation →</a> · <a href="../legacy-lab-purge-boundary-2026-07-20.md">Прочитать простой вердикт →</a></p>
         </article>
         <article class="panel next" style="margin-top:14px">
+          <span class="label">READY · CANON OUTCOME REQUEST · ACTIVE WAVE 1</span>
+          <strong>Закрыть фактическую Canon process/plan lineage до readiness</strong>
+          <p><code>c-outcome-canon-current-process-plan-readiness-001</code></p>
+          <p><b>Что это:</b> один auxiliary request в Canon по точному owner verdict. Он не заменяет Canon root и не выбирает дизайн.</p>
+          <p><b>Зачем:</b> пока собственная process/plan lineage Canon не имеет binding close/receipt и demo-design surface не освобождена, требования Диспетчерской нельзя законно принять.</p>
+          <p><b>Где сейчас:</b> READY и является первым actionable item. Committed Demo-Driven rebuild уже закрыт и опубликован как <code>6296cdbe</code>; более свежая заявленная владельцем lineage пока не имеет stable id в Direction state, clean внешнем Canon или найденных Codex receipts. Внешние Canon surfaces расходятся: часть уже на v4, а <code>README/START/SESSION</code> всё ещё описывают v3; это evidence, не готовый scope.</p>
+          <p><b>Что дальше:</b> отдельная свежая Codex-задача обязана идентифицировать точную lineage и продолжать до owning Direction close/receipt, реального owner-verdict gate или exact blocker. <code>ACCEPT</code> без закрытого/cut остатка и fresh readback запрещён.</p>
+          <p><a href="../launch-control/c-outcome-canon-current-process-plan-readiness-001-call.md">Открыть Canon readiness request →</a> · <a href="../../history/2026-07-22-s-work-launch-control-demo-control-room-canon-readiness-launch-001.md">Прочитать launch receipt →</a></p>
+        </article>
+        <article class="panel" style="margin-top:14px">
           <span class="label">READY · EVENT REFILL · ДИСПЕТЧЕРСКАЯ ДЕМО</span>
-          <strong>Запустить 60-минутную Canon readiness-волну</strong>
-          <p><code>c-work-launch-control-demo-control-room-canon-disposition-refill-001</code></p>
-          <p><b>Что это:</b> same-track continuation Диспетчерской, который удерживает следующую точку событийного управления после принятой первой волны.</p>
-          <p><b>Зачем:</b> ответ Canon, expiry, blocker или другой material result должен менять допуск сразу, а не на следующий день и не по фиксированному числу фоновых потоков.</p>
-          <p><b>Где сейчас:</b> READY и является первым actionable item. Canon вернул <code>COUNTER</code>, а владелец уже дал точный verdict для следующей волны: следующие 60 минут направить на завершение Canon process/plan readiness. Product/external result остаётся «НЕТ».</p>
-          <p><b>Что дальше:</b> fresh refill должен найти фактическую текущую Canon lineage, проверить её surfaces и оформить законный запуск ровно одного outcome: binding close/receipt, закрытый или явно cut остаток планов, освобождённая demo-design поверхность и готовность принимать требования. Никакой Hook, Contract, Grid, Gas или product work не стартует.</p>
-          <p><a href="../launch-control/c-work-launch-control-demo-control-room-canon-disposition-refill-001-call.md">Открыть refill CALL →</a> · <a href="../../history/2026-07-22-s-work-canon-demo-hook-discovery-process-readiness-counter-001.md">Прочитать COUNTER receipt →</a></p>
+          <strong>Сразу пересчитать волну после Canon disposition</strong>
+          <p><code>c-work-launch-control-demo-control-room-canon-readiness-refill-001</code></p>
+          <p><b>Что это:</b> same-track continuation Диспетчерской, который удерживает следующую точку событийного управления, пока target request выполняется.</p>
+          <p><b>Зачем:</b> disposition, owner-verdict gate, blocker, expiry или другой material result должны менять admission сразу, а не на следующий день.</p>
+          <p><b>Где сейчас:</b> READY как event frontier, но выбранная Active Wave всё равно размера 1: только Canon readiness request. Product/external result остаётся «НЕТ».</p>
+          <p><b>Что дальше:</b> после exact Canon receipt перечитать NOW, ресурсы и collisions; не считать время, task status или старый workflow receipt доказательством released surface.</p>
+          <p><a href="../launch-control/c-work-launch-control-demo-control-room-canon-readiness-refill-001-call.md">Открыть event-refill CALL →</a></p>
         </article>
         <article class="panel" style="margin-top:14px">
           <span class="label">READY · Grid · G01 COMPLETE · G02 OWNER-PRESENT PLAN · 1/11</span>
@@ -443,6 +453,7 @@
           <details open>
             <summary><strong>22 июля</strong></summary>
             <ul class="remaining">
+              <li>Владелец точными словами выбрал вторую Active Wave размера 1: полностью запустить завершение фактической process/plan lineage Canon до готовности принимать требования Диспетчерской. Зарегистрирован один READY outcome request и отдельный same-track event refill. Committed Demo-Driven rebuild уже terminal и не переоткрывается; новый request сначала обязан найти stable lineage, а затем предъявить binding close/receipt, закрытый либо явно cut остаток и fresh readback, иначе вернуть exact blocker. <code>60 минут</code> — owner-attention block, не SLA. Product/external result «НЕТ»; Grid, Gas, Character, cards, pilot, product и portal не запущены.</li>
               <li>Владелец уточнил, что запланированная Hook-работа не запускалась, потому что тот же demo-design процесс ещё занят внутренней работой Canon, а затем дал точный приоритет: следующие <code>60 минут</code> направить на то, чтобы Canon закончил собственный процесс и планы и стал готов принимать требования Диспетчерской. Auxiliary request вернул <code>COUNTER</code>: вместо cards нужен binding Canon readiness close/receipt, явно закрытый или cut остаток планов и освобождённая поверхность. Product/external result остаётся «НЕТ»; текущий pilot WAITING, Hook/Contract/product/чужие треки не запущены, а event-refill READY оформить законный launch по fresh lineage.</li>
               <li>В первой событийной сессии владелец сообщил <code>60 минут</code> доступного внимания и выбрал точный вариант <code>A</code>. Принята Active Wave размера 1: один bounded Canon outcome request должен вернуть только <code>ACCEPT</code>, <code>COUNTER</code> или <code>BLOCKED</code> по возможности сравнить 2–3 Demo Hook concepts, включая gas-sphere reactions и существенно иной вариант. Product/external result остаётся «НЕТ»; Canon pilot WAITING, Grid/Gas/Character и другая foreign work не запущены. Один same-track refill root готов немедленно пересчитать волну после ответа.</li>
               <li>После полного owner-readable разбора владелец вторым точным ответом <code>A</code> принял всю operating strategy Диспетчерской. Старая минимальная quality/scope рамка теперь явно называется Demo Skeleton, а не готовым Hook Contract: bounded Canon discovery сравнивает 2–3 cards, включая реакции газовых сфер и альтернативу; только отдельный выбор владельца создаёт versioned Demo Contract, после которого следуют Canon Tree, target ACCEPT/COUNTER/BLOCKED и integrated proofs. Диспетчерская пополняет работу сразу после любого события и динамически допускает 0/1/many flows по реальным ресурсам и collisions. Product/external result остаётся «НЕТ»; hook, Contract, Canon/product/foreign work не запущены. Открыт один owner-present first-cycle continuation.</li>
@@ -683,13 +694,13 @@
 
         <div class="track-grid">
           <article class="track service">
-            <div class="track-top"><div><div class="track-id">g-d3a8</div><h3>Design & Canon</h3></div><span class="pill waiting">readiness counter · pilot waiting</span></div>
+            <div class="track-top"><div><div class="track-id">g-d3a8</div><h3>Design & Canon</h3></div><span class="pill ready">readiness request · pilot waiting</span></div>
             <dl class="facts">
-              <div class="fact"><dt>Сейчас</dt><dd>Принят Demo-Driven workflow; question-first карта стала исторической. Текущий local pilot остаётся WAITING до owner-approved Demo Contract. Auxiliary Hook Discovery request закрыт как COUNTER: владелец назначил следующие 60 минут на завершение собственной процессной/плановой работы Canon до готовности принимать требования.</dd></div>
-              <div class="fact"><dt>Текущий root</dt><dd><a href="../demo-workflow/c-cartography-g-d3a8-demo-experience-tree-pilot-001-call.md">Minimal Demo Experience Tree pilot</a> — WAITING и не заменён. <a href="../../history/2026-07-22-s-work-canon-demo-hook-discovery-process-readiness-counter-001.md">COUNTER receipt</a> возвращает новый bounded readiness outcome в Диспетчерскую.</dd></div>
-              <div class="fact"><dt>Осталось</dt><dd>Fresh refill должен определить фактическую current Canon lineage и законно запустить один readiness outcome: binding close/receipt, закрытый или явно cut плановый остаток, освобождённая demo-design поверхность и готовность принять следующий запрос. Hook, Contract и pilot остаются отдельными последующими событиями.</dd></div>
-              <div class="fact"><dt>Authority</dt><dd><a href="../demo-workflow/demo-driven-design-canon-workflow-v1.md">Demo-Driven Design &amp; Canon Workflow v1</a>, текущие Frames и внешний Canon <code>6296cdbe</code>; Markdown/media остаются authority, generated portal — только read-only render.</dd></div>
-              <div class="fact"><dt>Conflict</dt><dd>Точный внутренний план нельзя выдумывать: launch обязан опираться на fresh Canon state и stable lineage. COUNTER не меняет waiting root, не выдаёт время за proof и не разрешает prototype, implementation, portal, изображения или product work.</dd></div>
+              <div class="fact"><dt>Сейчас</dt><dd>Принят Demo-Driven workflow; question-first карта стала исторической. Текущий local pilot остаётся WAITING. По точному owner verdict открыт один auxiliary readiness request: закончить фактическую текущую process/plan lineage Canon до binding close/receipt и released surface.</dd></div>
+              <div class="fact"><dt>Текущий root</dt><dd><a href="../demo-workflow/c-cartography-g-d3a8-demo-experience-tree-pilot-001-call.md">Minimal Demo Experience Tree pilot</a> — WAITING и не заменён. <a href="../launch-control/c-outcome-canon-current-process-plan-readiness-001-call.md">Readiness request</a> — READY auxiliary disposition, не второй root.</dd></div>
+              <div class="fact"><dt>Осталось</dt><dd>Сначала назвать stable current lineage. Затем owning Canon leg должен binding-закрыть либо явно cut весь остаток, освободить demo-design surface и пройти fresh Direction/external-Canon readback; иначе возвращается exact blocker.</dd></div>
+              <div class="fact"><dt>Authority</dt><dd><a href="../demo-workflow/demo-driven-design-canon-workflow-v1.md">Demo-Driven Design &amp; Canon Workflow v1</a>, current Frames, owner authority и внешний Canon <code>6296cdbe</code>. External <code>AMENDMENTS/CONSTITUTION/QUEUE/board</code> показывают v4, а <code>README/START/SESSION</code> ещё v3; target обязан reconcile, не угадывать.</dd></div>
+              <div class="fact"><dt>Conflict</dt><dd>Committed workflow rebuild уже terminal, поэтому его нельзя назвать незавершённой новой lineage. <code>60 минут</code> не proof. Request не разрешает Hook, Contract, pilot, prototype, implementation, portal, изображения или product work.</dd></div>
             </dl>
           </article>
 

@@ -1,6 +1,6 @@
 # NOW: indie-game-development
 
-updated: 2026-07-22 by s-work-canon-demo-hook-discovery-process-readiness-counter-001
+updated: 2026-07-22 by s-work-launch-control-demo-control-room-canon-readiness-launch-001
 
 bet: null
 
@@ -32,17 +32,27 @@ open_calls:
       - history/2026-07-20-s-work-program-v2-legacy-lab-purge-deliver-blocked-001.md
     note: "BLOCKED / V31 RELEASE CONTINUATION / ROOT NOT RELEASED. Product candidate 72c7c8c6 removes the 24 approved tracked paths, preserves KEEP, adds the <=400-word no-growth policy, passes fresh non-author G5 and normal gates (1829/1829), and is integrated only in local dev through c5c21c13 with blocker evidence baf8513c. Deliver is RED solely because pre-existing review-c-exec-char-v2-source-router-repair-001 does not account for source commit 413149ce after reviewed commit 8a0e33ec. No push/merge/release; origin refs remain 45b15623; WIN-U1 is DRAINING with lease preserved. Do not dispatch or return to feature work until unblock_when is true."
 
-  - id: c-work-launch-control-demo-control-room-canon-disposition-refill-001
+  - id: c-work-launch-control-demo-control-room-canon-readiness-refill-001
     track: launch-control
     status: ready
     to: session
-    for: "g-b847 / immediate resource refill after the first bounded Canon Hook Discovery disposition"
+    for: "g-b847 / immediate event refill after the Canon current-process readiness disposition"
     issued: 2026-07-22
-    call: work/launch-control/c-work-launch-control-demo-control-room-canon-disposition-refill-001-call.md
+    call: work/launch-control/c-work-launch-control-demo-control-room-canon-readiness-refill-001-call.md
     receipts:
-      - history/2026-07-22-s-work-launch-control-demo-control-room-first-cycle-wave-accepted-001.md
-      - history/2026-07-22-s-work-canon-demo-hook-discovery-process-readiness-counter-001.md
-    note: "READY / CANON COUNTER RECEIVED / OWNER SET NEXT 60 MINUTES / IMMEDIATE REFILL OWED / PRODUCT RESULT NONE. The owner directed that the next 60 minutes go to finishing Canon's own current process/plan work until Canon is ready to accept Demo Control Room requirements, not to Grid, Gas or Hook-card drafting. COUNTER substitutes that bounded readiness outcome for the blocked Hook comparison: proof is one binding Canon Direction close/receipt that names the current process authority, closes or explicitly cuts its remaining plan work, releases the demo-design routing surface and survives fresh readback. The trade-off is no cards, hook, Contract, tree, prototype, implementation, portal, image, product change or public action in this block. Rebuild fresh resources now, preserve the waiting Canon pilot and every foreign root, and launch only a lawful Canon readiness request rooted in fresh actual lineage; the expired override and no successor reopen automatically."
+      - history/2026-07-22-s-work-launch-control-demo-control-room-canon-readiness-launch-001.md
+    note: "READY / ACTIVE WAVE 1 REGISTERED / CANON READINESS REQUEST OPEN / IMMEDIATE EVENT REFILL / PRODUCT RESULT NONE. The owner selected exactly one flow: Canon finishes its actual current process/plan lineage until one binding Direction close/receipt accounts for every remaining plan item as closed or explicitly cut, releases the demo-design routing surface and proves readiness for the next lawful Launch Control requirement. `60 минут` is the selected owner-attention block, not a forecast, SLA or hard stop. The committed Demo-Driven rebuild is already terminal and may not be relabelled unfinished; the target request must identify any newer lineage from stable task/receipt evidence or return the exact blocker. Grid, Gas, Character, Hook cards, Contract, pilot, product, portal, image and public work remain unselected. Refill immediately on disposition, owner-verdict gate, blocker, expiry or other material result."
+
+  - id: c-outcome-canon-current-process-plan-readiness-001
+    track: canon
+    status: ready
+    to: session
+    request_kind: outcome
+    requested_by: launch-control
+    for: "g-d3a8 / minimal owner-present Demo Experience Tree pilot: one immediate experience-spine child of the accepted Demo Contract"
+    issued: 2026-07-22
+    call: work/launch-control/c-outcome-canon-current-process-plan-readiness-001-call.md
+    note: "READY / AUXILIARY OUTCOME REQUEST / ACTIVE WAVE 1 / EXPLICIT OWNER DISPATCH / NO TARGET ROOT MUTATION. Identify Canon's actual current process/plan lineage without guessing; ACCEPT only on one binding owning-lineage Direction close/receipt that closes or explicitly cuts every remaining plan item, releases the demo-design routing surface and survives fresh Direction plus external-Canon readback. COUNTER must name an equivalent readiness outcome and trade-off; BLOCKED must name the exact missing lineage, authority, owner gate or execution surface and unblock proof. The ordinary Canon pilot remains WAITING and unchanged. The owner's 60-minute attention block is not a deadline, and no design, product, portal or foreign work is selected by this disposition request."
 
   - id: c-exec-level-module-standard-v1-lv0-plan-001
     track: level
