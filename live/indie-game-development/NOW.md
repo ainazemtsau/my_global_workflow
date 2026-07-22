@@ -1,6 +1,6 @@
 # NOW: indie-game-development
 
-updated: 2026-07-22 by s-repair-launch-control-demo-control-room-unblock-001
+updated: 2026-07-22 by s-map-launch-control-demo-control-room-refit-001
 
 bet: null
 
@@ -10,7 +10,7 @@ track_wip_limit: 99
 
 tracks:
   - {id: program, label: "Integration Lab & Product Proof", mode: primary, for: g-9c41}
-  - {id: launch-control, label: "Demo Control Room", mode: parallel, for: g-b847}
+  - {id: launch-control, label: "Demo Control Room", mode: parallel, for: g-b847, outcome_dispatch: true}
   - {id: level, label: "Level & Environment", mode: parallel, for: g-8f20}
   - {id: canon, label: "Design & Canon", mode: parallel, for: g-d3a8}
   - {id: visual, label: "Presentation", mode: parallel, for: g-7e15}
@@ -32,17 +32,18 @@ open_calls:
       - history/2026-07-20-s-work-program-v2-legacy-lab-purge-deliver-blocked-001.md
     note: "BLOCKED / V31 RELEASE CONTINUATION / ROOT NOT RELEASED. Product candidate 72c7c8c6 removes the 24 approved tracked paths, preserves KEEP, adds the <=400-word no-growth policy, passes fresh non-author G5 and normal gates (1829/1829), and is integrated only in local dev through c5c21c13 with blocker evidence baf8513c. Deliver is RED solely because pre-existing review-c-exec-char-v2-source-router-repair-001 does not account for source commit 413149ce after reviewed commit 8a0e33ec. No push/merge/release; origin refs remain 45b15623; WIN-U1 is DRAINING with lease preserved. Do not dispatch or return to feature work until unblock_when is true."
 
-  - id: c-map-launch-control-demo-control-room-refit-001
+  - id: c-work-launch-control-demo-control-room-foundation-001
     track: launch-control
     status: ready
     to: session
-    for: "g-b847 / owner-approved refit of the sole management track into Demo Control Room"
+    for: "g-b847 / sole Demo Control Room foundation, first operating-plan candidate and current-day control"
     issued: 2026-07-22
-    call: work/launch-control/c-map-launch-control-demo-control-room-refit-001-call.md
+    call: work/launch-control/c-work-launch-control-demo-control-room-foundation-001-call.md
     receipts:
       - history/2026-07-22-s-work-launch-control-m1-superseded-by-demo-control-room-001.md
       - history/2026-07-22-s-repair-launch-control-demo-control-room-unblock-001.md
-    note: "READY / DEFAULT / SAME TRACK REFIT / NOT A SECOND PLANNING TRACK. The separate owner-authorized OS maintenance and its fresh hardening review are complete. This existing root may now refit g-b847 and open only one bounded Demo Control Room foundation; no product or foreign-track work is launched."
+      - history/2026-07-22-s-map-launch-control-demo-control-room-refit-001.md
+    note: "READY / DEFAULT / FOUNDATION CANDIDATE / SINGLE AUTHORITY / NO FOREIGN DISPATCH. Build one source-linked Mission/Outcome Map, resource-feasible Runway, Active Wave, first operating-plan candidate and current-day control, then route the candidate to fresh review before owner acceptance. Outcome dispatch is owner-authorized, but this map issues no outcome request and launches no product or foreign-track work."
 
   - id: c-exec-level-module-standard-v1-lv0-plan-001
     track: level
@@ -125,6 +126,6 @@ recurring: []
 
 decisions: []
 next:
-  call: c-map-launch-control-demo-control-room-refit-001
+  call: c-work-launch-control-demo-control-room-foundation-001
 
 END_OF_FILE: live/indie-game-development/NOW.md

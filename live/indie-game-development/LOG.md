@@ -512,4 +512,6 @@ archived: history/LOG-archive-indie-game-development.md — sessions before 2026
 
 2026-07-22 · s-repair-launch-control-demo-control-room-unblock-001 · repair · launch-control · g-b847/unblock-refit: verified OS maintenance 587234f9 and fresh hardening b6b76472 satisfy the sole blocker; the same Demo Control Room map root is READY/default, Canon remains READY/non-default, and no foreign work was launched. → history/2026-07-22-s-repair-launch-control-demo-control-room-unblock-001.md
 
+2026-07-22 · s-map-launch-control-demo-control-room-refit-001 · map · launch-control · g-b847/refit: owner-approved Demo Control Room replaces the obsolete M1/dashboard card on the same node, gains bounded outcome-dispatch authority, and opens one READY/default foundation candidate without issuing a request or launching foreign work. → history/2026-07-22-s-map-launch-control-demo-control-room-refit-001.md
+
 END_OF_FILE: live/indie-game-development/LOG.md
