@@ -534,4 +534,6 @@ archived: history/LOG-archive-indie-game-development.md — sessions before 2026
 
 2026-07-22 · s-repair-grid-v1-g02-false-g01-blocker-001 · repair · grid · g-4b92/G02-PLAN-ROUTE-REPAIR: owner explicitly removed the false predecessor blocker; terminal G01 release remains complete at product 1a6373b8, deferred cleanup-workflow/checker/frozen-pending interpretations are non-gating, the blocked G02 root is replaced by one fresh READY owner-present PLAN CALL, and no product, TREE, CHARTER or foreign track changed. → history/2026-07-22-s-repair-grid-v1-g02-false-g01-blocker-001.md
 
+2026-07-22 · s-work-launch-control-demo-control-room-first-operating-plan-checkpoint-001 · work/checkpoint · launch-control · g-b847/demo-control-room-first-operating-plan-001: two failed correction rounds exposed false one-question-per-day and one-background limits; no plan, Demo Contract or Daily Brief is accepted, and one fresh same-track handoff carries immediate event refill, resource/collision-based parallelism and evidence-revisable contract constraints without foreign launch. → history/2026-07-22-s-work-launch-control-demo-control-room-first-operating-plan-checkpoint-001.md
+
 END_OF_FILE: live/indie-game-development/LOG.md
