@@ -1,6 +1,6 @@
 # NOW: indie-game-development
 
-updated: 2026-07-22 by s-work-launch-control-stabilization-baseline-accepted-001
+updated: 2026-07-22 by s-work-grid-v1-g01-direct-legacy-isolation-blocked-001
 
 bet: null
 
@@ -97,18 +97,6 @@ open_calls:
       - history/2026-07-18-s-work-char-v2-published-handback-release-route-001.md
       - history/2026-07-18-s-review-char-v2-published-handback-release-001.md
     note: "WAITING / PRODUCT REVIEW-CLOSING IN PROGRESS. Do not dispatch this frozen CALL again. It waits for owner LOOK, binding G5, product RESULT/Deliver and valid Direction close. A future Player Simulation / Actor Layer is fresh V31 work and cannot expand this lineage retroactively."
-
-  - id: c-exec-grid-v1-g01-v31-refreeze-receipt-repair-001
-    track: grid
-    status: ready
-    to: executor
-    for: "g-4b92 / lawful V31 same-root PLAN re-freeze receipt and fresh G01 plan close"
-    issued: 2026-07-21
-    call: work/c-exec-grid-v1-g01-v31-refreeze-receipt-repair-001-call.md
-    receipts:
-      - history/2026-07-21-s-work-grid-v1-g01-product-plan-lifecycle-blocked-001.md
-      - history/2026-07-21-s-work-grid-v1-g01-v31-refreeze-repair-authorized-001.md
-    note: "READY / DEFAULT / OWNER-AUTHORIZED / V31 PRODUCT-PROCESS ROOT / PLAN GATE FIRST / NO CLEANUP OR G02. Owner exact words `AUTHORIZE V31 RE-FREEZE RECEIPT REPAIR` admit one bounded root for truthful same-root PLAN re-freeze receipt semantics and proof. It treats the five Grid PLAN artifacts at 3e0c3922 as read-only, obtains any required detailed product PLAN verdict, permits only repo-local lifecycle authority/tooling/process tests/evidence, reruns fresh review/PlanPublication, and returns gated RELEASED HOME or exact ESCALATE. No Grid implementation/progress; Grid remains 0/11."
 
   - id: c-work-gas-v1-live-composition-plan-001
     track: gas

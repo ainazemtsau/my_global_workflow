@@ -492,4 +492,6 @@ archived: history/LOG-archive-indie-game-development.md — sessions before 2026
 
 2026-07-22 · s-work-publish-launch-control-stabilization-baseline-main-001 · work/publish · launch-control · g-b847/repository-main: owner-requested Direction range through accepted baseline d341122e was fast-forward pushed without force to origin/wt/indie-game-development and origin/main with exact two-ref SHA and artifact readback; the manual Daily Command remains READY/default, compatible Grid receipts are preserved, and no dashboard, recurring control, directive, OS or product work was opened. → history/2026-07-22-s-work-publish-launch-control-stabilization-baseline-main-001.md
 
+2026-07-22 · s-work-grid-v1-g01-direct-legacy-isolation-blocked-001 · work · grid · g-4b92/G01-DIRECT-LEGACY-ISOLATION: по прямому STOP владельца receipt-repair отменён; exact-12 legacy cleanup физически выполнен и fresh non-author review-clean в product candidate 47bfe67e на slot/win-u1, но не выпущен, потому что обязательный Deliver требует запрещённую legacy PAIR/receipt machinery. Старый root снят без successor CALL, accept не нужен, dev/main/origin не изменены. → history/2026-07-22-s-work-grid-v1-g01-direct-legacy-isolation-blocked-001.md
+
 END_OF_FILE: live/indie-game-development/LOG.md

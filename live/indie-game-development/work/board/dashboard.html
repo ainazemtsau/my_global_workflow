@@ -293,7 +293,7 @@
           <a href="../program-v2-track-handoff-template.md">Handoff</a>
         </nav>
       </div>
-      <div class="updated">Обновлено 22 июля 2026<br>по RESULT s-work-publish-launch-control-stabilization-baseline-main-001</div>
+      <div class="updated">Обновлено 22 июля 2026<br>по RESULT s-work-grid-v1-g01-direct-legacy-isolation-blocked-001</div>
     </header>
 
     <main>
@@ -308,13 +308,13 @@
           <span class="label">Следующий шаг</span>
           <strong class="big">Провести первый ручной Daily Command</strong>
           <p><a href="../launch-control/c-work-launch-control-daily-command-dry-run-001-call.md">Открыть Daily Command dry run</a></p>
-          <p class="muted small">Release-control baseline и gate 2026-07-26 приняты. Теперь один owner-present dry run должен на свежем состоянии назвать главный фокус, безопасную параллельную волну, очередь, blockers, цепочку срока и обновлённый прогноз. Отдельный Launch Control dashboard, recurring automation и продуктовый dispatch ещё не открыты; Grid V31 repair root сохранён READY/non-default.</p>
+          <p class="muted small">Release-control baseline и gate 2026-07-26 приняты. Теперь один owner-present dry run должен на свежем состоянии назвать главный фокус, безопасную параллельную волну, очередь, blockers, цепочку срока и обновлённый прогноз. Отдельный Launch Control dashboard, recurring automation и продуктовый dispatch ещё не открыты; старый Grid receipt-repair root остановлен владельцем.</p>
         </article>
 
         <article class="panel">
           <span class="label">Фактическая загрузка NOW</span>
           <div class="status-row">
-            <span class="pill ready">4 ready</span>
+            <span class="pill ready">3 ready</span>
             <span class="pill waiting">2 waiting</span>
             <span class="pill blocked">2 blocked</span>
             <span class="pill paused">1 paused</span>
@@ -353,14 +353,14 @@
           <p><a href="../launch-control/c-work-launch-control-daily-command-dry-run-001-call.md">Открыть dry run →</a> · <a href="../launch-control/stabilization-baseline.md">Прочитать принятый baseline →</a></p>
         </article>
         <article class="panel" style="margin-top:14px">
-          <span class="label">READY · NON-DEFAULT · Grid · V31 PRODUCT-PROCESS REPAIR · PLAN GATE FIRST · 0/11</span>
-          <strong>Сделать owner-authorized re-freeze законной частью receipt-chain</strong>
-          <p><code>c-exec-grid-v1-g01-v31-refreeze-receipt-repair-001</code></p>
-          <p><b>Что это:</b> один bounded contract-31 engineering root только для repo-local lifecycle authority/tooling, process tests и доказательств. Это не cleanup и не техническая реализация Grid.</p>
-          <p><b>Зачем:</b> exact-12 PLAN уже принят, а R-005 re-freeze уже существует. Без честной связи старого и нового freeze identity обязательный V31 gate не допускает новый receipt, fresh review и PlanPublication-close.</p>
-          <p><b>Где сейчас:</b> владелец дал точную авторизацию <code>AUTHORIZE V31 RE-FREEZE RECEIPT REPAIR</code>. Original freeze <code>b5cbd7f7/9af71bbe</code> и re-freeze <code>3e0c3922/f6c53075</code> остаются неизменными входами. Новый root READY/non-default; продукт ещё не запускался, Grid остаётся parallel/unretired 0/11.</p>
-          <p><b>Что дальше:</b> fresh product executor перечитывает V31 authority, показывает владельцу подробный repair PLAN, если этого требует product gate, и только после реального verdict выполняет минимальный process repair. Затем обязательны seeded misses, fresh independent review, PlanPublication и gated RELEASED HOME либо один exact ESCALATE. Cleanup и G02 закрыты.</p>
-          <p><a href="../c-exec-grid-v1-g01-v31-refreeze-receipt-repair-001-call.md">Открыть repair CALL →</a> · <a href="../../history/2026-07-21-s-work-grid-v1-g01-v31-refreeze-repair-authorized-001.md">Прочитать owner authorization RESULT →</a> · <a href="../../history/2026-07-21-s-work-grid-v1-g01-product-plan-lifecycle-blocked-001.md">Прочитать исходный blocker →</a></p>
+          <span class="label">STOPPED · Grid · EXACT-12 CANDIDATE CLEAN · RELEASE BLOCKED · 0/11</span>
+          <strong>Архивные Grid-файлы удалены в сохранённом кандидате</strong>
+          <p><code>47bfe67e6d5b10b2a7821325595454081c0d04da</code> · <code>slot/win-u1</code></p>
+          <p><b>Что сделано:</b> tracked-delete ровно 12 принятых legacy-файлов, обновлены только четыре current-authority файла; переносов, копий, tombstones, source, Unity, G02 и дополнительной machinery нет.</p>
+          <p><b>Проверка:</b> fresh non-author review не смог опровергнуть exact scope, девятипутевую authority, living-spec delta и неизменность пяти frozen PLAN-артефактов. Worktree чистый, кандидат сохранён отдельной веткой.</p>
+          <p><b>Блокер выпуска:</b> обязательный product Deliver всё ещё требует отменённые PAIR/receipt stages и падает на <code>NEGATIVE-CONTROL FAIL: unrecognized NegativeControl evidence venue 'N/A'</code>. Владелец запретил ремонтировать эту machinery.</p>
+          <p><b>Что дальше:</b> ничего автоматически. Старый receipt-repair CALL снят, successor CALL не создаётся, нового accept не требуется. <code>dev</code>, <code>main</code> и origin refs не менялись.</p>
+          <p><a href="../../history/2026-07-22-s-work-grid-v1-g01-direct-legacy-isolation-blocked-001.md">Прочитать точный RESULT и ESCALATE →</a></p>
         </article>
         <article class="panel" style="margin-top:14px">
           <span class="label">READY · Gas Simulation · NODE 1 PLAN · NON-DEFAULT</span>
@@ -451,6 +451,7 @@
           <details open>
             <summary><strong>22 июля</strong></summary>
             <ul class="remaining">
+              <li>По прямому STOP владельца старый Grid receipt-repair маршрут отменён. В отдельной product-сессии создан чистый candidate <code>47bfe67e</code>: удалены ровно 12 принятых legacy-файлов, обновлены только четыре current-authority файла, а пять frozen PLAN-артефактов сохранены byte-for-byte. Fresh non-author review не смог опровергнуть scope или semantics. Выпуск остановлен только обязательным Deliver, который требует запрещённые legacy PAIR/receipt stages и падает на unrecognized NegativeControl venue <code>N/A</code>; candidate сохранён на <code>slot/win-u1</code>, старый CALL снят без successor, <code>dev/main/origin</code> не менялись.</li>
               <li>По прямой команде владельца шесть последовательных Direction-коммитов <code>f8b7f9b6..d341122e</code> опубликованы обычным fast-forward без force одновременно в <code>origin/wt/indie-game-development</code> и <code>origin/main</code>. Exact remote readback обеих refs подтвердил <code>d341122e</code>, принятый release-control baseline, owner verdict и ручной Daily Command как READY/default; совместимые Grid receipts сохранены, отдельный Launch Control dashboard, recurring control и product work не открыты.</li>
               <li>Владелец принял полный release-control baseline и первый gate точными словами <code>ПРИНИМАЮ BASELINE И GATE 2026-07-26</code>. В одном документе закреплены условный October Next Fest, February fallback, денежный gate 11 декабря 2026, маленький надёжный Demo Contract, семь release milestones, текущая цепочка срока, scenario forecast 15/60/25, risks/cuts, обязанности девяти треков, Release Directive, operating model, 12 полей Daily Command, Process Adaptation и будущие поля отдельного dashboard. Ровно один ручной Daily Command dry run READY/default; отдельный Launch Control dashboard, recurring automation, Release Directive dispatch и product mutation не открыты.</li>
             </ul>
@@ -588,16 +589,16 @@
           </article>
 
           <article class="track">
-            <div class="track-top"><div><div class="track-id">g-4b92</div><h3>Grid / Layers / World Change</h3></div><span class="pill ready">ready V31 repair · 0/11</span></div>
+            <div class="track-top"><div><div class="track-id">g-4b92</div><h3>Grid / Layers / World Change</h3></div><span class="pill blocked">stopped · candidate preserved · 0/11</span></div>
             <dl class="facts">
-              <div class="fact"><dt>Сейчас</dt><dd>Владелец разрешил один bounded V31 receipt repair. Exact-12 product PLAN и R-005 re-freeze <code>3e0c3922</code> остаются frozen inputs; product progress остаётся 0 из 11 legs.</dd></div>
+              <div class="fact"><dt>Сейчас</dt><dd>По прямому STOP владельца receipt-repair отменён. Exact-12 cleanup выполнен в чистом candidate <code>47bfe67e</code> на <code>slot/win-u1</code> и прошёл fresh non-author refutation; product progress остаётся 0 из 11 legs, потому что candidate не выпущен.</dd></div>
               <div class="fact"><dt>Вклад</dt><dd>Общее пространство и подтверждённые изменения, универсальный Object↔Layer Resolver и безопасная основа для consumer-driven Layer↔Layer связей.</dd></div>
-              <div class="fact"><dt>Текущий root</dt><dd><a href="../c-exec-grid-v1-g01-v31-refreeze-receipt-repair-001-call.md"><code>c-exec-grid-v1-g01-v31-refreeze-receipt-repair-001</code></a> — READY/non-default, contract 31, PLAN gate first; текущий default — ручной Daily Command Launch Control. Cleanup implementation и G02 закрыты.</dd></div>
-              <div class="fact"><dt>Authority</dt><dd><a href="../grid-v1-executor-plan.md">Current accepted Direction plan</a> blob <code>2c95e10f</code> + exact owner words <code>AUTHORIZE V31 RE-FREEZE RECEIPT REPAIR</code> + <a href="../../history/2026-07-21-s-work-grid-v1-g01-product-plan-lifecycle-blocked-001.md">exact lifecycle blocker</a>.</dd></div>
-              <div class="fact"><dt>Conflict</dt><dd>Root обязан доказать truthful transition <code>b5cbd7f7/9af71bbe → 3e0c3922/f6c53075</code> без unchained receipt, unchecked field, generic bypass или изменения frozen Grid meaning. Более широкая authority need возвращает exact ESCALATE.</dd></div>
+              <div class="fact"><dt>Текущий root</dt><dd>Нет. Старый <code>c-exec-grid-v1-g01-v31-refreeze-receipt-repair-001</code> снят; successor CALL не создан, новый accept не запрашивается.</dd></div>
+              <div class="fact"><dt>Authority</dt><dd><a href="../grid-v1-executor-plan.md">Current accepted Direction plan</a> blob <code>2c95e10f</code> + owner emergency STOP/simple-delete instruction + <a href="../../history/2026-07-22-s-work-grid-v1-g01-direct-legacy-isolation-blocked-001.md">exact candidate/blocker RESULT</a>.</dd></div>
+              <div class="fact"><dt>Conflict</dt><dd>Candidate scope clean, но mandatory Deliver требует отменённую PAIR/receipt machinery. Без изменения product contract его нельзя честно интегрировать и назвать RELEASED HOME.</dd></div>
             </dl>
             <ul class="remaining">
-              <li><strong>Следом:</strong> fresh executor запускает только repair root. Сначала подробный product PLAN и реальный owner verdict, затем минимальный process diff, negative controls, fresh review, PlanPublication и gated HOME; автоматического G01 completion или cleanup нет.</li>
+              <li><strong>Следом:</strong> автоматического шага нет. Кандидат сохранён; receipt repair, новый PLAN, PAIR и дополнительный accept не запускаются.</li>
               <li>G01–G04 строго serial; после G04 Layer-path и Object-path параллелятся только при доказанном полном разделении рабочих поверхностей и последовательном merge.</li>
               <li>Gas/Wind/Character/Level/Program/Integration behavior и реальные adapters остаются у владельцев; synthetic layers дают только Grid-internal proof.</li>
               <li>Dashboard остаётся одной секцией существующей панели; отдельный render и BUILD не открыты.</li>
