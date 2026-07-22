@@ -24,12 +24,12 @@ The CALL's done_when is met with evidence, or it closes blocked/obsolete with th
 
 ## Notes
 
-- One CALL per session; each track has ≤1 root. If it splits, RESULT proposes one same-position continuation plus bounded same-track children parented to it; do not silently do both.
+- One CALL per session; each track has ≤1 ordinary root. If it splits, RESULT proposes one same-position continuation plus bounded same-track children parented to it; do not silently do both.
 - Track add without TREE uses work; TREE-backed add routes map. A met parallel root, retirement, or primary handoff routes review; cite owner words.
 - Two-strikes rule applies: after two failed correction rounds, close with a handoff note and let a fresh session continue.
 - Waiting on a human-world event (playtest answers, an email reply) is normal: close with task → blocked and the unblock condition in NOW.md. The pulse play watches blocked items.
 - A work CALL may target a recurring obligation (`recurring: r-N` instead of `task:`): same lifecycle, evidence per its done_when; the RESULT updates `last_done` instead of a task status. If it can't finish, close with the reason — `last_done` stays, pulse re-raises it.
 - Long task, platform switch, or a degrading session: close with a checkpoint RESULT — partial outcome, task stays active with a progress note, next = continuation CALL. A fresh session anywhere resumes from it.
-- Any CALL you issue (child, executor) keeps this CALL's track and goes into state_changes with track/status for NOW.md → open_calls; unrelated call ids/default survive.
+- Issued CALLs stay in-track except `request_kind: outcome` from an owner-authorized dispatch track; its target only returns `ACCEPT|COUNTER|BLOCKED` (packet routing).
 
 END_OF_FILE: os/plays/work.md

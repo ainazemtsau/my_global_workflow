@@ -1,6 +1,6 @@
 # STATUS — снапшот системы и мандат помощника
 
-updated: 2026-07-17 (track-dispatch delta; historical pilot snapshot below remains dated 2026-06-12)
+updated: 2026-07-22 (bounded outcome-dispatch delta; historical pilot snapshot below remains dated 2026-06-12)
 
 Этот документ — точка входа для новой агентной сессии, помогающей владельцу с системой. Он самодостаточен: прочитав его и файлы по ссылкам, сессия может проводить аудит, помогать с направлениями, анализировать чаты и чинить/дорабатывать систему.
 
@@ -27,7 +27,7 @@ updated: 2026-07-17 (track-dispatch delta; historical pilot snapshot below remai
 - **Search plane**: research `strategic_search`/nominal-group/miner-briefs; map human-first + опциональный search-first + поле `edge` + один редкий стимул + noun-test; shape Berg equal-footing + инкубационный зазор + probe-поля (forecast/against/next_if) + AI-burst evaluator; review forecast-check + harvest edges; pulse-пункт 11 market contact; CHARTER `edges`/`risk_posture`.
 - Каждый механизм несёт фальсификатор в `os/FRICTION.md` — откат помеханизменно. Источники и проверка — `os/docs/RESEARCH_BASIS.md` (строка search plane) + proposal-доки в `os/docs/`.
 - **Session protocol, G10** (2026-06-11, по инцидентам пилота map/frame): opening contract в первом ответе (нумерованные шаги play, стоп на первом owner-шаге), RESULT только финальным сообщением (сводка → один блок), `play_check` в RESULT с цитатами владельца на `(owner)`-шагах, writer-валидация перед применением, payload «You are NEVER the writer» + «prior chats are never authority», CALL-гигиена. Диагноз и фальсификаторы: `os/docs/SESSION_PROTOCOL_AUDIT.md`.
-- **Track dispatch** (2026-07-17, явный запрос владельца): optional `NOW.tracks` группирует ready/waiting/blocked/paused `open_calls` umbrella-direction; owner-approved WIP limit ограничивает неприостановленные root/decision-треки; `primary` один владеет бетом/tasks, `parallel` не создаёт второй бет; ≤1 root CALL на трек, fan-out только parented children внутри его budget; `NOW.next` выбирает default, writer сливает call/track ids. Legacy single-track state валиден.
+- **Track dispatch** (2026-07-17; bounded outcome extension 2026-07-22): optional `NOW.tracks` группирует ready/waiting/blocked/paused `open_calls`; owner-approved WIP ограничивает root/decision-треки; `primary` один владеет бетом/tasks; ≤1 ordinary root/track. At most one owner-approved `outcome_dispatch` track may add/expire one auxiliary disposition-only request per target; target keeps its root, plan and implementation authority. `NOW.next` selects default; writer merges stable ids/receipts. Legacy state remains valid.
 
 ## 4. Мандат помощника (что от тебя ждут)
 

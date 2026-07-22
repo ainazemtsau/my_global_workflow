@@ -10,10 +10,10 @@ Writes: NOW.md of affected directions, LOG.md, knowledge/ staleness marks.
 Per direction:
 
 1. **Decisions** — is the decision inbox empty? If not: re-surface to the owner in one batch, with recommendations.
-2. **Liveness** — does the primary bet have a ready task/CALL, does track WIP fit its limit, and does every current track have one root call or decision with no orphan children? No active bet/tracks/decision → flag idle; an empty track or false-ready call → repair.
+2. **Liveness** — does the primary bet have a ready task/CALL, does track WIP fit its limit, and does every current track have one ordinary root or decision with no orphan child/outcome request? No active bet/tracks/decision → flag idle; an empty track or false-ready call → repair.
 3. **Kill dates** — any kill_by date passed or threshold breached? → trigger a review CALL (do not review here).
 4. **Hot-state hygiene** — is NOW still hot state (no closed calls, answered decisions, prose notes)? In track-mode: unique call/track ids, valid statuses/artifacts, tracked decisions, ready default when possible; legacy: valid CALL/pointer/decision next. Are all hot files within the schema ceiling and template? Drift → repair, never compact here.
-5. **Blocked & outstanding** — any task/call blocked beyond its condition or older than budget, paused without current owner intent, or waiting without a live receipt? Propose: nudge, re-issue, pause, or drop; never silently start another track's successor.
+5. **Blocked & outstanding** — any task/call blocked beyond its condition or older than budget, paused without current owner intent, waiting without a live receipt, or outcome request past its useful date? Propose: nudge, re-issue, expire, pause, or drop; never silently start another track's successor.
 6. **Captures** — triage capture backlog: each becomes a parked node, merges into an existing node, or is dropped. Captures don't accumulate beyond one pulse.
 7. **Parking lot** — anything parked that current learnings make urgent, or that has been parked so long it should be dropped? Propose, don't decide.
 8. **Recurring** — any recurring obligation past its cadence (today vs last_done)? → put its ready work CALL into the decision batch. Pulse never executes recurring work itself.

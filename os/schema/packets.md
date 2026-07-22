@@ -24,6 +24,8 @@ return: |
   <expected format of the RESULT's outcome/evidence>
 budget: <e.g. one session | 2h | 15 tool calls>
 parent: <parent-call-id>                 # track child; legacy may name parent session
+request_kind: outcome                   # auxiliary cross-track disposition request only
+requested_by: <track-id>                # owner-approved outcome-dispatch track
 surface: <optional routing hint: chatgpt | claude | cli | any>
 engineering_contract: <N | legacy:<origin-call-id> | re-sync:<N>>  # engineering only; see below
 ```
@@ -83,10 +85,12 @@ play_check:
   # actual words (his answer, verdict, or explicit waiver) — gate G10
 log: <one line for LOG.md>
 next: |
-  <one continuation CALL whose status is in state_changes | awaiting_decision | return-to-parent <id>>
+  <one continuation CALL whose status is in state_changes | awaiting_decision | return-to-parent <id> | return-to-requester <track-id>>
 ```
 
-**Track routing.** Legacy single-track directions may omit `track`. Once `NOW.md` has `tracks`, every newly issued CALL, RESULT, and pending decision names one; a pre-migration CALL may inherit its unique track from the authoritative `open_calls` entry with the same id. Each track has at most one parentless root CALL. A child names an existing same-track parent, appears in that parent's `waiting_on`, inherits its budget, and has acyclic ancestry to the root. Its RESULT clears only the child id, adds the history receipt to the direct parent, and makes that parent ready only after its last wait id clears. A RESULT may issue one same-position successor plus children: a root successor stays root; a child successor keeps its parent. Other call ids survive semantic rebase. `RESULT.next` is one recommended continuation, not the queue. If the returning call was `NOW.next`, state_changes selects its valid successor/default (or `awaiting_decision`); otherwise the default stays put unless explicitly changed.
+**Track routing.** Legacy single-track directions may omit `track`. Once `NOW.md` has `tracks`, every newly issued CALL, RESULT, and pending decision names one; a pre-migration CALL may inherit its unique track from the authoritative `open_calls` entry with the same id. Each track has at most one ordinary parentless root CALL. A child names an existing same-track parent, appears in that parent's `waiting_on`, inherits its budget, and has acyclic ancestry to the root. Its RESULT clears only the child id, adds the history receipt to the direct parent, and makes that parent ready only after its last wait id clears. A RESULT may issue one same-position successor plus children: a root successor stays root; a child successor keeps its parent. Other call ids survive semantic rebase. `RESULT.next` is one recommended continuation, not the queue. If the returning call was `NOW.next`, state_changes selects its valid successor/default (or `awaiting_decision`); otherwise the default stays put unless explicitly changed.
+
+**Bounded cross-track outcome request.** At most one owner-approved track per direction may carry `outcome_dispatch: true`. Its ordinary root may issue or expire an auxiliary CALL with `request_kind: outcome`, `requested_by: <that-track>`, a different target `track`, `to: session`, `play: work`, and no `parent`. The request is not a root/child, adds no WIP slot, never mutates or replaces the target root, and at most one may be open per target track. Its CALL asks only whether one observable need fits the target's current lawful route: `context` names the source, need, useful date/event and miss consequence; `done_when` names outcome and proof; no technical HOW. The target returns exactly `ACCEPT` (need/proof/date fit), `COUNTER` (equivalent outcome plus trade-off) or `BLOCKED` (blocker plus unblock proof), issues no successor and changes no plan/product. Its RESULT clears the request, appends that history receipt to the current ordinary roots of both tracks, and uses `next: return-to-requester <track-id>`. The authorized requester may instead expire its still-open request by id with an explicit reason; the expiry receipt is appended to the target root and is not a target disposition. Retiring either track first returns or expires its requests.
 
 **State-change rebase semantics.** The authoritative per-operation merge and
 replay rules are `os/adapters/coding-agent.md` Role 1. Optional blob/SHA/commit
