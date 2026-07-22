@@ -1,6 +1,6 @@
 # NOW: indie-game-development
 
-updated: 2026-07-21 by s-work-launch-control-stabilization-baseline-checkpoint-001
+updated: 2026-07-22 by s-work-launch-control-stabilization-baseline-accepted-001
 
 bet: null
 
@@ -32,16 +32,17 @@ open_calls:
       - history/2026-07-20-s-work-program-v2-legacy-lab-purge-deliver-blocked-001.md
     note: "BLOCKED / V31 RELEASE CONTINUATION / ROOT NOT RELEASED. Product candidate 72c7c8c6 removes the 24 approved tracked paths, preserves KEEP, adds the <=400-word no-growth policy, passes fresh non-author G5 and normal gates (1829/1829), and is integrated only in local dev through c5c21c13 with blocker evidence baf8513c. Deliver is RED solely because pre-existing review-c-exec-char-v2-source-router-repair-001 does not account for source commit 413149ce after reviewed commit 8a0e33ec. No push/merge/release; origin refs remain 45b15623; WIN-U1 is DRAINING with lease preserved. Do not dispatch or return to feature work until unblock_when is true."
 
-  - id: c-work-launch-control-stabilization-baseline-recovery-001
+  - id: c-work-launch-control-daily-command-dry-run-001
     track: launch-control
     status: ready
     to: session
-    for: "g-b847 / fresh recovery of the complete plain-language release-control baseline"
-    issued: 2026-07-21
-    call: work/launch-control/c-work-launch-control-stabilization-baseline-recovery-001-call.md
+    for: "g-b847 / first manual Daily Command dry run against fresh release-control state"
+    issued: 2026-07-22
+    call: work/launch-control/c-work-launch-control-daily-command-dry-run-001-call.md
     receipts:
       - history/2026-07-21-s-work-launch-control-stabilization-baseline-checkpoint-001.md
-    note: "READY / DEFAULT / FRESH-SESSION RECOVERY / OWNER INPUTS COMPLETE. Present one coherent release strategy and full baseline draft; do not reopen gameplay mechanics, hook frameworks or validation-instrument design. The artifact must show target/fallback, release milestones, first five-day gate, current date-determining chain, scenario forecast, risks/cuts, track obligations, Daily Command, dynamic parallelism, process adaptation and dashboard fields in ordinary Russian. No dispatch, dashboard, recurring control, product mutation or OS change before owner acceptance."
+      - history/2026-07-22-s-work-launch-control-stabilization-baseline-accepted-001.md
+    note: "READY / DEFAULT / OWNER-PRESENT / ONE MANUAL DRY RUN. Owner exact words `ПРИНИМАЮ BASELINE И GATE 2026-07-26` accepted work/launch-control/stabilization-baseline.md, the conditional October target, February fallback and first gate. Produce one fresh 12-field Daily Command, separate owner-primary / parallel-safe / serial / queue-next work, select the first lawful wave and obtain the owner's actual verdict. No Launch Control dashboard, recurring automation, product mutation, blocked/waiting/paused relaunch or direct engineering authority."
 
   - id: c-exec-level-module-standard-v1-lv0-plan-001
     track: level
@@ -129,6 +130,6 @@ decisions:
     options: ["Доступная физическая машина", "Точный CPU/GPU/RAM-класс с арендой/покупкой к финалу", "Только throttled-прокси — финал не закрывает"]
     recommendation: "Доступная физическая машина; gas simulation CPU-bound, поэтому CPU должен быть назван явно."
 next:
-  call: c-work-launch-control-stabilization-baseline-recovery-001
+  call: c-work-launch-control-daily-command-dry-run-001
 
 END_OF_FILE: live/indie-game-development/NOW.md

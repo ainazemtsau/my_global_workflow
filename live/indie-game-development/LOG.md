@@ -488,4 +488,6 @@ archived: history/LOG-archive-indie-game-development.md — sessions before 2026
 
 2026-07-21 · s-work-launch-control-stabilization-baseline-checkpoint-001 · work · launch-control · g-b847/stabilization-baseline: checkpoint after repeated scope/communication failure; Launch Control root remains valid, no baseline is claimed accepted, mechanics/hook/evidence deep-dives are removed from the management session, and one fresh recovery root will present the complete plain-language release strategy, milestone chain, five-day gate, forecast, risk/cut model, Daily Command and dashboard specification in one coherent draft. → history/2026-07-21-s-work-launch-control-stabilization-baseline-checkpoint-001.md
 
+2026-07-22 · s-work-launch-control-stabilization-baseline-accepted-001 · work · launch-control · g-b847/stabilization-baseline-recovery: владелец принял полный release-control baseline и gate 2026-07-26; October 2026 остаётся условной целью, February 2027 — fallback, денежный gate — 2026-12-11, и ровно один ручной Daily Command dry run открыт READY/default без отдельного dashboard, recurring control или product dispatch. → history/2026-07-22-s-work-launch-control-stabilization-baseline-accepted-001.md
+
 END_OF_FILE: live/indie-game-development/LOG.md
