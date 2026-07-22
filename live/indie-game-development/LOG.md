@@ -496,4 +496,6 @@ archived: history/LOG-archive-indie-game-development.md — sessions before 2026
 
 2026-07-22 · s-work-grid-v1-g01-direct-legacy-release-001 · work · grid · g-4b92/G01-DIRECT-LEGACY-INTEGRATION: owner exact words `Да, выпускай уже проверенную очистку напрямую. Workflow починим отдельно` authorized one exact direct release; binding-reviewed 4M+12D cleanup is published without force at product dev/main/slot-win-u1 1a6373b8, all twelve legacy files are absent, G01 is 1/11, G02 is READY/non-default with its normal PLAN gate, and the cleanup-only workflow defect is captured separately. → history/2026-07-22-s-work-grid-v1-g01-direct-legacy-release-001.md
 
+2026-07-22 · s-work-launch-control-daily-command-structure-checkpoint-001 · work · launch-control · g-b847/daily-command-dry-run-001: owner corrected the unaccepted morning draft to require one current-milestone operating plan before every Daily Command; the rule is persisted, the 2026-07-26 gate stays open, and one fresh M0-plan continuation is READY/default. → history/2026-07-22-s-work-launch-control-daily-command-structure-checkpoint-001.md
+
 END_OF_FILE: live/indie-game-development/LOG.md

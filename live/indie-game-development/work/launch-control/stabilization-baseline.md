@@ -261,6 +261,25 @@ Launch Control принимает release trade-off; владелец трека
 
 Daily Command не обязан запускать максимальное число работ. Он обязан сделать следующий день честным и управляемым.
 
+## Обязательная цепочка планирования
+
+Daily Command нельзя составлять напрямую из списка готовых задач. Он всегда выводится сверху вниз:
+
+**Demo Contract → release milestones → план текущего milestone → результат текущего дня → внутридневной refill.**
+
+Для текущего ближайшего milestone Launch Control поддерживает один owner-accepted operating plan. В нём обязательно видны:
+
+- точный exit gate и уже принятые результаты;
+- весь оставшийся outcome-объём и явные unknowns;
+- зависимости, определяющая и почти определяющая цепочки;
+- результат каждого оставшегося дня только до ближайшего gate;
+- owner-primary, parallel-safe, serial и queue-next размещение;
+- календарный buffer, optimistic / likely / conservative forecast и consequence / cut при пропуске результата дня.
+
+Точность скользящая: текущий milestone планируется по дням, следующий — по outcomes, зависимостям и диапазонам дат, более дальние — по gates и окнам. После RESULT, blocker, owner verdict, collision или сдвига даты план текущего milestone пересчитывается, и только затем обновляется Daily Command.
+
+Список «что запустить следующим» без этой связи является черновиком и не может быть принят как Daily Command.
+
 ## Process Adaptation Contract
 
 Launch Control может предложить изменить собственные cadence, поля Daily Command, правила refill/lanes/review, форму Directive, будущий dashboard или risk/capacity model, если есть evidence:
@@ -285,6 +304,7 @@ Launch Control может предложить изменить собствен
 
 - Сначала показывать владельцу всю стратегию, потом детали.
 - Писать обычным русским; внутренний термин сразу объяснять или не использовать.
+- Чат — основной owner interface: владелец не обязан читать markdown-файлы; ids, paths, hashes и названия внутренних gates/checks не попадают в главный ответ без его запроса.
 - Не превращать release session в gameplay workshop.
 - Не открывать цепочку микрорешений, если можно показать один цельный draft.
 - Идеи владельца оставлять гипотезами до явного verdict.
@@ -323,6 +343,6 @@ Launch Control может предложить изменить собствен
 
 > ПРИНИМАЮ BASELINE И GATE 2026-07-26
 
-Ровно одно продолжение: `c-work-launch-control-daily-command-dry-run-001` — один ручной Daily Command на свежем `NOW`, с owner verdict до любого следующего механизма. Отдельный Launch Control dashboard, recurring control, Release Directive dispatch и продуктовая работа этим принятием не открыты.
+Первый dry run был исправлен владельцем до принятия: Daily Command обязан выводиться из отдельного плана текущего milestone. Ровно одно текущее продолжение: `c-work-launch-control-m0-operating-plan-and-daily-command-001` — свежая owner-present сессия строит план M0 до 2026-07-26 и только из него выпускает новый Daily Command. Отдельный Launch Control dashboard, recurring control, Release Directive dispatch и продуктовая работа этим исправлением не открыты.
 
 END_OF_FILE: live/indie-game-development/work/launch-control/stabilization-baseline.md

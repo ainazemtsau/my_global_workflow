@@ -293,22 +293,22 @@
           <a href="../program-v2-track-handoff-template.md">Handoff</a>
         </nav>
       </div>
-      <div class="updated">Обновлено 22 июля 2026<br>по RESULT s-work-grid-v1-g01-direct-legacy-release-001</div>
+      <div class="updated">Обновлено 22 июля 2026<br>по RESULT s-work-launch-control-daily-command-structure-checkpoint-001</div>
     </header>
 
     <main>
       <section class="summary" aria-label="Текущий статус">
         <article class="panel">
-          <span class="label">Текущий milestone</span>
-          <strong class="big">M2 — cleanup-кандидат готов, release заблокирован</strong>
-          <p class="muted">Приняты 2 из 10 milestones. Это счёт результатов, не процент готовности игры.</p>
+          <span class="label">Ближайший релизный этап</span>
+          <strong class="big">До 26 июля — сделать управление сроком рабочим</strong>
+          <p class="muted">Техническая Program-дорога по-прежнему имеет 2 из 10 принятых результатов. Это счёт доказанных результатов, не процент готовности игры.</p>
         </article>
 
         <article class="panel next">
           <span class="label">Следующий шаг</span>
-          <strong class="big">Провести первый ручной Daily Command</strong>
-          <p><a href="../launch-control/c-work-launch-control-daily-command-dry-run-001-call.md">Открыть Daily Command dry run</a></p>
-          <p class="muted small">Release-control baseline и gate 2026-07-26 приняты. Теперь один owner-present dry run должен на свежем состоянии назвать главный фокус, безопасную параллельную волну, очередь, blockers, цепочку срока и обновлённый прогноз. Отдельный Launch Control dashboard, recurring automation и продуктовый dispatch ещё не открыты; старый Grid receipt-repair root остановлен владельцем.</p>
+          <strong class="big">Сначала построить план до 26 июля, затем вывести из него план дня</strong>
+          <p><a href="../launch-control/c-work-launch-control-m0-operating-plan-and-daily-command-001-call.md">Открыть свежую сессию Launch Control</a></p>
+          <p class="muted small">Первый утренний черновик не принят: он перескочил от больших этапов прямо к следующим задачам. Владелец одобрил недостающую связь — отдельный план ближайшего этапа с результатами по оставшимся дням, зависимостями, запасом и прогнозом. Только после него выпускается Daily Command. Отдельный Launch Control dashboard, автоматизация и продуктовый dispatch не открыты.</p>
         </article>
 
         <article class="panel">
@@ -325,7 +325,7 @@
       </section>
 
       <aside class="note">
-        <strong>Простой вердикт: cleanup технически готов, но ещё не выпущен.</strong> Четыре безопасные семьи удалены в сохранённом кандидате, семь validators оставлены без новых consumers, G5 и normal gates зелёные. Публикацию блокирует старый Character review-evidence defect общего Deliver-gate; до его ремонта возвращаться к feature work в WIN-U1 нельзя.
+        <strong>Не смешивать две очистки: Grid уже выпущен, Program всё ещё заблокирован.</strong> Grid удалил свои 12 старых документов и освободил рабочее место. Отдельный Program-кандидат на удаление 24 старых путей всё ещё нельзя выпускать: его останавливает незакрытая проверка Character. Старое указание Program о занятом рабочем месте теперь требует свежей перепроверки перед любым будущим запуском.
       </aside>
 
       <section id="board">
@@ -338,19 +338,19 @@
           <p><code>c-exec-program-v2-legacy-lab-purge-release-001</code></p>
           <p><b>Что это:</b> сохранённый V31-кандидат удаляет 24 tracked paths четырёх доказанно неиспользуемых семейств и закрепляет короткое правило no-growth для семи временных validators.</p>
           <p><b>Зачем:</b> мусор перестаёт расти, а SampleScene, Character V2, Core/Sandbox, topology, render и Dungeon Architect support остаются нетронутыми.</p>
-          <p><b>Где сейчас:</b> candidate <code>72c7c8c6</code> прошёл fresh non-author G5 и normal gates 1829/1829. Он есть только в локальном dev; общий Deliver RED из-за старого Character review-файла, который не учитывает более поздний source commit. Push, merge и release не выполнялись; WIN-U1 остаётся DRAINING.</p>
-          <p><b>Что дальше:</b> отдельный владелец Character review-evidence должен законно закрыть внешний defect. После GREEN Deliver сериализованный Control публикует тот же frozen candidate, проверяет readback и освобождает WIN-U1; только тогда можно вернуться к feature work.</p>
+          <p><b>Где сейчас:</b> candidate <code>72c7c8c6</code> прошёл независимую проверку и обычные проверки 1829/1829. Он есть только в локальном dev; общий выпуск останавливает старый Character review-файл, который не учитывает более поздний исходный результат. Push, merge и release не выполнялись. Более поздний Grid-выпуск сообщает, что WIN-U1 уже свободен, поэтому старое Program-указание о занятом месте нельзя считать свежей правдой.</p>
+          <p><b>Что дальше:</b> сначала законно закрыть внешний Character-дефект, затем заново проверить фактическое состояние рабочего места и только после этого выпускать тот же сохранённый кандидат. До такой перепроверки feature work здесь не запускается.</p>
           <p><a href="../c-exec-program-v2-legacy-lab-purge-release-001-call.md">Открыть blocked release continuation →</a> · <a href="../legacy-lab-purge-boundary-2026-07-20.md">Прочитать простой вердикт →</a></p>
         </article>
         <article class="panel next" style="margin-top:14px">
-          <span class="label">READY · DEFAULT · OWNER-PRESENT · MANUAL DAILY COMMAND · DEMO &amp; LAUNCH CONTROL</span>
-          <strong>Один раз вручную провести принятый Daily Command</strong>
-          <p><code>c-work-launch-control-daily-command-dry-run-001</code></p>
-          <p><b>Что это:</b> один owner-present dry run принятого 12-польного Daily Command на свежем состоянии. Он показывает один главный фокус владельца, безопасную параллельную работу, serial/queue-next, blockers, решения, цепочку срока, прогноз и ближайший risk/cut.</p>
-          <p><b>Зачем:</b> baseline становится рабочим управлением только после одного реального прохода, где первая законная волна выбрана без подмены планов треков и без попытки заполнить условный лимит.</p>
-          <p><b>Где сейчас:</b> владелец принял полный baseline и первый gate точными словами <code>ПРИНИМАЮ BASELINE И GATE 2026-07-26</code>. October остаётся условной целью, February — fallback, денежный gate — 11 декабря 2026. Отдельный Launch Control dashboard и recurring control не созданы.</p>
-          <p><b>Что дальше:</b> перечитать свежий NOW и receipts, составить один цельный Daily Command, выбрать только lawful READY work, получить фактический verdict владельца и сказать, закрыт ли gate 2026-07-26. Waiting/blocked/paused roots не перезапускаются; прямой инженерный приказ не выдаётся.</p>
-          <p><a href="../launch-control/c-work-launch-control-daily-command-dry-run-001-call.md">Открыть dry run →</a> · <a href="../launch-control/stabilization-baseline.md">Прочитать принятый baseline →</a></p>
+          <span class="label">READY · DEFAULT · FRESH OWNER-PRESENT RECOVERY · DEMO &amp; LAUNCH CONTROL</span>
+          <strong>Построить исполнимый план ближайшего этапа и только затем план дня</strong>
+          <p><code>c-work-launch-control-m0-operating-plan-and-daily-command-001</code></p>
+          <p><b>Что это:</b> одна свежая сессия связывает уже принятую лестницу релиза с конкретным этапом до 26 июля. В ней видны результаты каждого оставшегося дня, зависимости, безопасная параллельная работа, запас и последствия задержки; утренний план выводится из этой картины.</p>
+          <p><b>Зачем:</b> работа дня не должна быть случайным списком следующих задач. Каждый главный и параллельный результат обязан сохранять срок ближайшего этапа или явно показывать, почему срок уезжает.</p>
+          <p><b>Где сейчас:</b> первый утренний черновик не принят. Владелец согласился добавить недостающий план этапа и попросил продолжить в чистой сессии. Большая release-стратегия и дата 26 июля не менялись; отдельный Launch Control dashboard и автоматизация не созданы.</p>
+          <p><b>Что дальше:</b> на свежем состоянии собрать один план до 26 июля, затем из него выпустить полный Daily Command простыми словами и получить фактическое принятие или исправление владельца. Заблокированные, ожидающие, приостановленные и уже запущенные работы не перезапускаются.</p>
+          <p><a href="../launch-control/c-work-launch-control-m0-operating-plan-and-daily-command-001-call.md">Открыть свежую сессию →</a> · <a href="../launch-control/stabilization-baseline.md">Прочитать принятый baseline →</a></p>
         </article>
         <article class="panel" style="margin-top:14px">
           <span class="label">RELEASED · Grid · G01 CLEANUP COMPLETE · G02 READY/NON-DEFAULT · 1/11</span>
@@ -369,7 +369,7 @@
           <p><b>Что это:</b> owner-present подробный план только первого узла принятой девятиступенчатой дороги Gas V1: подключить выпущенную NearGas foundation к одному законному production simulation loop.</p>
           <p><b>Зачем:</b> без одного детерминированного владельца тика источники, Level, игроки и сеть будут подключаться к лабораторной заготовке, а не к настоящей игровой capability.</p>
           <p><b>Где сейчас:</b> владелец принял весь master plan словами «Окей, подтверждаю план». Реализация по-прежнему закрыта; текущие transport, types, reactions, forced flow и атомарность должны сохраниться.</p>
-          <p><b>Что дальше:</b> свежо перечитать product authority, показать владельцу материальные варианты composition boundary и принять один подробный план. До отдельного вердикта нельзя открывать BUILD или executor CALL. Текущий default — ручной Daily Command Demo &amp; Launch Control; Gas остаётся non-default.</p>
+          <p><b>Что дальше:</b> свежо перечитать устройство продукта, показать владельцу только действительно важные варианты подключения и принять один подробный план. До отдельного вердикта нельзя начинать разработку. Текущий общий приоритет — свежая сессия Launch Control с планом до 26 июля; Gas остаётся отдельной параллельной работой.</p>
           <p><a href="../c-work-gas-v1-live-composition-plan-001-call.md">Открыть node-1 planning CALL →</a> · <a href="../gas-v1-master-plan.md">Прочитать принятый Gas V1 master plan →</a> · <a href="../gas-v1-current-authority-audit-2026-07-21.md">Прочитать принятый Gas audit →</a></p>
         </article>
         <article class="panel" style="margin-top:14px">
@@ -451,6 +451,7 @@
           <details open>
             <summary><strong>22 июля</strong></summary>
             <ul class="remaining">
+              <li>Первый утренний план Launch Control не принят: он называл следующие Grid/Gas-действия, но не доказывал темп до ближайшего этапа. Владелец одобрил обязательную цепочку «цель демо → этапы → план ближайшего этапа → результат дня → пополнение работы в течение дня» и попросил чистую сессию. Правило записано в Launch Control; этап до 26 июля остаётся открытым, а одна свежая сессия теперь должна сначала принять план оставшихся дней и только затем Daily Command.</li>
               <li>Владелец разрешил прямой выпуск уже проверенной Grid-очистки и отдельно отложил ремонт workflow. Product <code>dev</code>, <code>main</code> и <code>slot/win-u1</code> опубликованы на <code>1a6373b8</code>: все 12 legacy-файлов отсутствуют, обе существующие истории сохранены, focused checks зелёные, WIN-U1 чистый и AVAILABLE. G01 завершён как 1/11; G02 common spatial map подготовлен READY/non-default с обычным PLAN-gate, но не запущен.</li>
               <li>По прямому STOP владельца старый Grid receipt-repair маршрут отменён. В отдельной product-сессии создан чистый candidate <code>47bfe67e</code>: удалены ровно 12 принятых legacy-файлов, обновлены только четыре current-authority файла, а пять frozen PLAN-артефактов сохранены byte-for-byte. Fresh non-author review не смог опровергнуть scope или semantics. Выпуск остановлен только обязательным Deliver, который требует запрещённые legacy PAIR/receipt stages и падает на unrecognized NegativeControl venue <code>N/A</code>; candidate сохранён на <code>slot/win-u1</code>, старый CALL снят без successor, <code>dev/main/origin</code> не менялись.</li>
               <li>По прямой команде владельца шесть последовательных Direction-коммитов <code>f8b7f9b6..d341122e</code> опубликованы обычным fast-forward без force одновременно в <code>origin/wt/indie-game-development</code> и <code>origin/main</code>. Exact remote readback обеих refs подтвердил <code>d341122e</code>, принятый release-control baseline, owner verdict и ручной Daily Command как READY/default; совместимые Grid receipts сохранены, отдельный Launch Control dashboard, recurring control и product work не открыты.</li>
