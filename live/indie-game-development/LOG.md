@@ -508,4 +508,6 @@ archived: history/LOG-archive-indie-game-development.md — sessions before 2026
 
 2026-07-22 · s-work-publish-canon-markdown-first-portal-main-001 · work/publish · canon · g-d3a8/repository-main: owner-requested Markdown-first portal acceptance was atomically fast-forward published without force to origin/main and origin/wt/indie-game-development with exact remote readback; V1 remains suspended, one process-rebuild root is READY/non-default, and Launch Control remains default. → history/2026-07-22-s-work-publish-canon-markdown-first-portal-main-001.md
 
+2026-07-22 · s-work-launch-control-m1-superseded-by-demo-control-room-001 · work · launch-control · g-b847/m1-operating-plan-001: owner rejected the M1-first planning model and accepted one Demo Control Room refit; current M1 and the premature min-spec decision are cleared, the same track identity is retained, and its map continuation is blocked only on separate OS maintenance for bounded cross-track outcome dispatch. → history/2026-07-22-s-work-launch-control-m1-superseded-by-demo-control-room-001.md
+
 END_OF_FILE: live/indie-game-development/LOG.md
