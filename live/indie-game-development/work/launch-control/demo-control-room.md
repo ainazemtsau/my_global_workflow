@@ -249,14 +249,29 @@ latest_safe_switch = 5 Oct 2026 - remaining_route
 
 Optional Press Preview и SHOULD/CUT scope уходят первыми. MUST, honest claims и two-machine quality floor не режутся. Денежная проверка 11 декабря 2026 остаётся отдельной: фестиваль её не заменяет.
 
-## 10. Четырёхстрочный Daily Brief
+## 10. Первая принятая Active Wave и четырёхстрочный Daily Brief
 
-Brief — только производный снимок текущей Active Wave, а не стратегия и не дневная квота. Текущий предиспетчерский пример:
+22 июля владелец сообщил доступный owner-attention точными словами `60 минут`, увидел fresh resource graph и выбрал exact option `A`. Принята волна размера **1**: зарегистрировать один bounded Canon outcome request о законности Hook Discovery. Это допуск target disposition, а не запуск Canon work и не обещание, что за час появятся карточки.
 
-1. **Product/external result:** **НЕТ** — игра, build и Steam-поверхность этой стратегией не изменены.
-2. **Proof + limit:** владелец принял Demo Skeleton → Hook Discovery → Contract → Tree и event-driven Control Room; это доказывает способ управления, не hook и не playable demo.
-3. **Missing + nearest outcome:** сильный hook и Contract v1 отсутствуют; ближайший кандидат — bounded Canon Hook Discovery с 2–3 cards, включая gas-sphere reactions, только через lawful target response.
-4. **Other flows + next event:** Character closing продолжает inherited wait; Grid и Gas готовы только к отдельным owner-present PLAN, Program blocked; любой result/blocker/verdict вызывает immediate fresh refill, без fixed daily/background count.
+### Resource graph на момент verdict
+
+- **Agents:** выполнялась только owner-present сессия Диспетчерской; активного product executor не было.
+- **Worktrees/files:** Direction HEAD `8a352276`, NOW blob `0c8490a1`, strategy blob `aef6118`; tracked drift отсутствовал, чужая `.claude/` сохранена. Product `dev` и `slot/win-u1` были чисты на `1a6373b8`; запрос не касается product-файлов.
+- **Editor/machine:** Unity, `dotnet` и Git work process отсутствовали; для target disposition они не нужны.
+- **Owner/review/integration:** дефицит — 60 минут owner attention. Grid G02 и Gas node-1 требуют того же owner-present PLAN; Character candidate `caab93e0` имеет product G4/G5, но ещё не имеет Deliver/publication/Direction close и требует отдельного свежего Control admission.
+
+### Выбранный поток
+
+`c-outcome-canon-demo-hook-discovery-001` просит Canon вернуть только `ACCEPT`, `COUNTER` или `BLOCKED` на один observable need: 2–3 сравнимые concept cards, обязательно реакции газовых сфер плюс содержательно иной вариант, с owner choose/revise/reject exit. Текущий Canon pilot остаётся `WAITING` на owner-approved Demo Contract. Запрос не выбирает hook, не создаёт карточки, Contract, дерево, prototype/playtest или implementation.
+
+**Observable exit:** точный target disposition с proof/limit/useful event либо blocker+unblock proof. **Immediate refill:** любой ответ, expiry или иной material result немедленно возвращает Диспетчерскую к fresh admission; daily boundary и fixed flow count отсутствуют.
+
+### Daily Brief — ровно четыре строки
+
+1. **Product/external result:** **НЕТ** — hook, Demo Contract и playable demo отсутствуют.
+2. **Proof + limit:** стратегия и Canon workflow приняты; Grid G01 выпущен, Character candidate проверен, но это не demo hook и не закрытый Character result.
+3. **Missing + nearest outcome:** ближайший пробел — сильный hook; первая принятая работа — законный Canon `ACCEPT/COUNTER/BLOCKED` на bounded discovery need.
+4. **Other flows + next event:** Character остаётся inherited closing wait, Grid/Gas — отдельные owner-present PLAN; любой Canon disposition немедленно вызывает новый admission без automatic launch.
 
 ## 11. Guardrails по звуку, performance, сети и Marketing
 
@@ -281,6 +296,17 @@ Brief — только производный снимок текущей Active
 | Steam route | **PASS:** official dates, honest UNKNOWN, cuts and computed evidence-triggered switch |
 | Daily Brief | **PASS:** ровно четыре производные строки |
 | Actual owner verdict | **PASS:** full-strategy options were shown; exact second `A` accepted option A. No foreign work was launched |
+
+### First-cycle receipt
+
+| Требование first-cycle CALL | Результат |
+|---|---|
+| Fresh identity and resources | **PASS:** 22 July 18:43 +03:00; HEAD `8a352276`, NOW `0c8490a1`, TREE `bd5903c4`, strategy `aef6118`; current roots/receipts, app tasks, product worktrees and processes were checked |
+| 0/1/many Active Wave | **PASS:** owner saw one concrete size-1 wave with product result `НЕТ`, proof limits, exact surfaces, observable exit and immediate refill |
+| Canon route | **PASS:** one auxiliary disposition request preserves the waiting pilot and requires target `ACCEPT/COUNTER/BLOCKED`; no concept wins by default |
+| Other lineages | **PASS:** Character/Grid/Gas were excluded from new admission because they collide for owner attention or require a separate product Control route; every foreign root/status survives |
+| Four-line Brief + verdict | **PASS:** exactly four lines were shown; owner inputs were `60 минут`, then exact verdict `A` |
+| Activation boundary | **PASS:** only a ready disposition CALL is registered. Canon/product/foreign work, technical HOW and public action remain not launched; one same-track refill root holds the next event frontier |
 
 ## 13. Source / evidence matrix
 

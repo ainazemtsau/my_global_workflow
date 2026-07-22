@@ -1,6 +1,6 @@
 # NOW: indie-game-development
 
-updated: 2026-07-22 by s-work-launch-control-demo-control-room-operating-strategy-accepted-001
+updated: 2026-07-22 by s-work-launch-control-demo-control-room-first-cycle-wave-accepted-001
 
 bet: null
 
@@ -32,18 +32,16 @@ open_calls:
       - history/2026-07-20-s-work-program-v2-legacy-lab-purge-deliver-blocked-001.md
     note: "BLOCKED / V31 RELEASE CONTINUATION / ROOT NOT RELEASED. Product candidate 72c7c8c6 removes the 24 approved tracked paths, preserves KEEP, adds the <=400-word no-growth policy, passes fresh non-author G5 and normal gates (1829/1829), and is integrated only in local dev through c5c21c13 with blocker evidence baf8513c. Deliver is RED solely because pre-existing review-c-exec-char-v2-source-router-repair-001 does not account for source commit 413149ce after reviewed commit 8a0e33ec. No push/merge/release; origin refs remain 45b15623; WIN-U1 is DRAINING with lease preserved. Do not dispatch or return to feature work until unblock_when is true."
 
-  - id: c-work-launch-control-demo-control-room-first-cycle-execution-001
+  - id: c-work-launch-control-demo-control-room-canon-disposition-refill-001
     track: launch-control
     status: ready
     to: session
-    for: "g-b847 / first event-driven Demo Control Room execution cycle under the accepted Skeleton-to-Contract strategy"
+    for: "g-b847 / immediate resource refill after the first bounded Canon Hook Discovery disposition"
     issued: 2026-07-22
-    call: work/launch-control/c-work-launch-control-demo-control-room-first-cycle-execution-001-call.md
+    call: work/launch-control/c-work-launch-control-demo-control-room-canon-disposition-refill-001-call.md
     receipts:
-      - history/2026-07-22-s-work-launch-control-demo-control-room-foundation-accepted-001.md
-      - history/2026-07-22-s-work-launch-control-demo-control-room-first-operating-plan-checkpoint-001.md
-      - history/2026-07-22-s-work-launch-control-demo-control-room-operating-strategy-accepted-001.md
-    note: "READY / ACCEPTED OPERATING STRATEGY / PRODUCT OR EXTERNAL RESULT NONE / NO FOREIGN DISPATCH. The owner used exact second `A` after seeing the whole strategy: Demo Skeleton sets the small co-op simulation/quality floor; a bounded Canon Hook Discovery compares 2-3 concepts including gas-sphere reactions; owner choice creates an evidence-revisable Demo Contract; then Canon Tree, target ACCEPT/COUNTER/BLOCKED, integrated proofs and honest October/February routes follow. Control Room admits dynamic 0/1/many independent flows from fresh agents/worktrees/files/editors/machines/review/integration/owner constraints and refills immediately after any result. Start one owner-present first cycle: fresh-select a resource-feasible Active Wave, recommend the Canon discovery outcome through a lawful target route, preserve the existing waiting Canon pilot and every foreign root, and launch nothing before the owner's actual cycle verdict."
+      - history/2026-07-22-s-work-launch-control-demo-control-room-first-cycle-wave-accepted-001.md
+    note: "READY / OWNER-ACCEPTED ACTIVE WAVE 1 / CANON OUTCOME REQUEST OPEN / PRODUCT RESULT NONE. The owner supplied `60 минут` of attention and accepted option `A`: one new bounded Canon disposition request, with no Grid, Gas, Character or other foreign launch. The auxiliary request c-outcome-canon-demo-hook-discovery-001 is the first actionable item; this same-track root holds immediate event-driven refill after ACCEPT/COUNTER/BLOCKED or another material event. It must rebuild fresh resources, preserve the waiting Canon pilot and every foreign root, and infer no hook, Contract, implementation or technical HOW."
 
   - id: c-exec-level-module-standard-v1-lv0-plan-001
     track: level
@@ -67,6 +65,16 @@ open_calls:
       - history/2026-07-22-s-work-g-d3a8-demo-workflow-rebuild-accepted-001.md
       - work/demo-workflow/demo-driven-design-canon-workflow-v1.md
     note: "WAITING / LOCAL CANON HANDOFF / NO META-CHOICE / NO DESIGN DISPATCH. The owner accepted Demo-Driven Design & Canon Workflow v1 and explicitly required the Canon track to retain its own next CALL. Start only after Launch Control records one real owner-approved Demo Contract and exact acceptance receipt for work/launch-control/demo-control-room.md. Then propose only one immediate experience-spine child for owner approve/correct/reject under local/canon-cartography. No old question migration, Canon Forge, READY/NEXT tree data, portal/product work or automatic successor."
+  - id: c-outcome-canon-demo-hook-discovery-001
+    track: canon
+    status: ready
+    to: session
+    request_kind: outcome
+    requested_by: launch-control
+    for: "g-d3a8 / minimal owner-present Demo Experience Tree pilot: one immediate experience-spine child of the accepted Demo Contract"
+    issued: 2026-07-22
+    call: work/launch-control/c-outcome-canon-demo-hook-discovery-001-call.md
+    note: "READY / AUXILIARY TARGET DISPOSITION ONLY / CURRENT CANON ROOT UNCHANGED. Launch Control requests one exact ACCEPT/COUNTER/BLOCKED answer on whether the accepted pre-contract override can lawfully yield 2-3 comparable Demo Hook concept cards, including gas-sphere reactions and a materially different option. This request adds no WIP slot, does not activate the waiting Demo Experience Tree pilot, chooses no concept and authorizes no implementation, prototype, product work or automatic successor."
   - id: c-visual-009
     track: visual
     status: blocked
