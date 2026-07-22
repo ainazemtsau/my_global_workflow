@@ -293,7 +293,7 @@
           <a href="../program-v2-track-handoff-template.md">Handoff</a>
         </nav>
       </div>
-      <div class="updated">Обновлено 22 июля 2026<br>по RESULT s-work-launch-control-m1-superseded-by-demo-control-room-001</div>
+      <div class="updated">Обновлено 22 июля 2026<br>по RESULT s-work-grid-v1-g02-preplan-g01-integrity-blocked-001</div>
     </header>
 
     <main>
@@ -314,9 +314,9 @@
         <article class="panel">
           <span class="label">Фактическая загрузка NOW</span>
           <div class="status-row">
-            <span class="pill ready">4 ready</span>
+            <span class="pill ready">3 ready</span>
             <span class="pill waiting">2 waiting</span>
-            <span class="pill blocked">2 blocked</span>
+            <span class="pill blocked">3 blocked</span>
             <span class="pill paused">1 paused</span>
             <span class="pill mapped">0 decisions</span>
           </div>
@@ -325,7 +325,7 @@
       </section>
 
       <aside class="note">
-        <strong>Не смешивать две очистки: Grid уже выпущен, Program всё ещё заблокирован.</strong> Grid удалил свои 12 старых документов и освободил рабочее место. Отдельный Program-кандидат на удаление 24 старых путей всё ещё нельзя выпускать: его останавливает незакрытая проверка Character. Старое указание Program о занятом рабочем месте теперь требует свежей перепроверки перед любым будущим запуском.
+        <strong>Не смешивать три состояния: Grid G01 опубликован, Grid G02 заблокирован до PLAN, Program всё ещё заблокирован на выпуске.</strong> Двенадцать старых Grid-документов действительно удалены с канонических продуктовых веток, но свежая проверка нашла незакрытую внутреннюю обязанность G01: обязательные checker, seeded selftest и wiring отсутствуют, а пять frozen-артефактов всё ещё говорят «publication/close pending». Отдельный Program-кандидат на удаление 24 старых путей останавливает другой внешний Character review-дефект.
       </aside>
 
       <section id="board">
@@ -353,14 +353,14 @@
           <p><a href="../launch-control/c-work-launch-control-demo-control-room-foundation-001-call.md">Открыть сборку кандидата →</a> · <a href="../../history/2026-07-22-s-map-launch-control-demo-control-room-refit-001.md">Прочитать принятую карту →</a></p>
         </article>
         <article class="panel" style="margin-top:14px">
-          <span class="label">RELEASED · Grid · G01 CLEANUP COMPLETE · G02 READY/NON-DEFAULT · 1/11</span>
-          <strong>Старые Grid-документы удалены из текущего продукта</strong>
-          <p><code>1a6373b84b6bf4da95a24efc3015e23b9ba5d419</code> · product <code>dev/main</code> · <code>WIN-U1 AVAILABLE</code></p>
-          <p><b>Что сделано:</b> ровно 12 принятых legacy-файлов отсутствуют в удалённых основных ветках; четыре current-authority файла обновлены, существующая история разработки сохранена.</p>
-          <p><b>Проверка:</b> отдельная fresh review не смогла опровергнуть scope и смысл; перед публикацией повторно проверены удалённые пути, девять действующих authority-путей, пять frozen PLAN-артефактов и отсутствие изменений кода, Unity, G02 и workflow.</p>
-          <p><b>Исключение:</b> владелец разрешил только этот прямой выпуск без неподходящего code-feature Deliver. Сам workflow не менялся; его отдельный repair сохранён как будущая работа.</p>
-          <p><b>Что дальше:</b> G02 — общая целочисленная пространственная карта — подготовлен READY/non-default с обычным подробным PLAN-gate, но сейчас не запускается автоматически. Диспетчерская сможет запросить только доказанно нужный demo-результат; Grid сохранит технический план.</p>
-          <p><a href="../c-exec-grid-v1-g02-common-spatial-map-001-call.md">Открыть следующий Grid CALL →</a> · <a href="../../history/2026-07-22-s-work-grid-v1-g01-direct-legacy-release-001.md">Прочитать release RESULT →</a></p>
+          <span class="label">BLOCKED BEFORE PLAN · Grid · G01 PUBLISHED / CLOSE INTEGRITY UNPROVEN · 1/11</span>
+          <strong>G02 остановлен до PLAN: текущая G01 authority не доказывает собственное закрытие</strong>
+          <p><code>c-exec-grid-v1-g02-common-spatial-map-001</code> · product <code>dev/main/origin</code> <code>1a6373b8</code> · contract <code>v31</code></p>
+          <p><b>Что подтверждено:</b> ровно 12 принятых legacy-файлов отсутствуют, девять current-authority путей существуют, а канонические локальные и удалённые refs совпадают. Физический выпуск G01 не откатывается и Grid progress остаётся 1/11.</p>
+          <p><b>Почему BLOCKED:</b> living product authority требует <code>tools/grid-document-authority-check.ps1</code>, seeded selftest и normal-gate wiring в <code>tools/check.ps1</code> и <code>tools/hygiene.ps1</code>, но их нет. Пять frozen G01 authority-артефактов одновременно продолжают говорить <code>publication/close pending</code>.</p>
+          <p><b>Что это значит:</b> нельзя честно доказать G01 close и допуск G02 к стадии PLAN. Owner-readable PLAN не предъявлялся, verdict не запрашивался, код, тесты, Unity и downstream Grid legs не менялись.</p>
+          <p><b>Что дальше:</b> отдельный owner-authorized product-process/G01 integrity результат должен восстановить обязательное доказательство и получить fresh binding close verification. Только после этого тот же G02 проходит новый pre-PLAN check; successor Direction CALL здесь не создан.</p>
+          <p><a href="../c-exec-grid-v1-g02-common-spatial-map-001-call.md">Открыть заблокированный Grid root →</a> · <a href="../../history/2026-07-22-s-work-grid-v1-g02-preplan-g01-integrity-blocked-001.md">Прочитать точный ESCALATE →</a> · <a href="../../history/2026-07-22-s-work-grid-v1-g01-direct-legacy-release-001.md">Прочитать G01 release RESULT →</a></p>
         </article>
         <article class="panel" style="margin-top:14px">
           <span class="label">READY · Gas Simulation · NODE 1 PLAN · NON-DEFAULT</span>
@@ -443,6 +443,7 @@
           <details open>
             <summary><strong>22 июля</strong></summary>
             <ul class="remaining">
+              <li>Fresh product preflight подтвердил для Grid G02 контракт v31, канонические <code>dev/main/origin</code> на <code>1a6373b8</code>, девять действующих authority-путей и отсутствие всех 12 legacy-файлов. Но G02 остановлен до PLAN: обязательные Grid authority checker, seeded selftest и wiring в normal gates отсутствуют, а пять frozen G01 артефактов всё ещё говорят <code>publication/close pending</code>. PLAN владельцу не показывался, verdict не запрашивался, продукт не менялся и successor CALL не создан.</li>
               <li>Владелецкая формулировка единственной Диспетчерской демо перенесена в компактную карточку дерева: она связывает договор демо с отдельными October/February-маршрутами, доказательствами, реальными ограничениями, WIP и своевременными сокращениями, а целевые треки сохраняют весь технический способ. Право на ограниченный запрос результата включено, но ни одного запроса или чужой работы не запущено; READY/default только сборка первого проверяемого кандидата основы и сегодняшнего фокуса.</li>
               <li>Одноразовое правило ограниченных межтрековых запросов результата реализовано и затем усилено отдельной свежей проверкой: целевой трек сохраняет право принять, предложить эквивалент или назвать блокер и полностью владеет техническим способом. Поэтому тот же корень Диспетчерской демо теперь READY/default; Canon сохранён READY/non-default для независимой работы владельца, а продукт и остальные треки не запускались.</li>
               <li>Владелец принял полную замену старого M1-first процесса одной Диспетчерской демо на месте существующего Launch Control. Второй управляющий трек не создаётся; M1 и преждевременный binding min-spec сняты, реальный сетевой прогон ограничен несколькими вечерами в неделю и максимум одним в день. Перестройка честно BLOCKED только до одноразовой починки Direction OS для межтрекового запроса результата без захвата технической власти целевого трека; Canon временно стал READY/default.</li>
@@ -591,19 +592,19 @@
           </article>
 
           <article class="track">
-            <div class="track-top"><div><div class="track-id">g-4b92</div><h3>Grid / Layers / World Change</h3></div><span class="pill ready">G01 released · G02 ready · 1/11</span></div>
+            <div class="track-top"><div><div class="track-id">g-4b92</div><h3>Grid / Layers / World Change</h3></div><span class="pill blocked">G01 published · G02 blocked before PLAN · 1/11</span></div>
             <dl class="facts">
-              <div class="fact"><dt>Сейчас</dt><dd>G01 exact-12 cleanup binding-reviewed и выпущен на product <code>dev/main</code> <code>1a6373b8</code>; все двенадцать legacy-файлов отсутствуют. Grid progress — 1 из 11 legs.</dd></div>
+              <div class="fact"><dt>Сейчас</dt><dd>G01 exact-12 cleanup опубликован на product <code>dev/main/origin</code> <code>1a6373b8</code>; все двенадцать legacy-файлов отсутствуют. Однако fresh preflight не смог доказать binding close из текущей product authority, поэтому Grid progress остаётся 1 из 11 legs, а G02 заблокирован до PLAN.</dd></div>
               <div class="fact"><dt>Вклад</dt><dd>Общее пространство и подтверждённые изменения, универсальный Object↔Layer Resolver и безопасная основа для consumer-driven Layer↔Layer связей.</dd></div>
-              <div class="fact"><dt>Текущий root</dt><dd><a href="../c-exec-grid-v1-g02-common-spatial-map-001-call.md">G02 common spatial map</a> — READY/non-default, owner-present PLAN first, без автоматического запуска.</dd></div>
-              <div class="fact"><dt>Authority</dt><dd><a href="../grid-v1-executor-plan.md">Current accepted Direction plan</a> blob <code>2c95e10f</code> + published G01 <code>1a6373b8</code> + <a href="../../history/2026-07-22-s-work-grid-v1-g01-direct-legacy-release-001.md">release RESULT</a>.</dd></div>
-              <div class="fact"><dt>Conflict</dt><dd>G02 не меняет Gas/Structure state и не забирает consumer behavior. Одноразовое G01-исключение не переносится: новый root проходит обычные PLAN/review/release gates.</dd></div>
+              <div class="fact"><dt>Текущий root</dt><dd><a href="../c-exec-grid-v1-g02-common-spatial-map-001-call.md">G02 common spatial map</a> — BLOCKED BEFORE PLAN: обязательные checker/selftest/wiring отсутствуют, пять frozen G01 artifacts всё ещё pending.</dd></div>
+              <div class="fact"><dt>Authority</dt><dd><a href="../grid-v1-executor-plan.md">Current accepted Direction plan</a> blob <code>2c95e10f</code> + published G01 <code>1a6373b8</code> + <a href="../../history/2026-07-22-s-work-grid-v1-g02-preplan-g01-integrity-blocked-001.md">pre-PLAN ESCALATE</a>.</dd></div>
+              <div class="fact"><dt>Conflict</dt><dd>Product refs и exact-12 deletion подтверждены, но обязательный <code>tools/grid-document-authority-check.ps1</code>, seeded selftest и normal-gate wiring отсутствуют. G02 не может лечить этот predecessor и не меняет Gas/Structure state или consumer behavior.</dd></div>
             </dl>
             <ul class="remaining">
-              <li><strong>Следом:</strong> когда Launch Control выберет место в волне, открыть G02 и сначала принять подробный план общей integer spatial map; до verdict код не меняется.</li>
+              <li><strong>Следом:</strong> отдельным owner-authorized product-process/G01 integrity результатом восстановить обязательное доказательство и получить fresh binding close verification; затем повторить pre-PLAN admission того же G02.</li>
               <li>G01–G04 строго serial; после G04 Layer-path и Object-path параллелятся только при доказанном полном разделении рабочих поверхностей и последовательном merge.</li>
               <li>Gas/Wind/Character/Level/Program/Integration behavior и реальные adapters остаются у владельцев; synthetic layers дают только Grid-internal proof.</li>
-              <li>Dashboard остаётся одной секцией существующей панели; отдельный render и BUILD не открыты.</li>
+              <li>Owner PLAN, отдельный render, PAIR-CANDIDATE, BUILD и downstream legs не открыты.</li>
             </ul>
           </article>
 
