@@ -18,7 +18,9 @@ context: |
   - `live/indie-game-development/TREE.md`
   - `live/indie-game-development/NOW.md`
   - `live/indie-game-development/history/2026-07-22-s-work-launch-control-m1-superseded-by-demo-control-room-001.md`
-  - the completed OS-maintenance RESULT named by `unblock_when` in NOW.
+  - `live/indie-game-development/history/2026-07-22-s-repair-launch-control-demo-control-room-unblock-001.md`
+  - `os/schema/packets.md` (`Bounded cross-track outcome request`)
+  - `os/adapters/coding-agent.md` (`bounded outcome-request exception`)
 
   The owner accepted the researched replacement with the exact words
   `Так, окей, тогда принимаю план.` He then authorized autonomous creation of

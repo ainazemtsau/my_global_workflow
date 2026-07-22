@@ -1,6 +1,6 @@
 # NOW: indie-game-development
 
-updated: 2026-07-22 by s-work-launch-control-m1-superseded-by-demo-control-room-001
+updated: 2026-07-22 by s-repair-launch-control-demo-control-room-unblock-001
 
 bet: null
 
@@ -34,15 +34,15 @@ open_calls:
 
   - id: c-map-launch-control-demo-control-room-refit-001
     track: launch-control
-    status: blocked
+    status: ready
     to: session
     for: "g-b847 / owner-approved refit of the sole management track into Demo Control Room"
     issued: 2026-07-22
     call: work/launch-control/c-map-launch-control-demo-control-room-refit-001-call.md
     receipts:
       - history/2026-07-22-s-work-launch-control-m1-superseded-by-demo-control-room-001.md
-    unblock_when: "A separate owner-authorized OS maintenance result has implemented and verified bounded cross-track outcome CALL dispatch while preserving each target track's ACCEPT/COUNTER/BLOCK response and all technical-how authority."
-    note: "BLOCKED / SAME TRACK REFIT / NOT A SECOND PLANNING TRACK. The owner accepted replacement of the old M1/Daily-Command model by one Demo Control Room; TREE refit and foundation wait only for the separate OS maintenance receipt."
+      - history/2026-07-22-s-repair-launch-control-demo-control-room-unblock-001.md
+    note: "READY / DEFAULT / SAME TRACK REFIT / NOT A SECOND PLANNING TRACK. The separate owner-authorized OS maintenance and its fresh hardening review are complete. This existing root may now refit g-b847 and open only one bounded Demo Control Room foundation; no product or foreign-track work is launched."
 
   - id: c-exec-level-module-standard-v1-lv0-plan-001
     track: level
@@ -63,7 +63,7 @@ open_calls:
     call: work/demo-workflow/c-work-g-d3a8-demo-workflow-rebuild-001-call.md
     receipts:
       - history/2026-07-22-s-work-g-d3a8-markdown-first-portal-acceptance-001.md
-    note: "READY / DEFAULT / OWNER-PRESENT / PROCESS REBUILD ONLY / NO DESIGN QUESTION / NO PORTAL BUILD. The owner explicitly said Canon may continue while Demo Control Room is rebuilt. Draft and co-create one exact replacement workflow artifact. Preserve accepted canon and Frames. Current question-front is suspended as scheduling authority. The accepted portal contract requires Markdown/media authority and a replaceable generated read-only site; Zensical is only the first renderer candidate. Do not generate images, define demo content, implement the portal, create AI pipelines or mutate os/**."
+    note: "READY / NON-DEFAULT / OWNER-PRESENT / PROCESS REBUILD ONLY / NO DESIGN QUESTION / NO PORTAL BUILD. The owner explicitly said Canon may continue independently while Demo Control Room is rebuilt, but the now-unblocked Demo Control Room refit is the current default. Draft and co-create one exact replacement workflow artifact. Preserve accepted canon and Frames. Current question-front is suspended as scheduling authority. The accepted portal contract requires Markdown/media authority and a replaceable generated read-only site; Zensical is only the first renderer candidate. Do not generate images, define demo content, implement the portal, create AI pipelines or mutate os/**."
   - id: c-visual-009
     track: visual
     status: blocked
@@ -108,7 +108,7 @@ open_calls:
     receipts:
       - history/2026-07-22-s-work-grid-v1-g01-direct-legacy-isolation-blocked-001.md
       - history/2026-07-22-s-work-grid-v1-g01-direct-legacy-release-001.md
-    note: "READY / NON-DEFAULT / G02 PRODUCT ROOT / OWNER-PRESENT PLAN GATE FIRST / GRID 1 OF 11. G01 exact-12 cleanup is binding-reviewed and published at product dev/main 1a6373b8; all twelve legacy normative files are absent and WIN-U1 is AVAILABLE. This root delivers only the additive neutral integer spatial map and its proofs. It must obtain the owner's actual detailed PLAN verdict before implementation and use ordinary contract-31 gates; the one-time G01 Deliver waiver does not carry forward. The root is lawful but not launched or selected as default; Canon process rebuild is current default while Demo Control Room refit is blocked."
+    note: "READY / NON-DEFAULT / G02 PRODUCT ROOT / OWNER-PRESENT PLAN GATE FIRST / GRID 1 OF 11. G01 exact-12 cleanup is binding-reviewed and published at product dev/main 1a6373b8; all twelve legacy normative files are absent and WIN-U1 is AVAILABLE. This root delivers only the additive neutral integer spatial map and its proofs. It must obtain the owner's actual detailed PLAN verdict before implementation and use ordinary contract-31 gates; the one-time G01 Deliver waiver does not carry forward. The root is lawful but not launched or selected as default; the Demo Control Room refit is current default."
 
   - id: c-work-gas-v1-live-composition-plan-001
     track: gas
@@ -119,12 +119,12 @@ open_calls:
     call: work/c-work-gas-v1-live-composition-plan-001-call.md
     receipts:
       - history/2026-07-21-s-work-gas-v1-master-plan-accepted-001.md
-    note: "READY / NON-DEFAULT / OWNER-PRESENT / PLAN BEFORE BUILD. The owner accepted the nine-node Gas V1 master plan with exact words `Окей, подтверждаю план.` This root plans only node 1: connect the released NearGas foundation to one lawful production simulation tick and prove deterministic composition. It must re-read current product authority first-hand, present any material composition choice to the owner, preserve current behavior and atomicity, and open no BUILD before acceptance. Canon process rebuild is current default while Demo Control Room refit is blocked."
+    note: "READY / NON-DEFAULT / OWNER-PRESENT / PLAN BEFORE BUILD. The owner accepted the nine-node Gas V1 master plan with exact words `Окей, подтверждаю план.` This root plans only node 1: connect the released NearGas foundation to one lawful production simulation tick and prove deterministic composition. It must re-read current product authority first-hand, present any material composition choice to the owner, preserve current behavior and atomicity, and open no BUILD before acceptance. The Demo Control Room refit is current default."
 
 recurring: []
 
 decisions: []
 next:
-  call: c-work-g-d3a8-demo-workflow-rebuild-001
+  call: c-map-launch-control-demo-control-room-refit-001
 
 END_OF_FILE: live/indie-game-development/NOW.md

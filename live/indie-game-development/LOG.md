@@ -510,4 +510,6 @@ archived: history/LOG-archive-indie-game-development.md — sessions before 2026
 
 2026-07-22 · s-work-launch-control-m1-superseded-by-demo-control-room-001 · work · launch-control · g-b847/m1-operating-plan-001: owner rejected the M1-first planning model and accepted one Demo Control Room refit; current M1 and the premature min-spec decision are cleared, the same track identity is retained, and its map continuation is blocked only on separate OS maintenance for bounded cross-track outcome dispatch. → history/2026-07-22-s-work-launch-control-m1-superseded-by-demo-control-room-001.md
 
+2026-07-22 · s-repair-launch-control-demo-control-room-unblock-001 · repair · launch-control · g-b847/unblock-refit: verified OS maintenance 587234f9 and fresh hardening b6b76472 satisfy the sole blocker; the same Demo Control Room map root is READY/default, Canon remains READY/non-default, and no foreign work was launched. → history/2026-07-22-s-repair-launch-control-demo-control-room-unblock-001.md
+
 END_OF_FILE: live/indie-game-development/LOG.md
