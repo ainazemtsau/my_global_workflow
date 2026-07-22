@@ -11,9 +11,9 @@ How to run OS sessions in a ChatGPT Project. One project per direction.
 
 ## Running a session
 
-1. Paste the selected tracked `NOW.open_calls` artifact (or legacy `NOW.next`) / previous RESULT. Paste long context first, CALL last -- models obey best at the start and end.
+1. Paste the selected `NOW.open_calls` artifact or the local continuation from the previous `RESULT.next`. Paste long context first, CALL last -- models obey best at the start and end.
 2. Converse normally; the session works its play.
-3. It ends with a RESULT block -> relay it to the writer (see coding-agent adapter), which commits state and hands you the next CALL.
+3. It ends with a RESULT block -> relay it to the writer (see coding-agent adapter), which commits state and hands you the local continuation or fresh frontier.
 
 ## When to route here
 

@@ -13,13 +13,13 @@ The OS runs the owner's life directions — long-term ambitions — through many
 
 ## 2. Session contract
 
-1. **OPEN** — input is a CALL **or a plain owner message** (typed or dictated). Read `NOW.md` and the play's listed files. Resolve plain input against NOW: new TREE-backed track → map; retirement/primary handoff → review; other track lifecycle → work; track/task/CALL match → its call/decision; "продолжаем" → `NOW.next` (default call/decision); "что можно делать" → ready calls grouped by track; question → read-only; no-state ambition → frame; otherwise interpret and confirm. Several ready in one track → compact choice/recommendation. The first reply is the **opening contract**: the orientation header, the play's numbered steps with the current one marked, and a ≤5-line restate (play, goal, done_when) — then run the play, stopping at the first owner step; play steps outrank the CALL. Unreadable or contradictory state → repair. Structured CALLs are machine/copy-paste artifacts; the owner never composes one.
+1. **OPEN** — input is a CALL **or a plain owner message**. Read `NOW.md` and the play's listed files. Resolve plain input against NOW: new TREE-backed track → map; retirement/primary handoff → review; other track lifecycle → work; track/task/CALL match → its call/decision; "продолжаем" → sole actionable call/decision; several → grouped choice/recommendation without state change; none → waits/blocks/pauses; "что можно делать" → ready calls grouped by track; question → read-only; no-state ambition → frame; otherwise interpret and confirm. The first reply is the **opening contract**: the orientation header, the play's numbered steps with the current one marked, and a ≤5-line restate (play, goal, done_when) — then run the play, stopping at the first owner step; play steps outrank the CALL. Unreadable or contradictory state → repair. Structured CALLs are machine/copy-paste artifacts; the owner never composes one.
 2. **WORK** — follow the play. Cross-cutting moves available in any session:
    - `call:research` — spawn a bounded child question (CALL packet, §4); children may spawn their own.
    - `call:executor` — delegate execution to a working agent (CALL packet, §4).
    - `capture` — record emergent work or an idea as one line in RESULT.captures. Never act on a capture in the same session; it is triaged at shape or pulse.
    - `decision` — put a question to the owner in RESULT.decisions_needed, always with 2–3 options and a recommendation.
-3. **CLOSE** — emit RESULT (§4) as the session's final message only: a readable owner summary first, then the single fenced RESULT block. A RESULT block appears nowhere else; emitting one ends the session, checkpoint included. A writer agent applies state_changes and commits. The session is dead after RESULT; continuation happens in a fresh session via RESULT.next. A session may close early with a **checkpoint** RESULT (partial outcome, task stays active, continuation CALL) — switching platforms or splitting long work is normal.
+3. **CLOSE** — emit RESULT (§4) as the session's final message only: a readable owner summary first, then the single fenced RESULT block. The lone RESULT ends the session, checkpoints included. A writer applies and commits state_changes; continuation uses RESULT.next in a fresh session. A session may close early with a **checkpoint** RESULT (partial outcome, task stays active, continuation CALL) — switching platforms or splitting long work is normal.
 
 **Orientation header.** Every owner-facing reply starts with one line:
 `📍 <direction> / <track-or-legacy> / <node> / <task> — <play>: <current step> | нужно от тебя: <ничего | вопрос>`
@@ -40,7 +40,7 @@ The OS runs the owner's life directions — long-term ambitions — through many
 |---|---|---|
 | `CHARTER.md` | mission, measurable success criteria, constraints, lenses, product repos | frame |
 | `TREE.md` | recursive goal tree — outcomes only, no tasks; every non-root node carries its one-line `why` | frame (root), map, shape (splits), review |
-| `NOW.md` | active bet/tasks, optional track index, open calls, recurring work, decisions, default call | every session |
+| `NOW.md` | active bet/tasks, optional track index, open-call dispatch frontier, recurring work, decisions | every session |
 | `LOG.md` | append-only: one line per session + link | every session |
 | `history/` | full RESULT of every session, one file each | append-only |
 | `knowledge/` | accepted facts and decisions; each entry names who reads it and when | review, pulse |
@@ -57,7 +57,7 @@ A **bet** is one shaped node in `NOW.md`. Its tasks (`t-1`…): `goal`, `done_wh
 `goal` (outcome, not method) · `context` (file pointers, links — enough to work without asking) · `boundaries` (out of scope, do not touch) · `done_when` (verifiable) · `return` (expected format) · `budget` (time or effort cap).
 
 **RESULT** — the only way a session ends:
-`outcome` (what changed in the world, not a narrative of effort) · `evidence` (proof matching done_when) · `state_changes` (exact NOW/TREE edits) · `captures` · `decisions_needed` · `play_check` (one line per play step: done or skipped+why; steps the play marks `(owner)` cite the owner's words) · `log` (one line) · `next` (ready CALL, or `awaiting_decision`).
+`outcome` (what changed in the world, not a narrative of effort) · `evidence` (proof matching done_when) · `state_changes` (exact NOW/TREE edits) · `captures` · `decisions_needed` · `play_check` (one line per play step: done or skipped+why; steps the play marks `(owner)` cite the owner's words) · `log` (one line) · `next` (local issued CALL, `awaiting_decision`, or `return-to-parent/requester/owner`). It never writes NOW or selects foreign work.
 
 In track-mode a continuation may be `waiting|blocked|paused`; `open_calls.status` decides whether it is dispatchable.
 

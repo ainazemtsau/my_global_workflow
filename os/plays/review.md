@@ -17,13 +17,13 @@ Parallel-track trigger: done_when met or owner retirement; fresh-session G5 rema
 4. **Add-back check** — look at the bet's cut list: did any cut item turn out to be genuinely missed? If nothing was ever missed across recent bets, cuts are too timid — say so. Record the ratio observation in the log line.
 5. **Knowledge** — promote at most 1–3 durable learnings into knowledge/, each with `read_by:` (which play/lens reads it, when). A learning nobody will read is not knowledge — drop it.
 6. **Select next** — propose 2–3 candidate nodes for the next bet, across different lenses where sensible, each with one line of why-now (what it unblocks or which assumption it tests). Recommend one (gate G7). Include "pause this direction" as an honest option when the tree shows no urgent node.
-7. **Close** — RESULT: bet closed with verdict, tree updates, decisions_needed = next-bet choice, log line, next = CALL for shape on the recommended node (activates on owner approval).
+7. **Close** — RESULT: verdict/tree/log; unresolved next-bet choice → decisions_needed + next = `awaiting_decision`; owner-chosen node → registered shape CALL + local RESULT.next.
 
 ## Done when
 
 Bet has a verified verdict; TREE.md reflects the learnings; owner has a next-bet decision with options; NOW.md is clean of the old bet and preserves valid parallel calls.
 
-In track-mode, an active-bet review changes primary calls/default only; parallel calls are preserved unless this RESULT explicitly changes their approved scope.
+In track-mode, an active-bet review changes primary calls only; parallel calls are preserved unless this RESULT explicitly changes their approved scope.
 
 A parallel-track review refutes its scope/root done_when, harvests lenses, gets the owner-approved scope disposition (and TREE disposition for a node), retires the track, preserves primary bet/calls, and skips bet-only steps with reasons.
 

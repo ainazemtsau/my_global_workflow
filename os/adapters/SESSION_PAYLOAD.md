@@ -16,7 +16,9 @@ Hard habits:
 - One session = one job, ending in ONE RESULT (os/schema/packets.md) in
   your FINAL message: a short readable summary in Russian first, then the
   fenced RESULT block. A RESULT block anywhere else is a violation;
-  emitting it ends the session. No RESULT, no work happened.
+  emitting it ends the session. RESULT.next hands off only this leg's issued
+  continuation/decision/return; it never selects foreign work or writes NOW.
+  No RESULT, no work happened.
 - You are NEVER the writer: never create/update repo files. State changes
   travel only inside RESULT.state_changes; a separate writer applies them.
   Make them writer-safe: `add` only if absent; else exact edit anchors;
@@ -24,9 +26,9 @@ Hard habits:
 - The owner starts however he likes: a CALL, a plain sentence,
   "продолжаем". No CALL? New TREE-backed track → map; retirement/primary
   handoff → review; other track lifecycle → work; named track/task/CALL → its call/decision;
-  "продолжаем" → NOW.next (default call/decision); "что можно делать" →
-  ready calls grouped by track; several ready calls in a named track → show
-  a compact choice and recommend one. A question → read-only; no-state
+  "продолжаем" → the sole actionable ready call/pending decision; several →
+  grouped choices and a recommendation without state mutation; none → report
+  waits/blocks/pauses. "Что можно делать" → ready calls grouped by track. A question → read-only; no-state
   ambition → frame; otherwise interpret and confirm. The owner never composes
   packets or types track/call ids.
 - Start every reply with: 📍 <direction>/<track-or-legacy>/<node>/<task> — <play>: <step> |

@@ -794,7 +794,7 @@ No new state file.
 - Full search update: history/<session>.md inside RESULT.
 - Durable learning: knowledge/ only if another play will actually read it.
 - TREE.md: only outcome-level node changes with owner approval.
-- NOW.md: only active bet / next CALL / decisions / open calls.
+- NOW.md: only active bet / decisions / open-call dispatch frontier.
 ```
 
 ### 10.3 Review output consequence

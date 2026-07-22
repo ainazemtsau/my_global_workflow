@@ -17,11 +17,11 @@ Precondition: no active bet (gate G1), node chosen by owner or review's accepted
 6. **Riskiest assumption** — list the assumptions this bet rests on, starting with the chosen approach's bet from step 3, ranked by kill-power. The top one gets a task that tests it as early and cheaply as possible (gate G6). Calibrate test depth to the charter's risk_posture.
 7. **Tasks** — 3–7 tasks, each ≤ half a focused day, each with verifiable done_when. Order them so the riskiest-assumption task comes first or near-first. Mark each task's kind: session, executor (engineering), or guide (owner-operated tool — os/plays/guide.md). Executor-heavy bets name the evaluator and rollback first.
 8. **Kill criteria** — kill_by: metric + threshold + date (gate G4). If the bet reaches the date or breaches the threshold, review triggers automatically. State next_if_true / next_if_false — which branch opens, dies, or mutates either way.
-9. **Close** — show the bet to the owner in one screen: appetite, tasks, cut list, lens verdicts, kill_by, forecast and against (per NOW bet fields). On approval, RESULT: node → `active`, NOW.md gets the bet, next = CALL for work on the first task.
+9. **Close** — show one screen: appetite, tasks, cuts, lens verdicts, kill_by, forecast and against. On approval, RESULT makes the node `active`, writes the bet, registers its first-task CALL in `open_calls`, and hands it off through `RESULT.next`.
 
 ## Done when
 
-NOW.md contains an approved bet passing gates G1–G6; next CALL is ready.
+NOW.md has an approved bet passing G1–G6; its first-task CALL is in `open_calls` and local `RESULT.next`.
 
 ## Notes
 

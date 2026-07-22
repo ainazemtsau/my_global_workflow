@@ -47,7 +47,7 @@ The v29/legacy stage loop is:
 2. executor returns RESULT plus commit/PR/check evidence;
 3. a fresh review session tries to refute the proof against the CALL;
 4. PASS routes to writer apply; FAIL routes to rework or blocked;
-5. writer serially applies state and emits the next CALL.
+5. writer serially applies state and emits the local continuation or fresh frontier.
 
 The v30/v31 root loop removes those intermediate Direction applies:
 
@@ -112,8 +112,8 @@ yields REPORT HOME; a genuine decision/blocker yields ESCALATE HOME.
 A future `osctl` or equivalent wrapper should expose small JSON-friendly
 commands:
 
-- `status`: derive directions, active bets, track WIP limit/occupancy, calls grouped by track, decisions, and default next.
-- `collect`: render a paste-ready packet for the default or a named track.
+- `status`: derive directions, active bets, track WIP limit/occupancy, calls grouped by track, and decisions.
+- `collect`: render a paste-ready packet for one explicit/sole actionable call; several return choices.
 - `run`: start one ready call; a v30/v31 engineering root also drives its declared fresh product stages.
 - `review`: run a fresh refutation pass over an executor RESULT.
 - `apply`: invoke the writer on one RESULT with direction lock.

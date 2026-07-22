@@ -98,7 +98,7 @@ tracks:                        # OPTIONAL; required when >1 workstream is curren
     for: g-xxxx                # approved node | recurring | local process; has done_when
     # outcome_dispatch: true   # optional; at most one track, owner-approved
 
-open_calls:                    # all outstanding work; dispatch source in track-mode
+open_calls:                    # all outstanding work; authoritative CALL frontier
   - id: c-117
     track: core                # required in track-mode
     status: ready              # ready | waiting | blocked | paused
@@ -129,13 +129,11 @@ decisions:                     # the owner's inbox; answered items move to histo
     q: <question>
     options: [<a>, <b>, <c>]
     recommendation: <a, because ...>
-
-next:                          # legacy: CALL/pointer; track-mode: default selector
-  call: c-117
-# OR when no call is ready and a decision is pending: next: awaiting_decision
 ```
 
-NOW hygiene rules: NOW.md is hot state, not an archive. Keep long evidence in `history/`, `work/`, or `knowledge/`; NOW keeps one-line pointers only. `open_calls` contains only outstanding CALLs; returned, done, superseded, or cancelled calls leave it for LOG/history. `decisions` contains only pending owner decisions. In legacy single-track state, `next` remains one CALL packet, one `CALL: work/<artifact>.md` pointer, or `awaiting_decision` with a pending decision. In track-mode, `next` is exactly `call: <id>` selecting an existing open call, or `awaiting_decision` with a pending decision. When it selects a call and any call is `ready`, that default call must be ready; if none is ready it may point to a waiting/blocked/paused focus so "продолжаем" reports why nothing launches. It is a convenience default, never the whole queue. No field outside this template — a running narrative field (e.g. `current_truth`) is schema drift: the latest `history/` file holds detail and NOW points to it.
+NOW hygiene rules: NOW.md is hot state, not an archive. Keep long evidence in `history/`, `work/`, or `knowledge/`; NOW keeps one-line pointers only. `open_calls` contains only outstanding CALLs and is the sole dispatch source; returned, done, superseded, or cancelled calls leave it for LOG/history. `decisions` contains only pending owner decisions. No field outside this template — a running narrative field (e.g. `current_truth`) is schema drift: the latest `history/` file holds detail and NOW points to it. The removed pre-migration `next` field has no authority: OPEN, writer, collect, and digest never read or write it. Its presence alone does not block an unrelated RESULT apply; repair deletes it and first registers any still-outstanding sole CALL/pointer in `open_calls`.
+
+The repair clause above is the sole migration exception: it may inspect residue to recover a still-outstanding CALL, never to choose work.
 
 Label normalization for uniqueness: trim, Unicode case-fold, and collapse internal whitespace.
 
@@ -145,13 +143,13 @@ At most one track may carry owner-approved `outcome_dispatch: true`. Only its or
 
 Recurring rules: entries are NOT tasks (G1/G2 untouched — they have their own ≤3 budget). Only pulse instantiates a due entry, as a ready work CALL in its decision batch; pulse never executes it. A recurring run that can't finish closes with the reason; `last_done` stays unchanged and pulse re-raises it next time.
 
-Open-calls rules: this is how a fresh session on ANY platform sees what is outstanding and who waits for whom — the recovery point after a crashed chat or provider switch. A closing RESULT lists issued CALLs with their track/status; the writer records them by stable call id and preserves unrelated calls. A returning RESULT clears its own entry immediately and may issue one or several successors. Pulse flags entries older than budget. If a chat died, restart that ready call; a runtime's `running` flag is cache, not state authority.
+Open-calls rules: this is how a fresh session on ANY platform sees what is outstanding and who waits for whom — the dispatch source and recovery point after a crashed chat or provider switch. A closing RESULT lists issued CALLs with their track/status; the writer records them by stable call id and preserves unrelated calls. A returning RESULT clears its own entry immediately and may issue one or several successors. Pulse flags entries older than budget. If a chat died, restart that ready call; a runtime's `running` flag is cache, not state authority.
 
 **Call identity.** Call ids are unique within the direction and never reused after leaving hot state; a checkpoint successor gets a new id, and child ids namespace under their issuing call.
 
 **Track lifecycle.** Track kinds/names are never predefined. A RESULT may create a track only from the owner's cited instruction/approval, with a new stable id, human label, primary|parallel mode, approved `for` scope, and a root call or decision. Later RESULTs add/clear calls, block/pause the root, or retire the track by id; creation, retirement, WIP-limit changes, outcome-dispatch authority, and primary handoff remain owner decisions, while ordinary call progression does not. Labels may change without changing identity. Retirement removes the hot row/calls/decisions after honest disposition; LOG/history preserve the lineage. A later unrelated workstream gets a new id, never a recycled one.
 
-**Default routing.** A RESULT returning the current default call must select a valid successor/focus or `awaiting_decision`; a RESULT from any other call preserves `NOW.next` unless its `state_changes` explicitly selects another valid default. Named-track input resolves a unique ready call; if several exist, the session shows a compact choice with a recommendation. "Что можно делать" renders every ready call grouped by track plus concise waiting/blocked/paused counts.
+**Frontier routing.** Named-track input resolves its sole actionable ready call/pending decision; if several exist, the session shows a compact choice with a recommendation. Unnamed "продолжаем" does the same across the direction: one actionable item opens, several produce grouped choices without state mutation, and none reports waiting/blocked/paused causes. "Что можно делать" renders every ready call grouped by track plus concise waiting/blocked/paused counts. List order and recommendations are never persisted selection.
 
 ## LOG.md
 

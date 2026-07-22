@@ -72,7 +72,7 @@ evidence: |
 state_changes: |
   <exact edits: NOW.md task/track statuses, TREE.md node changes, files added to work/.
    Includes CALLs issued by this session with track/status, for NOW.md → open_calls,
-   clears the returning call, and explicitly selects a new default when required.
+   and clears the returning call.
    Written with stable targets and explicit postconditions so a mechanical
    executor needs only the bounded merge judgment defined below.>
 captures:
@@ -85,10 +85,10 @@ play_check:
   # actual words (his answer, verdict, or explicit waiver) — gate G10
 log: <one line for LOG.md>
 next: |
-  <one continuation CALL whose status is in state_changes | awaiting_decision | return-to-parent <id> | return-to-requester <track-id>>
+  <one new local continuation CALL registered by state_changes | awaiting_decision | return-to-parent <id> | return-to-requester <track-id> | return-to-owner>
 ```
 
-**Track routing.** Legacy single-track directions may omit `track`. Once `NOW.md` has `tracks`, every newly issued CALL, RESULT, and pending decision names one; a pre-migration CALL may inherit its unique track from the authoritative `open_calls` entry with the same id. Each track has at most one ordinary parentless root CALL. A child names an existing same-track parent, appears in that parent's `waiting_on`, inherits its budget, and has acyclic ancestry to the root. Its RESULT clears only the child id, adds the history receipt to the direct parent, and makes that parent ready only after its last wait id clears. A RESULT may issue one same-position successor plus children: a root successor stays root; a child successor keeps its parent. Other call ids survive semantic rebase. `RESULT.next` is one recommended continuation, not the queue. If the returning call was `NOW.next`, state_changes selects its valid successor/default (or `awaiting_decision`); otherwise the default stays put unless explicitly changed.
+**Track routing.** Legacy single-track directions may omit `track`. Once `NOW.md` has `tracks`, every newly issued CALL, RESULT, and pending decision names one; a pre-migration CALL may inherit its unique track from the authoritative `open_calls` entry with the same id. Each track has at most one ordinary parentless root CALL. A child names an existing same-track parent, appears in that parent's `waiting_on`, inherits its budget, and has acyclic ancestry to the root. Its RESULT clears only the child id, adds the history receipt to the direct parent, and makes that parent ready only after its last wait id clears. A RESULT may issue one same-position successor plus children: a root successor stays root; a child successor keeps its parent. Other call ids survive semantic rebase. `RESULT.next` hands off only a same-track continuation issued by this RESULT (successor or child), its pending decision, a parent/requester return, or `return-to-owner`; it is not copied into NOW and cannot select or modify another track. A `next` that merely recommends foreign work not issued by this RESULT is obsolete non-state advice whether that work is still open, consumed, or superseded: omit it from the handback and apply the remaining valid transaction.
 
 **Bounded cross-track outcome request.** At most one owner-approved track per direction may carry `outcome_dispatch: true`. Its ordinary root may issue or expire an auxiliary CALL with `request_kind: outcome`, `requested_by: <that-track>`, a different target `track`, `to: session`, `play: work`, and no `parent`; its registered `for` matches that target's ordinary root. Both requester and target ordinary roots remain non-paused while it is open, so both tracks already occupy WIP. The request is not a root/child, adds no WIP slot, never mutates or replaces the target root, and at most one may be open per target track. Its CALL asks only whether one observable need fits the target's current lawful route: `context` names the source, need, useful date/event and miss consequence; `done_when` names outcome and proof; no technical HOW. Its `return` defines the three disposition meanings and required evidence so the carried CALL stays self-contained. The target RESULT's `outcome` starts with exactly `ACCEPT` (need/proof/date fit), `COUNTER` (equivalent outcome plus trade-off) or `BLOCKED` (blocker plus unblock proof), issues no successor and changes no plan/product. This is a target-track operational disposition, not owner approval; any separate owner-verdict request still needs the owner's words. Its RESULT clears the request, appends that history receipt to the current ordinary roots of both tracks, and uses `next: return-to-requester <track-id>`. The authorized requester may instead expire its still-open request by id with an explicit reason; the expiry receipt is appended to the target root and is not a target disposition. Pausing or retiring either track first returns or expires its requests.
 
@@ -99,7 +99,7 @@ they are not freshness locks. The writer re-reads current state, applies only
 the packet's declared intent by stable path/id/key, and preserves concurrent
 changes outside that intent. `Preserve unchanged` refers to the current value
 after rebase. A stale base alone never invalidates a RESULT; an ambiguous delta,
-invalid/incomplete packet or `next` CALL, or mutually exclusive meanings for
+invalid/incomplete packet or local `next` handoff, or mutually exclusive meanings for
 the same semantic field after those merge rules still does.
 
 ## Worked example (compressed)
@@ -130,7 +130,8 @@ outcome: |
 evidence: |
   work/trailer-script.md; структура согласована с владельцем в сессии.
 state_changes: |
-  NOW.md: t-2 → done. work/: + trailer-script.md
+  NOW.md: t-2 → done; clear c-117; register c-118 ready in open_calls.
+  work/: + trailer-script.md
 captures:
   - идея: gif-нарезка сцены 3 для devlog — кандидат в задачи audience-линзы
 decisions_needed: []

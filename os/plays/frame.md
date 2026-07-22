@@ -12,11 +12,11 @@ Writes: CHARTER.md, TREE.md (root node only), NOW.md, LOG.md.
 3. **Charter draft (owner)** — mission (1–2 sentences), 2–4 measurable success criteria (the owner picks among the calibrated options; recommendation per G7), constraints, lenses, repos, edges, risk posture. Show it; iterate until the owner explicitly approves it (gate G9).
 4. **Pre-mortem (owner)** — "this direction failed three years from now": ≥5 distinct failure reasons, each mapped to a mitigation, a kill_by candidate, or an explicit accepted risk. Into the charter; owner approves.
 5. **Root node** — TREE.md gets ONLY the root: the mission as an outcome with done_when. No children (they are map's job). Everything the interview or homework surfaced as possible goals or paths (including how outliers won) goes into RESULT.captures as candidates for the map session.
-6. **Close (owner)** — RESULT with `owner_approved` marks for charter and root (G9); log line; next = a `map_evidence` research CALL (research play; deep-research-capable model) whose RESULT chains to the map CALL carrying the candidate outcomes — evidence ready before map opens. If the owner explicitly waives evidence, next = the map CALL directly.
+6. **Close (owner)** — RESULT with `owner_approved` marks for charter and root (G9); log line; state_changes register a `map_evidence` research CALL in `NOW.open_calls` (research play; deep-research-capable model) and `RESULT.next` hands it off locally; its RESULT chains to the map CALL carrying the candidate outcomes — evidence ready before map opens. If the owner explicitly waives evidence, register and hand off the map CALL directly.
 
 ## Done when
 
-CHARTER.md and the tree root exist, each explicitly approved by the owner in-session; NOW.md points to the map session.
+CHARTER.md and the tree root exist, each explicitly approved by the owner in-session; the issued map path is registered in `NOW.open_calls` and handed off by `RESULT.next`.
 
 ## Notes
 

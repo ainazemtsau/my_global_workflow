@@ -3,7 +3,7 @@
 Purpose: build/revise the goal tree WITH the owner; nothing enters without approval (G9).
 
 Reads: CHARTER.md, TREE.md, NOW.md; the latest map_evidence RESULT; evidence sources the owner names.
-Writes: TREE.md, NOW.md (next), LOG.md.
+Writes: TREE.md, NOW.md (open_calls), LOG.md.
 
 Trigger: after frame; «перепланируем карту»; or a review harvest demands restructuring beyond small updates.
 
@@ -25,11 +25,11 @@ Track-add fast path: one map-child card (not a G8 root mission); reuse evidence,
 6. **Order (owner)** — confirm the order, adjusted by verdicts: what unblocks what, riskiest assumption first.
 7. **Depth check** — top level only (rolling wave, G2). Deeper splits happen later, in shape.
 8. **Lens sweep on the map** — does the tree cover every charter lens? For each gap: propose a node or an explicit `not_needed: reason`.
-9. **Close (owner)** — owner approves the compact tree (G9). RESULT: TREE.md + log; normal map → shape CALL on recommended node (2–3 options); track-add map → accepted `parallel` node + track + one bounded work CALL, no tasks/appetite.
+9. **Close (owner)** — owner approves compact tree (G9). RESULT: TREE + log; normal map → 2–3 first-node options, then `awaiting_decision` or a chosen registered shape CALL; track-add → `parallel` node + track + bounded work CALL, no tasks/appetite.
 
 ## Done when
 
-TREE.md holds an owner-approved tree, every non-root node with its one-line why; the next CALL is ready.
+TREE.md holds an owner-approved tree; every non-root node has its one-line why; RESULT.next hands off a continuation.
 
 ## Notes
 

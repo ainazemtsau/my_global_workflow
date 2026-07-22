@@ -50,16 +50,16 @@ that needs the owner.
 | A `RESULT ...` packet ("apply this RESULT") | **writer** | `os/adapters/coding-agent.md` Role 1 |
 | `MAINTENANCE REQUEST ...` / a problem about the OS itself | **maintenance** | `os/MAINTENANCE.md` (never touch `live/**`) |
 | A CALL packet, or a plain message about a direction | **session** | run the play per `os/KERNEL.md` §2 OPEN |
-| `collect next for <direction>[/<track>]` | **writer** | one block for default/unique ready call; ambiguous track → choices |
+| `collect next for <direction>[/<track>]` | **writer** | sole CALL → one block; sole decision → its brief; several → choices/recommendation |
 | `audit <direction>` | **writer** | read-only consistency sweep, report only |
 | `digest [<direction>] [since <date>]` | **writer** | read-only morning report, render only |
 
 No CALL? Resolve against `NOW.md`: new TREE-backed track → map;
 retirement/primary handoff → review; other track lifecycle → work;
-a track/task/CALL match → its call/decision;
-"продолжаем" → `NOW.next` (default call/decision); "что можно делать" →
-ready calls grouped by track; a named track with several ready calls → a
-compact choice and recommendation; a question → read-only; no-state ambition
+a track/task/CALL match → its call/decision; "продолжаем" → the sole
+actionable ready call/pending decision; several → grouped choices and a
+recommendation without state mutation; none → current waits/blocks/pauses;
+"что можно делать" → ready calls grouped by track; a question → read-only; no-state ambition
 → `frame`; otherwise propose one interpretation and confirm.
 The owner never composes packets or has to type track/call ids.
 
@@ -108,7 +108,7 @@ that file is the authority; do not rely on this summary alone.** In particular:
   preserve all concurrent changes outside the named semantic targets.
   `Preserve unchanged` means preserve the current value after rebase, not roll
   it back to the packet's base. Never bounce for freshness alone.
-- Bounce only when the RESULT or `next` CALL fails validation, the intended
+- Bounce only when the RESULT or local `RESULT.next` handoff fails validation, the intended
   delta is itself ambiguous/incomplete, or both meanings cannot coexist after
   rebase (for example, base-to-RESULT and base-to-current set the same semantic
   field to mutually exclusive meanings, or the returning call was consumed by
@@ -125,11 +125,15 @@ that file is the authority; do not rely on this summary alone.** In particular:
 - Validate before applying (G10), bounce with the specific miss, never apply
   partially: RESULT fields complete per `os/schema/packets.md`; `play_check`
   present (one line per play step); `(owner)`-marked steps carry the owner's
-  actual words, not a bare "done"; **the `next` CALL's goal is an outcome with
+  actual words, not a bare "done"; **a locally issued `next` CALL's goal is an outcome with
   NO method/procedure paraphrase (CALL hygiene)**; and the **task-play
   lifecycle** holds — for `play: work|guide`, reject `TREE.md` edits and any
   active_bet removal/done/retargeting, and if the RESULT marks the last open
-  task of the active bet done, `next` MUST be a `review` CALL for that node.
+  task of the active bet done, state_changes MUST register a `review` CALL for
+  that node and `RESULT.next` MUST hand it off.
+- `RESULT.next` is transport for this leg only. A foreign CALL not issued by
+  this RESULT is omitted as obsolete advice, not validated against or written
+  into NOW and not allowed to bounce the otherwise valid transaction.
 - Mechanical apply uses NO fan-out: one agent, sequentially.
 
 If you are running on a chat platform (not this repo via Codex), you are never
