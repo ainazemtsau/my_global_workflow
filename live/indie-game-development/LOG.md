@@ -506,4 +506,6 @@ archived: history/LOG-archive-indie-game-development.md — sessions before 2026
 
 2026-07-22 · s-work-g-d3a8-markdown-first-portal-acceptance-001 · work · canon · g-d3a8/demo knowledge surface acceptance: owner accepted Markdown-first Visual Portal: Demo Experience Tree, Canon Ledger and media remain authoritative; generated multi-page site is read-only; Zensical is the first replaceable renderer candidate; custom app, Trilium and AI asset pipelines deferred. Invalid V1 live root removed, current question map suspended, one non-default process-rebuild root opened; Launch Control remains default. → history/2026-07-22-s-work-g-d3a8-markdown-first-portal-acceptance-001.md
 
+2026-07-22 · s-work-publish-canon-markdown-first-portal-main-001 · work/publish · canon · g-d3a8/repository-main: owner-requested Markdown-first portal acceptance was atomically fast-forward published without force to origin/main and origin/wt/indie-game-development with exact remote readback; V1 remains suspended, one process-rebuild root is READY/non-default, and Launch Control remains default. → history/2026-07-22-s-work-publish-canon-markdown-first-portal-main-001.md
+
 END_OF_FILE: live/indie-game-development/LOG.md
