@@ -14,7 +14,7 @@ Writes: NOW.md (task/call status), LOG.md, work/ artifacts via state_changes.
    - A bounded side question → `call:research`.
    - Ideas and discovered work → `capture`, one line each. Never expand scope in-session (the bet's cut list is law).
 4. **Self-check** — compare the actual output against done_when point by point. Evidence is the artifact itself (file in work/, executor's commits/PR + checks), not a claim. Owner-content: every major element traces to an owner input or a named source — untraceable generic filler fails this check.
-5. **Close** — RESULT: outcome, evidence, task/call disposition, captures, decisions, log line, next = one ready continuation; the last bet task routes to review. Preserve unrelated calls/tracks.
+5. **Close** — RESULT: outcome, evidence, disposition, captures, decisions and log. Ordinary work names one ready continuation (last bet task → review); an outcome request issues none and uses `return-to-requester <track-id>`. Preserve unrelated calls/tracks.
 
 Here `ready` means self-contained; status may be `waiting|blocked|paused`.
 
@@ -26,10 +26,10 @@ The CALL's done_when is met with evidence, or it closes blocked/obsolete with th
 
 - One CALL per session; each track has ≤1 ordinary root. If it splits, RESULT proposes one same-position continuation plus bounded same-track children parented to it; do not silently do both.
 - Track add without TREE uses work; TREE-backed add routes map. A met parallel root, retirement, or primary handoff routes review; cite owner words.
-- Two-strikes rule applies: after two failed correction rounds, close with a handoff note and let a fresh session continue.
+- Two strikes: after two failed corrections, close with a handoff to a fresh session.
 - Waiting on a human-world event (playtest answers, an email reply) is normal: close with task → blocked and the unblock condition in NOW.md. The pulse play watches blocked items.
 - A work CALL may target a recurring obligation (`recurring: r-N` instead of `task:`): same lifecycle, evidence per its done_when; the RESULT updates `last_done` instead of a task status. If it can't finish, close with the reason — `last_done` stays, pulse re-raises it.
 - Long task, platform switch, or a degrading session: close with a checkpoint RESULT — partial outcome, task stays active with a progress note, next = continuation CALL. A fresh session anywhere resumes from it.
-- Issued CALLs stay in-track except `request_kind: outcome` from an owner-authorized dispatch track; its target only returns `ACCEPT|COUNTER|BLOCKED` (packet routing).
+- Issued CALLs stay in-track and enter state_changes. Exception: an authorized root's outcome request; target clears it, receipts both roots, changes no target plan/status, returns only `ACCEPT|COUNTER|BLOCKED`.
 
 END_OF_FILE: os/plays/work.md
