@@ -524,4 +524,6 @@ archived: history/LOG-archive-indie-game-development.md — sessions before 2026
 
 2026-07-22 · s-work-g-d3a8-demo-workflow-rebuild-accepted-001 · work · canon · g-d3a8/demo-workflow-rebuild-001: owner accepted Demo-Driven Design & Canon Workflow v1; question-first routing is superseded, local Canon Forge/Cartography plays and external Canon rules are installed at 6296cdbe, and Canon keeps one local waiting handoff c-cartography-g-d3a8-demo-experience-tree-pilot-001 until a real owner-approved Launch Control Demo Contract exists—without global NOW.next, focus, foreign routing, old-question migration or automatic successor. → history/2026-07-22-s-work-g-d3a8-demo-workflow-rebuild-accepted-001.md
 
+2026-07-22 · s-review-launch-control-demo-control-room-foundation-correction-001 · review · launch-control · g-b847/demo-control-room-foundation-correction-review-001: binding fresh review REFUTED exact candidate 0387ace after all three prior fixes survived; its first Daily Brief mislabels Canon process acceptance as product/world change, and current Canon authority has already advanced to an accepted workflow plus waiting pilot, so one exact correction is READY while candidate, product and foreign work remain unchanged. → history/2026-07-22-s-review-launch-control-demo-control-room-foundation-correction-001.md
+
 END_OF_FILE: live/indie-game-development/LOG.md

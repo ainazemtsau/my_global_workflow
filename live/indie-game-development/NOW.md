@@ -1,6 +1,6 @@
 # NOW: indie-game-development
 
-updated: 2026-07-22 by s-work-g-d3a8-demo-workflow-rebuild-accepted-001
+updated: 2026-07-22 by s-review-launch-control-demo-control-room-foundation-correction-001
 
 bet: null
 
@@ -32,16 +32,16 @@ open_calls:
       - history/2026-07-20-s-work-program-v2-legacy-lab-purge-deliver-blocked-001.md
     note: "BLOCKED / V31 RELEASE CONTINUATION / ROOT NOT RELEASED. Product candidate 72c7c8c6 removes the 24 approved tracked paths, preserves KEEP, adds the <=400-word no-growth policy, passes fresh non-author G5 and normal gates (1829/1829), and is integrated only in local dev through c5c21c13 with blocker evidence baf8513c. Deliver is RED solely because pre-existing review-c-exec-char-v2-source-router-repair-001 does not account for source commit 413149ce after reviewed commit 8a0e33ec. No push/merge/release; origin refs remain 45b15623; WIN-U1 is DRAINING with lease preserved. Do not dispatch or return to feature work until unblock_when is true."
 
-  - id: c-review-launch-control-demo-control-room-foundation-correction-001
+  - id: c-work-launch-control-demo-control-room-foundation-correction-002
     track: launch-control
     status: ready
     to: session
-    for: "g-b847 / fresh binding review of the corrected exact Demo Control Room foundation candidate"
+    for: "g-b847 / correct owner-result visibility and rebase the Demo Control Room candidate on accepted Canon workflow plus waiting pilot"
     issued: 2026-07-22
-    call: work/launch-control/c-review-launch-control-demo-control-room-foundation-correction-001-call.md
+    call: work/launch-control/c-work-launch-control-demo-control-room-foundation-correction-002-call.md
     receipts:
-      - history/2026-07-22-s-work-launch-control-demo-control-room-foundation-correction-001.md
-    note: "READY / FRESH BINDING REVIEW / CORRECTED CANDIDATE NOT ACCEPTED / NO FOREIGN DISPATCH. Exact corrected blob 0387ace23477fc5a598c919089a37f3b190b5004 separates official Steam anchors from the provisional inherited 10 August recheck and UNKNOWN actual latest-safe point, removes global selector routing, and separates 22 July setup from one post-acceptance Canon-primary brief. The survived Character/Program WIP finding, zero new background BUILD, Grid only as a conditional future candidate, Gas as owner-present planning and all Demo/foreign-authority boundaries remain unchanged. Fresh owner words `Так, проблема в том, что я не вижу результатов работы` add one explicit compatibility test: the owner-facing loop must show actual product/world change, its proof and what is absent instead of more status; whether the Canon-workflow line meets that boundary is unproved and was not silently patched as a fourth correction. Fresh review must attempt to refute this exact blob; only could-not-refute may open an owner fix-or-accept brief."
+      - history/2026-07-22-s-review-launch-control-demo-control-room-foundation-correction-001.md
+    note: "READY / EXACT TWO-FINDING CORRECTION / CANDIDATE NOT ACCEPTED / NO FOREIGN DISPATCH. Binding fresh review refuted exact blob 0387ace23477fc5a598c919089a37f3b190b5004 only because its first Daily Brief mislabels Canon process acceptance as actual product/world change and its Canon Runway/row/wave/refill/source still plan workflow acceptance that current authority already completed. The three prior fixes survived. Current Canon truth is accepted published workflow plus one local pilot WAITING on exact owner acceptance of this candidate; correction must show actual product/external-world result or explicit NONE, proof plus limitation, what remains absent and one separate enabling owner-primary, without launching the pilot. Character/Program WIP, zero new BUILD, conditional Grid, owner-present Gas and every Demo/foreign-authority boundary remain unchanged."
 
   - id: c-exec-level-module-standard-v1-lv0-plan-001
     track: level
