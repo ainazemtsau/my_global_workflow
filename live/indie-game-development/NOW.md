@@ -1,6 +1,6 @@
 # NOW: indie-game-development
 
-updated: 2026-07-22 by s-work-launch-control-demo-control-room-canon-readiness-launch-001
+updated: 2026-07-22 by s-work-canon-current-process-plan-readiness-blocked-001
 
 bet: null
 
@@ -41,18 +41,8 @@ open_calls:
     call: work/launch-control/c-work-launch-control-demo-control-room-canon-readiness-refill-001-call.md
     receipts:
       - history/2026-07-22-s-work-launch-control-demo-control-room-canon-readiness-launch-001.md
-    note: "READY / ACTIVE WAVE 1 REGISTERED / CANON READINESS REQUEST OPEN / IMMEDIATE EVENT REFILL / PRODUCT RESULT NONE. The owner selected exactly one flow: Canon finishes its actual current process/plan lineage until one binding Direction close/receipt accounts for every remaining plan item as closed or explicitly cut, releases the demo-design routing surface and proves readiness for the next lawful Launch Control requirement. `60 минут` is the selected owner-attention block, not a forecast, SLA or hard stop. The committed Demo-Driven rebuild is already terminal and may not be relabelled unfinished; the target request must identify any newer lineage from stable task/receipt evidence or return the exact blocker. Grid, Gas, Character, Hook cards, Contract, pilot, product, portal, image and public work remain unselected. Refill immediately on disposition, owner-verdict gate, blocker, expiry or other material result."
-
-  - id: c-outcome-canon-current-process-plan-readiness-001
-    track: canon
-    status: ready
-    to: session
-    request_kind: outcome
-    requested_by: launch-control
-    for: "g-d3a8 / minimal owner-present Demo Experience Tree pilot: one immediate experience-spine child of the accepted Demo Contract"
-    issued: 2026-07-22
-    call: work/launch-control/c-outcome-canon-current-process-plan-readiness-001-call.md
-    note: "READY / AUXILIARY OUTCOME REQUEST / ACTIVE WAVE 1 / EXPLICIT OWNER DISPATCH / NO TARGET ROOT MUTATION. Identify Canon's actual current process/plan lineage without guessing; ACCEPT only on one binding owning-lineage Direction close/receipt that closes or explicitly cuts every remaining plan item, releases the demo-design routing surface and survives fresh Direction plus external-Canon readback. COUNTER must name an equivalent readiness outcome and trade-off; BLOCKED must name the exact missing lineage, authority, owner gate or execution surface and unblock proof. The ordinary Canon pilot remains WAITING and unchanged. The owner's 60-minute attention block is not a deadline, and no design, product, portal or foreign work is selected by this disposition request."
+      - history/2026-07-22-s-work-canon-current-process-plan-readiness-blocked-001.md
+    note: "READY / CANON READINESS BLOCKED / AUTHORITATIVE LINEAGE POINTER MISSING / IMMEDIATE EVENT REFILL OWED / PRODUCT RESULT NONE. The target could not lawfully identify or close the owner's newer reported Canon process/plan work: committed Direction state and the external Canon expose only the terminal Demo-Driven rebuild at 6296cdbe, while available Codex task evidence supplies owner intent but no exact current task, CALL, accepted plan artifact, commit/branch or receipt that owns the remaining items. The external v4/v3 entry-surface split is evidence, not scope or execution authority. Unblock proof is one stable readable pointer that identifies the actual current lineage, its owner/execution surface and every remaining plan item; only that owning lineage may then return the binding close/receipt and fresh readback. `60 минут` remains an attention block, not proof or a deadline. Refill immediately from this exact blocker; Grid, Gas, Character, Hook cards, Contract, pilot, product, portal, image and public work remain unselected."
 
   - id: c-exec-level-module-standard-v1-lv0-plan-001
     track: level
@@ -76,7 +66,8 @@ open_calls:
       - history/2026-07-22-s-work-g-d3a8-demo-workflow-rebuild-accepted-001.md
       - work/demo-workflow/demo-driven-design-canon-workflow-v1.md
       - history/2026-07-22-s-work-canon-demo-hook-discovery-process-readiness-counter-001.md
-    note: "WAITING / LOCAL CANON HANDOFF / AUXILIARY HOOK REQUEST COUNTERED TO PROCESS READINESS / NO DESIGN DISPATCH. The owner accepted Demo-Driven Design & Canon Workflow v1 and explicitly required the Canon track to retain its own next CALL. The owner now directs the next 60 minutes to finishing Canon's current process/plan work until its demo-design routing surface is ready to accept Launch Control requirements. The auxiliary Hook Discovery request therefore returned COUNTER and launched nothing; its replacement outcome needs a binding Canon Direction close/receipt and fresh readback, not implementation detail or a time forecast. This ordinary root remains WAITING only on one real owner-approved Demo Contract and exact acceptance receipt for work/launch-control/demo-control-room.md. After that event it may propose one immediate experience-spine child under local/canon-cartography. No old question migration, Canon Forge, READY/NEXT tree data, portal/product work or automatic successor."
+      - history/2026-07-22-s-work-canon-current-process-plan-readiness-blocked-001.md
+    note: "WAITING / LOCAL CANON HANDOFF / READINESS REQUEST BLOCKED ON MISSING LINEAGE POINTER / NO ROOT MUTATION / NO DESIGN DISPATCH. The owner accepted Demo-Driven Design & Canon Workflow v1 and explicitly required the Canon track to retain its own next CALL. The auxiliary readiness request found no stable task, CALL, accepted plan artifact, commit/branch or receipt that identifies the owner's newer reported process/plan lineage and its remaining items; the terminal 6296cdbe rebuild cannot be reopened, and the external v4/v3 split is evidence rather than execution authority. Unblock proof is one authoritative readable pointer to the actual owning lineage, execution surface and complete remaining-item scope, followed by that lineage's binding Direction close/receipt and fresh readback. This ordinary root remains WAITING only on one real owner-approved Demo Contract and exact acceptance receipt for work/launch-control/demo-control-room.md. No old question migration, Canon Forge, READY/NEXT tree data, portal/product work or automatic successor."
   - id: c-visual-009
     track: visual
     status: blocked
