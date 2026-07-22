@@ -1,6 +1,6 @@
 # NOW: indie-game-development
 
-updated: 2026-07-22 by s-review-launch-control-demo-control-room-foundation-001
+updated: 2026-07-22 by s-work-launch-control-demo-control-room-foundation-correction-001
 
 bet: null
 
@@ -32,16 +32,16 @@ open_calls:
       - history/2026-07-20-s-work-program-v2-legacy-lab-purge-deliver-blocked-001.md
     note: "BLOCKED / V31 RELEASE CONTINUATION / ROOT NOT RELEASED. Product candidate 72c7c8c6 removes the 24 approved tracked paths, preserves KEEP, adds the <=400-word no-growth policy, passes fresh non-author G5 and normal gates (1829/1829), and is integrated only in local dev through c5c21c13 with blocker evidence baf8513c. Deliver is RED solely because pre-existing review-c-exec-char-v2-source-router-repair-001 does not account for source commit 413149ce after reviewed commit 8a0e33ec. No push/merge/release; origin refs remain 45b15623; WIN-U1 is DRAINING with lease preserved. Do not dispatch or return to feature work until unblock_when is true."
 
-  - id: c-work-launch-control-demo-control-room-foundation-correction-001
+  - id: c-review-launch-control-demo-control-room-foundation-correction-001
     track: launch-control
     status: ready
     to: session
-    for: "g-b847 / exact correction of the refuted Demo Control Room foundation candidate"
+    for: "g-b847 / fresh binding review of the corrected exact Demo Control Room foundation candidate"
     issued: 2026-07-22
-    call: work/launch-control/c-work-launch-control-demo-control-room-foundation-correction-001-call.md
+    call: work/launch-control/c-review-launch-control-demo-control-room-foundation-correction-001-call.md
     receipts:
-      - history/2026-07-22-s-review-launch-control-demo-control-room-foundation-001.md
-    note: "READY / EXACT CORRECTION ONLY / CANDIDATE NOT ACCEPTED / NO FOREIGN DISPATCH. Binding fresh review refuted artifact blob b1a990983ec790fcfad8e876cb3f252091196b4b on three bounded points: 10 August is not proved as a latest-safe cut date; default/non-default routing became obsolete after global NOW.next removal; and the four-line 22 July brief mixes setup/review with a conditional later Canon outcome instead of one operational owner-primary. Preserve the WIP finding that Character closing plus Program release are unfinished product lineages, preserve zero new background BUILD and Grid only as a future admitted candidate, and change no product or foreign track."
+      - history/2026-07-22-s-work-launch-control-demo-control-room-foundation-correction-001.md
+    note: "READY / FRESH BINDING REVIEW / CORRECTED CANDIDATE NOT ACCEPTED / NO FOREIGN DISPATCH. Exact corrected blob 0387ace23477fc5a598c919089a37f3b190b5004 separates official Steam anchors from the provisional inherited 10 August recheck and UNKNOWN actual latest-safe point, removes global selector routing, and separates 22 July setup from one post-acceptance Canon-primary brief. The survived Character/Program WIP finding, zero new background BUILD, Grid only as a conditional future candidate, Gas as owner-present planning and all Demo/foreign-authority boundaries remain unchanged. Fresh owner words `Так, проблема в том, что я не вижу результатов работы` add one explicit compatibility test: the owner-facing loop must show actual product/world change, its proof and what is absent instead of more status; whether the Canon-workflow line meets that boundary is unproved and was not silently patched as a fourth correction. Fresh review must attempt to refute this exact blob; only could-not-refute may open an owner fix-or-accept brief."
 
   - id: c-exec-level-module-standard-v1-lv0-plan-001
     track: level
