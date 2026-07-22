@@ -1,6 +1,6 @@
 # NOW: indie-game-development
 
-updated: 2026-07-22 by s-work-launch-control-demo-control-room-foundation-accepted-001
+updated: 2026-07-22 by s-repair-grid-v1-g02-false-g01-blocker-001
 
 bet: null
 
@@ -99,19 +99,17 @@ open_calls:
       - history/2026-07-18-s-review-char-v2-published-handback-release-001.md
     note: "WAITING / PRODUCT REVIEW-CLOSING IN PROGRESS. Do not dispatch this frozen CALL again. It waits for owner LOOK, binding G5, product RESULT/Deliver and valid Direction close. A future Player Simulation / Actor Layer is fresh V31 work and cannot expand this lineage retroactively."
 
-  - id: c-exec-grid-v1-g02-common-spatial-map-001
+  - id: c-exec-grid-v1-g02-common-spatial-map-002
     track: grid
-    status: blocked
+    status: ready
     to: executor
-    for: "g-4b92 / G02 common spatial map after released exact-12 authority cleanup"
+    for: "g-4b92 / G02 common spatial map after completed exact-12 G01 authority cleanup"
     issued: 2026-07-22
-    call: work/c-exec-grid-v1-g02-common-spatial-map-001-call.md
-    unblock_when: "A separate owner-authorized product-process/G01 integrity result supplies the required Grid authority checker, a defined seeded selftest and normal-gate wiring, reconciles the five frozen pending texts without silently changing G01 meaning, and fresh binding verification proves G01 closed and G02 stage-eligible on canonical product refs; then G02 re-enters from a fresh pre-PLAN check."
+    call: work/c-exec-grid-v1-g02-common-spatial-map-002-call.md
     receipts:
-      - history/2026-07-22-s-work-grid-v1-g01-direct-legacy-isolation-blocked-001.md
       - history/2026-07-22-s-work-grid-v1-g01-direct-legacy-release-001.md
-      - history/2026-07-22-s-work-grid-v1-g02-preplan-g01-integrity-blocked-001.md
-    note: "BLOCKED BEFORE PLAN / V31 PREDECESSOR INTEGRITY / NO G02 MUTATION / GRID 1 OF 11. Fresh product preflight in WIN-U1 confirmed validation.config contract 31 and canonical dev/main/origin refs at 1a6373b8; the exact nine authority paths exist and all twelve legacy paths are absent. But current product authority requires tools/grid-document-authority-check.ps1, a seeded selftest and wiring in tools/check.ps1 plus tools/hygiene.ps1; all are absent, while the five frozen G01 authority artifacts still say publication/close pending. Therefore G01 closure and G02 stage eligibility cannot be proven. No PLAN was shown or accepted, no implementation/lifecycle stage ran, and no successor Direction CALL was issued."
+      - history/2026-07-22-s-repair-grid-v1-g02-false-g01-blocker-001.md
+    note: "READY / FRESH OWNER-PRESENT PLAN / G01 COMPLETE 1 OF 11 / FALSE PRE-PLAN BLOCKER REMOVED / CONTRACT 31. The owner explicitly directed that the deferred cleanup-only workflow route, missing checker/selftest/wiring interpretation and frozen pending prose no longer appear or count as a G01/G02 blocker. Start in a fresh product session, confirm product validation.config contract 31, present the complete plain-language G02 PLAN and stop for the owner's actual verdict before implementation. Existing Gas/Voxel and Structure state and behavior remain read-only; no G01 repair, workflow work, G03+ or consumer adapter is in this root."
 
   - id: c-work-gas-v1-live-composition-plan-001
     track: gas
@@ -127,7 +125,5 @@ open_calls:
 recurring: []
 
 decisions: []
-next:
-  call: c-review-launch-control-demo-control-room-foundation-001
 
 END_OF_FILE: live/indie-game-development/NOW.md
