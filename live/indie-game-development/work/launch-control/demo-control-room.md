@@ -1,337 +1,297 @@
-# Диспетчерская демо — принятая операционная основа
+# Диспетчерская демо — принятая operating strategy
 
-Снимок: 22 июля 2026 года, после binding review точной исправленной версии и фактического owner acceptance для рабочего испытания.
+Снимок: 22 июля 2026 года, после отдельного owner verdict по полной стратегии.
 
-Статус: **ПРИНЯТАЯ ОСНОВА ДЛЯ РАБОЧЕГО ИСПЫТАНИЯ**. Binding fresh review не смог опровергнуть точную исправленную версию, после чего владелец сказал: `Окей, давай завершим, попробуем по ней работу.` Это принимает единственную систему управления, но не изображает продуктовый результат, не запускает Canon/продукт/чужой трек, не является новым milestone или Daily Command. Раздел 9 остаётся производным кандидатом первого рабочего плана до отдельного owner verdict по свежему состоянию.
+Статус: **ПРИНЯТАЯ СТРАТЕГИЯ ДЛЯ ПЕРВОГО СОБЫТИЙНОГО ЦИКЛА**. Владелец сначала выбрал вариант `A` для разделения «Demo Skeleton → Canon Hook Discovery → Demo Contract», затем после показа всей стратегии ещё раз ответил `A`. Второй ответ принимает стратегию целиком: динамическую Диспетчерскую, Demo Skeleton, ограниченный Canon Hook Discovery override, versioned Demo Contract, причинную дорогу к proof и честные October/February routes. Это принятие управления, а не product result: фактическое изменение игры или внешнего мира по-прежнему **НЕТ**. Ни Canon, ни product, ни другой трек этой записью не запускается.
 
-## 1. Где здесь правда и зачем нужен этот документ
+## 1. Где здесь правда
 
-Диспетчерская не создаёт второй план проекта и не хранит собственную копию состояния.
+Диспетчерская не создаёт второй план проекта и не копирует состояние.
 
 | Что нужно узнать | Единственный источник | Роль этого документа |
 |---|---|---|
-| К каким результатам вообще идёт проект | [Дерево целей](../../TREE.md) | Показывает причинную дорогу только для текущей цели demo |
-| Что прямо сейчас готово, ждёт, заблокировано или приостановлено | [Текущее состояние](../../NOW.md) | Делает одноразовый производный снимок для выбора волны |
-| Что фактически произошло и чем доказано | [История результатов](../../history/) и журнал | Ссылается на доказательства, но не переписывает их как новую истину |
-| Что нельзя вырезать из demo | [Принятый договор demo](stabilization-baseline.md) | Переводит договор в причинные результаты и проверки |
-| Как устроена сама Диспетчерская | [Принятая замена старого подхода](../../history/2026-07-22-s-work-launch-control-m1-superseded-by-demo-control-room-001.md) и [карточка Диспетчерской](../../history/2026-07-22-s-map-launch-control-demo-control-room-refit-001.md) | Применяет принятые правила WIP, вопросов, доказательств и маршрутов |
+| К каким результатам идёт проект | [TREE](../../TREE.md) | Показывает причинную дорогу текущей demo-цели |
+| Что сейчас готово, ждёт, заблокировано или приостановлено | [NOW](../../NOW.md) | Даёт fresh снимок для выбора следующей Active Wave |
+| Что фактически произошло и чем доказано | [history](../../history/) и [LOG](../../LOG.md) | Ссылается на receipts, но не переписывает их как новую истину |
+| Минимальная release/quality граница | [stabilization baseline](stabilization-baseline.md) | После owner verdict читается как **Demo Skeleton**, а не как выбранный hook или финальный Demo Contract |
+| Как Canon строит demo от целого к частям | [Demo-Driven Design & Canon Workflow v1](../demo-workflow/demo-driven-design-canon-workflow-v1.md) | Сохраняет Canon design authority и parent trace; ниже записан один точный временный override до выбора hook |
+| Почему это одна Диспетчерская | [replacement receipt](../../history/2026-07-22-s-work-launch-control-m1-superseded-by-demo-control-room-001.md) и [refit receipt](../../history/2026-07-22-s-map-launch-control-demo-control-room-refit-001.md) | Сохраняет один launch-control track, bounded outcome requests и authority целевых треков |
 
-Правило против теневого состояния:
+Правила против теневого состояния:
 
-- при расхождении всегда побеждает источник из таблицы, а соответствующая строка здесь считается устаревшей;
-- статус работы, решение или доказательство нельзя поправить только здесь — сначала появляется законный RESULT в owning track, затем этот производный вид пересобирается;
-- документ обновляется только когда меняется причинная логика demo, внешний маршрут, scope, важное доказательство, ресурсное ограничение или состав Active Wave;
-- обычное завершение дня без материального изменения не создаёт новую версию и не требует ручной синхронизации;
-- глобального селектора приоритета у документа нет: доступная работа определяется текущими open calls/decisions и явным контекстом владельца; устаревший остаток NOW.next не читается и не зеркалируется;
-- дневные четыре строки и ближайший Runway — представления этого же документа, а не отдельные артефакты;
-- документ не отправляет задания сам по себе. После принятия Диспетчерская может назвать наблюдаемый результат, а целевой трек сохраняет право принять запрос, предложить эквивалентный результат или вернуть точный блокер и всегда сам выбирает технический способ.
+- при расхождении побеждает fresh source из таблицы;
+- статус, proof или owner decision сначала появляются в законном RESULT owning track и только затем отражаются здесь;
+- `track_wip_limit: 99` — совместимость формата, не target загрузки и не измеренная capacity;
+- `NOW.next` не является selector и не управляет работой;
+- Runway, Active Wave и четырёхстрочный Brief — производные виды этой стратегии, не новые системы;
+- Диспетчерская может сформулировать наблюдаемый outcome. Целевой трек отвечает `ACCEPT`, `COUNTER` или `BLOCKED` и полностью владеет technical HOW;
+- commit, handback или product RESULT без обязательных review/integration/Direction close evidence не освобождает ресурс автоматически.
 
-Термины ниже:
+Термины:
 
-- **результат продукта / внешнего мира** — наблюдаемое изменение игры, сборки, поведения игрока, distribution или рынка; если такого изменения нет, Диспетчерская пишет **НЕТ**. Принятый текст, процесс, CALL или смена статуса сами по себе сюда не входят;
-- **enabling outcome** — отдельно названное решение, план, закрытие или доказательство, которое уменьшает неизвестность и открывает будущий продуктовый результат, но не выдаётся за сам результат продукта;
-- **Runway** — только ближайшая последовательность подготовленных результатов с реальными зависимостями и ресурсами, не календарная фантазия;
-- **Active Wave** — работа, которой сейчас действительно разрешено занимать владельца, review, продуктовый слот и общие поверхности;
-- **SUPPORTED / AT RISK / UNFORECASTABLE / MISSED** — соответственно маршрут поддержан доказательствами, находится под риском, пока не прогнозируется или уже пропущен.
+- **product / external-world result** — наблюдаемое изменение игры, build, поведения игрока, distribution или рынка; если его нет, пишется **НЕТ**;
+- **enabling outcome** — решение, план или доказательство, которое уменьшает неизвестность, но не выдаётся за product result;
+- **Demo Skeleton** — обязательная рамка масштаба, качества и проверки; она намеренно не выбирает игровую зацепку;
+- **Demo Hook** — короткое обещание переживания: почему игрок захочет попробовать и запомнит demo;
+- **Demo Contract vN** — выбранная владельцем, проверяемая и заменяемая гипотеза конкретного demo;
+- **Runway** — ближайшая причинная последовательность результатов с реальными зависимостями;
+- **Active Wave** — все одновременно допущенные независимые потоки, для которых хватает фактических ресурсов и есть observable exit;
+- **SUPPORTED / AT RISK / UNFORECASTABLE / MISSED** — маршрут подтверждён, под риском, пока не прогнозируется или пропущен.
 
-## 2. Миссия и неизменяемая граница demo
+## 2. Demo Skeleton: пол качества, а не «постный контракт»
 
-Нужна маленькая, публично надёжная Steam-демоверсия **настоящей игры**, а не техническая лаборатория: минимум два игрока на двух компьютерах проходят короткую опасную экспедицию, понимают состояние газа и мира, совместным действием меняют ситуацию и получают понятный результат. Конкретные механики, содержание экспедиции и игровой feel определяет Canon, а не Диспетчерская.
+Нужна маленькая публично надёжная Steam-demo настоящей co-op игры. Она должна использовать реальные симуляции проекта и бить в одну понятную эмоцию, но сам hook ещё не выбран.
 
-### MUST — нельзя вырезать ради даты
+### Обязательная рамка
 
-1. Реальная сетевая игра минимум на двух компьютерах.
-2. Один воспроизводимый путь от запуска до результата без помощи разработчика.
-3. Видимая причинность: газ, мир, игроки и последствие связаны и понятны.
-4. Хотя бы один момент сотрудничества реально меняет результат.
-5. Один согласованный authoritative outcome; расхождение состояния становится громкой ошибкой, а не скрытой нормой.
-6. Demo понятно без объяснения архитектуры.
-7. Steam-установка, подключение и повторный запуск работают.
-8. Публично утверждается только то, что доказано representative evidence.
+1. Короткий воспроизводимый путь минимум для двух игроков на двух физических компьютерах.
+2. Симуляция создаёт решение и последствие, а не служит фоновым эффектом.
+3. Есть один **signature moment**, который понятно описать одной фразой и хочется показать другому человеку.
+4. Сотрудничество причинно меняет исход; второй игрок не является декоративным присутствием.
+5. Начало, опасность, совместное действие и результат читаются без объяснения архитектуры.
+6. Один authoritative outcome; расхождение состояния становится громкой ошибкой.
+7. Чистая Steam-установка, подключение и повторный запуск воспроизводимы.
+8. Масштаб ограничен: одна сильная loop важнее нескольких слабых систем.
+9. У hook есть falsification test: заранее понятно, какое наблюдение заставит его исправить или заменить.
+10. Публичные claims следуют только representative evidence.
 
-### SHOULD — сохраняется только если помещается после MUST
+### SHOULD
 
 - умеренная вариативность повторного прохождения;
-- один сильный момент для capture;
+- один сильный capture beat;
 - минимальный onboarding и необходимые настройки;
-- ограниченный прогон с человеком вне текущей разработки, когда первый causal loop уже достаточно представителен.
+- дешёвый placeholder sound там, где без него теряется смысл;
+- ранний тест с незнакомым игроком после появления representative loop.
 
-### CUT — первая зона сокращения
+### CUT первым
 
-- доказательство восьми игроков;
-- полная экономика и progression;
-- несколько карт и широкая генерация;
-- полный набор газов, инструментов, реакций и level conditions;
-- dedicated server, late join и полная матрица отказов;
-- полное разрушение;
-- полный будущий visual polish.
+- восемь игроков, dedicated server, late join и полная failure matrix;
+- несколько карт, широкая генерация, экономика и progression;
+- полный набор газов, инструментов, реакций и условий;
+- полное разрушение и широкий production polish;
+- optional Press Preview, если она конкурирует с MUST.
 
-Quality floor остаётся прежним: representative run не падает и не застревает, чистая установка работает, две машины соединяются, старт и результат понятны, помощь разработчика не нужна. Дата фестиваля не может отменить этот минимум или честность claims.
+Quality floor нельзя обменять на фестивальную дату: representative run не падает и не застревает, две машины соединяются, старт и исход понятны, помощь разработчика не нужна.
 
-## 3. Текущая правда о маршрутах
+## 3. Полная причинная стратегия
 
-| Маршрут | Внешние точки | Статус сейчас | Почему |
+```text
+CURRENT TRUTH
+  ↓
+DEMO SKELETON
+  рамка масштаба, настоящая co-op причинность, simulation, signature moment,
+  quality floor и falsification — без выбранной механики
+  ↓
+CANON HOOK DISCOVERY
+  2–3 сравнимых concept cards; реакции газовых сфер — обязательный кандидат,
+  но не заранее выбранный победитель
+  ↓ owner выбирает / исправляет / отклоняет
+DEMO CONTRACT v1
+  конкретное обещание игроку, короткий journey, signature capture,
+  MUST/SHOULD/CUT и проверки; гипотеза меняется только по evidence + owner verdict
+  ↓
+CANON DEMO EXPERIENCE TREE
+  experience spine → причинные дочерние outcomes → точные capability needs
+  ↓
+TARGET TRACKS: ACCEPT / COUNTER / BLOCKED
+  каждый трек выбирает HOW и возвращает evidence
+  ↓
+INTEGRATED PROOFS
+  permanent local loop → two-machine authoritative co-op → unfamiliar player
+  → clean install/relaunch → performance/capture
+  ↓
+STEAM ROUTE
+  eligibility/registration → review → live demo → October 2026
+  либо evidence-triggered switch → February 2027
+```
+
+Ни одна стрелка не означает automatic successor. После каждого результата Диспетчерская перечитывает fresh truth и заново допускает 0, 1 или несколько совместимых потоков.
+
+## 4. Canon Hook Discovery override и versioned Contract
+
+Принятый Canon workflow обычно требует принятого parent. Здесь владелец явно разрешил один ограниченный pre-contract поиск, потому что Skeleton намеренно не выбирает «огонёк» demo.
+
+### Точная граница override
+
+- **missing parent:** выбранный Demo Contract;
+- **временный parent:** принятый Demo Skeleton и это точное owner verdict;
+- **outcome:** 2–3 сравнимых hook concept cards, не реализация и не дерево механик;
+- **обязательный кандидат:** физические взаимодействия и реакции газовых сфер;
+- **обязательное сравнение:** минимум один содержательно иной hook, чтобы газовый вариант не победил по умолчанию;
+- **метод:** сначала paper/visual reasoning и уже существующее evidence; bounded prototype или playtest — только если без него нельзя различить конкретную гипотезу и только после отдельного законного допуска;
+- **exit:** owner `choose / revise / reject`; выбранный concept становится входом Demo Contract v1;
+- **expiry:** override исчезает сразу после owner verdict по concept либо при точном Canon `BLOCKED/COUNTER`;
+- **запрет:** discovery не открывает implementation, потомков, portal, art pipeline, public claims или автоматический Canon successor.
+
+Каждая concept card должна уместиться в один owner-readable экран и содержать:
+
+1. hook одной фразой;
+2. fantasy игрока;
+3. короткую дугу `start → pressure → joint action → consequence → result`;
+4. signature moment / capture beat;
+5. почему co-op причинный;
+6. какая реальная simulation создаёт игру;
+7. минимальные capability outcomes без technical HOW;
+8. что CUT;
+9. falsification test;
+10. главный риск October-route.
+
+### Demo Contract v1 и последующие версии
+
+Contract появляется **только после owner choice**. Он фиксирует выбранный hook, journey, promise, signature moment, MUST/SHOULD/CUT, representative test и известные unknowns. Это гипотеза, а не вечный lock.
+
+Новая версия допустима, когда named evidence опровергает текущий hook или показывает существенно более сильный вариант. Замена требует:
+
+1. evidence и предел его применимости;
+2. видимую цену изменения для уже начатой работы;
+3. что сохраняется, режется и становится устаревшим;
+4. explicit owner verdict.
+
+Пока Contract не принят, текущий Canon Demo Experience Tree pilot остаётся `WAITING`. Принятая стратегия делает Hook Discovery законным кандидатом следующего межтрекового outcome, но не меняет Canon root и не считается dispatch.
+
+## 5. Событийный алгоритм Диспетчерской
+
+### Admission loop
+
+1. **READ FRESH:** NOW, новые RESULT/close receipts, blockers и реальные ресурсы.
+2. **NAME GAP:** какой ближайший observable result уменьшает критический разрыв Demo Skeleton → Steam.
+3. **BUILD RESOURCE GRAPH:** свободные agents; независимые worktrees/files; Unity Editor и shared scene/prefab/schema/settings; физические машины; owner attention; review, integration и publication queues.
+4. **SCREEN CANDIDATES:** causal parent, observable exit, evidence receiver, target authority, bounded scope и отсутствие запрещённой semantic/physical collision.
+5. **ADMIT 0 / 1 / MANY:** запускается столько независимых потоков, сколько фактически проходит screen. Ноль — законный ответ, если все кандидаты заблокированы или создают опасную очередь.
+6. **OBSERVE EXIT:** accepted result, exact blocker, counter-outcome, failed evidence или explicit discard. Долгая работа остаётся WIP, но не блокирует независимый слот по названию.
+7. **REFILL IMMEDIATELY:** любое событие возвращает к шагу 1. Нет утренней квоты, ожидания следующего дня или фиксированного числа background flows.
+
+Owner-facing решения сериализуются в момент фактического внимания владельца, но за день их может быть несколько. Это scarce surface, не лимит «один вопрос в сутки». Review, integration и machines работают так же: считать нужно реальную очередь и collision, а не количество названий треков.
+
+### Stop / replan triggers
+
+| Событие | Реакция |
+|---|---|
+| Любой result, counter, blocker, failed proof или discard | Сразу fresh read и новый admission; слот не ждёт завтра |
+| Owner concept choice | Собрать Demo Contract v1; Canon tree и product work не auto-launch |
+| Contract принят | Reconcile текущий Canon pilot; только target `ACCEPT/COUNTER/BLOCKED` открывает следующий lawful route |
+| Character получает binding close | Пересчитать review/product capacity; Program blocker может стать проверяемым, но не снимается автоматически |
+| Grid PLAN или Gas PLAN возвращён | Не превращать план в BUILD без owner verdict и отдельного root |
+| Queue/collision/owner load растут | Остановить refill на конфликтной поверхности; закрывать хвост или резать SHOULD/CUT |
+| Representative proof опровергает hook, comprehension, stability или route | Redesign / cut / retest; при material hook change — новая Contract version с owner verdict |
+| Нет кандидата с causal parent и observable exit | Активная волна законно равна нулю; записать точный blocker, не создавать busywork |
+
+## 6. Текущий снимок девяти треков
+
+| Трек | Fresh disposition 22 июля | Что это значит для первой волны |
+|---|---|---|
+| Launch Control | стратегия принята; один same-track execution continuation должен стать READY | Выбрать resource-feasible Active Wave; ничего не dispatch автоматически |
+| Design & Canon | `WAITING` на owner-approved Contract по текущему pilot | Hook Discovery доступен только через принятый bounded override и lawful target response; существующий pilot не подменять |
+| Character | `WAITING`, product review/closing уже идёт | Долгий inherited flow; не relaunch и не считать свободным до binding close |
+| Program / Integration | `BLOCKED` внешним Character review-evidence defect | Сохранённый candidate не менять; после реального unblock перепроверить fresh |
+| Grid | `READY` к owner-present G02 PLAN; G01 complete 1/11 | Возможный независимый planning flow, если есть product/worktree/review/owner capacity; BUILD не открыт |
+| Gas | `READY` к owner-present node-1 PLAN | Возможный следующий decision flow; не автономный BUILD и может конфликтовать за owner attention |
+| Level | `WAITING` на binding Direction receipt | Старый root не relaunch |
+| Presentation | `BLOCKED` до fresh contract reconciliation | Не полировать отсутствующий representative hook/loop |
+| Marketing | `PAUSED` owner-controlled load | Нет public action, name/page claim или spend |
+
+Текущий actual result остаётся **НЕТ**. Приняты Canon workflow, Demo Control Room foundation и эта operating strategy; это enabling/management evidence, не playable proof.
+
+## 7. Пример одного реального дня — не обещание запуска
+
+Пример показывает алгоритм на текущих фактах. Это не расписание и не свидетельство, что перечисленная работа уже началась.
+
+**09:00 — fresh admission.** Character closing продолжает долгий inherited flow. Program остаётся blocked. При наличии независимых agent/worktree/review surfaces Диспетчерская может одновременно рекомендовать: Canon Hook Discovery как owner-primary outcome и Grid G02 PLAN как отдельный planning flow. Gas PLAN не добавляется, если два решения создают owner queue; при file/editor/product collision Grid тоже не допускается. Поэтому допустимый размер волны в этот момент — 1, 2 или только inherited Character, а не заранее заданное число.
+
+**11:30 — Canon cards вернулись до обеда.** Это enabling result, не product result. Не ждём завтра: сразу перечитываются NOW, owner availability, Grid/Character events и очереди. Если владелец доступен, освободившийся owner slot заполняется выбором/исправлением/reject hook. Если не доступен, Canon не выдумывает победителя; независимый Grid PLAN может продолжать работу.
+
+**12:00 — владелец выбрал hook.** Сразу появляется следующий bounded outcome: Launch Control собирает Demo Contract v1 из выбранной card и Skeleton. Canon Experience Tree и implementation всё ещё не запускаются. Если Grid PLAN уже вернулся, его owner verdict ставится в ту же реальную очередь внимания, а не считается автоматически принятым.
+
+**14:30 — Contract принят в примере.** Событие немедленно запускает новый admission: текущий Canon pilot сверяется и получает только lawful `ACCEPT/COUNTER/BLOCKED` route. Character может всё ещё закрываться часами; это не запрещает независимый Markdown/Canon flow. Program остаётся blocked до binding Character evidence. Gas PLAN допускается только если owner/review capacity освободилась и он не вытесняет demo-critical решение.
+
+**Вечер.** Реальный network slot используется только при наличии representative build, двух готовых машин, install/connect checklist и expected evidence. В текущей правде такого build нет, поэтому «занять машины для прогресса» нельзя. Если к будущему вечеру candidate готов, один диагностический two-machine run может быть лучшим outcome; Unity Editor, shared integration scene, review или owner fatigue способны уменьшить wave до одного потока или нуля.
+
+## 8. От Hook до integrated proof
+
+| Ступень | Observable exit | Что открывает | Что не происходит автоматически |
 |---|---|---|---|
-| October 2026 | регистрация — **31 августа**; optional Press Preview — **21 сентября**; обязательная передача на review — **5 октября**; событие — **19–26 октября** | **AT RISK + UNFORECASTABLE** | Содержание demo ещё не определено; постоянной start-to-result scene и двухмашинного proof нет; Program и Grid заблокированы, Level и Character не закрыты, Presentation не допущен, Marketing приостановлен; измеренной end-to-end скорости нет |
-| February 2027 | регистрация — **10 января**; optional Press Preview — **25 января**; обязательная передача на review — **8 февраля**; событие — **22 февраля – 1 марта** | **законный fallback + UNFORECASTABLE** | Окно дальше, но неизвестные scope, integration throughput, network proof и Steam eligibility пока не позволяют обещать и эту дату |
-| Денежная проверка | **11 декабря 2026** | **не заменена фестивалем** | Нужен результат больше $0, рекомендуемый — не меньше $1,000; при нуле и отсутствии правдоподобного пути пересматривается коммерческий подход или концепт |
+| Hook Discovery | 2–3 complete cards + owner choose/revise/reject | Contract drafting | Прототип, дерево, BUILD |
+| Demo Contract v1 | Owner-approved promise, journey, signature moment, cuts and tests | Canon Experience Tree reconciliation | Технические задачи |
+| Demo Experience Tree | Принята experience spine и непосредственные causal children | Bounded capability outcome requests | Выбор HOW за треки |
+| Target make-ready | Каждый нужный трек дал `ACCEPT/COUNTER/BLOCKED`, boundary, proof receiver и integration event | Bounded PLAN/BUILD lineages | Параллельный старт при collisions |
+| Permanent local loop | Reproducible start → pressure → joint action → consequence → result | Early comprehension, profiling, network candidate | Scope expansion |
+| Two-machine co-op | Две физические машины приходят к одному authoritative result; divergence fails loudly | Честный co-op claim | Eight-player/dedicated proof |
+| Unfamiliar-player proof | Человек без архитектурного объяснения понимает state, cause, cooperation и result | Readability fixes and capture | Маркетинговое объяснение провала |
+| Distribution proof | Clean Steam install/connect/relaunch + accepted capture | Mandatory Steam review | Public claims/spend без owner action |
 
-10 августа сохраняется только как **предварительная унаследованная точка перепроверки** из прежнего baseline. Это не внешняя дата Steam, не доказанная latest-safe точка и не последний срок решения. Настоящая latest-safe точка route/cut пока **UNKNOWN**: её можно назвать только когда evidence покрывает оставшуюся причинную дорогу, время выполнения самого cut, owner/review capacity и Steam administration. Расчёт может дать другую дату; время сокращения scope и переключения маршрута обязано входить в него, а не считаться бесплатным запасом. До такого расчёта каждый material change вызывает новый route-check, а October остаётся **AT RISK + UNFORECASTABLE**.
+Evidence classes не заменяют друг друга: machine, owner, unfamiliar player и Steam/market.
 
-Дополнительные правила маршрута:
+## 9. Steam routes и вычисляемый switch
 
-- optional Press Preview можно вырезать первым; MUST и quality floor — нельзя;
-- отсутствие реальной private Steam eligibility/registration route к 31 августа делает October **MISSED**, даже если код выглядит перспективно;
-- отсутствие принятого кандидата в обязательном review к 5 октября делает October **MISSED**;
-- guidance Steam review в несколько рабочих дней считается внешней очередью, а не скрытым буфером;
-- сейчас не совершается ни публичное Steam-действие, ни трата денег, ни выбор названия/page claim.
+### Official gates
 
-## 4. Причинная Mission / Outcome Map
-
-Это карта причин, а не последовательность технической реализации. Соседние capability-треки могут работать параллельно только там, где их границы уже устойчивы и они не занимают один и тот же owner/review/integration ресурс.
-
-**Demo Contract**
-→ **действующий способ определять demo от целого к частям принят и опубликован; это process evidence, не product result**
-→ **принято фактическое Demo Experience Tree: путь игрока, минимальный scope, моменты причинности, сотрудничества, результата и требуемого звука**
-→ **из него выведены наблюдаемые technical outcomes без выбора технического HOW**
-→ **действующие Program / Grid / Gas / Level / Actor inputs законно закрыты и готовы к одной общей сцене**
-→ **одна постоянная playable spine проходит start → expedition → consequence → outcome локально**
-→ **две физические машины повторяют этот путь с одним authoritative result**
-→ **неподготовленный человек понимает происходящее; presentation и placeholder audio закрывают смысл, а не маскируют механику**
-→ **чистая установка, повторный запуск, stability, performance profile и честный capture приняты**
-→ **private Steam eligibility и store materials собраны только из принятого proof**
-→ **кандидат проходит Steam review**
-→ **публичное demo доступно в выбранном окне и остаётся green на representative run**.
-
-### Проверяемые ступени карты
-
-| Ступень | Наблюдаемый outcome | Какое доказательство закрывает | Что она открывает | Cut / остановка |
+| Route | Registration | Optional Press Preview review | All required items submitted for review | Event |
 |---|---|---|---|---|
-| A. Способ проектировать demo — **ЗАКРЫТО** | Владелец принял Demo-Driven Design & Canon Workflow v1: каждый нижний узел имеет принятого родителя, а закрытие prerequisite ничего не запускает автоматически | Exact owner verdict + принятый workflow artifact + опубликованный Canon readback | Текущий waiting pilot для одного непосредственного experience-spine child после принятия Demo Contract | Не строить portal, изображения или pipeline вместо дерева; неприкреплённые вопросы парковать; process receipt не считать product result |
-| B. Фактическое demo определено | Принят один минимальный player journey с началом, угрозой, причинностью, co-op изменением и результатом; MUST/SHOULD/CUT применены | Owner/Canon evidence; видны открытые варианты и явные unknowns | Точным трекам можно назвать нужные observable outcomes | Не выбирать здесь mechanics; всё вне минимального пути сначала CUT |
-| C. Technical work make-ready | Для каждого нужного capability известен owning track, принятый boundary, integration event, proof receiver и blocker | Current track plan/receipt + отсутствие semantic collision | Один bounded BUILD или closure за раз | Нет устойчивой границы, receiver или integration event — работа остаётся в очереди |
-| D. Первая общая causal loop | Одна постоянная сцена локально проходит от старта до результата и показывает газ/world/player consequence | Machine evidence: reproducible run, negative failure visible | Ранний comprehension test, profiling и сетевой кандидат | Не расширять карту, roster или polish; чинить/резать то, что ломает spine |
-| E. Реальный co-op | Две машины соединяются, проходят representative path и приходят к одному результату | Physical-machine/network evidence; divergence fails loudly | Claim «co-op demo», install repetition, capture | Не заменять двумя процессами на одной машине; eight-player/dedicated/late join CUT |
-| F. Понятность и presentation | Человек без архитектурного объяснения понимает state, cause, cooperation и outcome; ключевые события слышимы там, где звук нужен для смысла | Unfamiliar-player observation + accepted capture + placeholder audio proof | Финальные readability/stability fixes и честные materials | Если смысл непонятен — redesign/cut/retest, а не поясняющий marketing text |
-| G. Distribution и market readiness | Чистая Steam install/connect/relaunch повторяется; page/capture claims следуют accepted proof | Machine + market/Steam evidence | Mandatory review submission | Public claim без proof запрещён; broad campaign и SHOULD режутся первыми |
-| H. Festival-ready | Review green, demo live, representative run всё ещё green, известен rollback/critical-only режим | Steam response + final machine proof | October или February event | Новые features заморожены; при провале обязательной даты маршрут MISSED |
+| October 2026 | 31 Aug 2026, 11:59pm PDT | 21 Sep 2026 | 5 Oct 2026 | 19–26 Oct 2026 |
+| February 2027 | 10 Jan 2027 | 25 Jan 2027 | 8 Feb 2027 | 22 Feb–1 Mar 2027 |
 
-Четыре класса evidence не заменяют друг друга:
+Для October Steam требует публичную base-game store page, playable demo к событию, unreleased base game до 26 октября и допускает игру только в один Next Fest. Источники: [Steamworks October 2026](https://partner.steamgames.com/doc/marketing/upcoming_events/nextfest/2026october?l=english) и [Steamworks February 2027](https://partner.steamgames.com/doc/marketing/upcoming_events/nextfest/feb_2027).
 
-1. **Machine** — код/сборка действительно работает на заявленной среде.
-2. **Owner** — смысл, scope, feel и consequential cuts приняты владельцем.
-3. **Unfamiliar player** — человек без подсказок понимает и способен пройти representative loop.
-4. **Market / Steam** — install, eligibility, review и публичные claims подтверждены внешней поверхностью.
+October сейчас **AT RISK + UNFORECASTABLE**: hook, Contract, tree, permanent loop, two-machine proof, unfamiliar-player proof и clean install отсутствуют; measured end-to-end throughput отсутствует. February — законный fallback, но тоже **UNFORECASTABLE**, пока остаются те же неизвестные.
 
-## 5. Неизвестные, которые нельзя превращать в проценты
+Switch не назначается произвольной датой. После каждого material event вычисляется:
 
-Canon workflow уже принята и опубликована: это больше не unknown и не будущая работа. Её receipt доказывает только законный способ строить дерево; он не доказывает изменение игры, принятый experience spine или playable loop.
+```text
+remaining_route = conservative measured duration of every unresolved critical-path outcome
+                + external review/admin queues
+                + time to execute the chosen CUT
+                + owner/review/integration/machine margin
 
-- Фактический Demo Experience Tree и точный release scope ещё не приняты.
-- Неизвестно, какие exact capability outcomes потребуются после определения player journey.
-- Нет измеренной скорости прохождения цепочки «план → build → fresh review → integration → публикация → законное закрытие».
-- Program cleanup технически сохранён, но не выпущен; его внешний Character evidence blocker не закрыт.
-- Текущая Character lineage построена, но ещё ждёт owner look, независимую проверку, product publication checks и Direction close.
-- Grid G01 физически опубликован, но current authority не доказывает собственное закрытие; G02 правильно остановлен до плана.
-- Gas имеет принятый high-level route, но подробный node-1 plan ещё не принят, а build не открыт.
-- Level имеет product-plan evidence без binding Direction receipt.
-- Presentation опирается на legacy prerequisites и не допущен к новому work.
-- Permanent start-to-result scene, representative local loop, two-machine proof, unfamiliar-player proof и Steam install proof отсутствуют.
-- Binding min-spec намеренно отложен до representative build. Слабый Windows-ноутбук владельца — полезная будущая наблюдаемая среда, но сейчас не спецификация.
-- Назначенный owner/track для audio meaning пока **UNKNOWN**. Это gap управления, а не разрешение молча отдать звук Presentation или Canon.
-- Steam AppID/name/page/eligibility route в текущем evidence не доказан; Marketing приостановлен.
-- Дальний объём после ближайшей make-ready цепочки — **UNKNOWN / UNBOUNDED**. Ни completion percentage, ни календарная дата из этого снимка не выводятся.
+latest_safe_switch = 5 Oct 2026 - remaining_route
+```
 
-## 6. Ближайший Runway: сейчас → доказанный route-check перед внешними October gates
+Пока хотя бы один critical-path duration не имеет evidence-bound estimate или путь не определён Contract/Tree, `latest_safe_switch = UNKNOWN`. Когда inputs появляются, October считается `SUPPORTED` только если registration остаётся достижимой и remaining route помещается до mandatory review с quality floor. Если текущая дата достигла вычисленной точки, а маршрут не supported, Диспетчерская рекомендует explicit switch на February и выполняет named CUT. Пропуск 31 августа или 5 октября сразу делает October `MISSED`; дополнительный AI-параллелизм внешнюю дату не возвращает.
 
-Runway событийный. Даты внутри него появляются только как внешние anchors; внутренние длительности не выдумываются.
+Optional Press Preview и SHOULD/CUT scope уходят первыми. MUST, honest claims и two-machine quality floor не режутся. Денежная проверка 11 декабря 2026 остаётся отдельной: фестиваль её не заменяет.
 
-| Порядок допуска | Outcome | Admission / dependency | Дефицитный ресурс | Доказательство завершения | Текущий disposition |
-|---|---|---|---|---|---|
-| 0. Настройка управления завершена | Точная основа Диспетчерской исправила пять binding findings, пережила fresh refutation и получила фактический owner acceptance | Reviewed blob не менялся до owner verdict; после verdict меняется только acceptance/status projection | Binding review + один owner decision | Could-not-refute review RESULT + слова владельца `Окей, давай завершим, попробуем по ней работу.` | **COMPLETE AS SETUP; product/external result = НЕТ** |
-| 1. Кандидат первого owner-primary | Через существующий Canon pilot владелец принимает, исправляет или отклоняет один непосредственный experience-spine child принятого Demo Contract | Acceptance receipt основы существует; workflow уже принят; fresh первый план должен сверить current root и выбрать pilot, но не запускает его автоматически | Один owner-present Canon slot; не совмещать с Gas decision batch | Accepted first operating plan; затем Pilot RESULT + exact owner words + точная Demo Contract → experience-spine relation | **ELIGIBLE FOR FIRST PLAN; не auto-launch** |
-| 2. Demo-definition | Принято фактическое Demo Experience Tree с минимальным journey, scope, звуковыми meaning points и открытыми вариантами | Первый experience-spine child принят; каждое дальнейшее расширение выбирается отдельно, без automatic successor; Canon сохраняет дизайн-власть | Owner/Canon judgment; fresh verification; никаких technical HOW | Accepted tree/ledger result; every technical demand has causal parent | **NOT YET DERIVABLE** |
-| 3a. Закрытие существующего хвоста | Character lineage законно закрыта; внешний Character evidence defect либо закрыт, либо отделён точным blocker | Уже начатая работа, не relaunch | Owner look + независимая проверка + product/Direction closure capacity | Binding close receipts | **WAITING / продолжать только существующее closing** |
-| 3b. Выпуск Program cleanup | Сохранённый cleanup повторно проверен на свежем состоянии и законно выпущен | Внешний Character defect закрыт; общий product gate green | Serialized product integration/publication slot | Published readback + valid Direction close | **BLOCKED; candidate не менять** |
-| 3c. Grid make-ready | Current authority доказывает G01 close и eligibility следующей Grid-ступени | Перед первым bounded request свежо подтвердить, что blocker не изменился; целевой Grid track принимает/контрит запрос | Один product-process slot, target planning/review; shared gate files | Fresh binding proof G01 closed / next stage eligible | **первый кандидат на будущий background slot; сейчас BLOCKED и запрос не выдан** |
-| 3d. Gas make-ready | Принят подробный node-1 plan живой deterministic composition | Отдельный owner slot; fresh product authority; важные composition choices показаны владельцу | Owner decision load; будущий Program integration surface | Owner-accepted detailed plan; build root ещё отдельный | **READY план, не BUILD; в очереди после primary** |
-| 4. Первая causal spine | Accepted inputs собраны в одной постоянной сцене от start до outcome | Outcomes ступени 2 определяют нужные inputs; Program владеет integration | Shared scene/schema/settings; serialized integration; fresh verification и publication close | Representative local run | **UNKNOWN / UNBOUNDED до ступеней 2–3** |
-| 5. Evidence ramp | Local machine → two-machine evening run → unfamiliar-player comprehension → install/capture | Representative candidate; named environments | Физические машины; несколько вечеров в неделю, максимум один реальный network run в день и только вечером; review/capture | Отдельные evidence receipts | **не планировать как ежедневную бесконечную retry-loop** |
-| 6. Steam route | Private eligibility/registration → mandatory review → live | Route остаётся SUPPORTED; claims имеют proof; owner разрешил public/spend action отдельно | Steam external queue + owner/Marketing capacity | Steam receipts and green representative run | **Marketing PAUSED; public action закрыт** |
+## 10. Четырёхстрочный Daily Brief
 
-Ресурсные ограничения Runway:
+Brief — только производный снимок текущей Active Wave, а не стратегия и не дневная квота. Текущий предиспетчерский пример:
 
-- в один момент есть один owner-primary outcome; median административной нагрузки пилота не должен превышать 10 минут в день, обычный тяжёлый день — 20 минут, а день без нужного решения — 0 минут;
-- fresh review, returned fixes, owner look, integration, publication и законное закрытие — реальная работа, а не бесплатный хвост;
-- общие scene/prefab/schema/settings, simulation clock, contract authority, product gate files, integration slot, machine и owner-decision domain считаются collision surfaces;
-- один вечер даёт максимум один настоящий network run. Перед ним AI/треки подготавливают candidate, checklist и expected evidence; провал превращается в один диагностический результат, а не в серию незапланированных owner retries;
-- performance получает provisional budgets и ранний profiling на representative loop; binding min-spec появляется только после такой сборки на названной или валидированной слабой машине;
-- Steam review и registration — внешняя capacity; внутренний план не может вернуть потерянную внешнюю дату дополнительным AI-параллелизмом.
+1. **Product/external result:** **НЕТ** — игра, build и Steam-поверхность этой стратегией не изменены.
+2. **Proof + limit:** владелец принял Demo Skeleton → Hook Discovery → Contract → Tree и event-driven Control Room; это доказывает способ управления, не hook и не playable demo.
+3. **Missing + nearest outcome:** сильный hook и Contract v1 отсутствуют; ближайший кандидат — bounded Canon Hook Discovery с 2–3 cards, включая gas-sphere reactions, только через lawful target response.
+4. **Other flows + next event:** Character closing продолжает inherited wait; Grid и Gas готовы только к отдельным owner-present PLAN, Program blocked; любой result/blocker/verdict вызывает immediate fresh refill, без fixed daily/background count.
 
-## 7. Состояние каждого demo-critical трека
+## 11. Guardrails по звуку, performance, сети и Marketing
 
-| Трек | Следующий outcome для demo | Полезное событие / окно | Зависимость | Collision risk | Законный disposition сейчас |
-|---|---|---|---|---|---|
-| Диспетчерская демо | Принятая основа поддерживает один причинный план и честный result/proof/absence brief | Первый рабочий план на fresh state; до любого межтрекового запроса или признания Daily Brief действующим | Accepted foundation + fresh current state | Теневая правда, лишняя админка, самопринятие рабочего плана | Основа **ACCEPTED**; один first-operating-plan continuation, без foreign dispatch |
-| Design & Canon | Принятая workflow уже действует; следующий outcome — через существующий pilot принять, исправить или отклонить один непосредственный experience-spine child Demo Contract | Кандидат первого owner-primary в fresh рабочем плане; дальнейшее tree expansion выбирается отдельно | Acceptance receipt основы, принятый workflow, owner-present pilot и current root reconciliation | Process receipt может быть ложно выдан за demo progress; случайный технический вопрос может заморозить scope/claims/механику | Receipt существует; current root не запускается автоматически и сверяется первым планом |
-| Program / Integration | Законно выпустить сохранённый cleanup; позже принять в одну permanent scene только доказанные demo inputs | После закрытия внешнего Character evidence defect; integration — после exact Demo Tree outcomes | Character closure, fresh product state, serialized publication | Общая scene, integration slot, stale WIN assumptions, незакрытый candidate | BLOCKED; не менять и не relaunch candidate |
-| Character & Gameplay Contact | Закрыть текущую lineage; будущий Actor input вывести свежо из Demo Tree | Текущий close receipt; новый Actor outcome только после demo-definition | Owner look, independent review, product/Direction close | Расширение frozen lineage новым actor scope; owner review queue | WAITING, существующее closing продолжается; нового BUILD нет |
-| Grid / World Change | Восстановить доказательство G01 close и следующей stage eligibility; технический план остаётся Grid | После принятого bounded request и target response; обязательно до повторного G02 pre-plan | Current product authority, target-owned plan/review | Shared spatial contract и product gate files; лечение predecessor внутри G02 | BLOCKED before plan; не relaunch. Первый кандидат на свободный background slot после fresh admission |
-| Gas Simulation | Принять подробный план одного live deterministic production tick; build только отдельным решением | Следующий свободный owner-planning slot после primary; exact Grid adapter — после Grid freeze | Released NearGas, Program composition surface, будущий Grid interface | Simulation clock, shared composition, owner choice, premature adapter | READY plan; не маскировать owner plan под автономный background BUILD |
-| Level & Environment | Получить binding Direction receipt для существующего LV0 plan; точный demo input вывести позже | Когда владелец активирует Level и после свежей сверки; content input — после Demo Tree | Current product/V31/home, accepted player journey | Scene ingestion/aperture/shared geometry | WAITING; старый root не relaunch |
-| Presentation | Сначала пересверить read-model contract; затем доказать readability/performance/capture над representative events | После стабильных event semantics и доступных read models; capture — после representative loop | Current product contract, Demo Tree meaning, integrated loop | Legacy prerequisites, premature polish, визуал как ложная simulation authority | BLOCKED; никакого build до fresh reconciliation |
-| Marketing & Audience | При поддержанном маршруте подготовить private Steam eligibility/admin; claims и capture только из proof | Доказанный route-check; registration 31 августа для October; proof-trigger позднее | Owner wake, Canon meaning, accepted machine/player evidence | Раннее публичное обещание, name/page scope, owner load | PAUSED; никакого public action/spend. Wake только по доказанному trigger |
+- Canon определяет смысл звука; production owner пока `UNKNOWN`. Placeholder cue входит рано, если без него непонятен causal moment.
+- Binding min-spec не выбирается до representative loop. Сначала provisional budgets и profiling на named environments; слабый ноутбук владельца — observation, не автоматическая market specification.
+- Program/Multiplayer владеет session/runtime proof; Gas, Grid, Level и Character возвращают inputs, но не присваивают сеть.
+- Физический network run требует exact candidate, двух машин, checklist и evidence capture. Провал создаёт diagnostic result, не бесконечные owner retries.
+- Marketing остаётся `PAUSED`. AppID/name/page, public accounts, spend и claims требуют отдельного owner-controlled события и accepted proof.
+- Technical HOW, scene architecture, simulation contract и implementation остаются у owning tracks.
 
-## 8. Active Wave и правило пополнения
+## 12. Acceptance receipt и self-check
 
-### Завершённая setup-волна
+Владелец сначала выбрал `A` для предложенной структуры. Затем ему была показана полная стратегия: Skeleton criteria, Canon override, concept-card contract, versioning, dynamic resource graph, immediate refill, текущие треки, full-day example, Steam gates/switch и четырёхстрочный Brief. После вариантов `A — принять всю стратегию / B — поправить / C — отклонить` он снова ответил exact `A`. Только второй `A` является whole-strategy verdict.
 
-- **Управленческий outcome:** основа прошла отдельный fresh review и принята владельцем для рабочего испытания. Это завершённая установка системы, а не доказательство движения игры.
-- **Следующий шаг:** один fresh первый рабочий план. До его owner acceptance никакой Daily Brief, Canon pilot, product work или outcome request не становится действующим.
-
-### Первая рабочая волна — кандидат для первого плана
-
-- **Owner-primary candidate:** выбрать существующий Canon pilot и получить owner approve/correct/reject ровно для одного непосредственного experience-spine child принятого Demo Contract. Workflow и основа Диспетчерской приняты; fresh первый план обязан сверить current root. Pilot не запускается автоматически, не выбирает mechanics и не создаёт следующий узел сам.
-- **Background BUILD limit:** 1.
-- **Фактический inherited load:** выше лимита. Как минимум Character lineage находится в review/closing, а отдельный Program cleanup candidate ждёт release/integration. Оба считаются WIP до принятого закрытия или явного discard; их нельзя объявить свободной capacity только потому, что build-команда уже вернула RESULT.
-- **Новый background BUILD:** 0. Сначала закрывается inherited queue. Grid-integrity — первый make-ready кандидат после освобождения capacity и fresh admission; Gas пока owner-present plan, не background BUILD.
-
-Background-кандидат допускается только если одновременно доказаны:
-
-1. принятая устойчивая граница;
-2. полезность для всех живых demo-вариантов **или** названное событие будущей integration;
-3. отсутствие semantic collision с активной работой;
-4. независимый получатель evidence;
-5. pinned base/input manifest и обязательная integration revalidation;
-6. отсутствие незапланированного owner interruption;
-7. target track принял outcome или вернул эквивалентный counter; технический HOW остался у него.
-
-Capacity освобождается только после review, fix при необходимости, integration/publication и принятого close либо explicit discard. Один RESULT, commit, handback или «технически готово» слот не освобождает.
-
-### Точные refill / replan / stop triggers
-
-| Событие | Реакция Диспетчерской |
+| Требование returning CALL | Результат |
 |---|---|
-| Основа принята владельцем | Acceptance receipt уже записан; пересобрать fresh первый рабочий план. Существующий Canon pilot — кандидат единственного owner-primary, но не запускается автоматически; перед любым Grid request перечитать NOW |
-| Experience-spine child принят через pilot | Записать только эту Demo Contract → spine relation; затем заново выбрать, нужен ли следующий parent-expansion outcome. Никакой descendant или technical task не открывается автоматически |
-| Canon pilot исправлен, отклонён или заблокирован | Сохранить тот же точный parent gap или exact blocker; downstream Demo Tree, design и product work не открывать |
-| Character/Program получают binding close | Пересчитать inherited WIP. Только при свободной capacity проверить admission Grid-integrity; ничего не relaunch автоматически |
-| Grid blocker остаётся тем же и capacity свободна | Сформулировать для Grid только наблюдаемый outcome «доказан G01 close и eligibility следующей стадии»; Grid отвечает accept/counter/blocked и владеет планом |
-| Gas owner-primary slot освободился | Провести существующий node-1 planning root; build открывается только после принятого detailed plan и свободного WIP |
-| Появился exact Demo Tree outcome, меняющий capability need | Обновить causal map и запросы до запуска build; закрыть/park работу без causal parent |
-| Review queue, blocker age, collision или owner load растут | STOP REFILL; закрывать один хвост, сокращать SHOULD/CUT, не повышать AI utilization |
-| Representative proof опровергает comprehension, stability или route assumption | Redesign/cut/retest; пересчитать route, не объяснять провал маркетинговым текстом |
-| Появилось достаточно evidence по оставшейся дороге, cut execution и owner/review/admin capacity | Рассчитать настоящую latest-safe route/cut точку; до этого она UNKNOWN, а 10 августа остаётся только предварительной перепроверкой |
-| Доказанная latest-safe точка достигнута, а October не SUPPORTED оставшейся дорогой и ресурсами | Рекомендовать владельцу переключить рабочий маршрут на February и выполнить cut, сохранив MUST/quality |
-| Пропущена registration или mandatory review date | Пометить соответствующий маршрут MISSED; не изображать его живым |
+| Fresh state and drift | **PASS:** HEAD `9cd9ff7c5949901fe70cbce65ff3827d559c00ac`, NOW blob `10fc7629fa01c1bdff318aef36222ae7f2900c16`, accepted foundation blob `70b9c9bad4c2f017f3d796be7c710fe9d38ce6b4`; девять current roots проверены, tracked drift отсутствовал |
+| Complete schematic | **PASS:** current → Skeleton → Hook Discovery → Contract → Tree → target responses → integrated proofs → Steam/fallback |
+| Event-driven algorithm | **PASS:** fresh resource graph, observable exits, immediate refill и динамические 0/1/many flows без дневной квоты |
+| Revisable Contract + Canon opportunity | **PASS:** exact bounded override, 2–3 cards, обязательный gas-sphere candidate, owner choice и evidence-versioning |
+| Full-day current example | **PASS:** before-lunch Canon result, immediate refill, long Character flow и named owner/review/integration/machine collisions |
+| Steam route | **PASS:** official dates, honest UNKNOWN, cuts and computed evidence-triggered switch |
+| Daily Brief | **PASS:** ровно четыре производные строки |
+| Actual owner verdict | **PASS:** full-strategy options were shown; exact second `A` accepted option A. No foreign work was launched |
 
-## 9. Первый рабочий план-кандидат
+## 13. Source / evidence matrix
 
-Операционная основа принята. Этот конкретный план остаётся производным кандидатом и действует только после fresh-state сверки и отдельного owner acceptance; он не обещает внутренние даты, которых evidence пока не даёт.
-
-### Завершённая setup-последовательность 22 июля — это не Daily Brief
-
-Это служебное завершение Диспетчерской, а не player-visible изменение игры и не операционный фокус уже принятого плана.
-
-1. Три ранних и два current findings исправлены без ослабления Demo/route/WIP/foreign-authority границ.
-2. Отдельный fresh reviewer не смог опровергнуть точный исправленный blob против свежих источников.
-3. Владелец принял основу словами `Окей, давай завершим, попробуем по ней работу.` Это открывает только один first-operating-plan leg; никакой primary outcome не запущен.
-
-### Следующие события, не выдуманные дни
-
-Принятие Demo-Driven Design & Canon Workflow v1 уже произошло и является завершённым enabling prerequisite, а не следующим событием и не product result.
-
-1. **First-tree outcome:** через существующий pilot принят, исправлен или отклонён один непосредственный experience-spine child Demo Contract; никакой successor не выводится автоматически.
-2. **Demo-definition outcome:** принят минимальный journey и из него выведены exact observable needs, включая audio meaning.
-3. **Queue-drain outcome:** существующие Character/Program closure lineages либо законно закрыты, либо имеют один точный blocker/decision, без ложного освобождения WIP.
-4. **Make-ready outcome:** первый свободный background slot получает лучший admitted result. По текущим фактам это Grid-integrity, но только если blocker остаётся свежим и Grid принимает request; Gas detailed plan остаётся следующим owner-present outcome.
-5. **Playable-spine outcome:** owning tracks возвращают принятые inputs в Program integration; order и HOW определяются их планами, а не этим документом.
-6. **Evidence outcome:** local representative run предшествует scarce two-machine evening run; затем unfamiliar-player, install/capture и Steam evidence.
-7. **Route-check outcome:** когда evidence позволяет назвать оставшуюся дорогу и время cut/admin, рассчитать настоящую latest-safe точку. 10 августа остаётся лишь предварительной унаследованной перепроверкой; до расчёта verdict — **AT RISK / UNFORECASTABLE**, а не «мы успеваем».
-
-### Первый операционный Daily Brief — только после принятия первого рабочего плана
-
-Это пока truthful sample, а не активная команда. Fresh первый план обязан привязать его к оставшейся части 22 июля и получить фактические слова владельца. В нём один owner-primary, а не setup плюс условная вторая работа.
-
-1. **Фактический результат продукта / внешнего мира с предыдущей точки:** **НЕТ**. Принятие Canon workflow изменило процесс, но не игру, build, поведение игрока или Steam-поверхность.
-2. **Proof и его предел:** exact owner verdict, принятый workflow artifact и опубликованный Canon readback доказывают только действующий design-routing process; они не доказывают принятый Demo Experience Tree, experience spine или playable loop.
-3. **Чего нет + один owner-primary candidate:** первый experience-spine child и playable loop отсутствуют; принятая основа делает существующий Canon pilot кандидатом первого плана, но он не запускается автоматически и не выбирает mechanics заранее.
-4. **Фон + refill/replan:** новый technical BUILD равен нулю; Character review/closing и Program release/integration остаются незакрытым product WIP, Grid заблокирован, Gas остаётся отдельным owner-present plan. После owner verdict по first operating plan Диспетчерская заново показывает result/proof/absence и только затем выбирает refill; ничего не стартует автоматически.
-
-## 10. Звук, performance, сеть и Marketing — где они входят
-
-### Звук
-
-- В первом Demo Experience Tree каждый важный момент помечается: должен ли игрок понять его без звука, со звуком или обоими каналами.
-- Если comprehension зависит от звука, в первый representative loop входит дешёвый placeholder cue и отдельное наблюдаемое evidence.
-- Production audio начинается только после стабилизации event semantics, чтобы не полировать событие, которое ещё меняется или будет вырезано.
-- Диспетчерская обязана до make-ready назвать outcome и owning track для audio meaning. Сейчас owner **UNKNOWN**; Canon определяет смысл, но это не означает автоматическое владение производством звука.
-
-### Performance и min-spec
-
-- До representative build используются provisional budgets и раннее profiling на реальных тяжёлых местах.
-- Binding min-spec сейчас не выбирается и не превращается в отдельную owner-задачу.
-- Когда representative loop существует, слабый Windows-ноутбук владельца можно использовать как один named observation. Если он непредставительно слаб или неисправен, это будет evidence о машине, а не автоматически market requirement.
-- При проблеме сначала сокращается активный объём, число одновременных ситуаций и visual cost из CUT/SHOULD; реальный two-machine proof не вырезается.
-
-### Network ownership и редкие прогоны
-
-- Program/Multiplayer владеет session/runtime proof и authoritative-result environment; Gas, Grid, Level и Character возвращают inputs, но не присваивают сеть.
-- Реальный owner network slot доступен несколько вечеров в неделю и максимум один раз в день.
-- До слота должны быть готовы exact candidate, install/connect steps, ожидаемый outcome и способ собрать divergence/crash evidence.
-- Неудачный прогон закрывается диагностическим результатом и новым admission, а не просьбой владельцу повторять попытки весь вечер.
-
-### Marketing и Steam
-
-- Private eligibility/admin route можно подготовить по внешней дате, но пробуждение Marketing требует отдельного owner-controlled события.
-- Game title, public page, публичные аккаунты, spend и claims здесь не выбираются.
-- Early tester recruitment и hypothesis test допустимы только после named trigger и на видимом proof; store claims ждут accepted representative evidence.
-- Если October всё ещё SUPPORTED на route-check, владелец получает отдельное решение о private Steam/Marketing wake до registration. Если не supported — такой wake не используется для создания ложной срочности.
-
-## 11. Self-check принятой основы
-
-### Три binding findings
-
-| Опровергнутое утверждение | Исправление |
+| Утверждение | Источник |
 |---|---|
-| 10 августа было названо последней внутренней cut-точкой без расчёта | Official Steam anchors отделены; 10 августа — только предварительная унаследованная перепроверка; настоящая latest-safe точка остаётся UNKNOWN до named evidence по дороге, cut и capacity |
-| Canon/Gas получили ярлыки несуществующей глобальной очередности | Ярлыки удалены; документ не читает selector residue и выводит доступную работу только из current calls/decisions и owner context |
-| Setup, review, owner acceptance и Canon были смешаны в одном дне | Setup прямо назван не-Daily-Brief; первые четыре операционные строки действуют только после принятия и содержат один current Canon pilot owner-primary |
-
-### Два current findings
-
-| Опровергнутое утверждение | Исправление |
-|---|---|
-| Принятие Canon workflow было названо изменением продукта/мира | Brief начинает с фактического product/external-world result либо **НЕТ**; process/status evidence вынесено отдельно вместе с пределом доказательства и отсутствующим результатом |
-| Canon workflow всё ещё планировалась как будущая работа | Runway, Canon row, Active Wave, triggers, working plan и sources используют принятую workflow и текущий pilot; acceptance receipt основы существует, но eligibility/selection не означает auto-launch |
-
-### Correction-002 CALL done_when
-
-| Требование correction CALL | Результат самопроверки |
-|---|---|
-| 1. Один source-linked foundation | **PASS + ACCEPTED:** authority/invalidation неизменны; reviewed blob получил binding could-not-refute и фактические слова владельца; status-only finalization не создаёт shadow truth |
-| 2. Три ранних исправления сохранены | **PASS:** hard Steam dates отделены от provisional 10 августа и UNKNOWN latest-safe; глобальный selector/NOW.next не управляет работой; setup остаётся вне Daily Brief |
-| 3. Canon/current-source rebase | **PASS:** workflow уже accepted/published; acceptance receipt основы существует, current pilot не auto-launch и сверяется fresh первым планом; будущая workflow-acceptance-step и consumed root отсутствуют |
-| 4. Честный brief не длиннее четырёх строк | **PASS:** result или **НЕТ**; proof + limit; absence + один enabling owner-primary; lawful background + refill/replan. Process/status не назван product result |
-| 5. Текущий truthful sample | **PASS:** Canon receipt доказывает только process; experience-spine child, Demo Experience Tree и playable loop отсутствуют; accepted foundation не превращает pilot в auto-launch |
-| 6. WIP, Demo и foreign boundaries сохранены | **PASS:** Character и Program — разные unfinished lineages; limit 1/new BUILD 0; Grid условный candidate, Gas owner-present plan; MUST/SHOULD/CUT, quality, claims, routes, money, min-spec, audio, network, Marketing и technical HOW не изменены |
-| 7. Fresh review до owner acceptance | **PASS + CLOSED:** отдельный binding review не смог опровергнуть точную версию; владелец затем принял основу точными словами; product launch и foreign dispatch не заявлены |
-
-## 12. Source / evidence matrix
-
-| Утверждение | Свежий источник |
-|---|---|
-| Договор demo, quality floor, Steam anchors, money gate | [Принятый stabilization baseline](stabilization-baseline.md) — только сохранившиеся release facts, без superseded M1/процентов |
-| Единственная Диспетчерская, WIP, question firewall, audio/min-spec/network правила | [Принятый replacement contract](../../history/2026-07-22-s-work-launch-control-m1-superseded-by-demo-control-room-001.md) |
-| Текущая карточка цели и право на bounded outcomes | [Принятый refit](../../history/2026-07-22-s-map-launch-control-demo-control-room-refit-001.md) |
-| Binding review и фактическое принятие основы | [Could-not-refute review](../../history/2026-07-22-s-review-launch-control-demo-control-room-foundation-correction-002.md) и [owner acceptance RESULT](../../history/2026-07-22-s-work-launch-control-demo-control-room-foundation-accepted-001.md) |
-| Все статусы и ordinary roots | [Текущий NOW](../../NOW.md); глобальный selector не используется |
-| Program cleanup blocker | [Program blocked receipt](../../history/2026-07-20-s-work-program-v2-legacy-lab-purge-deliver-blocked-001.md) |
-| Character closing | [Текущий Character root](../c-exec-char-v2-body-rig-ragdoll-build-001-call.md) и receipts в NOW |
-| Grid G01/G02 truth | [Свежий pre-plan result](../../history/2026-07-22-s-work-grid-v1-g02-preplan-g01-integrity-blocked-001.md) |
-| Gas route и node-1 plan status | [Принятый Gas master-plan result](../../history/2026-07-21-s-work-gas-v1-master-plan-accepted-001.md) и [текущий planning root](../c-work-gas-v1-live-composition-plan-001-call.md) |
-| Canon outcome и текущая работа | [Принятый Canon workflow RESULT](../../history/2026-07-22-s-work-g-d3a8-demo-workflow-rebuild-accepted-001.md), [действующий workflow artifact](../demo-workflow/demo-driven-design-canon-workflow-v1.md), [текущий waiting pilot](../demo-workflow/c-cartography-g-d3a8-demo-experience-tree-pilot-001-call.md) и [NOW](../../NOW.md). Legacy detail `g-d3a8` в TREE не используется как current-work pointer и сюда не копируется |
-| Видимость фактического результата | [Binding review двух current findings](../../history/2026-07-22-s-review-launch-control-demo-control-room-foundation-correction-001.md), включая точные слова владельца «я не вижу результатов работы» |
-| Level, Presentation, Marketing status | Их current roots, перечисленные в [NOW](../../NOW.md); никаких новых планов за них здесь нет |
+| Demo quality/release floor | [stabilization baseline](stabilization-baseline.md), reclassified by this owner verdict as Demo Skeleton rather than selected Hook Contract |
+| Accepted Control Room foundation | [foundation acceptance RESULT](../../history/2026-07-22-s-work-launch-control-demo-control-room-foundation-accepted-001.md) and exact pre-strategy blob `70b9c9bad4c2f017f3d796be7c710fe9d38ce6b4` |
+| Correction constraints | [two-strikes checkpoint](../../history/2026-07-22-s-work-launch-control-demo-control-room-first-operating-plan-checkpoint-001.md) |
+| Canon workflow and current waiting pilot | [workflow](../demo-workflow/demo-driven-design-canon-workflow-v1.md), [pilot CALL](../demo-workflow/c-cartography-g-d3a8-demo-experience-tree-pilot-001-call.md) and [NOW](../../NOW.md) |
+| Current nine-track dispositions | [NOW](../../NOW.md) and each listed root/receipt; Grid current truth includes [route repair](../../history/2026-07-22-s-repair-grid-v1-g02-false-g01-blocker-001.md) |
+| October official gates and eligibility | [Steamworks October 2026](https://partner.steamgames.com/doc/marketing/upcoming_events/nextfest/2026october?l=english) |
+| February official gates | [Steamworks February 2027](https://partner.steamgames.com/doc/marketing/upcoming_events/nextfest/feb_2027) |
 
 END_OF_FILE: live/indie-game-development/work/launch-control/demo-control-room.md
