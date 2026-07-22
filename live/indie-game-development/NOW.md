@@ -1,6 +1,6 @@
 # NOW: indie-game-development
 
-updated: 2026-07-22 by s-work-grid-v1-g02-preplan-g01-integrity-blocked-001
+updated: 2026-07-22 by s-work-launch-control-demo-control-room-foundation-001
 
 bet: null
 
@@ -32,18 +32,16 @@ open_calls:
       - history/2026-07-20-s-work-program-v2-legacy-lab-purge-deliver-blocked-001.md
     note: "BLOCKED / V31 RELEASE CONTINUATION / ROOT NOT RELEASED. Product candidate 72c7c8c6 removes the 24 approved tracked paths, preserves KEEP, adds the <=400-word no-growth policy, passes fresh non-author G5 and normal gates (1829/1829), and is integrated only in local dev through c5c21c13 with blocker evidence baf8513c. Deliver is RED solely because pre-existing review-c-exec-char-v2-source-router-repair-001 does not account for source commit 413149ce after reviewed commit 8a0e33ec. No push/merge/release; origin refs remain 45b15623; WIN-U1 is DRAINING with lease preserved. Do not dispatch or return to feature work until unblock_when is true."
 
-  - id: c-work-launch-control-demo-control-room-foundation-001
+  - id: c-review-launch-control-demo-control-room-foundation-001
     track: launch-control
     status: ready
     to: session
-    for: "g-b847 / sole Demo Control Room foundation, first operating-plan candidate and current-day control"
+    for: "g-b847 / fresh independent refutation of the exact Demo Control Room foundation candidate"
     issued: 2026-07-22
-    call: work/launch-control/c-work-launch-control-demo-control-room-foundation-001-call.md
+    call: work/launch-control/c-review-launch-control-demo-control-room-foundation-001-call.md
     receipts:
-      - history/2026-07-22-s-work-launch-control-m1-superseded-by-demo-control-room-001.md
-      - history/2026-07-22-s-repair-launch-control-demo-control-room-unblock-001.md
-      - history/2026-07-22-s-map-launch-control-demo-control-room-refit-001.md
-    note: "READY / DEFAULT / FOUNDATION CANDIDATE / SINGLE AUTHORITY / NO FOREIGN DISPATCH. Build one source-linked Mission/Outcome Map, resource-feasible Runway, Active Wave, first operating-plan candidate and current-day control, then route the candidate to fresh review before owner acceptance. Outcome dispatch is owner-authorized, but this map issues no outcome request and launches no product or foreign-track work."
+      - history/2026-07-22-s-work-launch-control-demo-control-room-foundation-001.md
+    note: "READY / DEFAULT / FRESH INDEPENDENT REVIEW / EXACT CANDIDATE NOT ACCEPTED / NO FOREIGN DISPATCH. Artifact work/launch-control/demo-control-room.md at expected Git blob b1a990983ec790fcfad8e876cb3f252091196b4b is one derived projection over TREE/NOW/RESULT evidence. Refute every foundation promise, the inferred inherited WIP, current track dispositions, route/resource realism and the four-line day brief. A clean verdict may open only owner fix-or-accept; a refutation may open only exact correction."
 
   - id: c-exec-level-module-standard-v1-lv0-plan-001
     track: level
@@ -128,6 +126,6 @@ recurring: []
 
 decisions: []
 next:
-  call: c-work-launch-control-demo-control-room-foundation-001
+  call: c-review-launch-control-demo-control-room-foundation-001
 
 END_OF_FILE: live/indie-game-development/NOW.md

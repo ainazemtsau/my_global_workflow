@@ -516,4 +516,6 @@ archived: history/LOG-archive-indie-game-development.md — sessions before 2026
 
 2026-07-22 · s-work-grid-v1-g02-preplan-g01-integrity-blocked-001 · work · grid · g-4b92/G02-COMMON-SPATIAL-MAP: fresh product preflight confirmed contract v31 and canonical dev/main/origin at 1a6373b8 with exact-nine present and exact-12 absent, but blocked before PLAN because the required Grid authority checker, seeded selftest and normal-gate wiring are absent while five frozen G01 artifacts still say publication/close pending; no PLAN verdict, product mutation or successor CALL occurred. → history/2026-07-22-s-work-grid-v1-g02-preplan-g01-integrity-blocked-001.md
 
+2026-07-22 · s-work-launch-control-demo-control-room-foundation-001 · work · launch-control · g-b847/demo-control-room-foundation-001: one exact source-linked Demo Control Room foundation candidate now connects the unchanged Demo Contract to separate October/February routes, resource-feasible Runway, all nine current tracks, inherited WIP and a four-line day brief; it is not accepted, launches no foreign work, and one fresh independent review is READY/default before owner fix-or-accept. → history/2026-07-22-s-work-launch-control-demo-control-room-foundation-001.md
+
 END_OF_FILE: live/indie-game-development/LOG.md
