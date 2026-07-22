@@ -502,4 +502,6 @@ archived: history/LOG-archive-indie-game-development.md — sessions before 2026
 
 2026-07-22 · s-work-launch-control-m0-operating-plan-and-daily-command-accepted-001 · work · launch-control · g-b847/m0-operating-plan-and-daily-command-001: owner accepted the executable M0 plan and derived 12-field Daily Command with exact words `Принимаю план M0 и Daily Command`; M0 met early on 2026-07-22, the existing Grid-complete/Gas-planning wave is preserved without relaunch, and one M1 operating-plan continuation is READY/default without dashboard, automation or product mutation. → history/2026-07-22-s-work-launch-control-m0-operating-plan-and-daily-command-accepted-001.md
 
+2026-07-22 · s-work-publish-launch-control-m0-acceptance-main-001 · work/publish · launch-control · g-b847/repository-main: owner-requested accepted M0 plan and Daily Command were atomically fast-forward published without force to origin/main and origin/wt/indie-game-development with exact remote readback; M0 is met early and the M1 operating-plan continuation remains READY/default while Grid, Gas, product repositories and other tracks remain unchanged. → history/2026-07-22-s-work-publish-launch-control-m0-acceptance-main-001.md
+
 END_OF_FILE: live/indie-game-development/LOG.md
