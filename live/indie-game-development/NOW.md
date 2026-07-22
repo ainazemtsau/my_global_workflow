@@ -1,6 +1,6 @@
 # NOW: indie-game-development
 
-updated: 2026-07-22 by s-work-grid-v1-g01-direct-legacy-isolation-blocked-001
+updated: 2026-07-22 by s-work-grid-v1-g01-direct-legacy-release-001
 
 bet: null
 
@@ -97,6 +97,18 @@ open_calls:
       - history/2026-07-18-s-work-char-v2-published-handback-release-route-001.md
       - history/2026-07-18-s-review-char-v2-published-handback-release-001.md
     note: "WAITING / PRODUCT REVIEW-CLOSING IN PROGRESS. Do not dispatch this frozen CALL again. It waits for owner LOOK, binding G5, product RESULT/Deliver and valid Direction close. A future Player Simulation / Actor Layer is fresh V31 work and cannot expand this lineage retroactively."
+
+  - id: c-exec-grid-v1-g02-common-spatial-map-001
+    track: grid
+    status: ready
+    to: executor
+    for: "g-4b92 / G02 common spatial map after released exact-12 authority cleanup"
+    issued: 2026-07-22
+    call: work/c-exec-grid-v1-g02-common-spatial-map-001-call.md
+    receipts:
+      - history/2026-07-22-s-work-grid-v1-g01-direct-legacy-isolation-blocked-001.md
+      - history/2026-07-22-s-work-grid-v1-g01-direct-legacy-release-001.md
+    note: "READY / NON-DEFAULT / G02 PRODUCT ROOT / OWNER-PRESENT PLAN GATE FIRST / GRID 1 OF 11. G01 exact-12 cleanup is binding-reviewed and published at product dev/main 1a6373b8; all twelve legacy normative files are absent and WIN-U1 is AVAILABLE. This root delivers only the additive neutral integer spatial map and its proofs. It must obtain the owner's actual detailed PLAN verdict before implementation and use ordinary contract-31 gates; the one-time G01 Deliver waiver does not carry forward. The root is lawful but not launched or selected as default; the Daily Command remains current global focus."
 
   - id: c-work-gas-v1-live-composition-plan-001
     track: gas

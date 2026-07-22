@@ -494,4 +494,6 @@ archived: history/LOG-archive-indie-game-development.md — sessions before 2026
 
 2026-07-22 · s-work-grid-v1-g01-direct-legacy-isolation-blocked-001 · work · grid · g-4b92/G01-DIRECT-LEGACY-ISOLATION: по прямому STOP владельца receipt-repair отменён; exact-12 legacy cleanup физически выполнен и fresh non-author review-clean в product candidate 47bfe67e на slot/win-u1, но не выпущен, потому что обязательный Deliver требует запрещённую legacy PAIR/receipt machinery. Старый root снят без successor CALL, accept не нужен, dev/main/origin не изменены. → history/2026-07-22-s-work-grid-v1-g01-direct-legacy-isolation-blocked-001.md
 
+2026-07-22 · s-work-grid-v1-g01-direct-legacy-release-001 · work · grid · g-4b92/G01-DIRECT-LEGACY-INTEGRATION: owner exact words `Да, выпускай уже проверенную очистку напрямую. Workflow починим отдельно` authorized one exact direct release; binding-reviewed 4M+12D cleanup is published without force at product dev/main/slot-win-u1 1a6373b8, all twelve legacy files are absent, G01 is 1/11, G02 is READY/non-default with its normal PLAN gate, and the cleanup-only workflow defect is captured separately. → history/2026-07-22-s-work-grid-v1-g01-direct-legacy-release-001.md
+
 END_OF_FILE: live/indie-game-development/LOG.md

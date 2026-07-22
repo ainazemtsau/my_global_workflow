@@ -293,7 +293,7 @@
           <a href="../program-v2-track-handoff-template.md">Handoff</a>
         </nav>
       </div>
-      <div class="updated">Обновлено 22 июля 2026<br>по RESULT s-work-grid-v1-g01-direct-legacy-isolation-blocked-001</div>
+      <div class="updated">Обновлено 22 июля 2026<br>по RESULT s-work-grid-v1-g01-direct-legacy-release-001</div>
     </header>
 
     <main>
@@ -314,7 +314,7 @@
         <article class="panel">
           <span class="label">Фактическая загрузка NOW</span>
           <div class="status-row">
-            <span class="pill ready">3 ready</span>
+            <span class="pill ready">4 ready</span>
             <span class="pill waiting">2 waiting</span>
             <span class="pill blocked">2 blocked</span>
             <span class="pill paused">1 paused</span>
@@ -353,14 +353,14 @@
           <p><a href="../launch-control/c-work-launch-control-daily-command-dry-run-001-call.md">Открыть dry run →</a> · <a href="../launch-control/stabilization-baseline.md">Прочитать принятый baseline →</a></p>
         </article>
         <article class="panel" style="margin-top:14px">
-          <span class="label">STOPPED · Grid · EXACT-12 CANDIDATE CLEAN · RELEASE BLOCKED · 0/11</span>
-          <strong>Архивные Grid-файлы удалены в сохранённом кандидате</strong>
-          <p><code>47bfe67e6d5b10b2a7821325595454081c0d04da</code> · <code>slot/win-u1</code></p>
-          <p><b>Что сделано:</b> tracked-delete ровно 12 принятых legacy-файлов, обновлены только четыре current-authority файла; переносов, копий, tombstones, source, Unity, G02 и дополнительной machinery нет.</p>
-          <p><b>Проверка:</b> fresh non-author review не смог опровергнуть exact scope, девятипутевую authority, living-spec delta и неизменность пяти frozen PLAN-артефактов. Worktree чистый, кандидат сохранён отдельной веткой.</p>
-          <p><b>Блокер выпуска:</b> обязательный product Deliver всё ещё требует отменённые PAIR/receipt stages и падает на <code>NEGATIVE-CONTROL FAIL: unrecognized NegativeControl evidence venue 'N/A'</code>. Владелец запретил ремонтировать эту machinery.</p>
-          <p><b>Что дальше:</b> ничего автоматически. Старый receipt-repair CALL снят, successor CALL не создаётся, нового accept не требуется. <code>dev</code>, <code>main</code> и origin refs не менялись.</p>
-          <p><a href="../../history/2026-07-22-s-work-grid-v1-g01-direct-legacy-isolation-blocked-001.md">Прочитать точный RESULT и ESCALATE →</a></p>
+          <span class="label">RELEASED · Grid · G01 CLEANUP COMPLETE · G02 READY/NON-DEFAULT · 1/11</span>
+          <strong>Старые Grid-документы удалены из текущего продукта</strong>
+          <p><code>1a6373b84b6bf4da95a24efc3015e23b9ba5d419</code> · product <code>dev/main</code> · <code>WIN-U1 AVAILABLE</code></p>
+          <p><b>Что сделано:</b> ровно 12 принятых legacy-файлов отсутствуют в удалённых основных ветках; четыре current-authority файла обновлены, существующая история разработки сохранена.</p>
+          <p><b>Проверка:</b> отдельная fresh review не смогла опровергнуть scope и смысл; перед публикацией повторно проверены удалённые пути, девять действующих authority-путей, пять frozen PLAN-артефактов и отсутствие изменений кода, Unity, G02 и workflow.</p>
+          <p><b>Исключение:</b> владелец разрешил только этот прямой выпуск без неподходящего code-feature Deliver. Сам workflow не менялся; его отдельный repair сохранён как будущая работа.</p>
+          <p><b>Что дальше:</b> G02 — общая целочисленная пространственная карта — подготовлен READY/non-default с обычным подробным PLAN-gate, но сейчас не запускается: текущую волну выбирает Launch Control, а Gas параллельно готовит только план.</p>
+          <p><a href="../c-exec-grid-v1-g02-common-spatial-map-001-call.md">Открыть следующий Grid CALL →</a> · <a href="../../history/2026-07-22-s-work-grid-v1-g01-direct-legacy-release-001.md">Прочитать release RESULT →</a></p>
         </article>
         <article class="panel" style="margin-top:14px">
           <span class="label">READY · Gas Simulation · NODE 1 PLAN · NON-DEFAULT</span>
@@ -451,6 +451,7 @@
           <details open>
             <summary><strong>22 июля</strong></summary>
             <ul class="remaining">
+              <li>Владелец разрешил прямой выпуск уже проверенной Grid-очистки и отдельно отложил ремонт workflow. Product <code>dev</code>, <code>main</code> и <code>slot/win-u1</code> опубликованы на <code>1a6373b8</code>: все 12 legacy-файлов отсутствуют, обе существующие истории сохранены, focused checks зелёные, WIN-U1 чистый и AVAILABLE. G01 завершён как 1/11; G02 common spatial map подготовлен READY/non-default с обычным PLAN-gate, но не запущен.</li>
               <li>По прямому STOP владельца старый Grid receipt-repair маршрут отменён. В отдельной product-сессии создан чистый candidate <code>47bfe67e</code>: удалены ровно 12 принятых legacy-файлов, обновлены только четыре current-authority файла, а пять frozen PLAN-артефактов сохранены byte-for-byte. Fresh non-author review не смог опровергнуть scope или semantics. Выпуск остановлен только обязательным Deliver, который требует запрещённые legacy PAIR/receipt stages и падает на unrecognized NegativeControl venue <code>N/A</code>; candidate сохранён на <code>slot/win-u1</code>, старый CALL снят без successor, <code>dev/main/origin</code> не менялись.</li>
               <li>По прямой команде владельца шесть последовательных Direction-коммитов <code>f8b7f9b6..d341122e</code> опубликованы обычным fast-forward без force одновременно в <code>origin/wt/indie-game-development</code> и <code>origin/main</code>. Exact remote readback обеих refs подтвердил <code>d341122e</code>, принятый release-control baseline, owner verdict и ручной Daily Command как READY/default; совместимые Grid receipts сохранены, отдельный Launch Control dashboard, recurring control и product work не открыты.</li>
               <li>Владелец принял полный release-control baseline и первый gate точными словами <code>ПРИНИМАЮ BASELINE И GATE 2026-07-26</code>. В одном документе закреплены условный October Next Fest, February fallback, денежный gate 11 декабря 2026, маленький надёжный Demo Contract, семь release milestones, текущая цепочка срока, scenario forecast 15/60/25, risks/cuts, обязанности девяти треков, Release Directive, operating model, 12 полей Daily Command, Process Adaptation и будущие поля отдельного dashboard. Ровно один ручной Daily Command dry run READY/default; отдельный Launch Control dashboard, recurring automation, Release Directive dispatch и product mutation не открыты.</li>
@@ -589,16 +590,16 @@
           </article>
 
           <article class="track">
-            <div class="track-top"><div><div class="track-id">g-4b92</div><h3>Grid / Layers / World Change</h3></div><span class="pill blocked">stopped · candidate preserved · 0/11</span></div>
+            <div class="track-top"><div><div class="track-id">g-4b92</div><h3>Grid / Layers / World Change</h3></div><span class="pill ready">G01 released · G02 ready · 1/11</span></div>
             <dl class="facts">
-              <div class="fact"><dt>Сейчас</dt><dd>По прямому STOP владельца receipt-repair отменён. Exact-12 cleanup выполнен в чистом candidate <code>47bfe67e</code> на <code>slot/win-u1</code> и прошёл fresh non-author refutation; product progress остаётся 0 из 11 legs, потому что candidate не выпущен.</dd></div>
+              <div class="fact"><dt>Сейчас</dt><dd>G01 exact-12 cleanup binding-reviewed и выпущен на product <code>dev/main</code> <code>1a6373b8</code>; все двенадцать legacy-файлов отсутствуют. Grid progress — 1 из 11 legs.</dd></div>
               <div class="fact"><dt>Вклад</dt><dd>Общее пространство и подтверждённые изменения, универсальный Object↔Layer Resolver и безопасная основа для consumer-driven Layer↔Layer связей.</dd></div>
-              <div class="fact"><dt>Текущий root</dt><dd>Нет. Старый <code>c-exec-grid-v1-g01-v31-refreeze-receipt-repair-001</code> снят; successor CALL не создан, новый accept не запрашивается.</dd></div>
-              <div class="fact"><dt>Authority</dt><dd><a href="../grid-v1-executor-plan.md">Current accepted Direction plan</a> blob <code>2c95e10f</code> + owner emergency STOP/simple-delete instruction + <a href="../../history/2026-07-22-s-work-grid-v1-g01-direct-legacy-isolation-blocked-001.md">exact candidate/blocker RESULT</a>.</dd></div>
-              <div class="fact"><dt>Conflict</dt><dd>Candidate scope clean, но mandatory Deliver требует отменённую PAIR/receipt machinery. Без изменения product contract его нельзя честно интегрировать и назвать RELEASED HOME.</dd></div>
+              <div class="fact"><dt>Текущий root</dt><dd><a href="../c-exec-grid-v1-g02-common-spatial-map-001-call.md">G02 common spatial map</a> — READY/non-default, owner-present PLAN first, без автоматического запуска.</dd></div>
+              <div class="fact"><dt>Authority</dt><dd><a href="../grid-v1-executor-plan.md">Current accepted Direction plan</a> blob <code>2c95e10f</code> + published G01 <code>1a6373b8</code> + <a href="../../history/2026-07-22-s-work-grid-v1-g01-direct-legacy-release-001.md">release RESULT</a>.</dd></div>
+              <div class="fact"><dt>Conflict</dt><dd>G02 не меняет Gas/Structure state и не забирает consumer behavior. Одноразовое G01-исключение не переносится: новый root проходит обычные PLAN/review/release gates.</dd></div>
             </dl>
             <ul class="remaining">
-              <li><strong>Следом:</strong> автоматического шага нет. Кандидат сохранён; receipt repair, новый PLAN, PAIR и дополнительный accept не запускаются.</li>
+              <li><strong>Следом:</strong> когда Launch Control выберет место в волне, открыть G02 и сначала принять подробный план общей integer spatial map; до verdict код не меняется.</li>
               <li>G01–G04 строго serial; после G04 Layer-path и Object-path параллелятся только при доказанном полном разделении рабочих поверхностей и последовательном merge.</li>
               <li>Gas/Wind/Character/Level/Program/Integration behavior и реальные adapters остаются у владельцев; synthetic layers дают только Grid-internal proof.</li>
               <li>Dashboard остаётся одной секцией существующей панели; отдельный render и BUILD не открыты.</li>
