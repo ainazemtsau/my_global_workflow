@@ -504,4 +504,6 @@ archived: history/LOG-archive-indie-game-development.md — sessions before 2026
 
 2026-07-22 · s-work-publish-launch-control-m0-acceptance-main-001 · work/publish · launch-control · g-b847/repository-main: owner-requested accepted M0 plan and Daily Command were atomically fast-forward published without force to origin/main and origin/wt/indie-game-development with exact remote readback; M0 is met early and the M1 operating-plan continuation remains READY/default while Grid, Gas, product repositories and other tracks remain unchanged. → history/2026-07-22-s-work-publish-launch-control-m0-acceptance-main-001.md
 
+2026-07-22 · s-work-g-d3a8-markdown-first-portal-acceptance-001 · work · canon · g-d3a8/demo knowledge surface acceptance: owner accepted Markdown-first Visual Portal: Demo Experience Tree, Canon Ledger and media remain authoritative; generated multi-page site is read-only; Zensical is the first replaceable renderer candidate; custom app, Trilium and AI asset pipelines deferred. Invalid V1 live root removed, current question map suspended, one non-default process-rebuild root opened; Launch Control remains default. → history/2026-07-22-s-work-g-d3a8-markdown-first-portal-acceptance-001.md
+
 END_OF_FILE: live/indie-game-development/LOG.md

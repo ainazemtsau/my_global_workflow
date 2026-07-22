@@ -4,6 +4,17 @@ status: OWNER-APPROVED CARTOGRAPHY
 approved_on: 2026-07-20
 authority: routing, dependency and visual-work authority only; not Frame, not a paper answer, not canon, not image authority
 governing_process: Canon Forge v3
+routing_status: SUSPENDED
+routing_suspended_on: 2026-07-22
+routing_suspension_owner_words: |
+  «если пришёл неправильный вопрос, это всё, мы эту структуру строили,
+  чтобы правильно вопросы задавать. Значит, она полностью не работает.»
+
+  «100% процесс полностью нужно менять (или значительно обновлять)»
+live_effect: |
+  This map remains historical dependency and question evidence only.
+  No node in it is dispatchable and no READY / NEXT statement in it may
+  open work until an owner-approved replacement workflow supersedes it.
 supersedes_as_current_map:
   live/indie-game-development/work/canon-maps/
   g-d3a8-current-question-front-v2.md
@@ -1116,7 +1127,15 @@ CORE preserves important owner direction:
 Exact old ring-fill, named gas examples and damage palette are not current
 canon and must be read through current Frames and c-002.
 
-## 9. Current owner-selected route
+## 9. Suspended former owner-selected route
+
+This section is retained only as historical routing evidence.
+
+V1 is not current and must not be relaunched.
+
+The one live canon-track root after suspension is the process-rebuild CALL:
+
+`c-work-g-d3a8-demo-workflow-rebuild-001`
 
 Exactly one current canon-track root after this reconciliation
 transaction:

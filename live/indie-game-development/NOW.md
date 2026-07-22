@@ -1,6 +1,6 @@
 # NOW: indie-game-development
 
-updated: 2026-07-22 by s-work-launch-control-m0-operating-plan-and-daily-command-accepted-001
+updated: 2026-07-22 by s-work-g-d3a8-markdown-first-portal-acceptance-001
 
 bet: null
 
@@ -53,16 +53,16 @@ open_calls:
     call: work/c-exec-level-module-standard-v1-lv0-plan-001-call.md
     note: "WAITING / DO NOT RELAUNCH. Product LV0 PLAN evidence exists at b16981706ece53c584848255de2bd92675b5de7b, but binding Direction close is missing. When the owner activates Level, first reconcile exact HOME, current V31 and product truth; preserved aperture RED 5af1d8db931d10cc6149a2c1f8e1023bc3b9ffb1 remains evidence, not permission to issue BUILD."
 
-  - id: c-forge-g-d3a8-gas-sphere-visual-readability-v1-001
+  - id: c-work-g-d3a8-demo-workflow-rebuild-001
     track: canon
     status: ready
     to: session
-    for: "g-d3a8 / V1 controlled visual readability of Counter / Brake / Time"
-    issued: 2026-07-21
-    call: work/c-forge-g-d3a8-gas-sphere-visual-readability-v1-001-call.md
+    for: "g-d3a8 / owner-present replacement of question-first Canon workflow with Demo Experience Tree, Canon Ledger, parented execution and Markdown-first visual portal"
+    issued: 2026-07-22
+    call: work/demo-workflow/c-work-g-d3a8-demo-workflow-rebuild-001-call.md
     receipts:
-      - history/2026-07-21-s-cartography-g-d3a8-visual-workflow-reconciliation-001.md
-    note: "READY / NON-DEFAULT / OWNER-PRESENT / VISUAL QUESTION / c-003. One graph and one Canon Forge; format follows the question. Begin under the current Forge gates. Old gas visuals remain invalid. Environment, character, camera and UI are non-binding placeholders unless separately selected. No final roster, reactions, damage, controls, renderer, implementation, production assets or empirical claims. Owner selection remains paper/visual authority; canon admission is separate."
+      - history/2026-07-22-s-work-g-d3a8-markdown-first-portal-acceptance-001.md
+    note: "READY / NON-DEFAULT / OWNER-PRESENT / PROCESS REBUILD ONLY / NO DESIGN QUESTION / NO PORTAL BUILD. Draft and co-create one exact replacement workflow artifact. Preserve accepted canon and Frames. Current question-front is suspended as scheduling authority. The accepted portal contract requires Markdown/media authority and a replaceable generated read-only site; Zensical is only the first renderer candidate. Do not generate images, define demo content, implement the portal, create AI pipelines or mutate os/**."
   - id: c-visual-009
     track: visual
     status: blocked
