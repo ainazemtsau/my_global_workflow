@@ -1,6 +1,6 @@
 # NOW: indie-game-development
 
-updated: 2026-07-22 by s-work-launch-control-demo-control-room-foundation-correction-002
+updated: 2026-07-22 by s-review-launch-control-demo-control-room-foundation-correction-002
 
 bet: null
 
@@ -32,16 +32,16 @@ open_calls:
       - history/2026-07-20-s-work-program-v2-legacy-lab-purge-deliver-blocked-001.md
     note: "BLOCKED / V31 RELEASE CONTINUATION / ROOT NOT RELEASED. Product candidate 72c7c8c6 removes the 24 approved tracked paths, preserves KEEP, adds the <=400-word no-growth policy, passes fresh non-author G5 and normal gates (1829/1829), and is integrated only in local dev through c5c21c13 with blocker evidence baf8513c. Deliver is RED solely because pre-existing review-c-exec-char-v2-source-router-repair-001 does not account for source commit 413149ce after reviewed commit 8a0e33ec. No push/merge/release; origin refs remain 45b15623; WIN-U1 is DRAINING with lease preserved. Do not dispatch or return to feature work until unblock_when is true."
 
-  - id: c-review-launch-control-demo-control-room-foundation-correction-002
+  - id: c-work-launch-control-demo-control-room-foundation-fix-or-accept-001
     track: launch-control
     status: ready
     to: session
-    for: "g-b847 / fresh binding review of the exact correction-002 Demo Control Room candidate"
+    for: "g-b847 / owner fix-or-accept verdict on the exact could-not-refute Demo Control Room foundation"
     issued: 2026-07-22
-    call: work/launch-control/c-review-launch-control-demo-control-room-foundation-correction-002-call.md
+    call: work/launch-control/c-work-launch-control-demo-control-room-foundation-fix-or-accept-001-call.md
     receipts:
-      - history/2026-07-22-s-work-launch-control-demo-control-room-foundation-correction-002.md
-    note: "READY / FRESH BINDING REVIEW / EXACT BLOB 1d39f9f314c5ace27d46a24e77db458fe9551a8e / CANDIDATE NOT ACCEPTED / NO FOREIGN DISPATCH. The candidate now requires actual product/external-world result or explicit NONE, proof plus its limit, what remains absent plus one enabling owner-primary, and lawful background/refill; Canon process acceptance is explicitly not product progress. Runway, Canon row, Active Wave, triggers, first plan, self-check and sources now use the already accepted/published workflow plus the existing pilot WAITING on exact owner acceptance of this candidate; eligibility never means automatic launch. The three prior Steam/latest-safe, selector and setup fixes survived. Character/Program WIP, zero new BUILD, conditional Grid, owner-present Gas and every Demo/foreign-authority boundary remain unchanged. Fresh review must attempt to refute this exact blob; only could-not-refute may open one owner fix-or-accept brief."
+      - history/2026-07-22-s-review-launch-control-demo-control-room-foundation-correction-002.md
+    note: "READY / OWNER WHOLE-DOCUMENT FIX-OR-ACCEPT / EXACT BLOB 1d39f9f314c5ace27d46a24e77db458fe9551a8e / BINDING REVIEW COULD-NOT-REFUTE / CANDIDATE NOT ACCEPTED / CURRENT PRODUCT OR EXTERNAL RESULT NONE / NO FOREIGN DISPATCH. Both current corrections, all three prior fixes, seven promises, nine-track projection and Demo/route/resource boundaries survived fresh active refutation. The owner now receives one ordinary-Russian causal brief and must say accept in full, revise exact points or reject; earlier architecture acceptance is not reused. Acceptance changes management authority only and may make the existing Canon pilot eligible, never auto-launches it. No Daily Command, product/Canon/Marketing/foreign work, outcome request, gameplay or technical HOW, binding min-spec, public Steam action or spend is authorized."
 
   - id: c-exec-level-module-standard-v1-lv0-plan-001
     track: level
