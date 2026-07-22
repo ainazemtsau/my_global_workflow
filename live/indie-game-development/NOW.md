@@ -1,6 +1,6 @@
 # NOW: indie-game-development
 
-updated: 2026-07-22 by s-work-launch-control-daily-command-structure-checkpoint-001
+updated: 2026-07-22 by s-work-launch-control-m0-operating-plan-and-daily-command-accepted-001
 
 bet: null
 
@@ -32,18 +32,16 @@ open_calls:
       - history/2026-07-20-s-work-program-v2-legacy-lab-purge-deliver-blocked-001.md
     note: "BLOCKED / V31 RELEASE CONTINUATION / ROOT NOT RELEASED. Product candidate 72c7c8c6 removes the 24 approved tracked paths, preserves KEEP, adds the <=400-word no-growth policy, passes fresh non-author G5 and normal gates (1829/1829), and is integrated only in local dev through c5c21c13 with blocker evidence baf8513c. Deliver is RED solely because pre-existing review-c-exec-char-v2-source-router-repair-001 does not account for source commit 413149ce after reviewed commit 8a0e33ec. No push/merge/release; origin refs remain 45b15623; WIN-U1 is DRAINING with lease preserved. Do not dispatch or return to feature work until unblock_when is true."
 
-  - id: c-work-launch-control-m0-operating-plan-and-daily-command-001
+  - id: c-work-launch-control-m1-operating-plan-001
     track: launch-control
     status: ready
     to: session
-    for: "g-b847 / accepted M0 operating plan through 2026-07-26 and corrected Daily Command derived from it"
+    for: "g-b847 / accepted M1 operating plan for release scope and Steam-route decisions"
     issued: 2026-07-22
-    call: work/launch-control/c-work-launch-control-m0-operating-plan-and-daily-command-001-call.md
+    call: work/launch-control/c-work-launch-control-m1-operating-plan-001-call.md
     receipts:
-      - history/2026-07-21-s-work-launch-control-stabilization-baseline-checkpoint-001.md
-      - history/2026-07-22-s-work-launch-control-stabilization-baseline-accepted-001.md
-      - history/2026-07-22-s-work-launch-control-daily-command-structure-checkpoint-001.md
-    note: "READY / DEFAULT / FRESH OWNER-PRESENT RECOVERY. The first morning draft was not accepted: it exposed a missing current-milestone plan between the accepted release ladder and Daily Command. Owner exact words `Так, ну я с тобой согласен, давай это сделаем. Добавь это в наш трек, чтобы мы так работали. И, ну, я думаю, что, наверное, лучше новую сессию будет начать, потому что в этой уже контекст достаточно загрязнен.` authorize the track-local planning bridge and a fresh session. Produce one accepted M0 plan through 2026-07-26 and derive the exact 12-field Daily Command from it. No dashboard, automation, product mutation, other-track plan edit or relaunch of blocked/waiting/paused/already-running work."
+      - history/2026-07-22-s-work-launch-control-m0-operating-plan-and-daily-command-accepted-001.md
+    note: "READY / DEFAULT / OWNER-PRESENT M1 PLAN. M0 met early on 2026-07-22: the owner accepted the operating plan and exact 12-field Daily Command with words `Принимаю план M0 и Daily Command`; released Grid G01 and the separately active Gas node-1 planning session form the first lawful wave, while blocked/waiting/paused roots remain untouched. Build one accepted M1 operating plan before another Daily Command. No dashboard, automation, product mutation, other-track plan edit or relaunch of pending work."
 
   - id: c-exec-level-module-standard-v1-lv0-plan-001
     track: level
@@ -131,6 +129,6 @@ decisions:
     options: ["Доступная физическая машина", "Точный CPU/GPU/RAM-класс с арендой/покупкой к финалу", "Только throttled-прокси — финал не закрывает"]
     recommendation: "Доступная физическая машина; gas simulation CPU-bound, поэтому CPU должен быть назван явно."
 next:
-  call: c-work-launch-control-m0-operating-plan-and-daily-command-001
+  call: c-work-launch-control-m1-operating-plan-001
 
 END_OF_FILE: live/indie-game-development/NOW.md
