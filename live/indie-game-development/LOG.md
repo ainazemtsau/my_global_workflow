@@ -567,4 +567,6 @@ archived: history/LOG-archive-indie-game-development.md — sessions before 2026
 
 2026-07-23 · s-work-publish-launch-control-demo-program-v0-correction-main-001 · work/publish · launch-control · g-b847/repository-main: owner-requested corrected exact DRAFT payload b3d9c3d3 was atomically fast-forward published without force to origin/main and origin/wt/indie-game-development with exact two-ref and artifact readback; next is a separate fresh binding G5, with Stage 4 allowed only after COULD-NOT-REFUTE and current NOW unchanged. → history/2026-07-23-s-work-publish-launch-control-demo-program-v0-correction-main-001.md
 
+2026-07-23 · s-research-launch-control-review-demo-program-v0-binding-003 · research · launch-control · g-b847/demo-program-v0-binding-g5: binding fresh G5 REFUTED corrected exact DRAFT b3d9c3d3 despite valid S0/S14 timing and a mirrored acyclic 37×9 structure: S0 proof does not establish two cold players, the hard DAG lacks lawful October/February and Contract-selected branches, and October eligibility is not held through 26 Oct; Stage 4 and model adoption remain closed. → history/2026-07-23-s-research-launch-control-review-demo-program-v0-binding-003.md
+
 END_OF_FILE: live/indie-game-development/LOG.md
