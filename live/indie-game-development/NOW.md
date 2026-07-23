@@ -1,6 +1,6 @@
 # NOW: indie-game-development
 
-updated: 2026-07-23 by s-work-launch-control-demo-control-room-daily-plan-001
+updated: 2026-07-23 by s-work-characters-v2-published-close-readiness-accept-001
 
 bet: null
 
@@ -32,27 +32,19 @@ open_calls:
       - history/2026-07-20-s-work-program-v2-legacy-lab-purge-deliver-blocked-001.md
     note: "BLOCKED / V31 RELEASE CONTINUATION / ROOT NOT RELEASED. Product candidate 72c7c8c6 removes the 24 approved tracked paths, preserves KEEP, adds the <=400-word no-growth policy, passes fresh non-author G5 and normal gates (1829/1829), and is integrated only in local dev through c5c21c13 with blocker evidence baf8513c. Deliver is RED solely because pre-existing review-c-exec-char-v2-source-router-repair-001 does not account for source commit 413149ce after reviewed commit 8a0e33ec. No push/merge/release; origin refs remain 45b15623; WIN-U1 is DRAINING with lease preserved. Do not dispatch or return to feature work until unblock_when is true."
 
-  - id: c-work-launch-control-demo-control-room-wave-a-event-refill-001
+  - id: c-work-launch-control-demo-control-room-wave-a-binding-event-wait-001
     track: launch-control
-    status: ready
+    status: blocked
     to: session
     for: "g-b847 / immediate refill after the first binding Wave A event"
     issued: 2026-07-23
-    call: work/launch-control/c-work-launch-control-demo-control-room-wave-a-event-refill-001-call.md
+    call: work/launch-control/c-work-launch-control-demo-control-room-wave-a-binding-event-wait-001-call.md
+    unblock_when: "Either c-outcome-characters-v2-published-close-readiness-001 has a committed ACCEPT/COUNTER/BLOCKED Direction receipt, or the owner has given actual accept/revise/reject words on the fresh G02 PLAN and that verdict has a lawful receipt. A prepared draft, product commit or elapsed time does not unblock."
     receipts:
       - history/2026-07-23-s-work-launch-control-demo-control-room-daily-plan-001.md
-    note: "READY / OWNER ACCEPTED WAVE A / APPROXIMATELY 12 FOCUSED HOURS / CHARACTER CLOSE-READINESS + EXISTING GRID G02 PLAN / NO AUTOMATIC BUILD. Exact owner verdict `A` selects two independent management flows: one auxiliary Character disposition reconciles current published product evidence without changing the WAITING root, while the existing READY Grid G02 root owns the owner-present PLAN and actual accept/revise/reject gate. Product dev/main/origin readback is clean at 1a6373b8 and contains Character plus Program closing commits, but product evidence is not Direction close. Canon remains blocked on its missing lineage pointer; Gas remains queued. The first binding Character disposition or actual G02 PLAN verdict triggers immediate refill; one long product execution maximum and no foreign automatic launch."
-
-  - id: c-outcome-characters-v2-published-close-readiness-001
-    track: characters
-    status: ready
-    to: session
-    request_kind: outcome
-    requested_by: launch-control
-    for: "g-6d4e / V2 Leg 2 — rig + procedural locomotion + cosmetic PuppetMaster ragdoll + character material"
-    issued: 2026-07-23
-    call: work/launch-control/c-outcome-characters-v2-published-close-readiness-001-call.md
-    note: "READY / AUXILIARY OUTCOME REQUEST / READ-ONLY CHARACTER CLOSE-READINESS / NO ROOT OR PRODUCT MUTATION. Fresh product history at 1a6373b8 contains candidate caab93e0 through integration 756273e3, delivery-evidence close 8596e7bd, completed-repair archive f94a9068 and archive review 0d576fca; Program purge close 3db67e8a and released-slot receipt f6e4f725 are also present. Return only evidence-backed ACCEPT/COUNTER/BLOCKED on whether the existing WAITING Character root is eligible for one fresh binding Direction review/close. Product commits alone do not close Direction, the frozen CALL is not relaunched, and Program stays BLOCKED until a later binding event."
+      - history/2026-07-23-s-work-launch-control-demo-control-room-wave-a-event-gate-blocked-001.md
+      - history/2026-07-23-s-work-characters-v2-published-close-readiness-accept-001.md
+    note: "BLOCKED / FIRST BINDING WAVE A EVENT RECEIVED / CHARACTER ACCEPT RECEIPT COMMITTED / FRESH REQUESTER REFILL STILL REQUIRED / ZERO AUTOMATIC ADMISSION. The auxiliary Character request returned ACCEPT with exact candidate/publication, owner LOOK, repaired binding G5 and later GREEN Deliver/archive evidence sufficient for one fresh binding Direction review/close; the request itself does not close the WAITING Character root, release Program or admit execution. Grid G02 still has no actual owner verdict. Product dev/main/origin and slot/win-u1 remain clean at 1a6373b8; remaining owner time is UNKNOWN. This root stays BLOCKED until a fresh launch-control refill consumes the receipt; Gas, Canon and all foreign roots remain intact."
 
   - id: c-exec-level-module-standard-v1-lv0-plan-001
     track: level
@@ -110,7 +102,8 @@ open_calls:
       - history/2026-07-17-s-work-char-v2-reaction-core-repair-002-admission-blocked-001.md
       - history/2026-07-18-s-work-char-v2-published-handback-release-route-001.md
       - history/2026-07-18-s-review-char-v2-published-handback-release-001.md
-    note: "WAITING / PRODUCT REVIEW-CLOSING IN PROGRESS. Do not dispatch this frozen CALL again. It waits for owner LOOK, binding G5, product RESULT/Deliver and valid Direction close. A future Player Simulation / Actor Layer is fresh V31 work and cannot expand this lineage retroactively."
+      - history/2026-07-23-s-work-characters-v2-published-close-readiness-accept-001.md
+    note: "WAITING / CLOSE-READINESS ACCEPTED / ONE FRESH BINDING DIRECTION REVIEW-CLOSE STILL REQUIRED / DO NOT RELAUNCH. Receipt s-work-characters-v2-published-close-readiness-accept-001 establishes that exact candidate/publication, owner LOOK, repaired binding G5 and later GREEN Deliver/archive evidence are sufficient for one fresh binding Direction review/close; it does not itself close this root. A future Player Simulation / Actor Layer is fresh V31 work and cannot expand this lineage retroactively."
 
   - id: c-exec-grid-v1-g02-common-spatial-map-002
     track: grid
