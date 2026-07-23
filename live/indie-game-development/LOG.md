@@ -553,4 +553,6 @@ archived: history/LOG-archive-indie-game-development.md — sessions before 2026
 
 2026-07-23 · s-work-launch-control-demo-control-room-character-review-admission-001 · work · launch-control · g-b847/demo-control-room-wave-a-event-refill-001: committed Character ACCEPT is consumed inside the current Launch Control session; exactly one separate fresh Character Direction review/close is selected, product remains clean at 1a6373b8, Character WAITING and Program BLOCKED remain truthful, Grid is untouched, and one same-track blocker now waits for the binding review receipt without automatic BUILD. → history/2026-07-23-s-work-launch-control-demo-control-room-character-review-admission-001.md
 
+2026-07-23 · s-research-launch-control-review-demo-program-v0-binding-001 · research · launch-control · g-b847/demo-program-v0-binding-g5: binding G5 was not admitted because candidate 7430ebe3 is absent from authoritative origin/main@4a33f386; all 37 outcomes remain INCONCLUSIVE, no Stage 4 verdict is opened, and the exact candidate must land before a fresh-session rerun. → history/2026-07-23-s-research-launch-control-review-demo-program-v0-binding-001.md
+
 END_OF_FILE: live/indie-game-development/LOG.md
