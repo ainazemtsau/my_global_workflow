@@ -583,4 +583,6 @@ archived: history/LOG-archive-indie-game-development.md — sessions before 2026
 
 2026-07-23 · s-research-launch-control-demo-program-v0-correction-005 · research · launch-control · g-b847/demo-program-v0-correction-005: exact history-only DRAFT correction-005 makes C2 exact-Brief ACCEPT-only and C4 exact-slice SELECT/ACCEPT-only, adds the literal no-negative-token invariant and transition tables, preserves the other 39 outcomes and unchanged 41×9 mirrored 133-edge DAG, and performs no Stage 4, BUILD, publication or binding G5. → history/2026-07-23-s-research-launch-control-demo-program-v0-correction-005.md
 
+2026-07-23 · s-work-publish-launch-control-demo-program-v0-correction-005-main-001 · work/publish · launch-control · g-b847/repository-main: owner-requested exact correction-005 candidate bff423df / blob 5c3b2131 was atomically fast-forward published without force to origin/main and origin/wt/indie-game-development with exact two-ref remote history/LOG trailer readback; only this publication receipt is added, while hot state, Demo Control Room, correction-005, active Program Model, Stage 4, BUILD and G5 remain unchanged. → history/2026-07-23-s-work-publish-launch-control-demo-program-v0-correction-005-main-001.md
+
 END_OF_FILE: live/indie-game-development/LOG.md
