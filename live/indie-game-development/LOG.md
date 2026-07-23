@@ -563,4 +563,6 @@ archived: history/LOG-archive-indie-game-development.md — sessions before 2026
 
 2026-07-23 · s-work-publish-launch-control-demo-program-binding-review-main-001 · work/publish · launch-control · g-b847/repository-main: owner-requested committed Direction range through binding G5 REFUTED payload ca232c18 was atomically fast-forward published without force to origin/main and origin/wt/indie-game-development with exact two-ref and artifact readback; NOW and Stage 4 remain unchanged, while the next demo-program step is an S0/S14 cutoff-only correction followed by another separate fresh binding review. → history/2026-07-23-s-work-publish-launch-control-demo-program-binding-review-main-001.md
 
+2026-07-23 · s-research-launch-control-demo-program-v0-correction-003 · research · launch-control · g-b847/demo-program-v0-stage-3-correction: exact DRAFT corrected only S0/S14 temporal gates to public pre-10:00 PDT plus S14 09:30 operational target; the other 35 outcomes, 331 fields and mirrored 120-edge acyclic DAG are preserved, with no Stage 4, adoption, BUILD or binding G5. → history/2026-07-23-s-research-launch-control-demo-program-v0-correction-003.md
+
 END_OF_FILE: live/indie-game-development/LOG.md
