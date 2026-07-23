@@ -386,4 +386,90 @@ Contract, product, portal или автоматический successor.
 3. **Missing + selected flow:** ближайший результат — binding Canon readiness close; выбран ровно один READY outcome request, который сначала обязан назвать фактическую lineage.
 4. **Other flows + next event:** Grid, Gas, Character, cards и product исключены; следующее точное событие — evidence-backed Canon `ACCEPT/COUNTER/BLOCKED`, после которого refill запускается немедленно.
 
+## 15. План на 23 июля — принята Active Wave A
+
+Владелец сообщил доступный ресурс точными словами: `Ну, где-то часов
+двенадцать, если по сфокусированному времени.` После fresh-разбора Canon,
+Character/Program, Grid, Gas и продуктовых поверхностей он выбрал предложенный
+вариант точным ответом `A`.
+
+Это принятие дневной управляющей волны, а не принятие Grid PLAN, Character
+close или разрешение на BUILD. Никакая foreign work этой записью автоматически
+не запускается.
+
+### Fresh truth и предел доказательства
+
+- **Canon:** обе вчерашние дочерние задачи завершены. Последняя вернула точный
+  `BLOCKED`: отдельной текущей process/plan lineage не найдено, terminal rebuild
+  остаётся clean на внешнем Canon `6296cdbe`. Canon не является сегодняшним
+  потоком без нового authoritative pointer.
+- **Character product evidence:** product candidate `caab93e0` уже входит в
+  current product history через `756273e3`; последующие commits закрывают
+  delivery evidence (`8596e7bd`), архивируют repairs (`f94a9068`) и записывают
+  archive review (`0d576fca`). Это сильное product evidence, но не binding
+  Direction close.
+- **Program product evidence:** product history уже содержит purge close
+  `3db67e8a` и released-slot receipt `f6e4f725`. Direction root всё ещё BLOCKED,
+  поэтому capacity нельзя считать освобождённой без отдельной Direction-сверки.
+- **Product refs/surfaces:** clean `dev/main/origin` readback находится на
+  `1a6373b8`; `slot/win-u1` clean. Unity, dotnet и Git work processes не
+  запущены. Product execution всё равно остаётся serial через Control/review.
+- **Grid:** G02 ordinary root уже READY, G01 terminal 1/11, false G01 blocker
+  снят. Полный owner-readable PLAN подготовлен как evidence, но ещё не принят
+  владельцем и не открывает implementation.
+- **Gas:** node-1 PLAN уже показан до owner-verdict gate, но в Wave A он
+  остаётся очередью; второй BUILD не открывается.
+- **Direction publication:** local truth clean на `0eb81876`, на три commits
+  впереди `origin/main@1882e5e2`. Новая local Codex-сессия может читать exact
+  commit; web/remote dispatch со старого main нельзя считать fresh.
+- **Scarce surfaces:** примерно 12 часов owner attention, один owner-primary
+  plan/review gate, один serialized product Control/review/Deliver путь и один
+  background BUILD slot. Фактический throughput и completion dates UNKNOWN.
+
+### Выбранные потоки
+
+Active Wave размера **2**:
+
+1. **Character close-readiness disposition.** Один auxiliary outcome request
+   получает только `ACCEPT`, `COUNTER` или `BLOCKED` по достаточности текущих
+   product/owner/G5 evidence для свежего binding Direction review/close.
+   Ordinary Character root остаётся WAITING; Program остаётся BLOCKED до
+   последующего binding события.
+2. **Grid G02 owner-present PLAN.** Используется уже существующий READY root.
+   Он показывает полный понятный PLAN и ждёт фактическое `accept / revise /
+   reject`; prepared draft не считается вердиктом. BUILD и downstream lifecycle
+   не открываются этой волной.
+
+Gas, Canon, Hook, Contract, network-run, Unity scene, Marketing, portal и
+второй product BUILD не выбраны.
+
+### Контур 12 сфокусированных часов
+
+1. **Первый блок, до одного часа:** Character request становится готовым к
+   target disposition; владелец получает полный G02 PLAN. Никакой BUILD ещё не
+   стартует.
+2. **После первого binding события:** Character `ACCEPT` открывает только
+   свежую законную close-сверку, затем отдельный Program refill; Grid PLAN
+   verdict делает G02 только eligible для следующего admission. COUNTER,
+   BLOCKED или revision вызывают немедленный replan.
+3. **Средний блок, ориентир шесть-восемь часов:** после освобождения
+   Control/review поверхности допускается максимум одна product execution
+   lineage. При отсутствии binding gate слот законно остаётся пустым.
+4. **Последний блок, минимум два часа:** review, Deliver, Direction receipt и
+   readback фактического результата. Если G02 заблокирован или закрыт рано,
+   следующий owner-gate может быть Gas node 1 PLAN; новый длинный BUILD в конце
+   дня не открывается автоматически.
+
+**Exact next event:** первый binding Wave A receipt — Character
+`ACCEPT/COUNTER/BLOCKED` либо фактический owner verdict по существующему G02
+PLAN, в зависимости от того, что произойдёт раньше. Он немедленно возвращает
+Диспетчерскую к fresh admission.
+
+### Daily Brief — ровно четыре строки
+
+1. **Product result:** Character V2 и Legacy Lab purge уже находятся в product history; Hook, Contract и playable demo отсутствуют.
+2. **Proof + limit:** clean product `dev/main/origin@1a6373b8` содержит closing evidence, но product commits сами не являются binding Direction close.
+3. **Missing + selected flow:** ближайший пробел — Character/Program Direction reconciliation; параллельно выбран owner-verdict по существующему G02 PLAN.
+4. **Other flows + next event:** Canon остановлен, Gas в очереди; первый binding Character disposition или фактический G02 PLAN verdict вызывает немедленный refill без automatic BUILD.
+
 END_OF_FILE: live/indie-game-development/work/launch-control/demo-control-room.md

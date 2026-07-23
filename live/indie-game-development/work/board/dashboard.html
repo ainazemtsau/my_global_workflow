@@ -293,28 +293,28 @@
           <a href="../program-v2-track-handoff-template.md">Handoff</a>
         </nav>
       </div>
-      <div class="updated">Обновлено 22 июля 2026<br>по RESULT s-work-canon-current-process-plan-readiness-blocked-001</div>
+      <div class="updated">Обновлено 23 июля 2026<br>по RESULT s-work-launch-control-demo-control-room-daily-plan-001</div>
     </header>
 
     <main>
       <section class="summary" aria-label="Текущий статус">
         <article class="panel">
           <span class="label">Текущий релизный этап</span>
-          <strong class="big">Canon readiness: exact BLOCKED, refill готов</strong>
-          <p class="muted">Свежая Canon-сессия не нашла authoritative pointer на более новую process/plan lineage: terminal rebuild <code>6296cdbe</code> нельзя переоткрывать, а внешнее расхождение v4/v3 не задаёт task, scope или execution surface. Product/external result остаётся «НЕТ»; никакая design/product/foreign work не запущена.</p>
+          <strong class="big">Wave A: закрыть хвост и принять Grid PLAN</strong>
+          <p class="muted">Владелец сообщил около 12 часов сфокусированной работы и выбрал <code>A</code>. Два независимых потока: read-only сверка готовности Character к binding Direction close и существующий owner-present G02 PLAN. Character/Program уже имеют более свежие product commits, но Direction пока не считает их закрытыми.</p>
         </article>
 
         <article class="panel next">
           <span class="label">Следующее законное событие</span>
-          <strong class="big">Пересчитать волну из точного blocker</strong>
-          <p><a href="../launch-control/c-work-launch-control-demo-control-room-canon-readiness-refill-001-call.md">Открыть Launch Control refill</a></p>
-          <p class="muted small">Разблокировка требует одного stable readable pointer на фактическую owning lineage, её execution surface и полный остаток плановых пунктов. Пока такого evidence нет, нельзя сочинять Canon-задачу или считать поверхность свободной.</p>
+          <strong class="big">Первый binding результат Wave A</strong>
+          <p><a href="../launch-control/c-work-launch-control-demo-control-room-wave-a-event-refill-001-call.md">Открыть Wave A event refill</a></p>
+          <p class="muted small">Первый из двух фактов — Character <code>ACCEPT/COUNTER/BLOCKED</code> либо настоящий verdict владельца по G02 PLAN — немедленно возвращает Диспетчерскую к fresh admission. Prepared draft, commit name или время не заменяют binding evidence.</p>
         </article>
 
         <article class="panel">
           <span class="label">Фактическая загрузка NOW</span>
           <div class="status-row">
-            <span class="pill ready">3 ready</span>
+            <span class="pill ready">4 ready</span>
             <span class="pill waiting">3 waiting</span>
             <span class="pill blocked">2 blocked</span>
             <span class="pill paused">1 paused</span>
@@ -325,7 +325,7 @@
       </section>
 
       <aside class="note">
-        <strong>Не смешивать два независимых состояния: Grid G01 завершён и G02 готов к PLAN; Program всё ещё заблокирован на выпуске.</strong> Двенадцать старых Grid-документов удалены с канонических продуктовых веток, G01 terminal release остаётся действующим, а прежняя попытка заново сделать frozen prose и отложенный cleanup-workflow блокером отменена владельцем. Отдельный Program-кандидат на удаление 24 старых путей останавливает другой внешний Character review-дефект.
+        <strong>Не смешивать product close с Direction close.</strong> Product <code>dev/main/origin@1a6373b8</code> уже содержит Character delivery/archive evidence и выпущенный Program purge, но NOW законно сохраняет Character WAITING и Program BLOCKED до binding Direction receipts. Grid G02 выбран только для owner-present PLAN; BUILD не открыт. Canon-чаты завершены и не образуют активную работу.
       </aside>
 
       <section id="board">
@@ -338,22 +338,32 @@
           <p><code>c-exec-program-v2-legacy-lab-purge-release-001</code></p>
           <p><b>Что это:</b> сохранённый V31-кандидат удаляет 24 tracked paths четырёх доказанно неиспользуемых семейств и закрепляет короткое правило no-growth для семи временных validators.</p>
           <p><b>Зачем:</b> мусор перестаёт расти, а SampleScene, Character V2, Core/Sandbox, topology, render и Dungeon Architect support остаются нетронутыми.</p>
-          <p><b>Где сейчас:</b> candidate <code>72c7c8c6</code> прошёл независимую проверку и обычные проверки 1829/1829. Он есть только в локальном dev; общий выпуск останавливает старый Character review-файл, который не учитывает более поздний исходный результат. Push, merge и release не выполнялись. Более поздний Grid-выпуск сообщает, что WIN-U1 уже свободен, поэтому старое Program-указание о занятом месте нельзя считать свежей правдой.</p>
-          <p><b>Что дальше:</b> сначала законно закрыть внешний Character-дефект, затем заново проверить фактическое состояние рабочего места и только после этого выпускать тот же сохранённый кандидат. До такой перепроверки feature work здесь не запускается.</p>
+          <p><b>Где сейчас:</b> NOW всё ещё хранит старый BLOCKED receipt, но fresh product history уже содержит close <code>3db67e8a</code>, released-slot receipt <code>f6e4f725</code> и более поздний общий release <code>1a6373b8</code>. Это доказывает product drift вперёд, но не позволяет молча снять Direction blocker.</p>
+          <p><b>Что дальше:</b> первый Character disposition обязан назвать полный binding evidence или точный остаток. Только последующий fresh Launch Control refill решит, можно ли открыть Program Direction close; frozen Program CALL не перезапускается автоматически.</p>
           <p><a href="../c-exec-program-v2-legacy-lab-purge-release-001-call.md">Открыть blocked release continuation →</a> · <a href="../legacy-lab-purge-boundary-2026-07-20.md">Прочитать простой вердикт →</a></p>
         </article>
         <article class="panel next" style="margin-top:14px">
-          <span class="label">READY · FIRST ACTIONABLE · EVENT REFILL</span>
-          <strong>Пересчитать волну после exact Canon BLOCKED</strong>
-          <p><code>c-work-launch-control-demo-control-room-canon-readiness-refill-001</code></p>
-          <p><b>Что это:</b> same-track continuation Диспетчерской, который получает точный target disposition и заново строит admission по fresh evidence.</p>
-          <p><b>Зачем:</b> readiness request законно остановился: terminal rebuild существует, но более свежая owner-reported lineage не имеет authoritative task/CALL/artifact/commit/receipt или execution surface.</p>
-          <p><b>Где сейчас:</b> READY и является первым actionable item. Product/external result остаётся «НЕТ»; Canon pilot WAITING, auxiliary request очищен, Grid/Gas/Character и foreign work не выбраны.</p>
-          <p><b>Что дальше:</b> перечитать ресурсы из blocker receipt. Canon можно считать разблокированным только после stable pointer, который называет owning lineage, execution surface и все оставшиеся пункты; время, task title, split v4/v3 или старый receipt этого не доказывают.</p>
-          <p><a href="../launch-control/c-work-launch-control-demo-control-room-canon-readiness-refill-001-call.md">Открыть event-refill CALL →</a> · <a href="../../history/2026-07-22-s-work-canon-current-process-plan-readiness-blocked-001.md">Прочитать BLOCKED receipt →</a></p>
+          <span class="label">READY · FIRST ACTIONABLE · WAVE A EVENT REFILL</span>
+          <strong>Пересчитать волну после первого binding результата</strong>
+          <p><code>c-work-launch-control-demo-control-room-wave-a-event-refill-001</code></p>
+          <p><b>Что это:</b> same-track continuation Диспетчерской для принятого плана на 23 июля.</p>
+          <p><b>Зачем:</b> не ждать конца дня: Character disposition либо реальный G02 PLAN verdict немедленно меняют доступную очередь и следующий lawful шаг.</p>
+          <p><b>Где сейчас:</b> READY. Владелец выбрал <code>A</code> и дал около 12 часов сфокусированной работы; Character и Grid входят в волну, Gas остаётся очередью, Canon — точным blocker.</p>
+          <p><b>Что дальше:</b> принять первый binding receipt, перечитать NOW/product/resources и выбрать не более одной lawful continuation. Никакой foreign work не запускается по одному статусу или prepared draft.</p>
+          <p><a href="../launch-control/c-work-launch-control-demo-control-room-wave-a-event-refill-001-call.md">Открыть Wave A refill CALL →</a> · <a href="../../history/2026-07-23-s-work-launch-control-demo-control-room-daily-plan-001.md">Прочитать принятый дневной план →</a></p>
+        </article>
+        <article class="panel next" style="margin-top:14px">
+          <span class="label">READY · AUXILIARY · CHARACTER CLOSE-READINESS</span>
+          <strong>Сверить опубликованный Character result с обязательными Direction-gates</strong>
+          <p><code>c-outcome-characters-v2-published-close-readiness-001</code></p>
+          <p><b>Что это:</b> read-only outcome request, который возвращает только <code>ACCEPT</code>, <code>COUNTER</code> или <code>BLOCKED</code> по готовности существующего Character root к свежему binding review/close.</p>
+          <p><b>Зачем:</b> product уже содержит Character integration и closing evidence, а Direction всё ещё честно держит root WAITING. Без reconciliation нельзя считать Program и Control capacity свободными.</p>
+          <p><b>Где сейчас:</b> READY; product clean на <code>1a6373b8</code>, candidate <code>caab93e0</code> входит через <code>756273e3</code>, позже записаны evidence close <code>8596e7bd</code>, archive <code>f94a9068</code> и review <code>0d576fca</code>.</p>
+          <p><b>Что дальше:</b> назвать owner LOOK, binding G5, Deliver/publication и lineage evidence либо точный недостающий gate. Ordinary Character/Program roots и product остаются неизменными.</p>
+          <p><a href="../launch-control/c-outcome-characters-v2-published-close-readiness-001-call.md">Открыть Character disposition CALL →</a></p>
         </article>
         <article class="panel" style="margin-top:14px">
-          <span class="label">READY · Grid · G01 COMPLETE · G02 OWNER-PRESENT PLAN · 1/11</span>
+          <span class="label">READY · SELECTED WAVE A · Grid · G02 OWNER-PRESENT PLAN · 1/11</span>
           <strong>Начать G02 с чистого подробного PLAN в новой продуктовой сессии</strong>
           <p><code>c-exec-grid-v1-g02-common-spatial-map-002</code> · product release base <code>1a6373b8</code> · contract <code>v31</code></p>
           <p><b>Что подтверждено:</b> G01 терминально завершён; ровно 12 legacy-файлов отсутствуют, девять current-authority путей существуют, а канонические refs были опубликованы и прочитаны обратно. Grid progress — 1/11.</p>
@@ -363,7 +373,7 @@
           <p><a href="../c-exec-grid-v1-g02-common-spatial-map-002-call.md">Открыть свежий Grid PLAN root →</a> · <a href="../../history/2026-07-22-s-repair-grid-v1-g02-false-g01-blocker-001.md">Прочитать repair RESULT →</a> · <a href="../../history/2026-07-22-s-work-grid-v1-g01-direct-legacy-release-001.md">Прочитать G01 release RESULT →</a></p>
         </article>
         <article class="panel" style="margin-top:14px">
-          <span class="label">READY · Gas Simulation · NODE 1 PLAN</span>
+          <span class="label">READY · QUEUED AFTER WAVE A · Gas Simulation · NODE 1 PLAN</span>
           <strong>Подробно спланировать первый живой Gas tick</strong>
           <p><code>c-work-gas-v1-live-composition-plan-001</code></p>
           <p><b>Что это:</b> owner-present подробный план только первого узла принятой девятиступенчатой дороги Gas V1: подключить выпущенную NearGas foundation к одному законному production simulation loop.</p>
@@ -397,8 +407,8 @@
           <p><code>c-exec-char-v2-body-rig-ragdoll-build-001</code></p>
           <p><b>Что это:</b> frozen legacy root уже построенного Character Leg 2, который проходит owner LOOK, независимую проверку и формальное закрытие.</p>
           <p><b>Зачем:</b> сохранить доказательства существующей работы и не расширять её будущей Actor Layer задним числом.</p>
-          <p><b>Где сейчас:</b> WAITING на product review-closing task; повторный dispatch запрещён.</p>
-          <p><b>Что дальше:</b> принять только полный Direction close. Новый object/actor occupancy contract для Grid будет отдельной V31 работой.</p>
+          <p><b>Где сейчас:</b> ordinary root остаётся WAITING и повторный dispatch запрещён. Fresh product <code>1a6373b8</code> уже содержит integration <code>756273e3</code>, delivery evidence close <code>8596e7bd</code>, archive <code>f94a9068</code> и review <code>0d576fca</code>; это evidence input, не Direction close.</p>
+          <p><b>Что дальше:</b> новый auxiliary request сначала возвращает evidence-backed close-readiness disposition. Только отдельный fresh review/close может изменить обычный root; новая Actor Layer остаётся отдельной V31 работой.</p>
         </article>
         <article class="panel" style="margin-top:14px">
           <span class="label">BLOCKED · Presentation</span>
@@ -441,6 +451,12 @@
         <div class="section-head"><div><div class="eyebrow">Журнал</div><h2>Последние три дня</h2></div></div>
         <div class="panel">
           <details open>
+            <summary><strong>23 июля</strong></summary>
+            <ul class="remaining">
+              <li>Владелец сообщил около 12 часов сфокусированной работы и выбрал точный вариант <code>A</code>. Fresh readback показал, что вчерашние Canon-чаты завершены точным BLOCKED, а product <code>dev/main/origin@1a6373b8</code> уже содержит Character integration/closing evidence и Program purge release, хотя Direction законно сохраняет Character WAITING и Program BLOCKED до binding receipts. Принята Active Wave размера 2: один read-only Character close-readiness outcome request и существующий owner-present Grid G02 PLAN; Gas остаётся очередью, Canon — blocked, automatic BUILD и foreign launch отсутствуют. Первый binding Character disposition либо фактический G02 PLAN verdict немедленно вызывает refill.</li>
+            </ul>
+          </details>
+          <details>
             <summary><strong>22 июля</strong></summary>
             <ul class="remaining">
               <li>Свежая Canon readiness-сессия вернула точный <code>BLOCKED</code>: единственная stable lineage — уже terminal Demo-Driven rebuild <code>6296cdbe</code>, а для более свежей owner-reported process/plan work нет authoritative task, CALL, accepted plan artifact, commit/branch, receipt или execution surface. Clean внешний Canon подтверждает v4 в AMENDMENTS/CONSTITUTION/QUEUE/board и старый v3 во входных README/START/SESSION, но это split-evidence, не scope. Разблокировка требует одного readable pointer на owning lineage и полный остаток пунктов; auxiliary request очищен, оба ordinary roots receipted без смены статуса, product result «НЕТ», design/product/portal/foreign work не запущена.</li>
@@ -564,15 +580,15 @@
           <article class="track primary">
             <div class="track-top"><div><div class="track-id">g-9c41 · primary</div><h3>Integration Lab & Product Proof</h3></div><span class="pill blocked">blocked</span></div>
             <dl class="facts">
-              <div class="fact"><dt>Сейчас</dt><dd>Cleanup-кандидат готов и G5-clean: 24 paths удалены, семь validators сохранены, no-growth policy записана. Release заблокирован внешним Character review-evidence defect.</dd></div>
+              <div class="fact"><dt>Сейчас</dt><dd>Direction всё ещё хранит старый BLOCKED release root, но fresh product history уже содержит Program close <code>3db67e8a</code>, released-slot receipt <code>f6e4f725</code> и общий current release <code>1a6373b8</code>. Нужна binding Direction reconciliation, а не повторный product release.</dd></div>
               <div class="fact"><dt>Вклад</dt><dd>Playable product skeleton, generated Level profiles, real gameplay-path intake, smoke и финальный product proof.</dd></div>
-              <div class="fact"><dt>Текущий root</dt><dd><a href="../c-exec-program-v2-legacy-lab-purge-release-001-call.md">Release continuation</a> остаётся BLOCKED; WIN-U1 хранит неопубликованный frozen candidate.</dd></div>
-              <div class="fact"><dt>Authority</dt><dd><a href="../program-v2-integration-lab-plan.md">Global scene plan</a> + current product V31 · проверено 2026-07-20.</dd></div>
-              <div class="fact"><dt>Conflict</dt><dd>Не cleanup-diff, а общий Deliver требует починить старое Character review-evidence; менять чужой review или gate внутри этого root запрещено.</dd></div>
+              <div class="fact"><dt>Текущий root</dt><dd><a href="../c-exec-program-v2-legacy-lab-purge-release-001-call.md">Frozen release continuation</a> остаётся BLOCKED в Direction; не перезапускать и не переиздавать product work.</dd></div>
+              <div class="fact"><dt>Authority</dt><dd><a href="../program-v2-integration-lab-plan.md">Global scene plan</a> + current product V31 + fresh product commits through <code>1a6373b8</code>; проверено 2026-07-23.</dd></div>
+              <div class="fact"><dt>Conflict</dt><dd>Product evidence и Direction status расходятся по времени, но не по смыслу: commits не заменяют binding Direction close. Сначала Character disposition, затем fresh Program refill.</dd></div>
             </dl>
             <ul class="remaining">
-              <li><strong>Следом:</strong> закрыть внешний Character review-evidence defect и повторить Deliver без изменения frozen cleanup candidate.</li>
-              <li>Только после публикации/readback и release WIN-U1 перейти к настоящему feature slice; Lab/drop contract появляется только под его consumer.</li>
+              <li><strong>Следом:</strong> получить Character close-readiness disposition; после binding Character event отдельно сверить Program Direction close.</li>
+              <li>Только после Direction readback считать Control/Program capacity свободной; новый Lab/drop contract появляется только под его consumer.</li>
               <li>Принять M3–M8 с first-hand proof.</li>
               <li>Свести M9 и отдельно доказать любые co-op claims.</li>
             </ul>
@@ -642,14 +658,14 @@
           <article class="track">
             <div class="track-top"><div><div class="track-id">g-6d4e</div><h3>Character & Gameplay Contact</h3></div><span class="pill waiting">closing</span></div>
             <dl class="facts">
-              <div class="fact"><dt>Сейчас</dt><dd>Legacy Character Leg 2 построен и находится в product review/closing.</dd></div>
+              <div class="fact"><dt>Сейчас</dt><dd>Legacy Character Leg 2 уже входит в clean product <code>dev/main/origin@1a6373b8</code>; product history содержит integration, delivery close, archive и review. Direction root остаётся WAITING до binding reconciliation.</dd></div>
               <div class="fact"><dt>Вклад</dt><dd>Player Simulation / Actor Layer + отдельный Character View.</dd></div>
               <div class="fact"><dt>Текущий root</dt><dd><a href="../c-exec-char-v2-body-rig-ragdoll-build-001-call.md">Frozen Leg 2 CALL</a> — не запускать повторно.</dd></div>
-              <div class="fact"><dt>Authority</dt><dd>Текущий lineage receipts в NOW; проверено 2026-07-20.</dd></div>
-              <div class="fact"><dt>Conflict</dt><dd>Нет. Новая Actor Layer не расширяет старый Leg 2.</dd></div>
+              <div class="fact"><dt>Authority</dt><dd>NOW lineage receipts + product commits <code>756273e3</code>, <code>8596e7bd</code>, <code>f94a9068</code>, <code>0d576fca</code>; проверено 2026-07-23.</dd></div>
+              <div class="fact"><dt>Conflict</dt><dd>Product close не равен Direction close. Новая Actor Layer не расширяет старый Leg 2.</dd></div>
             </dl>
             <ul class="remaining">
-              <li><strong>Следом:</strong> owner LOOK → binding G5 → Deliver → Direction close.</li>
+              <li><strong>Следом:</strong> auxiliary request возвращает close-readiness <code>ACCEPT/COUNTER/BLOCKED</code>; ordinary root не меняется до свежего review/close.</li>
               <li>Свежий V31 PLAN решает layer vs module над seam.</li>
               <li>Доказать contact/reaction и non-authoritative view.</li>
               <li>Вернуть M6 reusable prefab + actor contract.</li>
