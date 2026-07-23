@@ -565,4 +565,6 @@ archived: history/LOG-archive-indie-game-development.md — sessions before 2026
 
 2026-07-23 · s-research-launch-control-demo-program-v0-correction-003 · research · launch-control · g-b847/demo-program-v0-stage-3-correction: exact DRAFT corrected only S0/S14 temporal gates to public pre-10:00 PDT plus S14 09:30 operational target; the other 35 outcomes, 331 fields and mirrored 120-edge acyclic DAG are preserved, with no Stage 4, adoption, BUILD or binding G5. → history/2026-07-23-s-research-launch-control-demo-program-v0-correction-003.md
 
+2026-07-23 · s-work-publish-launch-control-demo-program-v0-correction-main-001 · work/publish · launch-control · g-b847/repository-main: owner-requested corrected exact DRAFT payload b3d9c3d3 was atomically fast-forward published without force to origin/main and origin/wt/indie-game-development with exact two-ref and artifact readback; next is a separate fresh binding G5, with Stage 4 allowed only after COULD-NOT-REFUTE and current NOW unchanged. → history/2026-07-23-s-work-publish-launch-control-demo-program-v0-correction-main-001.md
+
 END_OF_FILE: live/indie-game-development/LOG.md
