@@ -571,4 +571,6 @@ archived: history/LOG-archive-indie-game-development.md — sessions before 2026
 
 2026-07-23 · s-work-publish-launch-control-demo-program-v0-binding-003-main-001 · work/publish · launch-control · g-b847/repository-main: owner-requested binding G5 REFUTED payload e55d02bb was atomically fast-forward published without force to origin/main and origin/wt/indie-game-development with exact two-ref and remote history/LOG trailer readback; hot state and model authority remain unchanged, and one separate DRAFT-only correction CALL returns to the owner. → history/2026-07-23-s-work-publish-launch-control-demo-program-v0-binding-003-main-001.md
 
+2026-07-23 — repair (canon/g-d3a8, s-repair-gas-phase-condensate-preservation-packet-001): replaced an under-specified condensate preservation draft with a self-contained owner-approved research handoff covering origin, audience, baseline, explored forks, exact preserved scope, open details, demo re-entry, falsifiers and authority limits; no work or canon activated. → history/2026-07-23-s-repair-gas-phase-condensate-preservation-packet-001.md
+
 END_OF_FILE: live/indie-game-development/LOG.md
