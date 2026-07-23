@@ -581,4 +581,6 @@ archived: history/LOG-archive-indie-game-development.md — sessions before 2026
 
 2026-07-23 · s-work-publish-launch-control-demo-program-v0-binding-004-main-001 · work/publish · launch-control · g-b847/repository-main: owner-requested binding fresh G5 REFUTED payload 7afea57a / blob afe9b1c8 was atomically fast-forward published without force to origin/main and origin/wt/indie-game-development with exact two-ref remote history/LOG trailer readback; only this publication receipt is added, while hot state, Demo Control Room, correction-004, active Program Model, Stage 4, BUILD and new G5 remain unchanged. → history/2026-07-23-s-work-publish-launch-control-demo-program-v0-binding-004-main-001.md
 
+2026-07-23 · s-research-launch-control-demo-program-v0-correction-005 · research · launch-control · g-b847/demo-program-v0-correction-005: exact history-only DRAFT correction-005 makes C2 exact-Brief ACCEPT-only and C4 exact-slice SELECT/ACCEPT-only, adds the literal no-negative-token invariant and transition tables, preserves the other 39 outcomes and unchanged 41×9 mirrored 133-edge DAG, and performs no Stage 4, BUILD, publication or binding G5. → history/2026-07-23-s-research-launch-control-demo-program-v0-correction-005.md
+
 END_OF_FILE: live/indie-game-development/LOG.md
