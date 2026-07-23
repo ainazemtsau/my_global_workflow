@@ -559,4 +559,6 @@ archived: history/LOG-archive-indie-game-development.md — sessions before 2026
 
 2026-07-23 · s-repair-launch-control-demo-program-v0-candidate-merge-001 · repair · launch-control · g-b847/demo-program-v0-candidate-merge: owner-confirmed Git transport repair merges exact candidate 7430ebe3 into main while preserving the earlier INCONCLUSIVE blocker receipt; DRAFT remains history-only, binding G5 and Stage 4 remain open, and no hot state or product authority changes. → history/2026-07-23-s-repair-launch-control-demo-program-v0-candidate-merge-001.md
 
+2026-07-23 · s-research-launch-control-review-demo-program-v0-binding-002 · research · launch-control · g-b847/demo-program-v0-binding-g5: binding fresh G5 REFUTED exact DRAFT 7430ebe3 on S0/S14's date-only October release boundary; the other 35 outcomes, 9-field mirrored acyclic DAG, ownership/evidence/cuts/deferred decisions and October UNFORECASTABLE survived, and only an exact pre-10:00 PDT hard gate plus 09:30 operational target is returned for correction without Stage 4 or model adoption. → history/2026-07-23-s-research-launch-control-review-demo-program-v0-binding-002.md
+
 END_OF_FILE: live/indie-game-development/LOG.md
