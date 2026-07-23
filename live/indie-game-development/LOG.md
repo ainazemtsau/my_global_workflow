@@ -573,4 +573,6 @@ archived: history/LOG-archive-indie-game-development.md — sessions before 2026
 
 2026-07-23 — repair (canon/g-d3a8, s-repair-gas-phase-condensate-preservation-packet-001): replaced an under-specified condensate preservation draft with a self-contained owner-approved research handoff covering origin, audience, baseline, explored forks, exact preserved scope, open details, demo re-entry, falsifiers and authority limits; no work or canon activated. → history/2026-07-23-s-repair-gas-phase-condensate-preservation-packet-001.md
 
+2026-07-23 · s-research-launch-control-demo-program-v0-correction-004 · research · launch-control · g-b847/demo-program-v0-correction: exact DRAFT correction-004 adds early ready-tech sandbox and four-class dogfood before a future owner-approved Sellable Demo Brief, versioned October-primary/explicit-February and unreleased guards, exact-build two-PC plus separate clarity proof, and lawful Gas/world-change resolution; 41×9 mirrored 133-edge DAG, no Stage 4, BUILD or owner verdict. → history/2026-07-23-s-research-launch-control-demo-program-v0-correction-004.md
+
 END_OF_FILE: live/indie-game-development/LOG.md
