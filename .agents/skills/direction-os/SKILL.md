@@ -55,10 +55,10 @@ that needs the owner.
 | `digest [<direction>] [since <date>]` | **writer** | read-only morning report, render only |
 
 No CALL? Resolve against `NOW.md`: new TREE-backed track → map;
-retirement/primary handoff → review; other track lifecycle → work;
+retirement/primary handoff → review; other track lifecycle or launch/loss → work;
 a track/task/CALL match → its call/decision; "продолжаем" → the sole
 actionable ready call/pending decision; several → grouped choices and a
-recommendation without state mutation; none → current waits/blocks/pauses;
+recommendation without state mutation; none → current running/waits/blocks/pauses;
 "что можно делать" → ready calls grouped by track; a question → read-only; no-state ambition
 → `frame`; otherwise propose one interpretation and confirm.
 The owner never composes packets or has to type track/call ids.

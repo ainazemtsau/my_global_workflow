@@ -13,7 +13,7 @@ The OS runs the owner's life directions — long-term ambitions — through many
 
 ## 2. Session contract
 
-1. **OPEN** — input is a CALL **or a plain owner message**. Read `NOW.md` and the play's listed files. Resolve plain input against NOW: new TREE-backed track → map; retirement/primary handoff → review; other track lifecycle → work; track/task/CALL match → its call/decision; "продолжаем" → sole actionable call/decision; several → grouped choice/recommendation without state change; none → waits/blocks/pauses; "что можно делать" → ready calls grouped by track; question → read-only; no-state ambition → frame; otherwise interpret and confirm. The first reply is the **opening contract**: the orientation header, the play's numbered steps with the current one marked, and a ≤5-line restate (play, goal, done_when) — then run the play, stopping at the first owner step; play steps outrank the CALL. Unreadable or contradictory state → repair. Structured CALLs are machine/copy-paste artifacts; the owner never composes one.
+1. **OPEN** — input is a CALL **or a plain owner message**. Read `NOW.md` and the play's listed files. Resolve plain input against NOW: new TREE-backed track → map; retirement/primary handoff → review; other track lifecycle → work; track/task/CALL match → its call/decision; launch/loss report → work; "продолжаем" → sole actionable call/decision; several → grouped choice/recommendation without state change; none → running/waits/blocks/pauses; "что можно делать" → ready calls grouped by track; question → read-only; no-state ambition → frame; otherwise interpret and confirm. The first reply is the **opening contract**: the orientation header, the play's numbered steps with the current one marked, and a ≤5-line restate (play, goal, done_when) — then run the play, stopping at the first owner step; play steps outrank the CALL. Unreadable or contradictory state → repair. Structured CALLs are machine/copy-paste artifacts; the owner never composes one.
 2. **WORK** — follow the play. Cross-cutting moves available in any session:
    - `call:research` — spawn a bounded child question (CALL packet, §4); children may spawn their own.
    - `call:executor` — delegate execution to a working agent (CALL packet, §4).
@@ -59,7 +59,7 @@ A **bet** is one shaped node in `NOW.md`. Its tasks (`t-1`…): `goal`, `done_wh
 **RESULT** — the only way a session ends:
 `outcome` (what changed in the world, not a narrative of effort) · `evidence` (proof matching done_when) · `state_changes` (exact NOW/TREE edits) · `captures` · `decisions_needed` · `play_check` (one line per play step: done or skipped+why; steps the play marks `(owner)` cite the owner's words) · `log` (one line) · `next` (local issued CALL, `awaiting_decision`, or `return-to-parent/requester/owner`). It never writes NOW or selects foreign work.
 
-In track-mode a continuation may be `waiting|blocked|paused`; `open_calls.status` decides whether it is dispatchable.
+In track-mode a continuation may be `running|waiting|blocked|paused`; `open_calls.status` decides whether it is dispatchable.
 
 An engineering CALL goes to the product repo. Its `return` comes HOME; only Direction issues successor CALLs. Evidence = commits/PR + checks; the OS pins no branch/path/SHA.
 

@@ -10,7 +10,8 @@ remain authoritative.
 ## Authority
 
 1. `live/**`, `os/**`, product repos, and committed artifacts are the source of
-   truth. A runtime database is a cache, queue, or UI state only.
+   truth. A runtime database is a cache, queue, or UI state only; a Direction
+   CALL's durable launch claim is its `open_calls.status: running` receipt.
 2. Durable changes enter Direction OS only as RESULTs applied by the writer.
    No runtime step edits `live/**` directly.
 3. No-code tools are clients. They may display status, trigger allowlisted
@@ -100,6 +101,7 @@ yields REPORT HOME; a genuine decision/blocker yields ESCALATE HOME.
 
 - One writer apply per direction at a time.
 - One runtime claim per `(direction, track, call)`; retry resumes that identity instead of launching a duplicate.
+- A claim passes through the writer as `ready -> running` with its receipt before dispatch. The runtime refuses an already-`running` call; only an explicit cancel/lost receipt may reset it to `ready`.
 - One v31 closing-control lease per root; only its clean committed checkout may stage closing files.
 - Product executor jobs use separate branches/worktrees or an explicit
   owner-approved shared worktree.
@@ -112,9 +114,9 @@ yields REPORT HOME; a genuine decision/blocker yields ESCALATE HOME.
 A future `osctl` or equivalent wrapper should expose small JSON-friendly
 commands:
 
-- `status`: derive directions, active bets, track WIP limit/occupancy, calls grouped by track, and decisions.
+- `status`: derive directions, active bets, track WIP limit/occupancy, calls grouped by track/status including `running`, and decisions.
 - `collect`: render a paste-ready packet for one explicit/sole actionable call; several return choices.
-- `run`: start one ready call; a v30/v31 engineering root also drives its declared fresh product stages.
+- `run`: claim one ready call through the writer, then start it; a v30/v31 engineering root also drives its declared fresh product stages.
 - `review`: run a fresh refutation pass over an executor RESULT.
 - `apply`: invoke the writer on one RESULT with direction lock.
 - `notify`: send owner batches without changing state.

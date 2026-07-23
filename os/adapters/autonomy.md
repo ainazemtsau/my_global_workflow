@@ -19,9 +19,9 @@ For v29/legacy work, the owner carries a Direction CALL to the executor, then ca
 A local runtime, scheduled job, or short-lived headless agent on this repo:
 - applies RESULTs through the writer contract as they arrive (owner pastes once, not twice);
 - runs digest/audit/pulse on schedule, producing consolidated decision batches;
-- prepares every ready CALL grouped by track; the owner can open one or several without assembling packets;
+- prepares every ready CALL grouped by track, shows `running` separately, and never offers a running CALL twice; the owner can open one or several without assembling packets;
 - may trigger fresh review of executor evidence before writer apply.
-Owner's manual work shrinks to: choose a ready CALL card grouped by track, open its chat, answer batched decisions.
+Owner's manual work shrinks to: choose a ready CALL card grouped by track, open its chat, report launches/losses once, and answer batched decisions.
 
 ## Stage 3: orchestrator
 
