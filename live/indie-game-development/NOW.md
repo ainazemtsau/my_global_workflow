@@ -1,6 +1,6 @@
 # NOW: indie-game-development
 
-updated: 2026-07-23 by s-work-characters-v2-published-close-readiness-accept-001
+updated: 2026-07-23 by s-work-launch-control-demo-control-room-character-review-admission-001
 
 bet: null
 
@@ -32,19 +32,20 @@ open_calls:
       - history/2026-07-20-s-work-program-v2-legacy-lab-purge-deliver-blocked-001.md
     note: "BLOCKED / V31 RELEASE CONTINUATION / ROOT NOT RELEASED. Product candidate 72c7c8c6 removes the 24 approved tracked paths, preserves KEEP, adds the <=400-word no-growth policy, passes fresh non-author G5 and normal gates (1829/1829), and is integrated only in local dev through c5c21c13 with blocker evidence baf8513c. Deliver is RED solely because pre-existing review-c-exec-char-v2-source-router-repair-001 does not account for source commit 413149ce after reviewed commit 8a0e33ec. No push/merge/release; origin refs remain 45b15623; WIN-U1 is DRAINING with lease preserved. Do not dispatch or return to feature work until unblock_when is true."
 
-  - id: c-work-launch-control-demo-control-room-wave-a-binding-event-wait-001
+  - id: c-work-launch-control-demo-control-room-character-review-result-wait-001
     track: launch-control
     status: blocked
     to: session
-    for: "g-b847 / immediate refill after the first binding Wave A event"
+    for: "g-b847 / immediate refill after the binding Character Direction review/close result"
     issued: 2026-07-23
-    call: work/launch-control/c-work-launch-control-demo-control-room-wave-a-binding-event-wait-001-call.md
-    unblock_when: "Either c-outcome-characters-v2-published-close-readiness-001 has a committed ACCEPT/COUNTER/BLOCKED Direction receipt, or the owner has given actual accept/revise/reject words on the fresh G02 PLAN and that verdict has a lawful receipt. A prepared draft, product commit or elapsed time does not unblock."
+    call: work/launch-control/c-work-launch-control-demo-control-room-character-review-result-wait-001-call.md
+    unblock_when: "A valid committed Direction-OS review RESULT from a fresh Character session attempts to refute all seven done_when of c-exec-char-v2-body-rig-ragdoll-build-001 and either lawfully closes that root on MET or records its exact PARTIALLY MET / NOT MET blocker. A prompt, in-session pre-pass, product commit, old product G5 or elapsed time does not unblock."
     receipts:
       - history/2026-07-23-s-work-launch-control-demo-control-room-daily-plan-001.md
       - history/2026-07-23-s-work-launch-control-demo-control-room-wave-a-event-gate-blocked-001.md
       - history/2026-07-23-s-work-characters-v2-published-close-readiness-accept-001.md
-    note: "BLOCKED / FIRST BINDING WAVE A EVENT RECEIVED / CHARACTER ACCEPT RECEIPT COMMITTED / FRESH REQUESTER REFILL STILL REQUIRED / ZERO AUTOMATIC ADMISSION. The auxiliary Character request returned ACCEPT with exact candidate/publication, owner LOOK, repaired binding G5 and later GREEN Deliver/archive evidence sufficient for one fresh binding Direction review/close; the request itself does not close the WAITING Character root, release Program or admit execution. Grid G02 still has no actual owner verdict. Product dev/main/origin and slot/win-u1 remain clean at 1a6373b8; remaining owner time is UNKNOWN. This root stays BLOCKED until a fresh launch-control refill consumes the receipt; Gas, Canon and all foreign roots remain intact."
+      - history/2026-07-23-s-work-launch-control-demo-control-room-character-review-admission-001.md
+    note: "BLOCKED / CHARACTER ACCEPT CONSUMED / ONE FRESH CHARACTER DIRECTION REVIEW-CLOSE SELECTED / OWNER ALREADY IN LAUNCH CONTROL / NO BUILD OR FOREIGN ROOT MUTATION. Launch Control admitted exactly one next owner action: open a new separate Character review session against the existing WAITING root and committed close-readiness receipt; this current Launch Control session cannot itself provide the fresh binding G5. Product dev/main/origin remain clean at 1a6373b8 with no active Unity/dotnet/git work process. Program remains BLOCKED; Grid remains on its independently launched owner-present PLAN with no committed verdict yet; remaining owner time is UNKNOWN. Refill only after the binding Character review RESULT is committed."
 
   - id: c-exec-level-module-standard-v1-lv0-plan-001
     track: level

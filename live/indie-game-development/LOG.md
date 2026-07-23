@@ -551,4 +551,6 @@ archived: history/LOG-archive-indie-game-development.md — sessions before 2026
 
 2026-07-23 · s-work-characters-v2-published-close-readiness-accept-001 · work · characters · g-6d4e/v2-published-close-readiness-disposition-001: ACCEPT — current Character candidate/publication, carried owner LOOK, repaired binding G5 and later GREEN Deliver/archive chain are sufficient for one fresh binding Direction review/close; the auxiliary request is cleared and both ordinary roots are receipted without status, product, plan or capacity change. → history/2026-07-23-s-work-characters-v2-published-close-readiness-accept-001.md
 
+2026-07-23 · s-work-launch-control-demo-control-room-character-review-admission-001 · work · launch-control · g-b847/demo-control-room-wave-a-event-refill-001: committed Character ACCEPT is consumed inside the current Launch Control session; exactly one separate fresh Character Direction review/close is selected, product remains clean at 1a6373b8, Character WAITING and Program BLOCKED remain truthful, Grid is untouched, and one same-track blocker now waits for the binding review receipt without automatic BUILD. → history/2026-07-23-s-work-launch-control-demo-control-room-character-review-admission-001.md
+
 END_OF_FILE: live/indie-game-development/LOG.md

@@ -524,4 +524,63 @@ background BUILD slot.
 `ACCEPT/COUNTER/BLOCKED` receipt либо actual owner `accept/revise/reject` по
 fresh G02 PLAN с lawful receipt — то из двух, что появится раньше.
 
+## 17. Wave A event refill — Character review admitted
+
+Первое binding-событие Wave A теперь действительно принято внутри
+Диспетчерской: Character outcome request вернул committed `ACCEPT`. Владелец
+правильно уточнил: `мы же сейчас с тобой в Launch Control работаем. Куда мне
+вернуться, я не понимаю.` Возвращаться в другой Launch Control не нужно — эта
+сессия и есть requester refill.
+
+### Receipt / verdict / still-open truth
+
+- **Receipt:** `history/2026-07-23-s-work-characters-v2-published-close-readiness-accept-001.md`.
+  Он связывает candidate `caab93e0`, corrective BUILD `a45bd787`, integration
+  `756273e3`, publication/control `413149ce`, owner LOOK, repaired binding
+  product G5 и поздний GREEN Deliver/archive chain.
+- **Verdict:** `ACCEPT` означает достаточность доказательств ровно для одной
+  свежей binding Direction review/close-сессии.
+- **Still open:** `c-exec-char-v2-body-rig-ragdoll-build-001` остаётся
+  `WAITING`; Program остаётся `BLOCKED`. ACCEPT, product publication и старый
+  G5 сами по себе их не закрывают.
+- **Freshness boundary:** текущая Launch Control сессия не может одновременно
+  быть отдельной свежей Character review-сессией. Поэтому нужен новый чат
+  только для review, а не возвращение в другой управляющий чат.
+
+### Свежий ресурсный граф
+
+| Поток / результат | Proof и предел | Дефицитная поверхность | Observable exit |
+|---|---|---|---|
+| Character Direction close | ACCEPT receipt с exact product/owner/G5 evidence | одна отдельная fresh review-сессия; product read-only | committed `MET` закрывает ordinary root; `PARTIALLY MET / NOT MET` оставляет exact blocker |
+| Program capacity | product purge/release evidence уже существует, но Direction root BLOCKED | serialized Direction reconciliation после Character close | отдельный Program refill только после lawful Character close |
+| Grid G02 | владелец уже запустил owner-present PLAN chat; в Direction пока нет verdict receipt | owner attention; actual `accept / revise / reject` | lawful Grid receipt; prepared draft не считается |
+| Product / machines | `dev/main/origin@1a6373b8` clean; активных Unity/dotnet/git work-процессов нет | review/control очередь, а не BUILD slot | новый product work не допускается этим refill |
+| Owner load | исходно около 12 focused hours и вариант `A` | фактический остаток времени UNKNOWN | новый owner input либо material result, без вычитания времени по догадке |
+
+Новый product execution admission — **0**. Новая выбранная работа — **1 fresh
+Character Direction review**, которую владелец открывает отдельной сессией.
+Grid не отменяется и не перезапускается; Gas, Canon и остальные foreign roots
+не меняются.
+
+### Готовое сообщение для новой Character review-сессии
+
+> Продолжаем Character. Это новая свежая сессия для binding Direction
+> review/close существующего root
+> `c-exec-char-v2-body-rig-ragdoll-build-001`. Прочитай current NOW, frozen
+> root CALL и committed close-readiness receipt
+> `history/2026-07-23-s-work-characters-v2-published-close-readiness-accept-001.md`;
+> read-only попытайся опровергнуть все семь done_when. Не перезапускай BUILD и
+> не изменяй product. При MET законно закрой root; при PARTIALLY MET или NOT
+> MET оставь точный blocker и lawful continuation.
+
+### Daily Brief — ровно четыре строки
+
+1. **Product result:** Character V2 остаётся опубликованным в clean `dev/main/origin@1a6373b8`; нового BUILD этим refill нет.
+2. **Proof + limit:** committed ACCEPT связывает product, owner LOOK, G5 и Deliver evidence, но ещё не является binding Direction close.
+3. **Missing + selected flow:** выбран ровно один новый шаг — отдельная свежая Character review/close-сессия; ordinary root WAITING, Program BLOCKED.
+4. **Other flows:** уже запущенный Grid PLAN не тронут; Gas и Canon не запускаются, оставшееся owner time UNKNOWN.
+
+**Exact next event:** committed fresh Character Direction review RESULT с
+`MET`, `PARTIALLY MET` или `NOT MET` по всем семи done_when существующего root.
+
 END_OF_FILE: live/indie-game-development/work/launch-control/demo-control-room.md

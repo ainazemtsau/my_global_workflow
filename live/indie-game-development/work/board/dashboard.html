@@ -293,22 +293,22 @@
           <a href="../program-v2-track-handoff-template.md">Handoff</a>
         </nav>
       </div>
-      <div class="updated">Обновлено 23 июля 2026<br>по RESULT s-work-characters-v2-published-close-readiness-accept-001</div>
+      <div class="updated">Обновлено 23 июля 2026<br>по RESULT s-work-launch-control-demo-control-room-character-review-admission-001</div>
     </header>
 
     <main>
       <section class="summary" aria-label="Текущий статус">
         <article class="panel">
           <span class="label">Текущий релизный этап</span>
-          <strong class="big">Wave A: первое binding событие получено</strong>
-          <p class="muted">Character close-readiness вернул <code>ACCEPT</code>: текущий evidence-пакет достаточен для одной свежей binding Direction review/close-сессии. Это ещё не закрывает WAITING root, не освобождает Program и не допускает BUILD; у Grid G02 по-прежнему нет actual owner verdict.</p>
+          <strong class="big">Wave A: Character review admitted</strong>
+          <p class="muted">Текущая Launch Control сессия приняла Character <code>ACCEPT</code> и выбрала ровно один следующий шаг: отдельную свежую binding Direction review/close-сессию. Это ещё не закрывает WAITING root, не освобождает Program и не допускает BUILD; уже запущенный Grid PLAN не тронут.</p>
         </article>
 
         <article class="panel next">
           <span class="label">Следующее законное событие</span>
-          <strong class="big">Свежий Launch Control refill по Character ACCEPT</strong>
-          <p><a href="../launch-control/c-work-launch-control-demo-control-room-wave-a-binding-event-wait-001-call.md">Открыть requester continuation</a></p>
-          <p class="muted small">Character receipt уже committed и указан в обоих ordinary roots. Launch Control остаётся BLOCKED в NOW до отдельной свежей refill-сессии: только она может законно принять receipt, перечитать ресурсы и выбрать review, replan или stop. Automatic BUILD отсутствует.</p>
+          <strong class="big">Свежий Character Direction review/close RESULT</strong>
+          <p><a href="../c-exec-char-v2-body-rig-ragdoll-build-001-call.md">Открыть frozen Character root</a> · <a href="../../history/2026-07-23-s-work-characters-v2-published-close-readiness-accept-001.md">Открыть ACCEPT receipt</a></p>
+          <p class="muted small">Возвращаться в другой Launch Control не нужно. Нужен новый отдельный Character review chat только ради binding freshness: он read-only опровергает семь done_when и возвращает MET / PARTIALLY MET / NOT MET. Automatic BUILD отсутствует.</p>
         </article>
 
         <article class="panel">
@@ -325,7 +325,7 @@
       </section>
 
       <aside class="note">
-        <strong>Character ACCEPT — это допуск review, не close.</strong> Exact candidate <code>caab93e0</code>, repair BUILD <code>a45bd787</code>, owner LOOK, binding G5 и поздний GREEN Deliver/archive chain теперь receipted в Direction. NOW законно сохраняет Character WAITING, Launch Control и Program BLOCKED; новый execution admission равен нулю до fresh requester refill.
+        <strong>Character ACCEPT принят здесь; дальше нужен отдельный fresh review.</strong> Exact candidate <code>caab93e0</code>, repair BUILD <code>a45bd787</code>, owner LOOK, binding G5 и поздний GREEN Deliver/archive chain receipted в Direction. NOW законно сохраняет Character WAITING и Program BLOCKED; новый execution admission равен нулю до binding review RESULT.
       </aside>
 
       <section id="board">
@@ -339,18 +339,18 @@
           <p><b>Что это:</b> сохранённый V31-кандидат удаляет 24 tracked paths четырёх доказанно неиспользуемых семейств и закрепляет короткое правило no-growth для семи временных validators.</p>
           <p><b>Зачем:</b> мусор перестаёт расти, а SampleScene, Character V2, Core/Sandbox, topology, render и Dungeon Architect support остаются нетронутыми.</p>
           <p><b>Где сейчас:</b> NOW всё ещё хранит старый BLOCKED receipt, но fresh product history уже содержит close <code>3db67e8a</code>, released-slot receipt <code>f6e4f725</code> и более поздний общий release <code>1a6373b8</code>. Это доказывает product drift вперёд, но не позволяет молча снять Direction blocker.</p>
-          <p><b>Что дальше:</b> Character disposition уже вернул <code>ACCEPT</code>, но не закрыл root. Fresh Launch Control refill должен отдельно принять receipt и решить, открывать ли binding Character review/close; только его lawful close может разблокировать последующую Program reconciliation. Frozen Program CALL не перезапускается автоматически.</p>
+          <p><b>Что дальше:</b> Character disposition уже вернул <code>ACCEPT</code>, и текущий Launch Control refill выбрал отдельный fresh binding Character review/close. Только его lawful MET receipt может разблокировать последующую Program reconciliation. Frozen Program CALL не перезапускается автоматически.</p>
           <p><a href="../c-exec-program-v2-legacy-lab-purge-release-001-call.md">Открыть blocked release continuation →</a> · <a href="../legacy-lab-purge-boundary-2026-07-20.md">Прочитать простой вердикт →</a></p>
         </article>
         <article class="panel next" style="margin-top:14px">
-          <span class="label">BLOCKED · CHARACTER ACCEPT RECEIVED · FRESH REFILL REQUIRED</span>
-          <strong>Принять Character receipt в отдельной Launch Control сессии</strong>
-          <p><code>c-work-launch-control-demo-control-room-wave-a-binding-event-wait-001</code></p>
-          <p><b>Что это:</b> единственный same-track continuation Диспетчерской после преждевременно открытого refill.</p>
-          <p><b>Зачем:</b> Character receipt нельзя автоматически превратить в закрытие root, освобождение capacity или запуск следующей product work.</p>
-          <p><b>Где сейчас:</b> BLOCKED в NOW, но Character-ветвь его unblock condition уже имеет committed <code>ACCEPT</code> receipt. Обычный Character root остаётся WAITING, Program — BLOCKED, product refs — clean на <code>1a6373b8</code>; actual G02 owner verdict отсутствует, оставшееся owner time неизвестно.</p>
-          <p><b>Что дальше:</b> свежая requester-сессия перечитывает receipt и ресурсы, затем выбирает максимум одну lawful continuation. До неё новый execution admission равен нулю.</p>
-          <p><a href="../launch-control/c-work-launch-control-demo-control-room-wave-a-binding-event-wait-001-call.md">Открыть requester continuation →</a> · <a href="../../history/2026-07-23-s-work-characters-v2-published-close-readiness-accept-001.md">Прочитать Character ACCEPT →</a></p>
+          <span class="label">BLOCKED · CHARACTER REVIEW SELECTED · BINDING RESULT REQUIRED</span>
+          <strong>Дождаться отдельной свежей Character review/close-сессии</strong>
+          <p><code>c-work-launch-control-demo-control-room-character-review-result-wait-001</code></p>
+          <p><b>Что это:</b> единственный same-track continuation Диспетчерской после законного принятия Character <code>ACCEPT</code>.</p>
+          <p><b>Зачем:</b> текущая Launch Control сессия не может одновременно считаться отдельной свежей Character G5/review-сессией; freshness — обязательные ворота закрытия.</p>
+          <p><b>Где сейчас:</b> ordinary Character root WAITING, Program BLOCKED, product refs clean на <code>1a6373b8</code>, активных Unity/dotnet/git work-процессов нет. Grid остаётся в уже запущенном owner-present PLAN flow; committed verdict пока отсутствует, оставшееся owner time неизвестно.</p>
+          <p><b>Что дальше:</b> владелец открывает новый Character review chat по готовому сообщению из секции 17 Диспетчерской. Его committed MET / PARTIALLY MET / NOT MET RESULT немедленно возвращает Launch Control к refill; BUILD не запускается.</p>
+          <p><a href="../launch-control/c-work-launch-control-demo-control-room-character-review-result-wait-001-call.md">Открыть waiting continuation →</a> · <a href="../launch-control/demo-control-room.md#17-wave-a-event-refill--character-review-admitted">Открыть готовое сообщение →</a></p>
         </article>
         <article class="panel" style="margin-top:14px">
           <span class="label">READY · SELECTED WAVE A · Grid · G02 OWNER-PRESENT PLAN · 1/11</span>
@@ -398,7 +398,7 @@
           <p><b>Что это:</b> frozen legacy root уже построенного Character Leg 2, который проходит owner LOOK, независимую проверку и формальное закрытие.</p>
           <p><b>Зачем:</b> сохранить доказательства существующей работы и не расширять её будущей Actor Layer задним числом.</p>
           <p><b>Где сейчас:</b> ordinary root остаётся WAITING и повторный dispatch запрещён. Auxiliary request вернул <code>ACCEPT</code>: exact candidate <code>caab93e0</code>, repair BUILD <code>a45bd787</code>, owner LOOK, separate binding G5 и поздний GREEN Deliver/archive chain достаточны для одной свежей binding Direction review/close. Это eligibility, не close.</p>
-          <p><b>Что дальше:</b> только отдельный fresh binding review/close может изменить обычный root; Program и capacity до lawful receipt не освобождаются, новая Actor Layer остаётся отдельной V31 работой.</p>
+          <p><b>Что дальше:</b> Launch Control уже выбрал отдельный fresh binding review/close. Его нужно открыть в новом Character chat; только lawful MET может изменить ordinary root. Program и capacity до receipt не освобождаются, новая Actor Layer остаётся отдельной V31 работой.</p>
         </article>
         <article class="panel" style="margin-top:14px">
           <span class="label">BLOCKED · Presentation</span>
@@ -443,6 +443,7 @@
           <details open>
             <summary><strong>23 июля</strong></summary>
             <ul class="remaining">
+              <li>Текущая Launch Control сессия приняла committed Character <code>ACCEPT</code> как первое binding-событие Wave A. Владелец справедливо уточнил, что уже находится в Диспетчерской: возвращаться в другой управляющий чат не нужно. Fresh product readback сохранил clean <code>dev/main/origin@1a6373b8</code> и отсутствие Unity/dotnet/git work-процессов. Выбран ровно один следующий шаг — новая отдельная Character Direction review/close-сессия по существующему root и семи done_when; Character остаётся WAITING, Program BLOCKED, Grid не тронут, BUILD admission равен нулю. Same-track continuation теперь ждёт binding MET / PARTIALLY MET / NOT MET receipt.</li>
               <li>Character close-readiness вернул <code>ACCEPT</code>. Fresh readback связал aggregate candidate <code>caab93e0</code>, exact repair BUILD <code>a45bd787</code>, integration <code>756273e3</code>, carried owner LOOK, separate binding G5 и более поздний GREEN Deliver/archive chain на current product <code>1a6373b8</code>; ранний G5 stop, RED Deliver preflight, terminal exception и отсутствие нового Unity artifact сохранены как явные ограничения. Auxiliary request очищен, Character и Launch Control roots receipted без смены WAITING/BLOCKED, Program остаётся BLOCKED, execution admission — ноль. Следующий законный шаг — свежий requester refill, а не automatic close или BUILD.</li>
               <li>Wave A event refill был открыт до binding события и законно закрылся exact blocker. Fresh Direction/task/product readback не нашёл returned Character <code>ACCEPT/COUNTER/BLOCKED</code> или actual G02 owner verdict; product refs и <code>slot/win-u1</code> остались clean на <code>1a6373b8</code>, активных Unity/dotnet/git work-процессов нет. Character ordinary остаётся WAITING, Program BLOCKED, Grid READY только к owner-present PLAN; новый execution admission равен нулю. Returning id заменён одним same-track BLOCKED continuation до первого lawful receipt, без запуска Gas, Canon, BUILD или foreign work.</li>
               <li>Владелец сообщил около 12 часов сфокусированной работы и выбрал точный вариант <code>A</code>. Fresh readback показал, что вчерашние Canon-чаты завершены точным BLOCKED, а product <code>dev/main/origin@1a6373b8</code> уже содержит Character integration/closing evidence и Program purge release, хотя Direction законно сохраняет Character WAITING и Program BLOCKED до binding receipts. Принята Active Wave размера 2: один read-only Character close-readiness outcome request и существующий owner-present Grid G02 PLAN; Gas остаётся очередью, Canon — blocked, automatic BUILD и foreign launch отсутствуют. Первый binding Character disposition либо фактический G02 PLAN verdict немедленно вызывает refill.</li>
@@ -633,14 +634,14 @@
           <article class="track">
             <div class="track-top"><div><div class="track-id">g-6d4e</div><h3>Character & Gameplay Contact</h3></div><span class="pill waiting">closing</span></div>
             <dl class="facts">
-              <div class="fact"><dt>Сейчас</dt><dd>Legacy Character Leg 2 уже входит в clean product <code>dev/main/origin@1a6373b8</code>; product history содержит integration, delivery close, archive и review. Direction root остаётся WAITING до binding reconciliation.</dd></div>
+              <div class="fact"><dt>Сейчас</dt><dd>Legacy Character Leg 2 уже входит в clean product <code>dev/main/origin@1a6373b8</code>; close-readiness ACCEPT принят Launch Control, а Direction root остаётся WAITING до отдельного fresh binding review/close.</dd></div>
               <div class="fact"><dt>Вклад</dt><dd>Player Simulation / Actor Layer + отдельный Character View.</dd></div>
               <div class="fact"><dt>Текущий root</dt><dd><a href="../c-exec-char-v2-body-rig-ragdoll-build-001-call.md">Frozen Leg 2 CALL</a> — не запускать повторно.</dd></div>
               <div class="fact"><dt>Authority</dt><dd>NOW lineage receipts + product commits <code>756273e3</code>, <code>8596e7bd</code>, <code>f94a9068</code>, <code>0d576fca</code>; проверено 2026-07-23.</dd></div>
               <div class="fact"><dt>Conflict</dt><dd>Product close не равен Direction close. Новая Actor Layer не расширяет старый Leg 2.</dd></div>
             </dl>
             <ul class="remaining">
-              <li><strong>Следом:</strong> auxiliary request возвращает close-readiness <code>ACCEPT/COUNTER/BLOCKED</code>; ordinary root не меняется до свежего review/close.</li>
+              <li><strong>Следом:</strong> открыть новый отдельный Character review chat и попытаться опровергнуть все семь done_when; ordinary root не меняется до committed MET / PARTIALLY MET / NOT MET receipt.</li>
               <li>Свежий V31 PLAN решает layer vs module над seam.</li>
               <li>Доказать contact/reaction и non-authoritative view.</li>
               <li>Вернуть M6 reusable prefab + actor contract.</li>
