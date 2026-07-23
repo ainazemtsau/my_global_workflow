@@ -553,4 +553,6 @@ archived: history/LOG-archive-indie-game-development.md — sessions before 2026
 
 2026-07-23 · s-work-launch-control-demo-control-room-character-review-admission-001 · work · launch-control · g-b847/demo-control-room-wave-a-event-refill-001: committed Character ACCEPT is consumed inside the current Launch Control session; exactly one separate fresh Character Direction review/close is selected, product remains clean at 1a6373b8, Character WAITING and Program BLOCKED remain truthful, Grid is untouched, and one same-track blocker now waits for the binding review receipt without automatic BUILD. → history/2026-07-23-s-work-launch-control-demo-control-room-character-review-admission-001.md
 
+2026-07-23 · s-research-launch-control-demo-program-v0-001 · research · launch-control · g-b847/demo-program-v0-stage-2: evidence-grounded DRAFT demo-program-v0 built backward across design, player, technical and Steam release journeys; October is UNFORECASTABLE, all gaps/conflicts stay explicit, same-session refutation pre-pass is non-binding, and the candidate remains history-only pending a separate fresh binding G5 review. → history/2026-07-23-s-research-launch-control-demo-program-v0-001.md
+
 END_OF_FILE: live/indie-game-development/LOG.md
