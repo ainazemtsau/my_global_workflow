@@ -577,4 +577,6 @@ archived: history/LOG-archive-indie-game-development.md — sessions before 2026
 
 2026-07-23 · s-work-publish-launch-control-demo-program-v0-correction-004-main-001 · work/publish · launch-control · g-b847/repository-main: owner-requested exact DRAFT correction-004 payload 6bd05207 / blob 512d9a90 was atomically fast-forward published without force to origin/main and origin/wt/indie-game-development with exact two-ref remote history/LOG trailer readback; only this publication receipt is added, while hot state, Demo Control Room, Stage 4, BUILD and G5 remain unchanged. → history/2026-07-23-s-work-publish-launch-control-demo-program-v0-correction-004-main-001.md
 
+2026-07-23 · s-research-launch-control-review-demo-program-v0-binding-004 · research · launch-control · g-b847/demo-program-v0-binding-g5-004: binding fresh G5 REFUTED exact DRAFT 6bd05207/blob 512d9a90 because C2 admits revision words without exact-Brief acceptance and C4 admits generic owner words without exact-slice selection, allowing non-accepting verdicts to unlock owner-approved/selected nodes; the 41×9 mirrored 133-edge DAG, eight route/slice valuations, Steam rules and correction manifest otherwise survived, and Stage 4 remains closed. → history/2026-07-23-s-research-launch-control-review-demo-program-v0-binding-004.md
+
 END_OF_FILE: live/indie-game-development/LOG.md
