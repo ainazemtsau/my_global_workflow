@@ -585,4 +585,6 @@ archived: history/LOG-archive-indie-game-development.md — sessions before 2026
 
 2026-07-23 · s-work-publish-launch-control-demo-program-v0-correction-005-main-001 · work/publish · launch-control · g-b847/repository-main: owner-requested exact correction-005 candidate bff423df / blob 5c3b2131 was atomically fast-forward published without force to origin/main and origin/wt/indie-game-development with exact two-ref remote history/LOG trailer readback; only this publication receipt is added, while hot state, Demo Control Room, correction-005, active Program Model, Stage 4, BUILD and G5 remain unchanged. → history/2026-07-23-s-work-publish-launch-control-demo-program-v0-correction-005-main-001.md
 
+2026-07-23 · s-review-launch-control-demo-program-v0-binding-005 · review · launch-control · g-b847/demo-program-v0-binding-g5-005: binding fresh G5 REFUTED exact DRAFT bff423df/blob 5c3b2131 because C3 can preserve a tree from a superseded Brief generation and P2 can emit on spectator or dirty-session evidence without a same-session second-player causal intervention; isolated C2/C4 gates, the 41×9 mirrored 133-edge DAG and route/scope/Steam guards otherwise survived; Stage 4, BUILD and correction-006 remain closed pending owner choice. → history/2026-07-23-s-review-launch-control-demo-program-v0-binding-005.md
+
 END_OF_FILE: live/indie-game-development/LOG.md
