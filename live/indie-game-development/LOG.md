@@ -555,4 +555,8 @@ archived: history/LOG-archive-indie-game-development.md — sessions before 2026
 
 2026-07-23 · s-research-launch-control-review-demo-program-v0-binding-001 · research · launch-control · g-b847/demo-program-v0-binding-g5: binding G5 was not admitted because candidate 7430ebe3 is absent from authoritative origin/main@4a33f386; all 37 outcomes remain INCONCLUSIVE, no Stage 4 verdict is opened, and the exact candidate must land before a fresh-session rerun. → history/2026-07-23-s-research-launch-control-review-demo-program-v0-binding-001.md
 
+2026-07-23 · s-research-launch-control-demo-program-v0-001 · research · launch-control · g-b847/demo-program-v0-stage-2: evidence-grounded DRAFT demo-program-v0 built backward across design, player, technical and Steam release journeys; October is UNFORECASTABLE, all gaps/conflicts stay explicit, same-session refutation pre-pass is non-binding, and the candidate remains history-only pending a separate fresh binding G5 review. → history/2026-07-23-s-research-launch-control-demo-program-v0-001.md
+
+2026-07-23 · s-repair-launch-control-demo-program-v0-candidate-merge-001 · repair · launch-control · g-b847/demo-program-v0-candidate-merge: owner-confirmed Git transport repair merges exact candidate 7430ebe3 into main while preserving the earlier INCONCLUSIVE blocker receipt; DRAFT remains history-only, binding G5 and Stage 4 remain open, and no hot state or product authority changes. → history/2026-07-23-s-repair-launch-control-demo-program-v0-candidate-merge-001.md
+
 END_OF_FILE: live/indie-game-development/LOG.md
