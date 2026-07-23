@@ -575,4 +575,6 @@ archived: history/LOG-archive-indie-game-development.md — sessions before 2026
 
 2026-07-23 · s-research-launch-control-demo-program-v0-correction-004 · research · launch-control · g-b847/demo-program-v0-correction: exact DRAFT correction-004 adds early ready-tech sandbox and four-class dogfood before a future owner-approved Sellable Demo Brief, versioned October-primary/explicit-February and unreleased guards, exact-build two-PC plus separate clarity proof, and lawful Gas/world-change resolution; 41×9 mirrored 133-edge DAG, no Stage 4, BUILD or owner verdict. → history/2026-07-23-s-research-launch-control-demo-program-v0-correction-004.md
 
+2026-07-23 · s-work-publish-launch-control-demo-program-v0-correction-004-main-001 · work/publish · launch-control · g-b847/repository-main: owner-requested exact DRAFT correction-004 payload 6bd05207 / blob 512d9a90 was atomically fast-forward published without force to origin/main and origin/wt/indie-game-development with exact two-ref remote history/LOG trailer readback; only this publication receipt is added, while hot state, Demo Control Room, Stage 4, BUILD and G5 remain unchanged. → history/2026-07-23-s-work-publish-launch-control-demo-program-v0-correction-004-main-001.md
+
 END_OF_FILE: live/indie-game-development/LOG.md
