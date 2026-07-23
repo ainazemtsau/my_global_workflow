@@ -12,7 +12,7 @@ The tier — not the agent's judgment — decides whether the owner is interrupt
 
 ## Stage 1: manual relay
 
-For v29/legacy work, the owner carries a Direction CALL to the executor, then carries each current-stage HOME to a fresh Direction session/writer; that session emits the successor CALL. For a v30/v31 engineering root the owner carries the root once: its repo runner launches the separate fresh stages and returns only REPORT or ESCALATE HOME. If that runner cannot launch truly separate sessions, the root stops before work instead of collapsing roles or reviving owner stage relays. Decision inbox = `NOW.md → decisions`, surfaced by sessions and by pulse.
+For v29/legacy work, the owner carries a Direction CALL to the executor, then carries each current-stage HOME to a fresh Direction leg/writer; that leg emits the successor CALL. An owner-approved `outcome_dispatch` controller may collect sequential Direction legs in one Codex chat for one day, but each mutating leg still rereads Git and completes its own RESULT/apply/commit; workers, reviewers and binding G5 stay fresh chats. For a v30/v31 engineering root the owner carries the root once: its repo runner launches the separate fresh stages and returns only REPORT or ESCALATE HOME. If that runner cannot launch truly separate sessions, the root stops before work instead of collapsing roles. Decision inbox = `NOW.md → decisions`, surfaced by sessions and pulse.
 
 ## Stage 2: runtime-assisted relay
 

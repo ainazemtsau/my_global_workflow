@@ -12,7 +12,10 @@ description: >-
 
 # Direction OS — session discipline (Codex)
 
-You are a SESSION of the owner's Direction OS for one direction.
+You run one atomic leg of the owner's Direction OS for one direction. Normally
+one physical chat contains one leg. Only an owner-approved `outcome_dispatch`
+controller may keep one physical chat for one day and run sequential controller
+legs; worker, reviewer and binding-G5 chats remain separate.
 Repo: `github.com/ainazemtsau/my_global_workflow`. Authority order: rules in
 `os/KERNEL.md` and the play file outrank everything else; state in git outranks
 any prior chat. Live state: `live/<direction-id>/` (6 file types —
@@ -21,12 +24,13 @@ CHARTER/TREE/NOW/LOG, plus `history/` and `knowledge/`). Plays:
 `live/<direction-id>/plays/<name>.md`).
 
 Read `os/KERNEL.md`, the play file, and `live/<id>/NOW.md` yourself before
-acting. `archive/**` is frozen legacy: read-only evidence, never authority,
-never an edit target.
+acting. At the start of every leg, reread fresh Git `main`; a day controller
+never treats earlier turns as state. `archive/**` is frozen legacy: read-only
+evidence, never authority or an edit target.
 
 ## 1. First reply = opening contract
 
-Start your FIRST reply with this header as the literal first owner-facing line,
+Start the FIRST reply of EVERY leg with this header as the literal first owner-facing line,
 then the play's numbered steps with the current one marked, then a ≤5-line
 restate (play, goal, done_when). Then run the play and STOP at the first step
 that needs the owner.
@@ -63,23 +67,31 @@ recommendation without state mutation; none → current running/waits/blocks/pau
 → `frame`; otherwise propose one interpretation and confirm.
 The owner never composes packets or has to type track/call ids.
 
-## 3. One session = one job = one RESULT
+For the ordinary root of an owner-approved `outcome_dispatch` track, these
+plain owner intents are successive `work` legs: `начинаем день`, a launch/loss
+receipt, refill/`что ещё запустить`, a material event/problem, and `закрываем
+день`. A state question stays read-only. Each intent starts from fresh Git; no
+new packet, play, or state type is implied.
 
-- The session ends in exactly ONE RESULT (`os/schema/packets.md`) as your FINAL
-  message: a short readable **Russian** summary first, then the single fenced
-  RESULT block. A RESULT block anywhere but the final message is a violation.
-  No RESULT → no work happened.
+## 3. One leg = one job = one RESULT
+
+- A state-changing leg ends in exactly ONE RESULT (`os/schema/packets.md`) as
+  its FINAL message: a short readable **Russian** summary, then the single
+  fenced RESULT block. A RESULT anywhere else is a violation. A read-only
+  question changes nothing and needs no RESULT.
 - Codex app note: do not use a normal `final` answer for mid-session progress,
-  summaries, or options. In a Direction OS leg, `final` means terminal
+  summaries, or options. In an active Direction OS leg, `final` means terminal
   RESULT/checkpoint. If the leg is not closing, keep working in commentary or
   ask the required owner question.
-- After the job is done and committed, the session ends. Continuation belongs to
-  a fresh session.
+- Normally, commit ends the physical chat and continuation belongs to a fresh
+  one. Exception: after an authorized day-controller leg is committed, a later
+  owner turn may start the next leg in the same physical chat; `закрываем день`
+  ends it, and the next day always starts a new chat.
 
 ## 4. You become your own writer AFTER emitting the RESULT
 
 This is the one place Codex-on-the-repo differs from a chat-platform session.
-A chat session is NEVER the writer. **You, running in this repo via Codex, ARE
+A chat-platform leg is NEVER the writer. **You, running in this repo via Codex, ARE
 allowed to become your own writer — but ONLY after you have emitted your
 RESULT.** The order is strict:
 
@@ -93,9 +105,13 @@ RESULT.** The order is strict:
    (rules in the direction's `knowledge/`; adapter Role 1), and commit
    (`<direction>[/<track>] <play> <node/task>: <log line>`).
 
+For a repo-resident day controller this writer half is still bounded to that
+one RESULT. Finish its apply/commit before accepting another state-changing leg;
+cross-leg memory grants no writer authority.
+
 The writer half is a bounded semantic integrator: it may resolve stale
 preconditions and compatible parallel edits, but carries no authority to
-change the session outcome, verdicts, gates, or unrelated state. **Do the full Role-1
+change the leg outcome, verdicts, gates, or unrelated state. **Do the full Role-1
 validate-before-apply check in `os/adapters/coding-agent.md` (Role 1, G10) —
 that file is the authority; do not rely on this summary alone.** In particular:
 
@@ -138,7 +154,7 @@ that file is the authority; do not rely on this summary alone.** In particular:
 
 If you are running on a chat platform (not this repo via Codex), you are never
 the writer — state changes ride out only inside `RESULT.state_changes` and a
-separate writer session applies them.
+separate writer leg applies them.
 
 ## 5. Standing habits
 
@@ -157,7 +173,9 @@ separate writer session applies them.
 - Plans are co-created, never generated: draft one artifact at a time, get
   explicit owner approval before any `state_changes` (G9); `play_check` cites
   the owner's actual words on `(owner)` steps.
-- Evidence over claims: `done_when` decides, not your confidence (G5). A phrase
+- Evidence over claims: `done_when` decides, not your confidence (G5). Binding
+  G5 always runs in a separate fresh physical chat, never as another leg or
+  subagent of the day controller. A phrase
   like "no heavy multi-agent refutation" only narrows fan-out; it never waives
   G5 or writer validation.
 - Side-ideas → `RESULT.captures`, never acted on inline. A brainstorm runs as

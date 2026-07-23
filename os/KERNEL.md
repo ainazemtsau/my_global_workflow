@@ -4,22 +4,24 @@ Authority order: live owner instruction > this kernel > the active play > direct
 
 ## 1. What this is
 
+In this file, legacy word `session` means atomic leg unless `physical chat` is explicit.
+
 The OS runs the owner's life directions — long-term ambitions — through many short AI sessions over durable state in a git repository.
 
-- A **direction** lives in `live/<id>/` as a fixed set of state files (§3).
-- A **session** is one chat doing exactly one job under exactly one play. Context is RAM: **assume interruption at any moment** — anything not written back to state does not exist.
-- A **play** is a named procedure in `os/plays/`. Plays are the only way state changes.
-- The **owner** decides. Agents do everything else. No play may require the owner to copy state by hand; packets are self-contained so any relay (human today, orchestrator later) can carry them.
+- A **direction** lives in `live/<id>/` as the fixed state files (§3).
+- A **leg** is one job under one play. Normally one chat = one leg. Only an owner-approved `outcome_dispatch` controller may keep one physical chat for one day and run sequential legs; before each it rereads fresh Git `main`, and the next day starts a new chat. Context is RAM: unwritten memory is not state.
+- A **play** is a named procedure in `os/plays/`; only plays change state.
+- The **owner** decides. Agents do everything else. Packets are self-contained; no play makes the owner copy state by hand.
 
 ## 2. Session contract
 
-1. **OPEN** — input is a CALL **or a plain owner message**. Read `NOW.md` and the play's listed files. Resolve plain input against NOW: new TREE-backed track → map; retirement/primary handoff → review; other track lifecycle → work; track/task/CALL match → its call/decision; launch/loss report → work; "продолжаем" → sole actionable call/decision; several → grouped choice/recommendation without state change; none → running/waits/blocks/pauses; "что можно делать" → ready calls grouped by track; question → read-only; no-state ambition → frame; otherwise interpret and confirm. The first reply is the **opening contract**: the orientation header, the play's numbered steps with the current one marked, and a ≤5-line restate (play, goal, done_when) — then run the play, stopping at the first owner step; play steps outrank the CALL. Unreadable or contradictory state → repair. Structured CALLs are machine/copy-paste artifacts; the owner never composes one.
+1. **OPEN** — input is a CALL **or a plain owner message**. Read `NOW.md` and the play's files. Resolve plain input against NOW: new TREE-backed track → map; retirement/primary handoff → review; other lifecycle or launch/loss → work; track/task/CALL → its call/decision; "продолжаем" → sole actionable call/decision; several → grouped choice/recommendation without mutation; none → running/waits/blocks/pauses; "что можно делать" → ready calls by track; question → read-only; no-state ambition → frame; otherwise interpret and confirm. For an authorized controller, `начинаем день`, launch receipt, refill/`что ещё`, material event, and `закрываем день` are successive work-leg intents against its ordinary root. The first reply of every leg is the **opening contract**: orientation header, numbered play steps with the current one marked, and a ≤5-line restate (play, goal, done_when); then run the play and stop at the first owner step. Play outranks CALL. Contradictory state → repair. The owner never composes packets.
 2. **WORK** — follow the play. Cross-cutting moves available in any session:
    - `call:research` — spawn a bounded child question (CALL packet, §4); children may spawn their own.
    - `call:executor` — delegate execution to a working agent (CALL packet, §4).
    - `capture` — record emergent work or an idea as one line in RESULT.captures. Never act on a capture in the same session; it is triaged at shape or pulse.
    - `decision` — put a question to the owner in RESULT.decisions_needed, always with 2–3 options and a recommendation.
-3. **CLOSE** — emit RESULT (§4) as the session's final message only: a readable owner summary first, then the single fenced RESULT block. The lone RESULT ends the session, checkpoints included. A writer applies and commits state_changes; continuation uses RESULT.next in a fresh session. A session may close early with a **checkpoint** RESULT (partial outcome, task stays active, continuation CALL) — switching platforms or splitting long work is normal.
+3. **CLOSE** — emit RESULT (§4) as the leg's final message only: readable summary, then one fenced RESULT. It ends the leg, checkpoints included; the writer applies/commits state_changes. Normal continuation uses RESULT.next in a fresh chat. A day controller may accept the next owner turn in the same physical chat only after that transaction, starting again at OPEN; day close ends it. A checkpoint keeps partial work active through a continuation CALL.
 
 **Orientation header.** Every owner-facing reply starts with one line:
 `📍 <direction> / <track-or-legacy> / <node> / <task> — <play>: <current step> | нужно от тебя: <ничего | вопрос>`
@@ -28,11 +30,11 @@ The OS runs the owner's life directions — long-term ambitions — through many
 
 **Owner-facing vs machine.** The RESULT block — and any packet or state file, a charter draft included — is a machine artifact for the writer. What the owner reads is its substance as a readable summary in his language, never a YAML/state dump as the reply body; the machine block rides once, fenced, at the end of the final message, for the relay to carry.
 
-**Sessions do not write.** No session edits repo state directly — a repo tool or connector is read access, not write permission. State changes travel only inside RESULT.state_changes, applied by the writer (os/adapters/coding-agent.md); an agent-CLI session on this repo becomes its own writer only after emitting its RESULT.
+**Legs do not write.** Repo access is not write permission. Changes travel only inside RESULT.state_changes, applied by the writer; an agent-CLI leg here becomes its own writer only after emitting its RESULT.
 
 **Two-strikes rule.** After two failed correction rounds on the same point: stop, close with a handoff note in RESULT, continue in a fresh session.
 
-**Read-only exception.** Answering owner questions from state needs no play and no RESULT — and must change nothing. Owner-initiated exploration or brainstorming that starts producing ideas worth keeping runs as a research session instead (`play: research, goal: explore X`), so captures return via RESULT.
+**Read-only exception.** A state question needs no play or RESULT and changes nothing. Exploration producing keepable ideas runs as research so captures return via RESULT.
 
 ## 3. Direction state — six file types, never more
 
@@ -40,9 +42,9 @@ The OS runs the owner's life directions — long-term ambitions — through many
 |---|---|---|
 | `CHARTER.md` | mission, measurable success criteria, constraints, lenses, product repos | frame |
 | `TREE.md` | recursive goal tree — outcomes only, no tasks; every non-root node carries its one-line `why` | frame (root), map, shape (splits), review |
-| `NOW.md` | active bet/tasks, optional track index, open-call dispatch frontier, recurring work, decisions | every session |
-| `LOG.md` | append-only: one line per session + link | every session |
-| `history/` | full RESULT of every session, one file each | append-only |
+| `NOW.md` | active bet/tasks, optional track index, open-call dispatch frontier, recurring work, decisions | every leg |
+| `LOG.md` | append-only: one line per leg + link | every leg |
+| `history/` | full RESULT of every leg, one file each | append-only |
 | `knowledge/` | accepted facts and decisions; each entry names who reads it and when | review, pulse |
 
 `work/` holds products (documents, assets, scans) — outputs, not state.
@@ -69,12 +71,12 @@ An engineering CALL goes to the product repo. Its `return` comes HOME; only Dire
 - **G2 (rolling wave).** Tasks exist only inside the active bet. Every other tree node stays outcome-level.
 - **G3 (appetite).** Appetite is set before tasks are written and never extends. There is no extend operation: an over-appetite bet dies; continuing means re-shaping a new bet.
 - **G4 (bet validity).** A bet without done_when and kill_by is invalid.
-- **G5 (evidence).** `done` requires evidence matching done_when. A bet is verified in a session other than the one that did the work, by trying to refute the claim, not confirm it.
+- **G5 (evidence).** `done` requires evidence matching done_when. Verification tries to refute the claim in a separate physical chat from the work and from any day controller; an in-controller leg is never binding G5.
 - **G6 (shape validity).** A shape output without a cut list (≥1 real cut), a lens sweep verdict per lens, and a task testing the riskiest assumption is invalid.
-- **G7 (decisions).** Every owner decision request carries options and a recommendation; decisions are batched, never scattered through a session.
+- **G7 (decisions).** Every owner decision request carries options and a recommendation; decisions are batched, never scattered through a leg.
 - **G8 (intake).** New directions and new top-level goals enter only through frame. New ideas default to `parked` — the parking lot is the system's normal answer to enthusiasm.
-- **G9 (co-creation).** CHARTER.md and TREE.md change only with the owner's explicit in-session approval: planning sessions present drafts one artifact at a time (a tree node is an artifact, carrying its one-line `why`), and the RESULT marks each approval (`owner_approved`). The writer rejects charter/tree changes without it.
-- **G10 (protocol).** The first reply carries the play's step plan; a RESULT block appears only as the final message; sessions never write state directly. The writer rejects a RESULT whose `play_check` misses a step or whose `(owner)` steps lack the owner's actual words.
+- **G9 (co-creation).** CHARTER.md and TREE.md change only with the owner's explicit in-leg approval: planning legs present drafts one artifact at a time (a tree node is an artifact, carrying its one-line `why`), and the RESULT marks each approval (`owner_approved`). The writer rejects charter/tree changes without it.
+- **G10 (protocol).** Every leg's first reply carries the play steps; RESULT appears only in its final message; legs never write state directly. The writer rejects missing `play_check` steps or owner steps without actual words.
 
 A session that cannot pass a gate stops and reports — it never improvises around a gate.
 
