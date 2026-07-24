@@ -597,4 +597,6 @@ archived: history/LOG-archive-indie-game-development.md — sessions before 2026
 
 2026-07-24 · s-review-launch-control-demo-road-reframe-binding-g5-001 · review · launch-control · g-b847/demo-road-reframe-binding-g5: binding fresh G5 REFUTED exact candidate 3006592c/blob 4cd208e7 because its exact delta leaves copied current truth, permits a C3 receipt without consumed-parent provenance, omits required network/Deliver/Direction-close resources and drops unique player/distribution evidence boundaries; publication, 41/41 crosswalk, <1500 limit, nine simulations, P2 and October/explicit-February guards otherwise survived, with no Stage 4, BUILD or correction opened. → history/2026-07-24-s-review-launch-control-demo-road-reframe-binding-g5-001.md
 
+2026-07-24 — research (g-b847/minimal-authority, s-research-launch-control-minimal-authority-001): converged the failed Demo Control Room/DAG/envelope lineage into decision-ready option A — stateless Demo Release Control with Canon-owned definition, READY event refill, exact basis provenance, mechanical no-percent forecast, three-leg migration and deterministic seven-day probe; A/B/C owner verdict is pending, no structure, root, DCR or product work changed. → history/2026-07-24-s-research-launch-control-minimal-authority-001.md
+
 END_OF_FILE: live/indie-game-development/LOG.md

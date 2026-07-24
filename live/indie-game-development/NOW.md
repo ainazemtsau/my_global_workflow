@@ -1,6 +1,6 @@
 # NOW: indie-game-development
 
-updated: 2026-07-23 by s-work-launch-control-demo-control-room-character-review-admission-001
+updated: 2026-07-24 by s-research-launch-control-minimal-authority-001
 
 bet: null
 
@@ -131,6 +131,11 @@ open_calls:
 
 recurring: []
 
-decisions: []
+decisions:
+  - id: d-launch-control-minimal-authority-001
+    track: launch-control
+    q: "Какую архитектуру управления выпуском demo принять вместо действующей Demo Control Room?"
+    options: ["A — сохранить launch-control как stateless Demo Release Control; тремя atomic legs передать Demo Contract authority Canon/owner, переписать g-b847, поставить READY refill, tombstone DCR и запустить deterministic seven-day probe", "B — удалить отдельный control track/outcome_dispatch и оставить owner-mediated global frontier из TREE/NOW", "C — передать outcome_dispatch в Program и удалить отдельный launch-control track"]
+    recommendation: "A — сохраняет high-level cross-track steering и owner choice 0..N, использует существующий OS без новой living plan surface, не смешивает integration с release authority и имеет измеримый fail-fast probe."
 
 END_OF_FILE: live/indie-game-development/NOW.md
