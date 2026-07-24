@@ -609,4 +609,6 @@ archived: history/LOG-archive-indie-game-development.md — sessions before 2026
 
 2026-07-24 · s-work-launch-control-demo-release-control-cycle-001 · work · launch-control · g-b847/demo-release-control-cycle-001: start-day plus the owner's unresolved concept-risk report produced a zero-launch screen that protects owner attention and causal-expedition proof, keeps basis/horizon NONE and October forecast NO DATE BASIS, preserves every foreign root, and refills one READY controller cycle. → history/2026-07-24-s-work-launch-control-demo-release-control-cycle-001.md
 
+2026-07-24 · s-work-launch-control-demo-release-control-cycle-002 · work · launch-control · g-b847/demo-release-control-cycle-002: the owner's failed Canon attempt exposed an unowned game-invention gap before Demo Basis; one bounded Canon disposition request is READY to accept, counter or block ownership, while Gas/Grid stay unlaunched, basis/horizon remain NONE and the controller refills cycle-003. → history/2026-07-24-s-work-launch-control-demo-release-control-cycle-002.md
+
 END_OF_FILE: live/indie-game-development/LOG.md

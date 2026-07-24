@@ -1,6 +1,6 @@
 # NOW: indie-game-development
 
-updated: 2026-07-24 by s-work-launch-control-demo-release-control-cycle-001
+updated: 2026-07-24 by s-work-launch-control-demo-release-control-cycle-002
 
 bet: null
 
@@ -32,13 +32,13 @@ open_calls:
       - history/2026-07-20-s-work-program-v2-legacy-lab-purge-deliver-blocked-001.md
     note: "BLOCKED / V31 RELEASE CONTINUATION / ROOT NOT RELEASED. Product candidate 72c7c8c6 removes the 24 approved tracked paths, preserves KEEP, adds the <=400-word no-growth policy, passes fresh non-author G5 and normal gates (1829/1829), and is integrated only in local dev through c5c21c13 with blocker evidence baf8513c. Deliver is RED solely because pre-existing review-c-exec-char-v2-source-router-repair-001 does not account for source commit 413149ce after reviewed commit 8a0e33ec. No push/merge/release; origin refs remain 45b15623; WIN-U1 is DRAINING with lease preserved. Do not dispatch or return to feature work until unblock_when is true."
 
-  - id: c-work-launch-control-demo-release-control-cycle-002
+  - id: c-work-launch-control-demo-release-control-cycle-003
     track: launch-control
     status: ready
     to: session
     for: "g-b847 / run one fresh Character-independent Demo Release Control event cycle and leave the controller READY for the next event"
     issued: 2026-07-24
-    call: work/launch-control/c-work-launch-control-demo-release-control-cycle-002-call.md
+    call: work/launch-control/c-work-launch-control-demo-release-control-cycle-003-call.md
     receipts:
       - history/2026-07-24-s-research-launch-control-minimal-authority-001.md
       - history/2026-07-24-s-work-canon-demo-basis-authority-transition-001.md
@@ -46,6 +46,7 @@ open_calls:
       - history/2026-07-24-s-review-launch-control-demo-control-room-retirement-001.md
       - history/2026-07-24-s-work-launch-control-demo-release-control-installation-001.md
       - history/2026-07-24-s-work-launch-control-demo-release-control-cycle-001.md
+      - history/2026-07-24-s-work-launch-control-demo-release-control-cycle-002.md
     note: "READY / PERMANENT OUTCOME_DISPATCH CONTROLLER / CHARACTER-INDEPENDENT / DCR HISTORICAL ONLY / POLICY v1 CURRENT. This continuation contains no current snapshot: every fresh start-day, material-return, owner-verdict or hard-date cycle re-reads TREE/NOW/CALL/RESULT identities, renders one disposable <=400-word screen and returns a same-position READY refill. It stores no daily plan, never mutates foreign roots or chooses target HOW, and claims no release progress."
 
   - id: c-exec-level-module-standard-v1-lv0-plan-001
@@ -71,6 +72,16 @@ open_calls:
       - history/2026-07-24-s-research-launch-control-minimal-authority-001.md
       - history/2026-07-24-s-work-canon-demo-basis-authority-transition-001.md
     note: "WAITING / CANON-MAINTAINED DEFINITION AUTHORITY INSTALLED / ACCEPTED BASIS NONE / NO DCR POINTER / NO DESIGN OR BUILD DISPATCH. Owner decides and approves; Canon maintains and version-identifies the exact Demo Basis; Demo Release Control consumes it. Unblock only on one owner-approved current Demo Basis artifact@blob plus acceptance receipt under R0; the repaired working hypothesis remains provisional evidence."
+  - id: c-outcome-canon-game-first-demo-creation-fit-001
+    track: canon
+    status: ready
+    to: session
+    request_kind: outcome
+    requested_by: launch-control
+    for: "g-d3a8 / one owner-approved Canon-maintained Demo Basis identity for R0"
+    issued: 2026-07-24
+    call: work/launch-control/c-outcome-canon-game-first-demo-creation-fit-001-call.md
+    note: "READY / AUXILIARY DISPOSITION ONLY / GAME-INVENTION AUTHORITY GAP. The owner's material failure report proves that the accepted workflow begins after an owner-approved Demo Contract while the current Canon root only maintains that basis. This request asks Canon only to ACCEPT current-route ownership, COUNTER with an equivalent target-owned outcome, or BLOCKED with exact reframe/new-track routing proof. It changes no Canon plan/root/product and creates no successor."
   - id: c-visual-009
     track: visual
     status: blocked
