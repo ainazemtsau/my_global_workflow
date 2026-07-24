@@ -1,29 +1,28 @@
 # Play: repair
 
-Purpose: restore a trustworthy hot-state NOW.md when state contradicts reality or schema hygiene drift makes the entrypoint unreliable. Desync is expected, not exceptional — repair is cheap by design.
+Purpose: restore trustworthy hot state when state contradicts reality/schema. Desync is expected; repair is cheap.
 
-Triggers: a session's CALL contradicts NOW.md; a workstream is untracked, a call is orphaned/misclassified, or the dispatch frontier is incomplete; NOW.md contradicts TREE.md or visible evidence; audit/pulse flags hygiene drift; a RESULT was lost; the owner says "this is wrong".
+Triggers: CALL contradicts NOW; work is untracked/misclassified; lane/call/issue frontier is incomplete; NOW contradicts TREE/evidence; audit flags hygiene drift; RESULT was lost; owner says “this is wrong”.
 
-Reads: NOW.md, TREE.md, CHARTER.md, LOG.md tail, recent history/ files, git log of the direction, work/ artifacts.
-Writes: NOW.md, TREE.md, CHARTER.md (hygiene trims only, owner-confirmed per G9), LOG.md (a repair entry naming what diverged), optional `work/` snapshot artifact, optional `history/LOG-archive-<direction-id>.md`.
-
-For a multi-workstream direction, reconstruction inventories the owner-approved WIP limit and each current track independently: stable id/label, primary|parallel mode, approved scope/dispatch authority, one ordinary root/decision, parented children, auxiliary outcome requests, and honest statuses. Corrected state moves prose into CALL/history artifacts, maps every outstanding call/decision to one track, stays within WIP, removes obsolete selector residue, and preserves unrelated ids. A parallel TREE node uses `status: parallel`; changing TREE still needs owner approval (G9).
+Reads: NOW.md, TREE.md, CHARTER.md, LOG tail, recent history/git, named work evidence.
+Writes: NOW.md; TREE/CHARTER hygiene trims only with G9 approval; LOG; optional unrecoverable-state snapshot; optional LOG archive.
 
 ## Steps
 
-1. **Name the contradiction** — state exactly what disagrees with what, in two lines.
-2. **Reconstruct** — newest-first through LOG.md, history/, git commits, and artifacts: what actually happened? Artifacts and commits outrank log lines; log lines outrank memory of prior chats; prior chat content is the weakest evidence (authority order of the kernel applies). For hygiene drift, separate current truth from archive text.
-3. **Propose corrected state** — a corrected NOW.md (and TREE.md statuses if needed) with a one-line justification per change. Same treatment for any hot file flagged as hygiene drift (NOW.md, CHARTER.md, TREE.md, LOG.md): check whether the inlined detail is already recoverable — usually it's already sitting in a linked `history/` file, since that's where the writer saves every full RESULT verbatim, so no re-save is needed; only when it genuinely isn't recoverable elsewhere, save the full pre-repair text as a `work/` snapshot first. Either way, collapse the file back to its schema template — hot state plus one-line pointers to LOG/history/work, nothing inlined. For LOG.md specifically, past-ceiling is usually entry count, not verbosity: keep the newest entries (compacted to the one-line rule if they aren't already), move everything older verbatim into `history/LOG-archive-<direction-id>.md` per schema, leave the one `archived:` pointer line. Anything unrecoverable becomes an explicit open question, not a guess.
-4. **Confirm** — show the diff to the owner (gate G7: this is one batched decision). On approval, RESULT applies it.
-5. **Friction** — if the desync came from a hole in the OS (not a one-off accident), add one line to os/FRICTION.md.
+1. **Name the contradiction** — what disagrees with what, in two lines.
+2. **Reconstruct** — newest-first through LOG/history/git/artifacts. Artifacts/commits outrank logs; logs outrank chat memory. Inventory: active bet, its tasks, every execution lane/root/child/status, pending decisions, unresolved issues, forecast basis, recurring work. No bet permits no non-recurring lane. Old independent strategies become explicit issues or cold evidence, never lanes by inertia.
+3. **Propose corrected state** — one-line reason per change. Preserve every outstanding fact, but separate authority from evidence. Each issue gets stable id, route owner, review trigger and pointer; each removed issue gets a disposition in history. Forecast becomes `no_basis` when calibration is absent. For hot-file bloat, keep schema fields/pointers only; Git/history already preserve committed detail. Save a work snapshot only if content is genuinely unrecoverable elsewhere. Rotate over-ceiling LOG per schema: recent entries stay, older lines move verbatim to the one archive and one pointer remains.
+4. **Confirm (owner)** — show one batched diff; apply only after explicit approval. CHARTER/TREE semantic changes route to frame/map/review, not repair.
+5. **Friction** — OS hole → one FRICTION line; do not fix OS here.
 
 ## Done when
 
-NOW.md matches reality and hygiene rules; tracks/calls/decisions are mutually consistent where used; any other flagged hot file is back within its template, to the owner's confirmation; the cause is logged.
+NOW matches reality/schema; any lanes serve the active bet; calls/decisions/issues/forecast are mutually consistent; other flagged hot files are within template; cause is logged.
 
 ## Notes
 
-- Repair never invents progress: when in doubt, mark a task open rather than done. Optimistic repair is worse than lost work.
-- If repair recurs in the same spot twice, that's a friction pattern — flag it in step 5 rather than silently fixing again.
+- Never invent progress. Uncertain work becomes an issue/open question, not done.
+- Repair may retire obsolete dispatch state while preserving its artifacts/history.
+- Repeated same-point repair is a friction pattern.
 
 END_OF_FILE: os/plays/repair.md

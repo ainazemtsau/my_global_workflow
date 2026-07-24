@@ -6,21 +6,21 @@ How to run several directions (and several sessions) at once without corrupting 
 
 | What | Parallelism |
 |---|---|
-| Chat sessions (ChatGPT/Claude, any play) | Parallel across/within directions; starts still obey track WIP and CALL budgets -- sessions only emit RESULTs |
+| Chat sessions (ChatGPT/Claude, any play) | Parallel across/within directions; non-recurring starts serve the one active bet and obey lane WIP/CALL budgets -- sessions only emit RESULTs |
 | Executor runs in product repos | Parallel per the engineering contour: each run on its own branch/PR, or its own cloud VM (zero-setup option for parallel runs) |
 | Writers across DIFFERENT directions | Fully parallel -- `live/<id>/` paths are disjoint; push races resolve mechanically (see protocol) |
 | Applying RESULTs within ONE direction | **One at a time.** Queue them; when each turn arrives, re-read current state and semantically rebase its explicit delta |
 | Maintenance on os/** | One session at a time (MAINTENANCE.md already enforces one problem per session) |
 
-Parallel sessions inside one direction are legal (G1 caps the primary bet at <=3 active tasks and owner-set non-paused track slots; `open_calls` is the dispatch frontier) -- only their *applies* serialize.
+Parallel sessions inside one direction are legal (G1 caps the one active bet at <=3 tasks and owner-set execution-lane slots; `open_calls` is the dispatch frontier) -- only their *applies* serialize. With `bet: null`, no non-recurring execution session is lawful.
 
-**Concurrent sessions within one direction -- two hygiene rules** (for a direction running several workstreams at once, e.g. an engine bet plus a parallel visual track):
+**Concurrent sessions within one direction -- two hygiene rules** (for independent calls serving the same active bet, e.g. gameplay proof plus evidence collection):
 
-- **IDs derive from the CALL, never a shared counter.** In track-mode a session id includes its stable call id plus attempt (`canon-c117-a1`); child CALL ids namespace under their issuing call. Parallel children inside one track therefore cannot collide. Legacy single-track state may keep its old prefix/counter until migration.
+- **IDs derive from the CALL, never a shared counter.** In lane-mode a session id includes its stable call id plus attempt (`gameplay-c117-a1`); child CALL ids namespace under their issuing call. Parallel children inside one lane therefore cannot collide. Legacy state may keep its old prefix/counter until repair.
 - **Re-sync every declared repository before EVERY apply, not just at session start.** A session that writes state more than once re-runs `git fetch && reset --hard origin/main` and re-reads NOW.md before EACH write -- a concurrent same-direction apply may have landed since the last read. When `RESULT.state_changes` names a target or governing authority in another Git repository, the writer must also run `git fetch origin` there and preflight against `origin/main`; a local `main` or an old tracking ref is not fresh evidence. Before changing that external repository, it must be a clean, fast-forwardable checkout of `main`; otherwise stop with an external-sync blocker and do not clear the Direction call. Stale packet bases are expected: the writer rebases the RESULT's explicit delta onto that fresh state and preserves current values outside it. Edit only your workstream's own regions; the `updated:` line and the shared decision / pending lists are the hot spots.
 - **Canon repository is main-only.** A writer changing `ainazemtsau/gas_coop_game_canon` uses only its `main` checkout: no temporary worktree, feature branch or detached `HEAD`. In that checkout it must `fetch origin`, refuse dirty state, fast-forward `main` to `origin/main`, preflight and apply the declared canon delta, then commit, push `HEAD:main` and read back the exact remote SHA. Only after that readback may it commit Direction `live/**` that says the canon change is applied; the Direction history names the canon commit. A failed canon preflight, commit, push or readback leaves the Direction call open.
 
-Direction tracks are first-class **dispatch**, not git isolation or extra bets: `NOW.tracks` groups mergeable `open_calls`, while the primary track alone owns `NOW.bet` and tasks. Product executors still isolate writes in product branches/worktrees under their repo contract. Create a new Direction only when work needs a genuinely separate mission/charter/root authority; category names such as another game, canon, visuals, or marketing do not decide that split by themselves.
+Direction tracks are first-class **execution dispatch**, not git isolation, departments, future objectives or extra bets: when present, `NOW.tracks` groups mergeable `open_calls` that all resolve to the current `NOW.bet` node/tasks. Future goals remain parked/shaped in TREE; unrelated work waits in issues until its owning play admits it. Product executors still isolate writes in product branches/worktrees under their repo contract. Create a new Direction only when work needs a genuinely separate mission/charter/root authority; category names such as another game, canon, visuals, or marketing do not decide that split by themselves.
 
 ## Mechanics: one worktree per direction
 

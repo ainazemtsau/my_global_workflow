@@ -9,7 +9,7 @@ CALL <call-id>
 to: session | research | executor        # who runs it
 direction: <direction-id>
 track: <track-id>                        # required when NOW.md uses track-mode
-play: <frame|map|shape|converge|converge-arch|converge-verify|work|guide|review|research|pulse|repair|local/<name>>   # for sessions
+play: <frame|map|shape|converge|converge-arch|converge-verify|day|work|guide|review|research|pulse|repair|local/<name>>   # for sessions
 node: <g-xxxx>  task: <t-N> | recurring: <r-N>          # when applicable
 goal: |
   <the outcome to produce — not the method>
@@ -23,9 +23,7 @@ done_when: |
 return: |
   <expected format of the RESULT's outcome/evidence>
 budget: <e.g. one session | 2h | 15 tool calls>
-parent: <parent-call-id>                 # track child; legacy may name parent session
-request_kind: outcome                   # auxiliary cross-track disposition request only
-requested_by: <track-id>                # owner-approved outcome-dispatch track
+parent: <parent-call-id>                 # same-lane child; legacy may name parent session
 surface: <optional routing hint: chatgpt | claude | cli | any>
 engineering_contract: <N | legacy:<origin-call-id> | re-sync:<N>>  # engineering only; see below
 ```
@@ -85,14 +83,12 @@ play_check:
   # actual words (his answer, verdict, or explicit waiver) — gate G10
 log: <one line for LOG.md>
 next: |
-  <one new local continuation CALL registered by state_changes | awaiting_decision | return-to-parent <id> | return-to-requester <track-id> | return-to-owner>
+  <one new local continuation CALL registered by state_changes | awaiting_decision | return-to-parent <id> | return-to-owner>
 ```
 
-**Track routing.** Legacy single-track directions may omit `track`. Once `NOW.md` has `tracks`, every newly issued CALL, RESULT, and pending decision names one; a pre-migration CALL may inherit its unique track from the authoritative `open_calls` entry with the same id. Each track has at most one ordinary parentless root CALL. A child names an existing same-track parent, appears in that parent's `waiting_on`, inherits its budget, and has acyclic ancestry to the root. Its RESULT clears only the child id, adds the history receipt to the direct parent, and makes that parent ready only after its last wait id clears. A RESULT may issue one same-position successor plus children: a root successor stays root; a child successor keeps its parent. Other call ids survive semantic rebase. `RESULT.next` hands off only a same-track continuation issued by this RESULT (successor or child), its pending decision, a parent/requester return, or `return-to-owner`; it is not copied into NOW and cannot select or modify another track. A `next` that merely recommends foreign work not issued by this RESULT is obsolete non-state advice whether that work is still open, consumed, or superseded: omit it from the handback and apply the remaining valid transaction.
+**Lane routing.** When `NOW.md` has tracks, each CALL, RESULT and pending decision names one. Tracks are execution lanes under the one active bet, never future goals or parallel strategies; their `for` resolves to that bet/node/task or a recurring obligation. Each lane has at most one parentless root CALL. A child names an existing same-lane parent, appears in its `waiting_on`, inherits budget, and has acyclic ancestry. Its RESULT clears only itself, adds the history receipt to the direct parent, and makes that parent ready only after the last wait clears. A RESULT may issue one same-position successor plus children. Other call ids survive semantic rebase. `RESULT.next` hands off only a local continuation/decision/parent return/owner return; it is not copied into NOW and cannot select foreign work.
 
 An owner/runtime-confirmed launch may change an existing `open_calls` row `ready → running` without changing the CALL; `running` is durable duplicate-launch prevention, not a new packet or progress claim. It requires a `started` evidence pointer, is never dispatchable, and returns normally. Resetting `running → ready` requires an explicit lost/cancelled-run receipt; elapsed time alone never resets or relaunches it.
-
-**Bounded cross-track outcome request.** At most one owner-approved track per direction may carry `outcome_dispatch: true`. Its ordinary root may issue or expire an auxiliary CALL with `request_kind: outcome`, `requested_by: <that-track>`, a different target `track`, `to: session`, `play: work`, and no `parent`; its registered `for` matches that target's ordinary root. Both requester and target ordinary roots remain non-paused while it is open, so both tracks already occupy WIP. The request is not a root/child, adds no WIP slot, never mutates or replaces the target root, and at most one may be open per target track. It is issued `ready` and may become `running` only through the launch rule above. Its CALL asks only whether one observable need fits the target's current lawful route: `context` names the source, need, useful date/event and miss consequence; `done_when` names outcome and proof; no technical HOW. Its `return` defines the three disposition meanings and required evidence so the carried CALL stays self-contained. The target RESULT's `outcome` starts with exactly `ACCEPT` (need/proof/date fit), `COUNTER` (equivalent outcome plus trade-off) or `BLOCKED` (blocker plus unblock proof), issues no successor and changes no plan/product. This is a target-track operational disposition, not owner approval; any separate owner-verdict request still needs the owner's words. Its RESULT clears the request, appends that history receipt to the current ordinary roots of both tracks, and uses `next: return-to-requester <track-id>`. The authorized requester may instead expire its still-open request by id with an explicit reason; the expiry receipt is appended to the target root and is not a target disposition. Pausing or retiring either track first returns or expires its requests.
 
 **State-change rebase semantics.** The authoritative per-operation merge and
 replay rules are `os/adapters/coding-agent.md` Role 1. Optional blob/SHA/commit

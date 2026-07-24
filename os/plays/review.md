@@ -1,35 +1,34 @@
 # Play: review
 
-Purpose: close the active bet, update TREE from learning, and select what's next. This play alone revises TREE.md after framing.
+Purpose: close or stop the active bet, harvest learning, update TREE with the owner, recalibrate the direction forecast, and select what comes next.
 
-Reads: CHARTER.md, TREE.md, NOW.md, history/ of the target's sessions.
+Reads: CHARTER.md, TREE.md, NOW.md, target history/evidence.
 Writes: TREE.md, NOW.md, LOG.md, knowledge/.
 
-Trigger: all bet tasks closed, OR appetite expired, OR kill_by breached. Must run in a fresh session — never the session that did the work (gate G5).
-
-Parallel-track trigger: done_when met or owner retirement; fresh-session G5 remains.
+Trigger: tasks closed, appetite expired, kill_by breached, evidence made the bet obsolete, or the owner wants to stop/change it. Run in a fresh physical chat; never the work/day chat whose claim is being judged.
 
 ## Steps
 
-1. **Verify by refutation** — take the bet's done_when and actively try to refute that it is met: check the evidence, not the claims. Verdict: met / partially met / not met. For kill_by breach or expired appetite: the bet is dead by default (gate G3) — no extension exists; what remains becomes a parked node that future shape may pick up as a NEW bet. Then a forecast check: compare the bet's forecast and against fields with what happened; name the surprise — optimistic / pessimistic / wrong-mechanism / wrong-timeline; if no forecast was recorded, say so.
-2. **Harvest per lens** — for each lens in CHARTER.md: what did this bet teach us that changes other parts of the tree? Each lens answers, even if "nothing". This is where cross-lens consequences surface (a product result triggering audience work, market data triggering a business node). Name assumptions and edges killed or strengthened (review may demote a charter edge via the decisions batch); branches to drop or expand.
-3. **Update the tree** — propose the harvest as an explicit diff: each new node as a card with its one-line why, each drop with its reason. The diff enters state_changes only after owner approval in the decisions batch (gate G9). Restructuring bigger than a few nodes → route to a map session instead. Outcomes only — no tasks (gate G2).
-4. **Add-back check** — look at the bet's cut list: did any cut item turn out to be genuinely missed? If nothing was ever missed across recent bets, cuts are too timid — say so. Record the ratio observation in the log line.
-5. **Knowledge** — promote at most 1–3 durable learnings into knowledge/, each with `read_by:` (which play/lens reads it, when). A learning nobody will read is not knowledge — drop it.
-6. **Select next** — propose 2–3 candidate nodes for the next bet, across different lenses where sensible, each with one line of why-now (what it unblocks or which assumption it tests). Recommend one (gate G7). Include "pause this direction" as an honest option when the tree shows no urgent node.
-7. **Close** — RESULT: verdict/tree/log; unresolved next-bet choice → decisions_needed + next = `awaiting_decision`; owner-chosen node → registered shape CALL + local RESULT.next.
+1. **Verify by refutation** — try to disprove done_when from evidence. Verdict is exactly:
+   - `met` — done_when survived refutation;
+   - `partial` — named verified value survives but done_when does not;
+   - `killed` — appetite/kill_by or evidence stops the bet;
+   - `obsolete` — a higher approved strategy change removed its purpose.
+   There is no extension. Residual work is parked/dropped and can return only as a newly shaped bet. Compare the bet forecast/against fields with reality and name the surprise.
+2. **Harvest per lens** — each CHARTER lens answers what changed elsewhere, even if “nothing”. Name assumptions/edges strengthened or killed and consequences for the roadmap/issues.
+3. **Tree diff (owner)** — propose small node additions/drops/dispositions, one artifact at a time. Apply only exact owner-approved cards (G9); larger restructuring routes to map. No tasks.
+4. **Add-back check** — inspect the cut list. Name genuinely missed cuts and whether recent cuts are too timid.
+5. **Knowledge** — promote at most 1–3 durable learnings, each with a real `read_by`; otherwise keep only history.
+6. **Forecast & next** — recalibrate `direction_forecast` from material evidence. Numeric chance needs a cited empirical reference class/calibration; otherwise use `no_basis` with drivers and update trigger. Then offer 2–3 future nodes or pause, with recommendation. Activating the chosen node still routes to shape.
+7. **Close** — RESULT records verdict/tree/forecast/issues/log. Pending choice → decision + `awaiting_decision`; chosen node → registered shape CALL.
 
 ## Done when
 
-Bet has a verified verdict; TREE.md reflects the learnings; owner has a next-bet decision with options; NOW.md is clean of the old bet and preserves valid parallel calls.
-
-In track-mode, an active-bet review changes primary calls only; parallel calls are preserved unless this RESULT explicitly changes their approved scope.
-
-A parallel-track review refutes its scope/root done_when, harvests lenses, gets the owner-approved scope disposition (and TREE disposition for a node), retires the track, preserves primary bet/calls, and skips bet-only steps with reasons.
+The old bet has one honest verdict; TREE reflects approved learning; NOW contains no stale bet work; forecast is calibrated or explicitly `no_basis`; the owner has a next-node choice.
 
 ## Notes
 
-- Review is judgment day, not a ceremony: the value is in steps 1–3. If the bet was trivially verified, spend the session on the harvest and the selection.
-- A "not met" verdict is information, not failure — the tree update and the next selection are how the system learns.
+- `partial`, `killed` and `obsolete` are useful outcomes, not disguised done.
+- Review never preserves a lane merely because work once existed; a future bet must admit it again.
 
 END_OF_FILE: os/plays/review.md

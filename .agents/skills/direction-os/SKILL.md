@@ -4,195 +4,174 @@ description: >-
   The master discipline for running a Direction OS leg in this repo
   (github.com/ainazemtsau/my_global_workflow) from Codex. Trigger whenever the
   owner pastes a CALL packet, a RESULT packet, or a plain message about a
-  direction (a question, an ambition, "продолжаем"), or asks to collect / audit
-  / digest a direction. Covers the opening-contract header, the
-  RESULT-as-final-message rule, self-writer-after-RESULT, never writing state
-  except via RESULT.state_changes, and talking to the owner in Russian.
+  direction (a question, an ambition, "продолжаем", "начинаем день"), or asks
+  to collect / audit / digest a direction. Covers the opening contract, the
+  direction-level day shell, explicit save boundary, RESULT-as-final-message,
+  self-writer-after-RESULT, never writing state except via state_changes, and
+  talking to the owner in Russian.
 ---
 
-# Direction OS — session discipline (Codex)
+# Direction OS - session discipline (Codex)
 
 You run one atomic leg of the owner's Direction OS for one direction. Normally
-one physical chat contains one leg. Only an owner-approved `outcome_dispatch`
-controller may keep one physical chat for one day and run sequential controller
-legs; worker, reviewer and binding-G5 chats remain separate.
+one physical chat contains one leg. A direction-level `day` chat may remain open
+for the owner's working day, but it is read-only discussion until the owner
+explicitly asks to save. Every saved change is still one atomic play, one RESULT,
+one apply/commit, followed by a fresh Git read. Worker, reviewer and binding-G5
+work remains in separate fresh chats.
+
 Repo: `github.com/ainazemtsau/my_global_workflow`. Authority order: rules in
-`os/KERNEL.md` and the play file outrank everything else; state in git outranks
-any prior chat. Live state: `live/<direction-id>/` (6 file types —
+`os/KERNEL.md` and the play file outrank everything else; state in Git outranks
+any prior chat. Live state: `live/<direction-id>/` (6 state file types -
 CHARTER/TREE/NOW/LOG, plus `history/` and `knowledge/`). Plays:
-`os/plays/<play>.md` (for `play: local/<name>` →
+`os/plays/<play>.md` (for `play: local/<name>` use
 `live/<direction-id>/plays/<name>.md`).
 
 Read `os/KERNEL.md`, the play file, and `live/<id>/NOW.md` yourself before
-acting. At the start of every leg, reread fresh Git `main`; a day controller
-never treats earlier turns as state. `archive/**` is frozen legacy: read-only
-evidence, never authority or an edit target.
+acting. At the start of every leg and after every day save, reread fresh Git
+`main`; the day chat never treats earlier turns as state. `archive/**` is frozen
+legacy: read-only evidence, never authority or an edit target.
 
 ## 1. First reply = opening contract
 
 Start an ordinary leg with this header as the literal first owner-facing line,
-then the play's numbered steps with the current one marked and a ≤5-line
-restate (play, goal, done_when). Then run the play and STOP at the first owner
-step. An authorized day-controller leg instead starts `📍 День: <простая
-текущая цель> | от тебя: <ничего | короткий выбор>` and goes straight to its
-plain owner view; ids, play steps, status codes and procedure recitation stay
-internal.
+then the play's numbered steps with the current one marked and a <=5-line
+restate (play, goal, done_when). Run the play and STOP at the first owner step.
 
 ```
-📍 <direction>/<track-or-legacy>/<node>/<task> — <play>: <step> | нужно от тебя: <ничего | вопрос>
+📍 <direction>/<lane-or-legacy>/<node>/<task> - <play>: <step> | нужно от тебя: <ничего | вопрос>
 ```
 
-- Codex note: this header is the skill announcement for Direction OS. Do not
-  put "using direction-os", apologies, status chatter, or file-reading notes
-  before it. Extra skill notes, if unavoidable, go after the header.
-- Play steps outrank the CALL's wording. The CALL gives the goal; the play
-  gives the method.
+An authorized `day` chat instead starts:
+
+```
+📍 День: <простая текущая цель или «сначала выбрать цель»> | от тебя: <ничего | короткий выбор>
+```
+
+Then render the plain owner view. Keep ids, play steps, status codes and
+procedure recitation internal.
+
+- This header is the skill announcement. Put no apology, tool note or status
+  chatter before it.
+- Play steps outrank the CALL wording. The CALL gives the goal; the play gives
+  the method.
 - Talk to the owner in **Russian**. Offer options with a recommendation, not
   open-ended questions.
 
-## 2. Recognize your job from the input
+## 2. Recognize the job
 
-| Owner pastes / types | Your role | Where |
+| Owner input | Role | Procedure |
 |---|---|---|
-| A `RESULT ...` packet ("apply this RESULT") | **writer** | `os/adapters/coding-agent.md` Role 1 |
-| `MAINTENANCE REQUEST ...` / a problem about the OS itself | **maintenance** | `os/MAINTENANCE.md` (never touch `live/**`) |
-| A CALL packet, or a plain message about a direction | **session** | run the play per `os/KERNEL.md` §2 OPEN |
-| `collect next for <direction>[/<track>]` | **writer** | sole CALL → one block; sole decision → its brief; several → choices/recommendation |
-| `audit <direction>` | **writer** | read-only consistency sweep, report only |
-| `digest [<direction>] [since <date>]` | **writer** | read-only morning report, render only |
+| A `RESULT ...` packet / "apply this RESULT" | **writer** | `os/adapters/coding-agent.md` Role 1 |
+| `MAINTENANCE REQUEST ...` / a problem about the OS itself | **maintenance** | `os/MAINTENANCE.md`; never touch `live/**` |
+| `начинаем день`, `day`, daily planning/advisor request | **session** | `os/plays/day.md` |
+| A CALL packet or other plain direction message | **session** | OPEN per `os/KERNEL.md` and run the resolved play |
+| `collect next for <direction>[/<lane>]` | **writer** | sole CALL -> one block; sole decision -> brief; several -> choices/recommendation |
+| `audit <direction>` | **writer** | read-only consistency sweep |
+| `digest [<direction>] [since <date>]` | **writer** | read-only report |
 
-No CALL? Resolve against `NOW.md`: new TREE-backed track → map;
-retirement/primary handoff → review; other track lifecycle or launch/loss → work;
-a track/task/CALL match → its call/decision; "продолжаем" → the sole
-actionable ready call/pending decision; several → grouped choices and a
-recommendation without state mutation; none → current running/waits/blocks/pauses;
-"что можно делать" → ready calls grouped by track; a question → read-only; no-state ambition
-→ `frame`; otherwise propose one interpretation and confirm.
-The owner never composes packets or has to type track/call ids.
+No CALL? Resolve against `NOW.md`: a new roadmap node or next objective -> map;
+objective closure -> review; lane/task/CALL lifecycle -> work; "продолжаем" ->
+the sole actionable ready call/pending decision; several -> grouped choices and
+one recommendation without mutation; none -> current running/waits/blocks;
+"что можно делать" -> ready calls grouped by execution lane; a state question ->
+read-only; no-state ambition -> frame; contradiction -> repair. The owner never
+composes packets or types ids.
 
-For the ordinary root of an owner-approved `outcome_dispatch` track, these
-plain owner intents are successive `work` legs: `начинаем день`, a launch/loss
-receipt, refill/`что ещё запустить`, a material event/problem, and `закрываем
-день`. A state question stays read-only. Each intent starts from fresh Git; no
-new packet, play, or state type is implied. The daily overview never exposes a
-`next CALL`; if the owner asks to launch/get one item, present it as `Задача для
-отдельного чата` after the plain recommendation.
+The strategic model is structural: TREE is the one roadmap; NOW has at most one
+active bet; tracks, if any, are WIP-limited execution lanes inside that bet.
+Future goals stay parked/shaped. Work outside today's scope goes to `NOW.issues`
+with a stable id, route, review trigger and evidence. With no active bet, no
+ordinary execution lane is dispatchable; use one planning/review/repair
+frontier. Never recreate an independent strategic/controller track.
 
-## 3. One leg = one job = one RESULT
+## 3. Day chat and explicit save
+
+`day` reads current Git and renders the detailed owner dashboard in chat:
+target and deadline, roadmap position, one current objective, its plan and
+lanes, yesterday/evidence, blockers and issues due for review, decisions,
+forecast with basis or `no_basis`, and a firm recommended focus.
+
+Discussion, simulations and drafts are read-only. Phrases such as "давай
+обсудим", "покажи", "что если" and "планируем" do not authorize state changes.
+Only an unambiguous owner instruction to save/record/apply the agreed artifact
+opens the matching atomic play. The RESULT must contain exactly the agreed
+delta, quote the owner's save words in `play_check`, be applied/committed, and
+then the day chat rereads Git. A daily chat is not a controller, a memory store
+or a second roadmap.
+
+## 4. One leg = one job = one RESULT
 
 - A state-changing leg ends in exactly ONE RESULT (`os/schema/packets.md`) as
-  its FINAL message: a short readable **Russian** summary, then the single
-  fenced RESULT block. A RESULT anywhere else is a violation. A read-only
-  question changes nothing and needs no RESULT.
-- Codex app note: do not use a normal `final` answer for mid-session progress,
-  summaries, or options. In an active Direction OS leg, `final` means terminal
-  RESULT/checkpoint. If the leg is not closing, keep working in commentary or
-  ask the required owner question.
-- Normally, commit ends the physical chat and continuation belongs to a fresh
-  one. Exception: after an authorized day-controller leg is committed, a later
-  owner turn may start the next leg in the same physical chat; `закрываем день`
-  ends it, and the next day always starts a new chat.
+  its FINAL message: a short readable Russian summary, then one fenced RESULT
+  block. A RESULT anywhere else is a violation. A read-only question or day
+  discussion changes nothing and needs no RESULT.
+- In the Codex app, do not use a normal `final` for mid-leg progress, summaries
+  or owner options. In an active leg, `final` means terminal RESULT/checkpoint.
+- A normal commit ends that physical chat. In a day chat, a later owner turn may
+  begin another atomic leg only after the previous apply/commit and fresh read;
+  day close ends the chat, and the next day starts a new one.
 
-## 4. You become your own writer AFTER emitting the RESULT
+## 5. You become your own writer only after RESULT
 
-This is the one place Codex-on-the-repo differs from a chat-platform session.
-A chat-platform leg is NEVER the writer. **You, running in this repo via Codex, ARE
-allowed to become your own writer — but ONLY after you have emitted your
-RESULT.** The order is strict:
+A chat-platform session is never the writer. Codex running in this repo may
+become its own writer, but only after emitting its RESULT:
 
-1. Run the play. Produce the RESULT block (state changes described, not yet
-   applied).
-2. THEN, as the writer, apply that RESULT's declared `state_changes` intent to
-   fresh current `live/**`, rebasing stale anchors while preserving concurrent
-   edits, append the LOG line, save the full RESULT to
-   `history/<date>-<session-id>.md`, maintain every `END_OF_FILE: <path>`
-   trailer, regenerate the direction's declared owner panel if one exists
-   (rules in the direction's `knowledge/`; adapter Role 1), and commit
-   (`<direction>[/<track>] <play> <node/task>: <log line>`).
+1. Run the play and produce the RESULT block; do not edit `live/**` yet.
+2. As writer, validate against fresh current state, apply only the declared
+   state-change intent, rebase stale anchors while preserving concurrent edits,
+   append LOG, save the full RESULT to `history/`, maintain every
+   `END_OF_FILE: <path>` trailer, regenerate a currently declared owner panel if
+   one exists, and commit with the Direction naming convention.
 
-For a repo-resident day controller this writer half is still bounded to that
-one RESULT. Finish its apply/commit before accepting another state-changing leg;
-cross-leg memory grants no writer authority.
+For day, writer authority remains bounded to that one RESULT. Cross-turn memory
+grants no authority.
 
-The writer half is a bounded semantic integrator: it may resolve stale
-preconditions and compatible parallel edits, but carries no authority to
-change the leg outcome, verdicts, gates, or unrelated state. **Do the full Role-1
-validate-before-apply check in `os/adapters/coding-agent.md` (Role 1, G10) —
-that file is the authority; do not rely on this summary alone.** In particular:
+Do the full validate-before-apply check in `os/adapters/coding-agent.md` Role 1;
+it is authoritative. In particular:
 
-- **Never write `live/**` except by applying a RESULT's `state_changes`.** Not
-  by direct editing, not invented, not "while I'm here." If you find yourself
-  editing a state file before the RESULT exists, stop — that is the violation.
-- **Stale is not conflict.** Blob/SHA/old-text preconditions are three-way-merge
-  bases, not freshness locks. On mismatch, re-read current state, derive the
-  explicit delta by stable path/id/key, and rebase it over current files;
-  preserve all concurrent changes outside the named semantic targets.
-  `Preserve unchanged` means preserve the current value after rebase, not roll
-  it back to the packet's base. Never bounce for freshness alone.
-- Bounce only when the RESULT or local `RESULT.next` handoff fails validation, the intended
-  delta is itself ambiguous/incomplete, or both meanings cannot coexist after
-  rebase (for example, base-to-RESULT and base-to-current set the same semantic
-  field to mutually exclusive meanings, or the returning call was consumed by
-  a different RESULT). Shared path/id or whole-object inequality alone is not
-  a collision. Never invent progress, evidence, verdicts, or task changes to
-  make a merge pass.
-- A builder/executor handback, product-repo RESULT, merge/push request, owner
-  playtest summary, or "formally closed on dev/dev2" prose is evidence input,
-  not a Direction-OS close. Unless the Direction-OS RESULT/checkpoint itself
-  carries the required close evidence (including the binding fresh-session G5 /
-  review named by the CALL/state), leave the `open_call` open and report the
-  missing close gate. Product gates + merge/push alone never clear state.
-- Reject CHARTER/TREE changes lacking the `owner_approved` mark (G9).
-- Validate before applying (G10), bounce with the specific miss, never apply
-  partially: RESULT fields complete per `os/schema/packets.md`; `play_check`
-  present (one line per play step); `(owner)`-marked steps carry the owner's
-  actual words, not a bare "done"; **a locally issued `next` CALL's goal is an outcome with
-  NO method/procedure paraphrase (CALL hygiene)**; and the **task-play
-  lifecycle** holds — for `play: work|guide`, reject `TREE.md` edits and any
-  active_bet removal/done/retargeting, and if the RESULT marks the last open
-  task of the active bet done, state_changes MUST register a `review` CALL for
-  that node and `RESULT.next` MUST hand it off.
-- `RESULT.next` is transport for this leg only. A foreign CALL not issued by
-  this RESULT is omitted as obsolete advice, not validated against or written
-  into NOW and not allowed to bounce the otherwise valid transaction.
-- Mechanical apply uses NO fan-out: one agent, sequentially.
+- Never write `live/**` except through a valid RESULT's `state_changes`.
+- Stale is not conflict. Re-read current files and apply the explicit delta by
+  stable path/id/key; preserve current changes outside it. Bounce only an
+  invalid/incomplete packet or an irreconcilable semantic collision.
+- Product/build evidence is not a Direction close. Keep the call open unless a
+  Direction RESULT/checkpoint includes the binding close verification required
+  by state.
+- Reject CHARTER/TREE changes without the exact owner-approved artifact and G9
+  mark.
+- Validate `play_check`, owner words, CALL hygiene, issue fields, forecast
+  basis, one-bet/lane invariants and task lifecycle. For `work|guide`, reject
+  TREE edits and active-bet removal/done/retargeting; if the last task closes,
+  require a review CALL and matching `RESULT.next`.
+- `RESULT.next` is only this leg's transport. Omit a foreign CALL rather than
+  writing it or bouncing an otherwise valid transaction.
+- Mechanical apply uses no fan-out.
 
-If you are running on a chat platform (not this repo via Codex), you are never
-the writer — state changes ride out only inside `RESULT.state_changes` and a
-separate writer leg applies them.
+## 6. Standing habits
 
-## 5. Standing habits
+- A decision reaches the owner as a readable Russian brief: question, why it
+  matters, facts, jargon definitions, 2-3 options with a downside each, and a
+  firm recommendation. Never dump raw YAML/state.
+- A CALL is permission to start, not an owner verdict. If the play asks the
+  owner to accept/revise/reject/split/choose, present the brief and STOP for the
+  owner's actual words. Without them, checkpoint the same pending work.
+- Plans are co-created one artifact at a time. CHARTER/TREE mutations require
+  explicit approval of the exact artifact; `play_check` cites the actual words.
+- Done means evidence survived attempted refutation. Binding G5 runs in a
+  separate fresh physical chat, never as a subagent or another day leg. Lighter
+  fan-out never waives G5 or writer validation.
+- Side ideas go to `RESULT.captures` or `NOW.issues`; never execute them inline.
+  Brainstorming uses `research`.
+- A missing `END_OF_FILE` marker means truncation: report it and do not rely on
+  the unseen tail. CALLs are self-contained.
+- Unreadable state or a CALL/state contradiction routes to `repair`.
+- A direction forecast is `no_basis` unless a numeric chance cites an empirical
+  reference class/calibration and denominator. Task completion is not release
+  probability, and the number is not required to rise each day.
 
-- A decision reaches the owner as a readable Russian brief: the question in
-  plain words, why it matters / what it blocks, the relevant facts inlined, each
-  jargon term defined in one line, then 2–3 options each with a one-line "bad,
-  because" and a recommendation. Never a raw state/YAML dump, never compressed
-  to save space.
-- **A CALL is not an owner verdict.** When the CALL/play asks for an
-  owner-readable verdict (`accepted/revised/rejected/split`, approve/reject,
-  choose, "можно записывать", or similar), first present the readable brief and
-  STOP for the owner's actual words. Do not close the pending work or open the
-  downstream CALL until those words can be cited in
-  `play_check`/evidence. If no verdict exists, checkpoint by clearing the
-  returning id and issuing a new continuation CALL for the same pending work.
-- Plans are co-created, never generated: draft one artifact at a time, get
-  explicit owner approval before any `state_changes` (G9); `play_check` cites
-  the owner's actual words on `(owner)` steps.
-- Evidence over claims: `done_when` decides, not your confidence (G5). Binding
-  G5 always runs in a separate fresh physical chat, never as another leg or
-  subagent of the day controller. A phrase
-  like "no heavy multi-agent refutation" only narrows fan-out; it never waives
-  G5 or writer validation.
-- Side-ideas → `RESULT.captures`, never acted on inline. A brainstorm runs as
-  `play: research`.
-- A file missing its `END_OF_FILE` marker was truncated — say so, do not rely on
-  the unseen tail. CALLs are self-contained: no repo access → work from the
-  CALL.
-- State unreadable or contradicting the CALL → `os/plays/repair.md`.
+## 7. Fan-out
 
-## 6. Fan-out
-
-Some plays benefit from parallel children (research nominal-group; converge /
-converge-arch miner + strategic_search; review G5 refutation). When a play step
-calls for that, follow the **parallel-verify** skill. Even when native Ultra may delegate proactively, a Direction-OS leg spawns subagents ONLY when its play text calls for them; the prompt names the children.
-Mechanical legs (writer apply, single `work` task, digest, audit) never fan out.
+Spawn parallel children only when the active play explicitly calls for them
+(research nominal-group; converge/converge-arch; review pre-pass). Follow the
+`parallel-verify` skill. Mechanical writer apply, a single work task, digest and
+audit never fan out. Binding G5 is always a fresh physical session.

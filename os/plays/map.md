@@ -7,7 +7,7 @@ Writes: TREE.md, NOW.md (open_calls), LOG.md.
 
 Trigger: after frame; «перепланируем карту»; or a review harvest demands restructuring beyond small updates.
 
-Track-add fast path: one map-child card (not a G8 root mission); reuse evidence, skip global skeleton/search/lens sweep with reasons, get owner approval (G9), and at capacity pause/retire first.
+Roadmap-node fast path: one bounded child under an approved parent; reuse evidence, skip skeleton/search/lens sweep with reasons, get exact-card/final G9 approval. At width capacity, first owner-approve a drop/merge.
 
 ## Steps
 
@@ -25,7 +25,7 @@ Track-add fast path: one map-child card (not a G8 root mission); reuse evidence,
 6. **Order (owner)** — confirm the order, adjusted by verdicts: what unblocks what, riskiest assumption first.
 7. **Depth check** — top level only (rolling wave, G2). Deeper splits happen later, in shape.
 8. **Lens sweep on the map** — does the tree cover every charter lens? For each gap: propose a node or an explicit `not_needed: reason`.
-9. **Close (owner)** — owner approves compact tree (G9). RESULT: TREE + log; normal map → 2–3 first-node options, then `awaiting_decision` or a chosen registered shape CALL; track-add → `parallel` node + track + bounded work CALL, no tasks/appetite.
+9. **Close (owner)** — owner approves compact tree (G9). RESULT: TREE + log; offer 2–3 first-node options, then `awaiting_decision` or a chosen registered shape CALL. Map never creates execution lanes: future nodes remain `parked|shaped` until one becomes the bet.
 
 ## Done when
 

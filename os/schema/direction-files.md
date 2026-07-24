@@ -1,43 +1,35 @@
 # Schema: direction state files
 
-Templates for the six state file types (KERNEL §3). Values may be in the owner's language; keep keys and statuses in English. Keep every file on one screen where possible — these files are read at the start of every session, so their size is a tax on everything. Soft ceiling: ~150 lines per file; `audit` flags anything past it as hygiene drift and routes to `repair`.
-
-**Pointers, not evidence.** The writer saves every full RESULT verbatim to `history/<date>-<session-id>.md` (KERNEL §2) — that is already the durable record of an owner's exact words, a session's full rationale, or a decision's evidence. CHARTER.md, TREE.md, NOW.md, and LOG.md never re-paste that content: they hold a one-line pointer to the history/ file that proves it. A field not in this file's template below (e.g. a free-form running narrative) is schema drift, not a legitimate extension — `audit` flags it.
+Templates for the six state file types (KERNEL §3). Keys/statuses stay English; values may use the owner's language. Hot files should fit roughly one screen; audit flags files past ~150 lines. Full rationale, owner words and evidence live in `history/`/`work/`; hot state keeps pointers.
 
 ## CHARTER.md
 
 ```markdown
 # <Direction name>   (id: <direction-id>)
 
-owner_approved: <date> — history/<file>.md   # one line, pointer only (G9); never inline the owner's quotes here
+owner_approved: <date> — history/<file>.md
+mission: <1-2 sentences>
 
-mission: <1-2 sentences: the outcome this direction exists for>
-
-success_criteria:        # 2-4, measurable, dated where possible
-  - <criterion>
+success_criteria:
+  - <2-4 measurable outcomes, dated where possible>
 
 constraints:
-  - <hard limits: time/week, money, health, values>
+  - <hard limits: time, money, health, values>
 
-lenses:                  # competencies this direction must not go blind on
-  - product              # adjust per direction; 3-5 lenses
-  - audience
-  - business
+lenses: [product, audience, business]   # 3-5, direction-specific
 
-premortem:               # ≥5 distinct failure reasons → response
-  - reason: <...>
+premortem:
+  - reason: <at least 5 distinct failure reasons>
     response: <mitigation | kill_by candidate | accepted_risk>
 
-outside_view: <paragraph: 2-3 reference cases and what they imply>
+outside_view: <2-3 reference cases and sequencing implication>
 
-edges:                   # 3-5 concrete owner advantages; each cites one past fact proving it
-  - <edge — provenance: <fact>>
+edges:
+  - <3-5 owner advantages, each with proving fact>
 
-risk_posture: explore    # explore | guarded — sets the evidence burden (shape reads it);
-                         # guarded covers safety-critical until such a direction exists
-
-repos:                   # product repositories, if any
-  - <org/repo>: <what it is>
+risk_posture: explore                  # explore | guarded
+repos:
+  - <org/repo>: <role>
 ```
 
 ## TREE.md
@@ -45,150 +37,163 @@ repos:                   # product repositories, if any
 ```markdown
 # Goal tree: <direction-id>
 
-owner_approved: <date> — history/<file>.md   # one line, pointer only (G9); a later approval appends a new line, never a paragraph
+owner_approved: <date> — history/<file>.md
 
 - id: g-root
-  goal: <mission as an outcome>
+  goal: <mission as outcome>
+  done_when: <verifiable>
   children:
-    - id: g-xxxx          # stable 4-hex id, never reused
-      goal: <verifiable change in the world, not an activity>
-      done_when: <how we'll know>
-      why: <one line: how this node leads to the parent's success>   # mandatory, G9
-      # detail: history/<file>.md   # optional ref to the planning session's full rationale
-      status: parked      # parked | shaped | active | parallel | done | dropped
-      # shaped/active nodes add:
-      # appetite: <e.g. 2w>
-      # kill_by: <metric + threshold + date>
-      children: []        # expand only when a node approaches activation
+    - id: g-xxxx
+      goal: <outcome, not activity>
+      done_when: <verifiable>
+      why: <one line: contribution to parent>
+      status: parked              # parked | shaped | active | done | dropped
+      # shaped/active add appetite + kill_by
+      # detail: history/<file>.md
+      children: []
 ```
 
-Rules: outcomes only — tasks never appear here (G2). Exactly one non-root node may be `active`: the node in `NOW.bet` (G1). A node currently advanced outside that bet is `parallel`, appears in `NOW.tracks`, and gains no tasks or second appetite from that status. Width ≤7 open children per node. `dropped` nodes keep one line with the reason — pruning is information. Every non-root node carries its one-line `why`; the full rationale is already stored in the planning session's history file — store rich, load minimal, fetch detail on demand.
+Rules: outcomes only; tasks never appear here. At most one non-root node is `active`: `NOW.bet.node`. Future objectives stay visible as `parked|shaped`; they are not execution lanes. Width ≤7 open children per node. Every non-root node has `why`. A dropped node keeps a compact reason/pointer; Git/history hold removed detail.
 
 ## NOW.md
 
 ```markdown
 # NOW: <direction-id>          updated: <date> by <session-id>
 
+bet: null                     # legal between objectives
+# OR:
 bet:
   node: g-xxxx
-  goal: <copied from tree — recitation>
+  goal: <recitation from TREE>
   appetite: 2w (started <date>)
-  kill_by: <metric + threshold + date>
-  forecast: <earliest signal + what we expect to see>   # set in shape; review checks it
-  against: <strongest case against + switch trigger>
-  cut_list:                    # what this bet deliberately does NOT include
-    - <cut item>
+  kill_by: <threshold + date/event>
+  forecast: <earliest signal + expected observation>
+  against: <strongest contrary case + switch trigger>
+  cut_list: [<real exclusions>]
   lens_verdicts:
     product: <task ids | not_needed: reason>
     audience: <...>
     business: <...>
 
-tasks:                         # ≤3 active (G1); each ≤ half a focused day
+tasks:                         # [] when bet:null; ≤3 active
   - id: t-1
-    goal: <...>
+    goal: <outcome>
     done_when: <verifiable>
     status: open               # open | active | blocked | done
-    # blocked adds: unblock_when: <...>
+    # blocked adds unblock_when
 
-track_wip_limit: 3            # required with tracks; positive, owner-approved
-tracks:                        # OPTIONAL; required when >1 workstream is current
-  - id: core                   # stable short id; owner may say the id or label
-    label: "Основная разработка"
-    mode: primary              # exactly one primary; others parallel
-    for: g-xxxx                # approved node | recurring | local process; has done_when
-    # outcome_dispatch: true   # optional; at most one track, owner-approved
+direction_forecast:
+  status: no_basis             # no_basis | forecast
+  target: <one explicit dated success criterion>
+  as_of: <date>
+  basis: <history/work/source pointer or exact missing basis>
+  drivers: [<major up/down drivers, max 4>]
+  update_when: <material evidence/date that forces recompute>
+  # status: forecast additionally requires:
+  # chance: 35%                # central estimate; not completion percent
+  # range: 20-50%
+  # confidence: low            # low | medium | high
+  # calibration: <empirical reference class/source + denominator>
 
-open_calls:                    # all outstanding work; authoritative CALL frontier
+issues:                         # unresolved only; compact, not a task backlog
+  - id: i-ab12                  # stable, never reused
+    issue: <one factual problem/unknown>
+    level: objective            # direction | roadmap | objective | execution
+    route: review               # frame | map | shape | review | work | repair | pulse
+    review_when: <date/event>
+    evidence: <history/work/knowledge pointer>
+    # blocks: <stable node/task/call>
+
+track_wip_limit: 3             # present only with tracks; owner-approved
+tracks:                         # optional execution lanes inside the current bet
+  - id: gameplay
+    label: "Gameplay proof"
+    for: t-1                    # current bet node/task, or recurring id
+
+open_calls:
   - id: c-117
-    track: core                # required in track-mode
-    status: ready              # ready | running | waiting | blocked | paused
-    to: executor               # session | research | executor
-    for: t-2                   # task / recurring / node it serves
+    track: gameplay             # required when tracks exist
+    status: ready               # ready | running | waiting | blocked | paused
+    to: executor                # session | research | executor
+    for: t-1
     issued: <date>
-    call: work/c-117-call.md    # self-contained CALL artifact
-    # parent: c-116            # child only; same-track parent CALL id
-    # request_kind: outcome    # auxiliary cross-track disposition request
-    # requested_by: control    # track with owner-approved outcome_dispatch
-    # waiting adds: waiting_on: [c-117-a, c-117-b]  # child/event ids
-    # receipts: [history/<return-result>.md]         # bounded child/outcome return pointers
-    # running adds: started: <date/time> — <surface + owner/runtime receipt>
-    # blocked adds: unblock_when: <one-line condition>
-    # paused adds: paused_by: <owner-verdict history pointer>
-    # note: <optional one-line pointer/context; never an evidence block>
+    call: work/c-117-call.md
+    # parent: c-116             # same-lane child
+    # waiting_on: [c-117-a]
+    # receipts: [history/<result>.md]
+    # started: <date/time — launch receipt>     # running
+    # unblock_when: <condition>                 # blocked
+    # paused_by: <owner history pointer>        # paused
+    # note: <one-line context/pointer>
 
-recurring:                     # standing obligations that outlive bets; ≤3 per direction
-  - id: r-1                    # adding/removing an entry is an owner decision (G7)
-    goal: <e.g. "devlog post">
+recurring:
+  - id: r-1
+    goal: <standing obligation>
     done_when: <verifiable>
-    cadence: weekly            # pulse checks: today vs last_done + cadence
+    cadence: weekly
     lens: audience
     last_done: <date>
 
-decisions:                     # the owner's inbox; answered items move to history
-  - id: d-1                    # id + track required in track-mode
-    track: core
+decisions:
+  - id: d-1
+    track: gameplay             # required when tracks exist
     q: <question>
-    options: [<a>, <b>, <c>]
+    options: [a, b, c]
     recommendation: <a, because ...>
 ```
 
-NOW hygiene rules: NOW.md is hot state, not an archive. Keep long evidence in `history/`, `work/`, or `knowledge/`; NOW keeps one-line pointers only. `open_calls` contains only outstanding CALLs and is the sole dispatch source; returned, done, superseded, or cancelled calls leave it for LOG/history. `decisions` contains only pending owner decisions. No field outside this template — a running narrative field (e.g. `current_truth`) is schema drift: the latest `history/` file holds detail and NOW points to it. The removed pre-migration `next` field has no authority: OPEN, writer, collect, and digest never read or write it. Its presence alone does not block an unrelated RESULT apply; repair deletes it and first registers any still-outstanding sole CALL/pointer in `open_calls`.
+### NOW hygiene
 
-The repair clause above is the sole migration exception: it may inspect residue to recover a still-outstanding CALL, never to choose work.
+NOW is current state, not a diary. `open_calls`, `issues` and `decisions` contain only unresolved items. Returned/done/cancelled items leave hot state for LOG/history. No free-form running narrative and no removed `next` selector: `RESULT.next` is handoff transport only.
 
-Label normalization for uniqueness: trim, Unicode case-fold, and collapse internal whitespace.
+`bet: null` is normal between objectives. Then `tasks: []`, and no non-recurring execution track/CALL may exist; one untracked `frame|map|shape|review|repair` CALL may be the planning frontier. The daily adviser may name a conversational focus, but only shape activates a stored bet.
 
-Track-mode rules: `tracks` is a compact grouping index, not another planning hierarchy. `track_wip_limit` is a positive owner-approved integer. A track occupies one WIP slot when it has a non-paused ordinary root or pending decision; running/waiting/blocked count, while children and outcome requests do not add slots. Occupancy cannot exceed the limit. Track ids and normalized current labels are unique. Every `for` resolves to an approved node/recurring/local scope with done_when. Exactly one entry is `mode: primary`; while a bet exists its `for` names `bet.node`, and between bets it carries the selected review/shape route. Each other entry is `parallel`; a parallel tree node uses `status: parallel`, never `active`, and gains no tasks or authority from the track. Every open call and decision has a stable id and names an existing track. Each track has at most one ordinary root call (no `parent` or `request_kind`); every child names an existing same-track parent, appears in that parent's `waiting_on`, and has acyclic ancestry ending at the root. A returning child clears only its id, removes it from direct-parent `waiting_on`, and adds its history pointer to parent `receipts`; the last return makes that parent `ready`. `ready` means dispatchable; `running` is an owner/runtime-confirmed launch with a `started` receipt and is not dispatchable; `waiting` has non-empty child/event `waiting_on`; `blocked` carries `unblock_when`; `paused` requires an owner pause. Full CALLs/evidence live in the pointed artifact/history. Every current track has an ordinary root or pending decision; a track with neither retires. Adding a track cannot bypass G1/G2, owner gates, CALL budget, WIP limit, or product-repo conflict rules.
+### Direction forecast
 
-At most one track may carry owner-approved `outcome_dispatch: true`. Only its ordinary root RESULT may add or expire `request_kind: outcome` rows. Such a row is auxiliary, initially `ready`, `to: session`, has no `parent`, names a different existing target track and its authorized `requested_by` track, matches the target ordinary root's `for`, and does not count as either track's root. Both tracks must retain non-paused ordinary roots, so both already occupy WIP; there is at most one open outcome request per target. An existing request may become `running` only through launch bookkeeping below. A target RESULT's `outcome` starts with `ACCEPT|COUNTER|BLOCKED`, clears the request and appends its history receipt to both tracks' current roots without changing their statuses or meaning. The requester may expire its own open request with a recorded reason and a receipt on the target root; pausing or retiring either track dispositions its requests first. Adding/removing dispatch authority remains an owner decision.
+The forecast estimates one explicit dated direction target, not percentage of tasks finished. `no_basis` is required when no defensible dated basis exists. Numeric chance/range are legal only with a cited empirical reference class or local calibrated denominator plus uncertainty; model intuition alone is not calibration. Update only after material evidence and, in a day chat, explicit owner save words. Do not force daily movement or monotonic improvement. History/LOG records each saved prior estimate; NOW holds only the latest.
 
-Recurring rules: entries are NOT tasks (G1/G2 untouched — they have their own ≤3 budget). Only pulse instantiates a due entry, as a ready work CALL in its decision batch; pulse never executes it. A recurring run that can't finish closes with the reason; `last_done` stays unchanged and pulse re-raises it next time.
+### Issues
 
-Open-calls rules: this is how a fresh session on ANY platform sees what is outstanding, already launched, and waiting — the dispatch source and recovery point after a crashed chat or provider switch. A closing RESULT lists issued CALLs with their track/status; the writer records them by stable call id and preserves unrelated calls. A returning RESULT clears its own entry immediately and may issue one or several successors. Pulse flags entries older than budget.
+An issue is a problem/unknown that cannot safely disappear and is not yet admitted work. It needs a route owner and `review_when`; otherwise it is noise and is not saved. Ideas go to captures/TREE, owner choices to decisions, tasks to the active bet, OS defects to MAINTENANCE/FRICTION — not issues. At the trigger, day/pulse routes it: resolve, merge, promote through its owning play, or drop with reason. Removing an issue requires its id plus disposition/evidence in RESULT/history. Issues do not authorize execution or count as progress.
 
-Launch bookkeeping: exact owner launch words or a resolvable runtime claim receipt may move an existing `ready` CALL to `running` across tracks while preserving its id, track, `for`, CALL artifact and meaning; `started` points to that evidence. Exact owner lost/cancelled words or a runtime cancel receipt may recover it to `ready`. A returned RESULT clears a `running` entry normally. Never auto-reset, auto-relaunch, or treat `running` as dispatchable.
+### Execution lanes
 
-**Call identity.** Call ids are unique within the direction and never reused after leaving hot state; a checkpoint successor gets a new id, and child ids namespace under their issuing call.
+Tracks are a routing index for parallel execution inside one active bet, never a strategic hierarchy. Every non-recurring track `for` resolves to the current bet node/task; every call/decision names an existing track when tracks are present. A positive owner-approved WIP limit caps lanes with a non-paused root/decision; occupancy cannot exceed it. Each lane has at most one ordinary parentless root. Children are same-lane, acyclic, listed in direct parent `waiting_on`; return clears only the child, appends its receipt, and makes parent ready only when the last wait clears. Every current lane has a root or decision. Creating/retiring a lane or changing its limit needs cited owner words. Future objectives remain in TREE; unrelated urgent work first routes through review/map/repair.
 
-**Track lifecycle.** Track kinds/names are never predefined. A RESULT may create a track only from the owner's cited instruction/approval, with a new stable id, human label, primary|parallel mode, approved `for` scope, and a root call or decision. Later RESULTs add/clear calls, block/pause the root, or retire the track by id; creation, retirement, WIP-limit changes, outcome-dispatch authority, and primary handoff remain owner decisions, while ordinary call progression does not. Labels may change without changing identity. Retirement removes the hot row/calls/decisions after honest disposition; LOG/history preserve the lineage. A later unrelated workstream gets a new id, never a recycled one.
+`ready` is dispatchable. `running` requires an exact owner/runtime launch receipt and is not reoffered. `waiting` has live `waiting_on`; `blocked` has `unblock_when`; `paused` has `paused_by`. Exact lost/cancelled words may move matching `running → ready`; time/silence never does. Call ids are unique forever; a continuation gets a new id.
 
-**Frontier routing.** Named-track input resolves its sole actionable ready call/pending decision; if several exist, the session shows a compact choice with a recommendation. Unnamed "продолжаем" does the same across the direction: one actionable item opens, several produce grouped choices without state mutation, and none reports running/waiting/blocked/paused causes. "Что можно делать" renders every ready call grouped by track plus concise running/waiting/blocked/paused counts. List order and recommendations are never persisted selection.
+### Recurring/frontier
+
+Recurring entries are not bet tasks and are capped at 3. Only pulse instantiates due work; incomplete runs do not advance `last_done`.
+
+`open_calls` is the sole durable dispatch frontier. A fresh session resolves named lane/call directly; `продолжаем` opens the sole ready call/decision, shows choices if several, or reports blocks/issues/planning route if none. `что можно делать` shows ready calls plus concise non-ready counts. List order/recommendation is never persisted strategy.
 
 ## LOG.md
 
-Append-only, newest first, one line per session — literally one line, ≤2 short sentences. The session's full outcome, numbers, and rationale already live in the linked `history/` file; LOG is an index into it, not a second summary:
+Newest first, one line/≤2 short sentences per leg with a history pointer. It is an index, not a second summary.
 
-```
-2026-06-12 s-041 work t-3: трейлер-сценарий готов и принят → history/2026-06-12-s-041.md
-2026-06-11 s-040 review g-12ab: bet met; дерево +2 узла (audience) → history/2026-06-11-s-040.md
-```
-
-Track-mode inserts the track id after session-id (`2026-07-17 canon-c117-a1 canon work ...`); legacy lines stay valid.
-
-Archival: entry count alone eventually crosses the soft ceiling even with short lines — that's expected, not a defect. When `repair` trims a LOG.md past the ceiling, it keeps the most recent entries (roughly the newest half of the ceiling) and moves everything older **verbatim** — never rewritten, this is cold storage, not a second editorial pass — into `history/LOG-archive-<direction-id>.md`. LOG.md keeps exactly one pointer line at its oldest (bottom) position: `archived: history/LOG-archive-<direction-id>.md — sessions before <date>`. A later rotation appends to the same archive file and bumps that one date. No play reads the archive file by default; it exists to be opened or grepped on demand.
+When over the soft ceiling, repair keeps roughly the newest half-ceiling and moves older lines verbatim into `history/LOG-archive-<direction-id>.md`. LOG keeps one bottom pointer: `archived: ... — sessions before <date>`. Later rotations append to that same archive.
 
 ## history/
 
-One file per session: `history/<date>-<session-id>.md` containing the full RESULT packet verbatim. Never edited after writing.
+One immutable file per leg: `history/<date>-<session-id>.md`, full RESULT verbatim.
 
 ## knowledge/
 
-One file per durable learning: `knowledge/<topic>.md`
-
 ```markdown
-# <claim in one line>
-accepted: <date>   read_by: <which play/lens reads this, when>   status: current | stale
-<3-10 lines: the substance, with links to evidence in history/ or work/>
+# <claim>
+accepted: <date>   read_by: <play/lens and trigger>   status: current | stale
+<3-10 lines + evidence pointers>
 ```
 
-An entry without a real `read_by` consumer does not get written (pulse enforces staleness).
+No real `read_by` consumer means no knowledge entry.
 
 ## work/
 
-Products of the direction (documents, scans, assets). Large binaries (.blend, art, video, builds) do not go into git directly: use git-lfs or external storage, leaving a small `.md` pointer in work/ with the link and access note. Git holds what is diff-able.
+Outputs/evidence, not state. Large binaries use LFS/external storage with a small pointer.
 
 ## Truncation guard
 
-Every state file ends with a trailer line `END_OF_FILE: <path>`. The writer maintains the trailer on every file it writes. A session that reads a state file without its trailer must treat the file as truncated by the transport: say so and do not rely on the unseen tail.
+Every state file ends with `END_OF_FILE: <path>`. Missing trailer means truncated transport; do not rely on unseen tail.
 
 END_OF_FILE: os/schema/direction-files.md

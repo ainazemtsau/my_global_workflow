@@ -1,58 +1,58 @@
-# STATUS — снапшот системы и мандат помощника
+# STATUS - снапшот системы и мандат помощника
 
-updated: 2026-07-24 (plain-language, goal-anchored one-day controller; historical pilot snapshot below remains dated 2026-06-12)
+updated: 2026-07-24 (strategy reset: direction-level day adviser, one objective, execution lanes, issues and calibrated forecast)
 
-Этот документ — точка входа для новой агентной сессии, помогающей владельцу с системой. Он самодостаточен: прочитав его и файлы по ссылкам, сессия может проводить аудит, помогать с направлениями, анализировать чаты и чинить/дорабатывать систему.
+Этот документ - точка входа для новой агентной сессии, помогающей владельцу с системой. Он самодостаточен: прочитав его и файлы по ссылкам, сессия может проводить аудит, помогать с направлениями, анализировать чаты и чинить/дорабатывать систему.
 
 ## 1. Что это
 
-Репозиторий — **Direction OS**: личная система владельца для ведения жизненных направлений через короткие AI-сессии над состоянием в git. Правила: `os/KERNEL.md` (≈1500 слов, 10 гейтов G1–G10). Процедуры: `os/plays/` (frame, map, shape, work, guide, review, research, pulse, repair). Схемы: `os/schema/`. Адаптеры платформ: `os/adapters/`. Инженерный контур (код продуктов): `os/engineering/`. Запуск: `os/BOOTSTRAP.md`. Изменение системы: только по `os/MAINTENANCE.md`. Роли агентных сессий распознаются по входу — таблица в корневом `AGENTS.md`.
+Репозиторий - **Direction OS**: личная система владельца для ведения жизненных направлений через короткие AI-сессии над состоянием в git. Правила: `os/KERNEL.md` (≤1500 слов, 10 гейтов G1-G10). Процедуры: `os/plays/` (frame, map, shape, day, work, guide, review, research, pulse, repair и converge-процедуры). Схемы: `os/schema/`. Адаптеры платформ: `os/adapters/`. Инженерный контур (код продуктов): `os/engineering/`. Запуск: `os/BOOTSTRAP.md`. Изменение системы: только по `os/MAINTENANCE.md`. Роли агентных сессий распознаются по входу - таблица в корневом `AGENTS.md`.
 
 ## 2. Как сюда пришли (минимум истории)
 
-До июня 2026 было четыре поколения workflow (vNext-R → v2 → v3); аудит показал: системная перегрузка (60–80 полей на чат, непроверяемые правила, человек как транспорт) — всё заморожено в `archive/`. Direction OS построена с нуля по требованиям (`os/docs/REQUIREMENTS.md`, R-1…R-45) и исследованию практик (`os/docs/RESEARCH_BASIS.md` — каждый механизм со ссылкой на источник). Архитектура и трассировка: `os/docs/DESIGN.md`.
+До июня 2026 было четыре поколения workflow (vNext-R -> v2 -> v3); аудит показал: системная перегрузка (60-80 полей на чат, непроверяемые правила, человек как транспорт) - всё заморожено в `archive/`. Direction OS построена с нуля по требованиям (`os/docs/REQUIREMENTS.md`, R-1...R-45) и исследованию практик (`os/docs/RESEARCH_BASIS.md` - каждый механизм со ссылкой на источник). Архитектура и трассировка: `os/docs/DESIGN.md`.
 
 ## 3. Состояние пилота (на дату снапшота)
 
-- Направление **indie-game-development** сброшено (коммит `d15b76b`): `live/**` пуст, прежнее дерево-болванка удалено. Перезапуск с нуля: **frame** (хартия + корень) → **map** (карта) → **shape**, с `archive/directions/indie-game-development/` как справкой-evidence (импорт только контентом, с обоснованием).
-- Перед перезапуском владелец должен запушить накопленные правила на GitHub (ChatGPT-проекты читают правила оттуда).
-- Контур планирования прошёл две волны доработки (см. §3.1) — это финальная доработка ядра до возобновления реального пилота. Дальше — прогон по реальным чатам и сбор трения.
-- Прежнее живое трение починено: дерево без владельца → G9 + map + обязательный `why`; интервью спрашивало выводимое → frame homework. См. `os/FRICTION.md`.
+- Владелец отключил Launch Control и выбрал чистую пересборку стратегического слоя. Целевая рамка известна только на уровне его слов: демо к октябрьскому Steam-фестивалю 2026; точные CHARTER и TREE ещё должны быть созданы вместе с владельцем через **frame -> map -> shape**.
+- Текущий `live/indie-game-development/**` содержит пред-reset состояние и по новой схеме является repair-frontier: старые независимые треки/READY CALL нельзя исполнять как план. Их отдельный Direction repair должен диспозиционировать, сохранить нерешённое в issues/evidence и оставить один planning frontier; maintenance не имеет права делать это напрямую.
+- Архив и большая исследовательская база сохраняются как cold evidence. Они не являются текущей стратегией и не удаляются при reset.
+- Этот maintenance-коммит меняет только общую ОС. Он не объявляет живую миграцию завершённой и не регенерирует/не удаляет старую direction-specific HTML-панель: её authority/declaration может быть снята только отдельным валидным live RESULT.
 
 ### 3.1 Доработки контура планирования (2026-06-11)
 
 Две волны правок plays (по явному запросу владельца, в бюджетах, KERNEL/гейты не тронуты):
-- **Дивергенция**: shape «2–3 подхода до выбора»; map «≥1 неочевидный путь».
+- **Дивергенция**: shape «2-3 подхода до выбора»; map «>=1 неочевидный путь».
 - **frame**: интервью только owner-only; шаг homework (research до хартии).
 - **Search plane**: research `strategic_search`/nominal-group/miner-briefs; map human-first + опциональный search-first + поле `edge` + один редкий стимул + noun-test; shape Berg equal-footing + инкубационный зазор + probe-поля (forecast/against/next_if) + AI-burst evaluator; review forecast-check + harvest edges; pulse-пункт 11 market contact; CHARTER `edges`/`risk_posture`.
-- Каждый механизм несёт фальсификатор в `os/FRICTION.md` — откат помеханизменно. Источники и проверка — `os/docs/RESEARCH_BASIS.md` (строка search plane) + proposal-доки в `os/docs/`.
-- **Session protocol, G10** (2026-06-11, по инцидентам пилота map/frame): обычный leg показывает opening contract (нумерованные шаги play, стоп на первом owner-шаге); дневной controller сохраняет те же внутренние проверки, но показывает только простой `📍 День: ...` и человеческий ответ без ids/статусов/шагов. RESULT только финальным сообщением (сводка → один блок), `play_check` в RESULT с цитатами владельца на `(owner)`-шагах, writer-валидация перед применением, payload «You are NEVER the writer» + «prior chats are never authority», CALL-гигиена. Диагноз и фальсификаторы: `os/docs/SESSION_PROTOCOL_AUDIT.md`.
-- **Track dispatch** (2026-07-17; bounded outcome extension/selector removal 2026-07-22; control repair/day-chat contract 2026-07-23; plain-language owner view 2026-07-24): optional `NOW.tracks` группирует ready/running/waiting/blocked/paused `open_calls`; `running` is a durable owner/runtime launch receipt and is never reoffered. Owner-approved WIP ограничивает root/decision-треки; `primary` один владеет бетом/tasks; ≤1 ordinary root/track. At most one owner-approved `outcome_dispatch` track may add/expire one auxiliary disposition-only request per target; its work-cycle preserves the owner-named objective and ranks direct progress over RESULT recency. Owner sees only plain release direction, current priority/reason, work underway, useful parallel starts and the event that changes advice; internal labels are hidden and task text appears only on request. Its physical controller chat may span one owner day, but only as sequential fresh-main atomic legs, each with its own RESULT/apply/commit; worker/reviewer/binding-G5 chats remain fresh. `open_calls` + pending `decisions` are the sole dispatch state; chat memory and RESULT.next are not a second frontier. Writer merges stable ids/receipts; old selector residue is repair-only migration data.
+- Каждый механизм несёт фальсификатор в `os/FRICTION.md` - откат помеханизменно. Источники и проверка - `os/docs/RESEARCH_BASIS.md` (строка search plane) + proposal-доки в `os/docs/`.
+- **Session protocol, G10**: ordinary legs show opening contract; `day` shows only `📍 День: ...` and a derived plain-language view. Day discussion is read-only; exact save words are required for one RESULT/apply/commit. Binding G5 remains a separate fresh chat.
+- **Strategy/day model** (2026-07-24 reset): TREE is the sole roadmap; NOW holds at most one active bet. Future goals stay parked/shaped. Optional tracks are WIP-limited execution lanes serving that bet, never independent strategic roots. NOW.issues preserves unresolved problems with route+review trigger. direction_forecast is `no_basis` unless a numeric chance has cited empirical calibration. The detailed daily dashboard is rendered in chat; the OS creates no controller track, outcome request, copied plan or new HTML authority. Any pre-existing live panel remains legacy until its declaration is retired by a Direction RESULT.
 
 ## 4. Мандат помощника (что от тебя ждут)
 
-1. **Аудит и анализ системы** — сверяй с REQUIREMENTS (трассировка в DESIGN §3: каждый R закрыт компонентом; компонент без R — кандидат на удаление).
-2. **Помощь с первыми направлениями** — по BOOTSTRAP; следи за гейтами (особенно: G2 — задачи только в активном бете; G8 — идеи по умолчанию parked; G9 — планы только с владельцем).
-3. **Анализ транскриптов чатов** — владелец будет вставлять переписки. Проверяй: обычный первый ответ = opening contract (нумерованные шаги play + стоп на первом owner-шаге); day-controller = простой day-header без ids/steps/statuses; 📍-строка в каждом ответе; вопросы батчем; артефакты планирования по одному с why и вердиктом владельца; ровно один RESULT, финальным сообщением (сводка → блок), с play_check/state_changes/captures/next; никакой прямой записи в repo сессией; отсутствие самовольной работы (capture вместо исполнения побочного).
-4. **Фиксы и доработки** — строго по `os/MAINTENANCE.md`: один вопрос = одна сессия; явный запрос владельца — достаточный триггер; самоинициатива — только при ≥2 записях во FRICTION; наименьшая правка в бюджетах (ядро ≤1500 слов, play ≤600, 6 типов state-файлов); после правки — сверка перекрёстных ссылок и END_OF_FILE-маркеров; если менялся `os/adapters/SESSION_PAYLOAD.md` — сказать владельцу перевставить инструкции в проекты.
+1. **Аудит и анализ системы** - сверяй с REQUIREMENTS (трассировка в DESIGN §3: каждый R закрыт компонентом; компонент без R - кандидат на удаление).
+2. **Помощь с первыми направлениями** - по BOOTSTRAP; следи за гейтами (особенно: G2 - задачи только в активном бете; G8 - идеи по умолчанию parked; G9 - планы только с владельцем).
+3. **Анализ транскриптов чатов** - ordinary first reply shows steps; day reply shows the plain derived brief. Verify: no write before exact save words; one RESULT per saved leg; roadmap/bet/lane/issue boundaries hold; no fixed questionnaire or hidden legacy dispatch.
+4. **Фиксы и доработки** - строго по `os/MAINTENANCE.md`: один вопрос = одна сессия; явный запрос владельца - достаточный триггер; самоинициатива - только при >=2 записях во FRICTION; наименьшая правка в бюджетах (ядро <=1500 слов, play <=600, 6 типов state-файлов); после правки - сверка перекрёстных ссылок и END_OF_FILE-маркеров; если менялся `os/adapters/SESSION_PAYLOAD.md` - сказать владельцу перевставить инструкции в проекты.
 
 ## 5. Предпочтения владельца (нарушать нельзя)
 
 - Русский язык, объяснения «на пальцах», без жаргонных стен. Варианты с рекомендацией вместо открытых вопросов.
-- Глобальные планы — только в со-творчестве (G9), по одному артефакту.
-- Владелец никогда не сочиняет пакеты руками: вход — обычные слова или «продолжаем»; CALL/RESULT — машинный формат для копирования.
-- Никаких постоянных worker/reviewer/writer-сессий. Единственное исключение — owner-approved дневной controller: один физический чат, последовательные атомарные legs, новый чат на следующий день.
-- Хранить полно, грузить минимально: детали в history/, в контексте — строка + ссылка.
+- Глобальные планы - только в со-творчестве (G9), по одному артефакту.
+- Владелец никогда не сочиняет пакеты руками: вход - обычные слова или «продолжаем»; CALL/RESULT - машинный формат для копирования.
+- Никаких постоянных worker/reviewer/writer-сессий. Дневной чат может жить один день как read-only советник; каждый save является отдельным atomic leg, G5 - отдельно.
+- Хранить полно, грузить минимально: детали в history/, в контексте - строка + ссылка.
 
-## 6. Открытые хвосты (не делать без запроса — просто знать)
+## 6. Открытые хвосты (не делать без запроса - просто знать)
 
 - ~120 мёртвых легаси-веток в remote (владелец чистку не подтверждал).
-- Автоматизация пересылки RESULT и agent-run control-plane — проектируется как runtime-слой: `os/adapters/runtime.md`; стадии автономии 2–3: `os/adapters/autonomy.md`.
+- Автоматизация пересылки RESULT и agent-run control-plane - проектируется как runtime-слой: `os/adapters/runtime.md`; стадии автономии 2-3: `os/adapters/autonomy.md`.
 - Branch protection на main предложена, не включена.
-- Watch-items: рост TREE со временем (лечить схлопыванием веток по FRICTION); ChatGPT-сессии слегка отступают от схемы NOW.md (1 случай зафиксирован — второй повтор = FRICTION-правка).
+- Watch-items: рост TREE со временем (лечить схлопыванием веток по FRICTION); ChatGPT-сессии слегка отступают от схемы NOW.md (1 случай зафиксирован - второй повтор = FRICTION-правка).
 
-## 7. Жёсткий минимум правил (дайджест, полные — в AGENTS.md и KERNEL)
+## 7. Жёсткий минимум правил (дайджест, полные - в AGENTS.md и KERNEL)
 
-`live/**` меняется только применением RESULT.state_changes. `archive/**` — read-only навсегда. Каждый state-файл кончается трейлером `END_OF_FILE: <path>`. Один atomic leg = одна работа; day-controller — единственное физическое chat-reuse исключение. Бюджеты абсолютны.
+`live/**` меняется только применением RESULT.state_changes. `archive/**` - read-only. Каждый state-файл имеет END_OF_FILE. Один atomic leg = одна работа; day discussion read-only, save = отдельный leg. Бюджеты абсолютны.
 
 END_OF_FILE: os/docs/STATUS.md

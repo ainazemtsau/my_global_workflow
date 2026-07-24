@@ -64,37 +64,17 @@ Internal identity `(root, stage, attempt)` is runtime cache only. The durable
 receipt lives in product progress/evidence; no internal transition edits
 `live/**` or creates a Direction CALL.
 
-## One-day controller shell
+## Strategy day shell
 
-An owner-approved `outcome_dispatch` ordinary root may be presented through one
-physical controller chat for one owner day. The chat/thread id and today's
-screen are runtime cache, never direction state. The durable sources remain the
-current Git `main`, that root, `open_calls`, target-track evidence, LOG/history,
-and any direction-owned program model.
+An owner starts one direction-level day chat with `начинаем день`. No controller track/root, runtime queue or copied plan is created. The thread id is cache only; CHARTER, TREE, NOW, recent LOG/history and declared knowledge remain authority.
 
-The shell accepts five plain owner intents: start day, launch/loss receipt,
-refill, material event/problem, and close day. Each is an existing `work` leg,
-not a packet/play/state type. Before every leg the runtime refreshes and reads
-`main`; it never lets chat memory authorize a decision. A state-changing leg
-must finish one RESULT -> writer apply under the direction lock -> commit before
-another state-changing leg starts. A read-only question emits no RESULT.
+The shell runs `play: day`. It refreshes Git before each turn and derives a plain-language briefing: target/hard dates, roadmap and future objectives, active objective or planning gap, recent evidence, tasks/execution lanes, due issues/decisions, and direction forecast. It may discuss and revise advice for the whole owner day, but chat memory never authorizes state.
 
-Controller responses are an ordinary conversation, not a telemetry screen.
-They say in plain owner language: where the release is going, what matters now
-and why, what is already underway, what useful independent work may start, and
-what event changes the advice. Internal ids, play steps, packet names, enum
-statuses, forecast labels and empty fields are hidden. A paste-ready worker task
-appears only on request and is titled `Задача для отдельного чата`, never
-`next CALL`.
-After a mutating leg the same-position ordinary root stays `ready` for the next
-owner turn; one foreign result never waits/blocks the controller itself. Close
-day ends the physical chat, and the next day uses a new chat. If the chat is
-lost, a new one reconstructs from Git and history.
+Discussion is read-only. Only explicit owner save/record/launch words start one mutating day leg. That leg saves only the exact agreed NOW/CALL delta, emits one RESULT, acquires the direction writer lock, applies/commits, then releases the lock before another save. Mission, roadmap, objective activation/closure, contradiction and OS defects route to their owning play; day does not perform those changes itself.
 
-Workers and reviewers always use separate fresh chats. Binding G5 is never run
-inside the controller chat or as its subagent; the controller may only expose
-or launch the separate review CALL and later read its committed receipt.
+A launch receipt may mark a matching ready call running before dispatch; a lost/cancelled receipt may restore that same call. The runtime never invents progress, forecast numbers, issues or a second objective. `закрываем день` ends the chat; unsaved discussion stays unsaved. A lost chat is reconstructed from Git, not memory.
 
+Workers/reviewers use separate fresh chats. Binding G5 is never a day leg or subagent.
 ### V31 root control
 
 Every durable receipt names one shared lifecycle:
@@ -131,7 +111,7 @@ yields REPORT HOME; a genuine decision/blocker yields ESCALATE HOME.
 ## Locks
 
 - One writer apply per direction at a time.
-- One state-changing controller leg per direction at a time; read-only questions do not bypass an apply already in flight.
+- One state-changing saved day leg per direction at a time; read-only questions do not bypass an apply in flight.
 - One runtime claim per `(direction, track, call)`; retry resumes that identity instead of launching a duplicate.
 - A claim passes through the writer as `ready -> running` with its receipt before dispatch. The runtime refuses an already-`running` call; only an explicit cancel/lost receipt may reset it to `ready`.
 - One v31 closing-control lease per root; only its clean committed checkout may stage closing files.
@@ -149,7 +129,7 @@ commands:
 - `status`: derive directions, active bets, track WIP limit/occupancy, calls grouped by track/status including `running`, and decisions.
 - `collect`: render a paste-ready packet for one explicit/sole actionable call; several return choices.
 - `run`: claim one ready call through the writer, then start it; a v30/v31 engineering root also drives its declared fresh product stages.
-- `control`: open/resume one authorized day shell and execute exactly one of its five intents as a fresh leg; no independent queue or state.
+- `day`: open/resume one direction day shell; discussion is read-only, each explicit save is one fresh day leg.
 - `review`: run a fresh refutation pass over an executor RESULT.
 - `apply`: invoke the writer on one RESULT with direction lock.
 - `notify`: send owner batches without changing state.

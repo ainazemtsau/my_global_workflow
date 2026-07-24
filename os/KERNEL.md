@@ -4,89 +4,92 @@ Authority order: live owner instruction > this kernel > the active play > direct
 
 ## 1. What this is
 
-In this file, legacy word `session` means atomic leg unless `physical chat` is explicit.
-
-The OS runs the owner's life directions — long-term ambitions — through many short AI sessions over durable state in a git repository.
+The OS runs the owner's long-term directions through short AI legs over durable Git state.
 
 - A **direction** lives in `live/<id>/` as the fixed state files (§3).
-- A **leg** is one job under one play. Normally one chat = one leg. Only an owner-approved `outcome_dispatch` controller may keep one physical chat for one day and run sequential legs; before each it rereads fresh Git `main`, and the next day starts a new chat. Context is RAM: unwritten memory is not state.
-- A **play** is a named procedure in `os/plays/`; only plays change state.
-- The **owner** decides. Agents do everything else. Packets are self-contained; no play makes the owner copy state by hand.
+- A **leg** is one job under one play. Normally one physical chat = one leg. An owner-started `day` chat may hold read-only discussion and sequential saved day legs for one owner day; every saved leg rereads fresh Git, has one RESULT/apply/commit, and the next day starts a new chat. Context is RAM: unwritten memory is not state.
+- A **play** is a procedure in `os/plays/`; only plays change state.
+- The **owner** decides. Agents do everything else. The owner never composes packets by hand.
 
 ## 2. Session contract
 
-1. **OPEN** — input is a CALL **or a plain owner message**. Read `NOW.md` and the play's files. Resolve plain input against NOW: new TREE-backed track → map; retirement/primary handoff → review; other lifecycle or launch/loss → work; track/task/CALL → its call/decision; "продолжаем" → sole actionable call/decision; several → grouped choice/recommendation without mutation; none → running/waits/blocks/pauses; "что можно делать" → ready calls by track; question → read-only; no-state ambition → frame; otherwise interpret and confirm. For an authorized controller, `начинаем день`, launch receipt, refill/`что ещё`, material event, and `закрываем день` are successive work-leg intents against its ordinary root. An ordinary leg opens with the header, numbered steps/current marked, and a ≤5-line restate. A day controller opens with its plain day header and owner view; steps stay internal. Then run the play and stop at the first owner step. Play outranks CALL. Contradictory state → repair. The owner never composes packets.
-2. **WORK** — follow the play. Cross-cutting moves available in any session:
-   - `call:research` — spawn a bounded child question (CALL packet, §4); children may spawn their own.
-   - `call:executor` — delegate execution to a working agent (CALL packet, §4).
-   - `capture` — record emergent work or an idea as one line in RESULT.captures. Never act on a capture in the same session; it is triaged at shape or pulse.
-   - `decision` — put a question to the owner in RESULT.decisions_needed, always with 2–3 options and a recommendation.
-3. **CLOSE** — emit RESULT (§4) as the leg's final message only: readable summary, then one fenced RESULT. It ends the leg, checkpoints included; the writer applies/commits state_changes. Normal continuation uses RESULT.next in a fresh chat. A day controller may accept the next owner turn in the same physical chat only after that transaction, starting again at OPEN; day close ends it. A checkpoint keeps partial work active through a continuation CALL.
+1. **OPEN** — input is a CALL or a plain owner message. Read fresh `NOW.md`, the play and named evidence. Resolve plain input from state:
+   - `начинаем день`, a daily status request, or continued discussion in today's day chat → `day`;
+   - mission/success change → `frame`; roadmap/future-goal change → `map`; active-objective close, replacement or kill → `review`; activation → `shape`;
+   - task, lane, launch/loss receipt or recurring work → its `work` CALL; contradiction → `repair`;
+   - `продолжаем` → the sole actionable call/decision; several → grouped choice with a recommendation and no mutation; none → waits, blocks, issues and the planning route;
+   - question → read-only; no-state ambition → `frame`; otherwise interpret and confirm.
+   An ordinary leg opens with the orientation header, numbered play steps/current marked, and a ≤5-line restate. A day chat opens with its plain day header and derived brief; steps stay internal. Then run the play and stop at the first owner step. Play outranks CALL.
+2. **WORK** — follow the play. Cross-cutting moves available in any leg:
+   - `call:research` — bounded child question;
+   - `call:executor` — delegated execution;
+   - `capture` — one-line emergent idea for later triage, never acted on in the same leg;
+   - `decision` — owner question with 2–3 options and a recommendation.
+3. **CLOSE** — emit RESULT (§4) as the leg's final message only: readable summary, then one fenced RESULT. It ends the leg; the writer applies/commits `state_changes`. A checkpoint issues a continuation CALL. A day chat may accept a later owner turn only after the saved transaction completes; `закрываем день` ends it. Read-only day turns emit no RESULT.
 
-**Orientation header.** An ordinary reply starts with:
+**Orientation header.** Ordinary reply:
 `📍 <direction>/<track>/<node>/<task> — <play>: <step> | нужно от тебя: <ничего | вопрос>`.
-An authorized day controller starts with `📍 День: <простая текущая цель> | от тебя: <ничего | короткий выбор>` and exposes no ids, play steps or status codes.
+Day reply:
+`📍 День: <простая текущая цель> | от тебя: <ничего | короткий выбор>`.
 
-**Language.** Talk to the owner in the owner's language (Russian). State files keep keys in English; values may be any language.
+**Language.** Talk to the owner in Russian. State keys stay English; values may use any language.
 
-**Owner-facing vs machine.** RESULT, packets and state are machine artifacts. The owner gets ordinary language, never a YAML/state dump. Visible prose omits internal ids, packet terms, enum labels and empty fields unless he asks for a paste-ready task. The fenced block rides once at the end for the relay.
+**Owner-facing vs machine.** Packets and state are machine artifacts. Owner prose omits ids, enum labels, packet terms and empty fields unless a paste-ready task is requested.
 
-**Legs do not write.** Repo access is not write permission. Changes travel only inside RESULT.state_changes, applied by the writer; an agent-CLI leg here becomes its own writer only after emitting its RESULT.
+**Legs do not write.** Repo access is not write permission. Changes travel only in RESULT.state_changes; an agent-CLI leg becomes its own writer only after emitting its RESULT.
 
-**Two-strikes rule.** After two failed correction rounds on the same point: stop, close with a handoff note in RESULT, continue in a fresh session.
+**Day save boundary.** Discussion, analysis, corrections and the chat dashboard are read-only. Only the owner's explicit words to save/record/launch the exact agreed delta permit a day RESULT. A structural change is handed to its owning play; `day` never edits CHARTER/TREE or silently creates strategy.
 
-**Read-only exception.** A state question needs no play or RESULT and changes nothing. Exploration producing keepable ideas runs as research so captures return via RESULT.
+**Two strikes.** After two failed correction rounds on the same point, checkpoint and continue in a fresh chat.
 
 ## 3. Direction state — six file types, never more
 
 | File | Holds | Written by |
 |---|---|---|
-| `CHARTER.md` | mission, measurable success criteria, constraints, lenses, product repos | frame |
-| `TREE.md` | recursive goal tree — outcomes only, no tasks; every non-root node carries its one-line `why` | frame (root), map, shape (splits), review |
-| `NOW.md` | active bet/tasks, optional track index, open-call dispatch frontier, recurring work, decisions | every leg |
-| `LOG.md` | append-only: one line per leg + link | every leg |
-| `history/` | full RESULT of every leg, one file each | append-only |
-| `knowledge/` | accepted facts and decisions; each entry names who reads it and when | review, pulse |
+| `CHARTER.md` | mission, measurable success, constraints, lenses, repos | frame |
+| `TREE.md` | one global outcome roadmap; future objectives remain visible | frame, map, shape, review |
+| `NOW.md` | at most one active objective, tasks, execution lanes/calls, open issues, direction forecast, recurring work, decisions | every leg |
+| `LOG.md` | append-only one-line leg index | every leg |
+| `history/` | full RESULT of every leg | append-only |
+| `knowledge/` | accepted facts; each names who reads it and when | review, pulse |
 
-`work/` holds products (documents, assets, scans) — outputs, not state.
+`work/` holds outputs and evidence, never current state.
 
-**Goal tree node:** `id` (stable short id, e.g. `g-3f7a`), `goal` (an outcome, not an activity), `done_when` (verifiable), `status: parked | shaped | active | parallel | done | dropped`, optional `children`. `active` is the one bet; `parallel` is a routing-only track with no tasks. A shaped node also carries `appetite` and `kill_by`.
+**Goal node:** stable `id`, outcome `goal`, verifiable `done_when`, one-line `why`, `status: parked | shaped | active | done | dropped`, optional children. Exactly one non-root node may be `active`: the current bet. A shaped/active node carries `appetite` and `kill_by`.
 
-A **bet** is one shaped node in `NOW.md`. Its tasks (`t-1`…): `goal`, `done_when`, `status`, each ≤ half a focused day.
+A **bet** is the one active local objective in `NOW.md`. Its ≤3 tasks are each ≤ half a focused day. Optional tracks are execution lanes inside that bet, not parallel strategies or future goals. Work unrelated to the bet becomes an issue/capture until the correct review/map/maintenance route admits it.
 
 ## 4. Packets
 
-**CALL** — the only way work moves between sessions and agents:
-`goal` (outcome, not method) · `context` (file pointers, links — enough to work without asking) · `boundaries` (out of scope, do not touch) · `done_when` (verifiable) · `return` (expected format) · `budget` (time or effort cap).
+**CALL** moves work between legs/agents: `goal` · `context` · `boundaries` · `done_when` · `return` · `budget`.
 
-**RESULT** — the only way a session ends:
-`outcome` (what changed in the world, not a narrative of effort) · `evidence` (proof matching done_when) · `state_changes` (exact NOW/TREE edits) · `captures` · `decisions_needed` · `play_check` (one line per play step: done or skipped+why; steps the play marks `(owner)` cite the owner's words) · `log` (one line) · `next` (local issued CALL, `awaiting_decision`, or `return-to-parent/requester/owner`). It never writes NOW or selects foreign work.
+**RESULT** ends a leg: `outcome` · `evidence` · `state_changes` · `captures` · `decisions_needed` · `play_check` · `log` · `next`. It never selects foreign work. Owner steps cite actual owner words.
 
-In track-mode a continuation may be `running|waiting|blocked|paused`; `open_calls.status` decides whether it is dispatchable.
+In lane mode a continuation may be `ready|running|waiting|blocked|paused`; `open_calls.status` decides dispatchability. `running` needs an exact launch receipt and is never reoffered.
 
-An engineering CALL goes to the product repo. Its `return` comes HOME; only Direction issues successor CALLs. Evidence = commits/PR + checks; the OS pins no branch/path/SHA.
+An engineering CALL goes to a product repo. Its return comes HOME; only Direction issues successor CALLs. Evidence = commits/PR + checks; product delivery alone is not Direction close.
 
-## 5. Hard gates — all mechanically checkable
+## 5. Hard gates
 
-- **G1 (WIP).** One active bet per direction; ≤3 active tasks. Track-mode: owner-set WIP limit caps non-paused roots/decisions; ≤1 root/track; children share its budget.
-- **G2 (rolling wave).** Tasks exist only inside the active bet. Every other tree node stays outcome-level.
-- **G3 (appetite).** Appetite is set before tasks are written and never extends. There is no extend operation: an over-appetite bet dies; continuing means re-shaping a new bet.
+- **G1 (WIP).** At most one active bet per direction; ≤3 active tasks. Without a bet there are no non-recurring execution lanes. Lane WIP uses an owner-set limit; ≤1 ordinary root per lane.
+- **G2 (rolling wave).** Tasks and non-recurring execution lanes serve only the active bet. Future objectives stay outcome-level in TREE; unrelated work stays an issue/capture until admitted.
+- **G3 (appetite).** Appetite is set before tasks and never extends. Over-appetite work dies; continuation requires a new shape.
 - **G4 (bet validity).** A bet without done_when and kill_by is invalid.
-- **G5 (evidence).** `done` requires evidence matching done_when. Verification tries to refute the claim in a separate physical chat from the work and from any day controller; an in-controller leg is never binding G5.
-- **G6 (shape validity).** A shape output without a cut list (≥1 real cut), a lens sweep verdict per lens, and a task testing the riskiest assumption is invalid.
-- **G7 (decisions).** Every owner decision request carries options and a recommendation; decisions are batched, never scattered through a leg.
-- **G8 (intake).** New directions and new top-level goals enter only through frame. New ideas default to `parked` — the parking lot is the system's normal answer to enthusiasm.
-- **G9 (co-creation).** CHARTER.md and TREE.md change only with the owner's explicit in-leg approval: planning legs present drafts one artifact at a time (a tree node is an artifact, carrying its one-line `why`), and the RESULT marks each approval (`owner_approved`). The writer rejects charter/tree changes without it.
-- **G10 (protocol).** Every ordinary leg's first reply carries play steps; a day controller shows only its plain header/view while `play_check` still records them. RESULT appears only in final; legs never write state. Writer rejects missing `play_check` steps or owner steps without actual words.
+- **G5 (evidence).** `done` requires evidence matching done_when. Verification tries to refute the claim in a separate fresh physical chat from the work and any day chat.
+- **G6 (shape validity).** Shape requires a real cut list, a verdict per lens, and a task testing the riskiest assumption.
+- **G7 (decisions).** Owner decisions carry options and a recommendation; batch them.
+- **G8 (intake).** New directions/top-level goals enter through frame. New ideas default parked.
+- **G9 (co-creation).** CHARTER/TREE change only after explicit owner approval of the exact artifact; RESULT marks `owner_approved`.
+- **G10 (protocol).** Ordinary legs expose steps; day keeps them internal. RESULT is final only; legs never write state; a day RESULT additionally cites the owner's explicit save words.
 
-A session that cannot pass a gate stops and reports — it never improvises around a gate.
+A leg that cannot pass a gate stops; it never improvises around it.
 
 ## 6. Plays
 
-`frame · map · shape · converge · converge-arch · converge-verify · work · guide · review · research · pulse · repair` — defined in `os/plays/`. Directions may add local plays in `live/<id>/plays/` (procedure files, not state; same format and budget; invoked as `play: local/<name>` — see `os/EXTENDING.md`). A session that does not know its play is in repair.
+`frame · map · shape · converge · converge-arch · converge-verify · day · work · guide · review · research · pulse · repair` live in `os/plays/`. Directions may add local plays in `live/<id>/plays/`; a missing/unknown play routes to repair.
 
 ## 7. Changing the OS
 
-The OS is infrastructure, not a direction. It changes only in maintenance sessions on this repo following `os/MAINTENANCE.md`: an explicit owner request is a sufficient trigger; self-initiated changes need ≥2 entries on the same point in `os/FRICTION.md`. Budgets are absolute: kernel ≤1500 words, a play ≤600 words, six state file types. Wanting more structure is usually the wrong problem.
+The OS changes only through `os/MAINTENANCE.md`: an explicit owner request is sufficient; self-initiated changes need ≥2 matching FRICTION entries. Budgets are absolute: kernel ≤1500 words, each play ≤600, six state file types. Prefer removing failed structure to adding another authority layer.
 
 END_OF_FILE: os/KERNEL.md

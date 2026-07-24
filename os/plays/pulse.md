@@ -1,41 +1,42 @@
 # Play: pulse
 
-Purpose: the recurring sweep (weekly by default) that keeps the system trustworthy. The only play that looks across all directions at once.
+Purpose: recurring sweep (weekly by default) that keeps every direction trustworthy. The only play that looks across directions.
 
-Reads: every direction's NOW.md + CHARTER.md/TREE.md headers + LOG.md tail; os/FRICTION.md.
-Writes: NOW.md of affected directions, LOG.md, knowledge/ staleness marks.
+Reads: each direction's NOW.md, CHARTER/TREE headers, LOG tail; os/FRICTION.md.
+Writes: NOW.md of affected directions, LOG.md, knowledge staleness marks.
 
-## Checklist — every item is a boolean, report all of them
+## Checklist — report every item
 
 Per direction:
 
-1. **Decisions** — is the decision inbox empty? If not: re-surface to the owner in one batch, with recommendations.
-2. **Liveness** — does the primary bet have a ready task/CALL, does track WIP fit its limit, and does every current track have one ordinary root or decision with no orphan child/outcome request or request with a paused endpoint? No active bet/tracks/decision → flag idle; an empty track or false-ready call → repair.
-3. **Kill dates** — any kill_by date passed or threshold breached? → trigger a review CALL (do not review here).
-4. **Hot-state hygiene** — is NOW still hot state (no closed calls, answered decisions, prose notes)? Are `open_calls`/`decisions` the only dispatch state, with unique ids, valid statuses/artifacts and no removed selector residue? Are all hot files within the schema ceiling and template? Drift → repair, never compact here.
-5. **Blocked & outstanding** — any task/call blocked beyond its condition or older than budget, paused without current owner intent, waiting without a live receipt, `running` beyond budget without a return, or outcome request past its useful date? Propose: check, nudge, re-issue, expire, pause, or drop; never reset/relaunch from silence or start another track's successor.
-6. **Captures** — triage capture backlog: each becomes a parked node, merges into an existing node, or is dropped. Captures don't accumulate beyond one pulse.
-7. **Parking lot** — anything parked that current learnings make urgent, or that has been parked so long it should be dropped? Propose, don't decide.
-8. **Recurring** — any recurring obligation past its cadence (today vs last_done)? → put its ready work CALL into the decision batch. Pulse never executes recurring work itself.
+1. **Decisions** — batch every pending owner choice with recommendations.
+2. **Objective/liveness** — at most one active bet; if one exists, does it have a ready task/CALL? Do all non-recurring lanes serve it, fit WIP and have one root/decision with valid child graph? No bet means no non-recurring lane; an idle direction gets its planning route, not fake work.
+3. **Kill dates** — passed appetite/kill_by or invalidating evidence → review CALL.
+4. **Hot-state hygiene** — schema-only compact state; pending-only calls/decisions/issues; valid artifacts/statuses; forecast well-formed; no retired selector/controller residue. Drift → repair.
+5. **Blocked/outstanding** — calls beyond budget/condition, paused against current intent, waiting without live receipt, or running beyond budget? Recommend check, nudge, cancel, pause or drop; never infer progress/reset/relaunch.
+6. **Issues & captures** — every issue has route owner, review trigger and evidence pointer; due items are resolved, merged, promoted through the owning play, or explicitly dropped. Triage new captures into a parked node, issue, merge or drop. Neither queue accumulates without a next review event.
+7. **Roadmap** — future objectives stay visible and outcome-level. Anything newly urgent or permanently irrelevant? Propose; don't decide.
+8. **Recurring** — overdue obligation → ready work CALL in the decision batch; pulse never executes it.
+9. **Forecast** — is the dated target/basis current after material evidence? Numeric chance without cited empirical calibration, ritual daily movement, or stale trigger → replace recommendation with `no_basis`/review; pulse does not manufacture a number.
 
 Global:
 
-9. **WIP across directions/tracks** — report each limit/occupancy and ready/running/waiting/blocked/paused calls grouped by track. If attention is spread too thin, recommend tracks/directions to pause; do not hide intra-direction WIP behind one direction count.
-10. **Knowledge staleness** — any knowledge entry past its relevance (check `read_by` and dates)? Mark stale.
-11. **Friction** — any os/FRICTION.md point with ≥2 entries? Recommend one maintenance session (and nothing more).
-12. **Market contact** (per direction with an active bet) — were decisions since last pulse checked against at least one external signal (market/audience numbers, live users), with the number cited?
+10. **WIP across directions** — limits/occupancy and ready/running/waiting/blocked/paused by execution lane. Recommend pauses when owner attention is spread thin.
+11. **Knowledge staleness** — mark entries stale when their `read_by`/evidence no longer applies.
+12. **Friction** — ≥2 matching entries → recommend one maintenance session.
+13. **Market contact** — for each active bet, did recent decisions touch a cited external signal? Report honestly.
 
 ## Close
 
-RESULT: the boolean report, batched decisions_needed across directions, state_changes for triage, log line per affected direction; next = `awaiting_decision` when the batch is non-empty, otherwise `return-to-owner`. Never select unrelated work.
+RESULT carries the report, batched decisions, exact triage state_changes and one log line per affected direction; `awaiting_decision` if needed, else `return-to-owner`. Never select unrelated work.
 
 ## Done when
 
-All twelve items have explicit answers; the owner has one consolidated decision batch.
+All thirteen items have explicit answers and the owner has one consolidated decision batch.
 
 ## Notes
 
-- Pulse never does object-level work and never reshapes bets — it routes.
-- Keep the report on one screen: twelve lines plus the decision batch.
+- Pulse routes; it never executes or reshapes a bet.
+- Keep the rendered report compact; evidence stays behind pointers.
 
 END_OF_FILE: os/plays/pulse.md
