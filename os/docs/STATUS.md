@@ -15,9 +15,9 @@ updated: 2026-07-24 (strategy reset: direction-level day adviser, one objective,
 ## 3. Состояние пилота (на дату снапшота)
 
 - Владелец отключил Launch Control и выбрал чистую пересборку стратегического слоя. Целевая рамка известна только на уровне его слов: демо к октябрьскому Steam-фестивалю 2026; точные CHARTER и TREE ещё должны быть созданы вместе с владельцем через **frame -> map -> shape**.
-- Текущий `live/indie-game-development/**` содержит пред-reset состояние и по новой схеме является repair-frontier: старые независимые треки/READY CALL нельзя исполнять как план. Их отдельный Direction repair должен диспозиционировать, сохранить нерешённое в issues/evidence и оставить один planning frontier; maintenance не имеет права делать это напрямую.
+- Live-reset завершён RESULT `s-repair-strategy-layer-reset-cleanup-001`: `NOW.bet: null`, задач и execution lanes нет, одиннадцать нерешённых фактов сохранены в `NOW.issues`, а единственный законный frontier — owner-present frame `c-frame-october-demo-foundation-001`.
 - Архив и большая исследовательская база сохраняются как cold evidence. Они не являются текущей стратегией и не удаляются при reset.
-- Этот maintenance-коммит меняет только общую ОС. Он не объявляет живую миграцию завершённой и не регенерирует/не удаляет старую direction-specific HTML-панель: её authority/declaration может быть снята только отдельным валидным live RESULT.
+- Старые local plays, Program/Demo workflow и HTML-панель явно помечены non-runnable/retired evidence; тела и история сохранены. CHARTER/TREE пока намеренно не заменены: TREE всё ещё содержит legacy `active/parallel`, поэтому карантин действует до точного owner-approved G9 frame/map и schema-clean не заявлен.
 
 ### 3.1 Доработки контура планирования (2026-06-11)
 
@@ -27,7 +27,7 @@ updated: 2026-07-24 (strategy reset: direction-level day adviser, one objective,
 - **Search plane**: research `strategic_search`/nominal-group/miner-briefs; map human-first + опциональный search-first + поле `edge` + один редкий стимул + noun-test; shape Berg equal-footing + инкубационный зазор + probe-поля (forecast/against/next_if) + AI-burst evaluator; review forecast-check + harvest edges; pulse-пункт 11 market contact; CHARTER `edges`/`risk_posture`.
 - Каждый механизм несёт фальсификатор в `os/FRICTION.md` - откат помеханизменно. Источники и проверка - `os/docs/RESEARCH_BASIS.md` (строка search plane) + proposal-доки в `os/docs/`.
 - **Session protocol, G10**: ordinary legs show opening contract; `day` shows only `📍 День: ...` and a derived plain-language view. Day discussion is read-only; exact save words are required for one RESULT/apply/commit. Binding G5 remains a separate fresh chat.
-- **Strategy/day model** (2026-07-24 reset): TREE is the sole roadmap; NOW holds at most one active bet. Future goals stay parked/shaped. Optional tracks are WIP-limited execution lanes serving that bet, never independent strategic roots. NOW.issues preserves unresolved problems with route+review trigger. direction_forecast is `no_basis` unless a numeric chance has cited empirical calibration. The detailed daily dashboard is rendered in chat; the OS creates no controller track, outcome request, copied plan or new HTML authority. Any pre-existing live panel remains legacy until its declaration is retired by a Direction RESULT.
+- **Strategy/day model** (2026-07-24 reset): TREE is the sole roadmap; NOW holds at most one active bet. Future goals stay parked/shaped. Optional tracks are WIP-limited execution lanes serving that bet, never independent strategic roots. NOW.issues preserves unresolved problems with route+review trigger. direction_forecast is `no_basis` unless a numeric chance has cited empirical calibration. The detailed daily dashboard is rendered in chat; the OS creates no controller track, outcome request, copied plan or new HTML authority. The pilot's former HTML panel is retired static evidence by the live reset RESULT.
 
 ## 4. Мандат помощника (что от тебя ждут)
 
