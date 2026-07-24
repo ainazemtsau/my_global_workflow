@@ -1,6 +1,6 @@
 # Goal tree: indie-game-development
 
-owner_approved: 2026-07-20 — history/2026-07-20-s-map-program-v2-hot-migration-route-001.md; 2026-07-20 — history/2026-07-20-s-repair-build-tooling-parking-001.md («припаркую», g-c5d1 parked); 2026-07-20 — history/2026-07-20-s-map-grid-track-resume-001.md («Принимаю активацию Grid по этому маршруту», g-4b92 parallel); 2026-07-21 — history/2026-07-21-s-map-gas-track-resume-001.md («A», g-1a63 parallel); 2026-07-21 — history/2026-07-21-s-map-launch-control-track-add-002.md («Можем сохранять его», g-b847 parallel); 2026-07-22 — history/2026-07-22-s-map-launch-control-demo-control-room-refit-001.md («Так, окей, тогда принимаю план.», g-b847 Demo Control Room refit); 2026-07-24 — history/2026-07-24-s-map-launch-control-demo-release-spine-001.md («PLEASE IMPLEMENT THIS PLAN»; «я хочу, чтобы ты всё завершил», g-b847 Demo Release Control + R0–R5)
+owner_approved: 2026-07-20 — history/2026-07-20-s-map-program-v2-hot-migration-route-001.md; 2026-07-20 — history/2026-07-20-s-repair-build-tooling-parking-001.md («припаркую», g-c5d1 parked); 2026-07-20 — history/2026-07-20-s-map-grid-track-resume-001.md («Принимаю активацию Grid по этому маршруту», g-4b92 parallel); 2026-07-21 — history/2026-07-21-s-map-gas-track-resume-001.md («A», g-1a63 parallel); 2026-07-21 — history/2026-07-21-s-map-launch-control-track-add-002.md («Можем сохранять его», g-b847 parallel); 2026-07-22 — history/2026-07-22-s-map-launch-control-demo-control-room-refit-001.md («Так, окей, тогда принимаю план.», g-b847 Demo Control Room refit); 2026-07-24 — history/2026-07-24-s-map-launch-control-demo-release-spine-001.md («PLEASE IMPLEMENT THIS PLAN»; «я хочу, чтобы ты всё завершил», g-b847 Demo Release Control + R0–R5); 2026-07-24 — history/2026-07-24-s-review-launch-control-full-retirement-001.md («track Launch Control полностью отключаем», g-b847 dropped)
 
 - id: g-a7f2
   goal: Выпущенная в Steam коммерческая co-op игра строится вокруг gas + grid, изменения пространства и экспедиционной игры; продукт технически силён, понятен игрокам и приносит реальный доход.
@@ -61,55 +61,12 @@ owner_approved: 2026-07-20 — history/2026-07-20-s-map-program-v2-hot-migration
       detail: Существующий canon-forge сохраняется; current root c-cartography-g-d3a8-post-gas-behavior-admission-front-001.
 
     - id: g-b847
-      goal: "Demo Release Control: выбранное публичное demo выпущено по October 2026 route через owner-approved Demo Basis, evidence-gated milestones, ранние cuts и законное 0..N routing; February включается только отдельным verdict владельца, а целевые треки сохраняют власть над technical HOW."
-      done_when: |
-        Release spine R0–R5 закрыт matching product/player/Steam evidence и свежей binding G5 для каждого DONE claim; регистрация до 2026-08-31, обязательная submission до 2026-10-05 и public demo к 2026-10-19 не пропущены. Каждый control-cycle является одноразовой проекцией свежих TREE/NOW/CALL/RESULT identities: показывает current milestone/evidence gap, forecast class, dominant constraint, running, collision-free launch now 0..N, hold/cut/owner decision и recompute trigger; copied status, stored daily plan, второй scheduler, guessed percent и technical HOW отсутствуют. Независимая работа не ждёт Character или другой foreign result; WAIT/STABILIZE/PROTECT/REPLAN/PROBATION ограничивают только affected surface. Demo Basis и новые cuts утверждает владелец, Canon version-identifies basis, Demo Release Control только потребляет его.
-      why: Релизу нужен один высокоуровневый контур, который меняет маршрут по evidence и срокам, но не превращается в хрупкий второй план и не сериализует независимые треки.
-      status: parallel
-      detail: history/2026-07-24-s-map-launch-control-demo-release-spine-001.md
-      children:
-
-        - id: g-5cf2
-          goal: "R0 — Release basis actionable: один owner-approved Demo Basis точно version-identified, а private Steam status и October eligibility проверены."
-          done_when: Canon называет current Demo Basis как artifact@blob и точный owner approval receipt; basis фиксирует player promise, representative experience, proof floor, исключения и допустимые cuts без technical HOW; private Steam receipt подтверждает registration/status/eligibility факты выбранного October route либо точный blocker.
-          why: Без принятого смысла demo и фактического Steam-состояния нельзя честно вычислять milestones, forecast или definition-dependent работу.
-          status: parked
-          detail: history/2026-07-24-s-map-launch-control-demo-release-spine-001.md; current milestone selected by launch-control transition root
-
-        - id: g-2a7a
-          goal: "R1 — Causal expedition exists: один точный build позволяет провести законченную двухпользовательскую экспедицию с причинным игровым взаимодействием."
-          done_when: Named build и runtime evidence проводят двух игроков от pre-entry до safe return, partial disaster или wipe; минимум одно наблюдаемое совместное решение причинно меняет исход через тогда-current accepted systems и expedition pressure.
-          why: Это первый продуктовый факт, доказывающий игру и cooperation, а не набор отдельно работающих технологий.
-          status: parked
-          detail: history/2026-07-24-s-map-launch-control-demo-release-spine-001.md
-
-        - id: g-c83d
-          goal: "R2 — Fresh-player comprehension: отдельная свежая пара без обучения понимает происходящее и проходит принятую экспедицию."
-          done_when: Два fresh players без скрытого обучения распознают цель, значимые состояния и последствия, координируются и завершают экспедицию; evidence фиксирует наблюдения и ошибки понимания. Внутренняя авторская пара или один familiar запуск claim не закрывают.
-          why: Публичное demo должно быть понятно незнакомым игрокам, иначе технически рабочая экспедиция не доказывает release value.
-          status: parked
-          detail: history/2026-07-24-s-map-launch-control-demo-release-spine-001.md
-
-        - id: g-2d1b
-          goal: "R3 — Demo Candidate: принятый MUST-scope интегрирован в один распространяемый кандидат."
-          done_when: Exact candidate содержит весь owner-approved MUST и проходит named runtime, two-machine, install и distribution gates; cuts сохраняют proof floor, а каждый exception имеет disposition и receipt.
-          why: Понятный vertical proof должен стать воспроизводимым внешним build, а не остаться локальной сценой или набором evidence.
-          status: parked
-          detail: history/2026-07-24-s-map-launch-control-demo-release-spine-001.md
-
-        - id: g-5a6f
-          goal: "R4 — Steam submission: обязательные материалы и demo build отправлены Valve с резервом на review и corrections."
-          done_when: Steam receipts подтверждают отправку всех required items и exact build до hard gate; review findings имеют correction path и реальный временной резерв, eligibility остаётся true.
-          why: Готовый кандидат не становится публичным demo без своевременного прохождения внешней submission/review очереди.
-          status: parked
-          detail: history/2026-07-24-s-map-launch-control-demo-release-spine-001.md
-
-        - id: g-5632
-          goal: "R5 — Public demo: одобренное demo публично доступно и получен первый внешний сигнал."
-          done_when: Public Steam surface и installable demo доступны внешнему пользователю; первый независимый play/download/feedback signal записан с источником, а публичные claims соответствуют принятому proof.
-          why: Только публичная доступность и внешний контакт превращают внутреннюю разработку в реальный release outcome.
-          status: parked
-          detail: history/2026-07-24-s-map-launch-control-demo-release-spine-001.md
+      goal: "Исторические эксперименты Demo & Launch Control сохранены как evidence и не работают как живой трек."
+      done_when: "Не преследуется после owner-retirement 2026-07-24: Launch Control track, ordinary root, outcome-dispatch authority и current policy отсутствуют."
+      why: "Будущее планирование может переиспользовать исследования и release-факты, но провалившийся controller не должен определять или запускать текущую работу."
+      status: dropped
+      detail: history/2026-07-24-s-review-launch-control-full-retirement-001.md; prior launch-control history and retired DCR Git blob bdd17cb4ed6ed6514bd4e9d836e0d5aae132b17c remain evidence
+      children: []
 
     - id: g-c5d1
       goal: "Build & Tooling: version, build, validators и shared tooling воспроизводимо снимают конкретные cross-track blockers."

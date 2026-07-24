@@ -1,12 +1,17 @@
-# Demo Release Control Policy v1
+# Demo Release Control Policy v1 — retired evidence
 
 accepted: 2026-07-24 — owner words `PLEASE IMPLEMENT THIS PLAN`, `разблокируй`,
 and `я хочу, чтобы ты всё завершил`; binding fresh retirement review
 `history/2026-07-24-s-review-launch-control-demo-control-room-retirement-001.md`.
-read_by: every Demo Release Control work/review leg at start-day, material return,
-owner verdict or hard-date checkpoint; pulse/review before any route, forecast,
-cut, admission or DONE claim.
-status: current durable policy; contains no current work status.
+retired: 2026-07-24 — owner words `track Launch Control полностью отключаем`;
+binding review `history/2026-07-24-s-review-launch-control-full-retirement-001.md`.
+read_by: future map/research/review only when evaluating a new strategic or
+release structure; never by work/pulse as current routing or controller authority.
+status: retired historical evidence; no current track, root, policy authority,
+cadence, mode, forecast or outcome-dispatch right survives.
+
+All sections below preserve the exact former policy for research provenance.
+They authorize no work, launch, cut, route decision or state interpretation.
 
 ## 1. One authority surface, no second plan
 

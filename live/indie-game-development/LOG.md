@@ -615,4 +615,6 @@ archived: history/LOG-archive-indie-game-development.md — sessions before 2026
 
 2026-07-24 · s-research-canon-game-first-recovery-001 · research · canon · g-d3a8/game-first-recovery: gas-first phase/law families were refuted as timer/door/build-block/quarterback variants; the missing proof is persistent cross-subgroup commitment above the local Sphere toy, so gas expansion freezes pending one custody-only greybox with inert-crate control, followed only on survival by commitment-gated two-law macro pressure. → history/2026-07-24-s-research-canon-game-first-recovery-001.md
 
+2026-07-24 · s-review-launch-control-full-retirement-001 · launch-control · review · g-b847/full-retirement-001: binding fresh review found Demo/Launch Control NOT MET and applied the owner's exact retirement order; the live track, READY controller, R0–R5 subtree and current policy authority are removed while research/history remain evidence, every foreign track/call is preserved, and no replacement strategy is created. → history/2026-07-24-s-review-launch-control-full-retirement-001.md
+
 END_OF_FILE: live/indie-game-development/LOG.md

@@ -1,6 +1,6 @@
 # NOW: indie-game-development
 
-updated: 2026-07-24 by s-work-canon-game-first-demo-creation-fit-blocked-001
+updated: 2026-07-24 by s-review-launch-control-full-retirement-001
 
 bet: null
 
@@ -10,7 +10,6 @@ track_wip_limit: 99
 
 tracks:
   - {id: program, label: "Integration Lab & Product Proof", mode: primary, for: g-9c41}
-  - {id: launch-control, label: "Demo Release Control", mode: parallel, for: g-b847, outcome_dispatch: true}
   - {id: level, label: "Level & Environment", mode: parallel, for: g-8f20}
   - {id: canon, label: "Design & Canon", mode: parallel, for: g-d3a8}
   - {id: visual, label: "Presentation", mode: parallel, for: g-7e15}
@@ -31,24 +30,6 @@ open_calls:
     receipts:
       - history/2026-07-20-s-work-program-v2-legacy-lab-purge-deliver-blocked-001.md
     note: "BLOCKED / V31 RELEASE CONTINUATION / ROOT NOT RELEASED. Product candidate 72c7c8c6 removes the 24 approved tracked paths, preserves KEEP, adds the <=400-word no-growth policy, passes fresh non-author G5 and normal gates (1829/1829), and is integrated only in local dev through c5c21c13 with blocker evidence baf8513c. Deliver is RED solely because pre-existing review-c-exec-char-v2-source-router-repair-001 does not account for source commit 413149ce after reviewed commit 8a0e33ec. No push/merge/release; origin refs remain 45b15623; WIN-U1 is DRAINING with lease preserved. Do not dispatch or return to feature work until unblock_when is true."
-
-  - id: c-work-launch-control-demo-release-control-cycle-003
-    track: launch-control
-    status: ready
-    to: session
-    for: "g-b847 / run one fresh Character-independent Demo Release Control event cycle and leave the controller READY for the next event"
-    issued: 2026-07-24
-    call: work/launch-control/c-work-launch-control-demo-release-control-cycle-003-call.md
-    receipts:
-      - history/2026-07-24-s-research-launch-control-minimal-authority-001.md
-      - history/2026-07-24-s-work-canon-demo-basis-authority-transition-001.md
-      - history/2026-07-24-s-map-launch-control-demo-release-spine-001.md
-      - history/2026-07-24-s-review-launch-control-demo-control-room-retirement-001.md
-      - history/2026-07-24-s-work-launch-control-demo-release-control-installation-001.md
-      - history/2026-07-24-s-work-launch-control-demo-release-control-cycle-001.md
-      - history/2026-07-24-s-work-launch-control-demo-release-control-cycle-002.md
-      - history/2026-07-24-s-work-canon-game-first-demo-creation-fit-blocked-001.md
-    note: "READY / PERMANENT OUTCOME_DISPATCH CONTROLLER / CHARACTER-INDEPENDENT / DCR HISTORICAL ONLY / POLICY v1 CURRENT. Canon returned BLOCKED: the accepted workflow and current Canon root begin after an owner-approved Demo Basis, while no current outcome owns game-first creation of a coherent whole-experience candidate. Exact unblock is one owner-approved reframe/new-track outcome with a stable owning root and proof boundary; Gas remains demotable and no Gas/Grid/demo work was launched. This continuation contains no current snapshot and recomputes from fresh identities on the next event."
 
   - id: c-exec-level-module-standard-v1-lv0-plan-001
     track: level
@@ -73,7 +54,7 @@ open_calls:
       - history/2026-07-24-s-research-launch-control-minimal-authority-001.md
       - history/2026-07-24-s-work-canon-demo-basis-authority-transition-001.md
       - history/2026-07-24-s-work-canon-game-first-demo-creation-fit-blocked-001.md
-    note: "WAITING / CANON-MAINTAINED DEFINITION AUTHORITY INSTALLED / ACCEPTED BASIS NONE / NO DCR POINTER / NO DESIGN OR BUILD DISPATCH. Owner decides and approves; Canon maintains and version-identifies the exact Demo Basis; Demo Release Control consumes it. The game-first ownership disposition returned BLOCKED because this root and the accepted workflow do not own pre-Basis creation; that receipt changes neither this root nor the basis. Unblock this root only on one owner-approved current Demo Basis artifact@blob plus acceptance receipt under R0; route the separate creation-authority gap only through an owner-approved reframe/new-track outcome."
+    note: "WAITING / FROZEN LEGACY BASIS CHECKPOINT / ACCEPTED BASIS NONE / NO DESIGN OR BUILD DISPATCH. Launch Control was retired by the owner on 2026-07-24. This root remains non-dispatchable on its existing wait token and is not authority for pre-Basis creation. The next owner-approved map/reframe must explicitly reconcile, replace or retire it before use; the prior game-first ownership disposition remains BLOCKED and no Demo Basis was accepted."
   - id: c-visual-009
     track: visual
     status: blocked
@@ -130,7 +111,7 @@ open_calls:
     call: work/c-work-gas-v1-live-composition-plan-001-call.md
     receipts:
       - history/2026-07-21-s-work-gas-v1-master-plan-accepted-001.md
-    note: "READY / NON-DEFAULT / OWNER-PRESENT / PLAN BEFORE BUILD. The owner accepted the nine-node Gas V1 master plan with exact words `Окей, подтверждаю план.` This root plans only node 1: connect the released NearGas foundation to one lawful production simulation tick and prove deterministic composition. It must re-read current product authority first-hand, present any material composition choice to the owner, preserve current behavior and atomicity, and open no BUILD before acceptance. The Demo Control Room refit is current default."
+    note: "READY / NON-DEFAULT / OWNER-PRESENT / PLAN BEFORE BUILD. The owner accepted the nine-node Gas V1 master plan with exact words `Окей, подтверждаю план.` This root plans only node 1: connect the released NearGas foundation to one lawful production simulation tick and prove deterministic composition. It must re-read current product authority first-hand, present any material composition choice to the owner, preserve current behavior and atomicity, and open no BUILD before acceptance. Launch Control is retired; the next owner-approved planning reset decides whether this root remains strategically relevant."
 
 recurring: []
 
