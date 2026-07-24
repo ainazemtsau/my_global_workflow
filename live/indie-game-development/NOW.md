@@ -1,6 +1,6 @@
 # NOW: indie-game-development
 
-updated: 2026-07-24 by s-work-launch-control-demo-release-control-installation-001
+updated: 2026-07-24 by s-work-launch-control-demo-release-control-cycle-001
 
 bet: null
 
@@ -32,20 +32,21 @@ open_calls:
       - history/2026-07-20-s-work-program-v2-legacy-lab-purge-deliver-blocked-001.md
     note: "BLOCKED / V31 RELEASE CONTINUATION / ROOT NOT RELEASED. Product candidate 72c7c8c6 removes the 24 approved tracked paths, preserves KEEP, adds the <=400-word no-growth policy, passes fresh non-author G5 and normal gates (1829/1829), and is integrated only in local dev through c5c21c13 with blocker evidence baf8513c. Deliver is RED solely because pre-existing review-c-exec-char-v2-source-router-repair-001 does not account for source commit 413149ce after reviewed commit 8a0e33ec. No push/merge/release; origin refs remain 45b15623; WIN-U1 is DRAINING with lease preserved. Do not dispatch or return to feature work until unblock_when is true."
 
-  - id: c-work-launch-control-demo-release-control-cycle-001
+  - id: c-work-launch-control-demo-release-control-cycle-002
     track: launch-control
     status: ready
     to: session
     for: "g-b847 / run one fresh Character-independent Demo Release Control event cycle and leave the controller READY for the next event"
     issued: 2026-07-24
-    call: work/launch-control/c-work-launch-control-demo-release-control-cycle-001-call.md
+    call: work/launch-control/c-work-launch-control-demo-release-control-cycle-002-call.md
     receipts:
       - history/2026-07-24-s-research-launch-control-minimal-authority-001.md
       - history/2026-07-24-s-work-canon-demo-basis-authority-transition-001.md
       - history/2026-07-24-s-map-launch-control-demo-release-spine-001.md
       - history/2026-07-24-s-review-launch-control-demo-control-room-retirement-001.md
       - history/2026-07-24-s-work-launch-control-demo-release-control-installation-001.md
-    note: "READY / PERMANENT OUTCOME_DISPATCH CONTROLLER / CHARACTER-INDEPENDENT / DCR HISTORICAL ONLY / POLICY v1 CURRENT / R0 CURRENT, R1-R5 PARKED. demo_basis: NONE; October selected; February owner-only; forecast UNFORECASTABLE / NO DATE BASIS. Each fresh start-day, material-return, owner-verdict or hard-date cycle renders one disposable <=400-word screen from policy plus fresh identities and returns a same-position READY refill. It stores no daily plan, does not wait for Character, never mutates foreign roots or chooses target HOW, and claims no release progress. Installation replay is exact 10/10 PASS; seven-day probe and binding post-install G5 remain unclaimed. Grid and Gas remain independently READY."
+      - history/2026-07-24-s-work-launch-control-demo-release-control-cycle-001.md
+    note: "READY / PERMANENT OUTCOME_DISPATCH CONTROLLER / CHARACTER-INDEPENDENT / DCR HISTORICAL ONLY / POLICY v1 CURRENT. This continuation contains no current snapshot: every fresh start-day, material-return, owner-verdict or hard-date cycle re-reads TREE/NOW/CALL/RESULT identities, renders one disposable <=400-word screen and returns a same-position READY refill. It stores no daily plan, never mutates foreign roots or chooses target HOW, and claims no release progress."
 
   - id: c-exec-level-module-standard-v1-lv0-plan-001
     track: level
