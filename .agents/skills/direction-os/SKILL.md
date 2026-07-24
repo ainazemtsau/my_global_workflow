@@ -30,10 +30,13 @@ evidence, never authority or an edit target.
 
 ## 1. First reply = opening contract
 
-Start the FIRST reply of EVERY leg with this header as the literal first owner-facing line,
-then the play's numbered steps with the current one marked, then a ≤5-line
-restate (play, goal, done_when). Then run the play and STOP at the first step
-that needs the owner.
+Start an ordinary leg with this header as the literal first owner-facing line,
+then the play's numbered steps with the current one marked and a ≤5-line
+restate (play, goal, done_when). Then run the play and STOP at the first owner
+step. An authorized day-controller leg instead starts `📍 День: <простая
+текущая цель> | от тебя: <ничего | короткий выбор>` and goes straight to its
+plain owner view; ids, play steps, status codes and procedure recitation stay
+internal.
 
 ```
 📍 <direction>/<track-or-legacy>/<node>/<task> — <play>: <step> | нужно от тебя: <ничего | вопрос>
@@ -71,7 +74,9 @@ For the ordinary root of an owner-approved `outcome_dispatch` track, these
 plain owner intents are successive `work` legs: `начинаем день`, a launch/loss
 receipt, refill/`что ещё запустить`, a material event/problem, and `закрываем
 день`. A state question stays read-only. Each intent starts from fresh Git; no
-new packet, play, or state type is implied.
+new packet, play, or state type is implied. The daily overview never exposes a
+`next CALL`; if the owner asks to launch/get one item, present it as `Задача для
+отдельного чата` after the plain recommendation.
 
 ## 3. One leg = one job = one RESULT
 

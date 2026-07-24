@@ -15,7 +15,7 @@ The OS runs the owner's life directions — long-term ambitions — through many
 
 ## 2. Session contract
 
-1. **OPEN** — input is a CALL **or a plain owner message**. Read `NOW.md` and the play's files. Resolve plain input against NOW: new TREE-backed track → map; retirement/primary handoff → review; other lifecycle or launch/loss → work; track/task/CALL → its call/decision; "продолжаем" → sole actionable call/decision; several → grouped choice/recommendation without mutation; none → running/waits/blocks/pauses; "что можно делать" → ready calls by track; question → read-only; no-state ambition → frame; otherwise interpret and confirm. For an authorized controller, `начинаем день`, launch receipt, refill/`что ещё`, material event, and `закрываем день` are successive work-leg intents against its ordinary root. The first reply of every leg is the **opening contract**: orientation header, numbered play steps with the current one marked, and a ≤5-line restate (play, goal, done_when); then run the play and stop at the first owner step. Play outranks CALL. Contradictory state → repair. The owner never composes packets.
+1. **OPEN** — input is a CALL **or a plain owner message**. Read `NOW.md` and the play's files. Resolve plain input against NOW: new TREE-backed track → map; retirement/primary handoff → review; other lifecycle or launch/loss → work; track/task/CALL → its call/decision; "продолжаем" → sole actionable call/decision; several → grouped choice/recommendation without mutation; none → running/waits/blocks/pauses; "что можно делать" → ready calls by track; question → read-only; no-state ambition → frame; otherwise interpret and confirm. For an authorized controller, `начинаем день`, launch receipt, refill/`что ещё`, material event, and `закрываем день` are successive work-leg intents against its ordinary root. An ordinary leg opens with the header, numbered steps/current marked, and a ≤5-line restate. A day controller opens with its plain day header and owner view; steps stay internal. Then run the play and stop at the first owner step. Play outranks CALL. Contradictory state → repair. The owner never composes packets.
 2. **WORK** — follow the play. Cross-cutting moves available in any session:
    - `call:research` — spawn a bounded child question (CALL packet, §4); children may spawn their own.
    - `call:executor` — delegate execution to a working agent (CALL packet, §4).
@@ -23,12 +23,13 @@ The OS runs the owner's life directions — long-term ambitions — through many
    - `decision` — put a question to the owner in RESULT.decisions_needed, always with 2–3 options and a recommendation.
 3. **CLOSE** — emit RESULT (§4) as the leg's final message only: readable summary, then one fenced RESULT. It ends the leg, checkpoints included; the writer applies/commits state_changes. Normal continuation uses RESULT.next in a fresh chat. A day controller may accept the next owner turn in the same physical chat only after that transaction, starting again at OPEN; day close ends it. A checkpoint keeps partial work active through a continuation CALL.
 
-**Orientation header.** Every owner-facing reply starts with one line:
-`📍 <direction> / <track-or-legacy> / <node> / <task> — <play>: <current step> | нужно от тебя: <ничего | вопрос>`
+**Orientation header.** An ordinary reply starts with:
+`📍 <direction>/<track>/<node>/<task> — <play>: <step> | нужно от тебя: <ничего | вопрос>`.
+An authorized day controller starts with `📍 День: <простая текущая цель> | от тебя: <ничего | короткий выбор>` and exposes no ids, play steps or status codes.
 
 **Language.** Talk to the owner in the owner's language (Russian). State files keep keys in English; values may be any language.
 
-**Owner-facing vs machine.** The RESULT block — and any packet or state file, a charter draft included — is a machine artifact for the writer. What the owner reads is its substance as a readable summary in his language, never a YAML/state dump as the reply body; the machine block rides once, fenced, at the end of the final message, for the relay to carry.
+**Owner-facing vs machine.** RESULT, packets and state are machine artifacts. The owner gets ordinary language, never a YAML/state dump. Visible prose omits internal ids, packet terms, enum labels and empty fields unless he asks for a paste-ready task. The fenced block rides once at the end for the relay.
 
 **Legs do not write.** Repo access is not write permission. Changes travel only inside RESULT.state_changes, applied by the writer; an agent-CLI leg here becomes its own writer only after emitting its RESULT.
 
@@ -76,7 +77,7 @@ An engineering CALL goes to the product repo. Its `return` comes HOME; only Dire
 - **G7 (decisions).** Every owner decision request carries options and a recommendation; decisions are batched, never scattered through a leg.
 - **G8 (intake).** New directions and new top-level goals enter only through frame. New ideas default to `parked` — the parking lot is the system's normal answer to enthusiasm.
 - **G9 (co-creation).** CHARTER.md and TREE.md change only with the owner's explicit in-leg approval: planning legs present drafts one artifact at a time (a tree node is an artifact, carrying its one-line `why`), and the RESULT marks each approval (`owner_approved`). The writer rejects charter/tree changes without it.
-- **G10 (protocol).** Every leg's first reply carries the play steps; RESULT appears only in its final message; legs never write state directly. The writer rejects missing `play_check` steps or owner steps without actual words.
+- **G10 (protocol).** Every ordinary leg's first reply carries play steps; a day controller shows only its plain header/view while `play_check` still records them. RESULT appears only in final; legs never write state. Writer rejects missing `play_check` steps or owner steps without actual words.
 
 A session that cannot pass a gate stops and reports — it never improvises around a gate.
 

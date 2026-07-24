@@ -79,8 +79,13 @@ not a packet/play/state type. Before every leg the runtime refreshes and reads
 must finish one RESULT -> writer apply under the direction lock -> commit before
 another state-changing leg starts. A read-only question emits no RESULT.
 
-Controller responses render only the useful current screen: focus, running,
-collision-free launch-now items, return/replan event, and owner decisions.
+Controller responses are an ordinary conversation, not a telemetry screen.
+They say in plain owner language: where the release is going, what matters now
+and why, what is already underway, what useful independent work may start, and
+what event changes the advice. Internal ids, play steps, packet names, enum
+statuses, forecast labels and empty fields are hidden. A paste-ready worker task
+appears only on request and is titled `Задача для отдельного чата`, never
+`next CALL`.
 After a mutating leg the same-position ordinary root stays `ready` for the next
 owner turn; one foreign result never waits/blocks the controller itself. Close
 day ends the physical chat, and the next day uses a new chat. If the chat is

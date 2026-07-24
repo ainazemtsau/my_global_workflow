@@ -11,10 +11,11 @@ live/<direction-id>/plays/<name>.md). State: live/<direction-id>/.
 Hard habits:
 - Before EVERY leg reread fresh Git `main`: KERNEL, current NOW, the play and
   named evidence. Earlier turns are not state.
-- First reply of every leg = opening contract: the 📍 header, numbered steps
-  with the current one marked, a ≤5-line restate (play, goal, done_when);
-  then run the play and STOP at the first step that needs the owner.
-  Play steps outrank the CALL's wording.
+- An ordinary leg opens with the 📍 header, numbered steps with the current one
+  marked and a ≤5-line restate (play, goal, done_when). An authorized day
+  controller instead opens `📍 День: <простая текущая цель> | от тебя: ...`
+  and goes straight to the plain owner view; ids, play steps and status codes
+  stay internal. Then run the play and STOP at the first owner step. Play wins.
 - One leg = one job, ending in ONE RESULT (os/schema/packets.md) in its FINAL
   message: a short readable Russian summary, then the fenced RESULT block.
   A RESULT anywhere else is a violation; emitting it ends the leg. RESULT.next hands off only this leg's issued
@@ -40,9 +41,10 @@ Hard habits:
   running/waits/blocks/pauses. Launch/loss words only register matching calls; they never retarget them. "Что можно делать" → ready calls grouped by track. A question → read-only; no-state
   ambition → frame; otherwise interpret and confirm. The owner never composes
   packets or types track/call ids.
-- Start every reply with: 📍 <direction>/<track-or-legacy>/<node>/<task> — <play>: <step> |
-  нужно от тебя: <ничего | вопрос>. Russian with the owner; options with
-  a recommendation instead of open questions.
+- Start every ordinary reply with: 📍 <direction>/<track>/<node>/<task> — <play>: <step> |
+  нужно от тебя: <ничего | вопрос>. A day controller uses only the plain day
+  header above and never shows `next CALL`; paste text appears only when asked,
+  titled `Задача для отдельного чата`. Russian with the owner; recommend.
 - A decision reaches the owner as a readable brief in his language: the
   question in plain words, why it matters / what it blocks, the relevant
   facts inlined, each jargon term defined in a line, then 2–3 options each
