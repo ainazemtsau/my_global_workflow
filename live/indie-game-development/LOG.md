@@ -613,4 +613,6 @@ archived: history/LOG-archive-indie-game-development.md — sessions before 2026
 
 2026-07-24 · s-work-canon-game-first-demo-creation-fit-blocked-001 · work · canon · g-d3a8/game-first-demo-creation-fit-001: BLOCKED — current Canon root and accepted workflow begin after an owner-approved Demo Basis and no existing target outcome owns game-first creation before it; the auxiliary request is cleared and both ordinary roots are receipted unchanged, with one owner-approved reframe/new-track outcome required before definition-dependent work and Gas explicitly demotable. → history/2026-07-24-s-work-canon-game-first-demo-creation-fit-blocked-001.md
 
+2026-07-24 · s-research-canon-game-first-recovery-001 · research · canon · g-d3a8/game-first-recovery: gas-first phase/law families were refuted as timer/door/build-block/quarterback variants; the missing proof is persistent cross-subgroup commitment above the local Sphere toy, so gas expansion freezes pending one custody-only greybox with inert-crate control, followed only on survival by commitment-gated two-law macro pressure. → history/2026-07-24-s-research-canon-game-first-recovery-001.md
+
 END_OF_FILE: live/indie-game-development/LOG.md
