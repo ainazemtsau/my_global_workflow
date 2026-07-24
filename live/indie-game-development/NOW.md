@@ -1,6 +1,6 @@
 # NOW: indie-game-development
 
-updated: 2026-07-24 by s-work-launch-control-demo-release-control-cycle-002
+updated: 2026-07-24 by s-work-canon-game-first-demo-creation-fit-blocked-001
 
 bet: null
 
@@ -47,7 +47,8 @@ open_calls:
       - history/2026-07-24-s-work-launch-control-demo-release-control-installation-001.md
       - history/2026-07-24-s-work-launch-control-demo-release-control-cycle-001.md
       - history/2026-07-24-s-work-launch-control-demo-release-control-cycle-002.md
-    note: "READY / PERMANENT OUTCOME_DISPATCH CONTROLLER / CHARACTER-INDEPENDENT / DCR HISTORICAL ONLY / POLICY v1 CURRENT. This continuation contains no current snapshot: every fresh start-day, material-return, owner-verdict or hard-date cycle re-reads TREE/NOW/CALL/RESULT identities, renders one disposable <=400-word screen and returns a same-position READY refill. It stores no daily plan, never mutates foreign roots or chooses target HOW, and claims no release progress."
+      - history/2026-07-24-s-work-canon-game-first-demo-creation-fit-blocked-001.md
+    note: "READY / PERMANENT OUTCOME_DISPATCH CONTROLLER / CHARACTER-INDEPENDENT / DCR HISTORICAL ONLY / POLICY v1 CURRENT. Canon returned BLOCKED: the accepted workflow and current Canon root begin after an owner-approved Demo Basis, while no current outcome owns game-first creation of a coherent whole-experience candidate. Exact unblock is one owner-approved reframe/new-track outcome with a stable owning root and proof boundary; Gas remains demotable and no Gas/Grid/demo work was launched. This continuation contains no current snapshot and recomputes from fresh identities on the next event."
 
   - id: c-exec-level-module-standard-v1-lv0-plan-001
     track: level
@@ -71,17 +72,8 @@ open_calls:
       - history/2026-07-22-s-work-g-d3a8-demo-workflow-rebuild-accepted-001.md
       - history/2026-07-24-s-research-launch-control-minimal-authority-001.md
       - history/2026-07-24-s-work-canon-demo-basis-authority-transition-001.md
-    note: "WAITING / CANON-MAINTAINED DEFINITION AUTHORITY INSTALLED / ACCEPTED BASIS NONE / NO DCR POINTER / NO DESIGN OR BUILD DISPATCH. Owner decides and approves; Canon maintains and version-identifies the exact Demo Basis; Demo Release Control consumes it. Unblock only on one owner-approved current Demo Basis artifact@blob plus acceptance receipt under R0; the repaired working hypothesis remains provisional evidence."
-  - id: c-outcome-canon-game-first-demo-creation-fit-001
-    track: canon
-    status: ready
-    to: session
-    request_kind: outcome
-    requested_by: launch-control
-    for: "g-d3a8 / one owner-approved Canon-maintained Demo Basis identity for R0"
-    issued: 2026-07-24
-    call: work/launch-control/c-outcome-canon-game-first-demo-creation-fit-001-call.md
-    note: "READY / AUXILIARY DISPOSITION ONLY / GAME-INVENTION AUTHORITY GAP. The owner's material failure report proves that the accepted workflow begins after an owner-approved Demo Contract while the current Canon root only maintains that basis. This request asks Canon only to ACCEPT current-route ownership, COUNTER with an equivalent target-owned outcome, or BLOCKED with exact reframe/new-track routing proof. It changes no Canon plan/root/product and creates no successor."
+      - history/2026-07-24-s-work-canon-game-first-demo-creation-fit-blocked-001.md
+    note: "WAITING / CANON-MAINTAINED DEFINITION AUTHORITY INSTALLED / ACCEPTED BASIS NONE / NO DCR POINTER / NO DESIGN OR BUILD DISPATCH. Owner decides and approves; Canon maintains and version-identifies the exact Demo Basis; Demo Release Control consumes it. The game-first ownership disposition returned BLOCKED because this root and the accepted workflow do not own pre-Basis creation; that receipt changes neither this root nor the basis. Unblock this root only on one owner-approved current Demo Basis artifact@blob plus acceptance receipt under R0; route the separate creation-authority gap only through an owner-approved reframe/new-track outcome."
   - id: c-visual-009
     track: visual
     status: blocked

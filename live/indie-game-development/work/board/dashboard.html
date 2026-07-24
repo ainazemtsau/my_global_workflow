@@ -314,7 +314,7 @@
         <article class="panel">
           <span class="label">Фактическая загрузка NOW</span>
           <div class="status-row">
-            <span class="pill ready">4 ready</span>
+            <span class="pill ready">3 ready</span>
             <span class="pill waiting">3 waiting</span>
             <span class="pill blocked">2 blocked</span>
             <span class="pill paused">1 paused</span>
@@ -325,7 +325,7 @@
       </section>
 
       <aside class="note">
-        <strong>Обнаружен пробел до Demo Basis: никто не владеет рождением игры.</strong> Принятый workflow начинает работу после готового owner-approved Demo Contract, а текущий Canon-root только хранит его identity. Отдельный disposition-запрос должен доказать, способен ли Canon принять game-first создание demo, предложить равноценный контур или честно вернуть необходимость нового трека; Gas и Grid не запускаются.
+        <strong>Canon подтвердил пробел до Demo Basis: рождением игры сейчас никто не владеет.</strong> Принятый workflow начинает работу после готового owner-approved Demo Contract, а текущий Canon-root только хранит его identity. Вспомогательная проверка вернула <code>BLOCKED</code>: существующего равноценного владельца тоже нет. Нужен отдельный owner-approved reframe/new-track outcome; Gas остаётся ингредиентом, который разрешено понизить или вырезать, а Gas и Grid не запускались.
       </aside>
 
       <section id="board">
@@ -348,9 +348,9 @@
           <p><code>c-work-launch-control-demo-release-control-cycle-003</code></p>
           <p><b>Что это:</b> постоянный Character-independent outcome_dispatch root для start-day, material return, owner verdict или hard-date checkpoint.</p>
           <p><b>Зачем:</b> policy v1 даёт одну устойчивую границу решения, а каждый цикл читает fresh identities и исчезает, не накапливая второй план, copied status или технический HOW.</p>
-          <p><b>Где сейчас:</b> controller READY после material-problem receipt; historical DCR остаётся tombstone. Demo Basis и proof horizon — <code>NONE</code>, October выбран, February owner-only, forecast — <code>UNFORECASTABLE / NO DATE BASIS</code>. Прошлые одноразовые экраны не являются живым планом.</p>
+          <p><b>Где сейчас:</b> controller READY после Canon receipt <code>BLOCKED</code>: нынешние workflow и Canon-root не владеют созданием игры до Demo Basis, а другого текущего outcome-владельца нет. Historical DCR остаётся tombstone; Demo Basis и proof horizon — <code>NONE</code>, October выбран, February owner-only, forecast — <code>UNFORECASTABLE / NO DATE BASIS</code>. Прошлые одноразовые экраны не являются живым планом.</p>
           <p><b>Что дальше:</b> на следующем реальном событии открыть controller CALL: показать один экран ≤400 слов, lawful <code>0..N</code>, точные exclusions и recompute trigger; запуск остаётся выбором владельца. Seven-day probe и binding post-install G5 здесь не заявлены выполненными.</p>
-          <p><a href="../launch-control/c-work-launch-control-demo-release-control-cycle-003-call.md">Открыть READY controller →</a> · <a href="../../knowledge/g-b847-demo-release-control-policy-v1.md">Прочитать policy v1 →</a> · <a href="../../history/2026-07-24-s-work-launch-control-demo-release-control-cycle-002.md">Прочитать последний event receipt →</a></p>
+          <p><a href="../launch-control/c-work-launch-control-demo-release-control-cycle-003-call.md">Открыть READY controller →</a> · <a href="../../knowledge/g-b847-demo-release-control-policy-v1.md">Прочитать policy v1 →</a> · <a href="../../history/2026-07-24-s-work-canon-game-first-demo-creation-fit-blocked-001.md">Прочитать Canon BLOCKED receipt →</a></p>
         </article>
         <article class="panel" style="margin-top:14px">
           <span class="label">READY · SELECTED WAVE A · Grid · G02 OWNER-PRESENT PLAN · 1/11</span>
@@ -379,18 +379,8 @@
           <p><b>Что это:</b> один checkpoint определения: владелец решает и принимает смысл Demo Basis, Canon хранит его exact identity, а Demo Release Control только потребляет его.</p>
           <p><b>Зачем:</b> не позволить старому DCR, path-only ссылке или технической идее незаметно стать определением demo и разблокировать зависимую работу.</p>
           <p><b>Где сейчас:</b> authority amendment установлен в принятом Demo-Driven workflow. Current accepted basis честно равен <code>NONE</code>; repaired working hypothesis остаётся provisional non-canon evidence. Старый DCR-dependent pilot root снят.</p>
-          <p><b>Что дальше:</b> ordinary root остаётся WAITING. Отдельный auxiliary-запрос ниже сначала требует честно определить, может ли текущий Canon-route владеть game-first созданием кандидата либо для этого нужен reframe/new track. Никакой Demo Basis от самого запроса не возникает.</p>
-          <p><a href="../demo-workflow/c-work-canon-demo-basis-authority-checkpoint-001-call.md">Открыть basis checkpoint →</a> · <a href="../demo-workflow/demo-driven-design-canon-workflow-v1.md">Прочитать amended workflow →</a> · <a href="../../history/2026-07-24-s-research-launch-control-minimal-authority-001.md">Прочитать research boundary →</a></p>
-        </article>
-        <article class="panel next" style="margin-top:14px">
-          <span class="label">READY · CANON · AUXILIARY OUTCOME REQUEST</span>
-          <strong>Определить хозяина game-first создания demo до новой дизайн-работы</strong>
-          <p><code>c-outcome-canon-game-first-demo-creation-fit-001</code></p>
-          <p><b>Что это:</b> один bounded disposition-запрос к Canon, не новый план и не скрытый запуск дизайна.</p>
-          <p><b>Зачем:</b> owner-reported провал показал структурную дыру: workflow умеет раскладывать уже принятое целое, но не несёт путь от отвергнутых идей к связному playtestable кандидату игры.</p>
-          <p><b>Где сейчас:</b> запрос READY и ещё не запущен. Он фиксирует exact workflow/root identities и свежий non-authoritative handoff, который всё ещё сужает проблему к одному газовому закону. Canon ordinary root, basis, plans и продукты не менялись.</p>
-          <p><b>Что дальше:</b> отдельная Canon-сессия возвращает только один из трёх исходов: текущий route принимает ownership; предлагает равноценный target-owned outcome с trade-off; либо доказывает необходимость reframe/new-track routing. После receipt Demo Release Control пересчитывает следующий шаг.</p>
-          <p><a href="../launch-control/c-outcome-canon-game-first-demo-creation-fit-001-call.md">Открыть задачу для отдельного чата →</a></p>
+          <p><b>Что дальше:</b> ordinary root остаётся WAITING на owner-approved <code>artifact@blob</code>. Отдельная проверка ownership уже завершена: <code>BLOCKED</code>, потому что ни этот root, ни workflow не несут pre-Basis создание whole-experience кандидата. Для выхода нужен owner-approved reframe текущего Canon outcome либо новый TREE-backed track с одним стабильным владельцем и проверяемым результатом; эта проверка сама не приняла Demo Basis.</p>
+          <p><a href="../demo-workflow/c-work-canon-demo-basis-authority-checkpoint-001-call.md">Открыть basis checkpoint →</a> · <a href="../demo-workflow/demo-driven-design-canon-workflow-v1.md">Прочитать amended workflow →</a> · <a href="../../history/2026-07-24-s-work-canon-game-first-demo-creation-fit-blocked-001.md">Прочитать ownership disposition →</a></p>
         </article>
         <article class="panel" style="margin-top:14px">
           <span class="label">WAITING · Level &amp; Environment</span>
@@ -453,6 +443,7 @@
           <details open>
             <summary><strong>24 июля</strong></summary>
             <ul class="remaining">
+              <li>Canon вернул <code>BLOCKED</code> на точный вопрос о владельце game-first создания demo. Fresh readback подтвердил: current Canon root умеет только хранить уже owner-approved Demo Basis, принятый workflow прямо не проектирует содержание игры и запускает пилот лишь после будущего Demo Contract, а существующего target-owned эквивалента нет. Untracked recovery handoff остаётся полезным, но non-authoritative evidence и не может назначить владельца. Точный выход — отдельное owner-approved reframe/new-track решение, которое даст одному outcome и root право довести отвергнутые идеи до цельного дешёвого для проверки whole-experience кандидата и разрешит понизить или вырезать Gas. Auxiliary-запрос снят, оба ordinary roots receipted без изменения статуса; Basis/horizon остаются <code>NONE</code>, Gas/Grid/product/TREE не менялись.</li>
               <li>Материальный провал Canon-вариантов выявил отсутствующего владельца game-first создания demo: принятый workflow явно не проектирует содержание и запускает пилот лишь после будущего owner-approved Demo Contract, а current Canon-root только хранит уже принятый basis. Текущий untracked recovery handoff сохранён как non-authoritative evidence и всё ещё сводит следующий заход к одному газовому закону. Зарегистрирован один READY auxiliary Canon disposition: принять ownership, предложить равноценный outcome или доказать необходимость reframe/new track; ordinary Canon, Gas, Grid, продукты и TREE не менялись. Basis/horizon остаются <code>NONE</code>, forecast — <code>NO DATE BASIS</code>, controller пополнен cycle-003.</li>
               <li>Первый постоянный start-day цикл принял новый owner-reported concept risk: симуляция газа и гипотеза сгустков пока не дают доказанного интересного gameplay экспедиции, а отдельный brainstorm ещё не вернул решение. Одноразовый экран законно допустил <code>0</code> запусков: Gas зависит от отсутствующего Demo Basis, Grid basis-independent, но его owner-present PLAN сталкивается с занятым вниманием владельца. Demo Basis и proof horizon остаются <code>NONE</code>, October выбран, forecast <code>UNFORECASTABLE / NO DATE BASIS</code>; foreign roots не менялись. Контроллер пополнен одним READY <code>cycle-002</code>, а дневной экран сохранён только в history receipt.</li>
               <li>Установлена финальная граница Demo Release Control: прежний 586-строчный DCR заменён коротким историческим tombstone, а <code>c-work-launch-control-demo-release-control-cycle-001</code> стал постоянным Character-independent READY outcome_dispatch root. Компактный named replay проверил ровно десять заданных policy-сценариев: <code>10 PASS / 0 FAIL</code>, DCR authority reads/edits <code>0/0</code>. Live pointers ведут на controller и policy; Demo Basis остаётся <code>NONE</code>, October выбран, February owner-only, forecast <code>UNFORECASTABLE / NO DATE BASIS</code>. Foreign roots и product repos не менялись; seven-day probe и binding post-install G5 не запускались.</li>
@@ -667,8 +658,8 @@
             <div class="track-top"><div><div class="track-id">g-d3a8</div><h3>Design & Canon</h3></div><span class="pill waiting">basis authority installed · basis NONE</span></div>
             <dl class="facts">
               <div class="fact"><dt>Сейчас</dt><dd>Принятый workflow amended: владелец решает и принимает Demo Basis, Canon хранит/version-identifies его exact identity, Demo Release Control только потребляет. Question-first карта остаётся historical.</dd></div>
-              <div class="fact"><dt>Текущий root</dt><dd><a href="../demo-workflow/c-work-canon-demo-basis-authority-checkpoint-001-call.md">Canon Demo Basis authority checkpoint</a> — WAITING на один owner-approved <code>artifact@blob</code> плюс receipt. Рядом READY только <a href="../launch-control/c-outcome-canon-game-first-demo-creation-fit-001-call.md">auxiliary game-invention disposition</a>; он не заменяет root.</dd></div>
-              <div class="fact"><dt>Осталось</dt><dd>Сначала доказать, способен ли current Canon-route владеть game-first созданием playtestable whole-demo candidate, либо вернуть точное основание для reframe/new track. До этого current basis равен <code>NONE</code>, а provisional working hypothesis не становится canon или launch authority.</dd></div>
+              <div class="fact"><dt>Текущий root</dt><dd><a href="../demo-workflow/c-work-canon-demo-basis-authority-checkpoint-001-call.md">Canon Demo Basis authority checkpoint</a> — WAITING на один owner-approved <code>artifact@blob</code> плюс receipt. Auxiliary game-invention disposition завершён как <a href="../../history/2026-07-24-s-work-canon-game-first-demo-creation-fit-blocked-001.md"><code>BLOCKED</code></a> и не заменяет root.</dd></div>
+              <div class="fact"><dt>Осталось</dt><dd>Отдельным owner-approved reframe/new-track решением назначить один outcome и stable root, владеющий созданием цельного дешёвого для проверки кандидата до Demo Basis; Gas разрешено понизить или вырезать. До этого current basis равен <code>NONE</code>, а provisional working hypothesis не становится canon или launch authority.</dd></div>
               <div class="fact"><dt>Authority</dt><dd><a href="../demo-workflow/demo-driven-design-canon-workflow-v1.md">Amended Demo-Driven Design &amp; Canon Workflow v1</a>, owner verdict <code>PLEASE IMPLEMENT THIS PLAN</code>, current Frames и accepted Canon Ledger.</dd></div>
               <div class="fact"><dt>Conflict</dt><dd>DCR/path-only/date-only references больше не могут определять demo. Canon не является release scheduler; Launch Control не может переписать basis; definition-dependent work остаётся закрытой до exact current identity.</dd></div>
             </dl>
