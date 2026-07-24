@@ -293,7 +293,7 @@
           <a href="../program-v2-track-handoff-template.md">Handoff</a>
         </nav>
       </div>
-      <div class="updated">Обновлено 24 июля 2026<br>по RESULT s-map-launch-control-demo-release-spine-001</div>
+      <div class="updated">Обновлено 24 июля 2026<br>по RESULT s-review-launch-control-demo-control-room-retirement-001</div>
     </header>
 
     <main>
@@ -306,9 +306,9 @@
 
         <article class="panel next">
           <span class="label">Следующее законное событие</span>
-          <strong class="big">Retirement review старой Demo Control Room</strong>
-          <p><a href="../launch-control/c-review-launch-control-demo-control-room-retirement-001-call.md">Открыть READY review CALL</a> · <a href="../../TREE.md">Открыть R0–R5 в TREE</a></p>
-          <p class="muted small">Этот review не ждёт Character. Он выводит старую DCR из authority, фиксирует долговечную release policy и открывает отдельную установку постоянного READY-контроллера.</p>
+          <strong class="big">Установка постоянного Demo Release Control</strong>
+          <p><a href="../launch-control/c-work-launch-control-demo-release-control-installation-001-call.md">Открыть READY installation CALL</a> · <a href="../../knowledge/g-b847-demo-release-control-policy-v1.md">Открыть policy v1</a></p>
+          <p class="muted small">Binding review дал старому scope PARTIALLY MET и вывел DCR из authority. Отдельный leg теперь ставит короткий tombstone, постоянный READY-контроллер и проверяет десять deterministic scenarios; Character не является зависимостью.</p>
         </article>
 
         <article class="panel">
@@ -325,7 +325,7 @@
       </section>
 
       <aside class="note">
-        <strong>Character больше не блокирует Demo Release Control.</strong> Старый controller-root удалён. Character сохраняет собственный WAITING close-gate, а Grid и Gas остаются независимо READY; следующий release-control leg занимается только policy/retirement migration и не запускает чужую работу.
+        <strong>Durable policy уже current; legacy-файл ещё не tombstone.</strong> Старый DCR scope получил PARTIALLY MET и больше не является authority. Character сохраняет собственный WAITING close-gate, а Grid и Gas остаются независимо READY; следующий leg устанавливает только controller/tombstone и не запускает чужую работу.
       </aside>
 
       <section id="board">
@@ -343,14 +343,14 @@
           <p><a href="../c-exec-program-v2-legacy-lab-purge-release-001-call.md">Открыть blocked release continuation →</a> · <a href="../legacy-lab-purge-boundary-2026-07-20.md">Прочитать простой вердикт →</a></p>
         </article>
         <article class="panel next" style="margin-top:14px">
-          <span class="label">READY · DEMO RELEASE CONTROL · RETIRE OLD DCR</span>
-          <strong>Установить policy и вывести старую Demo Control Room из authority</strong>
-          <p><code>c-review-launch-control-demo-control-room-retirement-001</code></p>
-          <p><b>Что это:</b> свежая проверка старого управляющего scope против уже принятой карты Demo Release Control и R0–R5.</p>
-          <p><b>Зачем:</b> долговечные правила release, forecast, evidence, cuts и режимов должны жить без copied current status, а старый DCR не должен снова стать второй системой истины.</p>
-          <p><b>Где сейчас:</b> новая карта установлена; current milestone — R0, Demo Basis — <code>NONE</code>, October выбран, February не активен. Character больше не является зависимостью этого root.</p>
-          <p><b>Что дальше:</b> review фиксирует durable policy и выдаёт один bounded installation CALL для короткого DCR tombstone, постоянного READY outcome_dispatch root и deterministic replay. Product и foreign roots не меняются.</p>
-          <p><a href="../launch-control/c-review-launch-control-demo-control-room-retirement-001-call.md">Открыть READY review →</a> · <a href="../../history/2026-07-24-s-map-launch-control-demo-release-spine-001.md">Прочитать map RESULT →</a></p>
+          <span class="label">READY · DEMO RELEASE CONTROL · CONTROLLER/TOMBSTONE INSTALL</span>
+          <strong>Поставить постоянный READY-контроллер и исторический tombstone</strong>
+          <p><code>c-work-launch-control-demo-release-control-installation-001</code></p>
+          <p><b>Что это:</b> один bounded installation leg после binding fresh review старой Demo Control Room.</p>
+          <p><b>Зачем:</b> policy v1 уже хранит authority, gates, evidence, forecast, modes, cuts и lawful 0..N без copied status; теперь живые pointers и старый файл должны физически исключить возврат к DCR как второй системе истины.</p>
+          <p><b>Где сейчас:</b> старый scope получил <code>PARTIALLY MET</code> и выведен из authority; Demo Basis — <code>NONE</code>, October выбран, February owner-only, forecast — <code>NO DATE BASIS</code>. Tombstone и постоянный controller ещё не установлены.</p>
+          <p><b>Что дальше:</b> заменить только legacy DCR body коротким tombstone, создать постоянный Character-independent READY root и доказать десять детерминированных policy scenarios. Product, foreign roots, seven-day probe и post-install G5 не запускаются.</p>
+          <p><a href="../launch-control/c-work-launch-control-demo-release-control-installation-001-call.md">Открыть READY installation →</a> · <a href="../../knowledge/g-b847-demo-release-control-policy-v1.md">Прочитать policy v1 →</a> · <a href="../../history/2026-07-24-s-review-launch-control-demo-control-room-retirement-001.md">Прочитать review RESULT →</a></p>
         </article>
         <article class="panel" style="margin-top:14px">
           <span class="label">READY · SELECTED WAVE A · Grid · G02 OWNER-PRESENT PLAN · 1/11</span>
@@ -443,6 +443,7 @@
           <details open>
             <summary><strong>24 июля</strong></summary>
             <ul class="remaining">
+              <li>Отдельный fresh binding review активно пытался опровергнуть старую Demo Control Room против owner-approved Demo Release Control и вынес <code>PARTIALLY MET</code>: Steam gates, evidence classes, cut floor и 0..N admission полезны, но 586-строчный документ с dated snapshots и appendices стал второй planning truth и сериализовал управление на Character. DCR выведена из authority; в knowledge принят один stateless policy v1 без current status/HOW, все 5/5 старых product-cut groups сохранены и добавлены четыре management cuts. Зарегистрирован ровно один Character-independent READY installation CALL для tombstone, постоянного controller и десяти сценариев; Demo Basis остаётся <code>NONE</code>, October выбран, February owner-only, forecast <code>NO DATE BASIS</code>, foreign/product state не менялись.</li>
               <li>Владелец потребовал не ждать Character и завершить установку Demo Release Control. <code>g-b847</code> переписан как stateless release outcome, label изменён на <code>Demo Release Control</code>, а в TREE принят spine R0–R5: basis → causal expedition → fresh comprehension → candidate → Steam submission → public demo. Старый Character-gated controller-root удалён; вместо него зарегистрирован READY retirement-policy review, не зависящий от Character. Current milestone — R0, Demo Basis остаётся <code>NONE</code>; DCR tombstone, durable policy, постоянный READY controller и probe ещё не заявлены выполненными.</li>
               <li>Владелец точными словами <code>PLEASE IMPLEMENT THIS PLAN</code> принял Demo Release Control v1 и вариант A. Первый атомарный переход установил definition-authority: владелец решает и принимает Demo Basis, Canon хранит/version-identifies exact <code>artifact@blob</code>, а Demo Release Control только потребляет его. Старый Canon pilot с DCR pointer заменён WAITING basis-checkpoint; current accepted basis остаётся честным <code>NONE</code>, working hypothesis остаётся provisional. Решение A снято из pending; TREE, <code>g-b847</code>, controller root, DCR, продукт и foreign work не менялись.</li>
               <li>Полный разбор неудачной Demo Control Room, 41-outcome DAG и six-envelope refit свёлся к одному decision-ready варианту: сохранить <code>launch-control</code> как stateless <code>Demo Release Control</code>, а живой план удалить из authority. Постоянно остаются только compact outcome/invariants в TREE, fresh NOW/CALL/RESULT и exact source identities; каждый цикл временно показывает route gate, реальный product/player result либо NONE, proof horizon, lawful <code>0..N</code>, cuts и механический forecast без процента. Переход требует трёх отдельных атомарных легов — Canon authority/root, map outcome/label, Launch READY root/tombstone — и deterministic seven-day probe. Варианты B/C сохранены; решение <code>d-launch-control-minimal-authority-001</code> ждёт владельца. Ни TREE, ни current roots, ни Demo Control Room, ни Canon/product work не изменены.</li>

@@ -1,6 +1,6 @@
 # NOW: indie-game-development
 
-updated: 2026-07-24 by s-map-launch-control-demo-release-spine-001
+updated: 2026-07-24 by s-review-launch-control-demo-control-room-retirement-001
 
 bet: null
 
@@ -32,18 +32,19 @@ open_calls:
       - history/2026-07-20-s-work-program-v2-legacy-lab-purge-deliver-blocked-001.md
     note: "BLOCKED / V31 RELEASE CONTINUATION / ROOT NOT RELEASED. Product candidate 72c7c8c6 removes the 24 approved tracked paths, preserves KEEP, adds the <=400-word no-growth policy, passes fresh non-author G5 and normal gates (1829/1829), and is integrated only in local dev through c5c21c13 with blocker evidence baf8513c. Deliver is RED solely because pre-existing review-c-exec-char-v2-source-router-repair-001 does not account for source commit 413149ce after reviewed commit 8a0e33ec. No push/merge/release; origin refs remain 45b15623; WIN-U1 is DRAINING with lease preserved. Do not dispatch or return to feature work until unblock_when is true."
 
-  - id: c-review-launch-control-demo-control-room-retirement-001
+  - id: c-work-launch-control-demo-release-control-installation-001
     track: launch-control
     status: ready
     to: session
-    for: "g-b847 / retire Demo Control Room authority and install durable Demo Release Control policy before the READY controller"
+    for: "g-b847 / install the reviewed Demo Release Control policy boundary, historical DCR tombstone and permanent Character-independent READY controller"
     issued: 2026-07-24
-    call: work/launch-control/c-review-launch-control-demo-control-room-retirement-001-call.md
+    call: work/launch-control/c-work-launch-control-demo-release-control-installation-001-call.md
     receipts:
       - history/2026-07-24-s-research-launch-control-minimal-authority-001.md
       - history/2026-07-24-s-work-canon-demo-basis-authority-transition-001.md
       - history/2026-07-24-s-map-launch-control-demo-release-spine-001.md
-    note: "READY / OWNER-APPROVED MAP INSTALLED / R0 CURRENT, R1-R5 PARKED / CHARACTER-INDEPENDENT / NO DCR AUTHORITY MIGRATION CLAIM YET. The old Character-gated controller root is retired by owner words `разблокируй` and replaced with one fresh review leg. demo_basis: NONE. This review installs durable release policy and selects the bounded controller/tombstone installation; it does not wait for Character, mutate foreign roots, start product work or treat the old DCR as current authority. Grid and Gas remain independently READY."
+      - history/2026-07-24-s-review-launch-control-demo-control-room-retirement-001.md
+    note: "READY / BINDING RETIREMENT REVIEW PARTIALLY MET / DURABLE POLICY CURRENT / OLD DCR NOT AUTHORITY BUT TOMBSTONE NOT INSTALLED / R0 CURRENT, R1-R5 PARKED / CHARACTER-INDEPENDENT. demo_basis: NONE; October selected; February owner-only; forecast NO DATE BASIS. This one bounded installation converts the legacy file to a short tombstone, installs the permanent READY outcome_dispatch controller, reconciles live pointers and proves ten deterministic scenarios. It does not wait for Character, mutate foreign roots, start product work, run the seven-day probe or claim release progress. Grid and Gas remain independently READY."
 
   - id: c-exec-level-module-standard-v1-lv0-plan-001
     track: level
