@@ -1,113 +1,109 @@
 # NOW: indie-game-development
 
-updated: 2026-07-24 by s-review-canon-clean-authority-reset-001
+updated: 2026-07-24 by s-repair-strategy-layer-reset-cleanup-001
 
 bet: null
 
 tasks: []
 
-track_wip_limit: 99
+direction_forecast:
+  status: no_basis
+  target: "A review-ready playable demo for the October 2026 Steam festival"
+  as_of: 2026-07-24
+  basis: "The owner stated the target, but there is no owner-approved reset CHARTER/root, roadmap, demo done_when/schedule, or empirical delivery reference class; a numeric chance would be fabricated."
+  drivers:
+    - "The October window is external and hard."
+    - "Current concept/canon is deliberately being rebuilt."
+    - "Prior simulation/Grid/product evidence exists but is not admitted to a new roadmap."
+    - "No approved demo scope/critical path or calibrated denominator exists."
+  update_when: "After exact G9 approval of the reset CHARTER/root and map plus a current product-evidence audit against the demo done_when."
 
-tracks:
-  - {id: program, label: "Integration Lab & Product Proof", mode: primary, for: g-9c41}
-  - {id: level, label: "Level & Environment", mode: parallel, for: g-8f20}
-  - {id: canon, label: "Design & Canon", mode: parallel, for: g-d3a8}
-  - {id: visual, label: "Presentation", mode: parallel, for: g-7e15}
-  - {id: marketing, label: "Marketing & Audience", mode: parallel, for: g-2f8c}
-  - {id: characters, label: "Character & Gameplay Contact", mode: parallel, for: g-6d4e}
-  - {id: grid, label: "Grid / Layers / World Change", mode: parallel, for: g-4b92}
-  - {id: gas, label: "Gas Simulation", mode: parallel, for: g-1a63}
+issues:
+  - id: i-foundation-reset
+    issue: "Current CHARTER/TREE predate the October demo reset; TREE still carries legacy root status active and child status parallel, so the old strategy is quarantined until an exact G9 replacement foundation/roadmap is approved."
+    level: direction
+    route: frame
+    review_when: "Now, before any map/shape/work dispatch."
+    evidence: "history/2026-07-24-s-repair-strategy-layer-reset-cleanup-001.md; history/2026-07-24-s-review-launch-control-full-retirement-001.md; history/2026-07-24-s-review-canon-clean-authority-reset-001.md"
+
+  - id: i-program-custody
+    issue: "The preserved Program legacy-lab purge candidate and WIN-U1 custody were never released."
+    level: execution
+    route: repair
+    review_when: "Before any product cleanup or Program admission."
+    evidence: "work/c-exec-program-v2-legacy-lab-purge-release-001-call.md; history/2026-07-20-s-work-program-v2-legacy-lab-purge-deliver-blocked-001.md"
+
+  - id: i-level-close
+    issue: "LV0 has product PLAN evidence but no binding Direction close."
+    level: execution
+    route: review
+    review_when: "Before Level is admitted to a future objective."
+    evidence: "work/c-exec-level-module-standard-v1-lv0-plan-001-call.md"
+
+  - id: i-character-close
+    issue: "Character V2 still needs its binding Direction close, and the older P2a0 lifecycle finding must not be mistaken for G5."
+    level: execution
+    route: review
+    review_when: "Before Character work is admitted or relaunched."
+    evidence: "work/c-exec-char-v2-body-rig-ragdoll-build-001-call.md; work/review/findings.md#dr-20260711-001"
+
+  - id: i-visual-legacy
+    issue: "Presentation root c-visual-009 is a legacy route whose prerequisites were never reconciled to current authority."
+    level: execution
+    route: repair
+    review_when: "Before Presentation is admitted."
+    evidence: "work/c-visual-009-movement-data-plan-call.md"
+
+  - id: i-marketing-route
+    issue: "Marketing checkpoint routing is stale and can repeat the completed INOMAND start."
+    level: objective
+    route: repair
+    review_when: "Before Marketing/Audience is admitted."
+    evidence: "work/review/findings.md#dr-20260712-001; work/marketing/claude-code-handoff-c-marketing-wake-001-2026-07-12.md"
+
+  - id: i-grid-admission
+    issue: "G02 evidence is preserved but Grid has not been admitted to the new demo roadmap."
+    level: roadmap
+    route: map
+    review_when: "During the new roadmap, before any Grid launch."
+    evidence: "work/c-exec-grid-v1-g02-common-spatial-map-002-call.md; history/2026-07-22-s-repair-grid-v1-g02-false-g01-blocker-001.md"
+
+  - id: i-gas-admission
+    issue: "Gas V1 node-1 plan evidence is preserved but Gas has not been admitted to the new demo roadmap."
+    level: roadmap
+    route: map
+    review_when: "During the new roadmap, before any Gas launch."
+    evidence: "work/c-work-gas-v1-live-composition-plan-001-call.md; history/2026-07-21-s-work-gas-v1-master-plan-accepted-001.md"
+
+  - id: i-history-integrity
+    issue: "Seven LOG/history links or trailers from the legacy ledger remain unresolved."
+    level: direction
+    route: repair
+    review_when: "Before relying on the affected legacy receipts."
+    evidence: "work/review/findings.md#dr-20260711-002"
+
+  - id: i-knowledge-links
+    issue: "Twenty-one legacy knowledge/TREE pointers resolve to fifteen missing target paths."
+    level: direction
+    route: repair
+    review_when: "Before importing any affected legacy knowledge."
+    evidence: "work/review/findings.md#dr-20260711-003"
+
+  - id: i-gameplay-handoff
+    issue: "The Expedition Gameplay Recovery Handoff contains useful hypotheses and failed attempts but is not canon or an approved plan."
+    level: roadmap
+    route: map
+    review_when: "During frame/map evidence review after the foundation is approved."
+    evidence: "work/2026-07-24-expedition-gameplay-recovery-handoff.md"
 
 open_calls:
-  - id: c-exec-program-v2-legacy-lab-purge-release-001
-    track: program
-    status: blocked
-    to: executor
-    for: "g-9c41 / release the preserved legacy-lab purge candidate after the external Deliver baseline is green"
-    issued: 2026-07-20
-    call: work/c-exec-program-v2-legacy-lab-purge-release-001-call.md
-    unblock_when: "The pre-existing Character review-evidence defect is closed so tools/check.ps1 -Deliver is GREEN on the preserved cleanup lineage; then serialized WIN-CTRL may publish/read back the root and release WIN-U1."
-    receipts:
-      - history/2026-07-20-s-work-program-v2-legacy-lab-purge-deliver-blocked-001.md
-    note: "BLOCKED / V31 RELEASE CONTINUATION / ROOT NOT RELEASED. Product candidate 72c7c8c6 removes the 24 approved tracked paths, preserves KEEP, adds the <=400-word no-growth policy, passes fresh non-author G5 and normal gates (1829/1829), and is integrated only in local dev through c5c21c13 with blocker evidence baf8513c. Deliver is RED solely because pre-existing review-c-exec-char-v2-source-router-repair-001 does not account for source commit 413149ce after reviewed commit 8a0e33ec. No push/merge/release; origin refs remain 45b15623; WIN-U1 is DRAINING with lease preserved. Do not dispatch or return to feature work until unblock_when is true."
-
-  - id: c-exec-level-module-standard-v1-lv0-plan-001
-    track: level
-    status: waiting
-    waiting_on: [direction-review-receipt-b1698170]
-    to: executor
-    for: "g-8f20 / inherited Level LV0 PLAN Direction receipt"
-    issued: 2026-07-16
-    call: work/c-exec-level-module-standard-v1-lv0-plan-001-call.md
-    note: "WAITING / DO NOT RELAUNCH. Product LV0 PLAN evidence exists at b16981706ece53c584848255de2bd92675b5de7b, but binding Direction close is missing. When the owner activates Level, first reconcile exact HOME, current V31 and product truth; preserved aperture RED 5af1d8db931d10cc6149a2c1f8e1023bc3b9ffb1 remains evidence, not permission to issue BUILD."
-
-  - id: c-frame-canon-clean-authority-reboot-001
-    track: canon
+  - id: c-frame-october-demo-foundation-001
     status: ready
     to: session
-    for: "g-d3a8 / one owner-approved clean concept authority for the impossible-environment cleanup reboot"
+    for: "direction foundation reset before map/shape/work"
     issued: 2026-07-24
-    call: work/c-frame-canon-clean-authority-reboot-001-call.md
-    receipts:
-      - history/2026-07-24-s-review-canon-clean-authority-reset-001.md
-    note: "READY / CLEAN-ROOM CANON REBOOT / CURRENT ACCEPTED CANON NONE. Prior Canon repositories, constitutions, cores, cards, maps and Demo/Canon workflows have zero default authority and are historical evidence only. Do not read or import them unless the owner explicitly requests the exact legacy source or a bounded research CALL explicitly names it. This root changes only Canon concept authority; every Gas, Grid and foreign track/call remains exactly as current state records it."
-  - id: c-visual-009
-    track: visual
-    status: blocked
-    to: executor
-    for: "g-7e15 / inherited visual motion work"
-    issued: 2026-07-10
-    call: work/c-visual-009-movement-data-plan-call.md
-    unblock_when: "A fresh V31/Conflict Guard review proves that the legacy prerequisites and read-model contract still match current product authority; the old M0+C1+L3+I1 wording alone is not permission to launch."
-    note: "BLOCKED / LEGACY ROOT. Presentation remains mapped, but c-visual-009 must be reconciled against current V31/product truth before any dispatch."
-
-  - id: c-marketing-wake-001
-    track: marketing
-    status: paused
-    to: session
-    for: "g-2f8c / minimal Marketing & Audience wake"
-    issued: 2026-07-11
-    call: work/marketing/claude-code-handoff-c-marketing-wake-001-2026-07-12.md
-    paused_by: history/2026-07-17-s-work-characters-resume-a1.md
-    note: "PAUSED BY OWNER-CONTROLLED LOAD. On resume, keep the existing marketing-forge internals and first reconcile stale-route finding dr-20260712-001; accepted product proof comes from Integration/Presentation."
-
-  - id: c-exec-char-v2-body-rig-ragdoll-build-001
-    track: characters
-    status: waiting
-    waiting_on: [product-task-019f73c8-8fb0-7633-812f-ed45acc19af6]
-    to: executor
-    for: "g-6d4e / V2 Leg 2 — rig + procedural locomotion + cosmetic PuppetMaster ragdoll + character material"
-    issued: 2026-07-14
-    call: work/c-exec-char-v2-body-rig-ragdoll-build-001-call.md
-    receipts:
-      - history/2026-07-17-s-work-char-v2-reaction-core-repair-002-admission-blocked-001.md
-      - history/2026-07-18-s-work-char-v2-published-handback-release-route-001.md
-      - history/2026-07-18-s-review-char-v2-published-handback-release-001.md
-      - history/2026-07-23-s-work-characters-v2-published-close-readiness-accept-001.md
-    note: "WAITING / CLOSE-READINESS ACCEPTED / ONE FRESH BINDING DIRECTION REVIEW-CLOSE STILL REQUIRED / DO NOT RELAUNCH. Receipt s-work-characters-v2-published-close-readiness-accept-001 establishes that exact candidate/publication, owner LOOK, repaired binding G5 and later GREEN Deliver/archive evidence are sufficient for one fresh binding Direction review/close; it does not itself close this root. A future Player Simulation / Actor Layer is fresh V31 work and cannot expand this lineage retroactively."
-
-  - id: c-exec-grid-v1-g02-common-spatial-map-002
-    track: grid
-    status: ready
-    to: executor
-    for: "g-4b92 / G02 common spatial map after completed exact-12 G01 authority cleanup"
-    issued: 2026-07-22
-    call: work/c-exec-grid-v1-g02-common-spatial-map-002-call.md
-    receipts:
-      - history/2026-07-22-s-work-grid-v1-g01-direct-legacy-release-001.md
-      - history/2026-07-22-s-repair-grid-v1-g02-false-g01-blocker-001.md
-    note: "READY / FRESH OWNER-PRESENT PLAN / G01 COMPLETE 1 OF 11 / FALSE PRE-PLAN BLOCKER REMOVED / CONTRACT 31. The owner explicitly directed that the deferred cleanup-only workflow route, missing checker/selftest/wiring interpretation and frozen pending prose no longer appear or count as a G01/G02 blocker. Start in a fresh product session, confirm product validation.config contract 31, present the complete plain-language G02 PLAN and stop for the owner's actual verdict before implementation. Existing Gas/Voxel and Structure state and behavior remain read-only; no G01 repair, workflow work, G03+ or consumer adapter is in this root."
-
-  - id: c-work-gas-v1-live-composition-plan-001
-    track: gas
-    status: ready
-    to: session
-    for: "g-1a63 / owner-present detailed plan for Gas V1 node 1 — live deterministic Gas composition"
-    issued: 2026-07-21
-    call: work/c-work-gas-v1-live-composition-plan-001-call.md
-    receipts:
-      - history/2026-07-21-s-work-gas-v1-master-plan-accepted-001.md
-    note: "READY / NON-DEFAULT / OWNER-PRESENT / PLAN BEFORE BUILD. The owner accepted the nine-node Gas V1 master plan with exact words `Окей, подтверждаю план.` This root plans only node 1: connect the released NearGas foundation to one lawful production simulation tick and prove deterministic composition. It must re-read current product authority first-hand, present any material composition choice to the owner, preserve current behavior and atomicity, and open no BUILD before acceptance. Launch Control is retired; the next owner-approved planning reset decides whether this root remains strategically relevant."
+    call: work/c-frame-october-demo-foundation-001-call.md
+    note: "ONLY LAWFUL FRONTIER / OWNER-PRESENT FRAME / NO EXECUTION OR LEGACY DEFAULT READS."
 
 recurring: []
 

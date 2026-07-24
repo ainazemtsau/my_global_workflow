@@ -1,6 +1,7 @@
 # Demo-Driven Design & Canon Workflow v1
 
-status: OWNER-APPROVED PROCESS
+status: RETIRED EVIDENCE - no current routing or canon authority
+retired_by: history/2026-07-24-s-repair-strategy-layer-reset-cleanup-001.md
 approved_on: 2026-07-22
 owner_verdict: "ПРИНИМАЮ DEMO-DRIVEN DESIGN & CANON WORKFLOW V1"
 authority_amended_on: 2026-07-24

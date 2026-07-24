@@ -1,5 +1,9 @@
 # Леджер находок дневного ревью — indie-game-development
 
+status: RETIRED EVIDENCE - migrated to NOW.issues by s-repair-strategy-layer-reset-cleanup-001
+migration: dr-20260711-001 -> i-character-close; dr-20260712-001 -> i-marketing-route; dr-20260711-002 -> i-history-integrity; dr-20260711-003 -> i-knowledge-links; dr-20260711-004 -> superseded by clean canon reset / accepted canon NONE.
+warning: Embedded CALL blocks below are historical and non-runnable.
+
 updated: 2026-07-16 (s-repair-primary-review-post-b4-v26-001 — 5 открытых: 0 new, 5 known; dr-20260714-001 fixed)
 rules: plays/daily-review.md (находит — не чинит; дедуп обязателен; rejected не переоткрывать без новой причины)
 format: | id | дата | класс night/repair/day/maintenance | P1-3 | факт (с file:line) | статус new/known/in-fix/fixed/rejected:<причина> |

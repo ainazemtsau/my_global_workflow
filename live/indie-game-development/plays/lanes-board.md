@@ -1,3 +1,8 @@
+> **RETIRED EVIDENCE / NON-RUNNABLE (2026-07-24).**
+> This pre-reset local play has no routing authority and must not be selected by CALL or plain input.
+> Full historical procedure remains below and at Git commit `b7d7b975`; re-admission requires an owner-approved active objective and a fresh current route.
+> Evidence: `history/2026-07-24-s-repair-strategy-layer-reset-cleanup-001.md`
+
 # PLAY lanes-board (local, render-only)
 
 Триггер: владелец в любом чате на этом репо пишет «что можем делать» / «борд» / «board».

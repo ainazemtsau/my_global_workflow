@@ -3,7 +3,8 @@
 owner: g-9c41 / Integration Lab & Product Proof
 approved: 2026-07-20 — s-map-program-v2-hot-migration-route-001
 last_verified: 2026-07-20 by s-work-program-v2-legacy-lab-purge-route-001 from the clean audit HOME at product main 45b15623; every mutation must refresh incoming refs
-status: active global route; read-only audit complete, one bounded cleanup root ready
+status: RETIRED EVIDENCE - no live route after the strategic reset
+retired_by: history/2026-07-24-s-repair-strategy-layer-reset-cleanup-001.md
 
 ## Для чего существует этот файл
 

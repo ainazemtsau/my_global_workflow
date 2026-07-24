@@ -1,3 +1,8 @@
+> **RETIRED EVIDENCE / NON-RUNNABLE (2026-07-24).**
+> This pre-reset local play has no routing authority and must not be selected by CALL or plain input.
+> Full historical procedure remains below and at Git commit `b7d7b975`; re-admission requires an owner-approved active objective and a fresh current route.
+> Evidence: `history/2026-07-24-s-repair-strategy-layer-reset-cleanup-001.md`
+
 # Play: local/marketing-forge
 
 Purpose: forge ONE marketing question — a DECISION or an ARTIFACT — from open to frozen, in the solo-dev's authentic voice. The owner has NO marketing/social expertise, so each card is decided by fresh RESEARCH + his own inputs, never a generic playbook; he supplies voice, taste, the final yes. The plan, goals, and channels are NOT pre-set — they are DERIVED inside, one card at a time. Marketing is CO-CREATED. Runs PARALLEL to the build bet — never a second active bet (G1), never touches NOW.md.
