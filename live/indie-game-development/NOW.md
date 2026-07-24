@@ -1,6 +1,6 @@
 # NOW: indie-game-development
 
-updated: 2026-07-24 by s-work-canon-demo-basis-authority-transition-001
+updated: 2026-07-24 by s-map-launch-control-demo-release-spine-001
 
 bet: null
 
@@ -10,7 +10,7 @@ track_wip_limit: 99
 
 tracks:
   - {id: program, label: "Integration Lab & Product Proof", mode: primary, for: g-9c41}
-  - {id: launch-control, label: "Demo Control Room", mode: parallel, for: g-b847, outcome_dispatch: true}
+  - {id: launch-control, label: "Demo Release Control", mode: parallel, for: g-b847, outcome_dispatch: true}
   - {id: level, label: "Level & Environment", mode: parallel, for: g-8f20}
   - {id: canon, label: "Design & Canon", mode: parallel, for: g-d3a8}
   - {id: visual, label: "Presentation", mode: parallel, for: g-7e15}
@@ -32,20 +32,18 @@ open_calls:
       - history/2026-07-20-s-work-program-v2-legacy-lab-purge-deliver-blocked-001.md
     note: "BLOCKED / V31 RELEASE CONTINUATION / ROOT NOT RELEASED. Product candidate 72c7c8c6 removes the 24 approved tracked paths, preserves KEEP, adds the <=400-word no-growth policy, passes fresh non-author G5 and normal gates (1829/1829), and is integrated only in local dev through c5c21c13 with blocker evidence baf8513c. Deliver is RED solely because pre-existing review-c-exec-char-v2-source-router-repair-001 does not account for source commit 413149ce after reviewed commit 8a0e33ec. No push/merge/release; origin refs remain 45b15623; WIN-U1 is DRAINING with lease preserved. Do not dispatch or return to feature work until unblock_when is true."
 
-  - id: c-work-launch-control-demo-control-room-character-review-result-wait-001
+  - id: c-review-launch-control-demo-control-room-retirement-001
     track: launch-control
-    status: blocked
+    status: ready
     to: session
-    for: "g-b847 / immediate refill after the binding Character Direction review/close result"
-    issued: 2026-07-23
-    call: work/launch-control/c-work-launch-control-demo-control-room-character-review-result-wait-001-call.md
-    unblock_when: "A valid committed Direction-OS review RESULT from a fresh Character session attempts to refute all seven done_when of c-exec-char-v2-body-rig-ragdoll-build-001 and either lawfully closes that root on MET or records its exact PARTIALLY MET / NOT MET blocker. A prompt, in-session pre-pass, product commit, old product G5 or elapsed time does not unblock."
+    for: "g-b847 / retire Demo Control Room authority and install durable Demo Release Control policy before the READY controller"
+    issued: 2026-07-24
+    call: work/launch-control/c-review-launch-control-demo-control-room-retirement-001-call.md
     receipts:
-      - history/2026-07-23-s-work-launch-control-demo-control-room-daily-plan-001.md
-      - history/2026-07-23-s-work-launch-control-demo-control-room-wave-a-event-gate-blocked-001.md
-      - history/2026-07-23-s-work-characters-v2-published-close-readiness-accept-001.md
-      - history/2026-07-23-s-work-launch-control-demo-control-room-character-review-admission-001.md
-    note: "BLOCKED / CHARACTER ACCEPT CONSUMED / ONE FRESH CHARACTER DIRECTION REVIEW-CLOSE SELECTED / OWNER ALREADY IN LAUNCH CONTROL / NO BUILD OR FOREIGN ROOT MUTATION. Launch Control admitted exactly one next owner action: open a new separate Character review session against the existing WAITING root and committed close-readiness receipt; this current Launch Control session cannot itself provide the fresh binding G5. Product dev/main/origin remain clean at 1a6373b8 with no active Unity/dotnet/git work process. Program remains BLOCKED; Grid remains on its independently launched owner-present PLAN with no committed verdict yet; remaining owner time is UNKNOWN. Refill only after the binding Character review RESULT is committed."
+      - history/2026-07-24-s-research-launch-control-minimal-authority-001.md
+      - history/2026-07-24-s-work-canon-demo-basis-authority-transition-001.md
+      - history/2026-07-24-s-map-launch-control-demo-release-spine-001.md
+    note: "READY / OWNER-APPROVED MAP INSTALLED / R0 CURRENT, R1-R5 PARKED / CHARACTER-INDEPENDENT / NO DCR AUTHORITY MIGRATION CLAIM YET. The old Character-gated controller root is retired by owner words `разблокируй` and replaced with one fresh review leg. demo_basis: NONE. This review installs durable release policy and selects the bounded controller/tombstone installation; it does not wait for Character, mutate foreign roots, start product work or treat the old DCR as current authority. Grid and Gas remain independently READY."
 
   - id: c-exec-level-module-standard-v1-lv0-plan-001
     track: level

@@ -601,4 +601,6 @@ archived: history/LOG-archive-indie-game-development.md — sessions before 2026
 
 2026-07-24 · s-work-canon-demo-basis-authority-transition-001 · work · canon · g-d3a8/demo-basis-authority-transition: owner `PLEASE IMPLEMENT THIS PLAN` accepted Demo Release Control v1; Canon now maintains/version-identifies the owner-approved Demo Basis while Launch Control only consumes it, the DCR-dependent pilot root is replaced by a basis-identity checkpoint, and no TREE/controller/DCR/product work changed. → history/2026-07-24-s-work-canon-demo-basis-authority-transition-001.md
 
+2026-07-24 · s-map-launch-control-demo-release-spine-001 · map · launch-control · g-b847/demo-release-spine: owner-approved Demo Release Control and R0–R5 replace the old Demo Control Room map; the Character-gated controller root is removed, one Character-independent retirement review is READY, and no Demo Basis, DCR tombstone, foreign root or product progress is claimed. → history/2026-07-24-s-map-launch-control-demo-release-spine-001.md
+
 END_OF_FILE: live/indie-game-development/LOG.md
