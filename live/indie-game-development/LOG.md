@@ -589,4 +589,6 @@ archived: history/LOG-archive-indie-game-development.md — sessions before 2026
 
 2026-07-24 · s-work-publish-launch-control-demo-program-v0-binding-005-main-001 · work/publish · launch-control · g-b847/repository-main: owner-requested binding fresh G5 REFUTED payload 4b7a37cb / blob d2a1e8e8 was atomically fast-forward published without force to origin/main and origin/wt/indie-game-development with exact two-ref remote history/LOG trailer readback; only this publication receipt is added, while NOW, TREE, CHARTER, knowledge, Demo Control Room, correction-005, active Program Model, Stage 4, BUILD and product repos remain unchanged. → history/2026-07-24-s-work-publish-launch-control-demo-program-v0-binding-005-main-001.md
 
+2026-07-24 · s-research-launch-control-demo-road-reframe-001 · research · launch-control · g-b847/demo-road-reframe: history-only DRAFT converges the dated 41-outcome corpus into six non-operational evidence envelopes, preserves Demo Control Room as sole coordinator, specifies inclusion-maximal safe parallel admission and a compact later Stage-4 refit that removes copied snapshots; no Stage 4, BUILD, publication or binding G5. → history/2026-07-24-s-research-launch-control-demo-road-reframe-001.md
+
 END_OF_FILE: live/indie-game-development/LOG.md
