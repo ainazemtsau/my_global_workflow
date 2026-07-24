@@ -593,4 +593,6 @@ archived: history/LOG-archive-indie-game-development.md — sessions before 2026
 
 2026-07-24 · s-repair-demo-working-hypothesis-checkpoint-g10-001 · repair · canon · g-d3a8/demo-working-hypothesis-checkpoint-g10-repair: Repaired the rejected demo checkpoint with a lawful plain-owner-message input identity and preserved the full non-canon handoff; no active state or design authority changed. → history/2026-07-24-s-repair-demo-working-hypothesis-checkpoint-g10-001.md
 
+2026-07-24 · s-work-publish-launch-control-demo-road-reframe-main-001 · work/publish · launch-control · g-b847/repository-main: owner-requested exact history-only DRAFT candidate 3006592c / blob 4cd208e7 was atomically fast-forward published without force to origin/main and origin/wt/indie-game-development with exact two-ref history/LOG/blob and binding-005-lineage readback; only this publication receipt is added, while NOW, TREE, CHARTER, knowledge, Demo Control Room, target/product repos, .claude/, Stage 4, BUILD and G5 remain untouched. → history/2026-07-24-s-work-publish-launch-control-demo-road-reframe-main-001.md
+
 END_OF_FILE: live/indie-game-development/LOG.md
