@@ -591,4 +591,6 @@ archived: history/LOG-archive-indie-game-development.md — sessions before 2026
 
 2026-07-24 · s-research-launch-control-demo-road-reframe-001 · research · launch-control · g-b847/demo-road-reframe: history-only DRAFT converges the dated 41-outcome corpus into six non-operational evidence envelopes, preserves Demo Control Room as sole coordinator, specifies inclusion-maximal safe parallel admission and a compact later Stage-4 refit that removes copied snapshots; no Stage 4, BUILD, publication or binding G5. → history/2026-07-24-s-research-launch-control-demo-road-reframe-001.md
 
+2026-07-24 · s-repair-demo-working-hypothesis-checkpoint-g10-001 · repair · canon · g-d3a8/demo-working-hypothesis-checkpoint-g10-repair: Repaired the rejected demo checkpoint with a lawful plain-owner-message input identity and preserved the full non-canon handoff; no active state or design authority changed. → history/2026-07-24-s-repair-demo-working-hypothesis-checkpoint-g10-001.md
+
 END_OF_FILE: live/indie-game-development/LOG.md
