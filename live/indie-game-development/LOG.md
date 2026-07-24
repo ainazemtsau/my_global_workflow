@@ -599,4 +599,6 @@ archived: history/LOG-archive-indie-game-development.md — sessions before 2026
 
 2026-07-24 — research (g-b847/minimal-authority, s-research-launch-control-minimal-authority-001): converged the failed Demo Control Room/DAG/envelope lineage into decision-ready option A — stateless Demo Release Control with Canon-owned definition, READY event refill, exact basis provenance, mechanical no-percent forecast, three-leg migration and deterministic seven-day probe; A/B/C owner verdict is pending, no structure, root, DCR or product work changed. → history/2026-07-24-s-research-launch-control-minimal-authority-001.md
 
+2026-07-24 · s-work-canon-demo-basis-authority-transition-001 · work · canon · g-d3a8/demo-basis-authority-transition: owner `PLEASE IMPLEMENT THIS PLAN` accepted Demo Release Control v1; Canon now maintains/version-identifies the owner-approved Demo Basis while Launch Control only consumes it, the DCR-dependent pilot root is replaced by a basis-identity checkpoint, and no TREE/controller/DCR/product work changed. → history/2026-07-24-s-work-canon-demo-basis-authority-transition-001.md
+
 END_OF_FILE: live/indie-game-development/LOG.md

@@ -1,6 +1,6 @@
 # NOW: indie-game-development
 
-updated: 2026-07-24 by s-research-launch-control-minimal-authority-001
+updated: 2026-07-24 by s-work-canon-demo-basis-authority-transition-001
 
 bet: null
 
@@ -57,20 +57,19 @@ open_calls:
     call: work/c-exec-level-module-standard-v1-lv0-plan-001-call.md
     note: "WAITING / DO NOT RELAUNCH. Product LV0 PLAN evidence exists at b16981706ece53c584848255de2bd92675b5de7b, but binding Direction close is missing. When the owner activates Level, first reconcile exact HOME, current V31 and product truth; preserved aperture RED 5af1d8db931d10cc6149a2c1f8e1023bc3b9ffb1 remains evidence, not permission to issue BUILD."
 
-  - id: c-cartography-g-d3a8-demo-experience-tree-pilot-001
+  - id: c-work-canon-demo-basis-authority-checkpoint-001
     track: canon
     status: waiting
-    waiting_on: [owner-approved-launch-control-demo-contract]
+    waiting_on: [owner-approved-current-demo-basis-r0]
     to: session
-    for: "g-d3a8 / minimal owner-present Demo Experience Tree pilot: one immediate experience-spine child of the accepted Demo Contract"
-    issued: 2026-07-22
-    call: work/demo-workflow/c-cartography-g-d3a8-demo-experience-tree-pilot-001-call.md
+    for: "g-d3a8 / one owner-approved Canon-maintained Demo Basis identity for R0"
+    issued: 2026-07-24
+    call: work/demo-workflow/c-work-canon-demo-basis-authority-checkpoint-001-call.md
     receipts:
       - history/2026-07-22-s-work-g-d3a8-demo-workflow-rebuild-accepted-001.md
-      - work/demo-workflow/demo-driven-design-canon-workflow-v1.md
-      - history/2026-07-22-s-work-canon-demo-hook-discovery-process-readiness-counter-001.md
-      - history/2026-07-22-s-work-canon-current-process-plan-readiness-blocked-001.md
-    note: "WAITING / LOCAL CANON HANDOFF / READINESS REQUEST BLOCKED ON MISSING LINEAGE POINTER / NO ROOT MUTATION / NO DESIGN DISPATCH. The owner accepted Demo-Driven Design & Canon Workflow v1 and explicitly required the Canon track to retain its own next CALL. The auxiliary readiness request found no stable task, CALL, accepted plan artifact, commit/branch or receipt that identifies the owner's newer reported process/plan lineage and its remaining items; the terminal 6296cdbe rebuild cannot be reopened, and the external v4/v3 split is evidence rather than execution authority. Unblock proof is one authoritative readable pointer to the actual owning lineage, execution surface and complete remaining-item scope, followed by that lineage's binding Direction close/receipt and fresh readback. This ordinary root remains WAITING only on one real owner-approved Demo Contract and exact acceptance receipt for work/launch-control/demo-control-room.md. No old question migration, Canon Forge, READY/NEXT tree data, portal/product work or automatic successor."
+      - history/2026-07-24-s-research-launch-control-minimal-authority-001.md
+      - history/2026-07-24-s-work-canon-demo-basis-authority-transition-001.md
+    note: "WAITING / CANON-MAINTAINED DEFINITION AUTHORITY INSTALLED / ACCEPTED BASIS NONE / NO DCR POINTER / NO DESIGN OR BUILD DISPATCH. Owner decides and approves; Canon maintains and version-identifies the exact Demo Basis; Demo Release Control consumes it. Unblock only on one owner-approved current Demo Basis artifact@blob plus acceptance receipt under R0; the repaired working hypothesis remains provisional evidence."
   - id: c-visual-009
     track: visual
     status: blocked
@@ -131,11 +130,6 @@ open_calls:
 
 recurring: []
 
-decisions:
-  - id: d-launch-control-minimal-authority-001
-    track: launch-control
-    q: "Какую архитектуру управления выпуском demo принять вместо действующей Demo Control Room?"
-    options: ["A — сохранить launch-control как stateless Demo Release Control; тремя atomic legs передать Demo Contract authority Canon/owner, переписать g-b847, поставить READY refill, tombstone DCR и запустить deterministic seven-day probe", "B — удалить отдельный control track/outcome_dispatch и оставить owner-mediated global frontier из TREE/NOW", "C — передать outcome_dispatch в Program и удалить отдельный launch-control track"]
-    recommendation: "A — сохраняет high-level cross-track steering и owner choice 0..N, использует существующий OS без новой living plan surface, не смешивает integration с release authority и имеет измеримый fail-fast probe."
+decisions: []
 
 END_OF_FILE: live/indie-game-development/NOW.md

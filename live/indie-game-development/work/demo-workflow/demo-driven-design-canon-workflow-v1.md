@@ -3,10 +3,14 @@
 status: OWNER-APPROVED PROCESS
 approved_on: 2026-07-22
 owner_verdict: "ПРИНИМАЮ DEMO-DRIVEN DESIGN & CANON WORKFLOW V1"
+authority_amended_on: 2026-07-24
+authority_amendment_owner_words: "PLEASE IMPLEMENT THIS PLAN"
 authority: |
   Binding Direction design-routing process for gameplay and visual design.
   It preserves accepted Frames and canon, does not define game content, and
-  does not replace Launch Control ownership of the Demo Contract.
+  uses one split definition authority: the owner decides and approves the Demo
+  Basis, Canon maintains and version-identifies it, and Demo Release Control
+  consumes it without rewriting its meaning.
 supersedes: |
   Question-first Canon routing, the current-question-front as scheduler,
   READY/NEXT inference and automatic successor routing.
@@ -24,8 +28,18 @@ Demo Contract. Он определяет только порядок, authority 
 
 **Demo Contract** — корневой вход процесса.
 
-Его владельцем остаётся **Launch Control**. Canon не переписывает Demo
-Contract и не выбирает release scope самостоятельно.
+Решение о его содержании и принятии остаётся за **владельцем**. **Canon**
+хранит и version-identifies один current Demo Basis; **Demo Release Control**
+потребляет этот exact basis для milestone, forecast, cuts и cross-track
+steering, но не переписывает его смысл. Canon не выбирает release route или
+release scope самостоятельно.
+
+Current basis существует только как `artifact-path@blob` плюс точный owner
+approval receipt. Path, branch, дата, working hypothesis или прежний DCR сами
+по себе authority не создают. Definition-dependent CALL обязан pin-ить exact
+basis identity; basis-independent CALL обязан назвать bounded независимый
+scope. После смены basis зависимые descendants становятся `STALE` до
+reconciliation, а не автоматически текущими или опровергнутыми.
 
 Demo Contract отвечает:
 
@@ -211,8 +225,9 @@ Demo Experience Tree хранит структуру и принятую свя�
 
 1. результат записывается;
 2. родительский observable outcome пересматривается;
-3. Launch Control и владелец оценивают Demo Contract, текущий milestone,
-   риски, cuts и другие допустимые ветки;
+3. владелец принимает definition-решения, Canon сохраняет current identity,
+   а Demo Release Control оценивает milestone, риски, cuts и другие допустимые
+   ветки относительно этого basis;
 4. только затем выбирается новая работа либо не выбирается ничего.
 
 Даже единственный оставшийся допустимый потомок не становится текущим
@@ -625,7 +640,8 @@ Demo Contract. Этот документ его не проектирует.
 
 ### Pilot sequence
 
-1. Launch Control показывает владельцу один proposed experience-spine node.
+1. Canon показывает владельцу один proposed experience-spine node из exact
+   current Demo Basis; Demo Release Control только потребляет принятый путь.
 2. После его принятия показывается один beat/situation.
 3. После принятия beat формулируется один observable outcome.
 4. Из outcome выводится одна required capability.
@@ -649,7 +665,8 @@ Demo Contract. Этот документ его не проектирует.
   binding/non-binding правил;
 - Ledger не содержит priority или `NEXT`;
 - удаление generated portal не удаляет authority;
-- Launch Control остаётся владельцем Demo Contract;
+- владелец остаётся decision authority, Canon сохраняет/version-identifies
+  Demo Basis, а Demo Release Control не может переписать его смысл;
 - Canon не становится release scheduler.
 
 ### Pilot pass
@@ -674,7 +691,8 @@ Demo Contract. Этот документ его не проектирует.
 Проект построен на:
 
 - текущих owner instructions из CALL;
-- accepted Launch Control authority и Demo Contract;
+- owner-approved Demo Basis authority, maintained/version-identified by Canon
+  and consumed without redefinition by Demo Release Control;
 - текущих `NOW.md`, `TREE.md`, `CHARTER.md`;
 - Minimum Game Frame v2;
 - Sphere extraction/custody Frame;
