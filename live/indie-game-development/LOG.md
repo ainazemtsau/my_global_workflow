@@ -605,4 +605,6 @@ archived: history/LOG-archive-indie-game-development.md — sessions before 2026
 
 2026-07-24 · s-review-launch-control-demo-control-room-retirement-001 · review · launch-control · g-b847/demo-control-room-retirement-001: binding fresh review gives the old DCR scope PARTIALLY MET, retires it from authority, promotes one durable Demo Release Control policy, keeps all 5/5 legacy product-cut groups plus 4 newly explicit management cuts, and registers exactly one Character-independent READY installation continuation without foreign or product mutation. → history/2026-07-24-s-review-launch-control-demo-control-room-retirement-001.md
 
+2026-07-24 · s-work-launch-control-demo-release-control-installation-001 · work · launch-control · g-b847/demo-release-control-installation-001: installed the short historical DCR tombstone and one permanent Character-independent READY Demo Release Control root, reconciled live/panel pointers, and recorded exact deterministic 10/10 PASS without foreign/product mutation, seven-day probe or binding post-install G5. → history/2026-07-24-s-work-launch-control-demo-release-control-installation-001.md
+
 END_OF_FILE: live/indie-game-development/LOG.md
