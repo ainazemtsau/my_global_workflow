@@ -617,4 +617,6 @@ archived: history/LOG-archive-indie-game-development.md — sessions before 2026
 
 2026-07-24 · s-review-launch-control-full-retirement-001 · launch-control · review · g-b847/full-retirement-001: binding fresh review found Demo/Launch Control NOT MET and applied the owner's exact retirement order; the live track, READY controller, R0–R5 subtree and current policy authority are removed while research/history remain evidence, every foreign track/call is preserved, and no replacement strategy is created. → history/2026-07-24-s-review-launch-control-full-retirement-001.md
 
+2026-07-24 · s-review-canon-clean-authority-reset-001 · review · canon · g-d3a8/clean-authority-reset: owner-approved clean authority reset gives all prior Canon repositories, laws, cards, maps and workflows zero default authority, installs a no-default-read evidence guard, replaces only the frozen Canon checkpoint with one READY clean-room frame, and leaves Gas, Grid and every foreign track/call unchanged. → history/2026-07-24-s-review-canon-clean-authority-reset-001.md
+
 END_OF_FILE: live/indie-game-development/LOG.md

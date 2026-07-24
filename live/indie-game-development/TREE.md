@@ -1,6 +1,6 @@
 # Goal tree: indie-game-development
 
-owner_approved: 2026-07-20 — history/2026-07-20-s-map-program-v2-hot-migration-route-001.md; 2026-07-20 — history/2026-07-20-s-repair-build-tooling-parking-001.md («припаркую», g-c5d1 parked); 2026-07-20 — history/2026-07-20-s-map-grid-track-resume-001.md («Принимаю активацию Grid по этому маршруту», g-4b92 parallel); 2026-07-21 — history/2026-07-21-s-map-gas-track-resume-001.md («A», g-1a63 parallel); 2026-07-21 — history/2026-07-21-s-map-launch-control-track-add-002.md («Можем сохранять его», g-b847 parallel); 2026-07-22 — history/2026-07-22-s-map-launch-control-demo-control-room-refit-001.md («Так, окей, тогда принимаю план.», g-b847 Demo Control Room refit); 2026-07-24 — history/2026-07-24-s-map-launch-control-demo-release-spine-001.md («PLEASE IMPLEMENT THIS PLAN»; «я хочу, чтобы ты всё завершил», g-b847 Demo Release Control + R0–R5); 2026-07-24 — history/2026-07-24-s-review-launch-control-full-retirement-001.md («track Launch Control полностью отключаем», g-b847 dropped)
+owner_approved: 2026-07-20 — history/2026-07-20-s-map-program-v2-hot-migration-route-001.md; 2026-07-20 — history/2026-07-20-s-repair-build-tooling-parking-001.md («припаркую», g-c5d1 parked); 2026-07-20 — history/2026-07-20-s-map-grid-track-resume-001.md («Принимаю активацию Grid по этому маршруту», g-4b92 parallel); 2026-07-21 — history/2026-07-21-s-map-gas-track-resume-001.md («A», g-1a63 parallel); 2026-07-21 — history/2026-07-21-s-map-launch-control-track-add-002.md («Можем сохранять его», g-b847 parallel); 2026-07-22 — history/2026-07-22-s-map-launch-control-demo-control-room-refit-001.md («Так, окей, тогда принимаю план.», g-b847 Demo Control Room refit); 2026-07-24 — history/2026-07-24-s-map-launch-control-demo-release-spine-001.md («PLEASE IMPLEMENT THIS PLAN»; «я хочу, чтобы ты всё завершил», g-b847 Demo Release Control + R0–R5); 2026-07-24 — history/2026-07-24-s-review-launch-control-full-retirement-001.md («track Launch Control полностью отключаем», g-b847 dropped); 2026-07-24 — history/2026-07-24-s-review-canon-clean-authority-reset-001.md («чистый reset authority»; «Так, да, подтверждаю», g-d3a8 clean authority reset)
 
 - id: g-a7f2
   goal: Выпущенная в Steam коммерческая co-op игра строится вокруг gas + grid, изменения пространства и экспедиционной игры; продукт технически силён, понятен игрокам и приносит реальный доход.
@@ -58,7 +58,7 @@ owner_approved: 2026-07-20 — history/2026-07-20-s-map-program-v2-hot-migration
       done_when: Существенные design questions имеют принятые ответы, конфликты явны, downstream work ссылается на current canon.
       why: Технические возможности должны превращаться в решения игрока и узнаваемую игру.
       status: parallel
-      detail: Существующий canon-forge сохраняется; current root c-cartography-g-d3a8-post-gas-behavior-admission-front-001.
+      detail: "Clean authority reset принят 2026-07-24: прежние Canon-репозиторий, CONSTITUTION, CORE, INDEX, карточки, карты и Demo/Canon workflow — только historical evidence; текущего принятого канона нет до нового owner-approved reboot."
 
     - id: g-b847
       goal: "Исторические эксперименты Demo & Launch Control сохранены как evidence и не работают как живой трек."

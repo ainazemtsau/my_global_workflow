@@ -1,6 +1,6 @@
 # NOW: indie-game-development
 
-updated: 2026-07-24 by s-review-launch-control-full-retirement-001
+updated: 2026-07-24 by s-review-canon-clean-authority-reset-001
 
 bet: null
 
@@ -41,20 +41,16 @@ open_calls:
     call: work/c-exec-level-module-standard-v1-lv0-plan-001-call.md
     note: "WAITING / DO NOT RELAUNCH. Product LV0 PLAN evidence exists at b16981706ece53c584848255de2bd92675b5de7b, but binding Direction close is missing. When the owner activates Level, first reconcile exact HOME, current V31 and product truth; preserved aperture RED 5af1d8db931d10cc6149a2c1f8e1023bc3b9ffb1 remains evidence, not permission to issue BUILD."
 
-  - id: c-work-canon-demo-basis-authority-checkpoint-001
+  - id: c-frame-canon-clean-authority-reboot-001
     track: canon
-    status: waiting
-    waiting_on: [owner-approved-current-demo-basis-r0]
+    status: ready
     to: session
-    for: "g-d3a8 / one owner-approved Canon-maintained Demo Basis identity for R0"
+    for: "g-d3a8 / one owner-approved clean concept authority for the impossible-environment cleanup reboot"
     issued: 2026-07-24
-    call: work/demo-workflow/c-work-canon-demo-basis-authority-checkpoint-001-call.md
+    call: work/c-frame-canon-clean-authority-reboot-001-call.md
     receipts:
-      - history/2026-07-22-s-work-g-d3a8-demo-workflow-rebuild-accepted-001.md
-      - history/2026-07-24-s-research-launch-control-minimal-authority-001.md
-      - history/2026-07-24-s-work-canon-demo-basis-authority-transition-001.md
-      - history/2026-07-24-s-work-canon-game-first-demo-creation-fit-blocked-001.md
-    note: "WAITING / FROZEN LEGACY BASIS CHECKPOINT / ACCEPTED BASIS NONE / NO DESIGN OR BUILD DISPATCH. Launch Control was retired by the owner on 2026-07-24. This root remains non-dispatchable on its existing wait token and is not authority for pre-Basis creation. The next owner-approved map/reframe must explicitly reconcile, replace or retire it before use; the prior game-first ownership disposition remains BLOCKED and no Demo Basis was accepted."
+      - history/2026-07-24-s-review-canon-clean-authority-reset-001.md
+    note: "READY / CLEAN-ROOM CANON REBOOT / CURRENT ACCEPTED CANON NONE. Prior Canon repositories, constitutions, cores, cards, maps and Demo/Canon workflows have zero default authority and are historical evidence only. Do not read or import them unless the owner explicitly requests the exact legacy source or a bounded research CALL explicitly names it. This root changes only Canon concept authority; every Gas, Grid and foreign track/call remains exactly as current state records it."
   - id: c-visual-009
     track: visual
     status: blocked
