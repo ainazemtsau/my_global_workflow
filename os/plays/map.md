@@ -25,11 +25,11 @@ Roadmap-node fast path: one bounded child under an approved parent; reuse eviden
 6. **Order (owner)** — confirm the order, adjusted by verdicts: what unblocks what, riskiest assumption first.
 7. **Depth check** — top level only (rolling wave, G2). Deeper splits happen later, in shape.
 8. **Lens sweep on the map** — does the tree cover every charter lens? For each gap: propose a node or an explicit `not_needed: reason`.
-9. **Close (owner)** — owner approves compact tree (G9). RESULT: TREE + log; offer 2–3 first-node options, then `awaiting_decision` or a chosen registered shape CALL. Map never creates execution lanes: future nodes remain `parked|shaped` until one becomes the bet.
+9. **Close (owner)** — after G9, save TREE + log; offer 2–3 first nodes. No choice → `awaiting_decision`. A choice uses KERNEL §2: verified/OFF → shape; neither → converge. Never create execution lanes; future nodes stay `parked|shaped`.
 
 ## Done when
 
-TREE.md holds an owner-approved tree; every non-root node has its one-line why; RESULT.next hands off a continuation.
+TREE.md holds an owner-approved tree; every non-root node has its one-line why; RESULT.next hands off the readiness-routed continuation.
 
 ## Notes
 

@@ -19,8 +19,8 @@ Trigger: tasks closed, appetite expired, kill_by breached, evidence made the bet
 3. **Tree diff (owner)** — propose small node additions/drops/dispositions, one artifact at a time. Apply only exact owner-approved cards (G9); larger restructuring routes to map. No tasks.
 4. **Add-back check** — inspect the cut list. Name genuinely missed cuts and whether recent cuts are too timid.
 5. **Knowledge** — promote at most 1–3 durable learnings, each with a real `read_by`; otherwise keep only history.
-6. **Forecast & next** — recalibrate `direction_forecast` from material evidence. Numeric chance needs a cited empirical reference class/calibration; otherwise use `no_basis` with drivers and update trigger. Then offer 2–3 future nodes or pause, with recommendation. Activating the chosen node still routes to shape.
-7. **Close** — RESULT records verdict/tree/forecast/issues/log. Pending choice → decision + `awaiting_decision`; chosen node → registered shape CALL.
+6. **Forecast & next** — recalibrate `direction_forecast` from material evidence. Numeric chance needs a cited empirical reference class/calibration; otherwise use `no_basis` with drivers and update trigger. Then offer 2–3 future nodes or pause, with recommendation. Activation uses the KERNEL §2 readiness router, never a direct shape default.
+7. **Close** — RESULT records verdict/tree/forecast/issues/log. Pending choice → decision + `awaiting_decision`; chosen node → exactly one readiness-routed CALL.
 
 ## Done when
 

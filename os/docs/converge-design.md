@@ -16,7 +16,7 @@ So convergence must re-fire on each committed mechanism, each time minting that 
 
 ## The layer: three plays, one flow
 
-`node → (shape picks approach) → converge → [converge-arch] → converge-verify → shape → executor/PLAN`
+`node chosen → readiness router → (verified/OFF → shape | otherwise converge → [converge-arch] → converge-verify → shape) → executor/PLAN`
 
 - **converge** (TIER + DEFINE + RESOLVE) — type the node by risk (ceremony is a ceiling); lock disputed terms mechanically; resolve the WHAT as a cited node-on-paper. Questions derive from THREE sources: every done_when criterion, every cross-node edge, and MECHANISM DECOMPOSITION (each committed mechanism atomically split into the parameters it forces, recursively). HOW magnitudes/formats are firewalled `→ PLAN`; acceptance PROPERTIES and owner-owned design facts are owner-signed WHAT.
 - **converge-arch** (DECLARE + DECOMPOSE + ARCHITECT) — only for sibling-bearing or heavy nodes. Consumer-driven cross-node contracts in observable terms; heavy nodes work high-risk architecture as a refuted option chain into an architecture-on-paper that rides PLAN as input evidence, never into done_when.

@@ -146,7 +146,7 @@ decisions:
 
 NOW is current state, not a diary. `open_calls`, `issues` and `decisions` contain only unresolved items. Returned/done/cancelled items leave hot state for LOG/history. No free-form running narrative and no removed `next` selector: `RESULT.next` is handoff transport only.
 
-`bet: null` is normal between objectives. Then `tasks: []`, and no non-recurring execution track/CALL may exist; one untracked `frame|map|shape|review|repair` CALL may be the planning frontier. The daily adviser may name a conversational focus, but only shape activates a stored bet.
+`bet: null` is normal between objectives. Then `tasks: []`, and no non-recurring execution track/CALL may exist; one untracked `frame|map|converge|converge-arch|converge-verify|shape|review|repair` CALL may be the planning frontier. The daily adviser may name a conversational focus, but only shape activates a stored bet.
 
 ### Direction forecast
 

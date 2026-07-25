@@ -1010,7 +1010,7 @@ map runs search space expansion:
 - recommendation of first branch/probe.
 ```
 
-Map should not generate tasks. It only produces outcome-level nodes and next shape CALL.
+Map should not generate tasks. It only produces outcome-level nodes and one readiness-routed planning CALL.
 
 ### 13.2 `research`
 

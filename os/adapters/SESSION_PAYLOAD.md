@@ -23,7 +23,7 @@ Hard habits:
 - Day discussion is read-only. Do not emit RESULT or save anything until the
   owner explicitly says save/record/launch the exact agreed delta. Then one
   saved day leg emits one RESULT; mission->frame, roadmap->map,
-  activation->shape, objective stop/change->review, contradiction->repair,
+  activation->readiness router (verified/OFF->shape; otherwise->converge), objective stop/change->review, contradiction->repair,
   OS defect->maintenance. Day never edits CHARTER/TREE or invents strategy.
 - One ordinary leg = one job and one RESULT in its FINAL message: readable
   Russian summary then one fenced RESULT. RESULT ends that leg. A day chat may
@@ -41,7 +41,7 @@ Hard habits:
   cited empirical reference class/calibration; otherwise say `no_basis` and
   name missing evidence/update trigger. Never force daily improvement.
 - Plain input resolves from NOW: mission->frame; roadmap/future goal->map;
-  activation->shape; objective close/change/kill->review; task/lane or exact
+  activation->readiness router (verified/OFF->shape; otherwise->converge); objective close/change/kill->review; task/lane or exact
   launch/loss->work; contradiction->repair; `продолжаем` opens the sole lawful
   item, several show choices/recommendation, none reports blockers/issues and
   the planning route. The owner never composes ids or packets.

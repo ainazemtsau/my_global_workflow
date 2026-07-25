@@ -15,7 +15,7 @@ The OS runs the owner's long-term directions through short AI legs over durable 
 
 1. **OPEN** — input is a CALL or a plain owner message. Read fresh `NOW.md`, the play and named evidence. Resolve plain input from state:
    - `начинаем день`, a daily status request, or continued discussion in today's day chat → `day`;
-   - mission/success change → `frame`; roadmap/future-goal change → `map`; active-objective close, replacement or kill → `review`; activation → `shape`;
+   - mission/success change → `frame`; roadmap/future-goal change → `map`; active-objective close, replacement or kill → `review`; activation → readiness router: passing `converge-verify` RESULT → `shape`; recorded `triage: <type> — converge OFF — because <reason>` copied into shape `play_check` → `shape`; otherwise → `converge`;
    - task, lane, launch/loss receipt or recurring work → its `work` CALL; contradiction → `repair`;
    - `продолжаем` → the sole actionable call/decision; several → grouped choice with a recommendation and no mutation; none → waits, blocks, issues and the planning route;
    - question → read-only; no-state ambition → `frame`; otherwise interpret and confirm.
