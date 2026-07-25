@@ -1,211 +1,214 @@
 # CHARTER — indie-game-development
 
-## Mission
+## Миссия
 
-Build, ship, and commercialize a Steam indie game as a solo developer: a technically strong co-op game around gas + grid + expedition systems that the owner is proud to have made, and a real commercial product that generates external revenue.
+Довести до конца текущую кооперативную игру и выпустить её в Steam как настоящий платный продукт. Ближайшая жёсткая цель — достойное публичное демо на октябрьском Steam Next Fest 2026 года.
 
-The direction exists to create a reusable indie-development business seed: technical capability, product judgment, audience workflow, release discipline, and revenue—not only one isolated prototype.
+Игра не обязана стать игрой мечты или мегахитом. Дополнительная цель — проверить и зафиксировать процесс, с помощью которого один разработчик может довести игру до демо, фестиваля и коммерческого выпуска.
 
-## Success criteria
+## Критерии успеха
 
-1. **Six-month money gate**
-   - By 2026-12-11, the game has produced external paid validation tied to this project: donations, crowdfunding pledges, paid prototype access, publisher advance, grant, revenue share, Steam revenue, or another concrete cash commitment.
-   - Recommended threshold for “real signal”: at least $1,000 gross external money or signed funding commitment.
-   - Minimum owner-stated threshold: more than $0 external money.
-   - If the result is $0 and no credible funding path exists, the commercial approach or concept must be reframed.
+### 1. Октябрьский Steam Next Fest
 
-2. **Steam product outcome**
-   - The game reaches Steam as a real product, not only a private prototype or tech demo.
-   - Acceptable release paths: paid Early Access followed by 1.0, or direct 1.0 release.
-   - The released product must have a public Steam page, trailer/gameplay footage, playable demo or equivalent public slice before launch, and a build that customers can actually play.
+Успех означает реальное участие в фестивале:
 
-3. **Pride / craft bar**
-   - The core game is not a gas simulation tech demo.
-   - It demonstrates gameplay depth from the interaction of grid, destruction, gas types, gas reactions/transformations, expedition pressure, and player tools.
-   - External co-op playtests can verify that gas behavior changes player tactics, creates readable emergent situations, and makes cooperation matter.
+- регистрация завершена до 31 августа 2026 года;
+- обязательные материалы, страница Steam и демо подготовлены к сроку 5 октября;
+- демо публично доступно во время фестиваля 19–26 октября;
+- описание и материалы страницы Steam соответствуют реальной сборке.
 
-4. **Commercial success target**
-   - Target commercial success: at least $100,000 gross lifetime revenue or funding attributable to the game and its direct commercial activity.
-   - Minimum commercial floor before continuing into a larger multi-year push: the project recovers the initial cash budget and shows an active audience/funding path.
-   - This target is calibrated against Steam’s visible success band where thousands of games exceed $100k annually, but most releases still disappear commercially.
+Пропуск октября — главный провал ближайшего этапа. Февраль является запасным вариантом только после отдельного решения владельца, а не автоматическим переносом.
 
-## Constraints
+### 2. Минимально достойное демо
 
-- **Time:** this is the owner's primary work direction, not a side hobby; scheduling is capacity-based, not a fixed hour quota.
-- **Money:** new cash budget is capped at approximately $3,000 before explicit reconsideration; many plugins/tools are already purchased.
-- **Health/rhythm:** high workload is accepted by the owner, but burnout remains a project risk. The OS should treat destroyed health, motivation, or execution reliability as failure pressure, not as “commitment.”
-- **Audience gap:** the owner has little existing audience and low interest in manual social media. Audience development must be systematized through workflow, templates, checklists, automation where reasonable, and concrete recurring outputs.
-- **Concept status:** `gas+grid / expedition` is the default concept foundation. It is not casually reopened. It can be challenged only by a dedicated audit with clear market/design evidence and a better alternative.
-- **Archive status:** `archive/directions/indie-game-development/**` is evidence-only. Old material may be imported selectively only with an explicit reason and pointer. No blind migration.
-- **Planning scope:** this frame creates the charter and root only. Goal map and archive analysis are separate map-session work.
+Владелец после проверки может честно сказать: «Мне не стыдно это публиковать».
 
-## Lenses
+Для этого выполняется уже существующий минимальный порог:
 
-1. **Commercial / traction lens**
-   - Every major bet must say how it can create wishlists, followers, funding, publisher interest, paid validation, or sales.
-   - Work that only improves internals without increasing player-facing proof must be justified.
+- репрезентативное прохождение не заканчивается падением игры или тупиком;
+- чистая Steam-установка работает;
+- повторный запуск работает;
+- две физические машины соединяются;
+- как минимум два игрока могут начать прохождение и дойти до понятного результата;
+- начало, опасность или задача, совместное действие и результат понятны без объяснения внутреннего устройства игры;
+- разработчик не помогает пройти попытку;
+- в демо есть хотя бы один хорошо читаемый игровой момент;
+- сотрудничество действительно влияет на результат;
+- публичные обещания подтверждаются сборкой.
 
-2. **Core gameplay depth lens**
-   - Gas/grid/destruction must produce decisions, risks, tools, and replayable situations.
-   - A feature is not valuable merely because it is technically interesting.
+Новые численные пороги по тестерам, анкетам или проценту успешных прохождений сейчас не вводятся.
 
-3. **Co-op-first lens**
-   - Multiplayer is not an add-on.
-   - Design should create asymmetric responsibilities, communication, rescue/failure moments, shared planning, and expedition pressure.
+### 3. Платный выпуск
 
-4. **Technical feasibility lens**
-   - Global gas simulation, destruction, networking, performance, determinism/sync, save/load, and tooling must be treated as first-class risks.
-   - Technical ambition is allowed, but only behind playable evidence.
+Текущая игра выпущена в Steam как платный Early Access или 1.0:
 
-5. **Scope / production lens**
-   - The product must stay solo-shippable.
-   - Art, content, animation, UI, onboarding, and networking support cannot be assumed free.
-   - Cuts are normal; uncontrolled feature expansion is failure.
+- внешний покупатель может купить и запустить игру;
+- Steam фиксирует реальную внешнюю выручку больше нуля;
+- деньги самого владельца не считаются внешней выручкой.
 
-6. **Audience workflow lens**
-   - Because the owner lacks an existing audience, the project needs a repeatable external-output machine: gifs, clips, devlog fragments, playtest calls, Steam updates, mailing/community capture, and publisher/crowdfunding materials.
-   - Social/manual posting should be minimized, batched, templated, or assisted.
+Крупная прибыль, $100,000 или статус выдающейся игры не являются обязательным условием. Желательно заработать достаточно для перехода к следующей игре, но минимальный успех — законченный платный продукт и реальные продажи.
 
-## Owner edges
+### 4. Проверенный процесс
 
-1. **Engineering depth**
-   - Proving fact: 10 years of professional software development experience, mostly Java/full-stack, gives a strong base for architecture, systems thinking, tooling, debugging, and long technical execution.
+После выпуска существует честный разбор полного цикла:
 
-2. **Availability and priority**
-   - Proving fact: the owner is not currently splitting attention with a normal job and can make this direction the primary work focus without treating any fixed weekly hour count as a requirement.
+- фактические сроки и расходы;
+- планируемый и реально выпущенный объём;
+- работающие и проваленные проверки качества;
+- прохождение Steam-процедур;
+- результаты демо, фестиваля и выпуска;
+- повторно используемые технические и организационные решения;
+- список бесполезной работы и ошибок;
+- минимальный рабочий процесс для следующей игры.
 
-3. **Player literacy**
-   - Proving fact: lifelong broad game-playing experience gives taste references and intuitive understanding of what feels deep, shallow, boring, or alive.
+На основании этих данных владелец принимает отдельное решение: продолжать текущую игру, делать следующую или искать работу.
 
-4. **Existing concept investment**
-   - Proving fact: prior work exists in archive and old code/docs around gas simulation, space/grid simulation, and the expedition concept. This is not imported automatically, but it is a real evidence source.
+## Жёсткие ограничения
 
-5. **OS-assisted solo workflow**
-   - Proving fact: Direction OS can split work into frame/map/shape/work/review loops, preserve state, force done_when evidence, and compensate for solo blind spots with structured sessions.
+- Октябрь 2026 года — основной срок.
+- Одна игра может участвовать только в одном Steam Next Fest.
+- Общий денежный предел до отдельного пересмотра — примерно $3,000.
+- Примерно $1,500 уже потрачено на AI; ориентировочно остаётся около $1,500.
+- Разработка игры остаётся основной работой владельца.
+- Фиксированной нормы часов нет: работа оценивается по результатам.
+- Работа почти каждый день по 12–15 часов — существующее преимущество, но не обязательство и не доказательство прогресса.
+- Потеря здоровья или способности стабильно работать считается угрозой выпуску.
+- Концепция и канон пересобираются.
+- Старый канон, Launch Control и Gameplay Recovery Handoff — только доказательства и источники вопросов.
+- Существующий код и подтверждённые технические возможности не удаляются, но их роль определяется заново.
+- Этот CHARTER не выбирает точные игровые механики.
+- Launch Control, Program v2 и старое дерево результатов не восстанавливаются.
+- Численная вероятность выпуска не публикуется без эмпирической калибровки.
+- Новые репозитории не создаются.
 
-## Risk posture
+## Линзы решений
 
-**guarded**
+Каждое крупное решение проверяется с шести сторон:
 
-Rationale: the direction combines multiple high-risk dimensions—solo development, multiplayer, systemic simulation, Steam commercialization, no existing audience, and a six-month money gate. Exploration is still required, but the default posture must be guarded: early external validation, hard scope control, explicit kill/reframe gates, and no long private engineering tunnel.
+1. Приближает ли оно октябрьское демо и выпуск?
+2. Улучшает ли оно понятность и качество для игрока?
+3. Реально ли одному разработчику закончить и поддерживать этот объём?
+4. Основано ли оно на новом одобренном каноне?
+5. Приближает ли оно платный продукт и полезное коммерческое знание?
+6. Сохраняет ли оно надёжность работы владельца?
 
-## Canonical repos
+## Преимущества владельца
 
-- Direction state repo: `github.com/ainazemtsau/my_global_workflow`
-- Product game repo: not yet canonized.
-  - Candidate paths: continue the nearly empty current game repo, use the old repo with existing code, or start fresh.
-  - Decision deferred to map/shape/technical audit; do not lock during frame.
-- Website / marketing / Steam materials repo: none yet.
+- Около десяти лет профессиональной разработки.
+- Возможность сделать игру основной работой.
+- Дисциплинированная почти ежедневная работа.
+- Широкий игровой опыт и развитое чувство качества.
+- Существующий продуктовый код и технические доказательства.
+- AI-инструменты и Direction OS для организации одиночной разработки.
 
-## Outside view
+Количество часов является доступной мощностью, а не заменой продуктового результата.
 
-Steam success is possible but discoverability is brutal. 2025 data suggests many releases make almost no money, while thousands still cross $100k gross. Co-op/systemic outliers win through a legible fantasy, replayable social situations, community-facing proof, and a playable funnel—not by hiding for months behind technology. For this direction, sequencing should therefore run technical proof and commercial proof in parallel: prototype the gas+grid co-op core, but expose it early through Steam page/demo/playtests/funding experiments.
+## Отношение к риску
 
-Reference cases used during frame:
-- Steam release base-rate risk: many Steam releases earn little, while a meaningful minority crosses $100k gross.
-- Deep Rock Galactic: co-op fantasy, roles, mission structure, procedural replay, and legible social hook.
-- Abiotic Factor: co-op systemic/survival fantasy, early-access cadence, wishlist base, and community-facing development.
-- Steam Next Fest / demos / Early Access: public-facing playable proof matters before launch; Early Access should not be used solely as a funding substitute.
-- Kickstarter Games stats: crowdfunding can validate, but only with a strong proof-of-interest funnel.
+Режим — осторожный.
 
-## Pre-mortem
+До октября мало времени, канон пересобирается, а продукт делает один человек. Новые идеи должны быстро приводить к наблюдаемому результату. При конфликте сначала сокращается объём, а не переносится срок.
 
-This direction failed three years from now because one or more of the following happened.
+## Репозитории
 
-### 1. Six-month money gate was missed, but the project kept going as if nothing happened
+Сохраняются существующие репозитории:
 
-**Failure mode:** by 2026-12-11 the game produced no external money, no signed funding commitment, and no credible path to near-term revenue, but the owner continued private development on momentum and sunk cost.
+- управление направлением — `my_global_workflow`;
+- продукт — существующий репозиторий `gas_coop_game`;
+- канон — существующий репозиторий `gas_coop_game_canon`.
 
-**Mitigation:** money validation must be treated as a real gate, not a motivational slogan. The project needs early commercial surfaces: Steam page, wishlist funnel, public clips, playable proof, crowdfunding/publisher/grant tests, and direct asks.
+Их текущие локальные и удалённые адреса не меняются. Новые репозитории не создаются. `TheLastExit` является старым посторонним репозиторием и не входит в это направление.
 
-**Kill_by candidate:** by 2026-12-11, if external money is $0 and there is no concrete funding/revenue path with named next counterparty or platform, the commercial strategy or concept must be reframed before more production-scale work continues.
+## Внешний взгляд
 
-### 2. The project became a private engineering tunnel
+Существующие исследования показывают три вещи. Большинство Steam-релизов не становятся крупными коммерческими успехами, поэтому мегахит нельзя делать обязательным условием. Собственный опыт Launch Control показал, что большой управляющий документ не заменяет работающую сборку. Небольшие законченные одиночные игры показывают, что сознательно ограниченный объём может быть сильнее многолетней незавершённой амбиции. Поэтому порядок должен защищать срок, маленькое честное демо и завершение игры, а не объём документов или функций.
 
-**Failure mode:** months were spent improving gas simulation, grid architecture, destruction, networking, or tools, but there was no playable co-op proof that outsiders could understand or want.
+## Pre-mortem: почему направление провалилось
 
-**Mitigation:** technical work must frequently terminate in player-facing evidence: playable slices, gifs, videos, test scenarios, playtest builds, or Steam-facing materials. “The system is better internally” is insufficient unless it unlocks a visible gameplay result.
+Представляем, что прошло три года, а игра так и не стала нормально выпущенным продуктом.
 
-**Kill_by candidate:** if a major technical bet cannot produce a visible player-facing improvement within its appetite, cut or simplify the system rather than extending the bet.
+### 1. Был пропущен октябрьский фестиваль
 
-### 3. Global gas simulation + destruction + multiplayer proved too expensive for solo production
+Причина: регистрация, Steam-страница, проверка сборки или обязательные материалы были оставлены на последний момент.
 
-**Failure mode:** the technical core became unsolo-shippable due to performance, synchronization, determinism, save/load complexity, debugging burden, or content/tooling overhead.
+Мера: все внешние Steam-сроки считаются отдельными жёсткими воротами, а не одной датой фестиваля.
 
-**Mitigation:** the game should prove the smallest commercially legible version of the fantasy before committing to full generality. Prefer constrained spaces, limited gas counts, authored expedition scenarios, simplified destruction, or local simulation boundaries if needed.
+Граница:
 
-**Kill_by candidate:** if multiplayer gas/destruction cannot run reliably in a small representative scenario with acceptable performance and debuggability, the technical model must be narrowed before content production expands.
+- отсутствие регистрации к 31 августа означает, что октябрьский маршрут закрыт;
+- отсутствие пригодного демо к обязательному октябрьскому сроку требует явного решения владельца — сокращать объём, отказываться от участия или переходить на февраль;
+- молчаливый перенос запрещён.
 
-### 4. The gas/grid system was deep technically but shallow as gameplay
+### 2. Пересборка концепции никогда не закончилась
 
-**Failure mode:** gases had types, reactions, transformations, and propagation, but players experienced them as noise, hazards, or gimmicks rather than meaningful decisions.
+Причина: канон постоянно уточнялся, но не давал достаточно определённости для демо.
 
-**Mitigation:** every core gas type needs a gameplay job: tactical choice, risk/reward, tool interaction, co-op role, route planning, emergency, resource, puzzle, combat pressure, or expedition consequence. Simulation complexity should be judged by decisions created, not variables simulated.
+Мера: до фестиваля концептуальные решения принимаются только в объёме, необходимом для честного репрезентативного демо. Полный дизайн всей игры заранее не требуется.
 
-**Kill_by candidate:** if external playtesters cannot describe distinct gas behaviors and how those behaviors changed their decisions, the design must be simplified or redesigned.
+Граница: если ограниченная работа над концепцией не приводит к более ясному проверяемому демо, она останавливается и пересобирается. Старый канон не подставляется автоматически.
 
-### 5. Multiplayer existed technically but did not create cooperation
+### 3. Документы снова заменили продукт
 
-**Failure mode:** multiple players could run around together, but the optimal experience was still basically solo-with-friends. There were no strong reasons to communicate, split roles, rescue each other, coordinate tools, or plan expeditions.
+Причина: появился новый Launch Control, большая схема результатов или управляющий процесс, но не рабочая сборка.
 
-**Mitigation:** co-op must be designed as a first-class system: asymmetric pressures, complementary tools, shared failure states, communication moments, role tension, rescue/recovery, and expedition logistics.
+Мера: каждый следующий уровень планирования должен опираться на непосредственное состояние продукта и приводить к конкретному проверяемому доказательству.
 
-**Kill_by candidate:** if co-op playtests do not produce visible communication, dependency, or shared tactical planning, the core loop is not yet valid.
+Граница: если документ растёт, а нового продуктового доказательства нет, расширение документа прекращается. Новый независимый управляющий контур не создаётся.
 
-### 6. The concept was too illegible or too niche to sell
+### 4. Объём оказался слишком большим для одного разработчика
 
-**Failure mode:** `gas+grid / expedition` made sense internally but did not produce a clear market-facing hook. Players, press, publishers, or backers saw it as a geeky systems toy rather than a game they wanted.
+Причина: в демо одновременно пытались уместить слишком много систем, контента, графики, интерфейсов и полировки.
 
-**Mitigation:** the concept must be packaged around a legible fantasy: dangerous expeditions, unstable environments, co-op survival/problem-solving, spectacular chain reactions, and memorable failure stories. Marketing language should lead with the player fantasy, not the simulation architecture.
+Мера: каждый будущий этап имеет явный список того, что не делается. Новая функция может войти только через осознанную замену уже выбранного объёма.
 
-**Kill_by candidate:** if store-page tests, trailer/gif feedback, playtest recruitment, or publisher/crowdfunding outreach produce persistent confusion or indifference, run a concept positioning audit before further expansion.
+Граница: работа, не помещающаяся в установленный срок или объём, откладывается либо удаляется из демо. Срок автоматически не расширяется.
 
-### 7. Audience development never became a workflow
+### 5. Сетевая и техническая часть не стала надёжной
 
-**Failure mode:** because the owner dislikes social media and has no existing audience, marketing was postponed, under-posted, or done inconsistently. The game reached public launch with no wishlist base, no mailing/community capture, and no external momentum.
+Причина: сборка работала только у разработчика, соединение двух машин было нестабильным, а чистая установка или повторный запуск ломались.
 
-**Mitigation:** audience work must be turned into a repeatable production workflow: batched clips, templated devlog fragments, Steam updates, playtest calls, mailing list/community capture, short-form posts, press/publisher materials, and recurring review of what converts.
+Мера: чистая установка, две физические машины, соединение, прохождение и повторный запуск проверяются на репрезентативной сборке, а не в последний момент.
 
-**Kill_by candidate:** if the project cannot produce a steady cadence of external artifacts from normal development, scope and workflow must be redesigned until marketing becomes a byproduct of work, not a separate personality tax.
+Граница: если минимальный стабильный путь не подтверждается в пределах выделенного этапа, технический объём сокращается. Добавлять новую сложность до этого нельзя.
 
-### 8. Scope exploded across simulation, content, art, UX, networking, and release work
+### 6. Демо было понятно только разработчику
 
-**Failure mode:** every system implied more tools, more content, more edge cases, more onboarding, more UI, more animation, more VFX, more balance, and more QA. The product became too large for one person.
+Причина: игроки не понимали начало, задачу, опасность, совместное действие или результат без постоянных объяснений.
 
-**Mitigation:** the map and shape phases must cut aggressively. Content should reuse systemic depth instead of requiring large handcrafted volume. The product should be defined around a small number of high-leverage verbs, gases, tools, enemies/hazards, and mission structures.
+Мера: после появления измеримого кандидата проводится прохождение без помощи разработчика по уже принятому минимальному порогу качества.
 
-**Kill_by candidate:** any shaped bet without a real cut list is invalid. If a feature cannot fit the current appetite, it must be parked, not silently absorbed.
+Граница: необходимость вмешательства разработчика означает, что кандидат не готов к публикации. Его нужно упростить, исправить или не публиковать как готовое демо.
 
-### 9. The game made some money early, but the wrong signal was overinterpreted
+### 7. Закончились деньги
 
-**Failure mode:** a small donation, a few wishlists, a friendly publisher reply, or minor crowdfunding interest was treated as proof of market fit, leading to overcommitment.
+Причина: остаток бюджета ушёл на AI, инструменты, услуги или другие покупки без прямой связи с октябрьским демо и выпуском.
 
-**Mitigation:** separate “any money” from “strong signal.” The owner’s minimum is more than $0 by six months, but strategic decisions should look for stronger evidence: repeat strangers, wishlist velocity, playtest retention, conversion intent, publisher terms, crowdfunding prelaunch followers, or meaningful gross revenue.
+Мера: до отдельного решения владельца действует общий предел около $3,000, из которого примерно $1,500 уже потрачено.
 
-**Accepted risk:** early money is still useful morale and validation. The risk is accepted only if the OS continues to distinguish weak signal from strong signal.
+Граница: расход, выводящий проект за оставшийся бюджет, не совершается без отдельного решения владельца. Достигнутый предел останавливает новые платные расходы, но не скрывается пересчётом бюджета.
 
-### 10. The old archive became a sunk-cost trap
+### 8. Высокая нагрузка разрушила способность завершать работу
 
-**Failure mode:** prior documents, old code, and earlier decisions were imported because they existed, not because they still served the new direction.
+Причина: длинные рабочие дни привели к плохим решениям, переделкам, потере сна или невозможности стабильно завершать задачи.
 
-**Mitigation:** archive material is evidence-only. Every imported item must name the reason it still matters: saves time, proves a technical path, captures a validated decision, or prevents repeating a known failure.
+Мера: оцениваются законченные доказательства, а не часы. При ухудшении надёжности сначала сокращается объём и меняется ритм.
 
-**Kill_by candidate:** if archive review starts turning into migration rather than selection, stop and run a bounded map/audit session with explicit import criteria.
+Принятый риск: высокая интенсивность работы сохраняется, пока она действительно даёт устойчивый результат. Она не является обязанностью или оправданием ухудшения состояния.
 
-### 11. The owner lost pride in the project while chasing revenue
+### 9. Фестиваль прошёл, но игра так и не была выпущена
 
-**Failure mode:** commercial pressure pushed the game toward trend-chasing, shallow content, or mechanics the owner did not respect. Motivation collapsed because the project no longer felt worth making.
+Причина: демо превратилось в начало бесконечной полировки, расширения или переделки игры.
 
-**Mitigation:** commercial work should improve packaging, validation, scope, and audience fit—not force the owner to build a game he considers garbage. The craft bar remains a hard constraint.
+Мера: октябрьский фестиваль считается этапом на пути к платному выпуску, а не конечным результатом направления. Будущая карта обязана содержать отдельный проверяемый результат платного выпуска.
 
-**Accepted risk:** some commercially attractive options will be rejected if they destroy owner pride. This is accepted because pride is one of the two equal pillars of the direction.
+Граница: после фестиваля должен быть установлен явный срок решения о выпуске и его объёме. Его пропуск запускает отдельный пересмотр: выпускать сокращённую версию, продолжать на новых условиях или прекращать работу. Бессрочное продолжение по инерции запрещено.
 
-### 12. High workload damaged execution reliability
+### 10. Игра была выпущена, но не обеспечила дальнейшую жизнь студии
 
-**Failure mode:** a fixed-hour or crunch expectation turned into cognitive fatigue, poor judgment, avoidant loops, or inability to finish. Because overload was framed as passion, warning signs were ignored.
+Причина: выпуск и выручка больше нуля не оказались достаточными для финансирования следующей игры.
 
-**Mitigation:** the OS should judge by evidence, not hours. If output quality, decision quality, sleep, mood, or execution reliability degrades, reduce scope or change cadence rather than treating more hours as the answer.
+Мера: итоговый разбор отдельно оценивает факт завершения, коммерческую жизнеспособность и повторяемость процесса. Они не подменяют друг друга.
 
-**Accepted risk:** high workload is part of the owner’s current strategy. It is accepted only while it produces stable, verifiable progress and does not destroy the ability to ship.
+Принятый риск: первая законченная игра может не стать устойчивым бизнесом. В таком случае поиск работы является допустимым рациональным результатом, а не попыткой объявить слабую выручку большим успехом.
 
 END_OF_FILE: live/indie-game-development/CHARTER.md

@@ -1,6 +1,6 @@
 # NOW: indie-game-development
 
-updated: 2026-07-25 by s-repair-canon-collaboration-profile-frontier-rebase-001
+updated: 2026-07-25 by s-frame-october-demo-foundation-001
 
 bet: null
 
@@ -8,24 +8,18 @@ tasks: []
 
 direction_forecast:
   status: no_basis
-  target: "A review-ready playable demo for the October 2026 Steam festival"
-  as_of: 2026-07-24
-  basis: "The owner stated the target, but there is no owner-approved reset CHARTER/root, roadmap, demo done_when/schedule, or empirical delivery reference class; a numeric chance would be fabricated."
+  target: "An accepted-quality demo in the October 2026 Steam Next Fest, followed by a paid Steam release and a reusable solo-release process"
+  as_of: 2026-07-25
+  basis: "The owner-approved CHARTER/root now define success and constraints, but there is still no owner-approved roadmap, current product-evidence audit, critical path/schedule, or calibrated empirical delivery reference class; a numeric chance would be fabricated."
   drivers:
-    - "The October window is external and hard."
+    - "Registration by 2026-08-31, required-item readiness by 2026-10-05, and the 2026-10-19..26 event window are external hard gates."
     - "Current concept/canon is deliberately being rebuilt."
     - "Prior simulation/Grid/product evidence exists but is not admitted to a new roadmap."
-    - "No approved demo scope/critical path or calibrated denominator exists."
-  update_when: "After exact G9 approval of the reset CHARTER/root and map plus a current product-evidence audit against the demo done_when."
+    - "Approximately $1,500 of the approximately $3,000 cash cap has already been spent on AI."
+    - "No approved demo scope, critical path, current product audit, or calibrated denominator exists."
+  update_when: "After the registered map-evidence research, owner-approved map, and current product-evidence audit establish a critical path and an empirical reference class."
 
 issues:
-  - id: i-foundation-reset
-    issue: "Current CHARTER/TREE predate the October demo reset; TREE still carries legacy root status active and child status parallel, so the old strategy is quarantined until an exact G9 replacement foundation/roadmap is approved."
-    level: direction
-    route: frame
-    review_when: "Now, before any map/shape/work dispatch."
-    evidence: "history/2026-07-24-s-repair-strategy-layer-reset-cleanup-001.md; history/2026-07-24-s-review-launch-control-full-retirement-001.md; history/2026-07-24-s-review-canon-clean-authority-reset-001.md"
-
   - id: i-program-custody
     issue: "The preserved Program legacy-lab purge candidate and WIN-U1 custody were never released."
     level: execution
@@ -97,15 +91,13 @@ issues:
     evidence: "work/2026-07-24-expedition-gameplay-recovery-handoff.md"
 
 open_calls:
-  - id: c-frame-october-demo-foundation-001
+  - id: c-research-october-demo-map-evidence-001
     status: ready
-    to: session
-    for: "direction foundation reset before map/shape/work"
-    issued: 2026-07-24
-    call: work/c-frame-october-demo-foundation-001-call.md
-    receipts:
-      - history/2026-07-25-s-repair-canon-collaboration-profile-frontier-rebase-001.md
-    note: "ONLY LAWFUL FRONTIER / OWNER-PRESENT FRAME / NO EXECUTION OR LEGACY DEFAULT READS. Owner-approved Canon Collaboration Profile v1 is preserved dormant at work/canon-collaboration-profile-v1.md. It applies only to a future lawfully issued owner-facing Canon-design CALL; it does not alter this foundation frame, create Canon authority, activate Canon work or resurrect c-frame-canon-clean-authority-reboot-001."
+    to: research
+    for: "map evidence for the owner-present October demo/release roadmap"
+    issued: 2026-07-25
+    call: work/c-research-october-demo-map-evidence-001-call.md
+    note: "PLANNING EVIDENCE ONLY / NO PRODUCT WORK / NO ACTIVE BET OR LANE. The owner-approved Canon Collaboration Profile v1 remains dormant at work/canon-collaboration-profile-v1.md because this is roadmap evidence, not owner-facing Canon design."
 
 recurring: []
 
