@@ -14,7 +14,7 @@ updated: 2026-07-24 (strategy reset: direction-level day adviser, one objective,
 
 ## 3. Состояние пилота (на дату снапшота)
 
-- Владелец отключил Launch Control и выбрал чистую пересборку стратегического слоя. Целевая рамка известна только на уровне его слов: демо к октябрьскому Steam-фестивалю 2026; точные CHARTER и TREE ещё должны быть созданы вместе с владельцем через **frame -> map -> shape**.
+- Стратегический слой использует **frame → map → outcome route**. Обычный build-outcome проходит readiness/converge → shape; `outcome_kind: specification` проходит owner-authority work → fresh converge-verify → narrow review и закрывается parked без bet/tasks/tracks/shape. Canon может быть direction-local authority-контуром, но не является core workflow или контроллером.
 - Live-reset завершён RESULT `s-repair-strategy-layer-reset-cleanup-001`: `NOW.bet: null`, задач и execution lanes нет, одиннадцать нерешённых фактов сохранены в `NOW.issues`, а единственный законный frontier — owner-present frame `c-frame-october-demo-foundation-001`.
 - Архив и большая исследовательская база сохраняются как cold evidence. Они не являются текущей стратегией и не удаляются при reset.
 - Старые local plays, Program/Demo workflow и HTML-панель явно помечены non-runnable/retired evidence; тела и история сохранены. CHARTER/TREE пока намеренно не заменены: TREE всё ещё содержит legacy `active/parallel`, поэтому карантин действует до точного owner-approved G9 frame/map и schema-clean не заявлен.

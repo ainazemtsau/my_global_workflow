@@ -70,8 +70,9 @@ procedure recitation internal.
 | `audit <direction>` | **writer** | read-only consistency sweep |
 | `digest [<direction>] [since <date>]` | **writer** | read-only report |
 
-No CALL? Resolve against `NOW.md`: a new roadmap node or next objective -> map;
-objective closure -> review; lane/task/CALL lifecycle -> work; "продолжаем" ->
+No CALL? Resolve against `NOW.md`: a new roadmap node -> map; a parked
+specification outcome -> its work/verify/review chain; ordinary activation ->
+KERNEL readiness; objective closure -> review; lane/task/CALL lifecycle -> work; "продолжаем" ->
 the sole actionable ready call/pending decision; several -> grouped choices and
 one recommendation without mutation; none -> current running/waits/blocks;
 "что можно делать" -> ready calls grouped by execution lane; a state question ->
@@ -83,7 +84,11 @@ active bet; tracks, if any, are WIP-limited execution lanes inside that bet.
 Future goals stay parked/shaped. Work outside today's scope goes to `NOW.issues`
 with a stable id, route, review trigger and evidence. With no active bet, no
 ordinary execution lane is dispatchable; use one planning/review/repair
-frontier. Never recreate an independent strategic/controller track.
+frontier. The sole exception is one untracked owner-present `work` CALL for a
+parked `outcome_kind: specification`; it authors the exact owner-approved
+artifact, fresh `converge-verify` refutes it, and narrow `review` closes it
+without shape/bet/tasks/tracks. Never let an executor decide owner-content or
+recreate an independent strategic/controller track.
 
 ## 3. Day chat and explicit save
 

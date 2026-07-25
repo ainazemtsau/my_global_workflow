@@ -7,7 +7,8 @@
 ```
 os/                          ← система (правила; меняется по os/MAINTENANCE.md)
   KERNEL.md                  ← конституция: сессия, состояние, пакеты, 10 гейтов
-  plays/  frame map shape work guide review research pulse repair day
+  plays/  frame map shape converge converge-arch converge-verify day
+          work guide review research pulse repair
   schema/ direction-files, packets
   adapters/ SESSION_PAYLOAD, chatgpt-project, claude-project,
             other-platforms, coding-agent, autonomy, runtime
@@ -23,7 +24,7 @@ live/<direction-id>/         ← направления (живое состоя
                                связь только через executor CALL
 ```
 
-Поток: **frame** (один atomic leg) → **map** (одна карта целей) → **converge-readiness** (verified/OFF → shape; иначе converge → verify) → **shape** (один узел → один бет: appetite, задачи, cut list) → **work**×N → **review** (отдельный свежий чат: опровержение доказательств, урожай, выбор следующего) → readiness router… Поверх — **pulse**; сбой — **repair**; побочные вопросы — **research**-дети. **day** — read-only стратегическая оболочка: она каждый день собирает подробный вид из текущего Git, обсуждает курс свободным языком и пишет только после явного «сохранить». Она не хранит второй план и не заменяет atomic legs.
+Поток: **frame** → **map** → выбранный outcome идёт одним из двух путей. Обычный build-outcome: **converge-readiness** (verified/OFF → shape; иначе converge → verify) → **shape** → **work**×N → свежий **review**. `outcome_kind: specification`: untracked owner-authority **work** создаёт exact owner-approved artifact → свежий **converge-verify** пытается его опровергнуть → узкий **review** закрывает parked-узел без shape/bet/tasks/tracks. Поверх — **pulse**; сбой — **repair**; побочные вопросы — **research**-дети. **day** — read-only стратегическая оболочка и пишет только после явного «сохранить».
 
 ## 2. Ключевые решения и отвергнутые альтернативы
 
@@ -111,6 +112,8 @@ Session-protocol волна (2026-06-11, после инцидентов пил�
 
 - **frame** (1 чат): миссия, успех «релиз в Steam, ≥$N или окупаемость», линзы product/audience/business/craft, пре-мортем («не выйду на аудиторию», «симуляция съест годы», …→ kill-кандидаты), outside view (медиана Steam ~$249, третьи игры ×2 → рекомендация резать дебютный скоуп), дерево: g-root → «проверенный прототип газового кооп-лупа», «публичное лицо+спрос», «решение о финансировании», «производство», «релиз». Всё parked.
 - **converge-readiness** первого узла: без PASS/OFF map открывает converge; trivial-триаж фиксирует OFF и открывает shape, standard/heavy проходит converge[-arch] → converge-verify → shape.
+- **Specification-outcome (current-map trace, g-12fd):** exact owner-approved card is marked `outcome_kind: specification` because its done_when ends at the versioned approved demo specification itself. Map opens one untracked `to: session, play: work` CALL to the direction-declared clean-room owner-authority contour (Canon is one possible instance, not a core controller). It records the exact artifact identity and the owner's approval words while TREE stays parked and `bet: null`. A later fresh `converge-verify` atomizes done_when, attacks completeness/smuggling with an independent oracle and never repairs or decides content. PASS opens narrow review; review matches node+artifact+approval+later PASS, marks only g-12fd done under G9/G5, and routes the next ordinary node through readiness. At every point tasks/tracks/executor content verdicts/shape are absent.
+- **Ordinary build-outcome trace:** without `outcome_kind: specification`, map opens converge unless a verified receipt or exact OFF triage exists; standard/heavy runs converge[-arch] → fresh converge-verify → shape. Shape alone activates the bet, sets appetite/cuts/tasks/kill_by, and the last work task still opens fresh review. Thus the specification exception cannot bypass build readiness or execution evidence.
 - **shape** первого узла: appetite 3 недели; minimal — соло-прототип с газом, кооп позже (cut list: кооп-неткод, арт); lens sweep: product=прототип, audience=разбор 5 похожих + 10 плейтестов, business=not_needed (рано), craft=выбор движка спайком; RAT: «газ-симуляция фаново ощущается на минимальном масштабе» → задача №1; kill_by: «если прототип не фанов 6/10 тестерам к <дата> — узел пересматриваем».
 - **work**: прототип — executor CALL в репо игры (бизнес-задача, агент сам решает архитектуру); разбор рынка — обычная сессия, рождает knowledge «в жанре конвертят демо+стримеры» (read_by: shape узлов audience).
 - **«Собрать отзывы у друзей»** (R-16 на пальцах): в shape это задача с done_when «≥10 заполненных анкет». Если в work выясняется, что нужен протокол, список людей и видеозапись — это captures; они НЕ исполняются в той же сессии; shape/pulse превращает их в задачи, а «видео-продакшн» при разрастании — в отдельный узел дерева со своим бетом. Ничего не повисает «в стороне».

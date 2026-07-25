@@ -15,7 +15,7 @@ The OS runs the owner's long-term directions through short AI legs over durable 
 
 1. **OPEN** — input is a CALL or a plain owner message. Read fresh `NOW.md`, the play and named evidence. Resolve plain input from state:
    - `начинаем день`, a daily status request, or continued discussion in today's day chat → `day`;
-   - mission/success change → `frame`; roadmap/future-goal change → `map`; active-objective close, replacement or kill → `review`; activation → readiness router: passing `converge-verify` RESULT → `shape`; recorded `triage: <type> — converge OFF — because <reason>` copied into shape `play_check` → `shape`; otherwise → `converge`;
+   - mission/success change → `frame`; roadmap/future-goal change → `map`; active-objective close, replacement or kill → `review`; a parked `outcome_kind: specification` → owner-authority `work` → fresh `converge-verify` → narrow `review`; ordinary activation → readiness router: passing `converge-verify` RESULT → `shape`; recorded `triage: <type> — converge OFF — because <reason>` copied into shape `play_check` → `shape`; otherwise → `converge`;
    - task, lane, launch/loss receipt or recurring work → its `work` CALL; contradiction → `repair`;
    - `продолжаем` → the sole actionable call/decision; several → grouped choice with a recommendation and no mutation; none → waits, blocks, issues and the planning route;
    - question → read-only; no-state ambition → `frame`; otherwise interpret and confirm.
@@ -57,6 +57,8 @@ Day reply:
 
 **Goal node:** stable `id`, outcome `goal`, verifiable `done_when`, one-line `why`, `status: parked | shaped | active | done | dropped`, optional children. Exactly one non-root node may be `active`: the current bet. A shaped/active node carries `appetite` and `kill_by`.
 
+A node whose result is the exact owner-approved specification itself carries `outcome_kind: specification`; unmarked nodes are ordinary build outcomes. It stays `parked` while an untracked owner-present authority contour authors the versioned artifact, a separate fresh `converge-verify` session refutes it, and narrow `review` marks it done. It never becomes a bet, enters `shape`, creates tasks/tracks, or delegates owner-content verdicts to an executor.
+
 A **bet** is the one active local objective in `NOW.md`. Its ≤3 tasks are each ≤ half a focused day. Optional tracks are execution lanes inside that bet, not parallel strategies or future goals. Work unrelated to the bet becomes an issue/capture until the correct review/map/maintenance route admits it.
 
 ## 4. Packets
@@ -71,7 +73,7 @@ An engineering CALL goes to a product repo. Its return comes HOME; only Directio
 
 ## 5. Hard gates
 
-- **G1 (WIP).** At most one active bet per direction; ≤3 active tasks. Without a bet there are no non-recurring execution lanes. Lane WIP uses an owner-set limit; ≤1 ordinary root per lane.
+- **G1 (WIP).** At most one active bet per direction; ≤3 active tasks. Without a bet there are no non-recurring execution lanes; one untracked specification-authoring planning frontier is legal. Lane WIP uses an owner-set limit; ≤1 ordinary root per lane.
 - **G2 (rolling wave).** Tasks and non-recurring execution lanes serve only the active bet. Future objectives stay outcome-level in TREE; unrelated work stays an issue/capture until admitted.
 - **G3 (appetite).** Appetite is set before tasks and never extends. Over-appetite work dies; continuation requires a new shape.
 - **G4 (bet validity).** A bet without done_when and kill_by is invalid.

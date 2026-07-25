@@ -47,13 +47,14 @@ owner_approved: <date> — history/<file>.md
       goal: <outcome, not activity>
       done_when: <verifiable>
       why: <one line: contribution to parent>
+      # outcome_kind: specification  # only when the approved spec artifact itself exhausts done_when
       status: parked              # parked | shaped | active | done | dropped
       # shaped/active add appetite + kill_by
       # detail: history/<file>.md
       children: []
 ```
 
-Rules: outcomes only; tasks never appear here. At most one non-root node is `active`: `NOW.bet.node`. Future objectives stay visible as `parked|shaped`; they are not execution lanes. Width ≤7 open children per node. Every non-root node has `why`. A dropped node keeps a compact reason/pointer; Git/history hold removed detail.
+Rules: outcomes only; tasks never appear here. At most one non-root node is `active`: `NOW.bet.node`. Future objectives stay visible as `parked|shaped`; they are not execution lanes. Width ≤7 open children per node. Every non-root node has `why`. A dropped node keeps a compact reason/pointer; Git/history hold removed detail. `outcome_kind: specification` is an optional owner-approved card field; absence means ordinary build outcome. Its done_when ends at one exact versioned owner-approved specification, not implementation.
 
 ## NOW.md
 
@@ -146,7 +147,11 @@ decisions:
 
 NOW is current state, not a diary. `open_calls`, `issues` and `decisions` contain only unresolved items. Returned/done/cancelled items leave hot state for LOG/history. No free-form running narrative and no removed `next` selector: `RESULT.next` is handoff transport only.
 
-`bet: null` is normal between objectives. Then `tasks: []`, and no non-recurring execution track/CALL may exist; one untracked `frame|map|converge|converge-arch|converge-verify|shape|review|repair` CALL may be the planning frontier. The daily adviser may name a conversational focus, but only shape activates a stored bet.
+`bet: null` is normal between objectives. Then `tasks: []`, and no non-recurring execution track/CALL may exist; one untracked `frame|map|converge|converge-arch|converge-verify|shape|review|repair` CALL may be the planning frontier. The sole extra legal frontier is `to: session, play: work` for a parked `outcome_kind: specification`: no track/task, exact node in `for`, owner-authority artifact in done_when. It is planning, not an execution lane. The daily adviser may name a conversational focus, but only shape activates a stored build bet.
+
+### Specification outcomes
+
+Map marks the exact approved card `outcome_kind: specification` only when its versioned owner-approved artifact fully satisfies done_when. The node remains `parked`: untracked owner-authority `work` authors the artifact and records exact owner words; a later fresh `converge-verify` refutes it; narrow `review` may then mark it `done`. No active bet, task, track, new status, executor content verdict, or shape exists in this route. A failed verification returns to the authoring CALL. An ordinary successor returns to the activation-readiness router.
 
 ### Direction forecast
 

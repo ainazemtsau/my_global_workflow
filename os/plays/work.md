@@ -1,26 +1,27 @@
 # Play: work
 
-Purpose: execute one active-bet task, recurring obligation, or bounded execution-lane CALL.
+Purpose: execute one active-bet task/recurring CALL, or author the exact artifact of a parked specification outcome.
 
-Reads: NOW.md; files the CALL points to.
-Writes: NOW.md task/call status, LOG.md, work/ artifacts through RESULT.state_changes.
+Reads: TREE.md, NOW.md; files the CALL points to.
+Writes: NOW.md call/task status, LOG.md, and the versioned artifact named by the CALL through RESULT.state_changes.
 
 ## Steps
 
-1. **Recite** — restate the CALL goal/done_when and the active bet or recurring obligation it serves. A non-recurring CALL outside the current bet is obsolete: close with that finding or route the problem to the issue register; never execute it as a parallel strategy.
+1. **Recite** — restate goal/done_when and the bet/recurring obligation served. Exception: one untracked `to: session` CALL may serve a parked `outcome_kind: specification`; any other non-recurring CALL outside the bet is obsolete.
 2. **Owner inputs (owner)** — if the owner will operate, send or live by the artifact, ask only facts only he can know; reuse state and sources. Otherwise say why no owner input is needed.
 3. **Do the work** — produce the bounded outcome as the task's specialist.
+   - Specification mode → the direction-named owner-authority contour drafts the exact versioned artifact with options/recommendation and gets the owner's exact approval words (G9). An executor may support research/mechanics but never chooses or approves owner-content.
    - Product-repo execution → `call:executor` with goal, context, boundaries, done_when, return and budget. Direction frames outcome/evidence; product PLAN owns technical HOW.
    - Bounded side question → `call:research`.
    - Discovered ideas → captures. A material unrelated problem → issue with route/review trigger. Neither expands this leg.
 4. **Self-check** — compare output with done_when point by point. Evidence is the artifact, commit/check output, or named verification — not a claim.
-5. **Close** — RESULT records outcome, evidence, disposition, captures/issues, decisions and log. Name one same-lane continuation when needed; last bet task → review. Preserve every unrelated lane/call.
+5. **Close** — RESULT records outcome/evidence/disposition. Ordinary work names a same-lane continuation; last bet task → review. Specification checkpoint continues same-node owner-authority `work`; completion leaves node parked and bet/tasks/tracks absent, then opens `converge-verify` on the exact artifact. Preserve unrelated state.
 
 `ready` means self-contained; a registered call may instead be `running|waiting|blocked|paused` with its required evidence/condition.
 
 ## Done when
 
-The CALL done_when is met with evidence, or it closes blocked/obsolete with the reason preserved.
+The CALL is evidenced, checkpointed, or closes blocked/obsolete; completed specification work records exact owner approval and its fresh verification handoff.
 
 ## Notes
 

@@ -5,7 +5,7 @@ Purpose: turn one tree node into the active bet — the planning ritual. This is
 Reads: CHARTER.md, TREE.md, NOW.md, relevant knowledge/.
 Writes: TREE.md (the node), NOW.md (the bet), LOG.md.
 
-Precondition: no active bet (gate G1), node chosen by owner or review's accepted recommendation, and its **Definition-of-Ready** is cleared (converge-readiness — os/plays/converge.md).
+Precondition: no active bet (G1), chosen ordinary build node (never `outcome_kind: specification`), and cleared **Definition-of-Ready** (os/plays/converge.md).
 
 ## Steps
 

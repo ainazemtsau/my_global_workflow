@@ -6,13 +6,13 @@ How to run several directions (and several sessions) at once without corrupting 
 
 | What | Parallelism |
 |---|---|
-| Chat sessions (ChatGPT/Claude, any play) | Parallel across/within directions; non-recurring starts serve the one active bet and obey lane WIP/CALL budgets -- sessions only emit RESULTs |
+| Chat sessions (ChatGPT/Claude, any play) | Parallel across/within directions; execution starts serve the active bet, while no-bet planning follows KERNEL/specification-frontier rules -- sessions only emit RESULTs |
 | Executor runs in product repos | Parallel per the engineering contour: each run on its own branch/PR, or its own cloud VM (zero-setup option for parallel runs) |
 | Writers across DIFFERENT directions | Fully parallel -- `live/<id>/` paths are disjoint; push races resolve mechanically (see protocol) |
 | Applying RESULTs within ONE direction | **One at a time.** Queue them; when each turn arrives, re-read current state and semantically rebase its explicit delta |
 | Maintenance on os/** | One session at a time (MAINTENANCE.md already enforces one problem per session) |
 
-Parallel sessions inside one direction are legal (G1 caps the one active bet at <=3 tasks and owner-set execution-lane slots; `open_calls` is the dispatch frontier) -- only their *applies* serialize. With `bet: null`, no non-recurring execution session is lawful.
+Parallel sessions inside one direction are legal (G1 caps the one active bet at <=3 tasks and owner-set execution-lane slots; `open_calls` is the dispatch frontier) -- only their *applies* serialize. With `bet: null`, no non-recurring execution session is lawful; the one untracked owner-present authoring CALL for a parked specification outcome is a planning exception, never a track or executor run.
 
 **Concurrent sessions within one direction -- two hygiene rules** (for independent calls serving the same active bet, e.g. gameplay proof plus evidence collection):
 

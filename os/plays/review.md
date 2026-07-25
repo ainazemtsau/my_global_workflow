@@ -1,30 +1,30 @@
 # Play: review
 
-Purpose: close or stop the active bet, harvest learning, update TREE with the owner, recalibrate the direction forecast, and select what comes next.
+Purpose: close/stop the active bet, or narrowly close a parked specification outcome; update TREE with the owner and select what comes next.
 
 Reads: CHARTER.md, TREE.md, NOW.md, target history/evidence.
 Writes: TREE.md, NOW.md, LOG.md, knowledge/.
 
-Trigger: tasks closed, appetite expired, kill_by breached, evidence made the bet obsolete, or the owner wants to stop/change it. Run in a fresh physical chat; never the work/day chat whose claim is being judged.
+Trigger: tasks closed, appetite/kill_by/evidence stops the bet, the owner wants change, or a specification outcome has its exact owner-approved artifact plus a later fresh `converge-verify` PASS. Run in a fresh physical chat; never the work/day chat whose claim is judged.
 
 ## Steps
 
-1. **Verify by refutation** — try to disprove done_when from evidence. Verdict is exactly:
+1. **Verify by refutation** — try to disprove done_when from evidence. With `bet: null`, this mode is legal only for a parked `outcome_kind: specification`: match the exact artifact identity, owner approval and later fresh verification receipt to every atomic done_when clause. A gap returns to owner-authority `work`; a match yields `met` without shape. Active-bet verdicts are exactly:
    - `met` — done_when survived refutation;
    - `partial` — named verified value survives but done_when does not;
    - `killed` — appetite/kill_by or evidence stops the bet;
    - `obsolete` — a higher approved strategy change removed its purpose.
    There is no extension. Residual work is parked/dropped and can return only as a newly shaped bet. Compare the bet forecast/against fields with reality and name the surprise.
-2. **Harvest per lens** — each CHARTER lens answers what changed elsewhere, even if “nothing”. Name assumptions/edges strengthened or killed and consequences for the roadmap/issues.
-3. **Tree diff (owner)** — propose small node additions/drops/dispositions, one artifact at a time. Apply only exact owner-approved cards (G9); larger restructuring routes to map. No tasks.
-4. **Add-back check** — inspect the cut list. Name genuinely missed cuts and whether recent cuts are too timid.
+2. **Harvest per lens** — for a bet, each CHARTER lens answers what changed elsewhere, even if “nothing”. Specification mode records only consequences proved by its artifact/verification.
+3. **Tree diff (owner)** — propose small additions/drops/dispositions one artifact at a time. Specification mode marks only its node `done`, citing the approved card/artifact (G9). Larger restructuring routes to map. No tasks.
+4. **Add-back check** — bet only: inspect the cut list and name genuinely missed/timid cuts. Specification mode skips: it had no shaped scope.
 5. **Knowledge** — promote at most 1–3 durable learnings, each with a real `read_by`; otherwise keep only history.
-6. **Forecast & next** — recalibrate `direction_forecast` from material evidence. Numeric chance needs a cited empirical reference class/calibration; otherwise use `no_basis` with drivers and update trigger. Then offer 2–3 future nodes or pause, with recommendation. Activation uses the KERNEL §2 readiness router, never a direct shape default.
-7. **Close** — RESULT records verdict/tree/forecast/issues/log. Pending choice → decision + `awaiting_decision`; chosen node → exactly one readiness-routed CALL.
+6. **Forecast & next** — recalibrate from material evidence; numeric chance needs empirical calibration, otherwise `no_basis`. Offer 2–3 future nodes or pause. A specification outcome closes without activation; its chosen ordinary successor uses KERNEL §2 readiness.
+7. **Close** — RESULT records verdict/tree/forecast/issues/log. Pending choice → decision; chosen node → exactly one specification-authoring or readiness-routed CALL. Never create tasks/lanes here.
 
 ## Done when
 
-The old bet has one honest verdict; TREE reflects approved learning; NOW contains no stale bet work; forecast is calibrated or explicitly `no_basis`; the owner has a next-node choice.
+The bet or specification outcome has one honest verdict; TREE/evidence agree; NOW has no stale work; forecast is calibrated or `no_basis`; the owner has a next-node choice.
 
 ## Notes
 

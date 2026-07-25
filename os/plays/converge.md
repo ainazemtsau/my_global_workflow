@@ -1,11 +1,11 @@
 # Play: converge
 
-Purpose: drive a non-trivial node from a TREE-node to a closed, owner-signed WHAT spec shape consumes — disputed terms locked, requirements a cited node-on-paper, every committed mechanism decomposed to the questions it forces. Contracts and heavy architecture ride converge-arch; the closed set is refuted by converge-verify before shape.
+Purpose: drive a non-trivial build node to an owner-signed WHAT spec shape consumes — disputed terms locked, requirements a cited node-on-paper, every committed mechanism decomposed to forced questions. Contracts and heavy architecture ride converge-arch; converge-verify refutes the set before shape.
 
 Reads: TREE.md (node), CHARTER.md (lenses, risk_posture), NOW.md, knowledge/ + the node's history/.
 Writes: work/converge-<node>.md (removable assembly surface), NOW.md (open_calls, decisions), LOG.md. Proposes glossary canon for review/pulse; never writes knowledge/.
 
-Precondition: node chosen, no bet conflict (G1). Reached via CALL `to: session, play: converge`. A node already shaped or in-flight runs as RETROFIT: import settled decisions (step 1), then frame only what is still open.
+Precondition: chosen non-specification node, no bet conflict (G1). Reached via CALL `to: session, play: converge`. A shaped/in-flight node runs as RETROFIT: import settled decisions (step 1), then frame only what remains open. Specification outcomes use their owner-authority route.
 
 ## Steps
 

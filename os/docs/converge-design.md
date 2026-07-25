@@ -1,4 +1,4 @@
-# CONVERGE — design rationale (v4)
+# CONVERGE — design rationale (v5)
 
 The durable record of why the converge layer exists and how it is shaped. The procedure itself lives in the plays (`os/plays/converge*.md`); this file is the reasoning any session or direction reads to understand the *why*. Status: GENERAL — promoted to `os/plays/` by owner decision (2026-06-14), available to every direction (current and future) like any core play. First real run pending on g-9c41 (heavy); health's first use will be its next non-trivial node (training-activity, currently parked).
 
@@ -16,20 +16,22 @@ So convergence must re-fire on each committed mechanism, each time minting that 
 
 ## The layer: three plays, one flow
 
-`node chosen → readiness router → (verified/OFF → shape | otherwise converge → [converge-arch] → converge-verify → shape) → executor/PLAN`
+`ordinary build node → readiness router → (verified/OFF → shape | otherwise converge → [converge-arch] → converge-verify → shape) → executor/PLAN`
+
+`specification outcome → owner-authority work → fresh converge-verify → narrow review(done) → next ordinary node`
 
 - **converge** (TIER + DEFINE + RESOLVE) — type the node by risk (ceremony is a ceiling); lock disputed terms mechanically; resolve the WHAT as a cited node-on-paper. Questions derive from THREE sources: every done_when criterion, every cross-node edge, and MECHANISM DECOMPOSITION (each committed mechanism atomically split into the parameters it forces, recursively). HOW magnitudes/formats are firewalled `→ PLAN`; acceptance PROPERTIES and owner-owned design facts are owner-signed WHAT.
 - **converge-arch** (DECLARE + DECOMPOSE + ARCHITECT) — only for sibling-bearing or heavy nodes. Consumer-driven cross-node contracts in observable terms; heavy nodes work high-risk architecture as a refuted option chain into an architecture-on-paper that rides PLAN as input evidence, never into done_when.
-- **converge-verify** — a SEPARATE refutation session (G5 discipline lifted to spec) that attacks "the set is complete" with an INDEPENDENT oracle (a node-class decision-class checklist + compete precedents, not the sources converge used) and "no answer leans on an unresolved question" by tracing every weight-bearing value to a citation. Only a clean verify reaches shape.
+- **converge-verify** — a SEPARATE refutation session. For a build node it attacks set completeness and unresolved dependencies before shape. For `outcome_kind: specification` it attacks the exact owner-approved artifact against atomic done_when plus an independent oracle; PASS reaches narrow review, never shape. It answers or repairs nothing.
 
 ## What is new vs the salvaged v3.1 base
 
-v3.1 (the prior chat's converge.md + converge-arch.md) already had triage-by-risk, mechanical Define, the cited node-on-paper, the WHAT/HOW firewall, consumer-driven contracts, and recursive emergent architecture questions. v4 keeps all of it and adds four deltas:
+v3.1 already had triage-by-risk, mechanical Define, cited node-on-paper, the WHAT/HOW firewall, contracts, and recursive architecture questions. v5 keeps v4's four deltas below and adds only the specification-outcome boundary described later; the ordinary build flow is unchanged:
 
 1. **Separate refutation session** (`converge-verify`). v3.1 folded verification into grep-closure + the owner gate + a same-session gap-hunt — a self-check, which cannot catch the assumption the author never knew he made. Verification is now a different session with an independent oracle.
 2. **Mechanism decomposition made mechanical** (converge step 3). Any committed mechanism (chosen approach, or a mechanism locked in done_when) is atomically split into one question per internal parameter — so Q/N/K are *derived*, not dependent on how deeply the architect happened to decompose.
 3. **Retrofit / import-already-decided** (converge step 1). A mid-flight node imports settled decisions from `history/` as born-closed rows (`source: history/<id>`), so converge frames only the genuine gap instead of re-litigating what the owner already decided. Needed because the first real run (g-9c41) is a retrofit and `knowledge/` is empty.
-4. **Self-certifying handoff** (play_check lines: `converge_coverage`, `contract_coverage`, `verify`). The shape/writer Definition-of-Ready that copies acceptance + contract rows into the executor done_when can check line-presence and counts — keeping the writer "no-judgment". The converge-readiness facet of this DoR — a non-trivial node must have run converge (or recorded an explicit `converge OFF — because …`) before it is shaped/activated — is now wired in the writer (2026-06-16, os/adapters/coding-agent.md), triggered by the first real handoffs (solmax g-kernel reached shape→work with no converge session). The acceptance/contract-row copy-completeness facet stays a play_check self-cert; its writer enforcement is deferred until that handoff needs it.
+4. **Self-certifying handoff** (play_check lines: `converge_coverage`, `contract_coverage`, `verify_target`, `verify`). The writer checks evidence shape, not truth. Ordinary activation still requires build PASS or exact `converge OFF — because …`; specification closure instead requires exact artifact identity, owner receipt and a later fresh specification PASS before review may mark the parked node done.
 
 ## WHAT/HOW boundary (decision D-0)
 
@@ -44,13 +46,17 @@ Architecture VALUES (Q magnitude, wire format, keyframe cadence) do NOT live in 
 
 Frozen answers, contracts, and decision-class checklists promote to `knowledge/` (tagged `serves:<node>`, `read_by:` naming plays/node-classes), so a later node starts from canon. Decision history lives three ways: inline rejected-options in the row, the supersession chain, and the full RESULT in `history/`. The live assembly surface is `work/converge-<node>.md` (a product doc, grep-able, not a 7th state type). Authorship rule held: converge proposes canon; review/pulse promote it.
 
+## Specification-outcome boundary
+
+This is an outcome classification, not a Canon workflow. Map may mark a card `outcome_kind: specification` only when the exact versioned owner-approved specification itself exhausts done_when. One untracked owner-present `work` CALL uses whatever authority contour the direction names; an executor cannot choose/approve its content. The node stays parked. Fresh converge-verify checks the artifact independently; narrow review closes it under G5/G9. No controller, seventh state file, new status, active bet, task, track or shape is introduced. Any later implementation is a separate ordinary build outcome and re-enters readiness.
+
 ## Generality (scale-down)
 
-The universal spine is TRIAGE → DEFINE → RESOLVE → VERIFY → copy-into-the-node's-terminus. converge-arch (contracts) and ARCHITECT (competitive architecture) are the engineering-heavy special case, skipped by predicate. A trivial node (a health dashboard) triages to standard/OFF: 2–3 questions, the library pick as the load-bearing CHOICE, one chat, no contract/arch/PLAN-agenda. A genuinely no-unknown node (a devlog post) triages converge OFF.
+For build outcomes the spine is TRIAGE → DEFINE → RESOLVE → VERIFY → copy into shape/PLAN. Converge-arch and ARCHITECT are the engineering-heavy predicate. A trivial build node may triage OFF. A specification outcome does not triage as a build node: its authority artifact is the terminus and follows the boundary above.
 
 ## Fit to physics
 
-Three core plays in `os/plays/` (≤600 words each: 599/600/598). Kernel §6 play list + packets.md `play:` enum gained the converge family (kernel 1494/1500). No 7th state-file type. Reuses research (compete), G5 (verify discipline), G7 (owner decisions), G10 (play_check validation), review (canon promotion). The writer-DoR's converge-readiness check is wired (2026-06-16, os/adapters/coding-agent.md); its acceptance/contract-row copy-check stays deferred to when that handoff needs it. Per-direction parts stay direction-local: node-class decision-class checklists live in each direction's `knowledge/` (the play is general; its oracles are direction data).
+All core plays remain ≤600 words and KERNEL ≤1500. No seventh state-file/packet type or engineering gate. The route reuses work, converge-verify, review, G5, G9 and G10. Build DoR remains wired; specification verification adds a distinct typed handoff. Direction-specific authority contours and oracles stay direction-local.
 
 ## Open decisions (carried to the owner)
 
@@ -66,7 +72,7 @@ Built via two multi-agent passes (5 independent architectures → adversarial cr
 
 1. (this build) author converge / converge-arch / converge-verify + this doc; clean the v3.1 hanging state. [done]
 2. First real run = a fresh session: TIER + FRAME (converge) on g-9c41 as a RETROFIT — import settled decisions, derive the question set incl. the chunked-delta mechanism's Q/N/K as `→ PLAN` rows; output work/converge-g-9c41.md. The success test: converge reproduces, as named questions, exactly the values the executor invented ad hoc.
-3. Resolve one question per chat; converge-arch for the grid↔gas contract; converge-verify; then a shape CALL with the acceptance/contract rows to copy + the PLAN-agenda.
+3. Resolve one question per chat; converge-arch for the grid↔gas contract; build-target converge-verify; then shape with acceptance/contracts + PLAN-agenda.
 4. Converge-readiness DoR is wired in the writer (2026-06-16); wire the acceptance/contract-row copy-check when that first handoff needs it.
 
 END_OF_FILE: os/docs/converge-design.md

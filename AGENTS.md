@@ -19,6 +19,7 @@ This repository is the **Direction OS** — the owner's workflow system. Rules: 
 - `live/**` changes only by applying a RESULT's `state_changes` — never by direct editing, never invented.
 - A writer treats blob/SHA/old-text preconditions as rebase bases, not freshness locks. Stale state is expected under parallel sessions: re-read current files, apply the RESULT's explicit delta by stable path/id/key, and preserve current changes outside that delta. Staleness alone is never a bounce.
 - A builder/executor handback, merge request, product RESULT, owner playtest summary, or "formally closed on dev/dev2" prose is **not** a Direction-OS close. It is evidence input. The writer may clear an `open_call` or mark done only from a valid Direction-OS RESULT/checkpoint whose evidence includes the required binding close verification; product gates + merge/push alone are never enough.
+- A parked node marked `outcome_kind: specification` follows the only no-bet `work` exception: an untracked owner-present authority contour authors the exact approved artifact, fresh `converge-verify` refutes it, and narrow `review` may mark it done without shape/bet/tasks/tracks. Executors may support mechanics but never decide or approve owner-content.
 - Every state file you write ends with its `END_OF_FILE: <path>` trailer.
 - Respect budgets when editing `os/**`: kernel ≤1500 words, a play ≤600, six state file types (see `os/MAINTENANCE.md`).
 - Small diffs; descriptive commit messages (`<direction>[/<track>] <play> <node/task>: <log line>` for state, plain descriptive for os/).
