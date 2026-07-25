@@ -1,6 +1,6 @@
 # NOW: indie-game-development
 
-updated: 2026-07-24 by s-repair-strategy-layer-reset-cleanup-001
+updated: 2026-07-25 by s-repair-canon-collaboration-profile-frontier-rebase-001
 
 bet: null
 
@@ -103,7 +103,9 @@ open_calls:
     for: "direction foundation reset before map/shape/work"
     issued: 2026-07-24
     call: work/c-frame-october-demo-foundation-001-call.md
-    note: "ONLY LAWFUL FRONTIER / OWNER-PRESENT FRAME / NO EXECUTION OR LEGACY DEFAULT READS."
+    receipts:
+      - history/2026-07-25-s-repair-canon-collaboration-profile-frontier-rebase-001.md
+    note: "ONLY LAWFUL FRONTIER / OWNER-PRESENT FRAME / NO EXECUTION OR LEGACY DEFAULT READS. Owner-approved Canon Collaboration Profile v1 is preserved dormant at work/canon-collaboration-profile-v1.md. It applies only to a future lawfully issued owner-facing Canon-design CALL; it does not alter this foundation frame, create Canon authority, activate Canon work or resurrect c-frame-canon-clean-authority-reboot-001."
 
 recurring: []
 
