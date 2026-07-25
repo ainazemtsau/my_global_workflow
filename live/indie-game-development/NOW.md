@@ -1,6 +1,6 @@
 # NOW: indie-game-development
 
-updated: 2026-07-25 by s-frame-october-demo-foundation-001
+updated: 2026-07-25 by s-research-october-demo-map-evidence-001
 
 bet: null
 
@@ -10,14 +10,14 @@ direction_forecast:
   status: no_basis
   target: "An accepted-quality demo in the October 2026 Steam Next Fest, followed by a paid Steam release and a reusable solo-release process"
   as_of: 2026-07-25
-  basis: "The owner-approved CHARTER/root now define success and constraints, but there is still no owner-approved roadmap, current product-evidence audit, critical path/schedule, or calibrated empirical delivery reference class; a numeric chance would be fabricated."
+  basis: "Current research now establishes the public October Steam gates, current authority boundary, dated product receipts, and three non-authoritative roadmap envelopes. It still does not establish an owner-approved roadmap, fresh gas_coop_game audit, current private Steamworks state, critical path/schedule, or calibrated empirical delivery reference class; a numeric chance would be fabricated."
   drivers:
-    - "Registration by 2026-08-31, required-item readiness by 2026-10-05, and the 2026-10-19..26 event window are external hard gates."
-    - "Current concept/canon is deliberately being rebuilt."
-    - "Prior simulation/Grid/product evidence exists but is not admitted to a new roadmap."
-    - "Approximately $1,500 of the approximately $3,000 cash cap has already been spent on AI."
-    - "No approved demo scope, critical path, current product audit, or calibrated denominator exists."
-  update_when: "After the registered map-evidence research, owner-approved map, and current product-evidence audit establish a critical path and an empirical reference class."
+    - "Registration by 2026-08-31, all required items submitted for review by 2026-10-05, and the 2026-10-19..26 event window are external hard gates."
+    - "Private account/AppID/operator/eligibility/submission facts and the exact current gas_coop_game checkout/build/capability state remain unverified."
+    - "Current concept/canon authority is NONE; prior technical evidence is preserved but not admitted to a new roadmap."
+    - "The approximately $3,000 cap and approximately $1,500 AI spend are owner-approved estimates, not a current transaction/commitment audit."
+    - "No approved demo basis/scope, critical path, measured throughput, or calibrated denominator exists."
+  update_when: "After the owner-present map plus fresh product, private Steamworks, budget/capacity and resource readbacks establish a critical path; publish a numeric chance only after a relevant empirical reference class and denominator also exist."
 
 issues:
   - id: i-program-custody
@@ -91,13 +91,13 @@ issues:
     evidence: "work/2026-07-24-expedition-gameplay-recovery-handoff.md"
 
 open_calls:
-  - id: c-research-october-demo-map-evidence-001
+  - id: c-map-october-demo-release-roadmap-001
     status: ready
-    to: research
-    for: "map evidence for the owner-present October demo/release roadmap"
+    to: session
+    for: "owner-present October demo, paid-release and reusable-process roadmap"
     issued: 2026-07-25
-    call: work/c-research-october-demo-map-evidence-001-call.md
-    note: "PLANNING EVIDENCE ONLY / NO PRODUCT WORK / NO ACTIVE BET OR LANE. The owner-approved Canon Collaboration Profile v1 remains dormant at work/canon-collaboration-profile-v1.md because this is roadmap evidence, not owner-facing Canon design."
+    call: work/c-map-october-demo-release-roadmap-001-call.md
+    note: "OWNER-PRESENT MAP ONLY. Research envelopes are evidence, not approved nodes. NO PRODUCT WORK / NO ACTIVE BET, TASK OR LANE. The Canon Collaboration Profile remains dormant and must not be read or propagated in this roadmap leg."
 
 recurring: []
 
