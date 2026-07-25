@@ -1,6 +1,6 @@
 # NOW: indie-game-development
 
-updated: 2026-07-25 by s-research-october-demo-map-evidence-001
+updated: 2026-07-25 by s-map-october-demo-release-roadmap-001
 
 bet: null
 
@@ -10,14 +10,13 @@ direction_forecast:
   status: no_basis
   target: "An accepted-quality demo in the October 2026 Steam Next Fest, followed by a paid Steam release and a reusable solo-release process"
   as_of: 2026-07-25
-  basis: "Current research now establishes the public October Steam gates, current authority boundary, dated product receipts, and three non-authoritative roadmap envelopes. It still does not establish an owner-approved roadmap, fresh gas_coop_game audit, current private Steamworks state, critical path/schedule, or calibrated empirical delivery reference class; a numeric chance would be fabricated."
+  basis: "The owner-approved six-outcome roadmap now establishes the causal route through an exact Demo Basis, playable product proofs, the October Steam gates, paid release and factual post-mortem. It still does not establish the approved Demo Basis, first playable technical-stack proof, current private Steamworks/product truth, a capacity-based critical path, or a calibrated empirical delivery reference class and denominator; a numeric chance would be fabricated."
   drivers:
     - "Registration by 2026-08-31, all required items submitted for review by 2026-10-05, and the 2026-10-19..26 event window are external hard gates."
-    - "Private account/AppID/operator/eligibility/submission facts and the exact current gas_coop_game checkout/build/capability state remain unverified."
-    - "Current concept/canon authority is NONE; prior technical evidence is preserved but not admitted to a new roadmap."
-    - "The approximately $3,000 cap and approximately $1,500 AI spend are owner-approved estimates, not a current transaction/commitment audit."
-    - "No approved demo basis/scope, critical path, measured throughput, or calibrated denominator exists."
-  update_when: "After the owner-present map plus fresh product, private Steamworks, budget/capacity and resource readbacks establish a critical path; publish a numeric chance only after a relevant empirical reference class and denominator also exist."
+    - "The exact Demo Basis and current gas_coop_game checkout/build/capability truth are not yet approved or verified; prior Canon and technical receipts have no automatic gameplay role."
+    - "Steam/account/AppID work starts only after the first playable technical-stack proof, so the remaining margin to the registration gate depends on how quickly g-12fd and that first proof close."
+    - "Private Steamworks facts, sustainable capacity, committed/remaining budget, measured throughput and a calibrated delivery denominator remain unverified."
+  update_when: "After the approved Demo Basis, first playable technical-stack proof and fresh private Steamworks/product/budget/capacity readbacks establish the critical path; publish a numeric chance only after a relevant empirical reference class and denominator also exist."
 
 issues:
   - id: i-program-custody
@@ -58,16 +57,16 @@ issues:
   - id: i-grid-admission
     issue: "G02 evidence is preserved but Grid has not been admitted to the new demo roadmap."
     level: roadmap
-    route: map
-    review_when: "During the new roadmap, before any Grid launch."
-    evidence: "work/c-exec-grid-v1-g02-common-spatial-map-002-call.md; history/2026-07-22-s-repair-grid-v1-g02-false-g01-blocker-001.md"
+    route: work
+    review_when: "During g-12fd Demo Basis authoring, before any Grid launch."
+    evidence: "work/c-exec-grid-v1-g02-common-spatial-map-002-call.md; history/2026-07-22-s-repair-grid-v1-g02-false-g01-blocker-001.md; history/2026-07-25-s-map-october-demo-release-roadmap-001.md"
 
   - id: i-gas-admission
     issue: "Gas V1 node-1 plan evidence is preserved but Gas has not been admitted to the new demo roadmap."
     level: roadmap
-    route: map
-    review_when: "During the new roadmap, before any Gas launch."
-    evidence: "work/c-work-gas-v1-live-composition-plan-001-call.md; history/2026-07-21-s-work-gas-v1-master-plan-accepted-001.md"
+    route: work
+    review_when: "During g-12fd Demo Basis authoring, before any Gas launch."
+    evidence: "work/c-work-gas-v1-live-composition-plan-001-call.md; history/2026-07-21-s-work-gas-v1-master-plan-accepted-001.md; history/2026-07-25-s-map-october-demo-release-roadmap-001.md"
 
   - id: i-history-integrity
     issue: "Seven LOG/history links or trailers from the legacy ledger remain unresolved."
@@ -83,21 +82,14 @@ issues:
     review_when: "Before importing any affected legacy knowledge."
     evidence: "work/review/findings.md#dr-20260711-003"
 
-  - id: i-gameplay-handoff
-    issue: "The Expedition Gameplay Recovery Handoff contains useful hypotheses and failed attempts but is not canon or an approved plan."
-    level: roadmap
-    route: map
-    review_when: "During frame/map evidence review after the foundation is approved."
-    evidence: "work/2026-07-24-expedition-gameplay-recovery-handoff.md"
-
 open_calls:
-  - id: c-map-october-demo-release-roadmap-001
+  - id: c-work-october-demo-basis-authoring-001
     status: ready
     to: session
-    for: "owner-present October demo, paid-release and reusable-process roadmap"
+    for: g-12fd
     issued: 2026-07-25
-    call: work/c-map-october-demo-release-roadmap-001-call.md
-    note: "OWNER-PRESENT MAP ONLY. Research envelopes are evidence, not approved nodes. NO PRODUCT WORK / NO ACTIVE BET, TASK OR LANE. The Canon Collaboration Profile remains dormant and must not be read or propagated in this roadmap leg."
+    call: work/c-work-october-demo-basis-authoring-001-call.md
+    note: "OWNER-PRESENT CLEAN-ROOM CANON AUTHORITY. g-12fd stays parked. NO SHAPE, BET, TASK, TRACK, PRODUCT OR STEAM MUTATION."
 
 recurring: []
 
