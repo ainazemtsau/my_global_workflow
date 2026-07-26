@@ -1,5 +1,7 @@
 # LOG - indie-game-development
 
+2026-07-26 | s-work-october-demo-basis-authoring-001 | work | direction | g-12fd/october-demo-basis: owner approved the exact Demo Basis v1 with the words «принимаю» — minimum promise, path, readable moment, causal-cooperation test, public-claim ceiling, MUST/SHOULD/CUT, falsifiers and invalidation set; six content questions stay explicitly unanswered; g-12fd remains parked and one fresh converge-verify was opened. -> history/2026-07-26-s-work-october-demo-basis-authoring-001.md
+
 2026-07-26 | s-repair-live-hygiene-001 | repair | direction | g-0c26/live-hygiene: 63 superseded knowledge, work and history files moved to the frozen hygiene archive; live state reduced to one Demo Basis frontier, five current issues and non-volatile forecast facts. CHARTER, TREE, product and Steam unchanged. -> history/2026-07-26-s-repair-live-hygiene-001.md
 
 2026-07-26 | s-repair-archive-quarantine-001 | repair | direction | g-0c26/archive-quarantine: 825 pre-reset receipts, work outputs and local plays moved to the frozen pre-reset archive; live pointers repaired and default archive reads blocked. -> history/2026-07-26-s-repair-archive-quarantine-001.md
