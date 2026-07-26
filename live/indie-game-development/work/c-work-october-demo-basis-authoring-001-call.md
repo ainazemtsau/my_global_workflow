@@ -11,16 +11,18 @@ context: |
   `live/indie-game-development/CHARTER.md`;
   `live/indie-game-development/TREE.md`;
   `live/indie-game-development/NOW.md`;
-  `live/indie-game-development/history/2026-07-25-s-map-october-demo-release-roadmap-001.md`;
-  `live/indie-game-development/history/2026-07-25-s-research-october-demo-map-evidence-001.md`;
-  `live/indie-game-development/knowledge/canon-clean-authority-reset.md`.
+  `live/indie-game-development/knowledge/canon-clean-authority-reset.md`;
+  `live/indie-game-development/work/concept-frame-v1.md`.
 
   `g-12fd` is a parked `outcome_kind: specification`; `bet: null`, `tasks: []`
   and no execution tracks exist. This CALL is the owner-approved clean-room
   Canon authority contour for the exact artifact
   `live/indie-game-development/work/october-demo-basis-v1.md`. Accepted current
   game Canon is NONE. Preserved technical capabilities have no automatic
-  gameplay meaning or admission.
+  gameplay meaning or admission. The named concept frame lists the
+  DEMO-BLOCKING content questions in binding order. Begin with question 1,
+  observable substance behaviours, because it alone can invalidate the merged
+  Core transport model; do not skip ahead by importing an old answer.
 boundaries: |
   The owner is the content authority. Do not delegate selection or approval of
   the Demo Basis to an executor. Do not read or import legacy Canon, the Gameplay

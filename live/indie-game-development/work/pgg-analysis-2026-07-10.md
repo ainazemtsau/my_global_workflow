@@ -53,6 +53,6 @@ discussions.unity.com/t/released-procedural-generation-grid/849158 (активе
 Плейлист автора: youtube.com/playlist?list=PL6MURe5By90mRPke0_vkxaqu0lRfeI8zl · Распакованные исходники (temp):
 scratchpad/pgg_src (пересобрать: tar -xzf из кэша Asset Store-5.x/FImpossible Creations/...).
 
-Спайк: work/c-spike-pgg-001-call.md. Наследник результата: PLAN шага M1-4 Полигона (DA Phase 1 / модули).
+Спайк: archive/directions/indie-game-development/2026-07-pre-reset/work/c-spike-pgg-001-call.md. Наследник результата: PLAN шага M1-4 Полигона (DA Phase 1 / модули).
 
 END_OF_FILE: live/indie-game-development/work/pgg-analysis-2026-07-10.md
