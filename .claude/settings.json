@@ -3,7 +3,10 @@
     "deny": [
       "Read(./archive/**)",
       "Glob(./archive/**)",
-      "Grep(./archive/**)"
+      "Grep(./archive/**)",
+      "Read(//C:/projects/gas_coop_game_canon/**)",
+      "Glob(//C:/projects/gas_coop_game_canon/**)",
+      "Grep(//C:/projects/gas_coop_game_canon/**)"
     ]
   }
 }

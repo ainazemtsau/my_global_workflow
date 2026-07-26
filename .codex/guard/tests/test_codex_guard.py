@@ -281,6 +281,18 @@ class CodexGuardTests(unittest.TestCase):
         )
         self.assertEqual(result, {})
 
+    def test_legacy_canon_repo_read_blocked(self):
+        result = run_guard(
+            {
+                "tool_name": "bash",
+                "tool_input": {
+                    "command": "rg -n 'CORE' C:/projects/gas_coop_game_canon/INDEX.md"
+                },
+            },
+            "PreToolUse",
+        )
+        self.assertEqual(result["decision"], "block")
+
     def test_archive_word_in_filename_not_blocked(self):
         result = run_guard(
             {
