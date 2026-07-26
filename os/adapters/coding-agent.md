@@ -125,6 +125,6 @@ One feature leg is one cohesive invariant/source-of-truth slice and ≤ a focuse
 
 ## Running thinking sessions here too
 
-Any OS play can run in an agentic CLI session instead of a chat app: the agent reads `os/KERNEL.md`, the play file, and `live/<dir>/NOW.md` itself, and can act as its own writer for state changes (one relay hop instead of two, or zero with an orchestrator). Recommended default for shape / review / pulse / repair, which are state-heavy; chat apps stay attractive for frame and long work dialogs.
+Any OS play can run in an agentic CLI session instead of a chat app: the agent reads `os/KERNEL.md`, the play file, and `live/<dir>/NOW.md` itself, and can act as its own writer for state changes **only after emitting its RESULT** (one relay hop instead of two, or zero with an orchestrator). Recommended default for shape / review / pulse / repair, which are state-heavy; chat apps stay attractive for frame and long work dialogs.
 
 END_OF_FILE: os/adapters/coding-agent.md
