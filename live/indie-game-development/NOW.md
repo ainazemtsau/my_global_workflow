@@ -96,6 +96,13 @@ issues:
     review_when: "At shape of the level lane, before any level build CALL."
     evidence: "work/pgg-analysis-2026-07-10.md:19-22; history/2026-07-11-s-spike-pgg-001-close-001.md"
 
+  - id: i-concept-frame-admission
+    issue: "The owner approved the exact concept frame («Принимаю эту форму.») but durable game Canon stays NONE; the frame is an owner-approved candidate in work/, not admitted authority."
+    level: roadmap
+    route: review
+    review_when: "At the narrow review that closes g-12fd, or earlier if the Demo Basis contradicts the frame."
+    evidence: "work/concept-frame-v1.md; history/2026-07-26-s-research-canon-clean-room-dialogue-20260726-001.md; knowledge/canon-clean-authority-reset.md"
+
   - id: i-history-integrity
     issue: "Seven LOG/history links or trailers from the legacy ledger remain unresolved."
     level: direction
@@ -117,7 +124,7 @@ open_calls:
     for: g-12fd
     issued: 2026-07-25
     call: work/c-work-october-demo-basis-authoring-001-call.md
-    note: "OWNER-PRESENT CLEAN-ROOM CANON AUTHORITY. g-12fd stays parked. NO SHAPE, BET, TASK, TRACK, PRODUCT OR STEAM MUTATION."
+    note: "OWNER-PRESENT CLEAN-ROOM CANON AUTHORITY. g-12fd stays parked. NO SHAPE, BET, TASK, TRACK, PRODUCT OR STEAM MUTATION. Owner-named source: work/concept-frame-v1.md — take its DEMO-BLOCKING questions in the listed order; question 1 (substance behaviours) first, because it alone can invalidate merged Core code."
 
 recurring: []
 
