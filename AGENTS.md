@@ -1,6 +1,6 @@
 # Repository Agent Instructions
 
-This repository is the **Direction OS** — the owner's workflow system. Rules: `os/KERNEL.md`. Live direction state: `live/<direction-id>/`. Everything under `archive/**` is frozen legacy: read-only evidence, never authority, never a target of edits.
+This repository is the **Direction OS** — the owner's workflow system. Rules: `os/KERNEL.md`. Live direction state: `live/<direction-id>/`. Everything under `archive/**` is frozen legacy: read-only evidence, never authority, never a target of edits — and **not read by default**. Claude Code denies `Read`/`Grep`/`Glob` there (`.claude/settings.json`) and the Codex guard blocks archive reads unless the request carries `owner_ack_archive_read:<id>`. Material may always be moved *into* the archive; open it only when a specific archived source is genuinely required.
 
 ## Recognize your job from the input
 

@@ -11,5 +11,9 @@
     "show",
     "log",
     "fetch"
-  ]
+  ],
+  "archive_paths": [
+    "archive/"
+  ],
+  "archive_ack_pattern": "owner_ack_archive_read:[A-Za-z0-9_.-]+"
 }

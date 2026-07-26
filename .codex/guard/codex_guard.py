@@ -8,6 +8,7 @@ import json
 import re
 import shlex
 import sys
+from functools import lru_cache
 from pathlib import Path, PureWindowsPath
 from typing import Any
 
@@ -32,6 +33,48 @@ WRITE_TOOL_NAMES = {
     "shell_command",
     "sh",
     "exec_command",
+}
+
+READ_TOOL_NAMES = {
+    "read",
+    "read_file",
+    "view",
+    "view_image",
+    "open",
+    "cat",
+    "grep",
+    "glob",
+    "search",
+    "ripgrep",
+    "file_search",
+    "list_dir",
+    "list_files",
+}
+
+# Leading verbs of shell commands that only READ their targets. A command whose
+# first verb is not here (git mv, mv, rm, apply_patch...) is a write and stays
+# allowed: material may always be moved INTO the archive, only reading is gated.
+ARCHIVE_READ_VERBS = {
+    "awk",
+    "cat",
+    "dir",
+    "egrep",
+    "fgrep",
+    "find",
+    "gc",
+    "get-childitem",
+    "get-content",
+    "grep",
+    "head",
+    "less",
+    "ls",
+    "more",
+    "rg",
+    "sed",
+    "select-string",
+    "tail",
+    "type",
+    "wc",
 }
 
 PRODUCT_WRITE_WORDS = re.compile(
@@ -152,6 +195,21 @@ def contains_path(haystack: str, path: str) -> bool:
     return norm_path(path) in norm_path(haystack)
 
 
+@lru_cache(maxsize=8)
+def archive_segment_re(configured: tuple[str, ...]) -> re.Pattern[str] | None:
+    """Boundary-anchored matcher for the configured archive roots.
+
+    Each configured path must appear as a whole path SEGMENT, so the repo-root
+    `archive/` and the per-direction `work/archive/` both match, while names such
+    as `LOG-archive-indie-game-development.md` or the word "archived:" never do.
+    """
+    parts = [norm_path(path).strip("/") for path in configured]
+    parts = [re.escape(part) for part in parts if part]
+    if not parts:
+        return None
+    return re.compile(r"(?:^|/)(?:" + "|".join(parts) + r")(?:/|$)")
+
+
 def payload_tool_name(payload: dict[str, Any]) -> str:
     for key in ("tool_name", "name", "tool"):
         if isinstance(payload.get(key), str):
@@ -267,6 +325,73 @@ def blocks_side_repair(payload: dict[str, Any], policy: dict[str, Any]) -> str |
     return None
 
 
+def split_tokens(value: str) -> list[str]:
+    """Whole string plus its shell tokens, so a path inside a command is seen."""
+    if not value:
+        return []
+    try:
+        tokens = shlex.split(value, posix=False)
+    except ValueError:
+        tokens = value.split()
+    return [value] + [token.strip('"').strip("'") for token in tokens]
+
+
+def leading_verb(command: str) -> str:
+    try:
+        tokens = shlex.split(command, posix=False)
+    except ValueError:
+        tokens = command.split()
+    for token in tokens:
+        token = token.strip('"').strip("'").lower()
+        if not token or token.startswith("-"):
+            continue
+        if "=" in token and not token.startswith("/"):
+            continue
+        return token.rsplit("/", 1)[-1]
+    return ""
+
+
+def targets_archive(payload: dict[str, Any], policy: dict[str, Any]) -> bool:
+    """True when a concrete path argument or command points inside an archive."""
+    configured = tuple(str(p) for p in policy.get("archive_paths", []) if str(p).strip())
+    pattern = archive_segment_re(configured)
+    if pattern is None:
+        return False
+    candidates: list[str] = []
+    for value in flatten_strings(payload_tool_input(payload)):
+        candidates.extend(split_tokens(value))
+    candidates.extend(split_tokens(command_from_payload(payload)))
+    candidates.extend(split_tokens(workdir_from_payload(payload)))
+    for candidate in candidates:
+        if candidate and pattern.search(norm_path(candidate)):
+            return True
+    return False
+
+
+def blocks_archive_read(payload: dict[str, Any], policy: dict[str, Any]) -> str | None:
+    if not targets_archive(payload, policy):
+        return None
+    ack_pattern = str(policy.get("archive_ack_pattern", "")).strip()
+    if ack_pattern:
+        combined = "\n".join(
+            [text_blob(payload), command_from_payload(payload), workdir_from_payload(payload)]
+        )
+        if re.search(ack_pattern, combined):
+            return None
+    tool = payload_tool_name(payload)
+    command = command_from_payload(payload)
+    is_read = tool in READ_TOOL_NAMES or (
+        bool(command) and leading_verb(command) in ARCHIVE_READ_VERBS
+    )
+    if not is_read:
+        return None
+    return (
+        "Blocked default read of frozen archive evidence; nothing there is current "
+        "authority. Re-issue with owner_ack_archive_read:<id> only when the archived "
+        "source is genuinely required."
+    )
+
+
 def blocks_bad_close(payload: dict[str, Any], policy: dict[str, Any]) -> str | None:
     msg = text_blob(payload)
     direction = str(policy["direction_id"])
@@ -302,7 +427,7 @@ def evaluate(payload: dict[str, Any], cli_event: str | None = None) -> dict[str,
         return decision_allow(event)
 
     if event in {"PreToolUse", "PostToolUse"}:
-        for check in (blocks_product_write, blocks_side_repair):
+        for check in (blocks_product_write, blocks_side_repair, blocks_archive_read):
             reason = check(payload, policy)
             if reason:
                 return decision_block(reason)

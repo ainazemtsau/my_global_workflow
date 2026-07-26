@@ -237,6 +237,62 @@ class CodexGuardTests(unittest.TestCase):
         )
         self.assertEqual(json.loads(proc.stdout), {"continue": True})
 
+    def test_archive_read_blocked(self):
+        result = run_guard(
+            {
+                "tool_name": "read_file",
+                "tool_input": {"path": "archive/directions/indie-game-development/history/x.md"},
+            },
+            "PreToolUse",
+        )
+        self.assertEqual(result["decision"], "block")
+        self.assertIn("frozen archive evidence", result["reason"])
+
+    def test_archive_shell_read_blocked(self):
+        result = run_guard(
+            {
+                "tool_name": "bash",
+                "tool_input": {"command": "rg -n 'gas' archive/directions/indie-game-development"},
+            },
+            "PreToolUse",
+        )
+        self.assertEqual(result["decision"], "block")
+
+    def test_archive_read_allowed_with_owner_ack(self):
+        result = run_guard(
+            {
+                "tool_name": "read_file",
+                "tool_input": {"path": "archive/directions/indie-game-development/history/x.md"},
+                "last_assistant_message": "owner_ack_archive_read:demo-basis-source-001",
+            },
+            "PreToolUse",
+        )
+        self.assertEqual(result, {})
+
+    def test_archive_write_allowed(self):
+        result = run_guard(
+            {
+                "tool_name": "bash",
+                "tool_input": {
+                    "command": "git mv live/indie-game-development/history/old.md archive/directions/indie-game-development/history/old.md"
+                },
+            },
+            "PreToolUse",
+        )
+        self.assertEqual(result, {})
+
+    def test_archive_word_in_filename_not_blocked(self):
+        result = run_guard(
+            {
+                "tool_name": "read_file",
+                "tool_input": {
+                    "path": "live/indie-game-development/history/LOG-archive-indie-game-development.md"
+                },
+            },
+            "PreToolUse",
+        )
+        self.assertEqual(result, {})
+
     def test_malformed_json_fail_closed(self):
         proc = subprocess.run(
             [sys.executable, str(SCRIPT), "--event", "Stop"],
