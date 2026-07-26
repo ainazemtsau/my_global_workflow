@@ -28,7 +28,7 @@ The OS runs the owner's long-term directions through short AI legs over durable 
 3. **CLOSE** — emit RESULT (§4) as the leg's final message only: readable summary, then one fenced RESULT. It ends the leg; the writer applies/commits `state_changes`. A checkpoint issues a continuation CALL. A day chat may accept a later owner turn only after the saved transaction completes; `закрываем день` ends it. Read-only day turns emit no RESULT.
 
 **Orientation header.** Ordinary reply:
-`📍 <direction>/<track>/<node>/<task> — <play>: <step> | нужно от тебя: <ничего | вопрос>`.
+`📍 <direction>[/<lane>]/<node>/<task> — <play>: <step> | нужно от тебя: <ничего | вопрос>`.
 Day reply:
 `📍 День: <простая текущая цель> | от тебя: <ничего | короткий выбор>`.
 
@@ -59,7 +59,7 @@ Day reply:
 
 A node whose result is the exact owner-approved specification itself carries `outcome_kind: specification`; unmarked nodes are ordinary build outcomes. It stays `parked` while an untracked owner-present authority contour authors the versioned artifact, a separate fresh `converge-verify` session refutes it, and narrow `review` marks it done. It never becomes a bet, enters `shape`, creates tasks/tracks, or delegates owner-content verdicts to an executor.
 
-A **bet** is the one active local objective in `NOW.md`. Its ≤3 tasks are each ≤ half a focused day. Optional tracks are execution lanes inside that bet, not parallel strategies or future goals. Work unrelated to the bet becomes an issue/capture until the correct review/map/maintenance route admits it.
+A **bet** is the one active local objective in `NOW.md`. Its ≤3 tasks are each ≤ half a focused day. Optional tracks are execution lanes inside that bet, not parallel strategies or future goals. Only `shape` declares a lane, from the owner's exact words; only `review` dissolves the lanes of the bet it closes. No other play creates or removes one. Work unrelated to the bet becomes an issue/capture until the correct review/map/maintenance route admits it.
 
 ## 4. Packets
 

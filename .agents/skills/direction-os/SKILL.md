@@ -39,7 +39,7 @@ then the play's numbered steps with the current one marked and a <=5-line
 restate (play, goal, done_when). Run the play and STOP at the first owner step.
 
 ```
-📍 <direction>/<lane-or-legacy>/<node>/<task> - <play>: <step> | нужно от тебя: <ничего | вопрос>
+📍 <direction>[/<lane>]/<node>/<task> - <play>: <step> | нужно от тебя: <ничего | вопрос>
 ```
 
 An authorized `day` chat instead starts:

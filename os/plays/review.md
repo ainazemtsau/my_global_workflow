@@ -20,7 +20,7 @@ Trigger: tasks closed, appetite/kill_by/evidence stops the bet, the owner wants 
 4. **Add-back check** — bet only: inspect the cut list and name genuinely missed/timid cuts. Specification mode skips: it had no shaped scope.
 5. **Knowledge** — promote at most 1–3 durable learnings, each with a real `read_by`; otherwise keep only history.
 6. **Forecast & next** — recalibrate from material evidence; numeric chance needs empirical calibration, otherwise `no_basis`. Offer 2–3 future nodes or pause. A specification outcome closes without activation; its chosen ordinary successor uses KERNEL §2 readiness.
-7. **Close** — RESULT records verdict/tree/forecast/issues/log. Pending choice → decision; chosen node → exactly one specification-authoring or readiness-routed CALL. Never create tasks/lanes here.
+7. **Close** — RESULT records verdict/tree/forecast/issues/log. Dissolve every lane of the bet being closed. Pending choice → decision; chosen node → exactly one specification-authoring or readiness-routed CALL. Never create tasks/lanes here.
 
 ## Done when
 
