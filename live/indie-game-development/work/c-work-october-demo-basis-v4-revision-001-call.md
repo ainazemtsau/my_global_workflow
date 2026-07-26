@@ -364,4 +364,31 @@ return: |
 budget: one owner-present session
 surface: any session with the owner present; never the verification chat
 
+disposition: |
+  WITHDRAWN 2026-07-26 by the owner mid-leg, in
+  `s-work-october-demo-basis-v4-revision-001`
+  (`history/2026-07-26-s-work-october-demo-basis-v4-revision-001.md`). NOT failed
+  and NOT bounced: the leg reached step 2, put all eight findings to him, and he
+  ruled the task's POSITION wrong rather than its content — «задача явно
+  неправильная. Ну, вернее, она как бы правильная, но она не должна сейчас стоять
+  первой»; «в начале я хочу как можно быстрее получить геймплей для себя»;
+  «нужно сделать пересборку дерева». `work/october-demo-basis-v4.md` was NOT
+  produced and no owner content was chosen by an agent.
+  What the leg did collect, all recorded in the successor CALL and in the
+  receipt: he could not decide V1 and rejected the «протискивают» dependency,
+  offering his own candidate rule instead (impact damage → cracks → leak, plus a
+  cube-law growth/weight trade); V2 got a real answer — twenty minutes is a
+  MAXIMUM, there must be a genuine fail, and the danger he names is a slow
+  repetitive cleaning game; V3 got «хоть вообще без арта» for the first version
+  with something primitive so nothing blocks; V5's voluntary-exit reading was
+  REJECTED; V4, V6, V7, V8 he declined to treat as owner business at all.
+  All eight findings stay VALID against `g-12fd`'s current done_when. They are
+  not withdrawn, not answered and not carried into the successor as work: they
+  become moot only if and when that done_when changes, which is
+  `c-map-october-demo-order-reset-001`'s business and the owner's verdict.
+  `work/october-demo-basis-v3.md` stays the single live Basis text — unverified,
+  a source and not authority. `g-12fd` stays parked. No shape was opened, TREE
+  and CHARTER were not touched, no numeric chance was published.
+  Successor: `c-map-october-demo-order-reset-001`. This CALL is spent.
+
 END_OF_FILE: live/indie-game-development/work/c-work-october-demo-basis-v4-revision-001-call.md
