@@ -4,6 +4,11 @@ identity: oracle-demo-boundary-specification-v1
 authored: 2026-07-26 by s-converge-verify-october-demo-basis-v2-001
 status: authored from first principles for this verification; PROPOSED for
 promotion to `knowledge/` by review or pulse. It has no authority until promoted.
+superseded_by: `work/oracle-demo-boundary-specification-v2.md` (2026-07-26,
+s-converge-verify-october-demo-basis-v3-001) — promote v2, not this file. v2 keeps
+O1–O12, adds O13–O17 for a not-law section, a dormant falsifier, an explicit null
+and agent-repaired text, and corrects the «What the oracle caught» section below:
+O4 and O7 did NOT pass in v2 of the artifact either.
 node_class: an owner-authored artifact whose own text is the deliverable and
 whose job is to bound one shippable demo (`outcome_kind: specification`).
 

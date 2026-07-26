@@ -198,4 +198,25 @@ return: |
 budget: one fresh session, no owner presence required
 surface: any, but NEVER the v1 authoring, v2 revision or v3 revision chat
 
+disposition: |
+  DISCHARGED 2026-07-26 by s-converge-verify-october-demo-basis-v3-001, a fresh
+  independent session that was neither the v1 authoring, the v2 revision nor the
+  v3 revision chat. Verdict FAIL: eight named findings V1–V8 against
+  `work/october-demo-basis-v3.md`. Receipt
+  `history/2026-07-26-s-converge-verify-october-demo-basis-v3-001.md`.
+  Every disposition claimed by this CALL was checked against the artifact text.
+  F1, F2, F5, F6 and F10 landed. F8's disclosure question is judged DISCHARGED —
+  the pointer line plus the live engineering read is adequate — but the same
+  deletion removed the artifact's only trace that art is at zero (V3). F3's
+  single support survived. F4's dormancy device is honest but collides with F5's
+  null-exceptions statement (V6). F7 and F9 each failed a SECOND time on the same
+  point: both repairs were item-scoped, so KERNEL §2 two-strikes is live on both
+  (V7, V2). The §3 WEAK the CALL ordered attacked directly is the leg's largest
+  finding (V1). D1 applied correctly: this CALL states no count its itemization
+  contradicts. No owner decision was reversed and no content was chosen.
+  Oracle: `work/oracle-demo-boundary-specification-v2.md` — O1–O12 re-applied from
+  the artifact text, O13–O17 authored for v3's new surface.
+  Successor: `c-work-october-demo-basis-v4-revision-001`. `g-12fd` still parked.
+  No signoff was written. This CALL is spent.
+
 END_OF_FILE: live/indie-game-development/work/c-converge-verify-october-demo-basis-v3-001-call.md
