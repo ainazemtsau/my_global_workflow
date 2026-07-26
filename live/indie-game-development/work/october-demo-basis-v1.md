@@ -1,7 +1,8 @@
 # Основа октябрьского демо, версия 1 — заменена
 
 status: superseded 2026-07-26
-current: `work/october-demo-basis-v2.md` (identity `october-demo-basis-v2`)
+current: `work/october-demo-basis-v3.md` (identity `october-demo-basis-v3`) —
+версия 2 сама заменена 2026-07-26 и лежит рядом надгробием
 owner_approval_of_v1: 2026-07-26, дословно «принимаю»
 full_text_of_v1: коммит `3f135b9b` —
 `git show 3f135b9b:live/indie-game-development/work/october-demo-basis-v1.md`

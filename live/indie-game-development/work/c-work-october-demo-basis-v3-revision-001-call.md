@@ -243,4 +243,16 @@ return: |
 budget: one owner-present session
 surface: any session with the owner present; never the verification chat
 
+disposition: |
+  DISCHARGED 2026-07-26 by s-work-october-demo-basis-v3-revision-001, owner
+  present. Produced `work/october-demo-basis-v3.md`. All ten findings F1-F10 plus
+  D1-D3 dispositioned explicitly; the table is in the receipt
+  `history/2026-07-26-s-work-october-demo-basis-v3-revision-001.md`.
+  F1 and F2 closed by deletion on the owner's words; F3 and F8 answered by his
+  words; the remaining eight repaired mechanically under his explicit delegation
+  «Остальные восемь находок — механические, чини сам, ко мне не возвращайся с
+  ними». No owner decision reversed, no content chosen by an agent, no archive or
+  canon-repo read. Successor: `c-converge-verify-october-demo-basis-v3-001`.
+  `g-12fd` still parked. This CALL is spent.
+
 END_OF_FILE: live/indie-game-development/work/c-work-october-demo-basis-v3-revision-001-call.md
