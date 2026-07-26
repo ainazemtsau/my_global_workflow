@@ -5,13 +5,13 @@
 > 🔴 **BANNER EXTENDED 2026-07-02 (s-repair-review-reconcile-001):** two more superseded specifics in the body below — (1) any «ADR-0010» lock citation is a citation ERROR (lock = **ADR-0002**; SPEC §1 поправка 2026-06-28); (2) the Fact-4 «временный mix-overlay при реакции» wording is superseded (2026-06-30: permanent bounded per-active-cell overlay + sparse-dominant, SPEC Факт-4).
 
 > 🔵 **УТОЧНЕНИЕ (s-research-017, 2026-06-22; POINTER, НЕ правка лока).** Пункт 2 «cell-SIZE LOD» и пункт 3 (пузырь/discard)
-> УТОЧНЕНЫ синтезом `work/gas-cellsize-levelscale-2026-06-22.md` §10-§12: газ = **50см ГЛОБАЛЬНО** (авторитетная ось LOD =
+> УТОЧНЕНЫ синтезом `archive/directions/indie-game-development/2026-07-pre-reset/work/archive/gas-cellsize-levelscale-2026-06-22.md` §10-§12: газ = **50см ГЛОБАЛЬНО** (авторитетная ось LOD =
 > ПРОСТРАНСТВЕННЫЙ room-rollup, НЕ покомнатный cell-SIZE; cross-resolution re-flux шов убран); 25см = off-checksum визуал +
 > авторитетные высотные полосы. Залоченные факты этим указателем НЕ изменены; формальная ратификация уточнения в лок =
 > owner-signed re-shape (отдельная сессия).
 
 **Who reads this / when:** EVERY g-9c41 build session, at its PLAN, before any design — it is a mandatory ingest. The full
-spec + slice graph + decision index is the SINGLE entry point: `work/dev-plan-graph-2026-06-22.md`.
+spec + slice graph + decision index is the SINGLE entry point: `archive/directions/indie-game-development/2026-07-pre-reset/work/archive/dev-plan-graph-2026-06-22.md`.
 
 ## Accepted facts (LOCKED — change only via review/maintenance, never silently)
 

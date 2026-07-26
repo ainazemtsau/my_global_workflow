@@ -29,7 +29,7 @@ and it is not product-dispatch authority by itself.
 6. Integration/publication was separate from the candidate leg and did not start Leg 2 or declare Direction close.
 
 Primary evidence: product RESULT/review at exact 029279a; Direction receipt
-`history/2026-07-18-s-review-char-v2-published-handback-release-001.md`.
+`archive/directions/indie-game-development/2026-07-pre-reset/history/2026-07-18-s-review-char-v2-published-handback-release-001.md`.
 
 ## Leg 2 carry-forward
 

@@ -13,7 +13,7 @@ Project-owned Level/Module Contract и validators предшествуют produ
 логическими legs — accounting, не cap и не delivery. Appetite будущих bets должен считать seams, gates и evidence,
 а 24.07 остаётся контрольным review.
 
-Evidence: history/2026-07-16-s-review-poligon-m1-route-reset-001.md;
-work/poligon-m1-integration-route.md; history/2026-07-15-s-work-near-gas-l1-experimental-close-001.md.
+Evidence: archive/directions/indie-game-development/2026-07-pre-reset/history/2026-07-16-s-review-poligon-m1-route-reset-001.md;
+work/poligon-m1-integration-route.md; archive/directions/indie-game-development/2026-07-pre-reset/history/2026-07-15-s-work-near-gas-l1-experimental-close-001.md.
 
 END_OF_FILE: live/indie-game-development/knowledge/g9c41-m1-integrated-proof-is-atomic.md

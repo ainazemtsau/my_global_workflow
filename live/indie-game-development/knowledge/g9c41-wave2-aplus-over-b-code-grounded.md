@@ -4,7 +4,7 @@
 
 read_by: shape of the next g-9c41 bet (when picking the road / sizing the appetite); the technical-feasibility lens (every future "rewrite the core" temptation); a converge session if the gas model is ever re-converged.
 
-Accepted 2026-06-20 by review s-review-002 (independent adversarial check of work/gas-model-design-full-2026-06-20.md, 3 angles, code+math, NO dealbreaker).
+Accepted 2026-06-20 by review s-review-002 (independent adversarial check of archive/directions/indie-game-development/2026-07-pre-reset/work/archive/gas-model-design-full-2026-06-20.md, 3 angles, code+math, NO dealbreaker).
 
 **Fact.** The recommendation "дорога A+ (grow the proven integer graph core), NOT B (continuous-field rewrite)" is not a preference — it is proven by committed code+tests:
 

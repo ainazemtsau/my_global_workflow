@@ -1,6 +1,6 @@
 # NOW: indie-game-development
 
-updated: 2026-07-26 by s-day-manager-layer-install-001
+updated: 2026-07-26 by s-repair-archive-quarantine-001
 
 bet: null
 
@@ -24,7 +24,7 @@ issues:
     level: execution
     route: repair
     review_when: "Before any product cleanup or Program admission."
-    evidence: "work/c-exec-program-v2-legacy-lab-purge-release-001-call.md; history/2026-07-20-s-work-program-v2-legacy-lab-purge-deliver-blocked-001.md"
+    evidence: "work/c-exec-program-v2-legacy-lab-purge-release-001-call.md; archive/directions/indie-game-development/2026-07-pre-reset/history/2026-07-20-s-work-program-v2-legacy-lab-purge-deliver-blocked-001.md"
 
   - id: i-level-close
     issue: "LV0 has product PLAN evidence but no binding Direction close."
@@ -59,14 +59,14 @@ issues:
     level: roadmap
     route: work
     review_when: "During g-12fd Demo Basis authoring, before any Grid launch."
-    evidence: "work/c-exec-grid-v1-g02-common-spatial-map-002-call.md; history/2026-07-22-s-repair-grid-v1-g02-false-g01-blocker-001.md; history/2026-07-25-s-map-october-demo-release-roadmap-001.md"
+    evidence: "work/c-exec-grid-v1-g02-common-spatial-map-002-call.md; archive/directions/indie-game-development/2026-07-pre-reset/history/2026-07-22-s-repair-grid-v1-g02-false-g01-blocker-001.md; history/2026-07-25-s-map-october-demo-release-roadmap-001.md"
 
   - id: i-gas-admission
     issue: "Gas V1 node-1 plan evidence is preserved but Gas has not been admitted to the new demo roadmap."
     level: roadmap
     route: work
     review_when: "During g-12fd Demo Basis authoring, before any Gas launch."
-    evidence: "work/c-work-gas-v1-live-composition-plan-001-call.md; history/2026-07-21-s-work-gas-v1-master-plan-accepted-001.md; history/2026-07-25-s-map-october-demo-release-roadmap-001.md"
+    evidence: "work/c-work-gas-v1-live-composition-plan-001-call.md; archive/directions/indie-game-development/2026-07-pre-reset/history/2026-07-21-s-work-gas-v1-master-plan-accepted-001.md; history/2026-07-25-s-map-october-demo-release-roadmap-001.md"
 
   - id: i-steam-appid
     issue: "Name, base/demo AppID and Steam page half A are not started. The $100 fee is paid and the account is open with one unused credit; the name depends on the concept in flight."
@@ -94,7 +94,7 @@ issues:
     level: execution
     route: work
     review_when: "At shape of the level lane, before any level build CALL."
-    evidence: "work/pgg-analysis-2026-07-10.md:19-22; history/2026-07-11-s-spike-pgg-001-close-001.md"
+    evidence: "work/pgg-analysis-2026-07-10.md:19-22; archive/directions/indie-game-development/2026-07-pre-reset/history/2026-07-11-s-spike-pgg-001-close-001.md"
 
   - id: i-concept-frame-admission
     issue: "The owner approved the exact concept frame («Принимаю эту форму.») but durable game Canon stays NONE; the frame is an owner-approved candidate in work/, not admitted authority."
@@ -103,19 +103,12 @@ issues:
     review_when: "At the narrow review that closes g-12fd, or earlier if the Demo Basis contradicts the frame."
     evidence: "work/concept-frame-v1.md; history/2026-07-26-s-research-canon-clean-room-dialogue-20260726-001.md; knowledge/canon-clean-authority-reset.md"
 
-  - id: i-history-integrity
-    issue: "Seven LOG/history links or trailers from the legacy ledger remain unresolved."
+  - id: i-knowledge-concept-triage
+    issue: "The 25 knowledge entries were never re-read against the new emergency-cleaning concept frame; most were accepted in the gas/grid era and may name obsolete priorities. Their pointers now resolve, but their meaning for the October demo is unverified."
     level: direction
-    route: repair
-    review_when: "Before relying on the affected legacy receipts."
-    evidence: "work/review/findings.md#dr-20260711-002"
-
-  - id: i-knowledge-links
-    issue: "Twenty-one legacy knowledge/TREE pointers resolve to fifteen missing target paths."
-    level: direction
-    route: repair
-    review_when: "Before importing any affected legacy knowledge."
-    evidence: "work/review/findings.md#dr-20260711-003"
+    route: review
+    review_when: "At the narrow review that closes g-12fd, before any knowledge entry is used to justify demo scope."
+    evidence: "history/2026-07-26-s-repair-archive-quarantine-001.md; work/concept-frame-v1.md"
 
 open_calls:
   - id: c-work-october-demo-basis-authoring-001

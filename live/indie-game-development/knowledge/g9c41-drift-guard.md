@@ -6,7 +6,7 @@
 [[g9c41-architecture-locked-slices]]. Это пять фактов, которые чаще всего ломаются, когда чат
 пересказывает архитектуру «попроще». **Если твоё объяснение владельцу противоречит любому из
 пяти — ты дрейфанул: остановись и перечитай канон, не пересказывай по памяти.** Канон =
-locked-slices + `work/dev-plan-graph-2026-06-22.md` (+ его DECISION INDEX). Всё в `work/archive/` —
+locked-slices + `archive/directions/indie-game-development/2026-07-pre-reset/work/archive/dev-plan-graph-2026-06-22.md` (+ его DECISION INDEX). Всё в `work/archive/` —
 история, НЕ авторитет.
 
 1. **«8 пузырей»? НЕТ.** Каждый пир считает грубое (комнатное) для ВСЕЙ карты + ОДИН детальный

@@ -18,6 +18,6 @@ The builder flipped Status → DELIVERED in-repo (commit a23183f) on owner-depen
 
 ## Owner-eye evidence boundary carried to Sc-damage
 
-The recorded Sc-reactions owner-eye is only «two clouds → telegraph → bang» (`history/s-review-sc-reactions-close-001.md`, evidence lines 19–22). No recorded evidence covers SPEC §6 п.9's stronger clause «one detonation in open field without walls». That clause is therefore **not passed**: the owner must see it presented again during Sc-damage shape/PLAN, and the Sc-reactions close may not be cited as proof. The paired Sc-damage re-trigger is also still armed: «one honest jet in open field without walls».
+The recorded Sc-reactions owner-eye is only «two clouds → telegraph → bang» (`archive/directions/indie-game-development/2026-07-pre-reset/history/s-review-sc-reactions-close-001.md`, evidence lines 19–22). No recorded evidence covers SPEC §6 п.9's stronger clause «one detonation in open field without walls». That clause is therefore **not passed**: the owner must see it presented again during Sc-damage shape/PLAN, and the Sc-reactions close may not be cited as proof. The paired Sc-damage re-trigger is also still armed: «one honest jet in open field without walls».
 
 END_OF_FILE: live/indie-game-development/knowledge/g9c41-sc-reactions-c-exec-021-delivered.md
