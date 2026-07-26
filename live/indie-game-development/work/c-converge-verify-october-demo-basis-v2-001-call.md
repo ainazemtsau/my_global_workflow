@@ -108,4 +108,17 @@ return: |
 budget: one fresh session, no owner presence required
 surface: any, but NEVER the authoring or revision chat
 
+disposition: |
+  DISCHARGED 2026-07-26 by s-converge-verify-october-demo-basis-v2-001 (fresh
+  session, neither the authoring nor the revision chat).
+  Outcome: FAIL. play_check `verify_target: specification complete=FAIL
+  smuggling=FAIL`. Ten findings F1-F10 named, none filled or repaired.
+  Oracle authored, so the leg was not blocked:
+  `work/oracle-demo-boundary-specification-v1.md`.
+  Receipt: `history/2026-07-26-s-converge-verify-october-demo-basis-v2-001.md`.
+  Findings returned to owner-authority work:
+  `work/c-work-october-demo-basis-v3-revision-001-call.md`.
+  Verification reruns against v3. This CALL is spent, not withdrawn: it produced
+  an oracle and findings, and both are carried forward.
+
 END_OF_FILE: live/indie-game-development/work/c-converge-verify-october-demo-basis-v2-001-call.md
