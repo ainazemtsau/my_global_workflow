@@ -60,20 +60,69 @@ context: |
   is out of reach ONLY at the old concept's numbers. This is a derivation, not a
   measurement, and it does not discharge the envelope decision.
 
-  SO THE ORDER OF THIS LEG IS: requirements first, engine second. Take from him, at
-  ENVELOPE level only and NOT as a full design: (a) the rough bounds of one section —
-  height especially, since he expects it constrained now, and width and length; (b) which
-  phenomena he WANTS admitted at all, jets named by him explicitly, and whether they may
-  be placed by an author or must always be player-caused; (c) how passing is meant to
-  work, which joins ROW 1. Then, and only then, does an engineering leg check whether the
-  existing gas simulation fits those requirements or must be rebuilt — his words, «как
-  минимум стоит проверить», and the answer is a technical leg's, not this one's.
-  ONE RECORDED FACT FOR (b), evidence only: the engine already ships an impulse primitive
-  whose own comment names an eruption burst, a vent toggle and a sustained vent, so a jet
-  is the one wanted phenomenon that has a primitive waiting. The converge dismissed it as
-  a hand-placed script that Z5 forbids — a reading that does not apply when the player's
-  own cut causes it. Whether jets are admitted is HIS requirement question, not an
-  engineering verdict.
+  SO THE ORDER OF THIS LEG IS: requirements first, and the requirements are written
+  ENGINE-BLIND. His second clarification of 2026-07-27 is stronger than the first and it
+  governs: «я не хочу, чтобы мы рассматривали функционал, да, как газ должен работать …
+  Единственное, что мы можем рассматривать из-за технических ограничений в общем, да, то
+  есть, то, чтобы это работало в кооперативе, на Unity, C#, и не требовало какой-то
+  ядерный реактор.» So exactly THREE constraints may shape a requirement: it must work in
+  CO-OP, it must be buildable in Unity with C#, and it must not need a nuclear reactor.
+  Nothing about how the current gas simulation happens to work may enter — not the cell
+  size, not the transfer ceiling, not the render payload, not the impulse primitive. Those
+  facts exist and are recorded in `i-engine-numbers-belong-to-the-old-concept`; they are
+  for the CHECK that comes after, and quoting them while requirements are being written is
+  the exact contamination he is objecting to.
+  READING NOTE, flag it to him in one line rather than guessing: one sentence of his
+  dictation reads «Я хочу, чтобы мы газ рассматривали с учетом каких-то особенностей
+  текущей симуляции», which contradicts the sentence before it and the sentence after it.
+  Everything around it says the opposite, so it is read here as a dictation slip for «не
+  хочу». If that reading is wrong, ROW 0's rule inverts and he must say so.
+
+  HIS DECISION LADDER, recorded verbatim in substance and NOT to be pre-empted by any leg.
+  He states the reason first: «мы не хотим делать посредственно игру, да, потому что у нас
+  уже есть движок … я столько симуляции газа сидел, я не хочу сейчас делать посредственную
+  игру из-за legacy сейчас момента.» Then the branches, his: (1) write the requirements the
+  game needs to be interesting to play and to develop; (2) check the engine against them —
+  fits, OK; needs fixing, OK; (3) needs replacing entirely and the existing code actively
+  gets in the way → then a completely different concept is on the table, possibly a
+  different game, because gas is currently held only by the time already sunk into it;
+  (4) if the requirements cannot be implemented AT ALL in co-op on Unity and C# → the
+  requirements get cut; (5) if they can be implemented but not with our gas simulation →
+  the gas simulation comes out and we look again. Liquid he treats as a separate system and
+  a separate question.
+
+  TWO OBJECTIONS THIS LEG MUST PUT TO HIM, because both change what the ladder returns,
+  and neither is this leg's to decide.
+  (a) «МАКСИМАЛЬНЫЕ требования» makes the gate vacuous. A maximal set always exceeds any
+  engine, so branch 2 can only ever answer «replace entirely» and the ladder stops telling
+  him anything. The recommendation is the MINIMUM set without which the game is not worth
+  playing or developing — which is still engine-blind, still his, and is the only version
+  of the test that can come back «fits» or «needs a fix» rather than always «rebuild».
+  (b) «наша симуляция газа» is not one thing, and a rebuild verdict will overshoot by
+  weeks if it is treated as one. It is at least four separable layers: the per-cell
+  transport rule; the determinism-and-replication contract that makes two machines agree;
+  the render contract; and the structure/topology layer. The middle one is
+  CONCEPT-INDEPENDENT — it is what makes co-op possible at all, it is the most expensive
+  thing already gate-proven, and ANY simulation he picks instead, liquid included, needs
+  the same guarantee. So branch 5 must name WHICH layer comes out. The honest symmetric
+  risk belongs in the same sentence: the failure mode opposite to «a mediocre game because
+  of legacy» is arriving in month three with neither a game nor an engine and October gone,
+  so the CHECK gets a named budget rather than being open-ended.
+  ROUTE NOTE for branch 3: «a completely different concept, possibly a different game»
+  collides with CHARTER's mission, which is to finish THIS cooperative game. `map` has no
+  authority over CHARTER. If that branch ever fires it is a `frame` decision, and it joins
+  the frame need already booked as `i-october-route-not-a-condition` and
+  `d-october-route-charter`. Name the route; do not open it.
+
+  WHAT THIS LEG TAKES FROM HIM, at ENVELOPE level and NOT as a full design: (a) the rough
+  bounds of one section — height especially, since he expects it constrained now, and width
+  and length; (b) which phenomena the game needs at all, jets named by him explicitly, and
+  whether a phenomenon may be placed by an author or must always follow from a player's
+  action; (c) how passing is meant to work, which joins ROW 1; (d) his answer to objection
+  (a) above, because it decides what the requirement set even is. THEN a separate bounded
+  engineering leg answers, per requirement: satisfied today / needs a fix / needs a
+  rewrite and of which layer / impossible in co-op on this stack. That leg is technical and
+  is not this one — his own rule, «технические решения … в технических чатах».
   NOTE A STANDING RULE HE IS OVERRIDING FOR THIS CLASS ONLY, so no future leg reads it as
   a contradiction: `i-substance-passage-open-questions` records his rule that a question is
   discussed only once a concrete task has stopped on it, and it books size and route as
@@ -81,7 +130,8 @@ context: |
   admitted phenomena he now wants the opposite — defined up front, before the engine is
   taken as given. That is his call and it is recorded as his.
   KEEP THIS ROW SMALL. The danger is obvious and it has already killed a node here:
-  a requirements row can expand into a full design leg. Envelope and admission only.
+  a requirements row can expand into a full design leg. Envelope, admission, and the
+  minimum-versus-maximum ruling only.
 
   ROW 1 — V4, and it is the one that matters most here. Criterion 5 says «Один проходим,
   второй нет». That introduces PASSABILITY as a property of the substance, and nothing
