@@ -1,3 +1,12 @@
+**WITHDRAWN 2026-07-26 — not failed, never dispatched.** The owner reset the
+concept of `g-37a1` the same day: the carried ball and every cargo-transport
+mechanic are out, and the whole game is interaction with the substance. This CALL
+is written about the ball and the netcode under it, so it describes work that no
+longer exists. Its successor is
+`work/c-converge-g-37a1-substance-passage-001-call.md`. Kept as a receipt; do not
+dispatch. Receipt of the decision:
+`history/2026-07-26-s-map-substance-passage-concept-reset-001.md`.
+
 CALL c-converge-g-37a1-core-loop-001
 to: session
 direction: indie-game-development
