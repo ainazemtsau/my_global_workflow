@@ -68,6 +68,37 @@ context: |
   against a card two of whose criteria are still ambiguous, which is why Row 1 comes
   first in the same leg.
 
+  ROW 4 — ADDED 2026-07-27 by writer amendment, on the owner's own notes given after the
+  verification closed, in his words: «мы как бы всё говорим, что вещество, но я видел,
+  что ты тестировал именно симуляцию газа … я так понимаю, что у нас, скорее всего, будет
+  как минимум два — это газ и симуляция жидкости. То есть, соответственно, это тоже надо,
+  чтобы было продумано». He is right, and nobody had asked. Everything ever measured in
+  this direction is a GAS model. The product contains ZERO liquid or fluid model — the
+  search returns no file at all — and the only flat-surface notion anywhere is a
+  READ-TIME projection inside the coarse solver, which is the tier §7's own correction 1
+  retired as structurally unable to express digging. What state DOES record: R2 permits
+  the simulation to change «up to a different state of matter», and the concept reset
+  keeps the word «вещество» precisely so the kinds are not fixed as gases — but no leg
+  has ever priced a liquid, and «two kinds» has been read as two gases by every leg
+  since. Two things follow, and both are his to settle: (a) does «два вида вещества» in
+  criterion 5 mean two gases, or a gas and a liquid; (b) if a liquid is in, it is a
+  SECOND simulation model, not a parameter of the first — and it may be the natural
+  reading of criterion 5's «Один проходим, второй нет» (ROW 1), because a liquid is the
+  obvious impassable kind and a flat surface is the cheapest legibility there is. Put
+  ROW 1 and ROW 4 to him TOGETHER; they may have one answer. Do not decide either, and do
+  not let a liquid enter the card without his exact words. Tracked as
+  `i-substance-states-unpriced`.
+
+  ROW 5 — ADDED 2026-07-27 by the same amendment. His framing of the first outcome, in
+  his words: «первая цель — я хочу какую-то там сцену или игру получить, в которую смогу
+  сам заходить, спокойно играть в неё, да, там урезанно всё, но хотя бы чтобы руками
+  трогать». This does not change the card — criterion 1 already says it — but it is the
+  standing test for every row above: a row that does not move him closer to entering and
+  touching a scene is not worth his session. He also asked for the near-term work list in
+  plain language («там же нужен какой-то character, чтобы ходить, что-то, чтобы там
+  прорубать, и симуляция газа»). That list is `shape`'s output, not this leg's, and it is
+  the strongest argument for Option A of the routing decision.
+
   ALSO CARRY FORWARD, not as questions: `d-air-counter-visibility-001` is still open and
   is NOT to be auto-decided or inferred; and V3's canon question belongs to `review`,
   not here — may a rule decide WHERE substance can appear while the crew is already
