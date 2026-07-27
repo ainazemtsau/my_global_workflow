@@ -16,6 +16,14 @@ cell size is a setting; graded conductivity already ships; the air socket is bui
 plus the one unmeasured load-bearing claim), and §9's corrected census (nine
 contradictions, not four, and one of the four was a phantom).
 
+RETIREMENT BANNERS added 2026-07-27 by s-repair-post-concept-churn-hygiene-001. Six more
+places in this file still carried false routing authority and now say so inline: §3's note
+on the sixth law, §6 (stale on a second horn), §7's "cheap versus expensive" reconciliation
+sentence, §9's census (a partial change list, never a completeness claim), §11 (never
+amended at all — two of its three problems cite dead answers) and §14's scope. Read each
+banner BEFORE the text under it. Nothing was rewritten and no evidence was removed; prior
+bytes are in Git. Tracked as `i-artifact-sections-stale`, which closes with this pass.
+
 leg: s-converge-g-37a1-substance-passage-001 (2026-07-27, owner present)
 call: work/c-converge-g-37a1-substance-passage-001-call.md
 
@@ -112,6 +120,16 @@ crouch and be quiet). This form is the operational meaning of R10.
 the dominant type per cell. The intuitive "the invisible one is deadlier" is
 arithmetically impossible to render honestly.
 
+> **RETIRED 2026-07-27 (repair) — this note is BACKWARDS.** The GridView texel is a frozen
+> four bytes carrying the mixture's total density plus the DOMINANT type id, so a minority
+> kind is UNREPRESENTABLE. That makes the chosen polarity — "what you can see is what kills
+> you" — the one the renderer CANNOT guarantee, while the air socket charges for every
+> species present. The renderer forces nothing; it only forbids. The cheap resolution is
+> already named in product code as single-type-per-region seeding: a build-time choice, not
+> a contract change. Note also that several laws in the table above (the growing seep, the
+> burst, "aperture buys time") carry the TIMESCALE claim that `i-flow-model-unmeasured`
+> has since closed negative. Receipt: history/2026-07-27-s-converge-verify-g-37a1-digging-card-001.md (V9).
+
 ---
 
 ## 4. OWNER REQUIREMENTS, R1-R18
@@ -201,6 +219,14 @@ authorship of WHERE, and with it the sense that the mistake was his.
 ---
 
 ## 6. THE FINDING THAT OUTRANKS THE REST — **MISSTATED. See §6-BIS.**
+
+> **STALE ON A SECOND HORN — banner added 2026-07-27 (repair).** §6-BIS repaired "space you
+> need" and left "ore behind it" standing as if it were still banned, although card
+> criterion 10 now reads «Лут и экономика не запрещены и входят по общему правилу» and
+> R18's ban half is DELETED. So two of the three horns below are dead, not one. Worse,
+> §6-BIS's own repair list cites that deleted R18 ban as a live ban list and numbers the
+> card's clauses in the PRE-REWRITE order ("done_when 9", "done_when 2"), which no longer
+> matches TREE.md. **Read the ban list from TREE.md `g-37a1`, never from here.**
 
 **There is no reason to open a pocket.** Reached independently by three adversaries;
 missed by both the owner and the session.
@@ -362,6 +388,14 @@ reconciliation offered and accepted in-leg: the difference between "cheap" and
 "expensive" is mostly **cell size**, not two codebases — so build the new substrate
 at a coarse cell size, with the size as a setting.
 
+> **THE RECONCILIATION SENTENCE IS RETIRED — banner added 2026-07-27 (repair).** It is false
+> once this section's own **CORRECTION 1** (below) stands. The coarse solver's problem is
+> not its price: it can only breach where a level author declared a latent portal, so under
+> a concept where the PLAYER authors WHERE it is not a cheap version of the same thing at
+> all. "Cheap versus expensive is mostly cell size" compares on the wrong axis and no
+> measurement can acquit it. The owner's recorded position in the paragraph above — the old
+> code belongs to the old concept — is unaffected and STANDS.
+
 ### FOUR CORRECTIONS TO THIS SECTION — 2026-07-27, read first-hand at commit `1a6373b8`
 
 **Recorded as EVIDENCE ONLY and deliberately not acted on.** The owner ruled in the map
@@ -498,6 +532,16 @@ The five the census missed:
 Also removed from `g-5e8c` `done_when` 5: «второй объект», which had no referent
 anywhere in live state.
 
+> **NOT A COMPLETENESS CLAIM — banner added 2026-07-27 (repair).** Independent verification
+> confirmed **five** of these nine and refuted the grounds of the rest. Item 1's
+> counterparty was the RELOCATION candidate, which the owner then refused. Item 6 is an
+> owner revision with no counterparty in state. Item 8's stated ground is false: the latency
+> clause's "vanished subject" was PROMOTED into criterion 8 of the same card in the same
+> edit. And the PHANTOM verdict on item 4 is itself false, because the old `done_when` 2 did
+> restrict tools («средство для этого, а не отдельный слой игры»). **This census is a
+> partial change list. Never cite it as "everything that changed".** Receipt:
+> history/2026-07-27-s-converge-verify-g-37a1-digging-card-001.md (V9).
+
 **A methodological note worth more than the census.** A thirty-one-item drift sweep was
 run against the whole of live state; its own independent adversary refuted **nineteen**
 of its verdicts on receipts. The nine above are what survived. No future leg should take
@@ -542,6 +586,17 @@ caught two of this leg's own claims before the owner acted on them.
 ---
 
 ## 11. THE THREE PROBLEMS DIGGING DOES NOT FIX BY ITSELF
+
+> **NEVER AMENDED — banner added 2026-07-27 (repair). Two of these three cite DEAD answers.**
+> Problem 2's cure — "the relocation objective (§6) removes the problem at the root" — points
+> at RELOCATION, which the owner REFUSED on 2026-07-27; and its only surviving forcing
+> function, the growing seep, rests on the burst timescale that `i-flow-model-unmeasured`
+> has since closed NEGATIVE. Problem 3's ground — "barred by Z3's single-counter rule" —
+> cites a rule the owner SOFTENED the same day: the word «единственный» left the card and
+> the rule survives as one held but never used to cut a working idea, so a legitimate
+> downed-state softener would be rejected here on a dead citation. **Problem 1 stands as
+> written.** This section is the one a reader consults to learn which problems are unsolved,
+> and it was the only named section the CONSUMED banner never listed.
 
 1. **The blind digger is a tax, not a gate.** Nothing stops stepping back, looking,
    and returning. It becomes a gate only if the cut **worsens while unattended** —
@@ -645,6 +700,13 @@ than live play, so three-to-four-second silent clips join the same deck.
 
 The light condition is part of the test: if the game is dark and has a flashlight,
 the test runs under that light, not under studio lighting.
+
+> **SCOPE — banner added 2026-07-27 (repair).** This test measures NAMING CONSISTENCY only.
+> It therefore cannot test card criterion 5's third clause — that the difference is visible
+> BEFORE you have entered — and it cannot test passability, which nothing in this direction
+> yet defines (`i-card-clauses-unverifiable`). Independent verification called it the
+> strongest verification instrument in either document; it is simply narrower than the
+> criterion it is cited under.
 
 ---
 

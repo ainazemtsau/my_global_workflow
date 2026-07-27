@@ -1,11 +1,13 @@
 # Strategy reset boundary
 
-> **STALE FRONTIER LINE — do not route from this entry (banner added 2026-07-27 by repair).**
+> **STALE FRONTIER LINE — do not route from this entry (banner added 2026-07-27 by repair;
+> refreshed the same day by s-repair-post-concept-churn-hygiene-001, because the banner's own
+> named frontier had itself gone stale within hours).**
 > The paragraph below still names `c-work-october-demo-basis-authoring-001` as «the sole
 > lawful frontier» and describes Demo Basis authoring as the only authorized work. That is
-> six CALLs out of date and, since 2026-07-27, wrong in substance: `g-12fd` is DROPPED and
-> the current frontier is `c-converge-g-37a1-substance-passage-001` for `g-37a1`.
-> **Read the frontier from `NOW.md` `open_calls`, never from here.** The rest of this entry —
+> seven CALLs out of date and, since 2026-07-27, wrong in substance: `g-12fd` is DROPPED.
+> **This banner deliberately names NO current frontier — read it from `NOW.md` `open_calls`,
+> never from here.** The rest of this entry —
 > the retirement of Launch Control, Canon being NONE, the archive boundary — still holds.
 > Only the narrow `review` that owns this entry may rewrite it; repair may not.
 > Tracked as `i-frontier-knowledge-stale`. Receipts:
