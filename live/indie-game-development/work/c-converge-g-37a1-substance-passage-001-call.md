@@ -46,6 +46,26 @@ context: |
   5. Air is the only counter; it drains differently in different substances and
      can be handed to a teammate.
 
+  THE LAWS OF THE SUBSTANCE — the owner named this as belonging to this outcome
+  on 2026-07-26: «определить какие-то законы вещества, хотя базовые, которым будем
+  следовать, чтобы они делали интересную игру ... на этом же будет всё остальное
+  строиться ... чтобы потом мы точно их кардинально не меняли, а возможно только
+  дополняли». Two different things must be kept apart, and mixing them is what
+  rots a design:
+  - LAWS — durable rules everything else is built on, meant to be extended and
+    not rewritten. They are a canon CANDIDATE proposed to `review`; this leg never
+    writes `knowledge/`.
+  - SETTINGS — how many substances in the first version, what each one does, the
+    numbers. They change per version and live in §WHAT.
+  ADMISSION RULE, and it is the whole point: a rule enters the law set ONLY if
+  either the first section cannot be built without it, or it has already been
+  demonstrated in a build. Everything else stays a NOTE, not a law. This is the
+  standing boundary from `CHARTER.md` premortem 3 applied in advance — the three
+  Demo Basis legs of 2026-07-26 produced eighteen independent findings and zero
+  product precisely because a complete rule set was written before anything could
+  back it. A short law set that a build can carry beats a complete one that
+  nothing can.
+
   TWO OWNER CORRECTIONS, recorded so this leg does not re-introduce them.
   «Лёгкое и тяжёлое» is a TESTING BASIS, never law: the substances may carry other
   properties, and may not be gases at all — hence the term stays «вещество». And
@@ -109,12 +129,19 @@ done_when: |
      and the cost on the owner's own machine; and «different substances» into what
      a player must be able to tell apart, from what distance, in what light, and
      how that is measured.
-  4. Law 4 has an acceptance criterion that a fresh person can run — not a
-     developer's opinion.
-  5. Forward-clean and backward-clean per the play's done-when; `§SIGNOFF`
+  4. A MINIMAL LAW SET for the substance exists as its own named section,
+     separate from the settings, with each law carrying which of the two
+     admission conditions it met — needed to build the first section, or already
+     demonstrated in a build. Rules that meet neither are listed as notes, under
+     that name. The set is proposed as a canon candidate for `review`; this leg
+     does not write `knowledge/`. A law set longer than the first section can
+     carry is a defect of this leg, not a thoroughness.
+  5. Law 4 of the card — at-a-glance distinguishability — has an acceptance
+     criterion that a fresh person can run, not a developer's opinion.
+  6. Forward-clean and backward-clean per the play's done-when; `§SIGNOFF`
      recorded for Define and Resolve with the owner's exact words.
-  6. Owner forks are batched and none is silently auto-decided.
-  7. `next` routes to `converge-arch` if the node types heavy, otherwise to
+  7. Owner forks are batched and none is silently auto-decided.
+  8. `next` routes to `converge-arch` if the node types heavy, otherwise to
      `converge-verify`. Shape runs only after verification passes.
 return: |
   One `converge` RESULT with the triage line, the signed glossary and §WHAT, the
