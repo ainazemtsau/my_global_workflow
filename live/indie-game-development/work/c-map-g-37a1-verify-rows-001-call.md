@@ -1,3 +1,14 @@
+superseded_by: work/c-map-g-37a1-core-requirements-001-call.md — UNSPENT, never dispatched.
+  Amended three times in one evening as the owner's instruction sharpened, and then
+  superseded on 2026-07-27 because its entry point was wrong: it opened on the section
+  envelope, and he ruled that dimensions cannot be discussed apart from the concept and
+  that what is needed first is the minimal CORE — which mechanics must work for this to be
+  a game. Its rows are not lost: the passability row and the gas-versus-liquid row become
+  core-mechanic questions in the successor, the g-5e8c row rides along there unchanged,
+  the engine-blind rule and the decision ladder are recorded as issues, and the routing
+  decision is superseded by his own answer (requirements first, then the check, then the
+  plan). Kept for its record of how the instruction sharpened; it has no authority.
+
 CALL c-map-g-37a1-verify-rows-001
 to: session
 direction: indie-game-development
