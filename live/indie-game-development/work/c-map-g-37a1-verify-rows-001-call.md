@@ -29,6 +29,60 @@ context: |
   throw. That is not this leg's business, but it is why nobody should treat the
   substance step as cheap.
 
+  ROW 0 — ADDED 2026-07-27 by writer amendment, and it comes FIRST, because the owner's
+  own words re-order this leg: «Мы газ, мы отсюда запроектировали под другой концепт. Мы
+  тогда думали, что у нас будут большие комнаты, то сейчас, я так понимаю, у нас по
+  высоте, скорее всего, будет ограничено, ну там по ширине, по длине так же. И, то есть,
+  я бы сначала хотел определить, какие требования четкие, понятные, да, мы хотим с
+  Джетами, с чем-то еще, как проходить … Мы не можем взять то, что есть, и запихать новую
+  концепцию. Так как минимум стоит проверить.»
+
+  HE IS RIGHT, AND THE VERIFICATION'S OWN PRESENTATION WAS AT FAULT. Two different sorts
+  of fact were reported as one. What is TRUE OF THE SOLVER regardless of any concept, and
+  cannot be tuned away: the per-step transfer ceiling that comes from the stability floor;
+  the fact that changing the flow numerator moves the ENDPOINT and never the TIMESCALE; the
+  fact that a real per-cell capacity clamps the transfer DOWN; the frozen per-cell render
+  payload that can depict only one kind per cell; the absence of any liquid model; and the
+  absence of any runtime way to change a face from solid to open. What was merely the OLD
+  CONCEPT'S PARAMETERS, inherited from a plan built for roughly 150 large rooms and one
+  huge continuous level, and never recomputed since the concept shrank twice: the 50 cm
+  substance cell and 25 cm structure cell; twelve co-resident kinds per cell; the pocket
+  and room sizes every timing number was computed against; the occupancy figure; and the
+  step rate — for which NO constant exists in the product at all, only an editable field in
+  a demo director at 0.10-0.16 s. R1 in the artifact already says this in one line («Cell
+  size (50 cm) was built for the previous concept; it may be recomputed»), and the
+  verification quoted its consequences without leading with it.
+  RECOMPUTED at a plausible NEW scale, and this is why the row matters: at a one-metre
+  substance cell, a small pocket of one to two cubic metres vents in single-digit seconds
+  through an open face, and the same pocket through a narrow notch takes tens of seconds —
+  so «aperture buys time, not safety» WORKS at the new scale, while the same pocket at the
+  old 50 cm cell is a minutes-long creep. The seconds-scale burst is not out of reach; it
+  is out of reach ONLY at the old concept's numbers. This is a derivation, not a
+  measurement, and it does not discharge the envelope decision.
+
+  SO THE ORDER OF THIS LEG IS: requirements first, engine second. Take from him, at
+  ENVELOPE level only and NOT as a full design: (a) the rough bounds of one section —
+  height especially, since he expects it constrained now, and width and length; (b) which
+  phenomena he WANTS admitted at all, jets named by him explicitly, and whether they may
+  be placed by an author or must always be player-caused; (c) how passing is meant to
+  work, which joins ROW 1. Then, and only then, does an engineering leg check whether the
+  existing gas simulation fits those requirements or must be rebuilt — his words, «как
+  минимум стоит проверить», and the answer is a technical leg's, not this one's.
+  ONE RECORDED FACT FOR (b), evidence only: the engine already ships an impulse primitive
+  whose own comment names an eruption burst, a vent toggle and a sustained vent, so a jet
+  is the one wanted phenomenon that has a primitive waiting. The converge dismissed it as
+  a hand-placed script that Z5 forbids — a reading that does not apply when the player's
+  own cut causes it. Whether jets are admitted is HIS requirement question, not an
+  engineering verdict.
+  NOTE A STANDING RULE HE IS OVERRIDING FOR THIS CLASS ONLY, so no future leg reads it as
+  a contradiction: `i-substance-passage-open-questions` records his rule that a question is
+  discussed only once a concrete task has stopped on it, and it books size and route as
+  open owner content to be answered on a real level. For the SPACE ENVELOPE and the
+  admitted phenomena he now wants the opposite — defined up front, before the engine is
+  taken as given. That is his call and it is recorded as his.
+  KEEP THIS ROW SMALL. The danger is obvious and it has already killed a node here:
+  a requirements row can expand into a full design leg. Envelope and admission only.
+
   ROW 1 — V4, and it is the one that matters most here. Criterion 5 says «Один проходим,
   второй нет». That introduces PASSABILITY as a property of the substance, and nothing
   in this direction defines it: no substance law, no requirement R1-R27, and no line of
