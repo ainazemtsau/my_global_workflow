@@ -1,11 +1,11 @@
-**WITHDRAWN 2026-07-26 — not failed, never dispatched.** The owner reset the
+**WITHDRAWN 2026-07-27 — not failed, never dispatched.** The owner reset the
 concept of `g-37a1` the same day: the carried ball and every cargo-transport
 mechanic are out, and the whole game is interaction with the substance. This CALL
 is written about the ball and the netcode under it, so it describes work that no
 longer exists. Its successor is
 `work/c-converge-g-37a1-substance-passage-001-call.md`. Kept as a receipt; do not
 dispatch. Receipt of the decision:
-`history/2026-07-26-s-map-substance-passage-concept-reset-001.md`.
+`history/2026-07-27-s-map-substance-passage-concept-reset-001.md`.
 
 CALL c-converge-g-37a1-core-loop-001
 to: session
@@ -21,7 +21,7 @@ context: |
   AUTHORITY. `live/indie-game-development/CHARTER.md`;
   `live/indie-game-development/TREE.md` (g-37a1, and the sibling edge to g-2b7f);
   `live/indie-game-development/NOW.md`;
-  `live/indie-game-development/history/2026-07-26-s-map-october-demo-order-reset-001.md`;
+  `live/indie-game-development/history/2026-07-27-s-map-october-demo-order-reset-001.md`;
   `live/indie-game-development/knowledge/canon-clean-authority-reset.md`.
   Durable game Canon is NONE. `work/concept-frame-v1.md` is an owner-approved
   candidate, not admitted authority. `work/october-demo-basis-v3.md` is a SOURCE

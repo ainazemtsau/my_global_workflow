@@ -1,6 +1,18 @@
 # Strategy reset boundary
 
-accepted: 2026-07-24   updated: 2026-07-26   read_by: day, frame and map before current planning   status: current
+> **STALE FRONTIER LINE — do not route from this entry (banner added 2026-07-27 by repair).**
+> The paragraph below still names `c-work-october-demo-basis-authoring-001` as «the sole
+> lawful frontier» and describes Demo Basis authoring as the only authorized work. That is
+> six CALLs out of date and, since 2026-07-27, wrong in substance: `g-12fd` is DROPPED and
+> the current frontier is `c-converge-g-37a1-substance-passage-001` for `g-37a1`.
+> **Read the frontier from `NOW.md` `open_calls`, never from here.** The rest of this entry —
+> the retirement of Launch Control, Canon being NONE, the archive boundary — still holds.
+> Only the narrow `review` that owns this entry may rewrite it; repair may not.
+> Tracked as `i-frontier-knowledge-stale`. Receipts:
+> `history/2026-07-27-s-map-october-demo-order-reset-001.md`;
+> `history/2026-07-27-s-map-substance-passage-concept-reset-001.md`.
+
+accepted: 2026-07-24   updated: 2026-07-26   read_by: day, frame and map before current planning   status: current, with a stale frontier line — see banner
 
 The owner retired Launch Control. The clean strategic reset has an owner-approved CHARTER and shaped TREE root `g-0c26`; there is no active bet or product execution authority.
 Frame and roadmap completed on 2026-07-25. The sole lawful frontier is the owner-present CALL `c-work-october-demo-basis-authoring-001` for parked specification `g-12fd`. It authorizes Demo Basis authoring only, not product work, Steam work, activation, tasks or lanes.

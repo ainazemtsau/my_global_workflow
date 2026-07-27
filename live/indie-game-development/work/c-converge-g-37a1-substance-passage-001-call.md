@@ -12,8 +12,8 @@ context: |
   AUTHORITY. `live/indie-game-development/CHARTER.md`;
   `live/indie-game-development/TREE.md` (g-37a1, and the sibling edges to g-2b7f
   and g-5e8c); `live/indie-game-development/NOW.md`;
-  `live/indie-game-development/history/2026-07-26-s-map-substance-passage-concept-reset-001.md`;
-  `live/indie-game-development/history/2026-07-26-s-map-october-demo-order-reset-001.md`;
+  `live/indie-game-development/history/2026-07-27-s-map-substance-passage-concept-reset-001.md`;
+  `live/indie-game-development/history/2026-07-27-s-map-october-demo-order-reset-001.md`;
   `live/indie-game-development/knowledge/canon-clean-authority-reset.md`.
   Durable game Canon is NONE. `work/october-demo-basis-v3.md` and
   `work/concept-frame-v1.md` are SOURCES with zero authority, and much of the

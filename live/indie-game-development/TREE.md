@@ -1,6 +1,6 @@
 # Goal tree: indie-game-development
 
-owner_approved: root 2026-07-25 — history/2026-07-25-s-frame-october-demo-foundation-001.md; roadmap 2026-07-25 — history/2026-07-25-s-map-october-demo-release-roadmap-001.md (`Утверждаю точный TREE из шести outcomes в этой редакции.`; `Утверждаю добавление outcome_kind: specification в карточку g-12fd; остальной точный TREE без изменений.`); order reset 2026-07-26 — history/2026-07-26-s-map-october-demo-order-reset-001.md (`согласен со всеми рекомендациями`; `1 принимаю  все карточки`; `2 Утверждаю точный TREE из семи результатов в этой редакции`); concept reset of g-37a1 2026-07-26 — history/2026-07-26-s-map-substance-passage-concept-reset-001.md (`да` on the exact eleven-point card after five fixed laws and two owner corrections: light/heavy not fixed as law, route direction left open)
+owner_approved: root 2026-07-25 — history/2026-07-25-s-frame-october-demo-foundation-001.md; roadmap 2026-07-25 — history/2026-07-25-s-map-october-demo-release-roadmap-001.md (`Утверждаю точный TREE из шести outcomes в этой редакции.`; `Утверждаю добавление outcome_kind: specification в карточку g-12fd; остальной точный TREE без изменений.`); order reset 2026-07-27 — history/2026-07-27-s-map-october-demo-order-reset-001.md (`согласен со всеми рекомендациями`; `1 принимаю  все карточки`; `2 Утверждаю точный TREE из семи результатов в этой редакции`); concept reset of g-37a1 2026-07-27 — history/2026-07-27-s-map-substance-passage-concept-reset-001.md (`да` on the exact eleven-point card after five fixed laws and two owner corrections: light/heavy not fixed as law, route direction left open)
 
 - id: g-0c26
   goal: Текущая кооперативная игра доведена до конца и выпущена в Steam как платный продукт; достойное публичное демо прошло октябрьский Steam Next Fest 2026 года, а фактический путь от текущего состояния до выпуска зафиксирован как повторно используемый процесс одиночной разработки.
@@ -31,7 +31,7 @@ owner_approved: root 2026-07-25 — history/2026-07-25-s-frame-october-demo-foun
         11. Если 2026-08-07 участок не проходится вдвоём целиком, сокращается объём, а не переносится срок.
       why: Первый причинный результат: даёт владельцу играбельную правду в реальной сборке и проверяет единственное, чего нет ни у одного конкурента, — вещество как среду, сквозь которую идут вчетвером. Он же производит геймплейные скриншоты, без которых g-2b7f не станет публичным. Всё нерешённое — место, число и свойства веществ, направление маршрута, приборы, реакции — решается позже и этот результат не блокирует.
       status: parked
-      detail: history/2026-07-26-s-map-october-demo-order-reset-001.md
+      detail: history/2026-07-27-s-map-substance-passage-concept-reset-001.md
       children: []
 
     - id: g-2b7f
@@ -47,7 +47,7 @@ owner_approved: root 2026-07-25 — history/2026-07-25-s-frame-october-demo-foun
         8. Если 2026-08-31 страница не публична, октябрьский маршрут закрыт явным решением владельца; молчаливый перенос запрещён.
       why: Условие участия Valve — уже опубликованная публичная страница, а не сборка; поэтому этот результат идёт параллельно с g-37a1 с первого дня и зависит от него только скриншотами. Он же начинает накопление вишлистов, которое позже ничем не ускоряется.
       status: parked
-      detail: history/2026-07-26-s-map-october-demo-order-reset-001.md
+      detail: history/2026-07-27-s-map-october-demo-order-reset-001.md
       children: []
 
     - id: g-5e8c
@@ -62,7 +62,7 @@ owner_approved: root 2026-07-25 — history/2026-07-25-s-frame-october-demo-foun
         7. Если 2026-09-03 кандидата сборки нет, содержание демо сокращается до минимального порога качества CHARTER, а остаток выбрасывается, а не переносится.
       why: Зависит от g-37a1: превращает доказанный участок в то, во что действительно играют, и является единственным местом, где решаются длина захода, устройство привалов и смысл провала.
       status: parked
-      detail: history/2026-07-26-s-map-october-demo-order-reset-001.md
+      detail: history/2026-07-27-s-map-substance-passage-concept-reset-001.md
       children: []
 
     - id: g-8a41
@@ -76,7 +76,7 @@ owner_approved: root 2026-07-25 — history/2026-07-25-s-frame-october-demo-foun
         6. Если 2026-09-15 незнакомые люди не доходят до результата без помощи, публикуется сокращённое демо, а не то же самое.
       why: Это единственный источник сигнала, который владелец не может подкрутить себе сам, работая в одиночку; Steam Playtest даёт его бесплатно, без скриншотов и трейлера, и не тратит слот фестиваля. Он же закрывает порог качества CHARTER раньше, чем наступают сроки Valve.
       status: parked
-      detail: history/2026-07-26-s-map-october-demo-order-reset-001.md
+      detail: history/2026-07-27-s-map-october-demo-order-reset-001.md
       children: []
 
     - id: g-7b42
@@ -90,7 +90,7 @@ owner_approved: root 2026-07-25 — history/2026-07-25-s-frame-october-demo-foun
         6. Здесь не делаются: отдельная страница демо, материалы сверх обязательных, широкий маркетинг.
       why: Зависит от g-5e8c, g-8a41 и уже публичной страницы g-2b7f; закрывает октябрьскую часть корня и разблокирует g-9d16. Публикация демо заранее, а не на фестивале, — единственный измеренный способ не потратить единственный слот впустую.
       status: parked
-      detail: history/2026-07-26-s-map-october-demo-order-reset-001.md
+      detail: history/2026-07-27-s-map-october-demo-order-reset-001.md
       children: []
 
     - id: g-9d16
@@ -121,7 +121,7 @@ owner_approved: root 2026-07-25 — history/2026-07-25-s-frame-october-demo-foun
         Снято 2026-07-26 вместе с узлом.
       why: Снят владельцем 2026-07-26 — требовал зафиксировать читаемый момент и предел публичных обещаний до появления сборки, способной их подтвердить; три ноги, восемнадцать находок независимых проверок, ноль продуктового доказательства. Содержание сохранено: восемь MUST живут в готовности g-37a1 и g-5e8c, списки «не делаем» — в каждой карточке, предел публичных обещаний — в g-2b7f, текст work/october-demo-basis-v3.md остаётся источником без власти.
       status: dropped
-      detail: history/2026-07-26-s-map-october-demo-order-reset-001.md
+      detail: history/2026-07-27-s-map-october-demo-order-reset-001.md
       children: []
 
 END_OF_FILE: live/indie-game-development/TREE.md

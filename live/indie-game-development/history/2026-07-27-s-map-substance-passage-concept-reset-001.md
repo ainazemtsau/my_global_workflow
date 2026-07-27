@@ -5,7 +5,7 @@ play: map (roadmap-node fast path — one card revised under an approved parent)
 node: g-37a1 (with a light edit to g-5e8c)
 call: none — opened from the owner's plain message per KERNEL §2 (content of an
   approved roadmap card changed → map)
-date: 2026-07-26
+date: 2026-07-27
 
 ## outcome
 
@@ -174,7 +174,7 @@ twelve weeks is impossible (PEAK's core was four).
 
 `live/indie-game-development/history/`
 - Save this full RESULT once as
-  `2026-07-26-s-map-substance-passage-concept-reset-001.md`.
+  `2026-07-27-s-map-substance-passage-concept-reset-001.md`.
 
 ## captures
 
@@ -261,4 +261,4 @@ return: |
 budget: one owner-present session
 surface: a FRESH chat with the owner present — never this chat
 
-END_OF_FILE: live/indie-game-development/history/2026-07-26-s-map-substance-passage-concept-reset-001.md
+END_OF_FILE: live/indie-game-development/history/2026-07-27-s-map-substance-passage-concept-reset-001.md

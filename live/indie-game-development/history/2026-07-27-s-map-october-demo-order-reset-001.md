@@ -4,7 +4,7 @@ direction: indie-game-development
 play: map
 node: g-0c26 (roadmap, children)
 call: c-map-october-demo-order-reset-001
-date: 2026-07-26
+date: 2026-07-27
 
 ## outcome
 
@@ -248,7 +248,7 @@ path of the genre, and so g-9d16 stays the real objective.
 
 `live/indie-game-development/history/`
 - Save this full RESULT once as
-  `2026-07-26-s-map-october-demo-order-reset-001.md`.
+  `2026-07-27-s-map-october-demo-order-reset-001.md`.
 
 ## captures
 
@@ -341,4 +341,4 @@ return: |
 budget: one owner-present session
 surface: any session with the owner present; a fresh chat
 
-END_OF_FILE: live/indie-game-development/history/2026-07-26-s-map-october-demo-order-reset-001.md
+END_OF_FILE: live/indie-game-development/history/2026-07-27-s-map-october-demo-order-reset-001.md
