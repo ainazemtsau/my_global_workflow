@@ -67,4 +67,34 @@ return: |
 budget: one fresh session
 surface: a FRESH chat. The owner is not required for the refutation itself.
 
+disposition: |
+  DISCHARGED 2026-07-27 by s-converge-verify-g-37a1-digging-card-001. Outcome FAIL:
+  both build attacks failed on named rows, nine findings V1-V9, no §SIGNOFF, no shape
+  opened. Receipt:
+  history/2026-07-27-s-converge-verify-g-37a1-digging-card-001.md.
+  Successor: work/c-map-g-37a1-verify-rows-001-call.md (map, owner present, short).
+
+  WHICH OF THIS CALL'S QUESTIONS CLOSED.
+  - Must-attack 1 CLOSED: the overfill numerator cannot move the burst timescale at all;
+    the per-tick move is capped at 1/12 of its driver by an enforced stability floor, so
+    the numerator cancels out of the time constant and a real capacity clamps flow DOWN.
+    What the card must lose: nothing - no criterion requires a burst. What the ARTIFACT
+    must lose is named in V2 and i-artifact-sections-stale.
+  - Must-attack 2 CLOSED: Z4's fourth clause fails as written, but the card holds against
+    the crude re-import (criterion 7 rejects injection, criterion 3 rejects relocation);
+    the surviving construct is a runtime porosity mutation, which the engine cannot
+    express today. The owner's question is narrowed to one sentence and routed to review.
+  - Verifiable by an outsider: sixty atoms mapped; criterion 1, criterion 5's two
+    load-bearing clauses and five of criterion 9's atoms have no coverage anywhere, and
+    criterion 5 carries a property nothing in the direction defines. See V1, V4, V6.
+  - Design or canon law still inside the card: nothing that the map CALL's boundary
+    forbade. Criterion 3 is the owner's own narrow B4 form and criterion 7 restates
+    conservation, both by his approval; the smuggling that was found is the reverse -
+    the card no longer requires the substance to move at all, which is recorded as a
+    consequence rather than as a defect the verifier may repair.
+  - Also-worth-attacking items: criterion 5's «видно до того, как в него вошли» is
+    UNREACHABLE for a minority kind on the frozen render contract (V5); criteria 8 and 9
+    are two deliverables inside one outcome, and neither subsumes the other; the drift
+    survivors in §9 are FIVE, not nine (V9c).
+
 END_OF_FILE: live/indie-game-development/work/c-converge-verify-g-37a1-digging-card-001-call.md
