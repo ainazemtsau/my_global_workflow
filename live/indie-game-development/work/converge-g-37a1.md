@@ -7,6 +7,15 @@ network subsystems).
 status: CHECKPOINT, not complete. §GLOSSARY and §WHAT were not produced, because
 the CONTENT of the node changed during the leg. See §9.
 
+CONSUMED 2026-07-27 by s-map-g-37a1-digging-concept-001, which rewrote the card and
+amended this artifact in four places. Read those amendments BEFORE the body they
+correct: §6-BIS (the finding of §6 is misstated — "space you need" was never banned),
+§4 (R18's ban half deleted; R19–R22 withdrawn with their numbers retired; R23–R27
+added), §7's four first-hand corrections (the coarse solver cannot express digging;
+cell size is a setting; graded conductivity already ships; the air socket is built —
+plus the one unmeasured load-bearing claim), and §9's corrected census (nine
+contradictions, not four, and one of the four was a phantom).
+
 leg: s-converge-g-37a1-substance-passage-001 (2026-07-27, owner present)
 call: work/c-converge-g-37a1-substance-passage-001-call.md
 
@@ -133,9 +142,39 @@ arithmetically impossible to render honestly.
 - **R17** Legibility through the GROUND: the soil reads differently near a pocket.
   Constraint: the stain must be a MARK, not a store — it holds and releases nothing,
   or it becomes a sink and breaks Z1.
-- **R18** Tools and upgrades are not excluded from the concept. Banned: a second
-  counter, and an inventory/crafting/economy layer. Upgrades belong **between**
-  sections, because earning and spending are only possible there.
+- **R18** *(ban half DELETED 2026-07-27 by the owner — «R18 надо удалить, оно
+  невалидно», aimed at the economy ban; the permission and the placement survive
+  after he was shown the entry's three parts.)* Tools and upgrades are not excluded
+  from the concept. Upgrades belong **between** sections, because earning and
+  spending are only possible there. ~~Banned: a second counter, and an
+  inventory/crafting/economy layer.~~ — superseded by R26.
+- **R19–R22 WITHDRAWN 2026-07-27, numbers retired and never reused.** They were this
+  session's transcription of the owner's in-session brainstorm (a finite oxygen hose;
+  pockets large enough that detours cost time; value hidden in a pocket; a reaction
+  seeping from an opened pocket). He refused them as requirements: «это не
+  требование, это просто первое, что пришло в голову, я даже особо не размышлял над
+  этим». They remain ideas on the table with no authority, weighed on the same
+  footing as any other candidate.
+- **R23** The one-way law is CUT. «возвращаемся назад, естественно возвращаемся. Это
+  должно быть убрано.» Now that the crew digs, going back is natural; the rule was
+  authored by him earlier the same day under the walk-through concept, where the
+  route always went upward.
+- **R24** Every recorded law is under skepticism and is re-examined one at a time,
+  because the concept changed twice in days and the record holds leftovers: «сейчас
+  какие-то есть законы, ко всем относимся тогда со скепсисом… у нас какой-то микс
+  произошёл». Air was named specifically: «также, кстати, с воздухом. Это у нас
+  раньше было, сейчас, возможно, стоит и пересмотреть.»
+- **R25** His own vision gets NO priority: «не надо моё видение ставить каким-то
+  приоритетным». The answer that is right outranks the answer that is his.
+- **R26** The bar for any additional mechanic: first how hard it is to implement, then
+  what profit it gives. «Она должна давать невероятный профит. Не чуть-чуть, не
+  немножко, а прям чёткий, понятный профит. Только тогда её берём.» A mechanic that
+  is merely somewhat better is REJECTED. This is now the sole guard where the deleted
+  bans used to stand — loot and economy are not banned and enter only through it.
+- **R27** The network basis is NOT deferred: co-op follows the first playable core
+  immediately, and from then on the whole game is built on it. «Это 100%.» Ground:
+  recorded research that developers who deferred netcode paid disproportionately to
+  retrofit it. The core must start both alone and with a partner on a second machine.
 
 ---
 
@@ -161,7 +200,7 @@ authorship of WHERE, and with it the sense that the mistake was his.
 
 ---
 
-## 6. THE FINDING THAT OUTRANKS THE REST
+## 6. THE FINDING THAT OUTRANKS THE REST — **MISSTATED. See §6-BIS.**
 
 **There is no reason to open a pocket.** Reached independently by three adversaries;
 missed by both the owner and the session.
@@ -183,6 +222,48 @@ what sits on the exit. This simultaneously supplies the reason to touch the
 substance, kills "waiting is optimal", and gives the blind digger a live clock.
 
 It is UNTESTED, and it changes the card's goal sentence. Owner's, in `map`.
+
+---
+
+## 6-BIS. THE CORRECTION — added 2026-07-27 by s-map-g-37a1-digging-concept-001
+
+**The finding above is wrong as stated, and the error is a bookkeeping one.** Verified
+first-hand by two blind strands and confirmed by a third: **"space you need" was never
+banned by anything in this direction.** The actual ban lists are `done_when` 9 (art
+beyond the cheapest, level generation, economy, progression, monsters, combat, story,
+and substance-versus-loose-object physics), `done_when` 2's cargo clause, and R18's
+deleted half. Space is in none of them — and `done_when` 2 names «пройти сквозь него»
+as one of three player verbs under the owner's own `да`. One of the three horns was
+scored as banned by association, and that error is what produced the finding.
+
+**THE REASON, recorded by the owner on 2026-07-27 and costing no new mechanic:** rock
+costs time, time costs air, and **a pocket is open space nobody had to cut**, sold at
+the price of breathing in it. Going around a pocket of diameter *d* costs roughly
+*πd/2* of extra rock; crossing costs *d* of walking at a higher air rate. One number
+decides it, and the same number makes the two kinds mean genuinely different things —
+one is a road, the other a wall — which is what `done_when` 5 exists to make visible.
+Two conditions travel with it: the ground mark must GRADE with pocket size, not merely
+signal presence, or a breach still reads as luck; and the per-kind air-rate gap must be
+about an order of magnitude, or the substance decays into what Z5 itself calls a zone.
+
+**REFUSED by the owner, on merit:** RELOCATION (§6's own answer — the price three
+adversaries demanded was finally supplied and it convicts rather than acquits; it also
+restores the un-abandonable place he himself identified as the Oxygen Not Included
+defect); the hunt for breath; and the cleanup objective, which was his own signed
+wording in the now-archived concept frame. **REFUSED on arithmetic, not authorship:**
+the hose family — a hard length budget on a readable ground either leaves a
+pocket-free route feasible, so route-around wins, or leaves exactly one feasible
+route, which is the authored breach panel computed instead of placed, and worse,
+because the player cannot see it to resent it.
+
+**ACCEPTED FOR A LATER ITERATION, not rejected** («стоит взять на вооружение, но это
+как бы не в первой итерации»): rock as a slow valve; air in the ground; the substance
+as the excavator; and his own extension of the second — air as a separate gas whose
+pockets you open in order to breathe.
+
+**His own doubt, recorded so a playtest settles it and not an argument:** the accepted
+reason may be too static — one trade repeated. The analysis named the same weakness
+independently.
 
 ---
 
@@ -281,6 +362,58 @@ reconciliation offered and accepted in-leg: the difference between "cheap" and
 "expensive" is mostly **cell size**, not two codebases — so build the new substrate
 at a coarse cell size, with the size as a setting.
 
+### FOUR CORRECTIONS TO THIS SECTION — 2026-07-27, read first-hand at commit `1a6373b8`
+
+**Recorded as EVIDENCE ONLY and deliberately not acted on.** The owner ruled in the map
+leg that technical decisions belong in technical chats: «технические решения сейчас не
+особо хочу обсуждать и хочу, чтобы они были четко проверены уже именно в технических
+чатах. То есть мы сейчас пишем требования, что должно быть без привязки к нашей
+технической реализации.» Three of the four lower the price.
+
+1. **The unresolved contradiction above is SETTLED, and no measurement can acquit the
+   coarse solver.** `CoarseBreachLayer` validates every breach at enqueue against a
+   *pre-declared, not-yet-materialized* breach surface, and `CoarseSectorGraph` builds
+   breachable surfaces *pre-declared as latent portals*. It can only breach where a
+   level author said it may — so under a concept where the player authors WHERE, the
+   coarse solver is not "already the game": it is a gate-passed, bit-exact
+   implementation of **the authored breach panel the owner rejected**. The comparison
+   §7 demanded ("cheap versus expensive") is the wrong axis. The owner's recorded
+   instinct that the old code belongs to the old concept is right for a reason nobody
+   in the converge had established.
+2. **Cell size is NOT hardcoded.** `VoxelResolution` is a parameterized pair
+   (geometry, gas) whose default is (25, 50) and whose own doc names (25, 100) as a
+   configuration, bounded by a maximum sub-face count. So the top-ranked performance
+   lever — 3.4× at 75 cm, 8× at 100 cm — is a call-site sweep plus regenerated
+   goldens, not a rewrite. §7's "hardcoded, there is no setting" overstates it.
+3. **Graded conductivity ALREADY SHIPS.** `SubFaceOccupancy` stores a 25 cm sub-face
+   open bitmask per gas cell-face; `StructureGasProjection.Conductivity(occ) =>
+   occ.OpenCount` is written into `FaceState.Conductivity` and multiplied by the flow
+   kernel. "A small notch is literally a small-area face" and "aperture buys time, not
+   safety" are built at author time. Only **runtime mutation** of the bitmask is
+   missing — and `VoxelField.NotifyConductivityChanged` **throws** on a face that is
+   not already OPEN, which is precisely the seam a dig verb must break.
+4. **The air counter is a consumer on an accepted socket, not a new subsystem.**
+   Per-actor, per-kind, integer exposure and committed dose ship in `PlayerSense`, with
+   an actor-pose round-trip proven byte-identical over the network in a recorded gate.
+   What remains is a rate table, one monotone reserve, a hand-off command and a death
+   predicate.
+
+**What STANDS unchanged, and it is the fact that matters most:** nothing a player does
+moves the substance, and no scene has ever contained a *controlled* player and the
+substance together. The existing capsule is an owner-eye, auto-swept debug transform.
+
+**And one claim in this section is UNMEASURED and load-bearing — see the issue
+`i-flow-model-unmeasured`.** That an overfill numerator yields a legible, seconds-scale
+burst-and-subside is asserted, not measured. The in-repo proof cited for it is false:
+the coarse orifice **equalises density** and its own comment makes the overfull state
+unreachable. The real capacity-fill-plus-overflow code is in a different step that
+nobody read, and its receiving side is **uncapped by explicit design** — the opposite of
+the back-pressure required. Derivation from constants frozen in code says the *current*
+model is orders of magnitude too slow, and nothing shows that changing the numerator
+changes the **timescale** rather than only the endpoint. Two independent strands priced
+the measurement at about **one day in the existing headless harness** and neither ran
+it. It belongs before any build commitment.
+
 ---
 
 ## 8. THE REACTIONS ANSWER
@@ -337,6 +470,39 @@ The leg spent its budget on the layer beneath §WHAT: what the game is.
 3. **done_when 7**, «доля объёма, занятого веществом ... по ходу не растут» —
    digging violates this by construction, because cutting grows the open volume.
 4. The ban on tools with their own mechanics — lifted by the owner (R18).
+
+### THE CENSUS WAS WRONG — corrected 2026-07-27 by s-map-g-37a1-digging-concept-001
+
+**Nine contradictions were verified, not four, and one of the four was a phantom.**
+
+Item 4 above is **largely a PHANTOM against the card as written**: no clause of the
+card ever banned tool mechanics. R18 lifted a reading, not a ban.
+
+The five the census missed:
+
+5. `done_when` 4's one-way law — cut by the owner in the map leg (R23). It was not an
+   inherited leftover: he authored it himself earlier the same day, and he removed his
+   own rule.
+6. `done_when` 6's air-as-the-only-counter — put under review by the owner (R24) and
+   then softened: the word «единственный» leaves the card, the rule survives as one we
+   hold but never use to reject a working idea.
+7. `done_when` 3 carried the broad old-canon phrasing while the owner had already
+   supplied the narrow operative form (B4: no motion computed from the player's
+   position). Only the narrow form is a criterion.
+8. `done_when` 8's latency clause aimed at a vanished subject — moved to `g-5e8c`,
+   where the network venue actually lives.
+9. `g-5e8c` `done_when` 5 banned «экономика» and «прогрессия» while R18 places
+   upgrades between sections, which is exactly that node's territory. Both bans are
+   removed and the rest-stop upgrade criterion is added.
+
+Also removed from `g-5e8c` `done_when` 5: «второй объект», which had no referent
+anywhere in live state.
+
+**A methodological note worth more than the census.** A thirty-one-item drift sweep was
+run against the whole of live state; its own independent adversary refuted **nineteen**
+of its verdicts on receipts. The nine above are what survived. No future leg should take
+a drift sweep at face value without the adversarial pass — and the same discipline
+caught two of this leg's own claims before the owner acted on them.
 
 ---
 
