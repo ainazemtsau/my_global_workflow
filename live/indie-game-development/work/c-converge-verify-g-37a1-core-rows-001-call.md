@@ -106,4 +106,17 @@ after: |
   verdict, which needs him and needs both step 3 and step 4 back. Step 6 — `shape`, which is
   the first leg that may create a bet or a task.
 
+disposition: |
+  DISCHARGED 2026-07-28 by `s-converge-verify-g-37a1-core-rows-001`. **FAIL** — both build attacks
+  found holes, no `§SIGNOFF` was written, sixteen findings F1–F16 are named and none is filled.
+  Not one of the sixteen live requirement lines is challenged; every finding is against the
+  acceptance instrument. The two places this CALL named as weakest both broke: the base's leash
+  test reopens `d-air-counter-visibility-001` and pins no defaults (F5, F6), and ROW 17's exit
+  criterion is failed by criterion 15's own text and guards only the post-build stretch (F4). Seven
+  further raw findings were refuted and four hazards are recorded as confirmations because the
+  target already names them. Receipt:
+  `history/2026-07-28-s-converge-verify-g-37a1-core-rows-001.md`. Successor:
+  `c-converge-g-37a1-core-rows-repair-001`, a bounded `converge` that repairs only the named
+  sections; step 3 then reruns narrowly. Step 5 still waits on step 3 by the owner's own route.
+
 END_OF_FILE: live/indie-game-development/work/c-converge-verify-g-37a1-core-rows-001-call.md
