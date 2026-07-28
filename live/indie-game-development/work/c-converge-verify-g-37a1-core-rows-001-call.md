@@ -5,10 +5,20 @@ play: converge-verify
 node: g-37a1
 verify_target: build
 goal: |
-  Try to BREAK the seventeen core rows of `work/converge-g-37a1-core-rows.md` against the
-  fifteen owner-approved criteria of `g-37a1`. Either the set survives and carries a
+  Try to BREAK the core rows of `work/converge-g-37a1-core-rows.md` against the fifteen
+  owner-approved criteria of `g-37a1`. Either the set survives and carries a
   `§SIGNOFF: converge-verify passed`, or named rows come back — never filled, never repaired.
 context: |
+  AMENDED 2026-07-28 BY `s-map-g-37a1-owner-answers-001`, BEFORE THIS CALL WAS EVER RUN. The
+  owner answered all three §OWNER forks and amended card criteria 3, 8, 9, 12, 13 and 14 on
+  exact text. YOUR TARGET IS THE AMENDED SET: sixteen live rows plus ROW 7 retired in place
+  (numbers are not reused), ROWS 4, 5, 15 and 17 rewritten, §RULES at eleven, §KNOBS carrying
+  the base and the rig switches, §OWNER holding answers rather than options. Read the
+  amendment banner at the head of the target file first. The pre-amendment text is in git and
+  is NOT current; do not verify against it, and do not treat a clause it once carried as
+  missing.
+
+
   THIS IS STEP 3 OF A SIX-STEP ROUTE THE OWNER SET HIMSELF and no leg may reorder it without
   his words. The route lives verbatim in `NOW.md` `d-post-verify-route-001`. Step 1 (the
   seventeen owner-approved core lines) and step 2 (this artifact) are done. Step 4 — the
@@ -41,14 +51,24 @@ boundaries: |
   `TREE.md` or either card. Do not write `knowledge/`. Do not repair the target — a verifier
   names rows and routes them. Do not read `archive/**` or the frozen canon repository. Do not
   touch the product repository or Steam state. No numeric release chance. Do not answer
-  `d-air-counter-visibility-001`, and do not decide any of the three §OWNER rows (O-A what is
-  below, O-B the run lifecycle, O-C what ends the outcome) — attacking whether their OPTIONS
-  are complete and their downsides honest is in scope; picking one is not.
+  `d-air-counter-visibility-001`. THE THREE §OWNER FORKS ARE NO LONGER YOURS TO ATTACK AT ALL:
+  they are ANSWERED by him on exact words and their answers are card text.
 
-  CLOSED ON HIS EXACT WORDS 2026-07-28 AND NOT REOPENABLE HERE: passability is deleted; there
-  are no sinks; the value is below and the way up is made by the player; two gases now with
-  liquid as headroom; death costs zero with instant return; breach behaviour is an EVENT whose
-  concrete form is a SETTING. A finding that re-litigates any of these is out of scope.
+  CLOSED ON HIS EXACT WORDS AND NOT REOPENABLE HERE: passability is deleted; there are no
+  sinks; the way up is made by the player; two gases now with liquid as headroom; breach
+  behaviour is an EVENT whose concrete form is a SETTING (all 2026-07-28, first batch); and
+  from the amendment of the same day — THERE IS NO VALUE BELOW IN THE CORE and ROW 7 is retired
+  for that reason; death RESTARTS THE LEVEL IN FULL; air refills ONLY at the base; the rig
+  carries a level button, a start state and an immortality switch, all defaulting to off; the
+  core has NO completion condition; and the core is NOT graded on «весело», so a finding that
+  asks any row to prove the core is fun is a false finding. A finding that re-litigates any of
+  these is out of scope.
+
+  TWO PLACES WHERE THE AMENDMENT IS WEAKEST AND YOU SHOULD PUSH HARDEST, because they are the
+  newest text with the least protection: the BASE (row 15 — is its outsider test one an
+  outsider can actually fail?) and ROW 17's exit criterion (does «built and entered» plus
+  «planning does not wait» actually prevent an eternal laboratory, or does it just move the
+  laboratory into the next version?).
 
   AND THE RULE THAT DEFINES THIS FAMILY OF LEGS: a question the owner deliberately turned into
   a SETTING is NOT an unresolved question a row leans on. Five knobs are registered (K1–K5) and
@@ -66,10 +86,11 @@ done_when: |
      row? A test that cannot fail is a finding.
   4. §GLOSSARY is attacked for a term signed to a reading his text does not actually fix, and
      for a load-bearing term the sweep missed.
-  5. The four things this leg ADDED beyond the seventeen lines are attacked specifically,
-     because they are the least protected: §RULES (the ten readable rules), §KNOBS (the claim
-     that criterion 12 forces four times the registered five), the extension of the legibility
-     deck to frames shot from outside a pocket, and the K1/K3 coupling claim.
+  5. The things ADDED beyond the core lines are attacked specifically, because they are the
+     least protected: §RULES (now ELEVEN readable rules), §KNOBS (the claim that criterion 12
+     forces four times the registered five), the extension of the legibility deck to frames
+     shot from outside a pocket, the K1/K3 coupling claim, and — newest of all, from the
+     amendment — the base's leash test in row 15 and the exit criterion in row 17.
   6. Findings are NAMED and NOT filled; each says which row it hits and where it routes.
   7. PASS writes the signoff line; FAIL returns named rows to `converge` and reruns later.
 return: |
