@@ -106,4 +106,28 @@ budget: one session, no owner.
 surface: a FRESH chat, separate from the repair leg, from the first verification and from the
   session that wrote the rows.
 
+disposition: |
+  DISCHARGED 2026-07-28 by `s-converge-verify-g-37a1-core-rows-002`. **FAIL**, and no `§SIGNOFF` was
+  written — but a different FAIL from the first. **All sixteen repairs CLOSE their charges**; not one
+  was merely restated. **Both judgment calls this CALL named as the things to attack hardest
+  SURVIVED:** ROW 16's late-join strike was verified first-hand against `CHARTER.md`, `TREE.md` and
+  the seventeen lines (zero hits for any join clause) and gained a derivation the file lacks —
+  criterion 9's full restart plus ROW 16's «both dig in the same section» entail a session-wide
+  reload, so ROW 4's open multiplayer mechanism cannot re-import snapshot join; and F2's
+  second-authored-level derivation holds and does not smuggle, because it makes an approved clause
+  satisfiable rather than adding an obligation, which is the same discriminator that struck
+  late-join. **Eight findings R1–R8 stand**, six against text the repair itself wrote (§KNOBS' split
+  leaves base placement in both tables against his own settings register; §RULES' new Part 1 is
+  all-or-nothing on an uncontrolled stimulus; its wrong-rule FAIL has no scope; ROW 15's row-level
+  rule omits two of three scored halves; ROW 9(a) scores a two-part judgment as one binary; §WHAT's
+  criterion-11 routing strengthens his clause into a bet-granularity rule and §WHAT's labour count
+  omits ROW 5) and two against roll-ups this CALL's predecessor forbade the repair to touch, which
+  is a scope defect of a section-scoped repair CALL rather than a repair failure. Every one is a
+  one-to-three-sentence fix and none needs the owner. **KERNEL two-strikes NOT fired**, adjudicated
+  in the open, with its boundary named for the next run. The four deliberately-unfilled items are
+  CONFIRMED still named and still unfilled. Receipt:
+  `history/2026-07-28-s-converge-verify-g-37a1-core-rows-002.md`. Successor:
+  `c-converge-g-37a1-core-rows-repair-002`, with scope widened by exactly three lines in §ORACLE and
+  §BUILD-CLOSES-BETTER. Step 5 still waits on step 3 by the owner's own route.
+
 END_OF_FILE: live/indie-game-development/work/c-converge-verify-g-37a1-core-rows-002-call.md
