@@ -4,10 +4,17 @@ direction: indie-game-development
 track: t-coop
 for: t-5
 node: g-37a1
-to: executor (engineering CALL, product repo)
+to: executor (engineering root CALL, product repo)
 status: BLOCKED
 issued: 2026-07-28 by s-shape-g-37a1-core-bet-001
-budget: одна строительная нога
+amended: 2026-07-28 by s-repair-g-37a1-exec-call-contract-001 (same contract defect as the venue CALL)
+
+engineering_contract: 31
+stage: PLAN (root entry; the repo runner carries the leg through its own ladder)
+slot: НЕ ВЫБРАН — выбирается владельцем в момент разблокировки, из свободных `WIN-U1..WIN-U4`,
+      после read-only проверки `tools/select-slot.ps1 -Slot WIN-U<N>`. Работа НИКОГДА не идёт
+      в `C:\projects\Unity\GasCoopGame_dev` (WIN-CTRL — только интеграция, feature-WIP запрещён).
+budget: одна инженерная нога по контуру продукта
 
 ## unblock_when
 
@@ -25,7 +32,8 @@ budget: одна строительная нога
 
 ## context (CALL самодостаточен)
 
-**Продуктовый репозиторий:** рабочее дерево `C:\projects\Unity\GasCoopGame_dev`, ветка `dev`.
+**Продуктовый репозиторий:** работа идёт в слоте `WIN-U<N>`, выбранном владельцем при разблокировке
+(см. §slot выше).
 
 **Спецификация требований (абсолютный путь):**
 `C:\my_global_workflow_worktrees\indie-game-development\live\indie-game-development\work\core-requirements-g-37a1.md`

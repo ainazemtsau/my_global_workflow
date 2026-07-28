@@ -4,9 +4,28 @@ direction: indie-game-development
 track: t-body
 for: t-2
 node: g-37a1
-to: executor (engineering CALL, product repo)
+to: executor (engineering root CALL, product repo)
 issued: 2026-07-28 by s-shape-g-37a1-core-bet-001
-budget: одна строительная нога
+amended: 2026-07-28 by s-repair-g-37a1-exec-call-contract-001 (same contract defect as the venue CALL, fixed before it could bounce)
+
+engineering_contract: 31
+stage: PLAN (root entry; the repo runner carries the leg through its own ladder)
+slot: WIN-U2 — `C:\projects\Unity\GasCoopGame_win-u2`, Target **Local**
+budget: одна инженерная нога по контуру продукта
+
+## slot / контур (обязательная часть, проверено 2026-07-28)
+
+- **Слот: `WIN-U2`**, путь `C:\projects\Unity\GasCoopGame_win-u2`, Target **Local**, постоянная ветка
+  `slot/win-u2`. На 2026-07-28 read-only селектор даёт `lifecycle: AVAILABLE`, `lease: none`.
+  Перед работой перечитать живой статус: `tools/select-slot.ps1 -Slot WIN-U2`; не-AVAILABLE или
+  несовпадение ветки — STOP.
+- **`C:\projects\Unity\GasCoopGame_dev` (WIN-CTRL) — НЕ рабочее место:** только интеграция, feature-WIP
+  там запрещён. Первая редакция этого CALL ошибочно называла его, как и парный CALL по венью.
+- Не создавать, не удалять и не перемещать worktree; не создавать, не переключать, не переименовывать,
+  не сбрасывать и не удалять ветки.
+- `engineering_contract: 31` — пин корневого CALL; продолжения внутри ноги наследуют пин.
+- Вход — стадия **PLAN**; дальше нога идёт по собственной лестнице репозитория продукта, записывая
+  stage receipts там же. ДОМОЙ возвращается только терминальный REPORT или настоящий ESCALATE.
 
 ## goal
 
@@ -18,8 +37,8 @@ budget: одна строительная нога
 
 ## context (CALL самодостаточен)
 
-**Продуктовый репозиторий:** рабочее дерево `C:\projects\Unity\GasCoopGame_dev`, ветка `dev`.
-Не создавать новых worktree. Слияние в `main` — по зелёным гейтам продукта, как обычно.
+**Продуктовый репозиторий:** работа идёт в слоте `WIN-U2` (см. §slot выше). Публикация и слияние —
+по собственному регламенту продукта, не решением этой ноги.
 
 **Спецификация требований (абсолютный путь):**
 `C:\my_global_workflow_worktrees\indie-game-development\live\indie-game-development\work\core-requirements-g-37a1.md`
