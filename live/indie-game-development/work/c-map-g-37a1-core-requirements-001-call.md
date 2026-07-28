@@ -130,4 +130,35 @@ after: |
      impossible in co-op on Unity and C#. That is the input to `i-engine-fit-decision-ladder`.
   3. His ladder verdict, then `shape`, then development.
 
+disposition: |
+  DISCHARGED 2026-07-28 by `s-map-g-37a1-core-requirements-001`, owner present.
+  Receipt: `history/2026-07-28-s-map-g-37a1-core-requirements-001.md`.
+  Artifact: `work/core-requirements-g-37a1.md`.
+
+  All six done_when are met. (1) The core set exists as seventeen lines in his words, ordered by
+  priority. (2) The NOT-core list sits beside it, including the candidates that entered only as
+  examples and one cut candidate that was considered and withdrawn on his own test. (3) Both core
+  questions are answered in his words — passability is DELETED (any pocket may be entered, the
+  kinds differ only by the price in air, an emptied pocket costs nothing) and the gas-versus-liquid
+  fork is option C with his addition that liquid may later come in as a REPLACEMENT. (4) The card
+  `g-37a1` grew from twelve criteria to fifteen under his verdict on exact text; what does not
+  belong in a card stayed in the artifact. (5) `g-5e8c`'s three unsigned clauses are discharged —
+  line 8 amended and signed, line 9 kept and signed, the `второй объект` removal confirmed. (6) Two
+  successors are issued.
+
+  ONE HARD RULE WAS WAIVED BY THE OWNER, and it is recorded as his: step 2's anti-anchoring
+  requirement that he speak first. Asked for his own candidates, he declined to invent from a blank
+  page and instructed the leg to analyse the accumulated record instead — «тебе нужно сейчас
+  проанализировать то, что работа уже была сделана … я хочу в пределах этого контекста рассуждать».
+  The play's explicit waiver branch was taken.
+
+  THE OTHER FOUR RULES HELD. Engine-blind: no cell size, transfer rate, render format, existing
+  primitive or measured number entered the discussion; the single technical sentence spoken was the
+  one rule 4 permits, naming line 9 as the most expensive row and routing its price to the check.
+  Minimum with headroom: every line passed both of his tests. Nothing already said counted as a
+  requirement until he said it again. No technical discussion.
+
+  SUCCESSORS: `c-converge-g-37a1-core-rows-001` (step 2) and, in PARALLEL on his standing
+  instruction, `c-research-g-37a1-engine-fit-check-001` (step 4, read-only).
+
 END_OF_FILE: live/indie-game-development/work/c-map-g-37a1-core-requirements-001-call.md
