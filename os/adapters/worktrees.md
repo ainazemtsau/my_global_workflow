@@ -12,7 +12,7 @@ How to run several directions (and several sessions) at once without corrupting 
 | Applying RESULTs within ONE direction | **One at a time.** Queue them; when each turn arrives, re-read current state and semantically rebase its explicit delta |
 | Maintenance on os/** | One session at a time (MAINTENANCE.md already enforces one problem per session) |
 
-Parallel sessions inside one direction are legal (G1 caps the one active bet at <=3 tasks and owner-set execution-lane slots; `open_calls` is the dispatch frontier) -- only their *applies* serialize. With `bet: null`, no non-recurring execution session is lawful; the one untracked owner-present authoring CALL for a parked specification outcome is a planning exception, never a track or executor run.
+Parallel sessions inside one direction are legal (G1 caps the one active bet at <=3 active tasks and owner-set execution-lane slots; `open_calls` is the dispatch frontier) -- only their *applies* serialize. With `bet: null`, no non-recurring execution session is lawful; the one untracked owner-present authoring CALL for a parked specification outcome is a planning exception, never a track or executor run.
 
 **Concurrent sessions within one direction -- two hygiene rules** (for independent calls serving the same active bet, e.g. gameplay proof plus evidence collection):
 
