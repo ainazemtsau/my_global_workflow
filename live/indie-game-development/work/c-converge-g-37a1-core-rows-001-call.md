@@ -83,4 +83,38 @@ after: |
   Step 4 is already running in parallel and returns to `i-engine-fit-decision-ladder`.
   Step 5 — the owner's ladder verdict. Step 6 — `shape`.
 
+disposition: |
+  DISCHARGED 2026-07-28 by `s-converge-g-37a1-core-rows-001`.
+  Receipt: `history/2026-07-28-s-converge-g-37a1-core-rows-001.md`.
+  Artifact: `work/converge-g-37a1-core-rows.md`.
+
+  All six done_when are met. (1) Seventeen rows, one per core line, each stating what must be
+  observably true, how a person who did not write it decides yes or no, and where the evidence
+  comes from. (2) §GLOSSARY signed — twenty-five terms with one reading each, signed by CITATION
+  to owner-approved text because this CALL specifies no owner; one term («вечная лаборатория») is
+  explicitly NOT signed, because the miner found it defined nowhere on disk. (3) §WHAT produced:
+  all fifteen criteria mapped, every uncovered clause named rather than filled — criterion 13 is a
+  negative clause checked by absence and criterion 15 is a governance clause held by the forecast.
+  (4) The fourteen oracle classes swept against the ROWS: eleven covered, one partial by design,
+  one partial and routed to the owner, one genuine gap, one routed to step 4. (5) Three rows that
+  cannot be decided without him listed separately with options, a downside each and a firm
+  recommendation, and NOT decided. (6) Nine of seventeen rows marked as closed better by a build
+  than by a document, so step 6 turns them into tasks instead of more paper.
+
+  THE DEFINING RULE WAS HELD. No value was chosen for any of the five registered knobs. Each row
+  touching one tests three things and no more: the knob exists, it is reachable from a BUILT
+  player, and changing it changes what it claims to change — plus one test written to catch the
+  cheap fake, since a knob whose change produces no describable difference FAILS as a knob even
+  though the file accepted the value.
+
+  BEYOND WHAT WAS ASKED, and named so a verifier attacks it: §RULES (the ten readable rules that
+  «все правила читаются» is judged against), §KNOBS (the parameter home's minimum contents, four
+  times his register of five), the extension of the legibility deck to frames shot from outside a
+  pocket, and the K1/K3 coupling claim.
+
+  NEITHER CARD WAS TOUCHED. STATE MOVED UNDER THE LEG and was reconciled before any write: step 4
+  landed at `117da6a0` while the rows were being written, and no engine fact entered a row.
+
+  SUCCESSOR: `c-converge-verify-g-37a1-core-rows-001` (step 3, fresh session, no owner).
+
 END_OF_FILE: live/indie-game-development/work/c-converge-g-37a1-core-rows-001-call.md

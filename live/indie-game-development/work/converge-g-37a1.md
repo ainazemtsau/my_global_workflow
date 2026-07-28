@@ -7,6 +7,13 @@ network subsystems).
 status: CHECKPOINT, not complete. §GLOSSARY and §WHAT were not produced, because
 the CONTENT of the node changed during the leg. See §9.
 
+> **SUPERSEDED AS THE ASSEMBLY SURFACE — 2026-07-28 by `s-converge-g-37a1-core-rows-001`.**
+> The current surface for `g-37a1` is `work/converge-g-37a1-core-rows.md`: seventeen checkable
+> rows against the fifteen approved criteria, with the §GLOSSARY and §WHAT this file never
+> reached. **This file is design MATERIAL ONLY.** Nothing was copied out of it and nothing in it
+> was rewritten; what survives is cited there by section. Read every banner below BEFORE the body
+> it corrects.
+
 CONSUMED 2026-07-27 by s-map-g-37a1-digging-concept-001, which rewrote the card and
 amended this artifact in four places. Read those amendments BEFORE the body they
 correct: §6-BIS (the finding of §6 is misstated — "space you need" was never banned),
