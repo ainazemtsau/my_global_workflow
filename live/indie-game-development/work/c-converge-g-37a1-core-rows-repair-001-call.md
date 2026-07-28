@@ -81,4 +81,21 @@ return: |
 budget: one session, no owner.
 surface: a FRESH chat, separate from this verification and from the session that wrote the rows.
 
+disposition: |
+  DISCHARGED 2026-07-28 by `s-converge-g-37a1-core-rows-repair-001`. **ALL SIXTEEN FINDINGS
+  RESOLVED inside the named sections, and nothing else was filled.** No requirement line, criterion
+  or card changed; no knob value was chosen; no owner question was opened, answered or manufactured;
+  `d-air-counter-visibility-001` stays open; no `§SIGNOFF` was written, because a repair does not
+  sign its own work. Two judgment calls belong to this leg and are declared for attack: F11's
+  late-join was **STRUCK rather than raised**, because no owner text contains it and three of his
+  own standing rules decide it, so raising it would manufacture a decision; and F2 resolved to **the
+  build must ship at least two authored levels**, derived from criterion 12 plus his «другой». Four
+  things were deliberately NOT filled and are named instead: the machine budget's price and the
+  acceptance labour's price (both `shape`), the pre-build stretch (`shape`'s appetite and
+  `kill_by`), and criterion 11's co-op ordering clause, which is held by nothing and is routed to
+  `shape` as a constraint on the bet. Receipt:
+  `history/2026-07-28-s-converge-g-37a1-core-rows-repair-001.md`. Successor:
+  `c-converge-verify-g-37a1-core-rows-002`, a narrow rerun of step 3 on what changed. Step 5 still
+  waits on step 3 by the owner's own route.
+
 END_OF_FILE: live/indie-game-development/work/c-converge-g-37a1-core-rows-repair-001-call.md
