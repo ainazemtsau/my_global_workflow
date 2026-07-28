@@ -51,6 +51,56 @@ roll-ups), R7 (§WHAT criterion 11).
 
 ---
 
+## HIS FOUR RULINGS OF 2026-07-28 — the latest amendment, and the only findings this file has ever taken against a REQUIREMENT
+
+**Applied by `s-converge-g-37a1-core-rows-cut-repair-001` from `NOW.md` `d-core-level-authoring-001`,
+signed on exact text by `s-map-g-37a1-level-authoring-001` (his `да` on criterion 12, requirements
+line 5 and requirements line 15).** Across two full verifications, one repair and the cut-check, no
+leg had ever challenged a requirement line; he read the file cold and found two, then added two more.
+
+1. **THE IN-GAME LEVEL BUTTON IS NOT NEEDED AND ONE AUTHORED SECTION IS ENOUGH.** «Кнопка не нужна…
+   я стопаю игру… В Unity Editor правлю, запускаю заново… вообще в один можно оставить… загружать
+   уровни — это отдельно, потом мы будем обсуждать. Сейчас нужно самое простое решение.»
+   **The requirement that the build ship at least TWO authored levels is STRUCK BY HIM** — it was
+   derived solely from «другой» in the button clause, and with the clause gone the derivation is
+   gone. **No leg may re-derive it.** The expensive half nobody had priced went with it: a runtime
+   load tears down a live section with the substance simulation running, rebuilds topology,
+   repositions both players and forces §SEAM 5's undecided reload-versus-split-world question, on an
+   engine whose topology replacement today RESETS live gas. Choosing WHICH layout file loads at
+   start-up stays free.
+2. **THE SECTION'S LAYOUT IS AUTHORED CONTENT IN A TEXT FILE, changed between runs in the Editor or
+   by editing the file, never from the running game, in a format an AI can change on his verbal
+   instructions and can use to write a second such file.** «файл тогда в таком формате, чтобы… я
+   запросил у AI… чтобы он этот файл мог поменять по моим требованиям. Там второй создать, если
+   надо». **This does not break the RIG / LEVEL-AUTHORING split, it completes it:** contested numbers
+   stay reachable from the built player, the layout never was among them, and it now carries the
+   property nobody had stated — changing it must be CHEAP.
+3. **THE CORE IS A REAL COOPERATIVE GAME** and ROW 16's three examples under-read criterion 11. «Да
+   всё должно, типа полностью мультиплеер должен работать. И другого человека он видит, как он
+   ходит, и симуляцию газа… Всё, что с этим связано, что должно быть в настоящей кооперативной игре,
+   в ядре сразу должно быть зашито.» With his own boundary: «это в карточку не надо, технические
+   детали запихивать» — so criterion 11 is unchanged and the architectural instruction goes to
+   `shape`/`PLAN`, not into a row and not into the card.
+4. **THE BASE STANDS IN THE CENTRE OF THE SECTION, IS ALSO THE SPAWN, AND ITS POSITION IS NOT A
+   PARAMETER OF ANY KIND.** «база всегда генерируется в центре. То есть ее не надо нигде настраивать,
+   ничего. Это вот база, место спавна в центре.» He deleted the placement half of his own register
+   line, which now reads «Сколько воздуха возвращает база | ручка». **This SUPERSEDES R1's
+   resolution on his own words rather than by argument**, and base placement belongs in NEITHER
+   §KNOBS table. Two readings were declared to him and not corrected: the file says «стоит в центре»
+   and not his «генерируется», because criterion 13 bans level generation; and the «откуда стартуешь»
+   knob survives in criterion 12 as a test knob, with the centre base as the default spawn.
+
+**ALSO HIS, in the same conversation:** «дойти до низа» is cut everywhere — «то, что до конца доходит,
+это вообще нужно вырезать» — because criterion 3 emptied the bottom of value and criterion 13 already
+forbids a completion condition; the surviving purpose is that the level must never FORCE a breach.
+And criteria 13, 14 and 15 are settled: «с критериями согласен, их не трогаем».
+
+**A FALSE FINDING, named so nobody spends a leg on it:** proposing the level-load button, a second
+authored level, a visual placement editor, a knob for the base's position, or база as a field of the
+layout file.
+
+---
+
 **AMENDED 2026-07-28 by `s-map-g-37a1-owner-answers-001`, and the amendment is the owner's, not a
 reviser's.** All three §OWNER forks this file raised — O-A what is below, O-B the run lifecycle,
 O-C what ends the outcome — are ANSWERED by him on his own words, and card criteria 3, 8, 9, 12,
@@ -65,9 +115,11 @@ struck where they stood: that nothing refills air, and that a section's end stat
 2026-07-28. Every finding of both runs was against the acceptance INSTRUMENT; not one requirement
 line was challenged, and none is changed by either repair. What survives the cut from that repair:
 §GLOSSARY's «уровень» and «состояние захода»; §KNOBS' split into RIG knobs and LEVEL-AUTHORING
-inputs; the requirement that the build ship at least TWO authored levels; §SEAM's fifth seam and
-the withdrawal of its completeness claim; §WHAT's naming of the governance clauses and of the
-machine budget; ROW 12's authoring constraint; ROW 10's residue; ROW 16's late-join strike.
+inputs; §SEAM's fifth seam and the withdrawal of its completeness claim; §WHAT's naming of the
+governance clauses and of the machine budget; ROW 12's authoring constraint; ROW 10's residue; ROW
+16's late-join strike. **ONE ITEM OF THAT REPAIR IS STRUCK BY HIM AND IS NOT LISTED ABOVE: the
+requirement that the build ship at least TWO authored levels** — see his ruling 1. The RIG /
+LEVEL-AUTHORING split it came with SURVIVES and is confirmed by his own words.
 
 imported owner-approved decisions, born-closed (step 1 of the play):
 - the fifteen criteria of `g-37a1` — `history/2026-07-28-s-map-g-37a1-core-requirements-001.md`
@@ -93,7 +145,12 @@ he will look at himself is the same failure in the other direction.**
 
 ## §CHECK — the only two ways anything in this file is checked
 
-Everything below is judged one of two ways and there is no third.
+**Everything the BUILD must do is judged one of two ways and there is no third.** The scope of that
+sentence is the build, and it is stated rather than assumed, because §WHAT's own «how it is decided»
+column decides three criteria by neither: criterion 13 by ABSENCE against the control list and the
+content list, criterion 14 by RECORDS plus his eye, and criterion 15 by DIRECTION STATE — and ROW
+17's CHECK line opens «Records, not tests». Those are governance and bookkeeping, not build work.
+Nothing in this section may be cited to force ROW 17 or criterion 13 into a box neither belongs in.
 
 ### 1. MACHINE-CHECKABLE — real tests, in the product's real gate
 
@@ -117,7 +174,7 @@ list and are not negotiable here.**
 | M5 | Each RIG knob changes what it claims: two runs at two values differ in the named quantity, and an out-of-range value fails loudly instead of being clamped silently. | 5 |
 | M6 | The parameter home REFUSES writes to the LEVEL-AUTHORING inputs from the built player. | 5, 12 |
 | M7 | The packaged player launches, and launching it again reaches the same starting run state at the configuration in force. | 1 |
-| M8 | On death the section returns to its pre-run state — no hole survives, no substance stays where it was released — and the build contains at least two authored levels, the in-game button reaching a different one. | 4, 5, 12 |
+| M8 | On death the section returns to its pre-run state — no hole survives, no substance stays where it was released. | 4 |
 
 **What is NOT on this list is not a gap in it.** Perception, feel, legibility, whether a rule reads
 and whether the leash has any shape are not machine-assertable, and pretending otherwise is how the
@@ -166,12 +223,12 @@ six lenses against all of `live/indie-game-development/**` for a second reading 
 | **сток** | In this outcome: none. Nothing removes substance from the section. | The single expensive sink at the section entrance — his own option B, ACCEPTED FOR A LATER ITERATION, not now. | Whether row 11 has an exception. It has none. |
 | **закон** (row 10) | A rule stated before the run, the same everywhere in the section, taking no input that names the player. | The Z1–Z5 canon CANDIDATE and the eleven-row player-law table of the previous converge. Not admitted authority; several individually retired. | Row 10 is not a citation of Z1–Z5 and must not be verified against them. |
 | **смерть** | **AMENDED 2026-07-28 by him.** Exists, is reachable, and RESTARTS THE LEVEL IN FULL, with the player playing again at once. Nothing accumulated is lost because nothing accumulates between runs; what ends is the run. Its price is still a knob (K2). | The pre-amendment reading, «costs zero» meaning nothing is taken — which read as if the excavation survived. | Whether a death ends the run. It does. |
-| **база** | **NEW 2026-07-28, his.** The one place air is restored. Nothing else restores it. Where it stands and how much it gives back are knobs, not decisions. | Any reading in which air regenerates in clear dug space, or in which death is a sanctioned way to refill. | Whether air is a doom timer or a leash. Under his answer it is a leash: distance from base is the real budget. |
+| **база** | **NEW 2026-07-28, his; PLACEMENT FIXED BY HIM the same day (ruling 4).** The one place air is restored. Nothing else restores it. **It stands in the centre of the section and the spawn is there; its position is not a parameter — neither a rig knob nor a field of the layout file.** How much it gives back, and whether at once or over time, are knobs, not decisions. | Any reading in which air regenerates in clear dug space, or in which death is a sanctioned way to refill. **And any reading in which the base can be moved** — from the built player, from the layout file or from anywhere else. | Whether air is a doom timer or a leash. Under his answer it is a leash: distance from base is the real budget. And, since the anchor cannot move, the leash's only knobs are capacity and the refill. |
 | **цена** | An in-game cost: air, or the price of death. | The Steam sale price (`g-9d16`). | — |
 | **заход** (row 4) | **FIXED 2026-07-28 by him.** One descent from the base; death restarts the level in full; **nothing the run PRODUCED crosses a run boundary.** His «между заходами ничего не копится» is about what ACCUMULATES, and configuration is not something a run accumulates — see «состояние захода». | `g-5e8c`'s «целый заход демо» — a whole multi-section run ending in pass/fail. | The scope of what a death interrupts: everything the run produced inside the section, and nothing outside it. |
 | **состояние захода** | Everything the play produced: the tunnels cut, which pockets are breached, where the substance went, the air counter, where the player stands. **None of it survives a death or a relaunch.** Its opposite is CONFIGURATION — the parameter home's values and the rig switches — which DOES persist across both, by construction, or row 5's «change it, restart, compare» is impossible. | Any reading in which «ничего не копится» also covers the rig's settings. Under it rows 1 and 5 contradict outright. | Whether «the same starting condition» (row 1) and «change a knob and restart» (row 5) can both be true. They can: the same starting condition means the same RUN STATE **at the configuration in force**. |
 | **сцена** (criterion 12) | One buildable first scene used as the experiment rig. Not a level generator. | «с бумаги в сцену» — playable reality in general. | — |
-| **уровень** (criteria 9, 12) | **SIGNED 2026-07-28**, by citation to criterion 12 and to his own «просто кнопкой, чтобы загрузить другой уровень». One loadable AUTHORED SECTION INSTANCE: a «участок» together with the inputs fixed for it before the build — dimensions, pocket count, pocket sizes, per-pocket kind, total substance. Restarting a level reloads the SAME instance (row 4); loading another level loads a DIFFERENT authored instance. Nothing is placed at load time in either case. | «уровень» = «сцена», one Unity scene — under which «загрузить другой уровень» is impossible without a second build. And «уровень» as a progression stage or mission: the core has none, because it has no completion condition (criterion 13). | Whether the build must contain more than one section. Under this reading it must contain **at least two**, or criterion 12's own in-game control has nothing to load — stated and priced at row 5. |
+| **уровень** (criteria 9, 12) | **RE-SIGNED 2026-07-28 on his ruling 1.** ONE AUTHORED SECTION INSTANCE: a «участок» together with the inputs fixed for it before the build, and those inputs are described by its LAYOUT FILE (his ruling 2) — габариты and карманы (сколько, где, каких размеров и каких видов), with the finite total fixed before the build by criterion 10. **The base is not among them: it stands in the centre and is not a field of the file** (his ruling 4). One authored section is enough; the build MAY contain more, and nothing requires it to. Which layout file loads at start-up is chosen outside the running game. Restarting a level reloads the SAME instance (row 4). Nothing is placed at load time. | «уровень» = «сцена», one Unity scene — under which changing the section would need a second build; it does not, it needs the layout file edited between runs. And «уровень» as a progression stage or mission: the core has none, because it has no completion condition (criterion 13). **And the pre-ruling reading in which the build must ship at least TWO levels because an in-game button needs something to load — the button is struck by him and the derivation with it.** | What a level IS and **where its content lives**: in an authored text file changed between runs, never in the running game. That is what makes the parameter home a settings file rather than the level generator criterion 12 forbids. |
 | **правила** (criterion 12) | The in-game rules a player reads by playing. The list is §WHAT-THE-GAME-TEACHES below. | The four AUTHORING rules of the requirements artifact; Direction-OS governance rules. | What «все правила читаются» is about. After the cut the list is an orientation note, not a scored test. |
 | **условия** (criterion 12) | Values dialled on the rig before a run. | «Ни одна дата не является условием» — a precondition of the outcome. | — |
 | **результат** (criterion 12) | One run's outcome, compared against another run's. | A TREE outcome node. | — |
@@ -208,9 +265,10 @@ ROW 17 rather than repeated sixteen times.
   installed opens the game. Closing it and double-clicking again opens it again, in the same
   starting condition. No Editor, no console, no manual repair of any file.
 - **CHECK.** M7, plus his own launch.
-- **FORCES.** Which scenes the player contains — **at least two authored levels, because row 5's
-  in-game load control has nothing to load otherwise** (see «уровень»); where the parameter home
-  lives relative to the executable (couples to row 5). **"The same starting condition" is scoped to
+- **FORCES.** Which scenes the player contains — **one authored section is enough** (his ruling 1;
+  the two-levels requirement is struck with the load button, see «уровень»); where the parameter home
+  lives relative to the executable, and where the section's layout file lives relative to it (both
+  couple to row 5). **"The same starting condition" is scoped to
   RUN STATE:** a relaunch starts a fresh section because no run state survives it (row 4, «состояние
   захода»). CONFIGURATION is the exception and is not an exception to his answer — the parameter
   home's values and the rig switches persist across a death and a relaunch by construction, or row
@@ -276,23 +334,28 @@ ROW 17 rather than repeated sixteen times.
   player, without Unity, without a code edit and without a rebuild. Changing one and restarting
   produces a run in which the change is visible. The same section is re-entered, so two runs are
   comparable.
-  **THREE CONTROLS ARE REACHABLE FROM INSIDE THE GAME, on his words:** a button that loads another
-  level; the start state (how much air, where you start); and an immortality mode in which air still
-  drains but zero does not kill — «воздух, чтобы кончался, всё, но я типа не умирал». All three
-  default to OFF, so an ordinary run stays honest.
+  **TWO CONTROLS ARE REACHABLE FROM INSIDE THE GAME, on his words:** the start state (how much air,
+  where you start); and an immortality mode in which air still drains but zero does not kill —
+  «воздух, чтобы кончался, всё, но я типа не умирал». Both default to OFF, so an ordinary run stays
+  honest. **A THIRD — a button that loads another level — WAS HERE AND IS STRUCK BY HIM** (ruling 1):
+  «Кнопка не нужна… я стопаю игру… В Unity Editor правлю, запускаю заново… Сейчас нужно самое
+  простое решение.» Criterion 12 carries the amended text with his `да`, and the striking is his
+  ruling, not a derivation any leg may reverse.
 - **WHAT IS NOT REACHABLE.** The §KNOBS **LEVEL-AUTHORING** table — the section's dimensions, how
   many pockets it holds, their sizes, their kinds and the total substance — is **fixed before the
   build and is not writable from the built player**, because writing it and restarting would make
   the game place pockets at load, which is generation, and criterion 12 forbids exactly that
   («инструмент эксперимента, а не генератор уровней»). Row 12 says the same verbatim and criterion
-  10 says «зафиксированы до сборки». **What the built player may change about the section is WHICH
-  authored level is loaded — never the contents of one.**
-- **THE BUILD MUST CONTAIN AT LEAST TWO AUTHORED LEVELS.** Criterion 12 lists «загрузка другого
-  уровня кнопкой» among the controls reachable from inside the game, and his own word is «другой».
-  A button that reloads the same section is row 4's restart, which is separately required, so
-  reading «другой» as «тот же» empties his own word. **This is a price, not a decision** — the same
-  authoring path with different numbers and no new mechanism — and it is unpriced: step 4's matrix
-  does not contain it. Routed to `shape`; tracked at `i-card-clauses-unverifiable`.
+  10 says «зафиксированы до сборки». **The built player may change NOTHING about the section** — not
+  its contents and not which section it is. The section is changed the way he said he would change
+  it: stop the game, edit the layout file or the Editor, run again.
+- **THE SECTION'S LAYOUT IS AUTHORED CONTENT IN A TEXT FILE (his ruling 2), and this COMPLETES the
+  split rather than breaking it.** The contested numbers stay reachable from the built player without
+  a rebuild; the layout never was among them; and it now carries the property nobody had stated —
+  **changing it must be CHEAP.** «файл тогда в таком формате, чтобы… я запросил у AI… чтобы он этот
+  файл мог поменять по моим требованиям. Там второй создать, если надо.» The format, the schema, the
+  path and the tool are HOW → `PLAN` / step 4; the requirement is the property. Tracked at
+  `i-card-clauses-unverifiable`.
 - **CONFIGURATION PERSISTS AND RUN STATE DOES NOT.** Knob values and switch positions live outside
   the run and survive a death and a relaunch, or this row's own instrument is impossible. Nothing
   the RUN produced survives either.
@@ -316,18 +379,25 @@ ROW 17 rather than repeated sixteen times.
 
 - **OBSERVABLE.** The player removes rock at a place he chose; removing it takes time he can feel;
   the removed rock is gone and the space is open; nothing in the level restricts WHERE he may cut.
-  Two players given the same section reach the bottom by cutting in different places.
 - **CHECK.** EYE. "Rock costs time he can feel" is a feel claim and belongs to no machine.
+- **ONE SENTENCE WAS DELETED HERE 2026-07-28 and it is named so nobody restores it.** «Two players
+  given the same section reach the bottom by cutting in different places» absorbed a deleted outsider
+  test and lost the word that carried its whole content — *forced*. As it stood it was a claim about
+  how two players happen to behave, which a correct build fails the moment they pick the same route,
+  and it presupposed a bottom to reach, which his own ruling cuts. What it was protecting survives
+  where it belongs: ROW 12's authoring constraint, as a property of the LEVEL.
 - **FORCES.** What one cut removes and at what granularity relative to the substance unit; the cut
   rate (time per unit); reach; whether a cut can be interrupted; and the feedback contract —
   **legible progress, predictable duration, continuous sound, a discrete end** (the four-part break
   contract, all free at zero art; `work/converge-g-37a1.md` §12, Minecraft).
 - **NOTE on criterion 2's negative half.** «не заранее расставленной автором панели» is a property
-  of the LEVEL, not of the verb: the level must admit a route to the bottom that breaches no pocket,
-  and it must contain at least one place where the route through a pocket costs visibly less than
-  the route around it — otherwise a breach is never a trade and criterion 5's «Открытое
-  пространство — то, за что игрок платит» prices nothing. Both are carried as ROW 12's authoring
-  constraint. Magnitudes — how much cheaper, how far around — are HOW → `PLAN`.
+  of the LEVEL, not of the verb: **the level must never FORCE a breach** — wherever he is, there is
+  somewhere to dig that opens no pocket — and it must contain at least one place where the route
+  through a pocket costs visibly less than the route around it, otherwise a breach is never a trade
+  and criterion 5's «Открытое пространство — то, за что игрок платит» prices nothing. Both are
+  carried as ROW 12's authoring constraint. Magnitudes — how much cheaper, how far around — are HOW →
+  `PLAN`. **Stated without «низ» on his ruling** («то, что до конца доходит, это вообще нужно
+  вырезать»): nothing here depends on there being a bottom to arrive at.
 
 **ROW 7 — RETIRED 2026-07-28 BY THE OWNER.** (line 7 · criterion 3)
 
@@ -432,20 +502,28 @@ card, the seventeen lines and the engine-fit matrix all cite rows by number; not
 
 - **OBSERVABLE.** The amount of substance and the dimensions of the section are set before the
   player is built and do not increase during a run. No source adds substance while playing.
-  **PER AUTHORED LEVEL:** the build ships more than one level (row 5); each carries its own fixed
-  values, each fixed before the build, and loading another level loads another pre-fixed set.
-  Nothing is placed at load time and no value in this group is writable from the built player —
-  that is what makes this an experiment instrument rather than the level generator criterion 12
-  forbids.
+  **PER AUTHORED SECTION, AND ONE IS ENOUGH (his ruling 1):** the values belong to the section, not
+  to the build, so a build containing more than one authored section is permitted and nothing
+  requires it. Each carries its own set, each fixed before the build, each living in that section's
+  layout file (his ruling 2). Nothing is placed at load time and no value in this group is writable
+  from the built player — that is what makes this an experiment instrument rather than the level
+  generator criterion 12 forbids.
 - **CHECK.** M6 for the refusal to write; M1/M2 for the total not growing.
 - **FORCES.** How many pockets, of what sizes, where, and of which kind — level-authoring inputs,
   explicitly NOT generation (criterion 12: an experiment instrument, not a level generator).
-- **AUTHORING CONSTRAINT.** An authored section must admit **(i)** at least one route from the
-  surface to the bottom that breaches no pocket — otherwise the game forces the breach and criterion
-  2's «следствие его выбора» is false of the level even when it is true of the verb — and **(ii)** at
-  least one place where the route through a pocket costs visibly less time than the route around it,
-  or a breach is never a trade. These are properties of the AUTHORED CONTENT; magnitudes are HOW →
-  `PLAN`. They constrain level authoring, never the dig code.
+- **AUTHORING CONSTRAINT — RESTATED 2026-07-28 WITHOUT «низ», on his ruling, and its purpose is
+  unchanged.** An authored section must satisfy **(i)** **the level never FORCES a breach** —
+  wherever the player is, some direction is diggable that opens no pocket — otherwise the game
+  forces the breach and criterion 2's «следствие его выбора» is false of the level even when it is
+  true of the verb; and **(ii)** it contains at least one place where the route through a pocket
+  costs visibly less time than the route around it, or a breach is never a trade. These are
+  properties of the AUTHORED CONTENT; magnitudes are HOW → `PLAN`. They constrain level authoring,
+  never the dig code. **Why the wording changed and not the requirement:** the old (i) read «at least
+  one route from the surface to the bottom that breaches no pocket», which presupposed a bottom worth
+  reaching. Criterion 3 emptied the bottom of value, criterion 13 forbids a completion condition, and
+  he cut the framing outright — «то, что до конца доходит, это вообще нужно вырезать». A pocket-free
+  route to a place nobody is going is not what the constraint was ever protecting; **not being forced
+  to breach** is.
 - **CONFLICT NAMED, NOT REPAIRED.** The record establishes first-hand that «sources are finite» has
   no implementation anywhere in the product and that the only shipped authored source is INFINITE by
   owner-signed default — so this row fails by construction on today's primitives. Confirming or
@@ -510,16 +588,29 @@ card, the seventeen lines and the engine-fit matrix all cite rows by number; not
   (**K3**); whether the rate depends on what the player is DOING. On the last: «whoever faces the
   rock burns air fastest» is a law CANDIDATE from the previous converge, it is NOT among the core
   lines, and it is named here as **not admitted** so that no build leg imports it by habit. **The
-  base adds three of its own:** where it stands, how much it gives back, and whether it gives it back
-  at once or over time. All three are knobs, not decisions, and all three are RIG knobs — his own
-  register says «Где стоит база и сколько воздуха она возвращает | ручка».
+  base adds TWO of its own:** how much it gives back, and whether it gives it back at once or over
+  time. Both are knobs, not decisions, and both are RIG knobs — his register now reads «Сколько
+  воздуха возвращает база | ручка».
+- **WHERE THE BASE STANDS IS NOT A KNOB AND NOT A DECISION — IT IS FIXED (his ruling 4).** «база
+  всегда генерируется в центре. То есть ее не надо нигде настраивать, ничего. Это вот база, место
+  спавна в центре.» **The base stands in the centre of the section and the spawn is there.** Its
+  position is a parameter of no kind: not a rig knob and not a field of the layout file, so it
+  appears in NEITHER §KNOBS table. This row previously listed «where it stands» as a third RIG knob
+  by citing his register line «Где стоит база и сколько воздуха она возвращает | ручка»; **he has
+  since deleted the placement half of that very line**, so the citation no longer says what was read
+  in it, and requirements line 15 carries the signed replacement. The «откуда стартуешь» rig knob of
+  criterion 12 survives and is unaffected — it moves where a RUN begins, with the centre base as the
+  default spawn; it does not move the base. Only the base is pinned: the section's габариты and
+  карманы remain authored content in the layout file.
 - **WHAT REFILLS IT: the base, and nothing else.** This corrects the pre-amendment claim that
   nothing refills air, which was true of the seventeen lines and is false of the core he approved.
 - **THE TWO MOST LOAD-BEARING KNOBS IN THE WHOLE RIG ARE HERE.** With the value below removed (row
   7) and no completion condition (criterion 13), the base-plus-air leash is the ONLY structure left
   in the core. Air capacity and the base's refill therefore decide whether a run has any shape at
   all: too generous and nothing prices anything, too tight and the core is a commute. A build leg
-  that treats them as afterthought numbers is tuning the only structure the core has.
+  that treats them as afterthought numbers is tuning the only structure the core has. **The pair is
+  capacity and refill, and the anchor they hang from does not move** — the leash's length is dialled,
+  its anchor is fixed in the centre.
 - **THE BASE IS NOT A SINK, and row 11 is untouched.** It restores the PLAYER's counter; it removes
   no substance from the section. Should air ever be modelled as a species — an open technical
   question at `i-substance-passage-open-questions` — this stops being obvious, and that is the day
@@ -534,12 +625,35 @@ card, the seventeen lines and the engine-fit matrix all cite rows by number; not
 
 **ROW 16 — the network basis from the first line.** (line 16 · criterion 11) `BUILD`
 
-- **OBSERVABLE.** The same built artifact starts a session alone and starts a session for two
-  players on two physical machines. Both dig in the same section and each sees the holes the other
-  cut, and they can meet in a hole they both cut.
+**REWRITTEN 2026-07-28 ON HIS RULING 3, because the row under-read criterion 11.** The OBSERVABLE
+listed three examples — each sees the other's holes, and they can meet in one. He read that as a
+narrowing and said so: «меня немножко настораживает, что отдельно такое требование, каждый видит
+дыры, которые прорезал другой. Да всё должно, типа полностью мультиплеер должен работать.» The
+itemised list is replaced by the property.
+
+- **OBSERVABLE.** The same built artifact starts a session alone and starts a session for two players
+  on two physical machines. **In a two-player session both players are in the SAME world and see the
+  same world** — each other and how the other moves, the geometry as it has been cut by either of
+  them, the substance and its simulation. **Everything the game contains is shared**; nothing the
+  core holds is present for one player and absent or stale for the other. The three examples the row
+  used to list are consequences of that property, not the requirement.
 - **CHECK.** EYE, on two machines. Two machines agreeing about a world they both mutate is also the
   natural home for machine assertions the product's own network tests already know how to make; that
-  is the engineering contour's call, not this file's.
+  is the engineering contour's call, not this file's. **The property is wider than any example, so
+  the eye that checks it is looking for anything the two sessions disagree about, not for a list.**
+- **HIS ARCHITECTURAL INSTRUCTION, ROUTED TO `shape` / `PLAN` AND DELIBERATELY NOT A ROW.** «в ядре
+  сразу должно быть зашито… ядро уже должно быть готово к кооперативу, возможно, там какую-то
+  структуру создать, чтобы легче дальше было кооперативные вещи подключать.» It is a constraint on
+  HOW the core is built, not an observable of the built thing, and it goes to `shape`/`PLAN` on his
+  own boundary: «это в карточку не надо, технические детали запихивать, это я тебе просто как бы
+  объясняю». **Criterion 11 is NOT changed** and nothing entered the card.
+- **THE REWRITE DOES NOT RE-IMPORT LATE-JOIN, and the boundary is stated rather than left to be
+  found.** His «полностью мультиплеер должен работать» widens what two players in a SESSION share; it
+  says nothing about how a session is ENTERED. The strike below stands on its own derivation, which
+  the narrow rerun of 2026-07-28 confirmed by attack: criterion 9 restarts the level ПОЛНОСТЬЮ and
+  this row requires both players in the SAME section, so a per-player reset fails the row by
+  construction and the only consistent reading is a session-wide reload — under which nothing joins
+  anything. Reading late-join back in from his ruling 3 is a false finding.
 - **LATE-JOIN IS STRUCK, and the decision not to raise it with him is this leg's and is recorded
   with its reason.** The row had required that "a player who joins after digging has begun sees the
   section as it is, not as it was". **No owner text contains it.** Criterion 11 and core line 16
@@ -662,26 +776,41 @@ parameter home is a settings file or a level generator. **Row 5 governs the firs
 | terrain | slope and step magnitudes | **K5**, row 3 |
 | breach | event-form selector · its parameters · the relation to aperture width | **K1**, row 9 |
 | air | capacity · base rate in clear space · per-kind multiplier ×2 | **K3**, rows 13, 15 |
-| base | **where it stands** · how much air it gives back · at once or over time | row 15. **CORRECTED 2026-07-28 (R1): base placement belongs HERE and only here, by citation, not by judgment** — his settings register carries «Где стоит база и сколько воздуха она возвращает | ручка», and the LEVEL-AUTHORING table's own membership test is that its inputs are in none of his registers. With ROW 7 retired this is the only structure the core has, so these are the most load-bearing numbers in the rig, and whether the leash's anchor moves from the built player or only by re-authoring and rebuilding is a different rig at a different price |
+| base | how much air it gives back · at once or over time | row 15. **AMENDED 2026-07-28 BY HIM (ruling 4), and it supersedes R1's resolution rather than reargues it: «where it stands» is GONE from this table and enters no other.** R1 had put base placement here by citing his register line «Где стоит база и сколько воздуха она возвращает | ручка»; he then deleted the placement half, and the line now reads «Сколько воздуха возвращает база | ручка». **The base stands in the centre of the section, the spawn is there, and its position is not a parameter of any kind** — «её не надо нигде настраивать». With ROW 7 retired these two are still the most load-bearing numbers in the rig, but the anchor they hang from is fixed: a shape leg must NOT price a movable base |
 | death | price *(K2)* · the return point is **SETTLED, not a knob**: a full level restart | row 4 |
-| rig controls | load-another-level button · start state (air, start position) · immortality (air drains, zero does not kill) · every switch defaults to OFF | row 5. Reachable from inside the running game, not only from a file |
+| rig controls | start state (air, start position) · immortality (air drains, zero does not kill) · every switch defaults to OFF | row 5. Reachable from inside the running game, not only from a file. **The load-another-level button was here until 2026-07-28 and is STRUCK BY HIM (ruling 1)** — «Кнопка не нужна… Сейчас нужно самое простое решение». The start-position knob survives and is unaffected: it moves where a RUN begins, with the centre base as the default spawn |
 | ground legibility | range · sharpness | **K4**, row 14 |
 | time | **the simulation step rate** | the record establishes that NO tick-rate constant exists anywhere in the product, only director intervals of 0.10–0.16 s, and that every seconds-valued claim rests on that unowned parameter. If the step rate is not a knob, nothing in rows 9, 13 and 15 is comparable between runs. **It is also the one rig knob that reaches into the network — see §SEAM 5.** |
 
-### LEVEL-AUTHORING INPUTS — fixed before the build, NOT reachable from the built player (row 12)
+### LEVEL-AUTHORING INPUTS — authored content in a text file, fixed before the build, NOT reachable from the built player (row 12)
+
+**MEMBERSHIP IS UNCHANGED AND THE SPLIT ITSELF IS CONFIRMED BY HIS OWN WORDS (ruling 2).** What this
+table gains is the property nobody had stated: **these inputs live in a TEXT FILE that is changed
+between runs — in the Unity Editor or by editing the file — and never from the running game, in a
+format an AI can change on his verbal instructions and can use to write a second such file.** So
+changing them must be CHEAP. His signed content list is **габариты plus карманы (сколько, где, каких
+размеров и каких видов)**; the finite total is fixed before the build by criterion 10 and line 12.
+The format, the schema, the path and the tool are HOW → `PLAN` / step 4 and are NOT chosen here.
 
 | group | inputs | note |
 |---|---|---|
-| section | dimensions · pocket count · pocket sizes · per-pocket kind · total substance | rows 11, 12. **Per authored level**, and the build ships at least two (row 5). These are AUTHORED CONTENT, not «спорные числа»: they are in none of his registers, criterion 10 fixes them before the build, and dialling them from the built player and restarting IS generation. What the built player may change about the section is WHICH level is loaded. **Base placement was listed here until 2026-07-28 and is removed (R1)** — it is a RIG knob by his own register |
-| authoring constraint | at least one pocket-free route to the bottom · at least one place where the route through a pocket is cheaper than around it | row 12, and it is what criterion 2's negative half needs to be true of the LEVEL. Magnitudes → `PLAN` |
+| section | dimensions · pocket count · pocket sizes · per-pocket kind · total substance | rows 11, 12. **Per authored section, and ONE is enough (his ruling 1)**; more is permitted and nothing requires it. These are AUTHORED CONTENT, not «спорные числа»: they are in none of his registers, criterion 10 fixes them before the build, and dialling them from the built player and restarting IS generation. **The built player may change NOTHING about the section** — neither its contents nor which section it is; the section changes by stopping the game and editing the layout file or the Editor |
+| authoring constraint | the level never FORCES a breach — some direction is always diggable that opens no pocket · at least one place where the route through a pocket is cheaper than around it | row 12, and it is what criterion 2's negative half needs to be true of the LEVEL. **Restated 2026-07-28 without «низ» on his ruling**; magnitudes → `PLAN` |
+
+**BASE PLACEMENT IS IN NEITHER TABLE (his ruling 4).** It is not a rig knob and not a field of the
+layout file: the base stands in the centre of the section, the spawn is there, and its position is
+not a parameter. Adding it back to either table is a false finding. **Only the base is pinned** —
+габариты and карманы remain authored content.
 
 **A TASK WITH A PRICE RATHER THAN AN OWNER DECISION.** Criterion 12's «все спорные числа» is at
 least twenty-odd knobs; the register names five. This needs no verdict from him — criterion 12
 already IS his answer — exactly as the venue does not. It is the second item (after row 1's venue)
-most likely to be discovered late. **Two things ride with its price:** the build must contain a
-second authored level or row 5's own in-game control has nothing to load, and the parameter home
-must refuse writes to the LEVEL-AUTHORING table (M6), which is a property of the rig and not a note
-about it.
+most likely to be discovered late. **Two things ride with its price:** the parameter home must refuse
+writes to the LEVEL-AUTHORING table (M6), which is a property of the rig and not a note about it; and
+the layout file itself must exist in a format an AI can change on his verbal instructions, which is
+cheap but is not free and was on no list before 2026-07-28. **What is NO LONGER on this price list:**
+the second authored level, struck with the load button by his ruling 1, and a movable base, struck by
+his ruling 4. Both are reductions, and a shape leg must price neither.
 
 ---
 
@@ -702,8 +831,8 @@ a criterion, and what is NOT carried by anything — because a cut is not allowe
 | 8 — air is the counter, spent differently in different substances, refilled ONLY at the base | ROW 15 | EYE | — |
 | 9 — death exists, restarts the level in full, immediate return, nothing accumulated is lost, the price is a later setting | ROW 4 | **M8** + EYE for immediacy | — |
 | 10 — total substance and section size fixed pre-build and not growing; nothing disappears, no sinks; dug volume grows; no backfilling | ROW 12, ROW 11, ROW 8 | **M1, M2, M3, M6** — the criterion the machine layer covers best | «Выкопанный объём по ходу растёт — это и есть игра» — the second half is a **gloss**, not a checkable outcome |
-| 11 — works solo and over the network; start alone and with a partner on a second machine; the network basis is not deferred | ROW 16 — **build half only** | EYE on two machines | **The clause «Сетевая основа не откладывается — кооператив идёт сразу за первым играбельным ядром, а не после игры» is a GOVERNANCE clause of the same class as criterion 15, and ROW 16 cannot hold it** — the row's observable is a property of a built artifact, an ordering commitment is a property of the ROADMAP. **Held by nothing today.** Routed to `shape` as a BINDING CONSTRAINT ON THE BET, in the form his words actually carry (**corrected 2026-07-28, R7**): *a shape leg may not defer the network basis PAST `g-37a1`, and a proposal to push co-op out of this node — to `g-5e8c` or later — is an owner decision and not a shaping choice.* Distributing `g-37a1`'s own rows across `g-37a1`'s own bets is ordinary sequencing and needs nobody: bet 1 as the venue, the body and the dig verb with co-op in bet 2 is exactly what the first verification called untouched. Tracked at `i-core-acceptance-instrument-unpriced` |
-| 12 — first scene experimental and complete by rules; visuals may be absent but all rules read; all contested numbers outside, changed without a rebuild; change, restart, compare; a level button, a start state and an immortality mode reachable from inside the game, all switches off by default; not a level generator | ROW 5 | **M5, M6** for the knobs; EYE for whether the rules read | «все правила читаются» → **§WHAT-THE-GAME-TEACHES supplies the list**, as an orientation note and not a test; «все спорные числа» is at least four times the registered five → **§KNOBS**, a priced task; **«загрузка другого уровня» requires the build to ship at least TWO authored levels**, which nothing had ever stated or priced |
+| 11 — works solo and over the network; start alone and with a partner on a second machine; the network basis is not deferred | ROW 16 — **build half only**, and it is **WIDENED 2026-07-28 on his ruling 3**: the row no longer names three examples, it requires that both players are in and see the SAME world — each other, the geometry, the substance and its simulation, everything the game contains. His architectural instruction that the core be built ready for co-op from the start is routed to `shape`/`PLAN` and is deliberately not a row and not in the card | EYE on two machines | **The clause «Сетевая основа не откладывается — кооператив идёт сразу за первым играбельным ядром, а не после игры» is a GOVERNANCE clause of the same class as criterion 15, and ROW 16 cannot hold it** — the row's observable is a property of a built artifact, an ordering commitment is a property of the ROADMAP. **Held by nothing today.** Routed to `shape` as a BINDING CONSTRAINT ON THE BET, in the form his words actually carry (**corrected 2026-07-28, R7**): *a shape leg may not defer the network basis PAST `g-37a1`, and a proposal to push co-op out of this node — to `g-5e8c` or later — is an owner decision and not a shaping choice.* Distributing `g-37a1`'s own rows across `g-37a1`'s own bets is ordinary sequencing and needs nobody: bet 1 as the venue, the body and the dig verb with co-op in bet 2 is exactly what the first verification called untouched. Tracked at `i-core-acceptance-instrument-unpriced` |
+| 12 — first scene experimental and complete by rules; visuals may be absent but all rules read; all contested numbers outside, changed without a rebuild; change, restart, compare; **a start state and an immortality mode** reachable from inside the game, all switches off by default; not a level generator (**amended 2026-07-28: the level button is removed, his `да` on the exact text**) | ROW 5 | **M5, M6** for the knobs; EYE for whether the rules read | «все правила читаются» → **§WHAT-THE-GAME-TEACHES supplies the list**, as an orientation note and not a test; «все спорные числа» is at least four times the registered five → **§KNOBS**, a priced task; the section's layout must live in a text file **in a format an AI can change on his verbal instructions** (his ruling 2) — a requirement with no mechanism yet, routed to `PLAN`. **The two-authored-levels requirement is STRUCK with the button** and is no longer an uncovered clause of anything |
 | 13 — what does not appear here (art beyond cheapest, generation, monsters, combat, story, cargo carry, substance-vs-loose-objects, reactions, air hand-off, detector, ladders and lifts, liquid, **value below or any goal at the bottom, and any completion condition**); picking an object up is not banned; loot and economy are not banned and enter by the profit rule | **NO POSITIVE ROW — by design** | absence, against the control list and the content list | Two atoms are not mechanically checkable at all: «механика входит, если даёт понятный профит» is a decision PROCEDURE for future mechanics, and the loot permission is a permission, not an outcome. **THE SEAM IS CHECKABLE and is checked** — see §SEAM |
 | 14 — achieved when the core is BUILT and he has entered it; not graded on «весело»; he collects irritations and gaps as input to the NEXT version; planning of the next version starts at once; his verdict decides what to do NEXT; not a separate game and not an eternal laboratory; the next plan is approved after he has entered the build | ROW 17 — **build-and-verdict half only** | records + EYE | «вечная лаборатория» has an operational test at ROW 17 covering the POST-build stretch only; the PRE-build stretch is guarded by `shape`'s `appetite` and `kill_by`. **«Участок остаётся частью пути демо, а не отдельной игрой» is a GOVERNANCE clause ROW 17 cannot hold** — held by `TREE.md`, where `g-37a1` is a child of the October demo root and `g-5e8c` depends on it, and enforced at the `review` that closes the node |
 | 15 — no date is a condition; no forecast now; October stays a hard target; a new estimate after the core has been played | **NO ROW — by design** | direction state | A **governance clause about the direction**, held by `NOW.md` `direction_forecast` (`status: no_basis`) and `i-october-route-not-a-condition` |
@@ -758,12 +887,15 @@ are decidable now. A fifth exists, is not of the substance, and is NOT decidable
    admitted** (`i-substance-states-unpriced`, which stays open for exactly that reason).
 5. **THE RIG MEETS THE NETWORK — and unlike 1–4 it is NOT decidable here.** Row 5 puts the
    simulation's numbers — including **the step rate** — behind controls reachable from the built
-   player, and row 16 requires two machines to agree about a world they both mutate. **The forced
-   questions, born here rather than at task time:** who owns a knob's value in a two-machine session;
-   whether the step rate must be identical on both machines and what a mismatch does; and whether
-   each rig switch is per-PLAYER or per-SESSION — immortality for one player only is a different
-   game from immortality for the session, and a level load by one player is either a session-wide
-   reload or a split world. **ONE PROPERTY IS ALREADY FORCED:** a knob that changes the simulation
+   player, and row 16 requires two machines to be in and see the same world they both mutate. **The
+   forced questions, born here rather than at task time:** who owns a knob's value in a two-machine
+   session; whether the step rate must be identical on both machines and what a mismatch does; and
+   whether each rig switch is per-PLAYER or per-SESSION — immortality for one player only is a
+   different game from immortality for the session. **ONE QUESTION LEFT THIS SEAM 2026-07-28:**
+   whether a level load by one player is a session-wide reload or a split world is **no longer forced
+   by this core**, because his ruling 1 removed the in-game load. It returns the day loading levels is
+   discussed — his own «загружать уровни — это отдельно, потом мы будем обсуждать». **ONE PROPERTY IS
+   ALREADY FORCED:** a knob that changes the simulation
    must have exactly ONE value in force for a session, or row 16's «both dig in the same section» is
    false by construction. **The mechanisms and every magnitude are HOW → `PLAN` / step 4.** This seam
    is also where the machine budget lands: a step rate two machines must share is a cost constraint
@@ -785,13 +917,13 @@ that found the four gaps this direction actually had, and all four are now close
 | 4 | embodiment and traversal of a self-authored void | **COVERED** — rows 2 and 3, and this was the largest of the four never-raised gaps. Row 2 is new work, not a check. |
 | 5 | the counter, its rate law, its failure state | **COVERED.** Rows 15 and 4. Zero ends the run and restarts the level in full; air comes back only at the base, so the counter is a leash rather than a doom timer. |
 | 6 | observability and its acceptance test | **COVERED AS A REQUIREMENT; ITS ACCEPTANCE IS NOW OWNER-EYE (updated 2026-07-28 by the cut).** Rows 13 and 14 state what must be visible and at which moment — the mark tells SIZE before the cut, the kinds tell KIND after the breach and before entering. The decks that used to score it are cut; what remains is his eye and whoever he shows it to, and §WHAT names what that costs. |
-| 7 | authority and replication of a mutable world | **COVERED as a property** — row 16 — with the mechanism parameters named and routed to `PLAN`/step 4, including the warning that a rewrite verdict touching this layer is categorically more expensive. |
+| 7 | authority and replication of a mutable world | **COVERED as a property, and the property is WIDER since 2026-07-28 (his ruling 3):** row 16 no longer names three examples but requires both players to be in and see the SAME world — everything the game contains. Mechanism parameters are named and routed to `PLAN`/step 4, including the warning that a rewrite verdict touching this layer is categorically more expensive, and his architectural instruction (build the core ready for co-op from the start) rides to `shape`/`PLAN` with them. |
 | 8 | falsification experiment and its price | **GAP, named and NOT filled.** No row states which single measurement would show the model wrong. Row 5 is a TUNING instrument, not a falsification instrument, and row 17 is a judgment, not a measurement. The nearest priced thing in state is the affordable-envelope question at `i-flow-model-unmeasured`, which is retargeted at the substance step and is not the same question. |
 | 9 | the control model | **ROUTED, not a gap in the rows.** The former control — the coarse per-room band solver — is settled and out: it can only breach where a level author pre-declared a portal, so it is a gate-passed implementation of the authored breach panel he rejected. Whether a CHEAPER model satisfies all sixteen live rows is engine-facing by construction and belongs to step 4. |
 | 10 | the first runnable thing and its venue | **COVERED as a requirement** — row 1 — **and its price is still zero-planned.** Highest late-discovery risk in the set. |
-| 11 | the experiment instrument | **COVERED** — row 5 — and this file supplies the two things it lacked: the list of what the game teaches (what «все правила читаются» is about) and §KNOBS (the parameter home's minimum contents, in two classes). |
+| 11 | the experiment instrument | **COVERED** — row 5 — and this file supplies the two things it lacked: the list of what the game teaches (what «все правила читаются» is about) and §KNOBS (the parameter home's minimum contents, in two classes). **Narrowed and made cheaper 2026-07-28 by his rulings:** the in-game controls are TWO, not three — the level button is struck — and the section is changed not from the game but by editing its layout file between runs, which is where the instrument's second half now lives. |
 | 12 | run lifecycle and irreversibility | **COVERED, and it is the class the rows broke on before he answered.** A run is one descent from the base; death restarts the level in full; nothing survives a death and nothing crosses a launch. Rows 8 and 11 still make a section monotone, but the consumption is bounded by the run — and the full reset is what makes row 5's comparison honest. |
-| 13 | the explicit non-model and its seam | **COVERED WITH ONE OPEN SEAM (corrected 2026-07-28, R6).** §SEAM's four SUBSTANCE seams are decidable now; the fifth — the rig meeting the network — is not decidable here and is routed to `PLAN`/step 4. The earlier "four seams, all decidable now" restated a completeness claim §SEAM had already withdrawn. |
+| 13 | the explicit non-model and its seam | **COVERED WITH ONE OPEN SEAM (corrected 2026-07-28, R6).** §SEAM's four SUBSTANCE seams are decidable now; the fifth — the rig meeting the network — is not decidable here and is routed to `PLAN`/step 4. The earlier "four seams, all decidable now" restated a completeness claim §SEAM had already withdrawn. **The fifth seam is SMALLER since his ruling 1:** the reload-versus-split-world question left it with the in-game level load; knob ownership, the shared step rate and per-player-versus-per-session switches remain. |
 | 14 | exit criterion and verdict authority | **COVERED FOR THE POST-BUILD STRETCH ONLY (corrected 2026-07-28, R6).** Row 17: the exit is BUILT-and-entered, not played-for-N-days, and the guard is that work does not wait for play. **The PRE-build stretch is guarded by nothing in this file** and belongs to the bet's `appetite` and `kill_by` at `shape`. The row is explicitly forbidden to carry a «весело» bar. |
 
 **Score: thirteen of fourteen covered, one partial by design (1, substrate unit and tick —
@@ -847,7 +979,15 @@ His answer, option (a) plus a mechanism no option contained: «это чисто
 
 He answered the in-game half and then removed the premise of the process half. In-game: «пока в
 core игре ничем не заканчивается. То есть я могу там, не знаю, просто кнопкой, чтобы загрузить
-другой уровень.» And on the node: «мы как бы сделали ядро, потом начинаем планирование сразу
+другой уровень.»
+
+> **THE BUTTON IN THAT SENTENCE IS SUPERSEDED BY HIM, 2026-07-28 (ruling 1).** The ANSWER stands
+> unchanged — in-game nothing ends at all — but the illustration does not: «Кнопка не нужна… я стопаю
+> игру… В Unity Editor правлю, запускаю заново… загружать уровни — это отдельно, потом мы будем
+> обсуждать.» Nothing in this file may cite this quote as live authority for a load control or for a
+> second authored level.
+
+And on the node: «мы как бы сделали ядро, потом начинаем планирование сразу
 следующего … Я в него не играю какое-то время, и мы потом принимаем решение. Мы потом дальше сразу
 работаем … Нет такого, что я сколько-то буду сидеть в него играть, а мы не будем работать.»
 
@@ -897,6 +1037,15 @@ struck — neither can see what the simulation READS. It is closed by **M4** plu
 INPUT LIST being stated and reviewed in the engineering contour, and a shape leg must budget both.
 **ROW 17's protocol** is closed by records rather than by either.
 
+**WHAT HIS RULINGS OF 2026-07-28 TAKE OFF THIS LIST — and both are reductions, so a shape leg's task
+set gets smaller, not larger.** ROW 5 no longer carries a SECOND authored level (ruling 1: the load
+button is struck and the two-levels requirement with it) and no longer carries a movable base
+(ruling 4: the base is fixed in the centre). ROW 12 gains no task from either — its inputs are the
+same inputs — but the layout file they live in is now a named property with a price of its own:
+**a text file an AI can change on his verbal instructions**, cheap and not free, and absent from
+step 4's matrix. ROW 16 gains no task and gains a WIDER property (ruling 3) plus his architectural
+instruction, which is a constraint on how bet 1 is built rather than a row.
+
 ---
 
 ## §DIED-WITH-THE-CUT — five findings and one apparatus, named so nobody re-raises them
@@ -915,9 +1064,23 @@ exists. Re-raising any of them is a false finding.
 - **R8** — the acceptance-labour count is twelve rows and five committed instruments, not eleven and
   four. **Dead: there is no acceptance labour to count.**
 
-**THREE SURVIVE AND ARE FOLDED IN HERE:** R1 (§KNOBS base placement → RIG table by his own
-register), R6 (§BUILD-CLOSES-BETTER's ROW 10 entry, §ORACLE 13, §ORACLE 14 → all three corrected),
+**THREE SURVIVED AND WERE FOLDED IN, and the cut-check confirmed all three closed:** R1 (§KNOBS base
+placement), R6 (§BUILD-CLOSES-BETTER's ROW 10 entry, §ORACLE 13, §ORACLE 14 → all three corrected),
 R7 (§WHAT criterion 11 → the constraint his words actually carry).
+
+**R1 IS SINCE SUPERSEDED BY THE OWNER HIMSELF (2026-07-28, ruling 4), and this is not a reopening.**
+R1 read his settings register correctly at the time — «Где стоит база и сколько воздуха она
+возвращает | ручка» — and concluded base placement was a RIG knob. He then deleted the placement half
+of that line and fixed the base in the centre, so the citation no longer says what R1 read in it.
+**Base placement is now in NEITHER §KNOBS table.** R1's conclusion must not be re-derived from the
+old citation, and re-raising R1's charge against the current text is a false finding.
+
+**THE CUT-CHECK'S THREE FINDINGS ARE ALSO CLOSED, 2026-07-28.** CUT-1 (§GLOSSARY «уровень» lost the
+base) is closed BY DISSOLUTION and not the way it proposed: with one authored section there is no
+per-level-versus-per-build question, and the base is not in the layout file either — it is fixed in
+the centre. CUT-2 (ROW 6's OBSERVABLE) is superseded and WIDENED by his «дойти до низа» ruling: the
+sentence is deleted outright and ROW 12's authoring constraint is restated without «низ». CUT-3
+(§CHECK's totality claim) is scoped to what the BUILD must do.
 
 **WHAT ELSE DIED WITH THE CUT, listed once so a later leg does not restore it by habit:** twelve
 prescribed outsider sittings; three committed decks with named sample sizes (six pairs, twelve
@@ -935,16 +1098,24 @@ knobs, the seams, the hazards, and the two governance clauses held by direction 
 ## §SIGNOFF
 
 - **Define (§GLOSSARY):** signed by CITATION to owner-approved text. **TWENTY-NINE terms** carry one
-  reading each. «вечная лаборатория» is PARTLY signed — his words fix one behaviour and do not
-  define the failure mode. «спорное число» gains no property from the cut.
+  reading each — the count is unchanged by the repair of 2026-07-28, which added and removed no term.
+  **TWO WERE RE-SIGNED ON HIS OWN WORDS under the TERM-PROPERTY RULE:** «уровень», which now reads as
+  one authored section instance described by its LAYOUT FILE with the two-levels reading struck; and
+  «база», whose placement property changed from "a knob" to "fixed in the centre, and the spawn".
+  «вечная лаборатория» is PARTLY signed — his words fix one behaviour and do not define the failure
+  mode. «спорное число» gains no property from the cut or from the repair.
 - **Resolve (§ROWS, §WHAT, §KNOBS, §WHAT-THE-GAME-TEACHES, §SEAM):** complete. Sixteen live rows
   plus one retired in place, fifteen criteria mapped, every uncovered clause named and not filled.
 - **AMENDED AND PARTLY SIGNED, 2026-07-28.** The three §OWNER forks are ANSWERED by him and the card
-  criteria carrying the answers (3, 8, 9, 12, 13, 14) hold his `да` on exact text. The ROWS
-  themselves are still NOT his verdict — he approved the card, not this file.
-- **THE CUT IS NOT SIGNED HERE.** A converge does not sign its own work. The reduced set goes to one
-  short independent look — `c-converge-verify-g-37a1-core-rows-cut-check-001`, scoped to a single
-  question: did the cut delete something the BUILD actually needs, and does the reduced set still
-  cover the fifteen criteria? The pre-cut version of this file is in git and is not current.
+  criteria carrying the answers (3, 8, 9, 12, 13, 14) hold his `да` on exact text. **Criterion 12 is
+  amended and carries his `да` again the same day** (the level button removed), as do requirements
+  lines 5 and 15. The ROWS themselves are still NOT his verdict — he approved the card and two
+  requirement lines, not this file.
+- **NEITHER THE CUT NOR THIS REPAIR IS SIGNED HERE. A converge does not sign its own work.** The
+  cut was checked by `c-converge-verify-g-37a1-core-rows-cut-check-001`, which returned FAIL with
+  three items and confirmed the cut itself held; those three and his four rulings are what this
+  repair applied. What comes next is a NARROW confirm of exactly what changed here — never a fourth
+  sweep — in a fresh chat separate from this one, from the cut-check and from the map leg. The
+  pre-cut and pre-repair versions of this file are in git and are not current.
 
 END_OF_FILE: live/indie-game-development/work/converge-g-37a1-core-rows.md
