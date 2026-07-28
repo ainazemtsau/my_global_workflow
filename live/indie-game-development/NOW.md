@@ -1,6 +1,6 @@
 # NOW: indie-game-development
 
-updated: 2026-07-28 by s-work-g-37a1-topology-boundary-001
+updated: 2026-07-28 by s-work-g-37a1-render-backend-full-horizon-002
 
 bet:
   node: g-37a1
@@ -38,8 +38,8 @@ tasks:
     done_when: "Названная сцена в списке сборки; собранный плеер запускается двойным кликом и запускается повторно, приходя в то же стартовое состояние при действующей конфигурации (машинная проверка M7 зелёная); из этой сборки можно снять скриншот."
     status: active
   - id: t-4
-    goal: "Решено по цифрам, покупать ли Voxel Play 4 как бэкенд картинки, или делать свой простой мешер."
-    done_when: "Список фич, которые Voxel Play 4 закрывает ЦЕЛИКОМ (после покупки не остаётся ни разработки, ни тестов, ни изучения) с оценкой нашей собственной стоимости по каждой; отдельно — что он НЕ закрывает, что придётся отключать, и где он трогает авторитетность и детерминизм; итог — сумма в рабочих днях и однозначный вывод по порогу владельца: сумма ≥ примерно пяти рабочих дней → покупаем."
+    goal: "Решено по полному вероятному горизонту, покупать ли Voxel Play 4 как заменяемый Unity-backend или строить собственный voxel-world stack."
+    done_when: "Полный горизонт решения отделён от минимального backend первого ядра: для каждой вероятно нужной подсистемы указаны наша внутренняя стоимость, неизбежный остаток интеграции/тестов с Voxel Play 4 и чисто избегаемая реализация; отдельно — что пакет НЕ закрывает, что отключается и где проходят авторитетность/детерминизм; итоговая сумма сравнена с порогом владельца примерно в пять рабочих дней, а точный buy/no-buy закрывает сам владелец."
     status: active
   - id: t-5
     goal: "Две машины видят один участок, который обе меняют."
@@ -275,14 +275,14 @@ open_calls:
     issued: 2026-07-28
     call: work/c-exec-g-37a1-venue-packaged-player-001-call.md
     note: "Runs in PARALLEL, today, and touches project settings rather than the simulation. This is criterion 1 — the card's FIRST clause — and it is the thing most likely to be discovered late: `EditorBuildSettings` holds exactly ONE enabled scene, the empty URP template, while nine real scenes exist and none is in the list, and there is no player-build script anywhere in 36 tools scripts or 53 ADRs. It also produces the artifact `g-2b7f` needs for its five honest gameplay screenshots. **BOUNCED BY THE EXECUTOR AND FIXED 2026-07-28 (s-repair-g-37a1-exec-call-contract-001); the defect was OURS and the bounce was correct behaviour.** The CALL sent the work to `GasCoopGame_dev` (WIN-CTRL), where feature WIP is forbidden; named no slot, which the product contract requires the OWNER to choose; carried no `engineering_contract: 31` pin and no entry stage; and asked for «a named scene in Build Settings» without naming one, when the allowed start scene is already the only one there. Now: slot **WIN-U1** (checked live — `lifecycle: AVAILABLE`, `lease: none`), pin 31, entry stage **PLAN**, and the scene clause is DROPPED as already satisfied — which narrows the leg to what is genuinely missing, the build script and the packaged player. That narrowing came from the executor, not from us."
-  - id: c-work-g-37a1-render-backend-owner-verdict-002
+  - id: c-work-g-37a1-render-backend-owner-verdict-003
     track: t-render
     status: ready
     to: session
     for: t-4
     issued: 2026-07-28
-    call: work/c-work-g-37a1-render-backend-owner-verdict-002-call.md
-    note: "**THE COUNT IS IN; ONLY HIS VERDICT IS MISSING.** The official product page showed $149.99 on 2026-07-28. Under his literal rule — a feature counts only when no development, tests or learning remain — VP4 closes 0 features and scores 0 days. A looser current-core sensitivity still gives at most about 2 days net, below his approximately five-day threshold. Recommendation: do not buy; build the minimal cubic mesher. Evidence: work/voxel-play-4-backend-evaluation-2026-07-28.md. This CALL asks only for his exact buy/no-buy words; nothing is purchased or inferred."
+    call: work/c-work-g-37a1-render-backend-owner-verdict-003-call.md
+    note: "**THE FIRST COUNT ANSWERED THE WRONG-SIZED QUESTION; THE FULL-HORIZON COUNT IS NOW IN, AND ONLY HIS VERDICT IS MISSING.** He challenged the two-day claim on exactly the omitted surface: «нам же визуал», «относительно большие уровни», changing chunks, blocks that explode and may fall, and «весь функционал, который нам в будущем пригодится». He was right: work/voxel-play-4-backend-evaluation-2026-07-28.md counted only the minimal first-core backend, and its zero-residual rule made any platform score zero by definition. The corrected non-overlapping base counts mutable chunk-world machinery, destruction/debris, underground visibility/large coordinates and visual material machinery; DIY 13–25 focused days, VP4 residual 5.5–11.5, net avoided about 8–14. That clears his approximately five-day threshold, so the recommendation flips to BUY at the conservative $149.99 price, under the Core-grid/F3 boundary. Evidence: work/voxel-play-4-backend-evaluation-2026-07-28-v2.md. No purchase and no owner verdict are inferred."
   - id: c-exec-g-37a1-coop-two-machines-001
     track: t-coop
     status: ready
@@ -536,15 +536,15 @@ decisions:
 
   - id: d-topology-backend-purchase-001
     track: t-render
-    question: "Покупаем ли Voxel Play 4 ($149.99) как бэкенд картинки и чанков под нашей собственной логической сеткой — или пишем свой простой мешер?"
+    question: "Покупаем ли Voxel Play 4 ($149.99) как заменяемый Unity-backend под нашей собственной логической сеткой — или строим свой voxel-world stack для полного вероятного горизонта?"
     why: "Это единственный пункт во всём материале трёх чатов, который стоит денег, и единственное коммерческое решение внутри бета. Бюджет CHARTER — около $3,000 всего, из них примерно $1,500 остаётся."
     options:
-      - "Купить и поставить ПОД нашу сетку: он даёт хранение и разбиение породы на чанки, перестроение меша после реза, границы между чанками, пакетные изменения и сериализацию изменённых чанков — ровно ту машинерию, которую большой мир потребует позже и которую иначе мы пишем дважды. Против: чужой пакет живёт в Unity-объектах, а наше ядро обязано считаться без движка, и его данные придётся держать зеркалом нашей сетки."
-      - "Не покупать, писать свой минимальный мешер на один фиксированный участок. За: ничего лишнего, полный контроль, ядро остаётся без движка. Против: при переходе к большому миру эту работу переделывают."
-    recommendation: "По расчёту t-4 НЕ ПОКУПАТЬ: целиком закрытых фич 0, зачётная сумма 0 дней; даже мягкий лучший край текущего ядра — не более примерно 2 дней чистого выигрыша против порога примерно 5. Это рекомендация, не вердикт владельца; status остаётся open."
+      - "Купить и поставить ПОД нашу сетку: пакет даёт зрелую Unity-машинерию изменяемых чанков/мешинга, подземной видимости, материалов и destruction/debris; Core-grid, FishNet, арт и проверки остаются нашими. Против: чужой пакет живёт в Unity-объектах, требует зеркала/адаптера и ещё не проверен внутри нашего проекта."
+      - "Не покупать и сознательно строить собственный voxel-world stack: chunk runtime, mesh lifecycle, visibility, destruction/debris и material machinery. За: полный контроль и отсутствие vendor dependency. Против: v2 консервативно оценивает чисто добавляющуюся внутреннюю реализацию примерно в 8–14 сфокусированных дней сверх остатка, который был бы и с пакетом."
+    recommendation: "Исправленная рекомендация t-4 — ПОКУПАТЬ за консервативные $149.99 и ставить ПОД Core-grid: v1 считала только минимальный backend первого ядра; четыре уже названных владельцем независимых контура полного продукта дают примерно 8–14 сфокусированных дней чисто избегаемой реализации против порога примерно 5. Точная цифра имеет среднюю уверенность, прохождение порога — более высокую; это рекомендация, не вердикт владельца, status остаётся open."
     status: open
     raised: 2026-07-28 by s-shape-g-37a1-core-bet-001
-    note: "**ЕГО СОБСТВЕННЫЙ ПОРОГ — он его и сформулировал, заменив пустое слово «невероятный профит», которое ввела эта же нога:** «если там даже 150 долларов, если нам это экономит, ну, условно, там что-то около недели, то уже стоит того, чтобы взять… И если оно даёт выигрыш, оно не должно прям всё закрывать. То есть под невероятным имеется в виду, что если это закрывает какую-то фичу, да, и нам не надо это делать». Ключевой тест — фича закрыта ЦЕЛИКОМ: не разрабатывать, не тестировать, не покрывать тестами, не учиться с ней работать. **ДВЕ ПОПРАВКИ К СОСТОЯНИЮ, БЕЗ КОТОРЫХ ЭТО РЕШЕНИЕ ПРИНИМАЕТСЯ ПО ЛОЖНОМУ ОСНОВАНИЮ.** (1) Voxel Play 4 НЕ «сглаженный воксель» — это кубический движок, сглаживание в нём опциональное и логических воксельных данных не трогает; обе ложные строки в этом файле исправлены на месте. (2) Прежняя запись состояния ставила узкую собственную сетку ФАВОРИТОМ после его кубического решения — этот вывод опирался на ту же ошибку и потому НЕ является аргументом; аргументом является только счёт в рабочих днях из `t-4`. **ЧТО ДЕЛАЕТ ОТКЛАДЫВАНИЕ БЕСПЛАТНЫМ:** шов F3 (`i-core-form-seams-from-concept-001`) держит любой бэкенд ПОД нашей логической сеткой за тонкой заменяемой прослойкой, поэтому ошибиться выбором стоит лицензию, а не архитектуру. **ЧТО НЕ ОБСУЖДАЕТСЯ НИ ПРИ КАКОМ ИСХОДЕ:** правда о выкопанном остаётся нашей сеткой; сглаживание выключено (его кубическое решение); игровые системы пакета — вода, лава, погода, обрушения, инвентарь, его генерация мира — выключены; и столкновения игрока считаются опросом нашей сетки, а не коллайдерами пакета."
+    note: "**ЕГО СОБСТВЕННЫЙ ПОРОГ:** «если там даже 150 долларов, если нам это экономит, ну, условно, там что-то около недели, то уже стоит того, чтобы взять… И если оно даёт выигрыш, оно не должно прям всё закрывать. То есть под невероятным имеется в виду, что если это закрывает какую-то фичу, да, и нам не надо это делать». **SCOPE CORRECTION FROM HIM, 2026-07-28:** he rejected applying that threshold only to the first core — «нам же визуал», «относительно большие уровни», chunks changing, blocks exploding and possibly falling, and «весь функционал, который нам в будущем пригодится». Therefore the former interpretation «no adapter, learning or tests may remain» is withdrawn: it mechanically scored every platform zero and did not answer his purchase question. v1's 0/2-day no-buy result survives only as a current-core sensitivity and is superseded for this decision by work/voxel-play-4-backend-evaluation-2026-07-28-v2.md. **WHAT IS NOW COUNTED:** four non-overlapping owner-named clusters — mutable chunk world, destruction/debris, underground visibility/large coordinates, and visual material machinery — avoid about 8–14 focused days after the Core/FishNet/testing residual, enough to flip the recommendation to BUY. Saving/editor tools, Super Chunks, microvoxels, world generation and gameplay systems score zero in the base, so the flip does not depend on speculative upside. **F3 DOES NOT MOVE:** truth about dug cells remains Core-grid; host order and `TopologyCommit` remain ours; package collapse/physics becomes world truth only through a Core commit; player collision still queries Core-grid. In the CURRENT core smoothing, package gameplay and mesh colliders remain off; later collapse/debris may be used behind this boundary rather than silently disabled forever."
 
   - id: d-post-verify-route-001
     question: "The verification FAILED. Does `shape` open next, or does the artifact get finished first?"

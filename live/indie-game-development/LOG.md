@@ -1,5 +1,7 @@
 # LOG - indie-game-development
 
+2026-07-28 | s-work-g-37a1-render-backend-full-horizon-002 | t-render | work | direction | g-37a1/t-4: прежний 0/2-дневный no-buy счёт отозван как расчёт только минимального backend первого ядра; четыре названных владельцем контура полного продукта дают примерно 8–14 сфокусированных дней чисто избегаемой реализации, поэтому рекомендация меняется на покупку VP4 под Core-grid, а точный вердикт остаётся за владельцем -> history/2026-07-28-s-work-g-37a1-render-backend-full-horizon-002.md
+
 2026-07-28 | s-work-g-37a1-topology-boundary-001 | work | t-sim | g-37a1/t-1: rock does not exist as data in the live tier - it stores the VOID, so digging ADDS cells and no path opens a closed face at all; the cost of a dig today equals the size of the WORLD not the cut; region identity is an authored box that only needs to leave the checksum; the dig contract is out and t-coop is unblocked; both halves of kill_by checked first and neither fired -> history/2026-07-28-s-work-g-37a1-topology-boundary-001.md
 
 2026-07-28 | s-work-g-37a1-render-backend-evaluation-001 | t-render | work | direction | g-37a1/t-4: Voxel Play 4 набирает 0 дней целиком закрытых фич при цене $149.99; даже мягкий лучший край текущего ядра не превышает примерно 2 дней, поэтому рекомендация — не покупать, а решение остаётся за владельцем -> history/2026-07-28-s-work-g-37a1-render-backend-evaluation-001.md
