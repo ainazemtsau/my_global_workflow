@@ -1,6 +1,6 @@
 # NOW: indie-game-development
 
-updated: 2026-07-28 by s-repair-g-37a1-exec-call-contract-001
+updated: 2026-07-28 by s-work-g-37a1-render-backend-evaluation-001
 
 bet:
   node: g-37a1
@@ -257,14 +257,14 @@ open_calls:
     issued: 2026-07-28
     call: work/c-exec-g-37a1-venue-packaged-player-001-call.md
     note: "Runs in PARALLEL, today, and touches project settings rather than the simulation. This is criterion 1 — the card's FIRST clause — and it is the thing most likely to be discovered late: `EditorBuildSettings` holds exactly ONE enabled scene, the empty URP template, while nine real scenes exist and none is in the list, and there is no player-build script anywhere in 36 tools scripts or 53 ADRs. It also produces the artifact `g-2b7f` needs for its five honest gameplay screenshots. **BOUNCED BY THE EXECUTOR AND FIXED 2026-07-28 (s-repair-g-37a1-exec-call-contract-001); the defect was OURS and the bounce was correct behaviour.** The CALL sent the work to `GasCoopGame_dev` (WIN-CTRL), where feature WIP is forbidden; named no slot, which the product contract requires the OWNER to choose; carried no `engineering_contract: 31` pin and no entry stage; and asked for «a named scene in Build Settings» without naming one, when the allowed start scene is already the only one there. Now: slot **WIN-U1** (checked live — `lifecycle: AVAILABLE`, `lease: none`), pin 31, entry stage **PLAN**, and the scene clause is DROPPED as already satisfied — which narrows the leg to what is genuinely missing, the build script and the packaged player. That narrowing came from the executor, not from us."
-  - id: c-work-g-37a1-render-backend-decision-001
+  - id: c-work-g-37a1-render-backend-owner-verdict-002
     track: t-render
     status: ready
     to: session
     for: t-4
     issued: 2026-07-28
-    call: work/c-work-g-37a1-render-backend-decision-001-call.md
-    note: "**The owner's own purchase threshold replaces the leg's earlier vague wording and is the acceptance rule: «если там даже 150 долларов, если нам это экономит … что-то около недели, то уже стоит того», and «под невероятным имеется в виду, что если это закрывает какую-то фичу … и нам не надо это делать».** So the deliverable is a sum in working days, not an opinion: features Voxel Play 4 closes ENTIRELY (no development, no tests, no learning left on our side) priced against our own cost, plus what it does NOT close and where it touches authority and determinism. **Two corrections this leg owes the reader:** Voxel Play 4 is a CUBIC engine — the claim that it is «the smoothed-voxel one» was wrong, Surface Nets is an optional visual smoothing that leaves logical voxel data untouched; and whatever is chosen sits BELOW our own logical grid behind the thin replaceable backend of seam F3, so choosing wrong costs the licence and not the architecture."
+    call: work/c-work-g-37a1-render-backend-owner-verdict-002-call.md
+    note: "**THE COUNT IS IN; ONLY HIS VERDICT IS MISSING.** The official product page showed $149.99 on 2026-07-28. Under his literal rule — a feature counts only when no development, tests or learning remain — VP4 closes 0 features and scores 0 days. A looser current-core sensitivity still gives at most about 2 days net, below his approximately five-day threshold. Recommendation: do not buy; build the minimal cubic mesher. Evidence: work/voxel-play-4-backend-evaluation-2026-07-28.md. This CALL asks only for his exact buy/no-buy words; nothing is purchased or inferred."
   - id: c-exec-g-37a1-coop-two-machines-001
     track: t-coop
     status: blocked
@@ -511,7 +511,7 @@ decisions:
     options:
       - "Купить и поставить ПОД нашу сетку: он даёт хранение и разбиение породы на чанки, перестроение меша после реза, границы между чанками, пакетные изменения и сериализацию изменённых чанков — ровно ту машинерию, которую большой мир потребует позже и которую иначе мы пишем дважды. Против: чужой пакет живёт в Unity-объектах, а наше ядро обязано считаться без движка, и его данные придётся держать зеркалом нашей сетки."
       - "Не покупать, писать свой минимальный мешер на один фиксированный участок. За: ничего лишнего, полный контроль, ядро остаётся без движка. Против: при переходе к большому миру эту работу переделывают."
-    recommendation: "НЕ решать по ощущениям — решить по его собственному порогу после `t-4`: сумма закрытых ЦЕЛИКОМ фич ≥ примерно пяти рабочих дней → покупаем в тот же день."
+    recommendation: "По расчёту t-4 НЕ ПОКУПАТЬ: целиком закрытых фич 0, зачётная сумма 0 дней; даже мягкий лучший край текущего ядра — не более примерно 2 дней чистого выигрыша против порога примерно 5. Это рекомендация, не вердикт владельца; status остаётся open."
     status: open
     raised: 2026-07-28 by s-shape-g-37a1-core-bet-001
     note: "**ЕГО СОБСТВЕННЫЙ ПОРОГ — он его и сформулировал, заменив пустое слово «невероятный профит», которое ввела эта же нога:** «если там даже 150 долларов, если нам это экономит, ну, условно, там что-то около недели, то уже стоит того, чтобы взять… И если оно даёт выигрыш, оно не должно прям всё закрывать. То есть под невероятным имеется в виду, что если это закрывает какую-то фичу, да, и нам не надо это делать». Ключевой тест — фича закрыта ЦЕЛИКОМ: не разрабатывать, не тестировать, не покрывать тестами, не учиться с ней работать. **ДВЕ ПОПРАВКИ К СОСТОЯНИЮ, БЕЗ КОТОРЫХ ЭТО РЕШЕНИЕ ПРИНИМАЕТСЯ ПО ЛОЖНОМУ ОСНОВАНИЮ.** (1) Voxel Play 4 НЕ «сглаженный воксель» — это кубический движок, сглаживание в нём опциональное и логических воксельных данных не трогает; обе ложные строки в этом файле исправлены на месте. (2) Прежняя запись состояния ставила узкую собственную сетку ФАВОРИТОМ после его кубического решения — этот вывод опирался на ту же ошибку и потому НЕ является аргументом; аргументом является только счёт в рабочих днях из `t-4`. **ЧТО ДЕЛАЕТ ОТКЛАДЫВАНИЕ БЕСПЛАТНЫМ:** шов F3 (`i-core-form-seams-from-concept-001`) держит любой бэкенд ПОД нашей логической сеткой за тонкой заменяемой прослойкой, поэтому ошибиться выбором стоит лицензию, а не архитектуру. **ЧТО НЕ ОБСУЖДАЕТСЯ НИ ПРИ КАКОМ ИСХОДЕ:** правда о выкопанном остаётся нашей сеткой; сглаживание выключено (его кубическое решение); игровые системы пакета — вода, лава, погода, обрушения, инвентарь, его генерация мира — выключены; и столкновения игрока считаются опросом нашей сетки, а не коллайдерами пакета."
