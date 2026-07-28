@@ -73,7 +73,7 @@ An engineering CALL goes to a product repo. Its return comes HOME; only Directio
 
 ## 5. Hard gates
 
-- **G1 (WIP).** At most one active bet per direction; ≤3 active tasks. Without a bet there are no non-recurring execution lanes; one untracked specification-authoring planning frontier is legal. Lane WIP uses an owner-set limit; ≤1 ordinary root per lane.
+- **G1 (WIP).** At most one active bet per direction; the owner sets how many of its tasks/lanes run at once, on `shape`'s proposal. Without a bet there are no non-recurring execution lanes; one untracked specification-authoring planning frontier is legal. ≤1 ordinary root per lane.
 - **G2 (rolling wave).** Tasks and non-recurring execution lanes serve only the active bet. Future objectives stay outcome-level in TREE; unrelated work stays an issue/capture until admitted.
 - **G3 (appetite).** Appetite is set before tasks and never extends. Over-appetite work dies; continuation requires a new shape.
 - **G4 (bet validity).** A bet without done_when and kill_by is invalid.

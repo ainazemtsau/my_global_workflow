@@ -76,7 +76,7 @@ bet:
     audience: <...>
     business: <...>
 
-tasks:                         # [] when bet:null; ≤3 active
+tasks:                         # [] when bet:null; active ≤ the owner-set WIP limit
   - id: t-1
     goal: <outcome>
     done_when: <verifiable>
@@ -105,7 +105,7 @@ issues:                         # unresolved only; compact, not a task backlog
     evidence: <history/work/knowledge pointer>
     # blocks: <stable node/task/call>
 
-track_wip_limit: 3             # present only with tracks; owner-approved
+track_wip_limit: 4             # present only with tracks; owner-set, no fixed ceiling
 tracks:                         # optional execution lanes inside the current bet
   - id: gameplay
     label: "Gameplay proof"
