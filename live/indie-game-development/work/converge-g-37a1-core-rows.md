@@ -1118,4 +1118,23 @@ knobs, the seams, the hazards, and the two governance clauses held by direction 
   sweep — in a fresh chat separate from this one, from the cut-check and from the map leg. The
   pre-cut and pre-repair versions of this file are in git and are not current.
 
+- **§SIGNOFF: converge-verify passed @ 2026-07-28** —
+  `s-converge-verify-g-37a1-core-rows-cut-repair-check-001`, the narrow confirm named above, in a
+  fresh chat separate from the repair, from the cut-check, from the map leg and from both earlier
+  verifications. `verify_target: build · complete=PASS · smuggling=PASS`. **STEP 3 OF THE OWNER'S
+  SIX-STEP ROUTE IS CLOSED.** What was confirmed: all nine items of
+  `c-converge-g-37a1-core-rows-cut-repair-001` land and match his signed texts — criterion 12,
+  requirements lines 5 and 15 and the amended settings register — word for word; the four strikes
+  reached every home they had, with no surviving LIVE claim for the load button, the two-authored-
+  levels requirement, «where the base stands» as a knob or «дойти до низа»; **nothing was struck
+  that his rulings do not reach** — every one of the 79 removed lines maps to one of the nine, and
+  no requirement, forced parameter, hazard, seam or routed price left the file unbidden; ROW 16's
+  rewrite reads criterion 11 as SYNCHRONISATION, which is how he read it himself later the same day
+  (`NOW.md` `d-core-geometry-and-view-001`), with criterion 11 unchanged and nothing technical in
+  the card; and the coverage arithmetic holds — fifteen criteria, thirteen carrying a row, two
+  row-less by design, sixteen live rows, three governance clauses, twenty-nine glossary terms.
+  **The independent oracle was the git diff `526ac2ad..ecb74c2b` and the signed source texts read
+  first-hand, never the repair's account of itself.** The ROWS are still not his verdict: he
+  approved the card and the requirement lines, not this file.
+
 END_OF_FILE: live/indie-game-development/work/converge-g-37a1-core-rows.md
