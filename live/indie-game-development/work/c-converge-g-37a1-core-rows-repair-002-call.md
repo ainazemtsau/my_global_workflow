@@ -116,4 +116,18 @@ after: |
   is never decided by a leg. Step 6 — `shape` — is the first leg that may create a bet or a task,
   and it is the only place the PRE-BUILD stretch can be guarded, by `appetite` and `kill_by`.
 
+disposition: |
+  **CANCELLED 2026-07-28, NEVER RUN, by the owner's own decision on the acceptance format**
+  (`NOW.md` `d-core-acceptance-format-001`; quoted in full at the top of
+  `work/converge-g-37a1-core-rows.md`). This CALL was eight one-to-three-sentence repairs to the
+  acceptance apparatus. **Five of the eight — R2, R3, R4, R5 and R8 — were against text the cut
+  deletes outright**, so repairing them would have been work on paper scheduled for deletion. The
+  remaining three — R1 (§KNOBS base placement), R6 (three stale roll-ups), R7 (§WHAT criterion 11) —
+  are folded into the cut leg `s-converge-g-37a1-core-rows-cut-001` and are resolved there.
+  Its receipt: `history/2026-07-28-s-converge-g-37a1-core-rows-cut-001.md`. The successor is
+  `c-converge-verify-g-37a1-core-rows-cut-check-001` — ONE short independent look, not a third full
+  sweep. **KERNEL two-strikes never fired and its boundary is moot**: the sections it guarded
+  (§KNOBS' governance classes, §RULES' committed pass rule) no longer carry a scoring apparatus to
+  charge a third time.
+
 END_OF_FILE: live/indie-game-development/work/c-converge-g-37a1-core-rows-repair-002-call.md
