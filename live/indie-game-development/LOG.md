@@ -1,5 +1,7 @@
 # LOG - indie-game-development
 
+2026-07-29 | s-repair-g-37a1-render-vp4-task-001 | t-render | repair | direction | g-37a1/t-4: владелец одобрил sparse Core microtopology как часть крепкого расширяемого ядра; t-7 переписана на Solid/Partial/Empty + mask-delta, газовая проекция отделена в t-10, VP4 adapter и visual responsibility назначены t-11, старый openedCells coop root заблокирован -> history/2026-07-29-s-repair-g-37a1-render-vp4-task-001.md
+
 2026-07-29 | s-repair-g-37a1-task-coverage-001 | repair | direction | g-37a1/task-coverage: the bet task list did not cover its own done_when - six of fifteen criteria had no owner at all; t-8 (air, death, full restart) and t-9 (the rig: numbers outside, layout in a file, two switches) added, the legibility criteria deliberately left to the render lane rather than duplicated, and the class logged to os/FRICTION.md -> history/2026-07-29-s-repair-g-37a1-task-coverage-001.md
 
 2026-07-29 | s-map-g-37a1-substance-sinks-and-build-task-001 | map | t-sim | g-37a1/criterion-10: the no-sinks clause becomes a no-INVISIBLE-sinks clause and only substance may close what was dug - so absorption into rock is admitted, it is FINAL and it changes the rock MATERIAL rather than setting a flag; the simulation lane finally gets tasks that BUILD (t-6 rest and free idle tick, t-7 world mutation) -> history/2026-07-29-s-map-g-37a1-substance-sinks-and-build-task-001.md
