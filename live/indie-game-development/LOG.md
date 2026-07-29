@@ -1,5 +1,7 @@
 # LOG - indie-game-development
 
+2026-07-29 | s-repair-g-37a1-grid-and-building-001 | repair | t-sim | g-37a1: одна сетка при 1 м (газовая клетка = базовый блок) заменила связные пустоты внутри клетки в t-10; наряд t-6 приведён к продукту как running на стадии PAIR-CANDIDATE; постройка блоками записана как вход СЛЕДУЮЩЕЙ версии с её противовесом, направление контракта реза и потолок маски 63 — как решения перед t-7 -> history/2026-07-29-s-repair-g-37a1-grid-and-building-001.md
+
 2026-07-29 | s-frame-indie-october-route-revision-001 | frame | direction | g-0c26: октябрь остаётся жёстким основным маршрутом, но его пропуск больше не закрывает игру и запускает явный пересмотр дат; воздух читается простым HUD-индикатором в углу -> history/2026-07-29-s-frame-indie-october-route-revision-001.md
 
 2026-07-29 | s-pulse-indie-knowledge-routing-hygiene-001 | pulse | direction | knowledge: current legacy-authority boundary reduced to a durable no-inheritance/no-default-read fact; obsolete strategy-reset dispatcher removed from live knowledge and its resolved issue cleared; current frontier remains NOW -> history/2026-07-29-s-pulse-indie-knowledge-routing-hygiene-001.md

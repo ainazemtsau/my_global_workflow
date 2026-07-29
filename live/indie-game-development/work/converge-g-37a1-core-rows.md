@@ -1,5 +1,11 @@
 # converge-g-37a1 — CORE ROWS (step 2 of the owner's six-step route)
 
+> **⚠ ЧАСТИЧНО УСТАРЕЛО — не цитировать как текущее без сверки.** Поправка владельца от 2026-07-29
+> переписала M1/M2/M3, но НЕ была применена к наблюдаемым ряда 8 и ряда 11 здесь; §GLOSSARY «сток» и
+> §ORACLE повторяют ту же снятую формулировку. Текущий текст рядов — `work/core-requirements-g-37a1.md`.
+> Причина и маршрут: `NOW.md` issue `i-core-rows-amendment-drift-001` (маршрут review).
+> Баннер добавлен `s-repair-g-37a1-grid-and-building-001`; ни один байт ниже не изменён.
+
 triage: heavy — converge ON — because model-bearing (a wrong stub defines the product) and
 cross-cutting (it decomposes into body, venue, substance, air, legibility and network).
 

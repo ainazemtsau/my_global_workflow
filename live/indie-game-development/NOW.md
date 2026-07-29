@@ -1,6 +1,6 @@
 # NOW: indie-game-development
 
-updated: 2026-07-29 by s-frame-indie-october-route-revision-001
+updated: 2026-07-29 by s-repair-g-37a1-grid-and-building-001
 
 bet:
   node: g-37a1
@@ -12,7 +12,8 @@ bet:
   cut_list:
     - "Не воскрешать мёртвый coarse-ярус; строить на live tier."
     - "Около 18 из 20 ручек живут во внешнем текстовом файле между заходами; в игре остаются стартовое состояние и бессмертие."
-    - "Sparse microtopology входит в Core: Solid/Empty без маски, Partial с разреженной occupancy-маской. Вырезаны dense world masks, gas solver/mass на микроклетках, authority VP4 и micro-aware collision тела; 0,5/1 м — versioned world config."
+    - "Sparse microtopology входит в Core: Solid/Empty без маски, Partial с разреженной occupancy-маской. Вырезаны dense world masks, gas solver/mass на микроклетках, authority VP4 и micro-aware collision тела; размер базового блока — versioned world config."
+    - "Газовая клетка равна базовому блоку; стартовое значение 1 м (владелец 2026-07-29). Связные пустоты ВНУТРИ блока не моделируются: у блока одно число открытости на каждую из шести граней. Крошка 4×4×4 внутри блока как старт; ширина маски грани — versioned config, а не константа."
     - "Без пустого registry будущих реакций; именованные фазы сохраняются."
     - "Без сохранения незавершённого участка, late join, лишнего art/VFX, генерации, streaming и бесконечного мира; чанковая адресация остаётся."
   lens_verdicts:
@@ -67,13 +68,13 @@ tasks:
     status: blocked
     unblock_when: "t-7 отдал загрузку мира из файла разметки; после t-3 полоса t-venue переводится на t-9."
   - id: t-10
-    goal: "Газ использует точную микротопологию, не превращаясь в solver на каждой микроклетке."
-    done_when: "Только изменённые базовые блоки и их соседи пересчитывают связные пустоты, открытый объём и по-компонентные маски шести граней; несвязанные тоннели внутри одного газового агрегата остаются разными узлами. Масса сохраняется при появлении и объединении полостей. Газовый такт работает по кэшированному графу, не сканирует микромаски в простое и не хранит массу на микровокселях. Тесты различают тонкую и широкую утечку и две несвязанные полости. Записаны стоимость изменения, память масок/кэша, размер сетевой delta и предел реза для вариантов базового блока 0,5 и 1 м."
+    goal: "Газ использует крошку как проводимость грани, не превращаясь в solver на каждой микроклетке."
+    done_when: "Газовая клетка равна базовому блоку, старт 1 м. Связные пустоты ВНУТРИ блока не моделируются: блок несёт одно число открытости на каждую из шести граней, и перенос идёт по этому числу; масса хранится на блок и между частями блока не делится. Принятая неточность записана как принятая: блок, раскрошенный с двух сторон и не пробитый насквозь, пропускает немного газа там, где визуально ещё порода. Крошка со временем осыпается, и блок приходит к полностью сплошному либо полностью пустому. Пересчитываются только изменённый блок и его соседи; газовый такт не сканирует крошку в простое. Тесты различают тонкую и широкую утечку и закрывают осыпание крошки до пустого блока. Записаны стоимость изменения, память крошки, размер сетевой delta и предел реза при базовом блоке 1 м."
     status: blocked
     unblock_when: "t-7 завершена: каноническая mask-delta и snapshot/hash уже существуют."
   - id: t-11
     goal: "Одна авторитетная микромаска Core честно представлена настоящим VP4-чанком, а текущая visual responsibility имеет владельца."
-    done_when: "После фактической установки VP4 адаптер пакетно переводит Solid/Empty/Partial и точную Core-маску в VoxelChunk/MicroVoxels. Debug round-trip совпадает с Core, включая различение полного solid, полного empty и неоднозначного null от GetMicroVoxels. OnChunkChanged используется только как dirty-сигнал; готовность представления подтверждается geometry revision / OnChunkGeometryApplied, а не становится игровой правдой. Одна тестовая сцена показывает два различимых вида вещества и читаемую до реза породу. Записаны mesh/collider latency и отображение вариантов базового блока 0,5 и 1 м. Core, газ, FishNet и player controller пакет не подменяет."
+    done_when: "После фактической установки VP4 адаптер пакетно переводит Solid/Empty/Partial и точную Core-маску в VoxelChunk/MicroVoxels. Debug round-trip совпадает с Core, включая различение полного solid, полного empty и неоднозначного null от GetMicroVoxels. OnChunkChanged используется только как dirty-сигнал; готовность представления подтверждается geometry revision / OnChunkGeometryApplied, а не становится игровой правдой. Одна тестовая сцена показывает два различимых вида вещества и читаемую до реза породу. Записаны mesh/collider latency и отображение при базовом блоке 1 м с крошкой 4×4×4. Core, газ, FishNet и player controller пакет не подменяет."
     status: blocked
     unblock_when: "t-7 завершена, пакет VP4 фактически доступен локально и владелец выбрал свободный product slot."
 
@@ -121,11 +122,35 @@ issues:
     review_when: "Первая инженерная нога, меняющая структуру live tier, ожидаемо t-7."
     evidence: "work/topology-boundary-g-37a1.md §6; history/2026-07-28-s-work-g-37a1-topology-boundary-001.md."
   - id: i-gas-core-open-questions-001
-    issue: "Owner verdict закрепил sparse Solid→Partial→Empty. Остаток уже маршрутизирован: cut-size, snapshot и скорость/порядок инструмента — t-7; gas rendering — t-11; 0,5/1 м — t-10/t-11; одноразовые замеры — t-6."
+    issue: "Owner verdict закрепил sparse Solid→Partial→Empty. Остаток уже маршрутизирован: cut-size, snapshot и скорость/порядок инструмента — t-7; gas rendering — t-11; одноразовые замеры — t-6. Пункт «0,5/1 м» закрыт владельцем 2026-07-29 в пользу 1 м."
     level: execution
     route: work
-    review_when: "В названных t-6/t-7/t-10/t-11; нового owner-choice сейчас нет."
-    evidence: "work/2026-07-29-gas-core-engineering-spec.md §8, §13; history/2026-07-29-s-repair-g-37a1-render-vp4-task-001.md."
+    review_when: "В названных t-6/t-7/t-11; нового owner-choice сейчас нет."
+    evidence: "work/2026-07-29-gas-core-engineering-spec.md §8, §13; work/2026-07-29-core-grid-and-building-decisions.md §1; history/2026-07-29-s-repair-g-37a1-render-vp4-task-001.md."
+  - id: i-topology-commit-direction-001
+    issue: "Контракт реза односторонний: дедуплицированный НАБОР открытых клеток. Его идемпотентность и догон отставшей машины объединением верны только потому, что открытия коммутируют; копание и постановка блока не коммутируют. Двусторонняя упорядоченная дельта конечного состояния возможна, но платит идемпотентностью, union-replay и появлением первой отклоняемой команды игрока. В продукте seq отсутствует, буфер задержки ввода описан в ADR-0002 и не построен."
+    level: execution
+    route: work
+    review_when: "Перед выпуском CALL по t-7: там форма замерзает, и на t-7 висят t-5, t-9, t-10 и t-11."
+    evidence: "work/topology-boundary-g-37a1.md §4; work/2026-07-29-core-grid-and-building-decisions.md §2."
+  - id: i-subface-mask-ceiling-001
+    issue: "Маска открытости грани — одно 64-битное число, MaxSubFacesPerFace = 63, то есть не более 7 делений на сторону. Крошка 4×4×4 (16 подграней) проходит; 8³ (64) и 16³ (256) не проходят без расширения хранилища, а оно меняет формат состояния и контрольную сумму. Владелец 2026-07-29 просил максимальную маску ради вида разрушения."
+    level: execution
+    route: work
+    review_when: "Перед выпуском CALL по t-7 либо раньше, если t-11 упрётся в вид разрушения."
+    evidence: "Core/Field/Voxel/VoxelResolution.cs:84 в C:/projects/Unity/GasCoopGame; work/2026-07-29-core-grid-and-building-decisions.md §3."
+  - id: i-player-building-next-version-001
+    issue: "Владелец назвал постройку блоками сильнейшим кандидатом концепта и своим намерением. Она противоречит подписанному критерию 10 в TREE.md и ряду 8 требований; разворот — маршрут frame/map, репейру запрещён. Отдельно: постройка вместе с впитыванием восстанавливает «ждать всегда выгодно», поэтому без собственного противовеса не выпускается."
+    level: roadmap
+    route: map
+    review_when: "После того как владелец зашёл в собранное ядро — TREE.md g-37a1 критерий 14."
+    evidence: "work/2026-07-29-core-grid-and-building-decisions.md §1, §4; репозиторный work/game-concept-discussion-handoff-2026-07-29.md (неавторитетное резюме дискуссии); TREE.md g-37a1 критерии 10 и 14."
+  - id: i-core-rows-amendment-drift-001
+    issue: "Ряды 8 и 11 в work/converge-g-37a1-core-rows.md не были обновлены поправкой 2026-07-29 и несут снятые формулировки; §GLOSSARY и §ORACLE повторяют их. Модель стоимости в work/topology-boundary-g-37a1.md §3 опирается на снятую редакцию ряда 8. Баннеры добавлены, байты сохранены."
+    level: execution
+    route: review
+    review_when: "На review g-37a1 либо раньше, если любая нога снова цитирует эти ряды как текущие."
+    evidence: "work/converge-g-37a1-core-rows.md шапка; work/topology-boundary-g-37a1.md шапка; work/core-requirements-g-37a1.md строка 8."
   - id: i-substance-states-unpriced
     issue: "Для g-37a1 подписаны два газа; жидкость отложена. После игры в ядро addition идёт через work, replacement — через map."
     level: roadmap
@@ -183,10 +208,11 @@ issues:
 open_calls:
   - id: c-exec-g-37a1-gas-rest-and-checksum-001
     track: t-sim
-    status: ready
+    status: running
     to: executor
     for: t-6
     issued: 2026-07-29
+    started: "2026-07-29, владелец: «ок, запускаю в том чате». Продукт: стадия PLAN завершена, принята и заморожена коммитом ab71037c с квитанцией e790a1fc на origin/main; идёт стадия PAIR-CANDIDATE в слоте win-u4 (engineering_contract 31)."
     call: work/c-exec-g-37a1-gas-rest-and-checksum-001-call.md
   - id: c-exec-g-37a1-body-first-person-001
     track: t-body
