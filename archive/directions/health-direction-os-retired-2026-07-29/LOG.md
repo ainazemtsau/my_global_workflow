@@ -53,4 +53,6 @@ goal-management/orchestration node; next is shape on that node; no bet activated
 
 2026-07-14 — health/g-health-training-activity-system/DR-A2 work: revised2 decision framework and evidence ledger preserved with audit checkpoint; content/boundaries pass, E26–E28 metadata repair packet saved; no program activated. → history/2026-07-14-s-health-dr-a2-artifacts-preserve-001.md
 
+2026-07-29 — health/g-health-hq-goal-coordinator review (s-health-direction-retirement-review-001): verdict obsolete by owner strategy change; Direction Health leaves live Direction OS and Pulse, all prior bytes remain frozen evidence, and no successor CALL is created. → history/2026-07-29-s-health-direction-retirement-review-001.md
+
 END_OF_FILE: live/health/LOG.md
