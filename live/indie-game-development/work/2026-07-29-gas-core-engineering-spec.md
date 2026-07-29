@@ -506,4 +506,4 @@ TopologyCommit             — одна атомарная фиксация, о�
 вместо цепочки клеток. Это единственная форма «газ как фигура», которая выживает, потому что у
 прямого перегона фигура гарантированно простая.
 
-END_OF_FILE: work/2026-07-29-gas-core-engineering-spec.md
+END_OF_FILE: live/indie-game-development/work/2026-07-29-gas-core-engineering-spec.md

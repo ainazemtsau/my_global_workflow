@@ -167,9 +167,9 @@ list and are not negotiable here.**
 
 | # | assertion | rows |
 |---|---|---|
-| M1 | Total substance in the section is the same after a breach as before it, and after an arbitrary wait. | 11 |
-| M2 | No action, object, place or timer removes substance from the section — after a breach and any wait, the total is unchanged and the released mass is in the cut space. | 11 |
-| M3 | Open volume within a run is monotone non-decreasing: nothing returns rock to a place it was removed from. | 8 |
+| M1 | Total substance in the section NEVER GROWS, and after a breach and an arbitrary wait it has decreased only by what a NAMED mechanism took. Until that mechanism takes it, the released mass is in the cut space. **(rewritten 2026-07-29 with line 11)** | 11 |
+| M2 | No action, object, place or timer removes substance SILENTLY: every decrease of the total is attributable to the named mechanism and leaves a visible change in the rock. **(rewritten 2026-07-29 with line 11)** | 11 |
+| M3 | Within a run, open volume decreases ONLY through the named substance mechanism; no player action returns rock to a place it was removed from. **(rewritten 2026-07-29 with line 8)** | 8 |
 | M4 | The substance evolves identically with the player at one position, at another, and absent — no input to the law names the player. | 10 |
 | M5 | Each RIG knob changes what it claims: two runs at two values differ in the named quantity, and an out-of-range value fails loudly instead of being clamped silently. | 5 |
 | M6 | The parameter home REFUSES writes to the LEVEL-AUTHORING inputs from the built player. | 5, 12 |

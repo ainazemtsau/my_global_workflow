@@ -1,5 +1,7 @@
 # LOG - indie-game-development
 
+2026-07-29 | s-map-g-37a1-substance-sinks-and-build-task-001 | map | t-sim | g-37a1/criterion-10: the no-sinks clause becomes a no-INVISIBLE-sinks clause and only substance may close what was dug - so absorption into rock is admitted, it is FINAL and it changes the rock MATERIAL rather than setting a flag; the simulation lane finally gets tasks that BUILD (t-6 rest and free idle tick, t-7 world mutation) -> history/2026-07-29-s-map-g-37a1-substance-sinks-and-build-task-001.md
+
 2026-07-28 | s-work-g-37a1-render-backend-owner-verdict-003 | t-render | work | direction | g-37a1/t-4: владелец дословно выбрал Voxel Play 4 под логической сеткой; решение и t-4 закрыты, покупка/установка не выполнялись, а отсутствующая render-интеграционная задача направлена в короткий repair -> history/2026-07-28-s-work-g-37a1-render-backend-owner-verdict-003.md
 
 2026-07-28 | s-work-g-37a1-render-backend-full-horizon-002 | t-render | work | direction | g-37a1/t-4: прежний 0/2-дневный no-buy счёт отозван как расчёт только минимального backend первого ядра; четыре названных владельцем контура полного продукта дают примерно 8–14 сфокусированных дней чисто избегаемой реализации, поэтому рекомендация меняется на покупку VP4 под Core-grid, а точный вердикт остаётся за владельцем -> history/2026-07-28-s-work-g-37a1-render-backend-full-horizon-002.md
