@@ -1,54 +1,43 @@
-# Canon clean authority reset — no default legacy reads
+# Legacy authority boundary — no default legacy reads
 
-established: 2026-07-24 by s-review-canon-clean-authority-reset-001
+accepted: 2026-07-24
+updated: 2026-07-29 by s-pulse-indie-knowledge-routing-hygiene-001
+status: current
 
-owner_words:
-- «чистый reset authority»
-- «Так, да, подтверждаю»
-- «только над каноном надо его reset»
-- «туда заходить только либо там по моему явному требованию, либо прям если какой-то ресёрч ... по умолчанию»
+fact: |
+  The pre-reset Canon repository and archived Direction material are historical
+  evidence only. Their own `active`, `accepted`, `ratified`, `current`, `ready`
+  or `canon` labels carry no present authority. Current direction authority is
+  reconstructed from fresh CHARTER, TREE and NOW plus only the exact live
+  artifact explicitly admitted by an owner-approved Direction result. This
+  knowledge entry never selects an active bet, task, CALL or frontier.
 
-read_by: |
-  Every indie-game-development frame, map, canon, research, review and work
-  session before it reads, searches, summarizes, cites or imports any prior
-  Canon repository, card, map, question, Frame, Demo workflow or Canon play.
+access_boundary: |
+  Do not open, grep, summarize, quote, migrate or import prior Canon/archive
+  material by default. Access requires either the owner's request for an exact
+  source/comparison or a bounded research CALL naming the exact source,
+  question and permitted evidence use. Extracted material remains evidence
+  until a fresh proposal receives explicit owner approval.
 
-## Current authority
+capability_boundary: |
+  Existing code, tests and proven technical capabilities remain evidence; their
+  former gameplay meaning, priority and roadmap role are not inherited.
 
-The accepted game canon is currently **NONE**. The prior external Canon
-repository `C:\projects\gas_coop_game_canon`, its `CONSTITUTION.md`, `CORE.md`,
-`INDEX.md`, cards, questions, maps, visual material and the prior Direction
-Demo/Canon workflows are historical evidence only. Their own ACTIVE, accepted,
-ratified, current, ready or canon labels have zero present authority.
+read_by:
+  - play: frame
+    when: "Before any legacy Canon/archive source is considered."
+  - play: map
+    when: "Before any legacy Canon/archive source is considered."
+  - play: research
+    when: "Before any legacy Canon/archive source is opened or cited."
+  - play: review
+    when: "When deciding whether historical evidence may become current authority."
+  - play: work
+    when: "Before importing legacy meaning into current product work."
 
-The 2026-07-24 emergency-cleanup concept is the source draft for a new reboot.
-It is not automatically canon as a whole. It becomes authority only through a
-new owner-approved Direction result.
-
-## Default access guard
-
-Do not open, grep, search, summarize, quote, migrate or use prior Canon material
-by default. Access is allowed only when one of these conditions is explicit:
-
-1. the owner asks for the exact legacy source or comparison; or
-2. a bounded research CALL names the exact legacy source, the question it may
-   answer and the allowed evidence use.
-
-Even then, any extracted material is evidence, never inherited truth. It enters
-new authority only through a fresh proposal and the owner's explicit approval.
-Broad legacy scans, convenience imports and arguments based on old acceptance
-status are forbidden.
-
-## Capability boundary
-
-Existing code, tests, spatial simulation, Grid infrastructure and other proven
-technical capabilities are not deleted or invalidated by this reset. Their old
-gameplay meaning, naming, priority, roadmap and design consequences are not
-preserved automatically. A capability may support the reboot only after the
-new concept explicitly selects its role.
-
-Physical archival of the external Canon repository and a repository-root agent
-guard are separate atomic cleanup jobs. Until then, this Direction rule is the
-binding default-access boundary.
+evidence:
+  - history/2026-07-24-s-review-canon-clean-authority-reset-001.md
+  - history/2026-07-26-s-repair-archive-quarantine-001.md
+  - history/2026-07-29-s-pulse-indie-knowledge-routing-hygiene-001.md
 
 END_OF_FILE: live/indie-game-development/knowledge/canon-clean-authority-reset.md

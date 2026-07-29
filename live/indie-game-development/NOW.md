@@ -1,6 +1,6 @@
 # NOW: indie-game-development
 
-updated: 2026-07-29 by s-repair-g-37a1-now-hygiene-001
+updated: 2026-07-29 by s-pulse-indie-knowledge-routing-hygiene-001
 
 bet:
   node: g-37a1
@@ -186,13 +186,6 @@ issues:
     route: work
     review_when: "До сохранения регистрации и не позже 2026-08-20."
     evidence: "https://partner.steamgames.com/doc/gettingstarted/onboarding; https://partner.steamgames.com/doc/marketing/upcoming_events/nextfest; history/2026-07-27-s-map-october-demo-order-reset-001.md."
-  - id: i-frontier-knowledge-stale
-    issue: "knowledge/strategy-reset-boundary.md по-прежнему объявляет снятый Demo Basis единственным frontier и активно misroute-ит day/frame/map; переписать body может только review."
-    level: roadmap
-    route: review
-    review_when: "До frame по октябрьской позиции либо на review g-37a1, что раньше."
-    evidence: "knowledge/strategy-reset-boundary.md; history/2026-07-27-s-repair-post-concept-churn-hygiene-001.md."
-
 open_calls:
   - id: c-exec-g-37a1-gas-rest-and-checksum-001
     track: t-sim
