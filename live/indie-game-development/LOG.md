@@ -1,5 +1,7 @@
 # LOG - indie-game-development
 
+2026-07-29 | s-frame-indie-october-route-revision-001 | frame | direction | g-0c26: октябрь остаётся жёстким основным маршрутом, но его пропуск больше не закрывает игру и запускает явный пересмотр дат; воздух читается простым HUD-индикатором в углу -> history/2026-07-29-s-frame-indie-october-route-revision-001.md
+
 2026-07-29 | s-pulse-indie-knowledge-routing-hygiene-001 | pulse | direction | knowledge: current legacy-authority boundary reduced to a durable no-inheritance/no-default-read fact; obsolete strategy-reset dispatcher removed from live knowledge and its resolved issue cleared; current frontier remains NOW -> history/2026-07-29-s-pulse-indie-knowledge-routing-hygiene-001.md
 
 2026-07-29 | s-repair-g-37a1-now-hygiene-001 | repair | direction | g-37a1/NOW: fresh 606-line, 308,922-byte history journal reduced to 249 lines of current schema fields and evidence pointers; seven named terminal calls, nine resolved/admitted issues and answered decisions left hot state, while all 11 tasks, five lanes and five live calls were preserved -> history/2026-07-29-s-repair-g-37a1-now-hygiene-001.md
