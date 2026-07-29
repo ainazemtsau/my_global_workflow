@@ -1,5 +1,7 @@
 # LOG - indie-game-development
 
+2026-07-29 | s-repair-g-37a1-now-hygiene-001 | repair | direction | g-37a1/NOW: fresh 606-line, 308,922-byte history journal reduced to 249 lines of current schema fields and evidence pointers; seven named terminal calls, nine resolved/admitted issues and answered decisions left hot state, while all 11 tasks, five lanes and five live calls were preserved -> history/2026-07-29-s-repair-g-37a1-now-hygiene-001.md
+
 2026-07-29 | s-repair-g-37a1-render-vp4-task-001 | t-render | repair | direction | g-37a1/t-4: владелец одобрил sparse Core microtopology как часть крепкого расширяемого ядра; t-7 переписана на Solid/Partial/Empty + mask-delta, газовая проекция отделена в t-10, VP4 adapter и visual responsibility назначены t-11, старый openedCells coop root заблокирован -> history/2026-07-29-s-repair-g-37a1-render-vp4-task-001.md
 
 2026-07-29 | s-repair-g-37a1-task-coverage-001 | repair | direction | g-37a1/task-coverage: the bet task list did not cover its own done_when - six of fifteen criteria had no owner at all; t-8 (air, death, full restart) and t-9 (the rig: numbers outside, layout in a file, two switches) added, the legibility criteria deliberately left to the render lane rather than duplicated, and the class logged to os/FRICTION.md -> history/2026-07-29-s-repair-g-37a1-task-coverage-001.md
