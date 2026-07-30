@@ -1,6 +1,6 @@
 # NOW: indie-game-development
 
-updated: 2026-07-30 by s-repair-g-37a1-simple-gas-call-base-fix-001
+updated: 2026-07-30 by s-repair-g-37a1-character-v34-replacement-route-001
 
 bet:
   node: g-37a1
@@ -263,14 +263,14 @@ open_calls:
     issued: 2026-07-30
     call: work/c-exec-g-37a1-simple-gas-rest-001-call.md
     note: "ВЕРСИЯ 2 наряда: v1 вернулась ESCALATE до заморозки, и возврат был правильным — наряд велел переиспользовать геометрии из G37Fixtures.cs, которого на базе WIN-U1 2b3d5afe нет (файл живёт только на ветке старого газа). Дефект Направления, не исполнителя. Исправлено два места: геометрии заданы определениями с явной авторизацией PAIR-CANDIDATE создать их с нуля, и убрана ссылка на документ в чужом worktree WIN-U4. Все прочие пути наряда сверены с 2b3d5afe поштучно. Лиза c-exec-g-37a1-simple-gas-rest-001:PLAN на WIN-U1 ВЗЯТА и остаётся взятой; PLAN не замораживался, receipts не создавались, продукт не менялся. Существо наряда прежнее: путь 2, выбранный владельцем дословным «2» и утверждённый дословным «Да» — старый закон не ремонтируется, рядом пишется новый простой закон без накопителя остатка. Новый change_id; c-exec-g-37a1-gas-rest-and-checksum-001 неприкосновенен и его лиза в WIN-U4 не отбирается. Слот WIN-U1 вынужден фактом селектора. Пин 34. Реестр около двенадцати рядов; ряд, охраняющий старую машинерию, — признак захода в старый закон."
-  - id: c-exec-g-37a1-body-plan-publication-unblock-001
+  - id: c-control-g-37a1-body-first-person-replace-close-001
     track: t-body
     status: ready
     to: executor
     for: t-2
     issued: 2026-07-30
-    call: work/c-exec-g-37a1-body-plan-publication-unblock-001-call.md
-    note: "Pin-31 same-leg successor после PLAN-AMEND ESCALATE. Замороженный owner-approved Character PLAN@420d6f8d сохраняется; до GREEN и точного minimal-mvp/00-plan.json PAIR-CANDIDATE и BUILD запрещены. ЗАЯВЛЕННАЯ РАБОТА БОЛЬШЕ НЕ НУЖНА и наряд обязан быть перечитан перед запуском: «узкая lawful publication route, исключающая immutable superseded r2 RED из PLAN-публикации» уже сделана контрактом v34 — -PlanPublication и -Deliver теперь взаимоисключающие (tools/check.ps1:16-18), у публикации плана свой stage-local набор (:81), и полный прогон тестов при ней НЕ запускается. Проверено прогоном 2026-07-30 в WIN-U2: `check.ps1 -PlanPublication -ChangeId c-exec-g-37a1-body-first-person-001` не запускает набор. Настоящий оставшийся блокер ДРУГОЙ: X18 — замороженное объявление плана указывает на blob 346f9b41a62bb2eb43deac927c0b995b82b78da2, а в HEAD лежит bdf46175de22dfd78273305026d2a1a7a5ae6c69, потому что пакет правили НА МЕСТЕ. Законный путь — тот же v34 replacement-close, что и у t-venue, а не отдельный маршрут публикации."
+    call: work/c-control-g-37a1-body-first-person-replace-close-001-call.md
+    note: "Владелец прямо попросил починить Character-фронтир. Старый publication-unblock снят: его работа уже выполнена, minimal PLAN receipt существует, а повторный запуск был бы ложным маршрутом. Единственная работа этого CALL — v34 process-close старого non-released pin-31 root c-exec-g-37a1-body-first-person-001 как REPLACED на WIN-U2, с полным carry/stale и чистым committed basis; feature, Unity и Deliver запрещены. После HOME: REPLACED отдельный Direction repair атомарно выпустит новый contract-34 root c-exec-g-37a1-body-first-person-minimal-002 с resume_from PLAN. До такого HOME новый Character root не существует и не запускается."
   - id: c-control-g-37a1-venue-packaged-player-replace-close-001
     track: t-venue
     status: ready

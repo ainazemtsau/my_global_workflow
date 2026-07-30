@@ -1,5 +1,10 @@
 # CALL c-exec-g-37a1-body-plan-publication-unblock-001
 
+> **RETIRED — DO NOT DISPATCH (2026-07-30).** The owner explicitly asked to repair the Character frontier. The
+> publication work described below is already complete; contract v34 exposes the actual remaining conflict as frozen
+> authority under one old change id. Current routing is
+> `c-control-g-37a1-body-first-person-replace-close-001`. The prior bytes remain below as historical evidence only.
+
 direction: indie-game-development
 track: t-body
 for: t-2
