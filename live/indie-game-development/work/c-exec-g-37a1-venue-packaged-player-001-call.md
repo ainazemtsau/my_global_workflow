@@ -1,5 +1,10 @@
 # CALL c-exec-g-37a1-venue-packaged-player-001
 
+> **RETIRED FROM DISPATCH — REPLACEMENT CLOSE PENDING.** PAIR-FREEZE rejection is recorded at
+> `2a66cd10756ae17dff709a85d2e6f499f31e3dd4`; this CALL and its PAIR-CANDIDATE are historical evidence and MUST NOT
+> be resumed or repaired. After Re-sync v34, only
+> `c-control-g-37a1-venue-packaged-player-replace-close-001` may process-close this root as `REPLACED`.
+
 direction: indie-game-development
 track: t-venue
 for: t-3

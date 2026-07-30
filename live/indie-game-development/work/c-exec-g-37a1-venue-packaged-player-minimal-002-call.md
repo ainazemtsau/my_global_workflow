@@ -1,5 +1,10 @@
 # CALL c-exec-g-37a1-venue-packaged-player-minimal-002
 
+> **DRAFT — NOT DISPATCHABLE.** Its premature `ready` registration was removed by
+> `s-repair-g-37a1-venue-replacement-wait-001`. The exact final replacement CALL will be issued only after Re-sync v34
+> and committed `REPLACED` HOME for the old root, with a current pin, clean committed `basis`, and exact `carry` / `stale`
+> dispositions. Do not execute this draft or treat its pin-31 text as launch authority.
+
 direction: indie-game-development
 track: t-venue
 for: t-3

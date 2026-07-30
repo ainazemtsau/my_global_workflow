@@ -1,6 +1,6 @@
 # NOW: indie-game-development
 
-updated: 2026-07-30 by s-work-g-37a1-venue-packaged-player-plan-reset-001
+updated: 2026-07-30 by s-repair-g-37a1-venue-replacement-wait-001
 
 bet:
   node: g-37a1
@@ -236,14 +236,15 @@ open_calls:
     issued: 2026-07-30
     call: work/c-exec-g-37a1-body-first-person-plan-amend-001-call.md
     note: "Same-leg successor с pin 31. Старый PAIR-CANDIDATE r2 остаётся PAIR-FREEZE FAIL / NOT BUILD ELIGIBLE и не ремонтируется; новый корень начинает отдельную docs-only PLAN-AMEND-сессию как receipt-stage PLAN."
-  - id: c-exec-g-37a1-venue-packaged-player-minimal-002
+  - id: c-control-g-37a1-venue-packaged-player-replace-close-001
     track: t-venue
-    status: ready
+    status: blocked
+    unblock_when: "Re-sync v34 завершён терминальным HOME, опубликован и прочитан обратно; непосредственно в WIN-U3 validation.config показывает synced_contract_version 34 и доступен v34 replacement control-plane. После этого отдельный Direction repair по точной evidence-квитанции переводит этот CALL blocked → ready; одного сообщения о старте Re-sync недостаточно."
     to: executor
     for: t-3
     issued: 2026-07-30
-    call: work/c-exec-g-37a1-venue-packaged-player-minimal-002-call.md
-    note: "По точному owner verdict прежний root c-exec-g-37a1-venue-packaged-player-001 после PAIR-FREEZE rejection на 2a66cd10756ae17dff709a85d2e6f499f31e3dd4 больше не dispatchable и его PAIR-CANDIDATE не ремонтируется. Новый change id начинает отдельную PLAN-only сессию на pin 31 в WIN-U3 / Target Local; только после owner approval возможна отдельная дальнейшая стадия."
+    call: work/c-control-g-37a1-venue-packaged-player-replace-close-001-call.md
+    note: "Control-plane only: после Re-sync v34 безопасно закрыть старый ACTIVE pin-31 root c-exec-g-37a1-venue-packaged-player-001 как REPLACED, сохранив ref/receipts/manifests/history и выдав чистый committed basis для planned replacement c-exec-g-37a1-venue-packaged-player-minimal-002. Новый PLAN до REPLACED HOME не dispatchable."
   - id: c-work-g-37a1-render-vp4-micro-adapter-001
     track: t-render
     status: blocked
