@@ -1,6 +1,6 @@
 # NOW: indie-game-development
 
-updated: 2026-07-30 by s-work-g-37a1-body-first-person-plan-amend-route-001
+updated: 2026-07-30 by s-repair-g-37a1-gas-rest-launch-state-001
 
 bet:
   node: g-37a1
@@ -221,7 +221,8 @@ issues:
 open_calls:
   - id: c-exec-g-37a1-gas-rest-amend-001
     track: t-sim
-    status: ready
+    status: running
+    started: "2026-07-30 — product root receipt docs/measurements/root-receipts/c-exec-g-37a1-gas-rest-and-checksum-001/03-plan-amend.json at 6a775462208f29348d766e9fc5671886ec48d74b; sha256 76298234dc295cba2ed0fa97e1e8e82256a332f620cec2245a506a8f3a11f4e3"
     to: executor
     for: t-6
     issued: 2026-07-30

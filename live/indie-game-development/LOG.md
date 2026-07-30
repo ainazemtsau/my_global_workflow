@@ -1,5 +1,7 @@
 # LOG - indie-game-development
 
+2026-07-30 | s-repair-g-37a1-gas-rest-launch-state-001 | repair | t-sim | g-37a1/t-6: продуктовый root уже запущен; open call переведён ready → running по точной квитанции 03, при этом PAIR-CANDIDATE не принят, t-6 не закрыта и Direction-successor не создан -> history/2026-07-30-s-repair-g-37a1-gas-rest-launch-state-001.md
+
 2026-07-30 | s-work-g-37a1-body-first-person-plan-amend-route-001 | work | t-body | g-37a1/t-2: по точному указанию владельца PAIR-CANDIDATE r2 оставлен PAIR-FREEZE FAIL / NOT BUILD ELIGIBLE без ремонта и BUILD; выпущен successor на отдельный docs-only PLAN-AMEND, который срезает Character до минимального first-person MVP и сохраняет обязательные PAIR-CANDIDATE → PAIR-FREEZE → BUILD gates -> history/2026-07-30-s-work-g-37a1-body-first-person-plan-amend-route-001.md
 
 2026-07-30 | s-work-g-37a1-gas-rest-amend-route-001 | work | t-sim | g-37a1/t-6: наряд вернулся ESCALATE с ОТРИЦАТЕЛЬНЫМ доказательством — утверждённый 29 июля закон к покою не приводит; выбранная владельцем починка выпущена наряду-преемнику свежим корнем на том же пакете, мёртвая зона восстановлена как параметр с полом 12, посылка «наша игра — сплошные тоннели» снята живым указанием владельца -> history/2026-07-30-s-work-g-37a1-gas-rest-amend-route-001.md
