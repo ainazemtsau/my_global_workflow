@@ -13,8 +13,7 @@ remembered" into "every class we have ever been bitten by was discharged."
 
 This is **not** a 7th state file and **not** a new gate — it is an `os/engineering` doc, governed by
 `CONTRACT_VERSION` like a profile. The vocabulary is kept **kind-agnostic** on purpose: a class minted
-from a numeric solver must pre-arm save/load and audio before either is built (FRICTION 88 lesson —
-generalize the vocabulary or another direction reads it as "not about us").
+from a numeric solver must pre-arm save/load and audio before either is built (FRICTION 88).
 
 ## How it is consumed (front-load)
 

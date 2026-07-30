@@ -38,7 +38,7 @@ PAIR-CANDIDATE, pair refutation and BUILD are separate sessions.
   PAIR-CANDIDATE.
   The planner never continues into contract authoring or BUILD.
 - **Builder** — autonomous session(s), default-tier model, a FRESH session that reads the frozen plan and reviewed carrier+RED pair (never the same session that planned). Never talks to the owner mid-run.
-- **Validator** — fresh-context, read-only (no Write/Edit), did not author the code; independence is established by authorship, context and authority separation, never by model identity: equal builder/reviewer model provenance is legal, and model availability cannot block review or delivery.
+- **Validator** — fresh-context, read-only (no Write/Edit), did not author the code; independence is established by authorship, context and authority separation, never by model identity: equal builder/reviewer model provenance is legal, and model availability cannot block review or delivery. It judges a committed ref, never a shared working tree: uncommitted bytes in a reused slot are not a finding.
 - **Test-author / contract-author** — a separate PAIR-CANDIDATE session that reads the frozen plan, decision page and
   existing repo, then owns only the non-behavioral public carrier plus the complete `behavioral-red` tests/support. It
   may correct carrier gaps and rerun RED inside that one job; it never implements behavior or weakens/omits a planned
@@ -74,11 +74,10 @@ PLAN -> PAIR-CANDIDATE -> binding fresh PAIR-FREEZE refutation -> BUILD -> VALID
 ```
 
 PLAN retains the owner-readable plan, acceptance ledger, spec-silence audit, deliverable coverage and the
-`behavioral-red | evidence-only` split. It also produces an owner-approved decision page of at most 400 words. Every
-fixture named on that page is fully defined (inputs, domains and mappings included) or absent. The v22 requirement to
-encode constructors, signatures, literals and framework calls as a compile surrogate in prose is superseded: the
-planning artifacts remain coverage/review evidence, but neither a prose recipe, a PLAN-AMEND packet nor `N/N` text is
-launch authority for RED or BUILD.
+`behavioral-red | evidence-only` split. It also produces an owner-approved decision page of at most 400 words =
+whitespace tokens over the whole file, the only ruler. Every
+fixture named on that page is fully defined (inputs, domains and mappings included) or absent. Planning artifacts remain
+coverage/review evidence; no prose recipe, PLAN-AMEND packet or `N/N` text is launch authority for RED or BUILD.
 
 PAIR-CANDIDATE is a separate fresh session. Its final history is an exact carrier commit followed by an exact
 tests/support commit. The carrier contains or pins the decision page and a compiling skeleton of the real public
@@ -129,6 +128,9 @@ CALL (business task from a direction)
     seams / user-perceivable regimes — e.g. uniform vs gradient field, sparse
     vs dense, asymmetry) and mark each silence intentional or not — unintended silences
     become spec lines, since a test can only cover what the spec names.
+    It also marks every load-bearing DERIVATION the plan ASSERTS — a stated bound, ground or
+    law — `proved <where>` or `owed`; an `owed` one is discharged, proved or refuted, before
+    any test, fixture or control depends on it, because a written ground is not evidence.
     This audit — the marked list — is RECORDED in the change spec, not just discussed:
     the deliver gate checks its presence (PROJECT_SETUP §Strong-check enablement), so a
     silence audit that happened only in chat is not enabled and the leg is not deliverable.

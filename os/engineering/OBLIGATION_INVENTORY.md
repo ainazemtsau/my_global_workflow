@@ -3,7 +3,7 @@
 This file is the load-bearing census for the engineering contract. It counts what one applicable
 product leg must do, not how many words describe it. The historical `N=71` in the 2026-07-14 audit
 was a hypothesis; this is the fresh contract-v24 census made before the contract-v25 valve landed,
-re-verified by v26, with routing/version duties replaced through v32.
+re-verified by v26, with routing/version duties replaced through v33.
 
 ## Counting unit
 
@@ -46,7 +46,9 @@ deliverables, and exercises fixed, refuted, owner-ack and escalation branches. I
 | Unity profile predicates (`U`) | 27 |
 | **Maximum `N`** | **239** |
 
-`N = 239` remains the contract-v32 ceiling; v32 rewords X18 and adds no obligation id. B4 removed no obligation id: compacting historical
+`N = 239` remains the contract-v33 ceiling. V32 rewords X18; v33 rewords G21b, G25, X13a, X30b and X58 and adds no
+obligation id — each new field shares its host gate's trigger, actor, phase, evidence path and retirement, so counting
+rule 2 makes it an attribute, not a row. B4 removed no obligation id: compacting historical
 narrative is a reading reduction, not a semantic deletion. The post-change maximum may not exceed
 it. An addition that
 would otherwise raise `N` is legal only when the same commit names and actually removes enough
@@ -80,11 +82,11 @@ ceiling only after the corresponding obligations are proved removed.
 | G19a | Deliver-time RESULT exists. | `os/engineering/PROJECT_SETUP.md:61` |
 | G19b | Deliver-time RESULT carries every required field. | `os/engineering/PROJECT_SETUP.md:61` |
 | G20 | A non-archived frozen change activates the strong-check battery. | `os/engineering/PROJECT_SETUP.md:62` |
-| G21b | Recorded spec-silence audit is non-empty. | `os/engineering/PROJECT_SETUP.md:62` |
+| G21b | Recorded spec-silence audit is non-empty and marks each asserted derivation `proved`/`owed`. | `os/engineering/PROJECT_SETUP.md:62`; `os/engineering/CONTOUR.md:131` |
 | G22 | Every escape-class row is dispositioned. | `os/engineering/ESCAPE-CLASSES.md:21` |
 | G23 | Deliverable-coverage check closes every promise. | `os/engineering/PROJECT_SETUP.md:62` |
 | G24 | Review-evidence dependency passes. | `os/engineering/VALIDATION.md:11` |
-| G25 | Negative-control dependency passes. | `os/engineering/VALIDATION.md:13` |
+| G25 | Negative-control dependency passes, pairing both ways. | `os/engineering/VALIDATION.md:13` |
 | G26 | Core-algorithm property-layer dependency passes. | `os/engineering/VALIDATION.md:15` |
 | G27 | Refuted-register dependency passes. | `os/engineering/VALIDATION.md:17` |
 | G28 | Fix-class-closure dependency passes. | `os/engineering/VALIDATION.md:19` |
@@ -122,7 +124,7 @@ ceiling only after the corresponding obligations are proved removed.
 | X10 | BUILD starts in a fresh session. | `os/engineering/CONTOUR.md:202` |
 | X11 | The planner writes no product code. | `os/engineering/CONTOUR.md:37` |
 | X12 | The planner writes or commissions no RED tests. | `os/engineering/CONTOUR.md:37` |
-| X13a | The validator is fresh-context. | `os/engineering/CONTOUR.md:41` |
+| X13a | The validator is fresh-context and judges a committed ref. | `os/engineering/CONTOUR.md:41` |
 | X13b | The validator is authoring-read-only. | `os/engineering/CONTOUR.md:41` |
 | X14 | Model identity and availability never gate review eligibility. | `os/engineering/CONTOUR.md:41` |
 | X15a | The test-author is not the builder. | `os/engineering/CONTOUR.md:48` |
@@ -148,7 +150,7 @@ ceiling only after the corresponding obligations are proved removed.
 | X29a | Behaviour evidence comes from its real venue. | `os/engineering/VALIDATION.md:21` |
 | X29b | A source-text scan cannot be behaviour evidence. | `os/engineering/VALIDATION.md:21` |
 | X30a | Every load-bearing rule has a recorded/executable deliver dependency. | `os/engineering/PROJECT_SETUP.md:62` |
-| X30b | Every load-bearing deliver dependency has a seeded-miss proof. | `os/engineering/PROJECT_SETUP.md:62` |
+| X30b | Every load-bearing deliver dependency, and every new exempting branch inside one, has a seeded-miss proof. | `os/engineering/PROJECT_SETUP.md:62` |
 | X31 | BUILD existence closes before an owner LOOK can defer. | `os/engineering/CONTOUR.md:163` |
 | X32 | Semantic completeness is judged by AI, not a proxy parser/scanner. | `os/engineering/CONTOUR.md:184` |
 | X33a | Every newly issued engineering root CALL pins its contract; Direction successors inherit it. | `os/schema/packets.md:37` |
@@ -189,7 +191,7 @@ ceiling only after the corresponding obligations are proved removed.
 | X55 | Every `register:<row-id>` citation resolves. | `os/engineering/VALIDATION.md:17` |
 | X56 | Every touching register row is marked still-holds, re-opened, or n/a. | `os/engineering/VALIDATION.md:17` |
 | X57 | A recurring fixed class re-opens the earlier row. | `os/engineering/VALIDATION.md:19` |
-| X58 | The owner-approved decision page is at most 400 words. | `os/engineering/CONTOUR.md:77` |
+| X58 | The owner-approved decision page is at most 400 whole-file whitespace tokens. | `os/engineering/CONTOUR.md:77` |
 | X59 | Every decision-page fixture fully defines inputs, domains, and mappings or is absent. | `os/engineering/CONTOUR.md:78` |
 | X60 | The carrier exposes real public signatures. | `os/engineering/CONTOUR.md:85` |
 | X61 | Data/value construction preserves every field. | `os/engineering/CONTOUR.md:85` |

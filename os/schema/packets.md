@@ -30,6 +30,8 @@ engineering_contract: <N | legacy:<origin-call-id> | re-sync:<N>>  # engineering
 
 **CALL hygiene.** `goal`/`context`/`boundaries` never restate or paraphrase the play's procedure — the play file is the only procedure source. A CALL that summarizes steps ("one card at a time", "ask first") invites the session to follow the paraphrase instead of the play; the writer bounces such CALLs at collect/apply time.
 
+**Grounds are not authority.** A CALL's instructions bind; the GROUNDS it states for them do not — a derivation, a `path:line` citation, a count, "the next free id". The receiver re-derives every ground its work would freeze into an artifact, corrects a wrong one there and reports the correction; a right instruction with a wrong ground is carried out, never justified by that ground. Copying a ground onward because the CALL asserted it is how a false fact reaches a frozen document (witnessed 2026-07-30 on `c-exec-g-37a1-gas-rest-amend-001`: a floor's stated theorem bound, a `validation.config` line range, a free ADR number and a literal count were all wrong while every instruction was right).
+
 A specification-authoring CALL is the only no-bet `work` exception: `to: session`, no track/task, `node`/`for` resolves to a parked TREE node marked `outcome_kind: specification`, and done_when names the exact versioned owner-approved artifact. Checkpoints continue same-node work; completion keeps the node parked and opens fresh `converge-verify`; PASS opens narrow review, never shape. Executor CALLs may support mechanics/research but cannot select or approve the specification's owner-content.
 
 Executor CALLs (`to: executor`) add `repo: <org/repo>` and `kind: engineering | mechanical`:

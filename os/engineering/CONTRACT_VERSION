@@ -6,15 +6,13 @@ This monotonic integer names the current engineering contract:
 once. Product repositories record `validation.config: synced_contract_version`; `collect`, `audit`,
 and `digest` compare that stamp with `current` and surface a missing terminal Re-sync.
 
-current: 32
+current: 33
 
 ## Reading the map
 
-The table is the complete operational history needed for drift comparison. The Git locator in every
-row resolves to the commit that introduced or completed that version; `git show <locator>` retrieves
-the exact delta. For a version assembled by follow-up commits (notably v20 and v21), the row points to
-the terminal commit and `git log <previous-locator>..<locator> -- os/engineering` exposes the whole
-range. The former long narrative remains immutable Git evidence at
+Each row's Git locator resolves to the commit that introduced or completed that version; `git show
+<locator>` retrieves the delta, and `git log <previous-locator>..<locator> -- os/engineering` covers a
+version assembled by follow-ups (v20, v21). The former long narrative remains Git evidence at
 `e0c4912d73aeb00beedbab8dbf76f2d41aa620c7:os/engineering/CONTRACT_VERSION`.
 
 | Version | Date | Change / terminal Re-sync delta | Git locator |
@@ -51,17 +49,18 @@ range. The former long narrative remains immutable Git evidence at
 | 30 | 2026-07-18 | One pinned root replaces Direction relays between fresh product stages. Removed: X41(v29); added: X41(v30); reworded: X33a-X33b, X44, E29; N=239. | `engineering-contract-v30^{commit}` |
 | 31 | 2026-07-20 | Lifecycle-safe, exact-input review/venue evidence reuse plus permanent slot branches. Removed: G08, G21a, G43, X22, X38, X41(v30), X43a-X43c, X48(v30), E20(v30), U13(v30); added: X41a-X41g, X48a-X48b, X53a, E20(v31), U13(v31); reworded: E29; N=239. | `engineering-contract-v31^{commit}` |
 | 32 | 2026-07-30 | Non-released frozen packages exact-match current HEAD before scope exemptions. Reworded: X18; N=239. | `engineering-contract-v32^{commit}` |
+| 33 | 2026-07-30 | Asserted plan derivations discharge before dependent tests; one decision-page ruler; two-way control pairing; composed-gate exemption seeded miss; committed-ref review. Reworded: G21b, G25, X13a, X30b, X58; N=239. | `engineering-contract-v33^{commit}` |
 
-## Terminal Re-sync to v32
+## Terminal Re-sync to v33
 
 Install current authority, never retired carriers.
 
-- On v29/v30, install the v31 route first; on v31, `re-sync:32` installs only the frozen-tree identity correction and stamps
-  contract 32 while retaining ceiling 239.
-- Re-sync preserves every issued receipt/packet. Non-`RELEASED` v31 roots receive the current-tree check as executable
-  enforcement of their already-pinned X18; mismatch uses restore-or-Direction-release/fresh-root, never pin rewrite.
-- New roots pin 32; issued legacy/v29/v30/v31 routes otherwise keep their recorded rules.
-- Behind v29: install applicable prior gates, then the current route before a new root. Existing returns stay pinned.
+- On v29/v30 install the v31 route first, then the current one; on v31/v32, `re-sync:33` wires the five reworded
+  predicates and stamps 33, retaining ceiling 239.
+- Re-sync preserves every issued receipt/packet AND every frozen audit: derivation marking and two-way control pairing
+  bind packets frozen AFTER the stamp, never retroactively.
+- V32's frozen-tree check stays as issued: mismatch uses restore-or-Direction-release/fresh-root, never pin rewrite.
+- New roots pin 33; issued legacy/v29-v32 routes keep their recorded rules.
 - Unstamped: use current `PROJECT_SETUP.md` on activation.
 
 The B4 consumer proof and exact product disposition are in
