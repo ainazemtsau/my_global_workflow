@@ -1,6 +1,6 @@
 # NOW: indie-game-development
 
-updated: 2026-07-30 by s-repair-g-37a1-gas-rest-band-scope-001
+updated: 2026-07-30 by s-repair-g-37a1-product-contour-consolidation-001
 
 bet:
   node: g-37a1
@@ -146,6 +146,18 @@ issues:
     route: work
     review_when: "Перед выпуском CALL по t-7; раньше — если ряд громкого отказа из c-exec-g-37a1-gas-rest-band-scope-001 §done_when 4 вернётся решением как невозможный без обхода домена в простое."
     evidence: "Assets/GasCoopGame/Core/Field/Voxel/VoxelField.cs:1052,1669 в C:/projects/Unity/GasCoopGame_win-u4; work/c-exec-g-37a1-gas-rest-band-scope-001-call.md §done_when 4."
+  - id: i-product-contour-consolidated-v34-001
+    issue: "Продуктовый контур консолидирован 2026-07-30 по прямому указанию владельца («запускай полную чистку… вырежи бюрократическое»). ЧТО ИЗМЕНИЛОСЬ, чтобы никто не переделывал и не спотыкался: (1) расщепление контракта 31/33/34 по шести рабочим папкам устранено — терминально 34 везде, всё чисто; корень путаницы найден и назван — ДВА независимых ресинка 31→33 в 09:34 на разных ветках (6069024b на линии main, 498b609d в win-u3), их validation.config совпал побайтово, поэтому переносилась только дельта v34. (2) Класс-починка развязки ног доведена до конца: tools/delivering-scope.ps1 был написан 2026-07-29 как «ОДНА производная, подключаемая КАЖДЫМ местом обхода», но подключён к двум; теперь к восьми — добавлены negative-control-check, escape-class-check, fix-class-check, refuted-register-check, review-check, result-check. (3) Гейт закрывающих отчётов: незавершённый корень больше не обязан рапортовать DELIVERED, и ветка С изменениями, но без своего отчёта, больше не считается «ветвью без изменений» и не проверяет чужие исторические отчёты. Аварийное поведение сохранено везде: невыводимая область действия по-прежнему проверяет ВСЁ. Ослаблений нет — все посевные ловушки (R1-R9 result-check, derivation/closing/negative-control) по-прежнему краснеют."
+    level: execution
+    route: work
+    review_when: "На первой же инженерной ноге в любом слоте: сверить, что заявленное здесь совпадает с фактом, и не переоткрывать сделанное. Раньше — если гейт снова упадёт на ЧУЖОМ пакете: это рецидив класса и повод для maintenance, а не для очередной точечной правки."
+    evidence: "Продуктовые коммиты 7dd09147, 7245d269, a79fb27f, 2b3d5afe в C:/projects/Unity/GasCoopGame; исходные позиции всех шести веток сохранены в refs/backup/pre-v34-cleanup/*; батарея на main зелёная ('OK: all gates green'); t-sim 23 красных из 2013 и t-body 16 из 1863 — оба совпадают со своими квитанциями."
+  - id: i-grid-v1-g01-dead-root-open-001
+    issue: "Корень c-exec-grid-v1-g01-document-authority-001 числится ACTIVE на стадии PLAN с 2026-07-21, реализации у него нет вообще (две квитанции: 00-plan.json, 01-plan-route-fix.json). Именно его замороженная спека дважды роняла c-exec-v31-venue-authority-binding-fix-001 на REPORT, когда вся собственная работа той ноги была зелёной, а её квитанция при этом ЗАПРЕЩАЛА ей чинить чужой пакет. После развязки гейтов он больше никого не блокирует, но остаётся активным и занимает место в учёте корней. Решение о его судьбе — закрыть или припарковать — за владельцем: это lifecycle-действие, а не гигиена."
+    level: execution
+    route: work
+    review_when: "Владелец назвал этот корень и выбрал закрытие либо парковку; раньше — если он снова появится в блокировке любой ноги."
+    evidence: "docs/measurements/root-receipts/c-exec-grid-v1-g01-document-authority-001/ в C:/projects/Unity/GasCoopGame; docs/measurements/root-receipts/c-exec-v31-venue-authority-binding-fix-001/06-report-blocked-r1.json и 08-report-blocked-r2.json (поле blocker.forbidden_here)."
   - id: i-two-live-game-concepts-001
     issue: "Владелец 2026-07-30: «у нас сейчас тут два концепта игры. Один про туннели, другой нет». Инженерная спецификация §4.2/§4.4 выводит решения из посылки «наша игра — сплошные тоннели» (карманы небольшие вместо слоя ветра; худшая геометрия затухания). Посылка не решена, и второй концепт нигде в g-37a1 не описан. Возможно, это уже записанная постройка блоками, но это не подтверждено."
     level: roadmap
@@ -246,7 +258,7 @@ open_calls:
     for: t-2
     issued: 2026-07-30
     call: work/c-exec-g-37a1-body-plan-publication-unblock-001-call.md
-    note: "Pin-31 same-leg successor после PLAN-AMEND ESCALATE. Замороженный owner-approved Character PLAN@420d6f8d сохраняется; отдельная product-control сессия делает узкую lawful publication route, которая исключает только immutable superseded r2 RED из PLAN-публикации, но не скрывает иные ошибки. До GREEN и точного minimal-mvp/00-plan.json PAIR-CANDIDATE и BUILD запрещены."
+    note: "Pin-31 same-leg successor после PLAN-AMEND ESCALATE. Замороженный owner-approved Character PLAN@420d6f8d сохраняется; до GREEN и точного minimal-mvp/00-plan.json PAIR-CANDIDATE и BUILD запрещены. ЗАЯВЛЕННАЯ РАБОТА БОЛЬШЕ НЕ НУЖНА и наряд обязан быть перечитан перед запуском: «узкая lawful publication route, исключающая immutable superseded r2 RED из PLAN-публикации» уже сделана контрактом v34 — -PlanPublication и -Deliver теперь взаимоисключающие (tools/check.ps1:16-18), у публикации плана свой stage-local набор (:81), и полный прогон тестов при ней НЕ запускается. Проверено прогоном 2026-07-30 в WIN-U2: `check.ps1 -PlanPublication -ChangeId c-exec-g-37a1-body-first-person-001` не запускает набор. Настоящий оставшийся блокер ДРУГОЙ: X18 — замороженное объявление плана указывает на blob 346f9b41a62bb2eb43deac927c0b995b82b78da2, а в HEAD лежит bdf46175de22dfd78273305026d2a1a7a5ae6c69, потому что пакет правили НА МЕСТЕ. Законный путь — тот же v34 replacement-close, что и у t-venue, а не отдельный маршрут публикации."
   - id: c-control-g-37a1-venue-packaged-player-replace-close-001
     track: t-venue
     status: ready
@@ -254,7 +266,7 @@ open_calls:
     for: t-3
     issued: 2026-07-30
     call: work/c-control-g-37a1-venue-packaged-player-replace-close-001-call.md
-    note: "Re-sync v34 HOME потреблён: origin/slot/win-u3 опубликован и прочитан обратно на bdf4a7aa9a1cc22cd131586ba11c4e87726b30cf / faded29ea3a87e291a718c4adf45e9e8122e1bbc, validation.config blob f754601e1e127f33b98194eb1876bac4a4698bb9 и stamp 34. Единственная работа — v34 process-close старого ACTIVE / PAIR-CANDIDATE pin-31 root как REPLACED; feature и Deliver запрещены."
+    note: "Re-sync v34 HOME потреблён: origin/slot/win-u3 опубликован и прочитан обратно на bdf4a7aa9a1cc22cd131586ba11c4e87726b30cf / faded29ea3a87e291a718c4adf45e9e8122e1bbc, validation.config blob f754601e1e127f33b98194eb1876bac4a4698bb9 и stamp 34. Единственная работа — v34 process-close старого ACTIVE / PAIR-CANDIDATE pin-31 root как REPLACED; feature и Deliver запрещены. Слот с тех пор ушёл вперёд консолидацией контура (i-product-contour-consolidated-v34-001): локальный slot/win-u3 теперь 9c9a068e, но ОБА процитированных предусловия проверены первыми руками 2026-07-30 и целы — blob f754601e побайтово тот же на bdf4a7aa и на 9c9a068e, а bdf4a7aa остаётся предком HEAD. Перевыпуск не нужен; перед стартом сверить заново, если слот двигали ещё раз."
   - id: c-work-g-37a1-render-vp4-micro-adapter-001
     track: t-render
     status: blocked
@@ -263,7 +275,7 @@ open_calls:
     issued: 2026-07-29
     unblock_when: "t-7 завершена, пакет VP4 фактически доступен локально и владелец выбрал свободный product slot."
     call: work/c-work-g-37a1-render-vp4-micro-adapter-001-call.md
-    note: "Direction root; product child появится только с owner-selected slot и engineering_contract: 31."
+    note: "Direction root; product child появится только с owner-selected slot. Пин продуктового ребёнка — engineering_contract: 34, не 31: продукт терминально ресинкнут на v34 во всех шести рабочих папках 2026-07-30, а v34 предписывает новым корням пин 34 (уже выданные корни свои пины сохраняют)."
   - id: c-exec-g-37a1-coop-two-machines-001
     track: t-coop
     status: blocked
