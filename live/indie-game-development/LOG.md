@@ -1,5 +1,7 @@
 # LOG - indie-game-development
 
+2026-07-30 | s-work-g-37a1-venue-v34-home-consume-001 | work | t-venue | g-37a1/t-3: terminal Re-sync v34 HOME потреблён и подтверждён прямым local/remote read-back WIN-U3; re-sync root снят, сохранённый replacement-close зарегистрирован ready, старый pin-31 root остался ACTIVE / PAIR-CANDIDATE, а feature и Deliver не запускались -> history/2026-07-30-s-work-g-37a1-venue-v34-home-consume-001.md
+
 2026-07-30 | s-repair-g-37a1-body-plan-publication-route-001 | repair | t-body | g-37a1/t-2: сохранённый PLAN-AMEND@420d6f8d восстановлен как owner-approved ESCALATE, устаревший ready CALL снят; по выбранному владельцем варианту A выпущен один pin-31 U2 successor, который узко разблокирует PLAN publication, сохраняя r2 RED как immutable FAIL evidence и не открывая PAIR-CANDIDATE или BUILD -> history/2026-07-30-s-repair-g-37a1-body-plan-publication-route-001.md
 
 2026-07-30 | s-repair-g-37a1-venue-resync-route-001 | repair | t-venue | g-37a1/t-3: подтверждённый ESCALATE снял недиспетчеризуемый replacement-close из hot frontier; выпущен один ready re-sync:34 CALL прямо в WIN-U3, без feature/RED/full-suite работы, а успешный HOME вернёт сохранённый replacement-close сразу без отдельного repair-шага -> history/2026-07-30-s-repair-g-37a1-venue-resync-route-001.md

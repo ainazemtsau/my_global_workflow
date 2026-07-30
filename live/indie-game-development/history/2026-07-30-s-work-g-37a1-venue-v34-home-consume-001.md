@@ -1,3 +1,80 @@
+# RESULT s-work-g-37a1-venue-v34-home-consume-001
+
+call: c-resync-g-37a1-venue-contract-v34-001
+direction: indie-game-development · track: t-venue · play: work · node/task: g-37a1/t-3
+
+## outcome
+
+Терминальный HOME `c-resync-g-37a1-venue-contract-v34-001` потреблён. Опубликованная product identity v34
+подтверждена прямым read-back в WIN-U3; завершившийся re-sync root снят из hot frontier. Сохранённый
+`c-control-g-37a1-venue-packaged-player-replace-close-001` зарегистрирован как единственный `ready` root t-venue.
+
+Старый `c-exec-g-37a1-venue-packaged-player-001` остаётся engineering contract 31 / `ACTIVE` /
+`PAIR-CANDIDATE`. Replacement-close, новый PLAN, feature stages и Deliver в этой Direction-сессии не выполнялись;
+t-3 остаётся active.
+
+## evidence
+
+- Owner HOME: branch `origin/slot/win-u3`, commit `bdf4a7aa9a1cc22cd131586ba11c4e87726b30cf`, tree
+  `faded29ea3a87e291a718c4adf45e9e8122e1bbc`, `validation.config` blob
+  `f754601e1e127f33b98194eb1876bac4a4698bb9`, synced engineering contract 34, WIN-U3 clean and AVAILABLE.
+- Fresh direct WIN-U3 read-back: checkout `slot/win-u3...origin/slot/win-u3` with no changed paths; local and remote
+  commit/tree exactly match the HOME; `git hash-object validation.config` matches the HOME blob; file stamp is 34.
+- Product proof `docs/measurements/c-resync-g-37a1-venue-contract-v34-001-proof.json` names source tags v32-v34,
+  basis `2a66cd10756ae17dff709a85d2e6f499f31e3dd4`, forward-only installs, complete basis diff, v34 replacement and
+  stage-local schemas, and dedicated GREEN/seeded-miss checks.
+- The same proof preserves old-root receipt blob `50bab9b54b7f8c1509b8d95653500f1aafb43741`, binding-refutation blob
+  `0fd1632b7b92ab1b1ef299f0243640cfd43d8c20`, feature pin 31 and lifecycle `ACTIVE / PAIR-CANDIDATE`; its execution
+  exclusions set replacement, feature, Deliver, Unity/MCP and packaged-executable execution to false.
+- This Direction leg only read product state. It ran no product tool, stage, build, test, Unity action, branch or
+  worktree mutation.
+
+## state_changes
+
+1. `NOW.md.updated` -> `2026-07-30 by s-work-g-37a1-venue-v34-home-consume-001`.
+2. `NOW.md.open_calls` -> remove returned `c-resync-g-37a1-venue-contract-v34-001`; register preserved
+   `c-control-g-37a1-venue-packaged-player-replace-close-001` as the sole `ready` t-venue root for t-3, pointing to
+   `work/c-control-g-37a1-venue-packaged-player-replace-close-001-call.md` and carrying the exact v34 read-back.
+   Preserve every unrelated task, track, call, issue, decision and forecast.
+3. `work/c-control-g-37a1-venue-packaged-player-replace-close-001-call.md` -> replace its returned/blocked banner and
+   stale unblock section with `READY`, attach the exact published/read-back v34 product identity and proof path, and
+   distinguish the current clean v34 basis from the preserved old-root rejection identity. Keep its business goal,
+   target root, planned replacement, boundaries, done_when and return unchanged.
+4. Prepend the declared LOG line and save this full RESULT once in history.
+
+No CHARTER, TREE, bet, task, track, WIP, issue, decision, forecast or product-repo change.
+
+## captures
+
+None.
+
+## decisions_needed
+
+None.
+
+## play_check
+
+1. **Recite** — done: returning re-sync serves active g-37a1 task t-3 in t-venue; its goal was a published/read-back
+   v34 control-plane install without feature or replacement execution.
+2. **Owner inputs (owner)** — done: owner supplied the terminal identity and lifecycle facts and explicitly said
+   “Consume the completed HOME REPORT” and “Do not execute product work in this Direction session.” No further owner
+   fact was needed.
+3. **Do the work** — done: the HOME is consumed, the returned call is cleared, and the preserved v34
+   replacement-close is the one same-lane continuation; no product work ran.
+4. **Self-check** — done: re-sync done_when 1-5 is covered by the HOME, local/remote read-back and the committed proof:
+   stamp/source identity; v34 dedicated checks; control-plane-only basis diff and old-root preservation; clean
+   committed publication; terminal REPORT fields and execution exclusions.
+5. **Close** — done: t-venue has exactly one parentless root and it is `ready`; t-3 remains active; unrelated state is
+   preserved. G1/G3/G4 unchanged, G5 marks nothing done, G9 leaves CHARTER/TREE untouched, G10 records the owner words.
+
+## log
+
+terminal Re-sync v34 HOME потреблён и подтверждён прямым local/remote read-back WIN-U3; re-sync root снят, сохранённый
+replacement-close зарегистрирован ready, старый pin-31 root остался ACTIVE / PAIR-CANDIDATE, а feature и Deliver не
+запускались
+
+## next
+
 # CALL c-control-g-37a1-venue-packaged-player-replace-close-001
 
 > **READY FOR DISPATCH — V34 RE-SYNC HOME CONSUMED.** WIN-U3 is clean on `slot/win-u3`; local and
@@ -107,3 +184,5 @@ basis для последующего нового PLAN.
 control-plane paths и подтверждение, что feature/Deliver stages не запускались.
 
 END_OF_FILE: live/indie-game-development/work/c-control-g-37a1-venue-packaged-player-replace-close-001-call.md
+
+END_OF_FILE: live/indie-game-development/history/2026-07-30-s-work-g-37a1-venue-v34-home-consume-001.md

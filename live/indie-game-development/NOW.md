@@ -1,6 +1,6 @@
 # NOW: indie-game-development
 
-updated: 2026-07-30 by s-repair-g-37a1-body-plan-publication-route-001
+updated: 2026-07-30 by s-work-g-37a1-venue-v34-home-consume-001
 
 bet:
   node: g-37a1
@@ -236,14 +236,14 @@ open_calls:
     issued: 2026-07-30
     call: work/c-exec-g-37a1-body-plan-publication-unblock-001-call.md
     note: "Pin-31 same-leg successor после PLAN-AMEND ESCALATE. Замороженный owner-approved Character PLAN@420d6f8d сохраняется; отдельная product-control сессия делает узкую lawful publication route, которая исключает только immutable superseded r2 RED из PLAN-публикации, но не скрывает иные ошибки. До GREEN и точного minimal-mvp/00-plan.json PAIR-CANDIDATE и BUILD запрещены."
-  - id: c-resync-g-37a1-venue-contract-v34-001
+  - id: c-control-g-37a1-venue-packaged-player-replace-close-001
     track: t-venue
     status: ready
     to: executor
     for: t-3
     issued: 2026-07-30
-    call: work/c-resync-g-37a1-venue-contract-v34-001-call.md
-    note: "Единственная работа — установить и опубликовать control-plane contract v32-v34 непосредственно в WIN-U3 без feature bytes, старых RED/full-suite gates и replacement-close. После успешного HOME обычная Direction-обработка возврата сразу регистрирует сохранённый c-control-g-37a1-venue-packaged-player-replace-close-001 как ready; отдельная промежуточная repair-сессия не нужна."
+    call: work/c-control-g-37a1-venue-packaged-player-replace-close-001-call.md
+    note: "Re-sync v34 HOME потреблён: origin/slot/win-u3 опубликован и прочитан обратно на bdf4a7aa9a1cc22cd131586ba11c4e87726b30cf / faded29ea3a87e291a718c4adf45e9e8122e1bbc, validation.config blob f754601e1e127f33b98194eb1876bac4a4698bb9 и stamp 34. Единственная работа — v34 process-close старого ACTIVE / PAIR-CANDIDATE pin-31 root как REPLACED; feature и Deliver запрещены."
   - id: c-work-g-37a1-render-vp4-micro-adapter-001
     track: t-render
     status: blocked
