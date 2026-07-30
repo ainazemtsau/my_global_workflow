@@ -1,5 +1,10 @@
 # CALL c-control-g-37a1-venue-packaged-player-replace-close-001
 
+> **RETURNED ESCALATE — DO NOT REDISPATCH (2026-07-30).** No product byte changed. This CALL incorrectly required
+> `AVAILABLE` for a slot lawfully owned by its target root and treated the historical Re-sync commit as the current
+> basis. Corrected successor: `c-control-g-37a1-venue-packaged-player-replace-close-002`. Prior bytes remain below as
+> evidence of the accepted STOP.
+
 > **READY FOR DISPATCH — V34 RE-SYNC HOME CONSUMED.** WIN-U3 is clean on `slot/win-u3`; local and
 > `origin/slot/win-u3` read back commit `bdf4a7aa9a1cc22cd131586ba11c4e87726b30cf`, tree
 > `faded29ea3a87e291a718c4adf45e9e8122e1bbc`, `validation.config` blob

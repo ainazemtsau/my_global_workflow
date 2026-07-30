@@ -1,6 +1,6 @@
 # NOW: indie-game-development
 
-updated: 2026-07-30 by s-repair-g-37a1-character-v34-replacement-route-001
+updated: 2026-07-30 by s-repair-g-37a1-venue-replacement-preflight-correction-001
 
 bet:
   node: g-37a1
@@ -111,11 +111,11 @@ direction_forecast:
 
 issues:
   - id: i-direction-to-product-call-contract-001
-    issue: "Direction-root CALL в продукт обязан назвать выбранный владельцем (или вынужденный фактом селектора) слот WIN-U1..WIN-U4, текущий engineering_contract и вход PLAN. БУНС №2 случился 2026-07-30 и он ДРУГОГО подвида, но того же корня: c-exec-g-37a1-simple-gas-rest-001 v1 назвал путь tests/.../G37Fixtures.cs, которого на базе назначения нет — Направление сверило слот, лизу, HEAD и контракт, но НЕ проверило существование каждого названного пути на ТОЙ базе, куда отправляет работу. Общий корень обоих бунсов: наряд утверждает факт о венью назначения, не прочитанный в этом венью. Кандидат правила (реализует maintenance, не эта нога): каждый путь, названный CALL, проверяется git cat-file на объявленном базовом коммите до выпуска."
+    issue: "Direction-root CALL в продукт обязан назвать фактически проверенные слот, lease, HEAD, engineering_contract и вход. БУНС №2 случился 2026-07-30: c-exec-g-37a1-simple-gas-rest-001 v1 назвал путь tests/.../G37Fixtures.cs, которого на базе назначения нет. БУНС №3 случился тем же днём: c-control-g-37a1-venue-packaged-player-replace-close-001 знал, что старый root остаётся ACTIVE / PAIR-CANDIDATE, но одновременно требовал WIN-U3 AVAILABLE и фиксировал исторический published Re-sync commit как текущий basis; исполнитель законно вернул ESCALATE без изменений. Общий корень: наряд утверждает факт о венью или допустимости запуска, который не согласован с реальным состоянием этого венью. Maintenance уже обязателен; до него каждый named path проверяется на объявленной базе, а каждое lease/availability/basis утверждение — против селектора и точной семантики стадии."
     level: execution
     route: maintenance
     review_when: "MAINTENANCE ОБЯЗАН по собственному правилу этого issue (второй бунс). Отдельная сессия по os/MAINTENANCE.md; live/** она не трогает. До неё — ручная поштучная сверка путей в каждом выпускаемом CALL."
-    evidence: "history/2026-07-28-s-repair-g-37a1-exec-call-contract-001.md; текущие executor CALL-файлы."
+    evidence: "history/2026-07-28-s-repair-g-37a1-exec-call-contract-001.md; history/2026-07-30-s-repair-g-37a1-simple-gas-call-base-fix-001.md; history/2026-07-30-s-repair-g-37a1-venue-replacement-preflight-correction-001.md; текущие executor CALL-файлы."
   - id: i-live-tier-dead-islands-001
     issue: "В продукте есть dead islands и built-but-unwired части; это ориентация для live-tier работы, не разрешение на удаление. NearGasSimulation и PlayerSense требуют проверки fitness."
     level: execution
@@ -271,14 +271,14 @@ open_calls:
     issued: 2026-07-30
     call: work/c-control-g-37a1-body-first-person-replace-close-001-call.md
     note: "Владелец прямо попросил починить Character-фронтир. Старый publication-unblock снят: его работа уже выполнена, minimal PLAN receipt существует, а повторный запуск был бы ложным маршрутом. Единственная работа этого CALL — v34 process-close старого non-released pin-31 root c-exec-g-37a1-body-first-person-001 как REPLACED на WIN-U2, с полным carry/stale и чистым committed basis; feature, Unity и Deliver запрещены. После HOME: REPLACED отдельный Direction repair атомарно выпустит новый contract-34 root c-exec-g-37a1-body-first-person-minimal-002 с resume_from PLAN. До такого HOME новый Character root не существует и не запускается."
-  - id: c-control-g-37a1-venue-packaged-player-replace-close-001
+  - id: c-control-g-37a1-venue-packaged-player-replace-close-002
     track: t-venue
     status: ready
     to: executor
     for: t-3
     issued: 2026-07-30
-    call: work/c-control-g-37a1-venue-packaged-player-replace-close-001-call.md
-    note: "Re-sync v34 HOME потреблён: origin/slot/win-u3 опубликован и прочитан обратно на bdf4a7aa9a1cc22cd131586ba11c4e87726b30cf / faded29ea3a87e291a718c4adf45e9e8122e1bbc, validation.config blob f754601e1e127f33b98194eb1876bac4a4698bb9 и stamp 34. Единственная работа — v34 process-close старого ACTIVE / PAIR-CANDIDATE pin-31 root как REPLACED; feature и Deliver запрещены. Слот с тех пор ушёл вперёд консолидацией контура (i-product-contour-consolidated-v34-001): локальный slot/win-u3 теперь 9c9a068e, но ОБА процитированных предусловия проверены первыми руками 2026-07-30 и целы — blob f754601e побайтово тот же на bdf4a7aa и на 9c9a068e, а bdf4a7aa остаётся предком HEAD. Перевыпуск не нужен; перед стартом сверить заново, если слот двигали ещё раз."
+    call: work/c-control-g-37a1-venue-packaged-player-replace-close-002-call.md
+    note: "Предыдущий CALL вернул правильный HOME: ESCALATE без изменений: он ошибочно требовал AVAILABLE у слота, который законно CLAIMED самим target root, и путал исторический published Re-sync commit с ещё не созданным replacement basis. Successor работает под точной существующей lease c-exec-g-37a1-venue-packaged-player-001:PAIR-CANDIDATE на clean WIN-U3@9c9a068e; selector availability STOP для свежего выбора ожидаем и не является блокером. Origin отстаёт на 22 коммита, но remote equality до транзакции не требуется. Единственная работа — v34 process-close как REPLACED; feature и Deliver запрещены."
   - id: c-work-g-37a1-render-vp4-micro-adapter-001
     track: t-render
     status: blocked
