@@ -1,5 +1,7 @@
 # LOG - indie-game-development
 
+2026-07-30 | s-work-g-37a1-venue-packaged-player-plan-reset-001 | work | t-venue | g-37a1/t-3: после PAIR-FREEZE rejection старый audit-grade packaged-player root остановлен без ремонта PAIR-CANDIDATE; выпущен новый contract-31 PLAN-only root на WIN-U3 / Target Local с одним запуском, обычными failure modes и простым post-build success marker -> history/2026-07-30-s-work-g-37a1-venue-packaged-player-plan-reset-001.md
+
 2026-07-30 | s-repair-g-37a1-gas-rest-launch-state-001 | repair | t-sim | g-37a1/t-6: продуктовый root уже запущен; open call переведён ready → running по точной квитанции 03, при этом PAIR-CANDIDATE не принят, t-6 не закрыта и Direction-successor не создан -> history/2026-07-30-s-repair-g-37a1-gas-rest-launch-state-001.md
 
 2026-07-30 | s-work-g-37a1-body-first-person-plan-amend-route-001 | work | t-body | g-37a1/t-2: по точному указанию владельца PAIR-CANDIDATE r2 оставлен PAIR-FREEZE FAIL / NOT BUILD ELIGIBLE без ремонта и BUILD; выпущен successor на отдельный docs-only PLAN-AMEND, который срезает Character до минимального first-person MVP и сохраняет обязательные PAIR-CANDIDATE → PAIR-FREEZE → BUILD gates -> history/2026-07-30-s-work-g-37a1-body-first-person-plan-amend-route-001.md
