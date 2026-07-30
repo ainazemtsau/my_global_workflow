@@ -1,6 +1,6 @@
 # NOW: indie-game-development
 
-updated: 2026-07-29 by s-repair-g-37a1-grid-and-building-001
+updated: 2026-07-30 by s-work-g-37a1-gas-rest-amend-route-001
 
 bet:
   node: g-37a1
@@ -99,12 +99,13 @@ tracks:
 direction_forecast:
   status: no_basis
   target: "Достойное демо на октябрьском Steam Next Fest 2026, затем платный Steam-релиз и повторно используемый solo-release процесс."
-  as_of: 2026-07-29
+  as_of: 2026-07-30
   basis: "Численная вероятность запрещена владельцем и не имеет эмпирического знаменателя; appetite g-37a1 не является оценкой срока."
   drivers:
     - "g-37a1 active с календарным appetite до 2026-08-10; WIP=5."
     - "t-1/t-4 done; t-2/t-3/t-6 active; t-5/t-7/t-8/t-9/t-10/t-11 blocked по явным зависимостям."
-    - "Три product-root CALL готовы; render-root и coop-root заблокированы; нового продуктового доказательства пока нет."
+    - "Первое материальное продуктовое доказательство по t-6 пришло и оно ОТРИЦАТЕЛЬНОЕ: утверждённый 29 июля закон к покою не приводит. Починка владельцем выбрана, нога перезапускается со стадии PLAN узкой поправкой; 14 из 16 тестов, все 4 класса свойств и стенд замеров стоят."
+    - "Три product-root CALL готовы; render-root и coop-root заблокированы."
     - "Октябрь остаётся основным жёстким маршрутом; его достижимость пересматривается после playable Core и не позднее 2026-08-15; пропуск маршрута не закрывает игру."
   update_when: "Появилось и было сыграно ядро; пришло материальное продуктовое доказательство; Valve изменила дату; либо на контрольном пересмотре выбран или закрыт октябрьский маршрут."
 
@@ -127,6 +128,18 @@ issues:
     route: work
     review_when: "В названных t-6/t-7/t-11; нового owner-choice сейчас нет."
     evidence: "work/2026-07-29-gas-core-engineering-spec.md §8, §13; work/2026-07-29-core-grid-and-building-decisions.md §1; history/2026-07-29-s-repair-g-37a1-render-vp4-task-001.md."
+  - id: i-product-plan-deviations-unrouted-001
+    issue: "Замороженный PLAN t-6 записал два отклонения от done_when наряда в разделе «для Направления» (мёртвая зона НЕ параметр; у выбранного закона нет Θ) — и Направление их не обработало: возврат PLAN был отмечен в open_calls одной строкой «заморожен коммитом». Оба отклонения умерли вместе с опровергнутым законом, но класс остался: продукт пишет отклонения в свой PLAN, а не в RESULT домой, и они не видны."
+    level: execution
+    route: work
+    review_when: "На каждом возврате продуктовой стадии PLAN: раздел отклонений читается вслух и попадает в RESULT, либо класс переводится в maintenance."
+    evidence: "openspec/changes/c-exec-g-37a1-gas-rest-and-checksum-001/PLAN.md §9 в C:/projects/Unity/GasCoopGame_win-u4; NOW.md open_calls до 2026-07-30; work/c-exec-g-37a1-gas-rest-amend-001-call.md §context."
+  - id: i-two-live-game-concepts-001
+    issue: "Владелец 2026-07-30: «у нас сейчас тут два концепта игры. Один про туннели, другой нет». Инженерная спецификация §4.2/§4.4 выводит решения из посылки «наша игра — сплошные тоннели» (карманы небольшие вместо слоя ветра; худшая геометрия затухания). Посылка не решена, и второй концепт нигде в g-37a1 не описан. Возможно, это уже записанная постройка блоками, но это не подтверждено."
+    level: roadmap
+    route: map
+    review_when: "После того как владелец сыграл в собранное ядро, вместе с i-player-building-next-version-001; раньше — если любая нога снова выводит число из посылки о тоннелях."
+    evidence: "Слова владельца 2026-07-30; work/2026-07-29-gas-core-engineering-spec.md §4.2, §4.4 и поправка 2026-07-30 в шапке; i-player-building-next-version-001."
   - id: i-topology-commit-direction-001
     issue: "Контракт реза односторонний: дедуплицированный НАБОР открытых клеток. Его идемпотентность и догон отставшей машины объединением верны только потому, что открытия коммутируют; копание и постановка блока не коммутируют. Двусторонняя упорядоченная дельта конечного состояния возможна, но платит идемпотентностью, union-replay и появлением первой отклоняемой команды игрока. В продукте seq отсутствует, буфер задержки ввода описан в ADR-0002 и не построен."
     level: execution
@@ -206,14 +219,14 @@ issues:
     review_when: "До сохранения регистрации и не позже 2026-08-20."
     evidence: "https://partner.steamgames.com/doc/gettingstarted/onboarding; https://partner.steamgames.com/doc/marketing/upcoming_events/nextfest; history/2026-07-27-s-map-october-demo-order-reset-001.md."
 open_calls:
-  - id: c-exec-g-37a1-gas-rest-and-checksum-001
+  - id: c-exec-g-37a1-gas-rest-amend-001
     track: t-sim
-    status: running
+    status: ready
     to: executor
     for: t-6
-    issued: 2026-07-29
-    started: "2026-07-29, владелец: «ок, запускаю в том чате». Продукт: стадия PLAN завершена, принята и заморожена коммитом ab71037c с квитанцией e790a1fc на origin/main; идёт стадия PAIR-CANDIDATE в слоте win-u4 (engineering_contract 31)."
-    call: work/c-exec-g-37a1-gas-rest-and-checksum-001-call.md
+    issued: 2026-07-30
+    call: work/c-exec-g-37a1-gas-rest-amend-001-call.md
+    note: "Преемник вернувшегося ESCALATE. Слот WIN-U4 вынужден: пакет и красные тесты существуют только на ветке slot/win-u4, в origin/main их нет. change_id продукта НЕ меняется — свежий корень замораживает ту же папку пакета на новом коммите."
   - id: c-exec-g-37a1-body-first-person-001
     track: t-body
     status: ready
