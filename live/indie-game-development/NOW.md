@@ -1,6 +1,6 @@
 # NOW: indie-game-development
 
-updated: 2026-07-30 by s-repair-g-37a1-venue-replacement-preflight-correction-001
+updated: 2026-07-30 by s-repair-g-37a1-character-replacement-release-001
 
 bet:
   node: g-37a1
@@ -263,14 +263,14 @@ open_calls:
     issued: 2026-07-30
     call: work/c-exec-g-37a1-simple-gas-rest-001-call.md
     note: "ВЕРСИЯ 2 наряда: v1 вернулась ESCALATE до заморозки, и возврат был правильным — наряд велел переиспользовать геометрии из G37Fixtures.cs, которого на базе WIN-U1 2b3d5afe нет (файл живёт только на ветке старого газа). Дефект Направления, не исполнителя. Исправлено два места: геометрии заданы определениями с явной авторизацией PAIR-CANDIDATE создать их с нуля, и убрана ссылка на документ в чужом worktree WIN-U4. Все прочие пути наряда сверены с 2b3d5afe поштучно. Лиза c-exec-g-37a1-simple-gas-rest-001:PLAN на WIN-U1 ВЗЯТА и остаётся взятой; PLAN не замораживался, receipts не создавались, продукт не менялся. Существо наряда прежнее: путь 2, выбранный владельцем дословным «2» и утверждённый дословным «Да» — старый закон не ремонтируется, рядом пишется новый простой закон без накопителя остатка. Новый change_id; c-exec-g-37a1-gas-rest-and-checksum-001 неприкосновенен и его лиза в WIN-U4 не отбирается. Слот WIN-U1 вынужден фактом селектора. Пин 34. Реестр около двенадцати рядов; ряд, охраняющий старую машинерию, — признак захода в старый закон."
-  - id: c-control-g-37a1-body-first-person-replace-close-001
+  - id: c-control-g-37a1-body-first-person-replace-release-002
     track: t-body
     status: ready
     to: executor
     for: t-2
     issued: 2026-07-30
-    call: work/c-control-g-37a1-body-first-person-replace-close-001-call.md
-    note: "Владелец прямо попросил починить Character-фронтир. Старый publication-unblock снят: его работа уже выполнена, minimal PLAN receipt существует, а повторный запуск был бы ложным маршрутом. Единственная работа этого CALL — v34 process-close старого non-released pin-31 root c-exec-g-37a1-body-first-person-001 как REPLACED на WIN-U2, с полным carry/stale и чистым committed basis; feature, Unity и Deliver запрещены. После HOME: REPLACED отдельный Direction repair атомарно выпустит новый contract-34 root c-exec-g-37a1-body-first-person-minimal-002 с resume_from PLAN. До такого HOME новый Character root не существует и не запускается."
+    call: work/c-control-g-37a1-body-first-person-replace-release-002-call.md
+    note: "Предыдущий replacement-close фактически создал и закоммитил корректный RELEASED / REPLACED receipt, полный stale-инвентарь и clean basis на WIN-U2@c9362119, но терминальный HOME остался ESCALATE только потому, что живой Unity Editor удерживал физическую lease. Владелец затем закрыл Unity; PID 31516 и оба Unity lock evidence отсутствуют, checkout clean, а selector всё ещё законно показывает CLAIMED под старой lease. Единственная работа successor — выполнить точный selector Release этой lease и read-only readback AVAILABLE. Replacement-close, продуктовые файлы, PLAN, feature, Unity, BUILD и Deliver повторно не запускаются."
   - id: c-control-g-37a1-venue-packaged-player-replace-close-002
     track: t-venue
     status: ready

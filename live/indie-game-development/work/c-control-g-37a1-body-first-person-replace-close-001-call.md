@@ -1,5 +1,9 @@
 # CALL c-control-g-37a1-body-first-person-replace-close-001
 
+> **RETURNED ESCALATE — DO NOT REDISPATCH.** The replacement receipt and clean basis were committed successfully, but
+> physical lease release stopped on a live WIN-U2 Unity Editor. After the owner closed that Editor, Direction issued
+> `c-control-g-37a1-body-first-person-replace-release-002` for release/readback only. Do not repeat this close.
+
 > **READY FOR DISPATCH — CHARACTER V34 REPLACEMENT CLOSE.** Publication repair is already present in WIN-U2 and
 > must not be repeated. This CALL performs only the v34 control-plane close of the old frozen-authority root; it does
 > not start a new PLAN, PAIR-CANDIDATE, Character implementation or Deliver stage.
