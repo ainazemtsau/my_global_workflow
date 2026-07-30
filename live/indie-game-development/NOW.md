@@ -1,6 +1,6 @@
 # NOW: indie-game-development
 
-updated: 2026-07-30 by s-repair-g-37a1-venue-resync-route-001
+updated: 2026-07-30 by s-repair-g-37a1-body-plan-publication-route-001
 
 bet:
   node: g-37a1
@@ -228,14 +228,14 @@ open_calls:
     issued: 2026-07-30
     call: work/c-exec-g-37a1-gas-rest-amend-001-call.md
     note: "Преемник вернувшегося ESCALATE. Слот WIN-U4 вынужден: пакет и красные тесты существуют только на ветке slot/win-u4, в origin/main их нет. change_id продукта НЕ меняется — свежий корень замораживает ту же папку пакета на новом коммите."
-  - id: c-exec-g-37a1-body-first-person-plan-amend-001
+  - id: c-exec-g-37a1-body-plan-publication-unblock-001
     track: t-body
     status: ready
     to: executor
     for: t-2
     issued: 2026-07-30
-    call: work/c-exec-g-37a1-body-first-person-plan-amend-001-call.md
-    note: "Same-leg successor с pin 31. Старый PAIR-CANDIDATE r2 остаётся PAIR-FREEZE FAIL / NOT BUILD ELIGIBLE и не ремонтируется; новый корень начинает отдельную docs-only PLAN-AMEND-сессию как receipt-stage PLAN."
+    call: work/c-exec-g-37a1-body-plan-publication-unblock-001-call.md
+    note: "Pin-31 same-leg successor после PLAN-AMEND ESCALATE. Замороженный owner-approved Character PLAN@420d6f8d сохраняется; отдельная product-control сессия делает узкую lawful publication route, которая исключает только immutable superseded r2 RED из PLAN-публикации, но не скрывает иные ошибки. До GREEN и точного minimal-mvp/00-plan.json PAIR-CANDIDATE и BUILD запрещены."
   - id: c-resync-g-37a1-venue-contract-v34-001
     track: t-venue
     status: ready

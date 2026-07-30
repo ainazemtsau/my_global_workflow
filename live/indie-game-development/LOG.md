@@ -1,5 +1,7 @@
 # LOG - indie-game-development
 
+2026-07-30 | s-repair-g-37a1-body-plan-publication-route-001 | repair | t-body | g-37a1/t-2: сохранённый PLAN-AMEND@420d6f8d восстановлен как owner-approved ESCALATE, устаревший ready CALL снят; по выбранному владельцем варианту A выпущен один pin-31 U2 successor, который узко разблокирует PLAN publication, сохраняя r2 RED как immutable FAIL evidence и не открывая PAIR-CANDIDATE или BUILD -> history/2026-07-30-s-repair-g-37a1-body-plan-publication-route-001.md
+
 2026-07-30 | s-repair-g-37a1-venue-resync-route-001 | repair | t-venue | g-37a1/t-3: подтверждённый ESCALATE снял недиспетчеризуемый replacement-close из hot frontier; выпущен один ready re-sync:34 CALL прямо в WIN-U3, без feature/RED/full-suite работы, а успешный HOME вернёт сохранённый replacement-close сразу без отдельного repair-шага -> history/2026-07-30-s-repair-g-37a1-venue-resync-route-001.md
 
 2026-07-30 | s-repair-g-37a1-venue-replacement-wait-001 | repair | t-venue | g-37a1/t-3: преждевременный minimal PLAN снят с ready; единственным frontier полосы стал blocked v34 process-close CALL, который после завершённого Re-sync должен закрыть старый ACTIVE pin-31 root как REPLACED и вернуть чистый committed basis без переноса старых carrier/tests/tools -> history/2026-07-30-s-repair-g-37a1-venue-replacement-wait-001.md
