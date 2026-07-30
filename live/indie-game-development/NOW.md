@@ -1,6 +1,6 @@
 # NOW: indie-game-development
 
-updated: 2026-07-30 by s-work-g-37a1-venue-v34-home-consume-001
+updated: 2026-07-30 by s-repair-g-37a1-gas-rest-band-scope-001
 
 bet:
   node: g-37a1
@@ -104,7 +104,7 @@ direction_forecast:
   drivers:
     - "g-37a1 active с календарным appetite до 2026-08-10; WIP=5."
     - "t-1/t-4 done; t-2/t-3/t-6 active; t-5/t-7/t-8/t-9/t-10/t-11 blocked по явным зависимостям."
-    - "Первое материальное продуктовое доказательство по t-6 пришло и оно ОТРИЦАТЕЛЬНОЕ: утверждённый 29 июля закон к покою не приводит. Починка владельцем выбрана, нога перезапускается со стадии PLAN узкой поправкой; 14 из 16 тестов, все 4 класса свойств и стенд замеров стоят."
+    - "Первое материальное продуктовое доказательство по t-6 пришло и оно ОТРИЦАТЕЛЬНОЕ: утверждённый 29 июля закон к покою не приводит. Выбранная владельцем починка дошла до owner-approved PLAN (квитанция 05: 28 поведенческих рядов, 14 негативных контролей), но свежая PAIR-CANDIDATE-сессия нашла в этом PLAN непокрытую ветку правила выброса остатка и вернула ESCALATE, ничего не записав. Владелец выбрал «B»: ветка передана t-7, нога перезапускается со стадии PLAN вторично. Продуктового кода по t-6 по-прежнему НОЛЬ."
     - "Три product-root CALL готовы; render-root и coop-root заблокированы."
     - "Октябрь остаётся основным жёстким маршрутом; его достижимость пересматривается после playable Core и не позднее 2026-08-15; пропуск маршрута не закрывает игру."
   update_when: "Появилось и было сыграно ядро; пришло материальное продуктовое доказательство; Valve изменила дату; либо на контрольном пересмотре выбран или закрыт октябрьский маршрут."
@@ -134,6 +134,18 @@ issues:
     route: work
     review_when: "На каждом возврате продуктовой стадии PLAN: раздел отклонений читается вслух и попадает в RESULT, либо класс переводится в maintenance."
     evidence: "openspec/changes/c-exec-g-37a1-gas-rest-and-checksum-001/PLAN.md §9 в C:/projects/Unity/GasCoopGame_win-u4; NOW.md open_calls до 2026-07-30; work/c-exec-g-37a1-gas-rest-amend-001-call.md §context."
+  - id: i-g37-cond-zero-release-deferred-to-t7-001
+    issue: "Правило выброса накопленного остатка в G37-BAND-004 объявлено полным по трём веткам, но ветка «cond == 0 при ранее накопленном ненулевом остатке» в t-6 недостижима ПО ПОСТРОЕНИЮ: _faceConductivity readonly и пишется один раз в конструкторе (VoxelField.cs:47,320,333), NotifyConductivityChanged только будит грань (:818-827), а при cond == 0 накопитель равен carry, поэтому копиться нечему. Владелец выбрал «B» 2026-07-30 и ветка передана t-7/D1. Долг настоящий: ненулевой остаток держит грань активной (:838), то есть застрявший остаток на закрывшейся грани = вечная сетевая дельта, удар по единственному жёсткому требованию владельца (мультиплеер)."
+    level: execution
+    route: work
+    review_when: "Перед выпуском CALL по t-7 — обязательно: t-7 делает проводимость изменяемой, и в тот же наряд входят атомарный поведенческий ряд выброса остатка при cond == 0 и его отдельный негативный контроль."
+    evidence: "openspec/changes/c-exec-g-37a1-gas-rest-and-checksum-001/specs/sim-core/spec.md:251,264 в C:/projects/Unity/GasCoopGame_win-u4; work/c-exec-g-37a1-gas-rest-band-scope-001-call.md §done_when 2; дословный токен владельца «B» 2026-07-30."
+  - id: i-conductivity-snapshot-vs-live-checksum-001
+    issue: "Старая контрольная сумма MeaningChecksum складывает ЖИВУЮ проводимость с сетки (VoxelField.cs:1052), а течение газа считает по СНИМКУ из конструктора (:1669). Сегодня безвредно — менять проводимость на живом поле нечем. Но t-7 ломает ровно этот шов: две машины смогут совпасть по контрольной сумме и разойтись по поведению, либо разойтись по сумме при одинаковом поведении. Тихая расстыковка именно в мультиплеере."
+    level: execution
+    route: work
+    review_when: "Перед выпуском CALL по t-7; раньше — если ряд громкого отказа из c-exec-g-37a1-gas-rest-band-scope-001 §done_when 4 вернётся решением как невозможный без обхода домена в простое."
+    evidence: "Assets/GasCoopGame/Core/Field/Voxel/VoxelField.cs:1052,1669 в C:/projects/Unity/GasCoopGame_win-u4; work/c-exec-g-37a1-gas-rest-band-scope-001-call.md §done_when 4."
   - id: i-two-live-game-concepts-001
     issue: "Владелец 2026-07-30: «у нас сейчас тут два концепта игры. Один про туннели, другой нет». Инженерная спецификация §4.2/§4.4 выводит решения из посылки «наша игра — сплошные тоннели» (карманы небольшие вместо слоя ветра; худшая геометрия затухания). Посылка не решена, и второй концепт нигде в g-37a1 не описан. Возможно, это уже записанная постройка блоками, но это не подтверждено."
     level: roadmap
@@ -219,15 +231,14 @@ issues:
     review_when: "До сохранения регистрации и не позже 2026-08-20."
     evidence: "https://partner.steamgames.com/doc/gettingstarted/onboarding; https://partner.steamgames.com/doc/marketing/upcoming_events/nextfest; history/2026-07-27-s-map-october-demo-order-reset-001.md."
 open_calls:
-  - id: c-exec-g-37a1-gas-rest-amend-001
+  - id: c-exec-g-37a1-gas-rest-band-scope-001
     track: t-sim
-    status: running
-    started: "2026-07-30 — product root receipt docs/measurements/root-receipts/c-exec-g-37a1-gas-rest-and-checksum-001/03-plan-amend.json at 6a775462208f29348d766e9fc5671886ec48d74b; sha256 76298234dc295cba2ed0fa97e1e8e82256a332f620cec2245a506a8f3a11f4e3"
+    status: ready
     to: executor
     for: t-6
     issued: 2026-07-30
-    call: work/c-exec-g-37a1-gas-rest-amend-001-call.md
-    note: "Преемник вернувшегося ESCALATE. Слот WIN-U4 вынужден: пакет и красные тесты существуют только на ветке slot/win-u4, в origin/main их нет. change_id продукта НЕ меняется — свежий корень замораживает ту же папку пакета на новом коммите."
+    call: work/c-exec-g-37a1-gas-rest-band-scope-001-call.md
+    note: "Преемник подтверждённого ESCALATE от c-exec-g-37a1-gas-rest-amend-001 (та нога терминальна: квитанция 05 owner-approved, но свежая PAIR-CANDIDATE-сессия нашла в замороженном PLAN непокрытую ветку правила выброса остатка и ничего не записала). Владелец выбрал «B»: ветка cond == 0 передаётся t-7. Свежий PLAN-корень на том же change_id, пин 31 сохраняется, слот WIN-U4 вынужден. PAIR-CANDIDATE не открывать до нового ELIGIBLE_FOR_FRESH_PAIR_CANDIDATE."
   - id: c-exec-g-37a1-body-plan-publication-unblock-001
     track: t-body
     status: ready
