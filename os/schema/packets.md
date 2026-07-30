@@ -39,8 +39,8 @@ Executor CALLs (`to: executor`) add `repo: <org/repo>` and `kind: engineering | 
 - `mechanical` — apply one complete RESULT's declared state-change intent to fresh `live/**` (the writer role), including semantic rebase of stale bases. A bare `state_changes` section is incomplete. Interpretation is bounded to preserving compatible concurrent state; never invent outcomes or evidence. Apply, commit, report the commit hash.
 
 **Engineering contract pin (v29+).** Every newly issued root `kind: engineering` CALL carries the current integer
-`engineering_contract`; every Direction successor of that root inherits it. An issued integer-pinned root keeps its
-route through later Re-sync. A CALL already registered in `open_calls` when v29 lands may return unmarked; its first
+`engineering_contract`; every Direction successor of that root inherits it. An issued pin keeps its feature route/gates
+through Re-sync; v34 process-close is the sole control-plane exception. A CALL already registered in `open_calls` when v29 lands may return unmarked; its first
 later successor uses `legacy:<origin-call-id>` and later successors preserve that marker. `legacy:` is invalid on a new
 root. A bounded `re-sync:<N>` CALL may only install contract N and stamp the repo; it runs under the repo's pre-upgrade
 contract and cannot carry product-feature work. The writer validates a return against its pinned/originating contract,
@@ -49,12 +49,22 @@ in `open_calls` when v29 activates; no later unmarked root is legal. A legacy re
 issue a same-leg legacy successor; it never atomically opens Re-sync or an unrelated integer-pinned root. A later
 Direction transaction may issue `re-sync:<N>` while older roots remain open: Re-sync changes repo authority only and
 neither consumes/retargets them nor rewrites active artifacts. After Re-sync HOME, new roots may coexist with them; each
-CALL's pin, never the latest stamp, selects its route.
+The CALL pin selects its feature route.
+
+**Frozen-authority replacement (v34+).** A PLAN/carrier/RED replan is not a backward same-leg successor. After Re-sync,
+this control-plane close may release any non-released v30+ root while its feature work remains judged under the original
+pin; no v34 feature gate is retroactive. It commits salvage and the product receipt releases the old root as `replaced`,
+naming its planned `replaced_by`; it runs no downstream delivery gates and returns `REPLACED` HOME. A later Direction `repair` atomically swaps the
+old `open_calls` row for a new current-pinned root. The new CALL names `replaces`, `resume_from` (earliest affected
+stage), clean committed `basis`, and exact `carry`/`stale` dispositions. It preserves business goal/done_when unless
+cited owner words change them. Old commits/manifests/ref remain evidence; superseded files are absent from replacement
+checkout/gates. Replacement is not delivery, never marks the task done, cannot bundle Re-sync, and transfers no
+uncommitted draft. No semantic parser judges carry: the fresh stage/reviewer checks exact inputs and meaning normally.
 
 Routing follows that pin. Each v29/legacy executor stage closes with its current HOME handback; Direction consumes it
-and issues continuation. V30/v31 roots stay registered from PLAN through REPORT while the repo runner launches each
-declared stage as a separate fresh session. Its compact committed receipt records lifecycle, stage, exact product/process
-inputs and outputs, verdict, evidence, retry class/count, eligibility and closing lease. Receipts are not CALL/RESULT
+and issues continuation. V30-v34 roots stay registered from PLAN through REPORT/ESCALATE/REPLACED while the repo runner
+launches each declared stage as a separate fresh session. Its compact committed receipt records lifecycle, stage, exact
+inputs/outputs, verdict, evidence, retry, eligibility, closing lease and replacement dispositions. Receipts are not CALL/RESULT
 packets and never touch `live/**`. V31 shares `ACTIVE | PRESERVED-PAUSED | RELEASED` across discovery, apply, mutation
 and Deliver: paused is custody-only until re-admitted; released is terminal; Boolean fields accept JSON booleans only.
 It retries only the earliest stage invalidated

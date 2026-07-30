@@ -12,9 +12,9 @@ Check `os/engineering/profiles/<stack>.md` first: an existing profile is the ent
 - **Boundaries enforced by the build graph**, not by docs: dependency-graph linting (import-linter / dep-cruiser / engine equivalent); module visibility is opt-in; violations fail CI. Agents can ignore documentation; they cannot ignore a failing check.
 - **Per-module docs colocated**: each module gets its own `AGENTS.md` (nearest-file-wins): public API surface, internal conventions, gotchas. Project-wide docs live in the repo (`docs/`), never outside it.
 
-**Pinned compiled route.** V29-v32 use the Step-3 pair addendum; issued roots keep their pin. V29/legacy returns each
-stage HOME. V30-v32 roots stay open while the repo runner launches separate fresh sessions from committed
-`PROGRESS.md` receipts, returning HOME only as REPORT/ESCALATE. V31 adds lifecycle, input-exact retry and serialized
+**Pinned compiled route.** V29-v34 use the Step-3 pair addendum; issued roots keep their pin. V29/legacy returns each
+stage HOME. V30-v34 roots stay open while the repo runner launches separate fresh sessions from committed
+`PROGRESS.md` receipts, returning REPORT/ESCALATE/REPLACED HOME. V31 adds lifecycle, input-exact retry and serialized
 closing controls. Only Direction issues Direction CALLs.
 
 ## Step 3 — Root contract files
@@ -31,7 +31,7 @@ closing controls. Only Direction issues Direction CALLs.
 
 - **Step-3 contract v24 mutation addendum.** The root run contract says the fresh validator/reviewer independently derives the mutation scope from the authoritative diff and runs mutation; builder-authored scope/report/score is not evidence. The report carries normalized explicit `scopeFiles`, and Deliver set-compares them against changed eligible files before accepting score.
 - **Step-3 contract v24 diff-identity addendum.** The root run contract declares an integration-base ref and mutation-input dependency roots (eligible production/Core source, mutation tests/projects, runner/check tooling and mutation config at minimum). Independent review evidence records the mutation-reviewed commit `H`; the runner derives `I = <integration-ref tip>` and `B = merge-base(I,H)`. Its report echoes `I/B/H`, `scopeFiles`, and normalized `removedFiles`. Deliver recomputes that tuple, requires exact equality, requires `H` to be an ancestor of delivered HEAD, and fails if any dependency root changed after `H`.
-- **Step-3 compiled-pair addendum (v29-v32).** Install PLAN -> fresh PAIR-CANDIDATE -> binding fresh PAIR-FREEZE ->
+- **Step-3 compiled-pair addendum (v29-v34).** Install PLAN -> fresh PAIR-CANDIDATE -> binding fresh PAIR-FREEZE ->
   fresh BUILD. An independent contract-author may stabilize the non-behavioral carrier and RED
   inside that bounded job.
   The <=400-word page defines or omits each fixture; real signatures, fields and reachability remain,
@@ -42,7 +42,7 @@ closing controls. Only Direction issues Direction CALLs.
   Out-of-plan/behavioral changes or exhausted retries block.
   Fresh review freezes the pair; BUILD edits neither.
   Legacy roots keep their recorded v23 route.
-- **Carrier applicability.** Install the v29-v32 pair candidate only where a repo-native compiler checks product code.
+- **Carrier applicability.** Install the v29-v34 pair candidate only where a repo-native compiler checks product code.
   A markdown/non-compiled profile records a native executable carrier or an explicit owner-approved `n/a`; it never
   copies C# skeleton or Unity sidecar mechanics by analogy.
 - **PAIR-CANDIDATE check (compiled legs, before freeze).** Reuse repo-native build, hygiene and test commands; add no
@@ -51,13 +51,13 @@ closing controls. Only Direction issues Direction CALLs.
   construction reaches RED, and tests compile, are discovered and fail on behavior. An unavailable importer still STOPs.
 - **V31 root-state addendum (supersedes each-stage HOME).** One lifecycle (`ACTIVE|PRESERVED-PAUSED|RELEASED`) gates
   discovery, apply, mutation and Deliver; only ACTIVE runs, paused is custody-only until re-admission, RELEASED terminal.
-  Classify changed authority and retry only the earliest invalid stage. Each review/real-venue proof records raw output
+  Classify changed authority and retry only the earliest affected stage. Frozen authority changes after a Direction-authorized replaced release;
+  the replacement starts from a clean basis, never rewrites pins, and keeps old receipts/artifacts/ref as evidence. Each proof records raw output
   plus exact evidence inputs (proof id/required actor, declared product/test dependency blobs, selection and runtime identity); closing derives the scope from frozen/repo authority and recomputes it independently. Equal manifests reuse the artifact
-  across merge/evidence/process commits; only a changed evidence input reruns its product proof. Process inputs have
-  separate proof, and every `fixed <commit>` must resolve and touch a changed review input. V32 corrects X18 enforcement: before any in-flight/delivering-scope exclusion, the always-run lifecycle check exact-matches current `HEAD:<path>` to every Git blob in every declared frozen manifest, including repository extensions such as `frozen_artifacts_git_blobs`; freeze-commit resolution remains provenance only, and `ACTIVE` plus `PRESERVED-PAUSED` roots are covered.
-- **V31 closing addendum.** One control lease starts clean and committed; no draft crosses sessions. Order evidence
-  commits -> RESULT/mirrors -> gates -> RELEASED commit -> publish/readback. A new refutation commits its finding, register row
-  and citation together.
+  across commits and replacement lineages; only a changed input reruns its dependent proof. PLAN publication excludes downstream RED/full-suite gates. Process inputs have separate proof, and every `fixed <commit>` resolves and touches a changed review input. Before any scope exclusion, the lifecycle check exact-matches current `HEAD:<path>` to every blob in each non-released root's declared frozen manifests, including extensions; freeze commits remain provenance only.
+- **V31 closing addendum.** Delivery starts clean under one lease: evidence -> RESULT/mirrors -> gates -> RELEASED -> publish/readback.
+  Replacement atomically commits inventoried salvage with `replaced_by` under one lease, preserves the old ref, skips downstream gates,
+  returns no draft/delivery verdict. A new refutation commits its finding, register row and citation together.
 - Strict formatter + linter + typechecker, single command, fast; wired as save/pre-commit/CI AND as agent hooks (PostToolUse format/typecheck with failures fed back).
 - Test layout: `tests/<module>/` mirroring `src/` (game engines: ONE registered test-scene root with a runner — never ad-hoc scenes). Hygiene gates from VALIDATION.md §hygiene wired into CI from day one.
 - **Closing-report gate** — a deliver-time check (a `-Deliver` switch on, or sibling of, the one-command gate; NOT the always-run inner-loop gate — requiring `RESULT.md` there would block every mid-build gate run) that fails when `RESULT.md` is absent at repo root OR missing a required field (outcome / evidence / assumptions / cuts / cost / manual-acceptance / next). Same enforcement surface as the boundary/hygiene gates ("agents cannot ignore a failing check"); deliver/merge depends on this green check, not a prose precondition.
@@ -73,8 +73,8 @@ closing controls. Only Direction issues Direction CALLs.
   not a new product-leg gate: do not copy the inventory into the product repo and do not add a semantic counter,
   parser, regex scanner, or deliver check. A repo with no prior contract stamp receives these fields through current
   PROJECT_SETUP when activated; it is not a Re-sync target.
-- **Terminal v31/v32.** Install the v31 root/closing route before the first v31 root. `re-sync:32` preserves every issued receipt and packet; a non-`RELEASED` v31 root immediately owes the already-pinned X18 current-tree invariant. On mismatch, STOP: restore the pinned `HEAD` bytes, or obtain Direction disposition, release the old root, and issue a fresh root;
-  never rewrite pins. New roots pin 32; older routes otherwise finish under their pins.
+- **Terminal v34.** `re-sync:34` adds stage-local gates/replacement receipts without feature bytes. Issued feature pins stay; it may process-close non-released v30+ roots without v34 feature gates: atomically commit salvage, release as replaced, preserve ref,
+  then start a current-pinned replacement at the earliest affected stage. Only exact-input evidence carries; superseded files stay outside replacement `HEAD`/gates.
 - **Mutation-scope gate (contract v24).** For every change that owes G2, the mutation runner derives its explicit normalized file set `M` from the same authoritative review diff and repo-declared mutation-eligible Core/source roots; its artifact records diff base/head, `scopeFiles`, score and effective concurrency. A builder-authored glob is not evidence. `-Deliver` independently recomputes changed set `D` from the authoritative diff (not from artifact-supplied scope) and FAILS on a missing/malformed scope or non-empty `D ∖ M` before reading score. The fresh validator/reviewer derives the scope and runs mutation; a builder-produced report/score cannot discharge G2. Default concurrency is `min(24, max(4, floor(logicalProcessors / 2)))`, with an explicit recorded override allowed. This remains file-scoped: touching a hot file mutates the whole file and can still be slow.
 - CI running mechanical + test gates on every PR.
 - **OpenSpec** initialized (`openspec/`): living specs + per-change proposal/tasks/delta-specs; the change-folder lifecycle (propose → apply → verify → archive) is the contract surface with the workflow OS. Archive is part of done — stale specs are the known failure mode. An unbuilt promised artifact still failing its coverage row must NOT be retired by archiving the change (the coverage scan skips `archive/`, so archive-with-open-row is an evasion the validator/owner catches at archive time — a pre-archive tripwire is a FRICTION candidate, not yet wired).
@@ -82,11 +82,11 @@ closing controls. Only Direction issues Direction CALLs.
 
 ## Step 5 — Harness state files
 
-`SPEC` (per-change, from OpenSpec), feature **ledger** (machine-readable, all entries failing, not writable by the builder), `PROGRESS.md` (lifecycle, stage, exact input/output manifests including raw venue evidence, verdict, retry class/count, eligibility and closing lease), first commit.
+`SPEC` (per-change, from OpenSpec), feature **ledger** (machine-readable, all entries failing, not writable by the builder), `PROGRESS.md` (lifecycle, stage, exact manifests/raw evidence, verdict, retry, eligibility, lease and replacement lineage with carry/stale dispositions), first commit.
 
 ## Done when (mechanically checkable)
 
-- [ ] root run contract requires the v29-v32 compiled pair for newly pinned CALLs where applicable: every mixed row is split and every atomic
+- [ ] root run contract requires the v29-v34 compiled pair for newly pinned CALLs where applicable: every mixed row is split and every atomic
   obligation classified once as `behavioral-red` or `evidence-only`, but prose recipes are not launch authority;
   owner-approved decision page <=400 words; one fresh PAIR-CANDIDATE contract-author independent from BUILD/validation;
   compiler-green real public skeleton with normal formatting and no numeric source-line cap; field-preserving
@@ -105,10 +105,10 @@ closing controls. Only Direction issues Direction CALLs.
 - [ ] run contract section present in root AGENTS.md (clauses per step 3)
 - [ ] run contract makes execution authority repo-local: globally discoverable skills/tools cannot replace the declared workflow or add requirements; only tools explicitly required by the CALL, repo contract, frozen plan/spec, the CALL-pinned carrier route where applicable, or `validation.config` can trigger the required-tool STOP
 - [ ] run contract names the closing-report path (`RESULT.md`) + its field list (outcome/evidence/assumptions/cuts/cost/manual-acceptance/next), requires every stage's current HOME and leaves successors to Direction, names the user-perceivable-behavior class as an owner-signed acceptance property, names the strong-check enablement deliver dependency (G2 mutation score ≥ floor + non-empty spec-silence-audit section + deliverable-coverage list that records the done_when verbatim and gives every bullet a disposition — a ledger row, or an owner-acked out-of-scope line — with engine-side EXISTS paths resolving to non-trivial artifacts, + a recorded review-evidence file `docs/reviews/review-<id>.md` (reviewed-commit ancestor-of-HEAD with intervening source commits accounted, every in-scope finding dispositioned (class-siblings routed), every refuted carrying a G5/KERNEL-G5 marker, rounds ≤3-or-escalated) + a negative-control pass (a committed `<Prop>_NegativeControl` per acceptance property that its test goes RED against) + a property-layer pass for a `core algorithm` change (a `prop:` token per `headless` row matched to an owner-signed property table — permutation-metamorphic / fault-injection-all-exit-paths / multi-actor-one-tick / boundary-biased) + a refuted-register pass (every `refuted` review finding appended as a row to the cumulative `docs/reviews/REFUTED.md`; a re-derived duplicate closes by `register:<row-id>` citation; a re-raise with NEW evidence escalates to the owner), for a G0-frozen change — BUILD-exists is gated, only the owner LOOK may defer, and a cut is never silent), names the fix-is-a-change clause (a behavior-adding fix re-runs the invariant / spec-silence checks on its new failure paths, with a test-author RED test before the fix, and a `fixed` finding carries its recorded class+sweep line — a recurring class token re-opens the earlier fix), and routes the RESULT home (`next:` names the direction) — repo produces the report with no OS access
-- [ ] v30-v32 keeps one root, fresh sessions and REPORT/ESCALATE HOME; half-day mixed legs split before PAIR-CANDIDATE
+- [ ] v30-v34 uses one root across stages; only REPLACED swaps roots; REPORT/ESCALATE/REPLACED HOME; half-day mixes split before PAIR-CANDIDATE
 - [ ] v31 seeded misses reject paused work, truthy Boolean markers, cross-proof/actor evidence reuse, artifact-omitted dependencies, missing/invalid raw venue evidence, stale venue evidence
-  after an input change, and dirty/double/out-of-order closing; unchanged review/venue evidence survives merge and process-only
-  commits without rerunning the product venue, and ordered release passes; v32 seeded misses change at current HEAD, with old pins, one core PLAN/spec file and one extension-manifest artifact; both fail before scope filtering, while an unchanged frozen package passes
+  after an input change, and dirty delivery/double/out-of-order closing; unchanged review/venue evidence survives merge and process-only
+  commits without rerunning the product venue, and ordered release passes; v34 seeded misses reject rewritten pins, post-HOME draft, replacement containing superseded RED, and downstream/full-suite execution during PLAN publication; atomic salvage, exact-input carry and a clean stage-local replacement pass
 - [ ] the deliver-time report gate FAILS on a seeded miss: a repo with no `RESULT.md`, and a `RESULT.md` missing a required field, both block deliver/merge (presence + structure)
 - [ ] the always-run cited-artifact-existence gate FAILS on a seeded miss (contract v18): a `RESULT`/`docs/results/<id>.md` citing an absent `docs/reviews/review-*.md` (or `docs/adr/*.md`) path rooted in the repo's own `docs/` tree blocks deliver; the same citation once the file lands, and a `RESULT` that omits the citation, both deliver (existence-only — cross-repo/prose-only/empty-stub out of scope)
 - [ ] `validation.config` declares the mutation kill-rate floor (required key)

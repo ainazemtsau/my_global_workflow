@@ -6,7 +6,7 @@ This monotonic integer names the current engineering contract:
 once. Product repositories record `validation.config: synced_contract_version`; `collect`, `audit`,
 and `digest` compare that stamp with `current` and surface a missing terminal Re-sync.
 
-current: 33
+current: 34
 
 ## Reading the map
 
@@ -50,18 +50,14 @@ version assembled by follow-ups (v20, v21). The former long narrative remains Gi
 | 31 | 2026-07-20 | Lifecycle-safe, exact-input review/venue evidence reuse plus permanent slot branches. Removed: G08, G21a, G43, X22, X38, X41(v30), X43a-X43c, X48(v30), E20(v30), U13(v30); added: X41a-X41g, X48a-X48b, X53a, E20(v31), U13(v31); reworded: E29; N=239. | `engineering-contract-v31^{commit}` |
 | 32 | 2026-07-30 | Non-released frozen packages exact-match current HEAD before scope exemptions. Reworded: X18; N=239. | `engineering-contract-v32^{commit}` |
 | 33 | 2026-07-30 | Asserted plan derivations discharge before dependent tests; one decision-page ruler; two-way control pairing; composed-gate exemption seeded miss; committed-ref review. Reworded: G21b, G25, X13a, X30b, X58; N=239. | `engineering-contract-v33^{commit}` |
+| 34 | 2026-07-30 | Frozen replans use clean replacements; stage-local gates rerun only affected proofs. Reworded: G11, X18, X33b, X34b, X41a, X41d-X41f, X48a, X78, E29; N=239. | `engineering-contract-v34^{commit}` |
 
-## Terminal Re-sync to v33
+## Terminal Re-sync to v34
 
-Install current authority, never retired carriers.
-
-- On v29/v30 install the v31 route first, then the current one; on v31/v32, `re-sync:33` wires the five reworded
-  predicates and stamps 33, retaining ceiling 239.
-- Re-sync preserves every issued receipt/packet AND every frozen audit: derivation marking and two-way control pairing
-  bind packets frozen AFTER the stamp, never retroactively.
-- V32's frozen-tree check stays as issued: mismatch uses restore-or-Direction-release/fresh-root, never pin rewrite.
-- New roots pin 33; issued legacy/v29-v32 routes keep their recorded rules.
-- Unstamped: use current `PROJECT_SETUP.md` on activation.
+- Install prior deltas; `re-sync:34` wires stage-local gates/replacement receipts and stamps 34 without feature bytes.
+- Issued feature pins stay; v34 may process-close older v30+ roots without new feature gates. REPLACED precedes a current-pinned replacement.
+- Preserve ref/receipts/manifests; carry exact-input evidence from the affected stage; exclude superseded files.
+- New roots pin 34; legacy/unreplaced roots keep feature rules; N=239. Unstamped repos use current `PROJECT_SETUP.md`.
 
 The B4 consumer proof and exact product disposition are in
 `os/docs/B4_ENGINEERING_CONSUMER_AUDIT_2026-07-16.md`. The exact B4 delta resolves with

@@ -1,6 +1,6 @@
 # Validation — the gate pipeline
 
-**V31 exact evidence freshness.** Review and each real-venue run record their raw result plus exact `evidence-inputs` (proof id/required actor, declared product/test dependency paths + blobs, test selection and runtime identity); process proof has a separate `process-inputs` manifest. Proof identity, roots, selection and runtime fields come from the frozen plan/repo config; closing independently recomputes their current values instead of trusting artifact-declared scope. Only a changed evidence input stales its product proof. An equal manifest reuses the recorded result for the same proof obligation across merge, evidence and process commits; it never discharges another independent pass, and a commit SHA alone never forces a rerun. Review fixes still need a relevant, resolving `fixed <commit>`. A process-only change reruns only its process proof. V31 only; older pins keep their rule. Contract v32 corrects X18 enforcement: for every non-`RELEASED` v31+ root, the always-run lifecycle check exact-matches current `HEAD:<path>` to each declared frozen Git blob before scope filtering; historical freeze-commit resolution proves provenance only, extension manifests count, and mismatch is RED.
+**V31+ exact evidence freshness.** Review and each real-venue run record their raw result plus exact `evidence-inputs` (proof id/required actor, declared product/test dependency paths + blobs, test selection and runtime identity); process proof has a separate `process-inputs` manifest. Proof identity, roots, selection and runtime fields come from the frozen plan/repo config; closing independently recomputes them. Only a changed evidence input stales its product proof. An equal manifest reuses the result for the same obligation across commits or a replacement lineage; it never discharges another independent pass, and a commit SHA alone never forces a rerun. Review fixes still need a resolving `fixed <commit>`; a process-only change reruns only process proof. Every non-`RELEASED` v31+ root exact-matches current `HEAD:<path>` to each declared frozen Git blob before scope filtering; historical freeze commits prove provenance only, extension manifests count, and mismatch is RED. PLAN publication runs lifecycle/cleanliness and PLAN proof only, never the full suite or superseded RED; the full suite remains VALIDATE/deliver.
 
 On first recording, a refuted finding, its `REFUTED.md` row and the review citation land in one evidence commit. Deliver rejects a partial or cross-inconsistent triad; `none` is legal only with zero refuted findings.
 
@@ -28,7 +28,7 @@ The strictest practical validation for autonomously-built code. Gates run cheap-
 
 **Mutation snapshot cleanliness (contract v24).** Before running, the reviewer-side runner fails if any declared mutation-input dependency path is staged, unstaged, or untracked; `H` therefore names the exact source/test/tool/config snapshot that produced the score rather than a nearby commit.
 
-**Compiled pair candidate (contracts v29-v32; new pinned CALLs only).** These pins use
+**Compiled pair candidate (contracts v29-v34; new pinned CALLs only).** These pins use
 PLAN -> separate PAIR-CANDIDATE -> binding fresh PAIR-FREEZE refutation -> BUILD. One fresh contract-author - the
 independent test-author, never builder/validator - may stabilize both the non-behavioral public carrier and tests/support
 inside that bounded job. The owner-approved page remains at most 400 words and fully defines or omits each fixture.
@@ -42,26 +42,26 @@ fails on behavior. Permitted carrier gaps are corrected inside PAIR-CANDIDATE, n
 behavioral/out-of-plan changes or exhausted retries return one complete blocker. Fresh refutation inspects fixture
 meaning, both commits/manifests/diffs and runner evidence, then freezes public declarations/value contract and RED
 files. BUILD pins both, may implement bodies/internal HOW, and edits neither frozen contract nor RED; changing either
-returns through PAIR-CANDIDATE and pair freeze. For v29 each stage returns HOME to Direction; for v30-v32 a compact receipt
-advances the fresh repo-local stage and the one root returns only REPORT or ESCALATE HOME. The obligation inventory and `behavioral-red | evidence-only` split
+uses a Direction replacement at the earliest affected stage and refreezes the pair. For v29 each stage returns HOME to Direction; for v30-v34 a compact receipt
+advances the fresh repo-local stage and the root returns REPORT, ESCALATE or REPLACED HOME. The obligation inventory and `behavioral-red | evidence-only` split
 remain evidence; prose recipes, PLAN-AMEND, `N/N`, compile-RED and counts are not launch authority. Legacy
 snapshot lineages stay on their recorded v23 route across Re-sync; issued v29/v30 roots keep their routes when v31 activates.
 
 **Executable Plan-to-RED handoff (contract v22, historical carrier only).** Retained as migration history; it does not
-execute for a compiled v29-v33 leg. Its live remainder: the frozen spec splits mixed rows and classifies every atomic
+execute for a compiled v29-v34 leg. Its live remainder: the frozen spec splits mixed rows and classifies every atomic
 obligation `behavioral-red` or `evidence-only` — only behavioral rows enter the RED numerator and own a named test
 file/method plus exact `fixture|call|observe|source|negative`; process order, structural review, owner verdicts and
 final gates name their real evidence route and stay out of the count.
 
-**Fresh-refutation routing.** PAIR-CANDIDATE (v29-v32) or legacy RED-FREEZE may hand off only to binding fresh review, never
+**Fresh-refutation routing.** PAIR-CANDIDATE (v29-v34) or legacy RED-FREEZE may hand off only to binding fresh review, never
 straight to BUILD. The reviewer reads the exact carrier, decision page, RED commit/diff and runner output; the plan's
 inventory remains comparison evidence. It tries to refute completeness, fixture meaning and independence, writes no
-tests, and for v29-v32 freezes the exact pair. Only its artifact-backed verdict may open BUILD.
+tests, and for v29-v34 freezes the exact pair. Only its artifact-backed verdict may open BUILD.
 
 ## Gates
 
 For a compiled leg, every G0 phrase below saying the test-author works "from the spec" means the CALL-pinned compiled
-carrier route defined above; the ledger/spec remains immutable coverage evidence, not RED launch authority. Under v29-v32
+carrier route defined above; the ledger/spec remains immutable coverage evidence, not RED launch authority. Under v29-v34
 the RED commit becomes immutable with the carrier at pair freeze; legacy v23 retains its earlier RED-FREEZE timing.
 Non-compiled repositories use a native executable carrier or an explicit owner-approved `n/a` at re-sync.
 

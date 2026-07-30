@@ -3,7 +3,7 @@
 This file is the load-bearing census for the engineering contract. It counts what one applicable
 product leg must do, not how many words describe it. The historical `N=71` in the 2026-07-14 audit
 was a hypothesis; this is the fresh contract-v24 census made before the contract-v25 valve landed,
-re-verified by v26, with routing/version duties replaced through v33.
+re-verified by v26, with routing/version duties replaced through v34.
 
 ## Counting unit
 
@@ -46,7 +46,7 @@ deliverables, and exercises fixed, refuted, owner-ack and escalation branches. I
 | Unity profile predicates (`U`) | 27 |
 | **Maximum `N`** | **239** |
 
-`N = 239` remains the contract-v33 ceiling. V32 rewords X18; v33 rewords G21b, G25, X13a, X30b and X58 and adds no
+`N = 239` remains the contract-v34 ceiling. V34 rewords G11, X18, X33b, X34b, X41a, X41d-X41f, X48a, X78 and E29 and adds no
 obligation id — each new field shares its host gate's trigger, actor, phase, evidence path and retirement, so counting
 rule 2 makes it an attribute, not a row. B4 removed no obligation id: compacting historical
 narrative is a reading reduction, not a semantic deletion. The post-change maximum may not exceed
@@ -70,7 +70,7 @@ ceiling only after the corresponding obligations are proved removed.
 | G07 | Duplicate-helper check passes. | `os/engineering/VALIDATION.md:72` |
 | G09 | Secret check passes. | `os/engineering/VALIDATION.md:72` |
 | G10 | Magic-literal check passes. | `os/engineering/VALIDATION.md:72` |
-| G11 | Full test suite is green. | `os/engineering/VALIDATION.md:74` |
+| G11 | Full suite is green only at VALIDATE/deliver; PLAN skips it. | `os/engineering/VALIDATION.md:3,72` |
 | G12 | Changed-file suite repeats deterministically. | `os/engineering/VALIDATION.md:96` |
 | G13 | Diff-scoped mutation score meets the configured floor. | `os/engineering/VALIDATION.md:74` |
 | G14a | Core property tests use a real property-testing framework. | `os/engineering/VALIDATION.md:74` |
@@ -133,7 +133,7 @@ ceiling only after the corresponding obligations are proved removed.
 | X17a | The builder cannot edit the frozen spec. | `os/engineering/CONTOUR.md:229` |
 | X17b | The builder cannot edit the feature ledger. | `os/engineering/CONTOUR.md:229` |
 | X17c | The builder cannot edit acceptance criteria. | `os/engineering/CONTOUR.md:229` |
-| X18 | Every declared frozen-package path/blob exact-matches current HEAD until its v31+ root releases; re-stabilization is explicit. | `os/engineering/CONTOUR.md:99`; `os/engineering/VALIDATION.md:3` |
+| X18 | Non-released roots' frozen paths match their HEAD; replacement HEAD/gates exclude superseded files. | `os/engineering/CONTOUR.md:97`; `os/engineering/CONTOUR.md:98`; `os/engineering/VALIDATION.md:3` |
 | X19 | CALL/repo artifacts, not global tools, define execution authority. | `os/engineering/TOOLING.md:21` |
 | X20a | An unavailable required tool causes STOP. | `os/engineering/CONTOUR.md:275` |
 | X20b | A tool-unavailable STOP contacts the owner naming the tool. | `os/engineering/CONTOUR.md:276` |
@@ -153,10 +153,10 @@ ceiling only after the corresponding obligations are proved removed.
 | X30b | Every load-bearing deliver dependency, and every new exempting branch inside one, has a seeded-miss proof. | `os/engineering/PROJECT_SETUP.md:62` |
 | X31 | BUILD existence closes before an owner LOOK can defer. | `os/engineering/CONTOUR.md:163` |
 | X32 | Semantic completeness is judged by AI, not a proxy parser/scanner. | `os/engineering/CONTOUR.md:184` |
-| X33a | Every newly issued engineering root CALL pins its contract; Direction successors inherit it. | `os/schema/packets.md:37` |
-| X33b | Every issued pinned or legacy root keeps its originating route through later Re-sync. | `os/adapters/coding-agent.md:43` |
+| X33a | Every newly issued engineering root CALL pins its contract; Direction successors inherit it. | `os/schema/packets.md:41-42` |
+| X33b | Issued roots keep originating feature routes/gates; v34 adds only process-close. | `os/schema/packets.md:42-43`; `os/adapters/coding-agent.md:51-53` |
 | X34a | The final pair reruns build, hygiene and RED after the last carrier edit. | `os/engineering/CONTOUR.md:91` |
-| X34b | Any frozen public-contract or RED change returns through pair candidate and freeze. | `os/engineering/CONTOUR.md:99` |
+| X34b | Frozen authority changes through a clean Direction replacement preserving the old ref. | `os/engineering/CONTOUR.md:96` |
 | X35a | The reviewer independently derives mutation scope. | `os/engineering/CONTOUR.md:53` |
 | X35b | The reviewer independently runs mutation. | `os/engineering/CONTOUR.md:53` |
 | X36a | Mutation scope is honestly file-scoped. | `os/engineering/VALIDATION.md:25` |
@@ -164,12 +164,12 @@ ceiling only after the corresponding obligations are proved removed.
 | X37 | A core-algorithm leg runs a post-build property audit of the actual diff. | `os/engineering/CONTOUR.md:256` |
 | X39 | Value-bearing/measured fields are asserted equal to their source. | `os/engineering/CONTOUR.md:207` |
 | X40 | Multi-actor features exercise conflicting inputs in one tick. | `os/engineering/CONTOUR.md:208` |
-| X41a | A v31+ root stays registered across separate fresh stages and returns HOME only as REPORT or ESCALATE. | `os/engineering/CONTOUR.md:309` |
+| X41a | A v31+ root stays registered across fresh stages and returns REPORT, ESCALATE or REPLACED HOME. | `os/engineering/CONTOUR.md:100`; `os/engineering/CONTOUR.md:321` |
 | X41b | One lifecycle gates discovery, apply, mutation and Deliver; paused is custody-only and released is terminal. | `os/engineering/CONTOUR.md:319` |
 | X41c | One closing-control lease serializes each root's closing writes. | `os/engineering/CONTOUR.md:321` |
-| X41d | Closing order is evidence, RESULT/mirrors, gates, RELEASED commit, publish/readback. | `os/engineering/CONTOUR.md:321` |
-| X41e | Retry classification returns only to the earliest stage invalidated by changed authority. | `os/engineering/CONTOUR.md:320` |
-| X41f | Closing starts from a clean committed checkout and transfers no drafts. | `os/engineering/CONTOUR.md:321` |
+| X41d | Delivery closes in order; replacement claims no delivery and skips downstream gates. | `os/engineering/CONTOUR.md:323` |
+| X41e | Retry starts at the earliest affected stage and runs only that stage's owned proof. | `os/engineering/CONTOUR.md:322` |
+| X41f | Closing/replacement is committed; salvage is committed, never an uncommitted draft. | `os/engineering/CONTOUR.md:96,323` |
 | X41g | V31 machine Boolean markers reject truthy strings. | `os/engineering/CONTOUR.md:319` |
 | X42a | A new dependency needs an owner decision. | `os/engineering/VALIDATION.md:82` |
 | X42b | A contract change needs an owner decision. | `os/engineering/VALIDATION.md:82` |
@@ -179,7 +179,7 @@ ceiling only after the corresponding obligations are proved removed.
 | X45 | Narrative prose cannot close a leg; gates plus attached evidence do. | `os/engineering/CONTOUR.md:333` |
 | X46 | Review filename id matches the triggering change folder. | `os/engineering/VALIDATION.md:11` |
 | X47 | `reviewed-commit` is an ancestor of delivered HEAD. | `os/engineering/VALIDATION.md:11` |
-| X48a | A product proof is reused only for the same obligation while its exact evidence inputs match. | `os/engineering/VALIDATION.md:3` |
+| X48a | A product proof, including across replacement lineage, is reused only while exact evidence inputs match. | `os/engineering/VALIDATION.md:3` |
 | X48b | Every post-review `fixed <commit>` resolves and accounts for a changed review input. | `os/engineering/VALIDATION.md:3` |
 | X49 | Every review finding records a concrete `file:line` site. | `os/engineering/VALIDATION.md:11` |
 | X50 | A class-sibling site inside the diff fails as an anti-dodge. | `os/engineering/VALIDATION.md:11` |
@@ -211,7 +211,7 @@ ceiling only after the corresponding obligations are proved removed.
 | X75 | PAIR-CANDIDATE contract-author owns only carrier and tests/support. | `os/engineering/CONTOUR.md:43` |
 | X76 | PAIR-CANDIDATE carrier edits stay inside the approved construction/observation surface. | `os/engineering/CONTOUR.md:28` |
 | X77 | A fresh plan reviewer checks the complete obligation inventory. | `os/engineering/CONTOUR.md:33` |
-| X78 | A spec change invalidates every affected RED artifact. | `os/engineering/CONTOUR.md:182` |
+| X78 | A spec change invalidates affected downstream artifacts; only exact-input unaffected evidence carries. | `os/engineering/CONTOUR.md:184-185` |
 
 ## R - escape-class rows (16)
 
@@ -292,7 +292,7 @@ Each row must be answered independently `addressed | n/a because <reason>`.
 | E26 | Every review/ADR file cited by the closing report. | `os/engineering/VALIDATION.md:23` |
 | E27 | Manual acceptance instructions derived from G3 scripts. | `os/engineering/CONTOUR.md:302` |
 | E28 | Gated closing `RESULT.md`/RESULT artifact. | `os/engineering/CONTOUR.md:306` |
-| E29 | Root progress receipt with lifecycle, exact manifests, verdict, retry, eligibility and lease. | `os/engineering/PROJECT_SETUP.md:83` |
+| E29 | Root receipt with lifecycle, manifests, verdict, retry, eligibility, lease and replacement dispositions. | `os/engineering/PROJECT_SETUP.md:85` |
 | E30a | Resolving owner-ack token when its branch is used. | `os/engineering/CONTOUR.md:286` |
 | E30b | Resolving escalation token when its branch is used. | `os/engineering/CONTOUR.md:224` |
 
