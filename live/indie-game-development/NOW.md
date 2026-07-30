@@ -1,6 +1,6 @@
 # NOW: indie-game-development
 
-updated: 2026-07-30 by s-repair-g-37a1-character-replacement-release-001
+updated: 2026-07-30 by s-repair-g-37a1-venue-replacement-home-consume-001
 
 bet:
   node: g-37a1
@@ -271,14 +271,14 @@ open_calls:
     issued: 2026-07-30
     call: work/c-control-g-37a1-body-first-person-replace-release-002-call.md
     note: "Предыдущий replacement-close фактически создал и закоммитил корректный RELEASED / REPLACED receipt, полный stale-инвентарь и clean basis на WIN-U2@c9362119, но терминальный HOME остался ESCALATE только потому, что живой Unity Editor удерживал физическую lease. Владелец затем закрыл Unity; PID 31516 и оба Unity lock evidence отсутствуют, checkout clean, а selector всё ещё законно показывает CLAIMED под старой lease. Единственная работа successor — выполнить точный selector Release этой lease и read-only readback AVAILABLE. Replacement-close, продуктовые файлы, PLAN, feature, Unity, BUILD и Deliver повторно не запускаются."
-  - id: c-control-g-37a1-venue-packaged-player-replace-close-002
+  - id: c-exec-g-37a1-venue-packaged-player-minimal-002
     track: t-venue
     status: ready
     to: executor
     for: t-3
     issued: 2026-07-30
-    call: work/c-control-g-37a1-venue-packaged-player-replace-close-002-call.md
-    note: "Предыдущий CALL вернул правильный HOME: ESCALATE без изменений: он ошибочно требовал AVAILABLE у слота, который законно CLAIMED самим target root, и путал исторический published Re-sync commit с ещё не созданным replacement basis. Successor работает под точной существующей lease c-exec-g-37a1-venue-packaged-player-001:PAIR-CANDIDATE на clean WIN-U3@9c9a068e; selector availability STOP для свежего выбора ожидаем и не является блокером. Origin отстаёт на 22 коммита, но remote equality до транзакции не требуется. Единственная работа — v34 process-close как REPLACED; feature и Deliver запрещены."
+    call: work/c-exec-g-37a1-venue-packaged-player-minimal-002-call.md
+    note: "Terminal HOME: REPLACED принят: старый pin-31 root RELEASED / REPLACED, replacement receipt blob 691f5adf и terminal commit e4eba767 опубликованы/read-back, WIN-U3 clean и AVAILABLE. Новый root pin 34 действительно заменяет c-exec-g-37a1-venue-packaged-player-001, resume_from PLAN, replacement basis 9ba0791b, carry пуст, все 29 старых PLAN/carrier/RED/evidence/tool paths stale и отсутствуют в HEAD, но доступны через preserved ref. Единственная текущая работа — новый PLAN-only по уже owner-approved минимальному scope: один Windows build и один запуск; plan предъявляется владельцу и STOP до его approve/revise/reject."
   - id: c-work-g-37a1-render-vp4-micro-adapter-001
     track: t-render
     status: blocked

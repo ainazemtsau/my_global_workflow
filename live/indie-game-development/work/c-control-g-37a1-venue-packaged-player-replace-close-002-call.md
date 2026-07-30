@@ -1,5 +1,9 @@
 # CALL c-control-g-37a1-venue-packaged-player-replace-close-002
 
+> **RETURNED REPLACED — DO NOT REDISPATCH.** Terminal receipt commit
+> `e4eba767898ffee774cfde428094b729f7bf3e81` released the old root and WIN-U3. Direction consumed this HOME and
+> activated `c-exec-g-37a1-venue-packaged-player-minimal-002` as the fresh contract-34 PLAN root.
+
 > **READY — PREFLIGHT CONTRACT CORRECTED AFTER GENUINE ESCALATE.** The prior CALL incorrectly required WIN-U3 to be
 > `AVAILABLE` even though the old target root lawfully owns it as `CLAIMED / PAIR-CANDIDATE`. It also treated the
 > historical published Re-sync commit as the current/future replacement basis. Neither is a valid STOP for the
