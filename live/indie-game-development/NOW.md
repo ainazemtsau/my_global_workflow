@@ -1,6 +1,6 @@
 # NOW: indie-game-development
 
-updated: 2026-07-30 by s-repair-g-37a1-venue-replacement-wait-001
+updated: 2026-07-30 by s-repair-g-37a1-venue-resync-route-001
 
 bet:
   node: g-37a1
@@ -236,15 +236,14 @@ open_calls:
     issued: 2026-07-30
     call: work/c-exec-g-37a1-body-first-person-plan-amend-001-call.md
     note: "Same-leg successor с pin 31. Старый PAIR-CANDIDATE r2 остаётся PAIR-FREEZE FAIL / NOT BUILD ELIGIBLE и не ремонтируется; новый корень начинает отдельную docs-only PLAN-AMEND-сессию как receipt-stage PLAN."
-  - id: c-control-g-37a1-venue-packaged-player-replace-close-001
+  - id: c-resync-g-37a1-venue-contract-v34-001
     track: t-venue
-    status: blocked
-    unblock_when: "Re-sync v34 завершён терминальным HOME, опубликован и прочитан обратно; непосредственно в WIN-U3 validation.config показывает synced_contract_version 34 и доступен v34 replacement control-plane. После этого отдельный Direction repair по точной evidence-квитанции переводит этот CALL blocked → ready; одного сообщения о старте Re-sync недостаточно."
+    status: ready
     to: executor
     for: t-3
     issued: 2026-07-30
-    call: work/c-control-g-37a1-venue-packaged-player-replace-close-001-call.md
-    note: "Control-plane only: после Re-sync v34 безопасно закрыть старый ACTIVE pin-31 root c-exec-g-37a1-venue-packaged-player-001 как REPLACED, сохранив ref/receipts/manifests/history и выдав чистый committed basis для planned replacement c-exec-g-37a1-venue-packaged-player-minimal-002. Новый PLAN до REPLACED HOME не dispatchable."
+    call: work/c-resync-g-37a1-venue-contract-v34-001-call.md
+    note: "Единственная работа — установить и опубликовать control-plane contract v32-v34 непосредственно в WIN-U3 без feature bytes, старых RED/full-suite gates и replacement-close. После успешного HOME обычная Direction-обработка возврата сразу регистрирует сохранённый c-control-g-37a1-venue-packaged-player-replace-close-001 как ready; отдельная промежуточная repair-сессия не нужна."
   - id: c-work-g-37a1-render-vp4-micro-adapter-001
     track: t-render
     status: blocked

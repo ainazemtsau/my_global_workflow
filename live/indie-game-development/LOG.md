@@ -1,5 +1,7 @@
 # LOG - indie-game-development
 
+2026-07-30 | s-repair-g-37a1-venue-resync-route-001 | repair | t-venue | g-37a1/t-3: подтверждённый ESCALATE снял недиспетчеризуемый replacement-close из hot frontier; выпущен один ready re-sync:34 CALL прямо в WIN-U3, без feature/RED/full-suite работы, а успешный HOME вернёт сохранённый replacement-close сразу без отдельного repair-шага -> history/2026-07-30-s-repair-g-37a1-venue-resync-route-001.md
+
 2026-07-30 | s-repair-g-37a1-venue-replacement-wait-001 | repair | t-venue | g-37a1/t-3: преждевременный minimal PLAN снят с ready; единственным frontier полосы стал blocked v34 process-close CALL, который после завершённого Re-sync должен закрыть старый ACTIVE pin-31 root как REPLACED и вернуть чистый committed basis без переноса старых carrier/tests/tools -> history/2026-07-30-s-repair-g-37a1-venue-replacement-wait-001.md
 
 2026-07-30 | s-work-g-37a1-venue-packaged-player-plan-reset-001 | work | t-venue | g-37a1/t-3: после PAIR-FREEZE rejection старый audit-grade packaged-player root остановлен без ремонта PAIR-CANDIDATE; выпущен новый contract-31 PLAN-only root на WIN-U3 / Target Local с одним запуском, обычными failure modes и простым post-build success marker -> history/2026-07-30-s-work-g-37a1-venue-packaged-player-plan-reset-001.md

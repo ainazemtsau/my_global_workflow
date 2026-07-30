@@ -1,5 +1,10 @@
 # CALL c-control-g-37a1-venue-packaged-player-replace-close-001
 
+> **RETURNED ESCALATE — NOT REGISTERED FOR DISPATCH.** WIN-U3 was still on contract 31, so no replacement work ran.
+> `s-repair-g-37a1-venue-resync-route-001` removed this CALL from the hot frontier and issued the bounded
+> `c-resync-g-37a1-venue-contract-v34-001`. Preserve this file: after a published/read-back v34 HOME, Direction may
+> register this same CALL as `ready`; do not execute it before then.
+
 direction: indie-game-development
 track: t-venue
 for: t-3
