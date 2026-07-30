@@ -6,7 +6,7 @@ This monotonic integer names the current engineering contract:
 once. Product repositories record `validation.config: synced_contract_version`; `collect`, `audit`,
 and `digest` compare that stamp with `current` and surface a missing terminal Re-sync.
 
-current: 31
+current: 32
 
 ## Reading the map
 
@@ -50,16 +50,18 @@ range. The former long narrative remains immutable Git evidence at
 | 29 | 2026-07-18 | Hot-safe CALL pinning plus one pair-candidate job replace retroactive upgrades and early carrier relay/line cap. Removed: X33a/X33b(v28); added: X33a/X33b(v29); reworded: G33, X07-X09, X18, X34a-X34b, X75-X76, E06-E07, E09-E12, E15, U20a-U20b; N=239. | `engineering-contract-v29^{commit}` |
 | 30 | 2026-07-18 | One pinned root replaces Direction relays between fresh product stages. Removed: X41(v29); added: X41(v30); reworded: X33a-X33b, X44, E29; N=239. | `engineering-contract-v30^{commit}` |
 | 31 | 2026-07-20 | Lifecycle-safe, exact-input review/venue evidence reuse plus permanent slot branches. Removed: G08, G21a, G43, X22, X38, X41(v30), X43a-X43c, X48(v30), E20(v30), U13(v30); added: X41a-X41g, X48a-X48b, X53a, E20(v31), U13(v31); reworded: E29; N=239. | `engineering-contract-v31^{commit}` |
+| 32 | 2026-07-30 | Non-released frozen packages exact-match current HEAD before scope exemptions. Reworded: X18; N=239. | `engineering-contract-v32^{commit}` |
 
-## Terminal Re-sync to v31
+## Terminal Re-sync to v32
 
 Install current authority, never retired carriers.
 
-- On v29/v30, issue bounded no-feature `re-sync:31`: install the v30 root route plus v31 closing/permanent-slot controls,
-  stamp contract/inventory `31`, retain ceiling `239`, then pin new roots to 31. Older roots may remain open.
-- Issued legacy/v29/v30 roots keep recorded rules; v31 is never required for their returns.
-- Re-sync changes no active artifact; afterward all pinned routes coexist.
-- Behind v29: install applicable prior gates, then v31 before a new root. Existing returns stay pinned.
+- On v29/v30, install the v31 route first; on v31, `re-sync:32` installs only the frozen-tree identity correction and stamps
+  contract 32 while retaining ceiling 239.
+- Re-sync preserves every issued receipt/packet. Non-`RELEASED` v31 roots receive the current-tree check as executable
+  enforcement of their already-pinned X18; mismatch uses restore-or-Direction-release/fresh-root, never pin rewrite.
+- New roots pin 32; issued legacy/v29/v30/v31 routes otherwise keep their recorded rules.
+- Behind v29: install applicable prior gates, then the current route before a new root. Existing returns stay pinned.
 - Unstamped: use current `PROJECT_SETUP.md` on activation.
 
 The B4 consumer proof and exact product disposition are in

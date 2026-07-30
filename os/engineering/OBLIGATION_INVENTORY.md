@@ -3,7 +3,7 @@
 This file is the load-bearing census for the engineering contract. It counts what one applicable
 product leg must do, not how many words describe it. The historical `N=71` in the 2026-07-14 audit
 was a hypothesis; this is the fresh contract-v24 census made before the contract-v25 valve landed,
-re-verified by v26, with routing/version duties replaced through v31.
+re-verified by v26, with routing/version duties replaced through v32.
 
 ## Counting unit
 
@@ -46,7 +46,7 @@ deliverables, and exercises fixed, refuted, owner-ack and escalation branches. I
 | Unity profile predicates (`U`) | 27 |
 | **Maximum `N`** | **239** |
 
-`N = 239` remains the contract-v31 ceiling. B4 removed no obligation id: compacting historical
+`N = 239` remains the contract-v32 ceiling; v32 rewords X18 and adds no obligation id. B4 removed no obligation id: compacting historical
 narrative is a reading reduction, not a semantic deletion. The post-change maximum may not exceed
 it. An addition that
 would otherwise raise `N` is legal only when the same commit names and actually removes enough
@@ -131,7 +131,7 @@ ceiling only after the corresponding obligations are proved removed.
 | X17a | The builder cannot edit the frozen spec. | `os/engineering/CONTOUR.md:229` |
 | X17b | The builder cannot edit the feature ledger. | `os/engineering/CONTOUR.md:229` |
 | X17c | The builder cannot edit acceptance criteria. | `os/engineering/CONTOUR.md:229` |
-| X18 | Frozen public contract+RED stays unchanged until explicit re-stabilization. | `os/engineering/CONTOUR.md:98` |
+| X18 | Every declared frozen-package path/blob exact-matches current HEAD until its v31+ root releases; re-stabilization is explicit. | `os/engineering/CONTOUR.md:99`; `os/engineering/VALIDATION.md:3` |
 | X19 | CALL/repo artifacts, not global tools, define execution authority. | `os/engineering/TOOLING.md:21` |
 | X20a | An unavailable required tool causes STOP. | `os/engineering/CONTOUR.md:275` |
 | X20b | A tool-unavailable STOP contacts the owner naming the tool. | `os/engineering/CONTOUR.md:276` |
@@ -162,7 +162,7 @@ ceiling only after the corresponding obligations are proved removed.
 | X37 | A core-algorithm leg runs a post-build property audit of the actual diff. | `os/engineering/CONTOUR.md:256` |
 | X39 | Value-bearing/measured fields are asserted equal to their source. | `os/engineering/CONTOUR.md:207` |
 | X40 | Multi-actor features exercise conflicting inputs in one tick. | `os/engineering/CONTOUR.md:208` |
-| X41a | A v31 root stays registered across separate fresh stages and returns HOME only as REPORT or ESCALATE. | `os/engineering/CONTOUR.md:309` |
+| X41a | A v31+ root stays registered across separate fresh stages and returns HOME only as REPORT or ESCALATE. | `os/engineering/CONTOUR.md:309` |
 | X41b | One lifecycle gates discovery, apply, mutation and Deliver; paused is custody-only and released is terminal. | `os/engineering/CONTOUR.md:319` |
 | X41c | One closing-control lease serializes each root's closing writes. | `os/engineering/CONTOUR.md:321` |
 | X41d | Closing order is evidence, RESULT/mirrors, gates, RELEASED commit, publish/readback. | `os/engineering/CONTOUR.md:321` |
