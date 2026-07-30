@@ -1,6 +1,6 @@
 # NOW: indie-game-development
 
-updated: 2026-07-30 by s-work-g-37a1-gas-rest-amend-route-001
+updated: 2026-07-30 by s-work-g-37a1-body-first-person-plan-amend-route-001
 
 bet:
   node: g-37a1
@@ -227,13 +227,14 @@ open_calls:
     issued: 2026-07-30
     call: work/c-exec-g-37a1-gas-rest-amend-001-call.md
     note: "Преемник вернувшегося ESCALATE. Слот WIN-U4 вынужден: пакет и красные тесты существуют только на ветке slot/win-u4, в origin/main их нет. change_id продукта НЕ меняется — свежий корень замораживает ту же папку пакета на новом коммите."
-  - id: c-exec-g-37a1-body-first-person-001
+  - id: c-exec-g-37a1-body-first-person-plan-amend-001
     track: t-body
     status: ready
     to: executor
     for: t-2
-    issued: 2026-07-28
-    call: work/c-exec-g-37a1-body-first-person-001-call.md
+    issued: 2026-07-30
+    call: work/c-exec-g-37a1-body-first-person-plan-amend-001-call.md
+    note: "Same-leg successor с pin 31. Старый PAIR-CANDIDATE r2 остаётся PAIR-FREEZE FAIL / NOT BUILD ELIGIBLE и не ремонтируется; новый корень начинает отдельную docs-only PLAN-AMEND-сессию как receipt-stage PLAN."
   - id: c-exec-g-37a1-venue-packaged-player-001
     track: t-venue
     status: ready
