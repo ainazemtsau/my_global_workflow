@@ -9,8 +9,12 @@ Companion files: `PROJECT_SETUP.md` (bootstrap a product repo), `VALIDATION.md` 
 - The direction (chat sessions) owns WHAT and the acceptance bar: outcome, business-level done_when, boundaries, budget, evidence pointers. It never prescribes architecture, design, or file layout.
 - A CALL never licenses a silent downgrade, and names the ONE approach it exists to prove. The direction may mark a capability DESIRABLE-not-required, but it may NOT write a standing "ship the lesser form if the real one is costly/hangs" clause — any fallback from the named approach routes through ESCALATE (an owner decision), never a blanket in-CALL permission. When a `done_when`'s substrate/approach is load-bearing it is named as ONE token (an `approach:` / `de-risk-target:`), NOT a disjunctive "X OR a lesser Y": the coverage row echoes that token, so a substituted mechanism is a string-mismatch the gate and the writer catch (VALIDATION.md, coding-agent.md), not a silently-conforming alternative. A disjunctive or downgrade-licensed acceptance bar is a CALL-authoring defect the shape/converge session owns.
 - The contour owns HOW: architecture, design, implementation, validation. Architecture is decided in PLAN — with the owner, in the product repo — and recorded there (ADRs, change specs, module docs). It never lives in direction state; business-relevant assumptions return via REPORT into the direction's review.
-- Design exploration from chats (`work/` docs, research findings) arrives as CALL context pointers: input evidence for the planner, never a binding spec.
+- Design exploration from chats (`work/` docs, research findings) arrives as CALL context pointers: input evidence, never a binding spec.
 - Feasibility questions ("can this be built within budget at all?") are direction work (research/work spikes); solution design belongs to PLAN.
+- **CALL budget (v35).** An engineering CALL carries at most THREE `done_when` bullets; more needs the owner's written
+  over-budget token quoted in the CALL. Measured here, one bullet becomes 10-14 acceptance rows, so five is already a
+  leg that has never shipped. This activates X44. The direction owns the number: it is the only place leg size is set
+  before work starts.
 
 ## Roles (always separated)
 
@@ -27,22 +31,18 @@ test-author, never the builder or validator — owns the bounded pre-freeze job.
 compiler-green real public carrier and tests/support until the real command compiles, discovers the intended tests and
 fails on behavior. Carrier edits stay inside the approved construction/observation surface and contain no behavioral
 implementation. Intermediate carrier gaps stay inside this job; its handoff is only the final candidate pair or one
-complete blocker after the retry cap. Binding fresh refutation then freezes the public contract+RED pair. PLAN,
-PAIR-CANDIDATE, pair refutation and BUILD are separate sessions.
+complete blocker after the retry cap. Binding fresh refutation then freezes the public contract+RED pair. Pair
+refutation and BUILD are separate sessions from the one that authored the pair and from each other. V35: PLAN and
+PAIR-CANDIDATE may share a session — the boundary that matters is between whoever authors the oracle and whoever
+implements against it.
 
-- **Plan reviewer** - a fresh read-only frontier AI that checks the candidate's meaning, obligation inventory and
-  evidence-class split. Its prose recipes are planning feedback only: they never count as authored RED and never
-  authorize BUILD.
-- **Planner** — interactive session, frontier model, plan mode. Talks to the owner. A SEPARATE session from PAIR-CANDIDATE
-  and BUILD: owner approval ends it without code/tests. Its v29 HOME or v30-v34 receipt hands off to a fresh
-  PAIR-CANDIDATE.
-  The planner never continues into contract authoring or BUILD.
-- **Builder** — autonomous session(s), default-tier model, a FRESH session that reads the frozen plan and reviewed carrier+RED pair (never the same session that planned). Never talks to the owner mid-run.
+- **Builder** — autonomous session(s), default-tier model, a FRESH session reading the reviewed carrier+RED pair (never the session that authored it). Never talks to the owner mid-run.
 - **Validator** — fresh-context, read-only (no Write/Edit), did not author the code; independence is established by authorship, context and authority separation, never by model identity: equal builder/reviewer model provenance is legal, and model availability cannot block review or delivery. It judges a committed ref, never a shared working tree: uncommitted bytes in a reused slot are not a finding.
-- **Test-author / contract-author** — a separate PAIR-CANDIDATE session that reads the frozen plan, decision page and
-  existing repo, then owns only the non-behavioral public carrier plus the complete `behavioral-red` tests/support. It
-  may correct carrier gaps and rerun RED inside that one job; it never implements behavior or weakens/omits a planned
-  behavioral row. The final history records a carrier commit followed by a tests/support commit. Fresh review freezes
+- **Contract-author** — owns the whole oracle. Reads the CALL, the decision page and the existing repo, stops for the
+  owner's approval of that page, then owns the spec's machine-read sections, the
+  non-behavioral public carrier and the complete `behavioral-red` tests/support. It
+  may correct carrier gaps and rerun RED inside that one job; it never implements behavior or weakens/omits an
+  approved behavioral row. The final history records a carrier commit followed by a tests/support commit. Fresh review freezes
   the public contract and RED files; the builder makes the tests pass and may edit neither. Process, structural-review
   and final-gate obligations are
   `evidence-only`, never fake tests. Not the builder and not the validator. For a `core algorithm` change the same role
@@ -65,7 +65,7 @@ needs its own native executable carrier, or an explicit `n/a` / separate owner d
 
 ## The cycle
 
-### Contract v29-v34 compiled route
+### Contract v29-v35 compiled route
 
 For compiled product-code legs the operative path is:
 
@@ -73,13 +73,17 @@ For compiled product-code legs the operative path is:
 PLAN -> PAIR-CANDIDATE -> binding fresh PAIR-FREEZE refutation -> BUILD -> VALIDATE
 ```
 
-PLAN retains the owner-readable plan, acceptance ledger, spec-silence audit, deliverable coverage and the
-`behavioral-red | evidence-only` split. It also produces an owner-approved decision page of at most 400 words =
-whitespace tokens over the whole file, the only ruler. Every
-fixture named on that page is fully defined (inputs, domains and mappings included) or absent. Planning artifacts remain
-coverage/review evidence; no prose recipe, PLAN-AMEND packet or `N/N` text is launch authority for RED or BUILD.
+**V35: the frozen contract is code, not prose.** A leg freezes its spec's machine-read sections, the compiling carrier
+and its RED tests. No `PLAN.md` is a frozen artifact, a gate input, or launch authority: every gate naming it reads its
+path or blob hash, never a sentence.
 
-PAIR-CANDIDATE is a separate fresh session. Its final history is an exact carrier commit followed by an exact
+PLAN keeps its stage and receipt and stops being a separate session: one session may close PLAN and PAIR-CANDIDATE,
+writing both receipts in order. Its surviving duties — acceptance ledger, spec-silence audit, deliverable coverage,
+the `behavioral-red | evidence-only` split — are recorded in the spec, which is what the gates read. The owner approves
+one artifact: the decision page, at most 400 words = whitespace tokens over the whole file, the only ruler, every
+fixture on it fully defined (inputs, domains, mappings) or absent.
+
+PAIR-CANDIDATE is fresh of BUILD. Its final history is an exact carrier commit followed by an exact
 tests/support commit. The carrier contains or pins the decision page and a compiling skeleton of the real public
 surface. It uses real signatures; data/value construction preserves fields and trivial reachability, while behavioral
 bodies remain unimplemented. Acceptance meaning may not move into `///` comments. The commit and Git manifest define
@@ -105,7 +109,7 @@ override the route pinned by the engineering CALL.
 
 ```
 CALL (business task from a direction)
-  → PLAN (interactive): the planner first names the change class — module
+  → PLAN: the contract-author first names the change class — module
     boundaries / new module / new dependency / core algorithm (simulation,
     netcode, determinism) / data formats / perf-critical path / user-
     perceivable behavior (what the person the product is for directly
@@ -179,21 +183,18 @@ CALL (business task from a direction)
     fully-defined-fixture decision page. A process-order, structural-review,
     owner-verdict or final-gate row is `evidence-only`: it names its real evidence route and
     is excluded from the RED-test count — it may not be dressed as an Arrange/Act/Assert test.
-    The plan reviewer independently checks the full inventory and returns the complete gap
-    list, but a filled table or English skeleton is never `N/N executable` and never authorizes
+    A filled table or English skeleton is never `N/N executable` and never authorizes
     BUILD. Only actual pair-candidate evidence plus its binding fresh refutation does. A spec change invalidates every
     affected RED artifact; only unaffected exact-input evidence may cross a replacement lineage. A narrow blocker close never authorizes BUILD by itself. This is
     semantic AI review plus the real consumer artifact, not a new parser/regex/conformance tool
     (VALIDATION Executable Plan-to-RED handoff; MAINTENANCE semantic-review boundary).
-    The plan the owner approves is a detailed-but-simple OWNER-READABLE
-    document — the goal in plain words and EACH technical decision spelled out
-    (plain-language what + why), plus what is cut or deferred; the machine spec /
-    ledger / ADR ride ALONGSIDE it for the builder and are NOT what the owner
-    reads to approve (a wall of machine artifacts, or a plan buried in a scratch
-    file, is not a plan).
-    Owner approval closes PLAN; v29 returns HOME and v30-v34 commits its receipt. A fresh PAIR-CANDIDATE follows;
-    prose never opens BUILD, and the three roles never share a session.
-  → PAIR-CANDIDATE (separate fresh session, before build): the contract-author creates the non-behavioral public carrier
+    What the owner approves is the 400-word decision page: the goal in plain
+    words, EACH technical decision spelled out (plain-language what + why), and
+    what is cut or deferred. The machine spec / ledger / ADR ride ALONGSIDE it
+    and are NOT what he reads to approve.
+    Owner approval closes PLAN; v29 returns HOME and v30-v35 commits its receipt. PAIR-CANDIDATE follows and may share
+    that session (v35); prose never opens BUILD, and the author of the oracle is never the builder.
+  → PAIR-CANDIDATE (fresh of BUILD): the contract-author creates the non-behavioral public carrier
     and complete behavioral tests/support, fixing approved carrier gaps inside this job. It never implements behavior,
     invents test-local production substitutes or drops a planned row. The final carrier commit passes build+hygiene;
     its child RED commit compiles, discovers the intended tests and fails on behavior. Compile-RED, partial suites and

@@ -39,18 +39,17 @@ deliverables, and exercises fixed, refuted, owner-ack and escalation branches. I
 | Category | Count |
 |---|---:|
 | Gate predicates (`G`) | 46 |
-| Cross-cutting axes (`X`) | 100 |
+| Cross-cutting axes (`X`) | 96 |
 | Escape-class rows (`R`) | 16 |
 | Required spec payloads (`S`) | 19 |
-| Required artifacts/evidence objects (`E`) | 31 |
+| Required artifacts/evidence objects (`E`) | 30 |
 | Unity profile predicates (`U`) | 27 |
-| **Maximum `N`** | **239** |
+| **Maximum `N`** | **234** |
 
-`N = 239` remains the contract-v34 ceiling. V34 rewords G11, X18, X33b, X34b, X41a, X41d-X41f, X48a, X78 and E29 and adds no
-obligation id — each new field shares its host gate's trigger, actor, phase, evidence path and retirement, so counting
-rule 2 makes it an attribute, not a row. B4 removed no obligation id: compacting historical
-narrative is a reading reduction, not a semantic deletion. The post-change maximum may not exceed
-it. An addition that
+`N = 234` after contract v35, which REMOVES five ids and adds none: X06, X11, X12, X77, E01 — all five policed a prose
+planning stage whose output no gate read. Nothing replaces them: the owner-facing duty is the existing X58/E05 decision
+page, and the role separation they were confused with is stated positively in CONTOUR Roles. 234 is the new ceiling;
+the post-change maximum may not exceed it. An addition that
 would otherwise raise `N` is legal only when the same commit names and actually removes enough
 inventory ids from every authoritative surface to keep `N <= 239`. Renaming, compressing, merging
 rows, moving text to a product repo, or replacing two predicates with one sentence is not removal.
@@ -117,13 +116,10 @@ ceiling only after the corresponding obligations are proved removed.
 | X03 | Architectural choices are discussed with the owner. | `os/engineering/CONTOUR.md:115` |
 | X04 | An architectural choice is recorded in an ADR. | `os/engineering/CONTOUR.md:119` |
 | X05 | User-perceivable behaviour is an owner-signed acceptance property. | `os/engineering/CONTOUR.md:117` |
-| X06 | PLAN is a separate session. | `os/engineering/CONTOUR.md:36` |
-| X07 | PAIR-CANDIDATE is a separate fresh session. | `os/engineering/CONTOUR.md:83` |
+| X07 | PAIR-CANDIDATE is fresh of BUILD. | `os/engineering/CONTOUR.md:82` |
 | X08 | The candidate carrier contains no behavioural implementation. | `os/engineering/CONTOUR.md:86` |
 | X09 | Binding fresh refutation freezes the public contract+RED pair before BUILD. | `os/engineering/CONTOUR.md:199` |
 | X10 | BUILD starts in a fresh session. | `os/engineering/CONTOUR.md:202` |
-| X11 | The planner writes no product code. | `os/engineering/CONTOUR.md:37` |
-| X12 | The planner writes or commissions no RED tests. | `os/engineering/CONTOUR.md:37` |
 | X13a | The validator is fresh-context and judges a committed ref. | `os/engineering/CONTOUR.md:41` |
 | X13b | The validator is authoring-read-only. | `os/engineering/CONTOUR.md:41` |
 | X14 | Model identity and availability never gate review eligibility. | `os/engineering/CONTOUR.md:41` |
@@ -210,7 +206,6 @@ ceiling only after the corresponding obligations are proved removed.
 | X74 | Data/value construction exposes the trivial behaviour needed to reach RED. | `os/engineering/CONTOUR.md:85` |
 | X75 | PAIR-CANDIDATE contract-author owns only carrier and tests/support. | `os/engineering/CONTOUR.md:43` |
 | X76 | PAIR-CANDIDATE carrier edits stay inside the approved construction/observation surface. | `os/engineering/CONTOUR.md:28` |
-| X77 | A fresh plan reviewer checks the complete obligation inventory. | `os/engineering/CONTOUR.md:33` |
 | X78 | A spec change invalidates affected downstream artifacts; only exact-input unaffected evidence carries. | `os/engineering/CONTOUR.md:184-185` |
 
 ## R - escape-class rows (16)
@@ -264,7 +259,6 @@ Each row must be answered independently `addressed | n/a because <reason>`.
 
 | ID | Required object | Authority |
 |---|---|---|
-| E01 | Detailed owner-readable plan. | `os/engineering/CONTOUR.md:186` |
 | E02 | Architecture decision record when architectural. | `os/engineering/CONTOUR.md:119` |
 | E03 | Frozen change spec. | `os/engineering/CONTOUR.md:121` |
 | E04 | Default-FAIL feature ledger. | `os/engineering/CONTOUR.md:122` |

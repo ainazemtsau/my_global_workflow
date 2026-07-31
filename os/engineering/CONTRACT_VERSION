@@ -6,7 +6,7 @@ This monotonic integer names the current engineering contract:
 once. Product repositories record `validation.config: synced_contract_version`; `collect`, `audit`,
 and `digest` compare that stamp with `current` and surface a missing terminal Re-sync.
 
-current: 34
+current: 35
 
 ## Reading the map
 
@@ -51,16 +51,15 @@ version assembled by follow-ups (v20, v21). The former long narrative remains Gi
 | 32 | 2026-07-30 | Non-released frozen packages exact-match current HEAD before scope exemptions. Reworded: X18; N=239. | `engineering-contract-v32^{commit}` |
 | 33 | 2026-07-30 | Asserted plan derivations discharge before dependent tests; one decision-page ruler; two-way control pairing; composed-gate exemption seeded miss; committed-ref review. Reworded: G21b, G25, X13a, X30b, X58; N=239. | `engineering-contract-v33^{commit}` |
 | 34 | 2026-07-30 | Frozen replans use clean replacements; stage-local gates rerun only affected proofs. Reworded: G11, X18, X33b, X34b, X41a, X41d-X41f, X48a, X78, E29; N=239. | `engineering-contract-v34^{commit}` |
+| 35 | 2026-07-31 | The frozen contract is code, not prose: no frozen `PLAN.md`, PLAN shares a session with PAIR-CANDIDATE, CALLs cap at three `done_when` bullets. Removed: X06, X11, X12, X77, E01; added: none; N=234. | `engineering-contract-v35^{commit}` |
 
-## Terminal Re-sync to v34
+## Terminal Re-sync to v35
 
-- Install prior deltas; `re-sync:34` wires stage-local gates/replacement receipts and stamps 34 without feature bytes.
-- Issued feature pins stay; v34 may process-close older v30+ roots without new feature gates. REPLACED precedes a current-pinned replacement.
+- Install prior deltas; `re-sync:35` stamps 35 without feature bytes and stops requiring a frozen `PLAN.md`.
+- Issued feature pins stay; v34 process-close and REPLACED-before-replacement rules are unchanged.
 - Preserve ref/receipts/manifests; carry exact-input evidence from the affected stage; exclude superseded files.
-- New roots pin 34; legacy/unreplaced roots keep feature rules; N=239. Unstamped repos use current `PROJECT_SETUP.md`.
-
-The B4 consumer proof and exact product disposition are in
-`os/docs/B4_ENGINEERING_CONSUMER_AUDIT_2026-07-16.md`. The exact B4 delta resolves with
-`git show engineering-contract-v26` after the tag and commit are pushed.
+- New roots pin 35 and cap the CALL at three `done_when` bullets; legacy roots keep their rules. N=234.
+- Removed ids X06/X11/X12/X77/E01 are retired, not relocated: a repo may delete their checks outright.
+- Unstamped repos use current `PROJECT_SETUP.md`.
 
 END_OF_FILE: os/engineering/CONTRACT_VERSION
