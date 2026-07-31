@@ -1,5 +1,8 @@
 # CALL c-exec-g-37a1-venue-packaged-player-minimal-002
 
+
+> **RETIRED 2026-07-31 — DO NOT DISPATCH.** The bet `g-37a1` was closed with verdict `obsolete` (the owner changed the game concept). Every CALL issued under it is dead regardless of the status written below. This file is preserved as evidence of what was decided, never as a frontier. The live frontier is `live/indie-game-development/NOW.md`, which currently has `bet: null` and no open calls. See `history/2026-07-31-s-review-g-37a1-obsolete-concept-change-001.md`.
+
 > **READY — FRESH CONTRACT-34 PLAN ROOT.** The old rejected root is terminally `RELEASED / REPLACED`, WIN-U3 is clean
 > and `AVAILABLE`, and the committed replacement receipt binds this exact id, clean basis, empty carry and 29 stale
 > paths. This root begins at PLAN and does not restore or repair the old candidate.

@@ -1,5 +1,8 @@
 # Voxel Play 4 как бэкенд мира — исправленный расчёт полного горизонта, v2
 
+
+> **RETIRED 2026-07-31 — DO NOT DISPATCH.** The bet `g-37a1` was closed with verdict `obsolete` (the owner changed the game concept). Every CALL issued under it is dead regardless of the status written below. This file is preserved as evidence of what was decided, never as a frontier. The live frontier is `live/indie-game-development/NOW.md`, which currently has `bet: null` and no open calls. See `history/2026-07-31-s-review-g-37a1-obsolete-concept-change-001.md`.
+
 ## Исправление
 
 Версия v1 отвечала только на узкий вопрос о минимальном render-backend первого ядра. Её вывод

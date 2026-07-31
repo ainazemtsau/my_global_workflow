@@ -1,5 +1,8 @@
 # Oracle: node class «first playable core of a simulation-bearing cooperative game»
 
+
+> **RETIRED 2026-07-31 — DO NOT DISPATCH.** The bet `g-37a1` was closed with verdict `obsolete` (the owner changed the game concept). Every CALL issued under it is dead regardless of the status written below. This file is preserved as evidence of what was decided, never as a frontier. The live frontier is `live/indie-game-development/NOW.md`, which currently has `bet: null` and no open calls. See `history/2026-07-31-s-review-g-37a1-obsolete-concept-change-001.md`.
+
 status: CANDIDATE. Authored 2026-07-27 by `s-converge-verify-g-37a1-digging-card-001`
 because `converge-verify` step 2 requires a node-class decision checklist and
 `live/indie-game-development/knowledge/` holds none — an empty oracle BLOCKS the leg.

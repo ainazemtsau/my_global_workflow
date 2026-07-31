@@ -1,5 +1,8 @@
 # Запрос в параллельные концепт-чаты — g-37a1
 
+
+> **RETIRED 2026-07-31 — DO NOT DISPATCH.** The bet `g-37a1` was closed with verdict `obsolete` (the owner changed the game concept). Every CALL issued under it is dead regardless of the status written below. This file is preserved as evidence of what was decided, never as a frontier. The live frontier is `live/indie-game-development/NOW.md`, which currently has `bet: null` and no open calls. See `history/2026-07-31-s-review-g-37a1-obsolete-concept-change-001.md`.
+
 status: составлен 2026-07-28 по прямой просьбе владельца («можешь мне сформировать
 сообщение … на что мы спрашиваем, почему спрашиваем и в каком формате ждем ответ»).
 leg: s-map-g-37a1-engine-ladder-brief-001

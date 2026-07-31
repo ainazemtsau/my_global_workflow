@@ -56,7 +56,13 @@ Contract:
     and require superseded files absent from new checkout/gate scope. Business goal/done_when remain identical unless
     owner words are cited. Replacement is not REPORT/delivery, never marks the task done, cannot bundle Re-sync, and
     transfers no uncommitted draft.
-  - **compiled candidate-pair guard (contract v29-v34 markers)** - PLAN proceeds only to PAIR-CANDIDATE. Its receipt records
+  - **compiled candidate-pair guard (contract v29-v35 markers)** - PLAN proceeds only to PAIR-CANDIDATE. **Under v35 the
+    two may share one session and both receipts are written in order, so the writer checks receipt ORDER and not session
+    identity; there is no frozen `PLAN.md` to demand, and a v35 RESULT that cites one is citing an artifact no gate
+    reads. The owner-facing artifact is the decision page and nothing replaces it: a v35 PLAN receipt without a
+    decision-page path, a token count <=400 and the owner's verbatim approval is INCOMPLETE and bounces. An engineering
+    CALL carrying more than three `done_when` bullets without the owner's written over-budget token bounces too.**
+    Its receipt records
     the owner-approved decision-page path/count <=400 with every fixture defined or absent; exact carrier parent/commit
     and Git manifest followed by the exact RED commit/manifest; real signatures, field-preserving construction,
     trivial reachability, no behavioral implementation and no meaning in `///`; build+hygiene GREEN after the last
@@ -66,7 +72,7 @@ Contract:
     never an intermediate owner/Direction relay. Binding fresh refutation freezes the public contract and RED files.
     BUILD pins both commits, may implement bodies/internal HOW, and changes neither frozen contract nor RED; such a
     change uses the replacement route above, resuming at PAIR-CANDIDATE and pair freeze. The writer checks evidence shape, not truth, and adds no parser.
-    Under v29 each stage returns HOME and Direction issues the next CALL. Under v30-v34 these are product-local receipts:
+    Under v29 each stage returns HOME and Direction issues the next CALL. Under v30-v35 these are product-local receipts:
     the one root stays registered until gated REPORT, ESCALATE or REPLACED HOME, and pair eligibility alone cannot close/checkpoint it
     or issue a Direction successor. The terminal HOME references the existing progress/review artifacts for every fresh
     stage; the writer checks route/evidence shape, never replays or semantically re-reviews the product run. A v31+ HOME
@@ -124,13 +130,13 @@ Contract:
   tool; discovery or installation alone is never a blocker.
 - The run contract installed in the repo's root AGENTS.md at setup governs the run (roles, gates, retry/escalation). No run contract → the repo is uninitialized: stop and report — the first CALL for this repo is setup per `os/engineering/PROJECT_SETUP.md` (interactive: stack interview with the owner).
 - Exit report (= the RESULT's evidence): descriptive commits or PR link, diff summary, output of the checks run (tests/build), explicit list of assumptions made, anything cut for budget.
-- Routing follows the CALL pin: every v29/legacy stage returns HOME for Direction continuation; a v30-v34 root remains open while its repo runner launches separate fresh stages from committed receipts, and returns HOME only at gated REPORT, genuine ESCALATE or Direction-authorized REPLACED. Neither route asks the owner to construct a successor.
+- Routing follows the CALL pin: every v29/legacy stage returns HOME for Direction continuation; a v30-v35 root remains open while its repo runner launches separate fresh stages from committed receipts, and returns HOME only at gated REPORT, genuine ESCALATE or Direction-authorized REPLACED. Neither route asks the owner to construct a successor.
 - "Done" is the CALL's done_when verified by a runnable check, not the agent's assertion. A task that can't carry a runnable check should say how it is to be verified instead — at CALL time, not after.
 - Blockers surface early: if the task looks infeasible or 2x over budget, stop and report — a fast "blocked, because" is a good result; days of silent struggle are not. A required tool/harness being UNAVAILABLE (engine Editor not running, a needed MCP disconnected, headless-test license absent) is a blocker: STOP and tell the owner which tool to launch — never a workaround or crutch around it; any exception stands only on the owner's explicit written ack (CONTOUR ESCALATE).
 
 ## Sizing rule
 
-One feature leg is one cohesive invariant/source-of-truth slice and ≤ a focused half-day. An approved root may contain several dependency-ordered legs; its v30-v34 repo runner, not the owner or Direction, sequences them. A mixed leg is split before PAIR-CANDIDATE.
+One feature leg is one cohesive invariant/source-of-truth slice and ≤ a focused half-day. An approved root may contain several dependency-ordered legs; its v30-v35 repo runner, not the owner or Direction, sequences them. A mixed leg is split before PAIR-CANDIDATE.
 
 ## Running thinking sessions here too
 
