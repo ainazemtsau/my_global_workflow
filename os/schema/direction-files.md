@@ -151,7 +151,7 @@ NOW is current state, not a diary. `open_calls`, `issues` and `decisions` contai
 
 ### Specification outcomes
 
-Map marks the exact approved card `outcome_kind: specification` only when its versioned owner-approved artifact fully satisfies done_when. The node remains `parked`: untracked owner-authority `work` authors the artifact and records exact owner words; a later fresh `converge-verify` refutes it; narrow `review` may then mark it `done`. No active bet, task, track, new status, executor content verdict, or shape exists in this route. A failed verification returns to the authoring CALL; a second failed verification ends that loop into one owner decision instead of a third round (G3 paper ceiling). An ordinary successor returns to the activation-readiness router.
+Map marks the exact approved card `outcome_kind: specification` only when its versioned owner-approved artifact fully satisfies done_when. The node remains `parked`: untracked owner-authority `work` authors the artifact and records exact owner words; a later fresh `converge-verify` refutes it; narrow `review` may then mark it `done`. No active bet, task, track, new status, executor content verdict, or shape exists in this route. A failed verification returns to the authoring CALL. An ordinary successor returns to the activation-readiness router.
 
 ### Direction forecast
 

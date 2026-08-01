@@ -75,7 +75,7 @@ An engineering CALL goes to a product repo. Its return comes HOME; only Directio
 
 - **G1 (WIP).** At most one active bet per direction; the owner sets how many of its tasks/lanes run at once, on `shape`'s proposal. Without a bet there are no non-recurring execution lanes; one untracked specification-authoring planning frontier is legal. ≤1 ordinary root per lane.
 - **G2 (rolling wave).** Tasks and non-recurring execution lanes serve only the active bet. Future objectives stay outcome-level in TREE; unrelated work stays an issue/capture until admitted.
-- **G3 (appetite).** Appetite is set before tasks and never extends. Over-appetite work dies; continuation requires a new shape. The pre-shape paper layer carries the same ceiling: a node's second `converge-verify` FAIL ends its paper phase into one owner decision; only the owner's words open a third repair round.
+- **G3 (appetite).** Appetite is set before tasks and never extends. Over-appetite work dies; continuation requires a new shape.
 - **G4 (bet validity).** A bet without done_when and kill_by is invalid.
 - **G5 (evidence).** `done` requires evidence matching done_when. Verification tries to refute the claim in a separate fresh physical chat from the work and any day chat.
 - **G6 (shape validity).** Shape requires a real cut list, a verdict per lens, and a task testing the riskiest assumption.
