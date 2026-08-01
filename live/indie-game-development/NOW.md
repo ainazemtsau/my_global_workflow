@@ -1,6 +1,6 @@
 # NOW: indie-game-development
 
-updated: 2026-08-01 by s-converge-g-8f31-cargo-through-tunnel-001
+updated: 2026-08-01 by s-repair-dead-gas-engine-issues-001
 
 bet: null
 
@@ -56,42 +56,18 @@ issues:
     route: work
     review_when: "ТОЙ ЖЕ первой инженерной ногой, что и перенос старого кода (`i-old-code-move-to-own-folder-001`) — это одно движение: папка переезжает, гейты настраиваются под новую, конституция переписывается под новый концепт. Раньше, чем будет написана первая строка новой игры. Устав 2026-08-01 добавил ещё две снятые предпосылки: глобальной симуляции газа нет, и старый код не является доводом ни за какое игровое решение."
     evidence: "history/2026-07-31-s-frame-burrow-raiders-charter-revision-001.md (решение №2); history/2026-08-01-s-map-burrow-concept-checkpoint-001.md; history/2026-08-01-s-frame-burrow-concept-charter-deltas-001.md."
-  - id: i-old-concept-material-in-live-001
-    issue: "ЧАСТИЧНО ЗАКРЫТО 2026-08-01. СДЕЛАНО: 65 файлов мёртвого газового концепта физически вынесены из work/ направления в archive/directions/indie-game-development/2026-08-gas-concept-retired/work/ на слово владельца «убирай» — сборочные поверхности g-37a1 с его подписанным словарём, семнадцать строк ядра, три версии «основы октябрьского демо», оракулы, газовая инженерная спека, топология, решения по сетке и строительству, воксельные разборы, анализ Dungeon Architect, извлечение концепта из чатов и 48 отработанных нарядов; в work/ осталось четыре наряда живого концепта плюс marketing/. Тело карточки g-37a1 в TREE схлопнуто до одной строки ещё 2026-08-01 ногой s-map-tree-legacy-cleanup-001. ОСТАЁТСЯ: шесть issue этого списка (i-live-tier-dead-islands-001, i-product-plan-deviations-unrouted-001, i-g37-cond-zero-release-deferred-to-t7-001, i-conductivity-snapshot-vs-live-checksum-001, i-topology-commit-direction-001, i-subface-mask-ceiling-001) описывают долги СТАРОГО газового движка; их указатели переписаны на архив, но сами они живут. Закрывать их — решение владельца, а не гигиена, поэтому repair их не трогал. Продуктовый код НЕ трогался ни на байт."
-    level: roadmap
-    route: review
-    review_when: "Одной ногой review вместе с любым другим разбором наследия — вопрос владельцу один: шесть перечисленных issue описывают долги мёртвого газового движка, который новая игра не использует; закрывать или держать. Раньше — если какая-то из них всплывёт в живом наряде."
-    evidence: "history/2026-08-01-s-repair-old-concept-work-archive-001.md (перенос, полный список файлов); archive/directions/indie-game-development/2026-08-gas-concept-retired/MANIFEST.md; history/2026-07-31-s-review-g-37a1-obsolete-concept-change-001.md; history/2026-08-01-s-frame-burrow-concept-charter-deltas-001.md."
   - id: i-direction-to-product-call-contract-001
     issue: "Direction-root CALL в продукт обязан назвать фактически проверенные слот, lease, HEAD, engineering_contract и вход. БУНС №2 случился 2026-07-30: c-exec-g-37a1-simple-gas-rest-001 v1 назвал путь tests/.../G37Fixtures.cs, которого на базе назначения нет. БУНС №3 случился тем же днём: c-control-g-37a1-venue-packaged-player-replace-close-001 знал, что старый root остаётся ACTIVE / PAIR-CANDIDATE, но одновременно требовал WIN-U3 AVAILABLE и фиксировал исторический published Re-sync commit как текущий basis; исполнитель законно вернул ESCALATE без изменений. Общий корень: наряд утверждает факт о венью или допустимости запуска, который не согласован с реальным состоянием этого венью. Maintenance уже обязателен; до него каждый named path проверяется на объявленной базе, а каждое lease/availability/basis утверждение — против селектора и точной семантики стадии."
     level: execution
     route: maintenance
     review_when: "MAINTENANCE ОБЯЗАН по собственному правилу этого issue (второй бунс). Отдельная сессия по os/MAINTENANCE.md; live/** она не трогает. До неё — ручная поштучная сверка путей в каждом выпускаемом CALL."
     evidence: "history/2026-07-28-s-repair-g-37a1-exec-call-contract-001.md; history/2026-07-30-s-repair-g-37a1-simple-gas-call-base-fix-001.md; history/2026-07-30-s-repair-g-37a1-venue-replacement-preflight-correction-001.md; исполнительные наряды g-37a1 (вынесены 2026-08-01 в archive/directions/indie-game-development/2026-08-gas-concept-retired/work/)."
-  - id: i-live-tier-dead-islands-001
-    issue: "В продукте есть dead islands и built-but-unwired части; это ориентация для live-tier работы, не разрешение на удаление. NearGasSimulation и PlayerSense требуют проверки fitness."
-    level: execution
-    route: work
-    review_when: "Первая инженерная нога, меняющая структуру live tier, ожидаемо t-7."
-    evidence: "archive/directions/indie-game-development/2026-08-gas-concept-retired/work/topology-boundary-g-37a1.md §6; history/2026-07-28-s-work-g-37a1-topology-boundary-001.md."
   - id: i-product-plan-deviations-unrouted-001
     issue: "Замороженный PLAN t-6 записал два отклонения от done_when наряда в разделе «для Направления» (мёртвая зона НЕ параметр; у выбранного закона нет Θ) — и Направление их не обработало: возврат PLAN был отмечен в open_calls одной строкой «заморожен коммитом». Оба отклонения умерли вместе с опровергнутым законом, но класс остался: продукт пишет отклонения в свой PLAN, а не в RESULT домой, и они не видны."
     level: execution
     route: work
     review_when: "На каждом возврате продуктовой стадии PLAN: раздел отклонений читается вслух и попадает в RESULT, либо класс переводится в maintenance."
     evidence: "openspec/changes/c-exec-g-37a1-gas-rest-and-checksum-001/PLAN.md §9 в C:/projects/Unity/GasCoopGame_win-u4; NOW.md open_calls до 2026-07-30; archive/directions/indie-game-development/2026-08-gas-concept-retired/work/c-exec-g-37a1-gas-rest-amend-001-call.md §context."
-  - id: i-g37-cond-zero-release-deferred-to-t7-001
-    issue: "Правило выброса накопленного остатка в G37-BAND-004 объявлено полным по трём веткам, но ветка «cond == 0 при ранее накопленном ненулевом остатке» в t-6 недостижима ПО ПОСТРОЕНИЮ: _faceConductivity readonly и пишется один раз в конструкторе (VoxelField.cs:47,320,333), NotifyConductivityChanged только будит грань (:818-827), а при cond == 0 накопитель равен carry, поэтому копиться нечему. Владелец выбрал «B» 2026-07-30 и ветка передана t-7/D1. Долг настоящий: ненулевой остаток держит грань активной (:838), то есть застрявший остаток на закрывшейся грани = вечная сетевая дельта, удар по единственному жёсткому требованию владельца (мультиплеер)."
-    level: execution
-    route: work
-    review_when: "Перед выпуском CALL по t-7, ЕСЛИ t-7 будет строить топологию поверх СТАРОГО закона. Для нового простого закона долг не возникает: у него нет накопителя остатка, поэтому терять его при закрытии грани нечего. Проверить это первым делом, а не наследовать долг по инерции."
-    evidence: "openspec/changes/c-exec-g-37a1-gas-rest-and-checksum-001/specs/sim-core/spec.md:251,264 в C:/projects/Unity/GasCoopGame_win-u4; archive/directions/indie-game-development/2026-08-gas-concept-retired/work/c-exec-g-37a1-gas-rest-band-scope-001-call.md (СНЯТ, сохранён как улика) §done_when 2; дословный токен владельца «B» 2026-07-30."
-  - id: i-conductivity-snapshot-vs-live-checksum-001
-    issue: "Старая контрольная сумма MeaningChecksum складывает ЖИВУЮ проводимость с сетки (VoxelField.cs:1052), а течение газа считает по СНИМКУ из конструктора (:1669). Сегодня безвредно — менять проводимость на живом поле нечем. Но t-7 ломает ровно этот шов: две машины смогут совпасть по контрольной сумме и разойтись по поведению, либо разойтись по сумме при одинаковом поведении. Тихая расстыковка именно в мультиплеере."
-    level: execution
-    route: work
-    review_when: "Перед выпуском CALL по t-7, ЕСЛИ t-7 будет менять топологию на СТАРОМ законе. Наряд громкого отказа, который это закрывал, снят вместе с путём ремонта; для нового закона вопрос ставится заново при его первой встрече с изменяемой топологией."
-    evidence: "Assets/GasCoopGame/Core/Field/Voxel/VoxelField.cs:1052,1669 в C:/projects/Unity/GasCoopGame_win-u4; archive/directions/indie-game-development/2026-08-gas-concept-retired/work/c-exec-g-37a1-gas-rest-band-scope-001-call.md (СНЯТ, сохранён как улика) §done_when 4."
   - id: i-product-contour-consolidated-v34-001
     issue: "Продуктовый контур консолидирован 2026-07-30 по прямому указанию владельца («запускай полную чистку… вырежи бюрократическое»). ЧТО ИЗМЕНИЛОСЬ, чтобы никто не переделывал и не спотыкался: (1) расщепление контракта 31/33/34 по шести рабочим папкам устранено — терминально 34 везде, всё чисто; корень путаницы найден и назван — ДВА независимых ресинка 31→33 в 09:34 на разных ветках (6069024b на линии main, 498b609d в win-u3), их validation.config совпал побайтово, поэтому переносилась только дельта v34. (2) Класс-починка развязки ног доведена до конца: tools/delivering-scope.ps1 был написан 2026-07-29 как «ОДНА производная, подключаемая КАЖДЫМ местом обхода», но подключён к двум; теперь к восьми — добавлены negative-control-check, escape-class-check, fix-class-check, refuted-register-check, review-check, result-check. (3) Гейт закрывающих отчётов: незавершённый корень больше не обязан рапортовать DELIVERED, и ветка С изменениями, но без своего отчёта, больше не считается «ветвью без изменений» и не проверяет чужие исторические отчёты. Аварийное поведение сохранено везде: невыводимая область действия по-прежнему проверяет ВСЁ. Ослаблений нет — все посевные ловушки (R1-R9 result-check, derivation/closing/negative-control) по-прежнему краснеют."
     level: execution
@@ -104,18 +80,6 @@ issues:
     route: work
     review_when: "Владелец назвал этот корень и выбрал закрытие либо парковку; раньше — если он снова появится в блокировке любой ноги."
     evidence: "docs/measurements/root-receipts/c-exec-grid-v1-g01-document-authority-001/ в C:/projects/Unity/GasCoopGame; docs/measurements/root-receipts/c-exec-v31-venue-authority-binding-fix-001/06-report-blocked-r1.json и 08-report-blocked-r2.json (поле blocker.forbidden_here)."
-  - id: i-topology-commit-direction-001
-    issue: "Контракт реза односторонний: дедуплицированный НАБОР открытых клеток. Его идемпотентность и догон отставшей машины объединением верны только потому, что открытия коммутируют; копание и постановка блока не коммутируют. Двусторонняя упорядоченная дельта конечного состояния возможна, но платит идемпотентностью, union-replay и появлением первой отклоняемой команды игрока. В продукте seq отсутствует, буфер задержки ввода описан в ADR-0002 и не построен."
-    level: execution
-    route: work
-    review_when: "Перед выпуском CALL по t-7: там форма замерзает, и на t-7 висят t-5, t-9, t-10 и t-11."
-    evidence: "archive/directions/indie-game-development/2026-08-gas-concept-retired/work/topology-boundary-g-37a1.md §4; archive/directions/indie-game-development/2026-08-gas-concept-retired/work/2026-07-29-core-grid-and-building-decisions.md §2."
-  - id: i-subface-mask-ceiling-001
-    issue: "Маска открытости грани — одно 64-битное число, MaxSubFacesPerFace = 63, то есть не более 7 делений на сторону. Крошка 4×4×4 (16 подграней) проходит; 8³ (64) и 16³ (256) не проходят без расширения хранилища, а оно меняет формат состояния и контрольную сумму. Владелец 2026-07-29 просил максимальную маску ради вида разрушения."
-    level: execution
-    route: work
-    review_when: "Перед выпуском CALL по t-7 либо раньше, если t-11 упрётся в вид разрушения."
-    evidence: "Core/Field/Voxel/VoxelResolution.cs:84 в C:/projects/Unity/GasCoopGame; archive/directions/indie-game-development/2026-08-gas-concept-retired/work/2026-07-29-core-grid-and-building-decisions.md §3."
   - id: i-full-run-node-to-be-authored-001
     issue: "ЗАМЕНЯЕТ ЗАКРЫТЫЙ `i-g5e8c-written-under-old-concept`. Узел «полный заход демо» БОЛЬШЕ НЕ СУЩЕСТВУЕТ: g-5e8c закрыт 2026-08-01 как карточка старой игры. Между ядром и фестивалем в дереве теперь дыра, и это сделано намеренно — писать её содержание сейчас значило бы выдумывать заход игры, в которую ещё никто не играл. Что должно там появиться и решается ТОЛЬКО там: длина захода, чем он кончается, что такое настоящий провал, как устроен переход между участками, откуда берутся уровни (генератор из ручных модулей или руками), и экономика улучшений, если она вообще будет. Ничто из этого не наследуется из g-5e8c — та карточка написана под мёртвый концепт и сохранена только как улика."
     level: roadmap
