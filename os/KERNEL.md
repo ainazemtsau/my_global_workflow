@@ -15,7 +15,7 @@ The OS runs the owner's long-term directions through short AI legs over durable 
 
 1. **OPEN** — input is a CALL or a plain owner message. Read fresh `NOW.md`, the play and named evidence. Resolve plain input from state:
    - `начинаем день`, a daily status request, or continued discussion in today's day chat → `day`;
-   - mission/success change → `frame`; roadmap/future-goal change → `map`; active-objective close, replacement or kill → `review`; a parked `outcome_kind: specification` → owner-authority `work` → fresh `converge-verify` → narrow `review`; ordinary activation → readiness router: passing `converge-verify` RESULT → `shape`; recorded `triage: <type> — converge OFF — because <reason>` copied into shape `play_check` → `shape`; otherwise → `converge`;
+   - mission/success change → `frame`; roadmap/future-goal change → `map`; active-objective close, replacement or kill → `review`; a parked `outcome_kind: specification` → owner-authority `work` → fresh `converge-verify` → narrow `review`; ordinary activation → readiness router: passing `converge-verify` RESULT → `shape`; recorded `triage: <type> — converge OFF — because <reason>` copied into shape `play_check` → `shape`; a second-FAIL ceiling decision in his words → its chosen branch, `shape` on what is answered included; otherwise → `converge`;
    - task, lane, launch/loss receipt or recurring work → its `work` CALL; contradiction → `repair`;
    - `продолжаем` → the sole actionable call/decision; several → grouped choice with a recommendation and no mutation; none → waits, blocks, issues and the planning route;
    - question → read-only; no-state ambition → `frame`; otherwise interpret and confirm.
@@ -79,7 +79,7 @@ An engineering CALL goes to a product repo. Its return comes HOME; only Directio
 - **G4 (bet validity).** A bet without done_when and kill_by is invalid.
 - **G5 (evidence).** `done` requires evidence matching done_when. Verification tries to refute the claim in a separate fresh physical chat from the work and any day chat.
 - **G6 (shape validity).** Shape requires a real cut list, a verdict per lens, and a task testing the riskiest assumption.
-- **G7 (decisions).** Owner decisions carry options and a recommendation; batch them.
+- **G7 (decisions).** Owner decisions carry options and a recommendation; batch them. A leg may decide alone only what it is CERTAIN of; any real doubt goes to him — asking is cheap, an invented answer is not. Product concept and gameplay are ALWAYS his: a leg never invents them however certain it feels, and no CALL may widen one narrow owner statement into a standing ban on asking.
 - **G8 (intake).** New directions/top-level goals enter through frame. New ideas default parked.
 - **G9 (co-creation).** CHARTER/TREE change only after explicit owner approval of the exact artifact; RESULT marks `owner_approved`.
 - **G10 (protocol).** Ordinary legs expose steps; day keeps them internal. RESULT is final only; legs never write state; a day RESULT additionally cites the owner's explicit save words.
