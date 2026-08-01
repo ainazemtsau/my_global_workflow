@@ -201,4 +201,4 @@ status: ready
 - Поле вариантов для ядра: `history/2026-07-31-s-research-burrow-passage-and-cargo-001.md`
 - Действующий устав: `live/indie-game-development/CHARTER.md`
 
-END_OF_FILE: work/c-frame-burrow-concept-charter-deltas-001-call.md
+END_OF_FILE: live/indie-game-development/work/c-frame-burrow-concept-charter-deltas-001-call.md
