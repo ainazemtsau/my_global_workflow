@@ -4,29 +4,26 @@ to: executor
 kind: engineering
 repo: ainazemtsau/GasCoopGame
 engineering_contract: 35
-basis: c75015a8 (исходная база корня); PLAN/ADR `7c5fc5a6`, tooling `ad42b2d8`, PLAN receipts `f7387751` в `WIN-U3`
+basis: c75015a8 (исходная база корня); PLAN/ADR `7c5fc5a6`, PLAN receipts `f7387751`; standalone tooling `2a19cb40` на main; U3 merge-tip `7ef702ae`
 direction: indie-game-development
 node: g-6b13
 task: a-1b
 track: переноска
 issued: 2026-08-02 by s-work-g-6b13-foundation-call-issued-001
-status: waiting
-waiting_on: [c-ctrl-publish-root-lifecycle-singleton-fix-001]
-slot: `WIN-U3`, чист и освобождён на `f7387751`. Не занимать и не запускать для feature-работы,
-      пока tooling-child не вернулся HOME и Direction отдельно не открыл продолжение.
+status: ready
+slot: `WIN-U3`, чист и освобождён на `7ef702ae`. Следующий отдельный запуск начинает
+      `PAIR-CANDIDATE`, не BUILD.
 
-## CHECKPOINT НАПРАВЛЕНИЯ — РЕДАКЦИЯ 3, 2026-08-02
+## CHECKPOINT НАПРАВЛЕНИЯ — РЕДАКЦИЯ 4, 2026-08-02
 
 Владелец дословно: **«PLAN и ADR-E-0019 по содержанию принимаю. BUILD пока не запускать: сначала
 исправить Direction-маршрут и отделить ad42b2d8 от задачи a-1b».**
 
-Поэтому PLAN и ADR приняты по содержанию, но это **не** разрешение BUILD. Между замороженным
-PLAN-коммитом `7c5fc5a6` и квитанциями `f7387751` лежит независимое исправление
-`tools/root-lifecycle-check.ps1` (`ad42b2d8`). Корень ждёт отдельный child
-`c-ctrl-publish-root-lifecycle-singleton-fix-001`: тот публикует tooling независимо и возвращает
-чистый feature-дифф U3 без переписывания принятого PLAN. До его HOME в этом корне ничего не
-запускается. После HOME следующий допустимый продуктовый этап — свежий `PAIR-CANDIDATE` по
-контракту 35, но и его открывает только новое Direction-продолжение; автоматического BUILD нет.
+Это условие выполнено отдельной задачей. Actual `origin/main` содержит standalone tooling-коммит
+`2a19cb40`; U3 на merge-tip `7ef702ae` сохраняет принятые `7c5fc5a6` и `f7387751`, а его scoped
+feature-дифф не содержит tooling-изменений. Возврат child не запустил ни одной feature-стадии.
+Корень теперь готов к отдельному Direction-запуску, и его следующий допустимый продуктовый этап —
+свежий `PAIR-CANDIDATE` по контракту 35. Автоматического BUILD нет.
 
 ## ЭТА РАБОТА ИДЁТ В ДВА ЗАХОДА. ПОСЛЕ ПЛАНА — СТОП
 
@@ -103,13 +100,13 @@ Unity `6000.5.5f1`, URP 17.5.0, Input System 1.19.0.
 **После плана — СТОП.** Возврат домой одним сообщением: где план и ADR лежат, и эти шесть ответов
 своими словами. Постройку в этом же заходе НЕ начинать.
 
-## Маршрут после PLAN — сейчас НЕ открыт
+## Маршрут после PLAN — готов к отдельному запуску, но не запущен
 
-После HOME tooling-child новое Direction-продолжение может вернуть этот же корень в repo runner на
-следующий обязательный этап `PAIR-CANDIDATE`, не прямо в BUILD. Затем контракт 35 сам ведёт корень
-через binding fresh `PAIR-FREEZE`, fresh BUILD, product validation и REPORT отдельными авторами;
-домой возвращается только terminal REPORT либо настоящий ESCALATE. Ни один из этих этапов этой
-редакцией не запущен.
+Tooling-child вернулся HOME. По отдельному явному Direction-запуску этот же корень возвращается в
+repo runner на следующий обязательный этап `PAIR-CANDIDATE`, не прямо в BUILD. Затем контракт 35
+сам ведёт корень через binding fresh `PAIR-FREEZE`, fresh BUILD, product validation и REPORT
+отдельными авторами; домой возвращается только terminal REPORT либо настоящий ESCALATE. Ни один из
+этих этапов возвратом tooling-child не запущен.
 
 Когда законный fresh BUILD будет открыт после пары, в нём:
 

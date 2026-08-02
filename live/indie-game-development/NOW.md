@@ -1,6 +1,6 @@
 # NOW: indie-game-development
 
-updated: 2026-08-02 by s-repair-g-6b13-a1b-plan-route-and-tooling-separation-001
+updated: 2026-08-02 by s-work-c-ctrl-publish-root-lifecycle-singleton-fix-home-001
 
 bet:
   node: g-6b13
@@ -50,9 +50,8 @@ tasks:
     goal: "Один игрок ходит, и правило движения лежит в слое правил. Сети нет вообще."
     done_when: "Жмёшь играть один — человечек ходит. Плюс тест: правило движения даёт результат при вызове ВНЕ Unity (глазами это не увидеть, поэтому тест законен). Слой правил заведён и в нём лежит первое настоящее правило."
     kind: executor
-    status: blocked
-    unblock_when: "Отдельная задача c-1b через child `c-ctrl-publish-root-lifecycle-singleton-fix-001` вернула HOME: исправление `ad42b2d8` опубликовано независимо от a-1b, а линия U3 больше не несёт tooling-дифф задачи. Затем требуется отдельное явное разрешение владельца на продолжение продуктового маршрута; принятие PLAN/ADR 2026-08-02 таким разрешением не было."
-    note: "ПЛАН И ADR-E-0019 ПРИНЯТЫ ВЛАДЕЛЬЦЕМ ПО СОДЕРЖАНИЮ 2026-08-02. Его точные слова: «PLAN и ADR-E-0019 по содержанию принимаю. BUILD пока не запускать: сначала исправить Direction-маршрут и отделить ad42b2d8 от задачи a-1b». PLAN-коммит `7c5fc5a6`, квитанции `f7387751`; между ними оказался независимый tooling-коммит `ad42b2d8`, поэтому корень ждёт отдельного child и BUILD не открыт. Фундамент по-прежнему тот же: слой правил без движка, один игрок, сети нет."
+    status: open
+    note: "ПЛАН И ADR-E-0019 ПРИНЯТЫ ВЛАДЕЛЬЦЕМ ПО СОДЕРЖАНИЮ 2026-08-02. Его условие «сначала исправить Direction-маршрут и отделить ad42b2d8» выполнено отдельной задачей c-1b: standalone tooling-коммит `2a19cb40` опубликован на actual main, а U3 на `7ef702ae` сохраняет `7c5fc5a6` и `f7387751` без tooling-дельты. Корень готов только к отдельному явному запуску следующей стадии `PAIR-CANDIDATE`; BUILD, PAIR, VALIDATE и REPORT возвратом repair не запускались. Фундамент тот же: слой правил без движка, один игрок, сети нет."
   - id: a-2
     lane: переноска
     goal: "Двое по сети в одной сцене. ПРАВИЛО ДВИЖЕНИЯ НЕ МЕНЯЕТСЯ — это и есть доказательство, что устройство верное."
@@ -120,7 +119,8 @@ tasks:
     goal: "Исправление singleton frozen entries опубликовано как самостоятельная tooling-работа и отсутствует в feature-диффе a-1b."
     done_when: "Actual product main содержит отдельный проверенный tooling-коммит; U3 включает этот main без переписывания принятых PLAN-коммитов; scoped feature diff a-1b не содержит tools/validation/checker изменений."
     kind: executor
-    status: active
+    status: done
+    closed: "2026-08-02: actual `origin/main` = `2a19cb40` с родителем `c75015a8`; patch-id совпадает с `ad42b2d8`. U3 = `7ef702ae`, родители merge — `f7387751` и `2a19cb40`; `f7387751..7ef702ae` пуст, а `2a19cb40..7ef702ae -- tools/** validation.config` пуст. `root-lifecycle-check.ps1 -SelfTest/-Scan` и `tools/check.ps1` GREEN; HOME сообщает независимую read-only сверку PASS, чистые AVAILABLE-слоты и отсутствие lease."
     note: "Создана repair-ногой по прямому слову владельца «отделить ad42b2d8 от задачи a-1b». Это отдельная задача и отдельный product change id; она лишь является prerequisite корня a-1b и не расходует его feature BUILD."
   - id: c-2
     goal: "Старый код и его тесты больше ни на что не влияют."
@@ -341,29 +341,14 @@ open_calls:
     track: переноска
     repo: ainazemtsau/GasCoopGame
     engineering_contract: 35
-    basis: "Корень выпущен от c75015a8; PLAN/ADR заморожены на 7c5fc5a6, PLAN-квитанции на f7387751 в U3. Независимый tooling-коммит ad42b2d8 между ними сначала отделяется child-нарядом."
-    issued: 2026-08-02
-    status: waiting
-    waiting_on: [c-ctrl-publish-root-lifecycle-singleton-fix-001]
-    slot: "WIN-U3 — чист и AVAILABLE на f7387751; не запускать и не занимать для BUILD, пока tooling-child не вернулся HOME и владелец отдельно не разрешил продолжение."
-    call: live/indie-game-development/work/c-exec-rules-layer-and-single-walker-001-call.md
-    goal: "Завести слой правил и положить в него первое правило — движение. Один игрок ходит, сети нет вообще."
-    note: "РЕДАКЦИЯ 3. Владелец принял PLAN и ADR-E-0019 по содержанию, но дословно запретил BUILD до исправления Direction-маршрута и отделения ad42b2d8. Принятие документа не равно разрешению BUILD. После child следующий законный продуктовый этап — свежий PAIR-CANDIDATE по контракту 35; его запуск также требует отдельного Direction-продолжения."
-  - id: c-ctrl-publish-root-lifecycle-singleton-fix-001
-    to: executor
-    kind: engineering
-    for: c-1b
-    track: переноска
-    parent: c-exec-rules-layer-and-single-walker-001
-    repo: ainazemtsau/GasCoopGame
-    engineering_contract: 35
-    basis: "main/origin-main c75015a8; source patch ad42b2d8; U3 tip f7387751, все проверено 2026-08-02."
+    basis: "Корень выпущен от c75015a8; PLAN/ADR заморожены на 7c5fc5a6, PLAN-квитанции на f7387751. Standalone tooling опубликован на main как 2a19cb40; U3 merge-tip 7ef702ae сохраняет принятые коммиты и не несёт tooling-дельту задачи."
     issued: 2026-08-02
     status: ready
-    slot: "WIN-CTRL для независимой публикации tooling; U3 затрагивается только для включения нового main и доказательства чистого feature-диффа."
-    call: live/indie-game-development/work/c-ctrl-publish-root-lifecycle-singleton-fix-001-call.md
-    goal: "Опубликовать исправление singleton frozen entries как самостоятельную tooling-работу и убрать его из диффа задачи a-1b без переписывания замороженного PLAN."
-    note: "BUILD, PAIR-CANDIDATE, Unity и gameplay запрещены. Исходный ad42b2d8 остаётся уликой; child публикует эквивалентную отдельную правку на actual main и возвращает U3 с теми же принятыми PLAN/ADR и квитанциями."
+    receipts: [history/2026-08-02-s-work-c-ctrl-publish-root-lifecycle-singleton-fix-home-001.md]
+    slot: "WIN-U3 — чист и AVAILABLE на 7ef702ae по HOME/read-only review; следующий законный запуск начинает PAIR-CANDIDATE, не BUILD."
+    call: live/indie-game-development/work/c-exec-rules-layer-and-single-walker-001-call.md
+    goal: "Завести слой правил и положить в него первое правило — движение. Один игрок ходит, сети нет вообще."
+    note: "РЕДАКЦИЯ 4. Tooling-child вернулся HOME и закрыт: условие владельца перед продолжением выполнено, PLAN/ADR не переписаны. Корень ready только для отдельного запуска в свежий PAIR-CANDIDATE по контракту 35; автоматического BUILD нет."
   - id: c-work-host-walker-frontier-001
     to: session
     play: work
