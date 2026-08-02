@@ -1,6 +1,6 @@
 # NOW: indie-game-development
 
-updated: 2026-08-02 by s-work-g-6b13-a1b-pair-candidate-launch-001
+updated: 2026-08-02 by s-writer-g-6b13-a1b-close-001
 
 bet:
   node: g-6b13
@@ -50,7 +50,8 @@ tasks:
     goal: "Один игрок ходит, и правило движения лежит в слое правил. Сети нет вообще."
     done_when: "Жмёшь играть один — человечек ходит. Плюс тест: правило движения даёт результат при вызове ВНЕ Unity (глазами это не увидеть, поэтому тест законен). Слой правил заведён и в нём лежит первое настоящее правило."
     kind: executor
-    status: open
+    status: done
+    closed: "2026-08-02 СЛОВОМ ВЛАДЕЛЬЦА после его собственного Play в Local WIN-U3: он выполнил Play/Game/WASD и ответил дословно «ходит» (`docs/measurements/c-exec-rules-layer-and-single-walker-001-owner-eye.md`, статус PASS, автоматической подмены не заводилось). ВСЕ ТРИ ЧАСТИ done_when ПРОВЕРЕНЫ ПЕРВОЙ РУКОЙ в этой сессии, отдельной от сборки: (1) видимое движение — его глаз, см. выше; (2) правило считается ВНЕ Unity — свой прогон `dotnet test tests/TunnelCrew.Core.Tests` на `net8.0`: 4 обнаружено, 4 пройдено, 0 упало, 8 ms, никакого Unity в контуре; (3) слой правил заведён и в нём лежит настоящее правило — `Assets/TunnelCrew/Core/*.asmdef` несёт `noEngineReferences: true` (стена настоящая), внутри четыре живых файла `MovementInput.cs`, `PlayerMovement.cs`, `PlayerMovement.Rule.cs`, `PlayerState.cs`. Тем самым снят и открытый факт задачи a-1 «в Core ноль .cs, focused build — сборка пустоты»: он умер, как и было записано. Опубликовано: `origin/main` = `cbc0334c`, проверено первой рукой; review и ADR-E-0019 присутствуют в дереве HEAD. G5 закрыт его проверкой — она сделана его руками вне чата сборки и вне этого чата, тот же маршрут, которым закрылась a-1. Продуктовый RESULT принят как УЛИКА, а не как закрытие: закрытие стоит на его слове и на перепроверке выше."
     note: "ПЛАН И ADR-E-0019 ПРИНЯТЫ ВЛАДЕЛЬЦЕМ ПО СОДЕРЖАНИЮ 2026-08-02. Его условие «сначала исправить Direction-маршрут и отделить ad42b2d8» выполнено отдельной задачей c-1b: standalone tooling-коммит `2a19cb40` опубликован на actual main, а U3 на `7ef702ae` сохраняет `7c5fc5a6` и `f7387751` без tooling-дельты. Корень готов только к отдельному явному запуску следующей стадии `PAIR-CANDIDATE`; BUILD, PAIR, VALIDATE и REPORT возвратом repair не запускались. Фундамент тот же: слой правил без движка, один игрок, сети нет."
   - id: a-2
     lane: переноска
@@ -92,8 +93,8 @@ tasks:
     goal: "Сцена хозяина: он ходит своим маршрутом."
     done_when: "Отдельная сцена, в ней есть хозяин, и он ходит. Больше ничего."
     kind: executor
-    status: blocked
-    unblock_when: "a-1b закрыта в Direction OS после Play владельца и binding fresh G5; до этого параллельный product-start не открыт."
+    status: open
+    unblocked: "2026-08-02 — a-1b закрыта в Direction OS его Play и вердиктом «ходит»; условие выполнено, вторая полоса открыта."
   - id: b-2
     lane: хозяин
     goal: "Хозяин замечает, что команда что-то сделала, и реагирует."
@@ -343,10 +344,11 @@ open_calls:
     engineering_contract: 35
     basis: "Корень выпущен от c75015a8; PLAN/ADR заморожены на 7c5fc5a6, PLAN-квитанции на f7387751. Standalone tooling опубликован на main как 2a19cb40; U3 merge-tip 7ef702ae сохраняет принятые коммиты и не несёт tooling-дельту задачи."
     issued: 2026-08-02
-    status: running
+    status: done
+    closed: "2026-08-02 — DELIVERED на dev/main `cbc0334c`, проверено первой рукой: `origin/main` = `cbc0334c`, review и ADR-E-0019 в дереве HEAD, свой прогон тестов 4/4 на net8.0 вне Unity. Задача a-1b закрыта его Play и вердиктом «ходит». Продуктовый RESULT — улика, закрытие направления стоит на его слове."
     started: "2026-08-02 — владелец: «Запускай a-1b дальше»; Codex task 019fc1b3-b3bd-7e52-9289-aa68d10081c3 в Local WIN-U3 сообщил exact selector match и atomic claim lease c-exec-rules-layer-and-single-walker-001:PAIR-CANDIDATE как первую запись."
-    receipts: [history/2026-08-02-s-work-c-ctrl-publish-root-lifecycle-singleton-fix-home-001.md]
-    slot: "WIN-U3 — чист и AVAILABLE на 7ef702ae по HOME/read-only review; следующий законный запуск начинает PAIR-CANDIDATE, не BUILD."
+    receipts: [history/2026-08-02-s-work-c-ctrl-publish-root-lifecycle-singleton-fix-home-001.md, history/2026-08-02-s-writer-g-6b13-a1b-close-001.md]
+    slot: "WIN-U3 — CLEAN / AVAILABLE, lease none, selector CLAIMED → AVAILABLE; фиксированная ветка slot/win-u3@cbc0334c."
     call: live/indie-game-development/work/c-exec-rules-layer-and-single-walker-001-call.md
     goal: "Завести слой правил и положить в него первое правило — движение. Один игрок ходит, сети нет вообще."
     note: "РЕДАКЦИЯ 4. Tooling-child вернулся HOME и закрыт: условие владельца перед продолжением выполнено, PLAN/ADR не переписаны. Корень ready только для отдельного запуска в свежий PAIR-CANDIDATE по контракту 35; автоматического BUILD нет."
@@ -356,8 +358,8 @@ open_calls:
     for: b-1
     track: хозяин
     issued: 2026-08-02
-    status: blocked
-    unblock_when: "a-1b закрыта в Direction OS после Play владельца и binding fresh G5; до этого владелец сказал, что сейчас в работе только одна задача."
+    status: ready
+    unblocked: "2026-08-02 — a-1b закрыта его Play и вердиктом «ходит»; условие снято, наряд готов к запуску. Вторая полоса открыта при track_wip_limit: 2."
     call: live/indie-game-development/work/c-work-host-walker-frontier-001-call.md
     goal: "После первого настоящего шага фундамента открыть ближайшую маленькую задачу полосы хозяина: отдельная сцена, где хозяин ходит своим маршрутом."
     note: "Это структурный корень второй уже одобренной полосы, а не разрешение параллельного запуска сейчас."
