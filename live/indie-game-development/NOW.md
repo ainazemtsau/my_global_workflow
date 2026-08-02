@@ -1,6 +1,6 @@
 # NOW: indie-game-development
 
-updated: 2026-08-02 by s-work-g-6b13-a1-scaffold-return-001
+updated: 2026-08-02 by s-work-g-6b13-a1-closed-a2-issued-001
 
 bet:
   node: g-6b13
@@ -42,14 +42,16 @@ tasks:
     goal: "У новой игры есть своя папка, и в ней открывается пустая сцена."
     done_when: "Жмёшь Play — сцена открывается. Ничего больше в ней нет."
     kind: executor
-    status: returned
+    status: done
+    closed: "2026-08-02 СЛОВОМ ВЛАДЕЛЬЦА после его собственного Play: «ничего не увидел пишет что типа нет камеры (видно что это именно что мы и ожидали)». Это и есть done_when — он открыл проект, нажал Play, сцена открылась, и в ней ничего нет. Пустота была не дефектом, а содержанием задачи, и он это подтвердил сам. G5 закрыт его проверкой: она сделана его руками вне чата сборки и вне этого чата."
     note: "СБОРКА ВЕРНУЛАСЬ 2026-08-02, коммит `e0000c5b`, НО ЗАДАЧА НЕ ЗАКРЫТА: её done_when — глаз владельца, и его Play ещё не было. Возврат исполнителя уликой является, закрытием — нет. ПРОВЕРЕНО ПЕРВОЙ РУКОЙ в `GasCoopGame_win-u2`: восемь файлов, 192 строки, всё внутри `Assets/TunnelCrew/**` и `core/TunnelCrew.Core.csproj`; `tools/`, `validation.config`, `Assets/GasCoopGame/**`, `tests/GasCoopGame.Core.Tests` не тронуты ни одной строкой; `SourcePresenceGateTests` нет — границы наряда соблюдены полностью. Сцена — настоящий Unity-YAML. ДВА ЧЕСТНЫХ ФАКТА: (1) в сцене НОЛЬ GameObject-ов — ни камеры, ни света, только блоки настроек, поэтому в Game-окне будет чёрный экран с «No cameras rendering»; это следствие формулировки наряда «больше в ней ничего нет», написанной сессией, а не ошибка исполнителя; камера приходит с a-2 вместе с игроками. (2) `.cs`-файлов в новой папке ноль, а `core/TunnelCrew.Core.csproj` несёт `EnableDefaultCompileItems=false` с одним glob-ом — значит «focused build, 0 ошибок» это сборка пустоты и доказательством не является. Сторожа на это НЕ заводить (`knowledge/no-checks-the-owner-makes-by-eye.md`); факт перестаёт что-либо значить, как только a-2 добавит настоящий код."
   - id: a-2
     lane: переноска
     goal: "Двое по сети в одной сцене."
     done_when: "Один создаёт игру, второй подключается; обе фигуры ходят, и на обоих экранах видно обе."
     kind: executor
-    status: open
+    status: active
+    note: "Наряд `c-exec-two-players-networked-001` выпущен 2026-08-02 в `WIN-U2` поверх `e0000c5b`. КАМЕРА ПРИХОДИТ ЗДЕСЬ: без неё владелец фигур не увидит. FishNet — пакет `Packages/com.firstgeargames.fishnet/`, то есть зависимость проекта, а не старый игровой код: правило устава про старую папку на него не распространяется."
   - id: a-3
     lane: переноска
     goal: "Один игрок берёт груз и несёт его."
@@ -251,6 +253,20 @@ issues:
     review_when: "До сохранения регистрации и не позже 2026-08-20."
     evidence: "https://partner.steamgames.com/doc/gettingstarted/onboarding; https://partner.steamgames.com/doc/marketing/upcoming_events/nextfest; history/2026-07-27-s-map-october-demo-order-reset-001.md."
 open_calls:
+  - id: c-exec-two-players-networked-001
+    to: executor
+    kind: engineering
+    for: a-2
+    lane: переноска
+    repo: ainazemtsau/GasCoopGame
+    engineering_contract: 35
+    basis: "e0000c5b (ветка slot/win-u2, проверено 2026-08-02) — поверх a-1, НЕ на main"
+    issued: 2026-08-02
+    status: ready
+    slot: "WIN-U2 — та же полоса, тот же worktree и ветка. WIN-U3 не трогать: там идёт c-1 и он владеет tools/."
+    call: live/indie-game-development/work/c-exec-two-players-networked-001-call.md
+    goal: "Двое по сети в одной сцене: один создаёт, второй подключается, обе фигуры видно на обоих экранах."
+    note: "Идёт параллельно с c-1: владеет только `Assets/TunnelCrew/**` и, при необходимости, `Packages/manifest.json`. Сетевая модель НЕ выводится заново — она выбрана словами владельца (считает ведущий). exe здесь не требуется, он приходит в a-5."
   - id: c-exec-gate-surface-cut-001
     to: executor
     kind: engineering
@@ -273,8 +289,8 @@ open_calls:
     engineering_contract: 35
     basis: "4e95845c (main, проверено 2026-08-02)"
     issued: 2026-08-02
-    status: returned
-    returned: "2026-08-02, коммит `e0000c5b` в ветке `slot/win-u2`. Перепроверено первой рукой: границы соблюдены, чужих файлов не тронуто. НЕ ЗАКРЫВАТЬ до Play владельца — done_when задачи это его глаз. Отклонений исполнитель не заявил («дороже или невозможнее: ничего»), и проверка их не нашла."
+    status: done
+    returned: "2026-08-02, коммит `e0000c5b` в ветке `slot/win-u2`. ЗАКРЫТ Play владельца в тот же день. Перепроверено первой рукой: границы соблюдены, чужих файлов не тронуто. НЕ ЗАКРЫВАТЬ до Play владельца — done_when задачи это его глаз. Отклонений исполнитель не заявил («дороже или невозможнее: ничего»), и проверка их не нашла."
     call: live/indie-game-development/work/c-exec-newgame-folder-and-scene-001-call.md
     goal: "Папка новой игры и пустая сцена: жмёшь Play — открывается."
     slot: "WIN-U2 — НАЗВАН ВЛАДЕЛЬЦЕМ 2026-08-02. Проверено: ветка slot/win-u2 на main, дерево чистое, аренда пустая. Работать в существующем worktree GasCoopGame_win-u2."
