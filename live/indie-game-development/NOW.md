@@ -1,6 +1,6 @@
 # NOW: indie-game-development
 
-updated: 2026-08-02 by s-work-g-6b13-gate-cut-integrated-001
+updated: 2026-08-02 by s-work-g-6b13-foundation-call-issued-001
 
 bet:
   node: g-6b13
@@ -315,6 +315,20 @@ issues:
     review_when: "До сохранения регистрации и не позже 2026-08-20."
     evidence: "https://partner.steamgames.com/doc/gettingstarted/onboarding; https://partner.steamgames.com/doc/marketing/upcoming_events/nextfest; history/2026-07-27-s-map-october-demo-order-reset-001.md."
 open_calls:
+  - id: c-exec-rules-layer-and-single-walker-001
+    to: executor
+    kind: engineering
+    for: a-1b
+    lane: переноска
+    repo: ainazemtsau/GasCoopGame
+    engineering_contract: 35
+    basis: "c75015a8 (main, проверено первой рукой 2026-08-02)"
+    issued: 2026-08-02
+    status: ready
+    slot: "Называет владелец. РЕКОМЕНДАЦИЯ WIN-U3 — проверено 2026-08-02, единственный уже на c75015a8 с урезанным контуром 224 строки и чистым деревом, обновляться не надо. U1 и U4 свободны, но на старой базе со старым 854-строчным контуром: если назван один из них, первым действием обновить ветку слота на main. U2 не брать — там отклонённая работа."
+    call: live/indie-game-development/work/c-exec-rules-layer-and-single-walker-001-call.md
+    goal: "Завести слой правил и положить в него первое правило — движение. Один игрок ходит, сети нет вообще."
+    note: "ДВА ЗАХОДА: сначала план с ADR и СТОП с возвратом домой, постройка только после явного принятия плана. Причина не бюрократическая и названа в наряде: предыдущая попытка полосы построила код за тридцать минут и была отклонена целиком за расслоение — план поймал бы это одной строкой заранее. Плановая стадия возвращена по прямому требованию владельца (`i-plan-and-adr-flow-back-on-for-building-001`); для уборочных задач она остаётся выключенной."
   - id: c-ctrl-integrate-gate-surface-cut-001
     to: executor
     kind: engineering
