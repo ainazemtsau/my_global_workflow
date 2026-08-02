@@ -115,7 +115,8 @@ date: 2026-08-02
 
 ## next
 
-`c-exec-gate-surface-cut-001` и `c-exec-newgame-folder-and-scene-001` — оба `ready`, оба ждут, чтобы
-владелец назвал слот при запуске. `WIN-U1` недоступен, свободны `WIN-U2..U4`.
+`c-exec-newgame-folder-and-scene-001` — `ready`, слот назван: `WIN-U2`.
+`c-exec-gate-surface-cut-001` — `ready`, `WIN-U3` или `WIN-U4` по его слову при запуске.
+`WIN-U1` разбирает владелец сам, вне нарядов.
 
 END_OF_FILE: live/indie-game-development/history/2026-08-02-s-shape-g-6b13-small-tasks-and-lanes-001.md
