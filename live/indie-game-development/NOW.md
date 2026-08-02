@@ -1,6 +1,6 @@
 # NOW: indie-game-development
 
-updated: 2026-08-02 by s-repair-g-6b13-plan-flow-back-on-001
+updated: 2026-08-02 by s-work-g-6b13-integrate-gate-cut-issued-001
 
 bet:
   node: g-6b13
@@ -302,6 +302,19 @@ issues:
     review_when: "До сохранения регистрации и не позже 2026-08-20."
     evidence: "https://partner.steamgames.com/doc/gettingstarted/onboarding; https://partner.steamgames.com/doc/marketing/upcoming_events/nextfest; history/2026-07-27-s-map-october-demo-order-reset-001.md."
 open_calls:
+  - id: c-ctrl-integrate-gate-surface-cut-001
+    to: executor
+    kind: engineering
+    for: c-1
+    repo: ainazemtsau/GasCoopGame
+    engineering_contract: 35
+    basis: "97412301 (кандидат на ветке slot/win-u3, проверено 2026-08-02)"
+    issued: 2026-08-02
+    status: ready
+    slot: "WIN-CTRL (GasCoopGame_dev, ветка dev) — единственный слот для интеграции по правилу продуктового AGENTS.md. Проверено: дерево чистое, dev и main совпадают, dev отстаёт от кандидата ровно на два коммита."
+    call: live/indie-game-development/work/c-ctrl-integrate-gate-surface-cut-001-call.md
+    goal: "Внести урезание проверок в dev, затем в main, переставить статус отчёта на доставленный, освободить слот WIN-U3."
+    note: "ИНТЕГРАЦИЯ УЖЕ ЗАКРЫТОЙ РАБОТЫ — кандидат не пересматривается и не меняется. Плановая стадия не требуется: здесь ничего не строится. ПОСЛЕДСТВИЕ ДЛЯ ПЛАНА: после этого `main` получает урезанный контур, и ветка `slot/win-u2` (каркас плюс отклонённая сетевая работа) окажется на устаревшей базе — следующая строительная задача начинается перебазированием на новый `main`."
   - id: c-exec-two-players-networked-001
     to: executor
     kind: engineering
