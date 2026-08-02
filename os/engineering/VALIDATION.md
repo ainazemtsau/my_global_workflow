@@ -41,14 +41,14 @@ build+hygiene and mandatory sidecars are GREEN, then the real test command compi
 fails on behavior. Permitted carrier gaps are corrected inside PAIR-CANDIDATE, not returned through owner/Direction;
 behavioral/out-of-plan changes or exhausted retries return one complete blocker. Fresh refutation inspects fixture
 meaning, both commits/manifests/diffs and runner evidence, then freezes public declarations/value contract and RED
-files. BUILD pins both, may implement bodies/internal HOW, and edits neither frozen contract nor RED; changing either
-uses a Direction replacement at the earliest affected stage and refreezes the pair. For v29 each stage returns HOME to Direction; for v30-v34 a compact receipt
+files. BUILD pins both, may implement bodies/internal HOW, and edits neither frozen contract nor RED; changing a frozen
+blob's BYTES uses a Direction replacement at the earliest affected stage and refreezes the pair. Adding a NEW file at a
+path no manifest declares is not such a change and stays in BUILD, provided every frozen test still runs and still
+passes in the same run. For v29 each stage returns HOME to Direction; for v30-v34 a compact receipt
 advances the fresh repo-local stage and the root returns REPORT, ESCALATE or REPLACED HOME. The obligation inventory and `behavioral-red | evidence-only` split
-remain evidence; prose recipes, PLAN-AMEND, `N/N`, compile-RED and counts are not launch authority. Legacy
-snapshot lineages stay on their recorded v23 route across Re-sync; issued v29/v30 roots keep their routes when v31 activates.
+remain evidence; prose recipes, PLAN-AMEND, `N/N`, compile-RED and counts are not launch authority.
 
-**Executable Plan-to-RED handoff (contract v22, historical carrier only).** Retained as migration history; it does not
-execute for a compiled v29-v34 leg. Its live remainder: the frozen spec splits mixed rows and classifies every atomic
+**`behavioral-red | evidence-only` split (from contract v22).** The frozen spec splits mixed rows and classifies every atomic
 obligation `behavioral-red` or `evidence-only` — only behavioral rows enter the RED numerator and own a named test
 file/method plus exact `fixture|call|observe|source|negative`; process order, structural review, owner verdicts and
 final gates name their real evidence route and stay out of the count.

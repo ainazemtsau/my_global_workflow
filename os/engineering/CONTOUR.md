@@ -63,6 +63,36 @@ approved decision page stops with one complete blocker.
 check the public surface. A markdown or other non-compiled repository must not copy the C# skeleton mechanics: it
 needs its own native executable carrier, or an explicit `n/a` / separate owner decision at that repository's re-sync.
 
+## Two modes — PROBA is the default (contract v36)
+
+Every leg runs in one of two modes and **PROBA is the default**. Only the owner's explicit word
+("это остаётся, закрепляем" / "lock this in") moves a leg to OPORA. No agent classifies a leg into
+OPORA on its own, and no change-class promotes it automatically. An ALREADY-issued heavy leg keeps
+its exact pin, stage and route; nothing below is weakened for it.
+
+**PROBA — trying a concept.** The owner says what he wants, the executor builds it, the owner runs
+it and says what is wrong, the executor changes it — repeated in the SAME session as many times as
+needed. NOT required: frozen carrier+RED pair, PAIR-CANDIDATE, PAIR-FREEZE, independent
+test-author, separate refutation session, stage receipts, manifests, ledger checkboxes, replacement
+lineage, ADR, mutation, negative controls, property audit, `review-<id>.md`. STILL required:
+repo-native build and hygiene; a test ONLY where the owner cannot see the answer by eye (e.g. which
+layer a rule lives in); the tool-unavailable STOP and the owner-decision STOP (ESCALATE); no
+self-written source scanner as behaviour evidence; no check on what the owner verifies by eye.
+
+**Tuning values are not code.** Speed, camera, force, timings live in a data/config file outside
+every frozen surface and are NEVER covered by a test. Changing one needs no session, no receipt and
+no gate. A test asserts SHAPE (direction preserved, callable outside the engine), never MAGNITUDE.
+
+**OPORA — the concept is kept and other work will build on it.** Everything below applies unchanged.
+
+**Completion is never a hand-ticked checkbox** — the receipt chain plus verified evidence in OPORA,
+the owner's word in PROBA. A `tasks.md` gates nothing, anywhere.
+
+**Adding a test beside a frozen one is always legal, in either mode, and is not a "change".** Only
+editing the BYTES of a frozen file is. A spec's list of authorized tests is a MINIMUM, never a
+maximum; a sentence capping the NUMBER of tests is a plan defect that returns as a blocker and is
+never voided by the party it constrains.
+
 ## The cycle
 
 ### Contract v29-v35 compiled route
@@ -330,7 +360,7 @@ The owner returns to a finished, verified change and checks the evidence, not ev
 ## Non-negotiables (mechanical, enforced by hooks/CI — not prose)
 
 1. No machine-runnable check → no autonomy. Every feature ships with its check before build starts.
-2. Builder cannot weaken the oracle: tests/ledger/spec edits by the builder fail the run.
+2. Builder cannot weaken the oracle: its edits to the ledger, the spec, or any independently-authored test fail the run. Adding a NEW test file is not such an edit.
 3. Validator is authoring-read-only and fresh-context, always: it may run declared validators that generate evidence artifacts/caches, but never authors or edits source, tests, specs, rules, or the generated evidence.
 4. All exploratory artifacts (scripts, test scenes) go to the single scratch dir; nothing from it reaches a commit.
 5. Done = gates green + evidence attached. A narrative claim is not done.

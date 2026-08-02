@@ -6,7 +6,7 @@ This monotonic integer names the current engineering contract:
 once. Product repositories record `validation.config: synced_contract_version`; `collect`, `audit`,
 and `digest` compare that stamp with `current` and surface a missing terminal Re-sync.
 
-current: 35
+current: 36
 
 ## Reading the map
 
@@ -17,31 +17,9 @@ version assembled by follow-ups (v20, v21). The former long narrative remains Gi
 
 | Version | Date | Change / terminal Re-sync delta | Git locator |
 |---:|---|---|---|
-| 1 | 2026-06-15 | Closing `RESULT.md` is a deliver-time artifact; builder never authors the next CALL. | `eaf394a52389ea19100045140614fb344d1c7137` |
-| 2 | 2026-06-16 | Independent spec-derived RED test-author; builder cannot edit the frozen oracle. | `909421f7f17594185baf99e9df3f803d4faac3bb` |
-| 3 | 2026-06-15 | Review pins value-bearing fields to their source and proves negative controls reachable. | `539356c03fc6afdc63956e43895f5dbee9b5a465` |
-| 4 | 2026-06-16 | User-perceivable output becomes an owner-signed PLAN acceptance property. | `a299d8a7145a2a899b4cddbbae78a71d9505f2fb` |
-| 5 | 2026-06-17 | Mutation and recorded spec-silence checks become deliver dependencies. | `fbd8de9eeb63b82cf5fb9cde80670acedec9fc84` |
-| 6 | 2026-06-17 | A behaviour-changing fix is a change and re-enters invariant/spec/RED discipline. | `5f10cc1f919a0d6a42cf8951472aa1f7d5e78415` |
-| 7 | 2026-06-18 | Every promised deliverable is dispositioned; engine artifacts need non-trivial existence evidence. | `26e976c783010c5549adf9a2c474ca898ac9735c` |
-| 8 | 2026-06-21 | PLAN names one approach; substitution or an undeclared crutch is a STOP needing owner acknowledgement. | `381869d22032c6b04de68581f7899382101dd4a1` |
-| 9 | 2026-06-25 | Spec-silence walks the ratcheting escape-class registry and names catcher regimes. | `f323ae2c6b07466e35f7a406d3bcb6edfe99d70b` |
-| 10 | 2026-07-02 | Recorded independent review becomes a deliver dependency with reviewed-commit ancestry/accounting. | `7a9b21d79cc89ab3e0c9f262639580d84ba37dbe` |
-| 11 | 2026-07-03 | Every acceptance property owns an independent deliberately-wrong NegativeControl. | `805c5328e57ec005912715e88fbbfb323ad9016b` |
-| 12 | 2026-07-03 | Core algorithms use CsCheck/FsCheck properties plus an independent post-build diff audit. | `2716bf45ff61920dd3908a2e0aa624abc8957183` |
-| 13 | 2026-07-04 | Refuted findings persist in `docs/reviews/REFUTED.md`; new-evidence re-raises escalate. | `2a64e1342770adb8e9dc12519c0ecc78740e9935` |
-| 14 | 2026-07-04 | A fixed finding needs a class-wide sibling sweep; recurrence re-opens it. | `3d3530baa6c030e24e2f7205ee1f2e62586dd32a` |
-| 15 | 2026-07-04 | Review separates in-diff findings from routed class-sibling findings and blocks scope dodges. | `f05d2178b9956d2b745a796805e7524849bd60e1` |
-| 16 | 2026-07-04 | An unavailable required tool is a named STOP; proceeding needs written owner acknowledgement. | `50c7c67e53c8b48f48836593d6a1bd89800ae867` |
-| 17 | 2026-07-04 | Behaviour evidence comes from the real venue; self-written source scanners cannot substitute for it. | `aa59ba5ed882ca61498c8238f1827f11cab8a69b` |
-| 18 | 2026-07-05 | A closing RESULT's literal local review/ADR citations must exist at HEAD, including light legs. | `787ad3b82760edecd7861addf55d03fe45090c8f` |
-| 19 | 2026-07-06 | PLAN and BUILD are separate sessions; owner approves a detailed owner-readable plan. | `4f26136e6a7c40912ecf8c3db424dcf11d339573` |
-| 20 | 2026-07-13 | Execution authority is repo-local; globally discoverable tooling adds no requirements. | `670128418774dd3defab89a7d9bc8e692804882f` |
-| 21 | 2026-07-14 | Historical full-packet semantic PLAN-to-RED readiness route; its prose carrier was later superseded by v23. | `8aa4d02750bc77d504e8badb01eee9d989d60dcb` |
-| 22 | 2026-07-14 | Separate executable RED-FREEZE and `behavioral-red|evidence-only` split; the split remains, its prose-first carrier is superseded by v23. | `d18be6e779533932d59383834801dcb0ba850514` |
-| 23 | 2026-07-15 | Compiled legs use compiler-green SURFACE-FREEZE → independent immutable RED → binding fresh RED refutation → BUILD. | `0ddfd00cc854523f722e435c04b06b80b7b617b0` |
-| 24 | 2026-07-15 | Deliver independently proves mutation diff-scope coverage/integrity before accepting score ≥70. | `031f69e7e09f3684a050a9c12d3b3df5108ca0d4` |
-| 25 | 2026-07-15 | Named obligation inventory (`N=239`) and deletion-only anti-growth valve; mandatory-reading ceiling 32,511. | `e0c4912d73aeb00beedbab8dbf76f2d41aa620c7` |
+Versions 1-25 are retired narrative: each resolves through `git log -- os/engineering` and
+`git show <locator>`. Their rules live in the current text above, not in this map.
+
 | 26 | 2026-07-16 | B4 proves the old kill-list consumer-by-consumer, removes no gate/obligation ID, compacts Git-backed history, and lowers mandatory reading to 25,726 words. | `engineering-contract-v26^{commit}` |
 | 27 | 2026-07-16 | Model-neutral review independence; removed: X14(v26); added: X14(v27); N remains 239. | `engineering-contract-v27^{commit}` |
 | 28 | 2026-07-17 | Every engineering stage returns its current HOME handback; Direction alone issues successors. Removed: X41(v27); added: X41(v28); N remains 239. | `engineering-contract-v28^{commit}` |
@@ -53,13 +31,23 @@ version assembled by follow-ups (v20, v21). The former long narrative remains Gi
 | 34 | 2026-07-30 | Frozen replans use clean replacements; stage-local gates rerun only affected proofs. Reworded: G11, X18, X33b, X34b, X41a, X41d-X41f, X48a, X78, E29; N=239. | `engineering-contract-v34^{commit}` |
 | 35 | 2026-07-31 | The frozen contract is code, not prose: no frozen `PLAN.md`, PLAN shares a session with PAIR-CANDIDATE, CALLs cap at three `done_when` bullets. Removed: X06, X11, X12, X77, E01; added: none; N=234. | `engineering-contract-v35^{commit}` |
 
-## Terminal Re-sync to v35
+| 36 | 2026-08-02 | PROBA is the default mode and OPORA is entered only by the owner's word; no hand-ticked ledger gates completion; adding a test beside a frozen one is legal and a spec's test list is a minimum. Removed: none; added: none (the mode exempts, it does not add); reworded: G0, X16, X18, X34b, CONTOUR#2; N=234. | `engineering-contract-v36^{commit}` |
 
-- Install prior deltas; `re-sync:35` stamps 35 without feature bytes and stops requiring a frozen `PLAN.md`.
-- Issued feature pins stay; v34 process-close and REPLACED-before-replacement rules are unchanged.
-- Preserve ref/receipts/manifests; carry exact-input evidence from the affected stage; exclude superseded files.
-- New roots pin 35 and cap the CALL at three `done_when` bullets; legacy roots keep their rules. N=234.
-- Removed ids X06/X11/X12/X77/E01 are retired, not relocated: a repo may delete their checks outright.
+## Terminal Re-sync to v36
+
+- Install prior deltas; `re-sync:36` stamps 36 and degates `tasks.md` everywhere: completion comes
+  from the receipt chain plus verified evidence, never from a hand-ticked checkbox.
+- New legs default to PROBA. Only the owner's explicit word enters OPORA. Every ALREADY-issued root
+  keeps its exact feature pin, frozen artifacts, stage, receipts and route — v36 reinterprets no
+  legacy or pre-v36 lineage, and weakens nothing on the OPORA side.
+- Surviving surfaces: all `live/**` direction state, every issued root receipt/manifest chain, and
+  every frozen blob stay valid as written. This change only relaxes; it makes no existing state
+  illegal and needs no repair route.
+- Adding a new file beside a frozen one is legal in both modes; only a frozen blob's BYTES route
+  through replacement.
+
+- Preserve ref/receipts/manifests; carry exact-input evidence from the affected stage; exclude
+  superseded files. New OPORA roots still cap the CALL at three `done_when` bullets. N=234.
 - Unstamped repos use current `PROJECT_SETUP.md`.
 
 END_OF_FILE: os/engineering/CONTRACT_VERSION

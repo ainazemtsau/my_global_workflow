@@ -67,7 +67,7 @@ closing controls. Only Direction issues Direction CALLs.
 - **Forward-only Re-sync.** Before its first new root, `re-sync:31` installs the v30 root route plus v31 controls.
   Issued CALLs, artifacts and routes stay pinned; retired migrations never replay.
 - **v26 obligation-budget setup/Re-sync.** After all older functional deltas applicable to the repo are installed,
-  record `obligation_inventory_version: 26`, `obligation_ceiling: 239`, and
+  record `obligation_inventory_version: 26`, `obligation_ceiling: 234`, and
   `obligation_inventory_source: <full my_global_workflow v26 commit SHA>` in `validation.config`, then set
   `synced_contract_version: 26`. The source SHA must resolve to the v26 inventory. This is control-plane provenance,
   not a new product-leg gate: do not copy the inventory into the product repo and do not add a semantic counter,

@@ -1,9 +1,7 @@
 # Engineering leg-obligation inventory
 
 This file is the load-bearing census for the engineering contract. It counts what one applicable
-product leg must do, not how many words describe it. The historical `N=71` in the 2026-07-14 audit
-was a hypothesis; this is the fresh contract-v24 census made before the contract-v25 valve landed,
-re-verified by v26, with routing/version duties replaced through v34.
+product leg must do, not how many words describe it.
 
 ## Counting unit
 
@@ -46,12 +44,11 @@ deliverables, and exercises fixed, refuted, owner-ack and escalation branches. I
 | Unity profile predicates (`U`) | 27 |
 | **Maximum `N`** | **234** |
 
-`N = 234` after contract v35, which REMOVES five ids and adds none: X06, X11, X12, X77, E01 — all five policed a prose
-planning stage whose output no gate read. Nothing replaces them: the owner-facing duty is the existing X58/E05 decision
-page, and the role separation they were confused with is stated positively in CONTOUR Roles. 234 is the new ceiling;
-the post-change maximum may not exceed it. An addition that
+`N = 234` after contract v35. 234 is the ceiling; the post-change maximum may not exceed it. Contract
+v36 adds no id: PROBA EXEMPTS obligations from the default path, and every id below remains binding
+in OPORA. An addition that
 would otherwise raise `N` is legal only when the same commit names and actually removes enough
-inventory ids from every authoritative surface to keep `N <= 239`. Renaming, compressing, merging
+inventory ids from every authoritative surface to keep `N <= 234`. Renaming, compressing, merging
 rows, moving text to a product repo, or replacing two predicates with one sentence is not removal.
 A one-for-one replacement names both ids and leaves `N` unchanged. A later batch may lower this
 ceiling only after the corresponding obligations are proved removed.
