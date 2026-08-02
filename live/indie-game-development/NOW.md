@@ -1,6 +1,6 @@
 # NOW: indie-game-development
 
-updated: 2026-08-02 by s-work-c-ctrl-publish-root-lifecycle-singleton-fix-home-001
+updated: 2026-08-02 by s-work-g-6b13-a1b-pair-candidate-launch-001
 
 bet:
   node: g-6b13
@@ -343,7 +343,8 @@ open_calls:
     engineering_contract: 35
     basis: "Корень выпущен от c75015a8; PLAN/ADR заморожены на 7c5fc5a6, PLAN-квитанции на f7387751. Standalone tooling опубликован на main как 2a19cb40; U3 merge-tip 7ef702ae сохраняет принятые коммиты и не несёт tooling-дельту задачи."
     issued: 2026-08-02
-    status: ready
+    status: running
+    started: "2026-08-02 — владелец: «Запускай a-1b дальше»; Codex task 019fc1b3-b3bd-7e52-9289-aa68d10081c3 в Local WIN-U3 сообщил exact selector match и atomic claim lease c-exec-rules-layer-and-single-walker-001:PAIR-CANDIDATE как первую запись."
     receipts: [history/2026-08-02-s-work-c-ctrl-publish-root-lifecycle-singleton-fix-home-001.md]
     slot: "WIN-U3 — чист и AVAILABLE на 7ef702ae по HOME/read-only review; следующий законный запуск начинает PAIR-CANDIDATE, не BUILD."
     call: live/indie-game-development/work/c-exec-rules-layer-and-single-walker-001-call.md
