@@ -261,7 +261,8 @@ open_calls:
     status: ready
     call: live/indie-game-development/work/c-exec-gate-surface-cut-001-call.md
     goal: "Урезать поверхность проверок: убрать то, что не ловит ничего живого, сделать прогон быстрым."
-    note: "ПЕРВЫЙ В ОЧЕРЕДИ — его условие закрытия ставки прямо про это. Владеет `tools/`, `validation.config`, `check.ps1`; `Assets/TunnelCrew/**` не трогает. Идёт параллельно с a-1 в другом слоте."
+    slot: "ЛЮБОЙ из WIN-U2..U4, точный называет владелец при запуске. WIN-U1 НЕ БРАТЬ — отдан наряду a-1 его решением 2026-08-02."
+    note: "ПЕРВЫЙ В ОЧЕРЕДИ — его условие закрытия ставки прямо про это. Владеет `tools/`, `validation.config`, `check.ps1`; `Assets/TunnelCrew/**` не трогает. Идёт параллельно с a-1. На рассмотрение получает одну входящую правку: `tools/root-lifecycle-check.ps1` (+45/-3) с брошенной ветки — решить, нужна она сама по себе или умирает со своим корнем."
   - id: c-exec-newgame-folder-and-scene-001
     to: executor
     kind: engineering
@@ -274,7 +275,8 @@ open_calls:
     status: ready
     call: live/indie-game-development/work/c-exec-newgame-folder-and-scene-001-call.md
     goal: "Папка новой игры и пустая сцена: жмёшь Play — открывается."
-    note: "Идёт параллельно с c-1 в другом слоте: владеет только `Assets/TunnelCrew/**`, к `tools/` и `validation.config` не прикасается. Может поднять каркас из брошенной ветки `slot/win-u1` и освобождает её аренду; 247 строк SourcePresenceGateTests не берёт."
+    slot: "WIN-U1 — НАЗВАН ВЛАДЕЛЬЦЕМ 2026-08-02. Работать в существующем worktree GasCoopGame_win-u1."
+    note: "Идёт параллельно с c-1: владеет только `Assets/TunnelCrew/**`, к `tools/` и `validation.config` не прикасается. ПЕРВЫМ ДЕЙСТВИЕМ сбрасывает ветку `slot/win-u1` на main с сохранением backup-ref — продолжать её нельзя: она несёт корень `ACTIVE`/`PLAN` с замороженной спекой вырезанного требования и квитанцию с ненастоящим словом владельца. Каркас (восемь файлов) поднимается из backup-ref; 247 строк SourcePresenceGateTests не берёт."
   - id: c-exec-newgame-folder-and-gates-001
     to: executor
     kind: engineering
@@ -284,8 +286,8 @@ open_calls:
     basis: "4e95845c (main, проверено 2026-08-01)"
     issued: 2026-08-01
     status: dead
-    stopped: "2026-08-02 ВЛАДЕЛЬЦЕМ СВОИМИ РУКАМИ — «Наряд на папку я остановил своими руками». ПОВТОРНО НЕ ВЫДАВАТЬ, строки отсюда в новые наряды не переносить. Заменён двумя мелкими: `c-exec-gate-surface-cut-001` и `c-exec-newgame-folder-and-scene-001`."
-    slot: "Держит аренду `WIN-U1` (`CLAIMED`, `c-exec-newgame-folder-and-gates-001:PLAN`). Ветка `slot/win-u1`, семь коммитов 8eb0bb0f..c4d34fc4, брошена; аренду освобождает `c-exec-newgame-folder-and-scene-001`. `WIN-U2..U4` свободны."
+    stopped: "2026-08-02 ВЛАДЕЛЬЦЕМ СВОИМИ РУКАМИ — «Наряд на папку я остановил своими руками». ПОВТОРНО НЕ ВЫДАВАТЬ, строки отсюда в новые наряды не переносить. Заменён двумя мелкими: `c-exec-gate-surface-cut-001` и `c-exec-newgame-folder-and-scene-001`. НЕ ПРОДОЛЖАЕТСЯ И НЕ ДОДЕЛЫВАЕТСЯ: его корень существует только на ветке `slot/win-u1` (на main его нет, проверено), и ветка сбрасывается — значит мёртвый корень исчезает целиком, а не остаётся висеть `ACTIVE`. Это сознательный уход от повторения `i-grid-v1-g01-dead-root-open-001`."
+    slot: "Держал аренду `WIN-U1` (`CLAIMED`, `c-exec-newgame-folder-and-gates-001:PLAN`). Аренду переоформляет на себя `c-exec-newgame-folder-and-scene-001` при сбросе ветки. Семь коммитов 8eb0bb0f..c4d34fc4 сохраняются под backup-ref и остаются в Git навсегда."
     call: live/indie-game-development/work/c-exec-newgame-folder-and-gates-001-call.md
     goal: "МЁРТВ. Прежняя цель несла вырезанное 2026-08-02 требование про красный на пустой папке."
 

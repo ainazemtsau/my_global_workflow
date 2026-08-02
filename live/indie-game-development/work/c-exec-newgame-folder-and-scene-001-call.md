@@ -11,10 +11,44 @@ task: a-1
 lane: переноска
 issued: 2026-08-02 by s-shape-g-6b13-small-tasks-and-lanes-001
 status: ready
-slot: Называет владелец в момент запуска. **`WIN-U1` НЕДОСТУПЕН** — на нём висит аренда мёртвого
-      корня `c-exec-newgame-folder-and-gates-001`. Свободны `WIN-U2`, `WIN-U3`, `WIN-U4`; их
-      worktree уже существуют, новых не создавать. `WIN-CTRL` (`GasCoopGame_dev`) незаконен.
-      Идёт ПАРАЛЛЕЛЬНО с `c-exec-gate-surface-cut-001` в другом слоте — файлы не пересекаются.
+slot: **`WIN-U1` — НАЗВАН ВЛАДЕЛЬЦЕМ 2026-08-02.** Работать в `C:/projects/Unity/GasCoopGame_win-u1`,
+      новых worktree не создавать. Ветку `slot/win-u1` ПЕРЕД РАБОТОЙ СБРОСИТЬ — процедура ниже,
+      §«Сброс ветки». Идёт ПАРАЛЛЕЛЬНО с `c-exec-gate-surface-cut-001`, который берёт любой из
+      `WIN-U2..U4` — файлы двух нарядов не пересекаются. `WIN-CTRL` (`GasCoopGame_dev`) незаконен.
+
+## Сброс ветки — ПЕРВЫМ ДЕЙСТВИЕМ, до любой работы
+
+На `slot/win-u1` висят семь коммитов `8eb0bb0f..c4d34fc4` мёртвого корня
+`c-exec-newgame-folder-and-gates-001`. **Их нельзя продолжать, и вот почему, проверено первой рукой
+2026-08-02:** ветка несёт `docs/measurements/root-receipts/c-exec-newgame-folder-and-gates-001/`
+и `openspec/changes/c-exec-newgame-folder-and-gates-001/` — корень в состоянии `ACTIVE`/`PLAN`,
+заморозивший спеку, в которой стоит вырезанное требование про красный на пустой папке, и квитанцию
+`00-plan.json` с полем `owner_verdict_exact`, содержащим НЕ слова владельца. Продолжить эту ветку =
+унаследовать обе вещи. Незакрывающийся корень — известная мина: на `main` уже лежит такой,
+`c-exec-grid-v1-g01-document-authority-001`, `ACTIVE` на стадии PLAN с 2026-07-21, и он дважды ронял
+чужие ноги. Второго заводить не будем.
+
+**Ничего не теряется, и процедура в репозитории уже есть** — в `refs/backup/` лежат следы прошлых
+таких сбросов, включая `refs/backup/pre-slot-reset/slot-win-u1`. Порядок:
+
+1. Сохранить текущий тип ветки под backup-ref той же формы (например
+   `refs/backup/pre-newgame-replan/slot-win-u1`). Коммиты остаются в Git навсегда.
+2. Сбросить `slot/win-u1` на текущий `main` (`4e95845c`, если не сдвинулся — перепроверь).
+3. Переоформить аренду в `<git-common-dir>/gascoop-slot-state.v1.json`: сейчас там
+   `c-exec-newgame-folder-and-gates-001:PLAN`, становится этот наряд. Мёртвая аренда исчезает
+   вместе с корнем.
+
+**Что поднять из backup-ref** — только каркас, восемь файлов: `Assets/TunnelCrew.meta`,
+`Assets/TunnelCrew/Core.meta`, `Assets/TunnelCrew/Core/BuildMarker.cs` (+`.meta`),
+`Assets/TunnelCrew/Core/TunnelCrew.Core.asmdef` (+`.meta`), `TunnelCrew.Core.slnx`,
+`core/TunnelCrew.Core.csproj`. Брать их не обязательно — если своё выйдет чище, делай своё.
+
+**Что НЕ поднимать ни в каком виде:** `tests/TunnelCrew.Core.Tests/Sources/SourcePresenceGateTests.cs`
+(247 строк тестов вырезанного требования) и все квитанции/спеки/`docs/engineering` мёртвого корня.
+
+**Отдельно:** на той ветке правился `tools/root-lifecycle-check.ps1` (+45/-3) — правка под учёт
+мёртвого корня. Сюда она не идёт: `tools/` принадлежит наряду `c-exec-gate-surface-cut-001`.
+Одной строкой сообщи домой, что такая правка была, чтобы тот наряд решил её судьбу.
 
 ## goal
 
@@ -29,12 +63,8 @@ slot: Называет владелец в момент запуска. **`WIN-U
 посмотрит, как двое несут ОДИН груз по сети. Эта задача только заводит место; груз, сеть и хозяин —
 следующие задачи, не эта.
 
-**Заготовка уже существует и её можно поднять.** Остановленная ветка `slot/win-u1` (коммиты
-`8eb0bb0f..c4d34fc4`) завела `Assets/TunnelCrew/Core` с asmdef, `core/TunnelCrew.Core.csproj` и
-`TunnelCrew.Core.slnx`, ничего старого не тронув. Взять оттуда каркас можно — назови в возврате, что
-именно взял. **`tests/TunnelCrew.Core.Tests/Sources/SourcePresenceGateTests.cs` (247 строк) НЕ
-БРАТЬ ни в каком виде:** это тесты выдуманного требования, которое владелец отверг пять раз.
-Аренду `WIN-U1` освободить, ветку дальше не развивать.
+**Заготовка уже существует** — см. §«Сброс ветки» в шапке: каркас поднимается из backup-ref, сама
+ветка сбрасывается, мёртвый корень не продолжается.
 
 ## boundaries
 
