@@ -1,6 +1,6 @@
 # NOW: indie-game-development
 
-updated: 2026-08-03 by s-work-g-6b13-a3-close-verification-001
+updated: 2026-08-03 by s-work-g-6b13-b2-close-verification-001
 
 bet:
   node: g-6b13
@@ -106,7 +106,8 @@ tasks:
     unblocked: "2026-08-03 — шов уже разобран и подписан владельцем в `history/2026-08-02-s-writer-g-6b13-host-seam-and-art-home-001.md`: принят семиполевой seam, порядок после b-1 — идти вширь, а первая реакция — «шум задаёт вопрос, а не координату». Осталось не архитектурное разрешение, а его обязательный выбор одного конкретного факта команды и одного видимого ответного действия в owner-present work-сессии."
     done_when: "Команда что-то делает — хозяин это замечает и отвечает одним действием. Абстрактно: КАК устроены его знание, маршрут и реакция, здесь не задаётся. Его слово: «когда уже конкретная задача берется, чтобы я её обсуждал, а не сразу всё»."
     kind: executor
-    status: open
+    status: done
+    closed: "2026-08-03. Владелец своими руками передвинул точку прослушивания, вызвал скрип кнопкой Inspector, увидел ожидание безопасного прерывания, поход хозяина к шуму и возврат к маршруту; в этой сессии подтвердил: «проверял глазами, работает… работает так, как и предполагалось». Exact candidate `27b843a4ccee2312ca4ba97e32fee73d8e2fb959` сохранён родителем merge `48f15c92563e8bc08cab159cadaacc47f4e203b9`; published tip `37519f526d89d6bb5f8aad658b9e2e3176700bac` одинаков на `dev`, `origin/dev`, `origin/main` и `slot/win-u1`. Binding fresh G5 в отдельной Direction-сессии попытался опровергнуть event→fact→policy→action→return, expiry/ack/no-loop, сменяемость политики и границы; независимый прогон на exact tip дал 12/12, а восемь изменённых путей лежат только в разрешённой host-поверхности. WIN-U1 чист, Editor закрыт, selector `AVAILABLE / lease none`. PASS."
   - id: b-3
     lane: хозяин
     goal: "Ещё две реакции, и хозяин при этом не переписан."
@@ -363,21 +364,16 @@ open_calls:
     call: live/indie-game-development/work/c-work-a4-architecture-decision-001-call.md
     goal: "Владелец в отдельном owner-present разборе понял риски и ограничения конкретной архитектуры, по которой двое держат один самостоятельный груз по сети, и своими точными словами принял, исправил либо отверг её до любого инженерного наряда a-4."
     note: "a-3 закрыта binding fresh G5 на опубликованном `8219f6c0`. a-4 остаётся открытой и заблокированной до архитектурного вердикта владельца; этот CALL ничего не строит и не выдаёт инженерный наряд без его фактических слов."
-  - id: c-exec-host-board-creak-reaction-proba-001
-    to: executor
-    kind: engineering
+  - id: c-work-b3-additional-reactions-frontier-001
+    to: session
     play: work
-    for: b-2
+    for: b-3
     track: хозяин
     issued: 2026-08-03
     status: ready
-    engineering_contract: 36
-    mode: ПРОБА
-    basis: cca530a01c49f38f676942a531c2ee837ebe2454
-    slot: WIN-U1
-    call: live/indie-game-development/work/c-exec-host-board-creak-reaction-proba-001-call.md
-    goal: "Скрип доски создаёт факт подозрительного шума; хозяин через расширяемый engine-free контур идёт к отдельной точке прослушивания, затем возвращается к маршруту; событие и весь семиполевой след удобно видны и запускаются из Unity Editor."
-    note: "Выпущен взамен закрытого owner-present корня c-work-host-first-reaction-frontier-001 после его слов «Так, я с тобой согласен» и обязательной добавки «чтобы удобно было тестировать в сцене… чтобы я мог легко там где-то что-то событие вызвать». Только b-2: один event/fact/response, без BT/GOAP и без b-3. Basis равен свежему product origin/main; WIN-U1 перепроверен по текущей selector-authority: CLEAN / AVAILABLE / lease none, branch slot/win-u1, head 7067a0ad — предок базы, Unity evidence отсутствует. Все названные существующие пути разрешены на объявленной базе; contract 36 и режим ПРОБА подтверждены."
+    call: live/indie-game-development/work/c-work-b3-additional-reactions-frontier-001-call.md
+    goal: "Владелец своими словами выбрал или исправил две дополнительные видимые реакции хозяина, которые добавляются к принятому шву b-2, а не переписывают хозяина."
+    note: "b-2 закрыта binding fresh G5 на опубликованном `37519f52` и прямом owner-eye вердикте. Этот CALL ничего не строит и не выпускает инженерный наряд без фактических слов владельца о двух конкретных парах факт→действие."
 
 recurring: []
 
