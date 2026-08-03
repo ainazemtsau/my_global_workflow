@@ -1,6 +1,6 @@
 # NOW: indie-game-development
 
-updated: 2026-08-03 by s-work-g-6b13-a3-single-cargo-call-issued-001
+updated: 2026-08-03 by s-work-g-6b13-b2-first-reaction-call-issued-001
 
 bet:
   node: g-6b13
@@ -365,16 +365,21 @@ open_calls:
     call: live/indie-game-development/work/c-exec-one-carries-cargo-proba-001-call.md
     goal: "Один игрок подошёл, взял, понёс и положил один самостоятельный груз; поза считается судьёй из списка держателей длины один, родительства нет, на обеих копиях груз в одном месте."
     note: "Выпущен взамен закрытого session-корня c-work-single-cargo-frontier-001. ПЕРЕПРОВЕРЕНО ПЕРВОЙ РУКОЙ 2026-08-03 на объявленной базе: basis = ровно текущий origin/main; настоящий селектор из GasCoopGame_dev даёт WIN-U3 CLEAN / AVAILABLE / lease none на fa79613c, и это предок базы, то есть обновление слота — чистый fast-forward; все шестнадцать названных путей и четыре блоба правила движения существуют на базе. Контракт продукта действительно 36 (validation.config synced_contract_version: 36), ПРОБА — режим по умолчанию."
-  - id: c-work-host-first-reaction-frontier-001
-    to: session
+  - id: c-exec-host-board-creak-reaction-proba-001
+    to: executor
+    kind: engineering
     play: work
     for: b-2
     track: хозяин
     issued: 2026-08-03
     status: ready
-    call: live/indie-game-development/work/c-work-host-first-reaction-frontier-001-call.md
-    goal: "Вместе с владельцем выбрать один конкретный замечаемый факт и одно видимое действие хозяина, затем выпустить точную ПРОБУ b-2."
-    note: "Первый следующий корень полосы хозяина; owner verdict обязателен до инженерного CALL. Рекомендуемый свободный execution slot после решения — WIN-U1."
+    engineering_contract: 36
+    mode: ПРОБА
+    basis: cca530a01c49f38f676942a531c2ee837ebe2454
+    slot: WIN-U1
+    call: live/indie-game-development/work/c-exec-host-board-creak-reaction-proba-001-call.md
+    goal: "Скрип доски создаёт факт подозрительного шума; хозяин через расширяемый engine-free контур идёт к отдельной точке прослушивания, затем возвращается к маршруту; событие и весь семиполевой след удобно видны и запускаются из Unity Editor."
+    note: "Выпущен взамен закрытого owner-present корня c-work-host-first-reaction-frontier-001 после его слов «Так, я с тобой согласен» и обязательной добавки «чтобы удобно было тестировать в сцене… чтобы я мог легко там где-то что-то событие вызвать». Только b-2: один event/fact/response, без BT/GOAP и без b-3. Basis равен свежему product origin/main; WIN-U1 перепроверен по текущей selector-authority: CLEAN / AVAILABLE / lease none, branch slot/win-u1, head 7067a0ad — предок базы, Unity evidence отсутствует. Все названные существующие пути разрешены на объявленной базе; contract 36 и режим ПРОБА подтверждены."
 
 recurring: []
 
