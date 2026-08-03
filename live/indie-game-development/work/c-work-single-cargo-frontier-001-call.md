@@ -1,5 +1,10 @@
 # CALL — c-work-single-cargo-frontier-001
 
+> ВЫПОЛНЕН И СНЯТ С ДИСПЕТЧЕРИЗАЦИИ 2026-08-03 ногой
+> `s-work-g-6b13-a3-single-cargo-call-issued-001`: выпущен инженерный наряд ПРОБЫ
+> `c-exec-one-carries-cargo-proba-001`. Файл остаётся неизменной уликой и запускаемым нарядом
+> больше не является.
+
 to: session
 direction: indie-game-development
 track: переноска

@@ -1,6 +1,6 @@
 # NOW: indie-game-development
 
-updated: 2026-08-03 by s-repair-g-6b13-proba-returns-and-frontiers-001
+updated: 2026-08-03 by s-work-g-6b13-a3-single-cargo-call-issued-001
 
 bet:
   node: g-6b13
@@ -346,16 +346,21 @@ issues:
     review_when: "Отдельным следующим Direction-repair, не смешивая с двумя готовыми игровыми work-ногами; цель — привести NOW к шаблону и убрать закрытые факты из hot state с явными dispositions."
     evidence: "Свежий подсчёт после repair 2026-08-03: NOW.md = 374 строки при шаблонном потолке 150; `os/plays/repair.md` шаг 3 требует для hot-file bloat оставлять schema fields/pointers, потому что Git/history уже сохраняют committed detail."
 open_calls:
-  - id: c-work-single-cargo-frontier-001
-    to: session
+  - id: c-exec-one-carries-cargo-proba-001
+    to: executor
+    kind: engineering
     play: work
     for: a-3
     track: переноска
     issued: 2026-08-03
     status: ready
-    call: live/indie-game-development/work/c-work-single-cargo-frontier-001-call.md
-    goal: "Выпустить точную ПРОБУ a-3: один игрок переносит самостоятельный авторитетный груз со списком держателей длины один, одинаково видимый в обеих копиях."
-    note: "Первый следующий корень полосы переноски; рекомендуемый свободный execution slot — WIN-U3, но session и executor обязаны перепроверить свежий selector и basis."
+    engineering_contract: 36
+    mode: ПРОБА
+    basis: cca530a01c49f38f676942a531c2ee837ebe2454
+    slot: WIN-U3
+    call: live/indie-game-development/work/c-exec-one-carries-cargo-proba-001-call.md
+    goal: "Один игрок подошёл, взял, понёс и положил один самостоятельный груз; поза считается судьёй из списка держателей длины один, родительства нет, на обеих копиях груз в одном месте."
+    note: "Выпущен взамен закрытого session-корня c-work-single-cargo-frontier-001. ПЕРЕПРОВЕРЕНО ПЕРВОЙ РУКОЙ 2026-08-03 на объявленной базе: basis = ровно текущий origin/main; настоящий селектор из GasCoopGame_dev даёт WIN-U3 CLEAN / AVAILABLE / lease none на fa79613c, и это предок базы, то есть обновление слота — чистый fast-forward; все шестнадцать названных путей и четыре блоба правила движения существуют на базе. Контракт продукта действительно 36 (validation.config synced_contract_version: 36), ПРОБА — режим по умолчанию."
   - id: c-work-host-first-reaction-frontier-001
     to: session
     play: work
