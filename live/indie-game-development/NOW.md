@@ -1,6 +1,6 @@
 # NOW: indie-game-development
 
-updated: 2026-08-02 by s-writer-g-6b13-host-seam-and-art-home-001
+updated: 2026-08-02 by s-writer-g-6b13-lobby-not-crutch-001
 
 bet:
   node: g-6b13
