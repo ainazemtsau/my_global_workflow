@@ -1,5 +1,9 @@
 # CALL — c-exec-rules-layer-and-single-walker-001
 
+> RETIRED FROM DISPATCH 2026-08-03 by
+> `s-repair-g-6b13-proba-returns-and-frontiers-001`: a-1b was already Direction-closed and the
+> product root terminally released. This file remains immutable evidence; it is not a runnable CALL.
+
 to: executor
 kind: engineering
 repo: ainazemtsau/GasCoopGame

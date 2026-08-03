@@ -1,5 +1,9 @@
 # CALL — c-work-host-walker-frontier-001
 
+> RETIRED FROM DISPATCH 2026-08-03 by
+> `s-repair-g-6b13-proba-returns-and-frontiers-001`: b-1 was completed directly as an owner-approved
+> PROBA and bindingly closed by this repair. This file remains evidence; it is not a runnable CALL.
+
 to: session
 direction: indie-game-development
 track: хозяин

@@ -322,4 +322,6 @@ Append-only. Одна строка на случай: дата, направле
 
 2026-08-02 os потолок обязательств блокирует собственный храповик обучения: `ESCAPE-CLASSES.md` объявляет один прорыв достаточным триггером для новой строки, но каждая строка — одно из 234 обязательств, а потолок работает только на удаление. → logged, watching: второй случай означает, что клапан против роста надо разводить с реестром escape-классов.
 
+2026-08-03 v36 ПРОБА не имеет явного terminal-return моста в Direction OS: три owner-approved product RESULT были exact-history опубликованы, слоты освобождены и selector-доказательства существовали, но NOW продолжал держать a-2/b-1/c-2 открытыми, один завершённый engineering root в `open_calls` и один уже обойдённый session root ready; владелец должен был сам вспомнить и попросить repair. Это не даёт продуктовым merge/push права автоматически закрывать Direction — binding fresh G5 и writer validation остаются обязательны, — но отсутствует дешёвый зарегистрированный checkpoint, который приносит terminal product evidence на такой close. -> logged, watching: при следующем прямом PROBA-return, который после terminal release снова оставит завершённую задачу без готового Direction close frontier, открыть одну owner-approved MAINTENANCE REQUEST на явный v36 return/checkpoint маршрут; OS в этой repair-ноге не меняется.
+
 END_OF_FILE: os/FRICTION.md
