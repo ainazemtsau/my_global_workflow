@@ -1,6 +1,6 @@
 # NOW: indie-game-development
 
-updated: 2026-08-03 by s-work-g-6b13-b2-close-verification-001
+updated: 2026-08-03 by s-work-g-6b13-b3-additional-reactions-issued-001
 
 bet:
   node: g-6b13
@@ -366,16 +366,21 @@ open_calls:
     call: live/indie-game-development/work/c-work-a4-architecture-decision-001-call.md
     goal: "Владелец в отдельном owner-present разборе понял риски и ограничения конкретной архитектуры, по которой двое держат один самостоятельный груз по сети, и своими точными словами принял, исправил либо отверг её до любого инженерного наряда a-4."
     note: "a-3 закрыта binding fresh G5 на опубликованном `8219f6c0`. a-4 остаётся открытой и заблокированной до архитектурного вердикта владельца; этот CALL ничего не строит и не выдаёт инженерный наряд без его фактических слов."
-  - id: c-work-b3-additional-reactions-frontier-001
-    to: session
+  - id: c-exec-host-rustle-and-urgent-guard-proba-001
+    to: executor
+    kind: engineering
     play: work
     for: b-3
     track: хозяин
     issued: 2026-08-03
     status: ready
-    call: live/indie-game-development/work/c-work-b3-additional-reactions-frontier-001-call.md
-    goal: "Владелец своими словами выбрал или исправил две дополнительные видимые реакции хозяина, которые добавляются к принятому шву b-2, а не переписывают хозяина."
-    note: "b-2 закрыта binding fresh G5 на опубликованном `37519f52` и прямом owner-eye вердикте. Этот CALL ничего не строит и не выпускает инженерный наряд без фактических слов владельца о двух конкретных парах факт→действие."
+    engineering_contract: 36
+    mode: ПРОБА
+    basis: 37519f526d89d6bb5f8aad658b9e2e3176700bac
+    slot: WIN-U1
+    call: live/indie-game-development/work/c-exec-host-rustle-and-urgent-guard-proba-001-call.md
+    goal: "К уже принятой реакции на скрип добавлены две выбранные владельцем реакции через тот же шов: тихий шорох останавливает хозяина прислушаться, серия громких ударов срочно ведёт его к точке прослушивания и оставляет там караулить; после обеих он возвращается к прежней жизни."
+    note: "Выпущен вместо owner-present корня `c-work-b3-additional-reactions-frontier-001` после точных слов владельца «принимаю A+B». b-3 остаётся open до реализации, owner-eye и binding fresh G5. Product `origin/main` и `origin/dev` заново подтверждены на `37519f52`; contract 36 совпадает; WIN-U1 на той же базе CLEAN / AVAILABLE / lease none, ветка `slot/win-u1`, Editor закрыт. Ровно две реакции, без BT/GOAP, общего склада фактов, груза, тоннеля или арта."
 
 recurring: []
 

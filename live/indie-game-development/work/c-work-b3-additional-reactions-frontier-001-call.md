@@ -1,5 +1,12 @@
 # CALL — c-work-b3-additional-reactions-frontier-001
 
+> ВЫПОЛНЕН И СНЯТ С ДИСПЕТЧЕРИЗАЦИИ 2026-08-03 ногой
+> `s-work-g-6b13-b3-additional-reactions-issued-001`: владелец ответил дословно
+> «принимаю A+B». Выбраны тихий шорох → остановиться и прислушаться и серия
+> громких ударов → срочно занять точку прослушивания и караулить. Выпущен
+> инженерный ПРОБА-CALL `c-exec-host-rustle-and-urgent-guard-proba-001`;
+> этот owner-present CALL остаётся уликой и больше не запускается.
+
 to: session
 direction: indie-game-development
 track: хозяин
