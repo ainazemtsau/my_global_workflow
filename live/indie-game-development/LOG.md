@@ -1,5 +1,7 @@
 # LOG - indie-game-development
 
+2026-08-04 | s-day-next-wave-basis-map-launch-001 | day | direction | Следующая волна: владелец утвердил интегрированный базис с одним существующим физическим грузом; базис сохранён и открыт один map-фронтир без ставки, задач, полос и запуска продукта. -> history/2026-08-04-s-day-next-wave-basis-map-launch-001.md
+
 2026-08-04 | s-review-g-6b13-two-stands-partial-001 | review | хозяин | g-6b13: verdict partial — один общий физический груз и расширяемый хозяин доказаны, exe и несколько геометрий отсутствуют; ставка, задачи, полосы и calls закрыты, camera/exe и residuals сохранены будущими inputs без запуска следующей волны. -> history/2026-08-04-s-review-g-6b13-two-stands-partial-001.md
 
 2026-08-04 | s-work-g-6b13-a4-close-verification-checkpoint-002 | work | переноска | g-6b13/a-4: binding fresh G5 выдержала exact code/history/report/checks и получила явные слова про второй хват и стену, но не получила различие «поперёк не проходит / вдоль проходит»; a-4 остаётся open, same-lane root ждёт только это наблюдение. -> history/2026-08-04-s-work-g-6b13-a4-close-verification-checkpoint-002.md

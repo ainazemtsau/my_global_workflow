@@ -1,6 +1,6 @@
 # NOW: indie-game-development
 
-updated: 2026-08-04 by s-review-g-6b13-two-stands-partial-001
+updated: 2026-08-04 by s-day-next-wave-basis-map-launch-001
 
 bet: null
 
@@ -214,17 +214,17 @@ issues:
     review_when: "Отдельным Direction-repair, не смешивая с будущим planning или продуктовой волной; цель — привести NOW к шаблону и убрать холодные факты с явными dispositions."
     evidence: "После review 2026-08-04 NOW.md = 247 строк при шаблонном потолке 150; `os/plays/repair.md` шаг 3 требует для hot-file bloat оставлять schema fields/pointers, потому что Git/history уже сохраняют committed detail."
   - id: i-next-wave-first-person-and-exe-001
-    issue: "CAPTURE. Владелец прямо перенёс камеру от первого лица и собранный exe в следующую волну: exe нужен уже для содержательной проверки с другим человеком, возможно с женой. Это будущий input, не активная задача и не запуск следующей волны."
+    issue: "CAPTURE, ПРИНЯТЫЙ В ПЛАНИРОВАНИЕ `c-map-next-integrated-house-wave-001`. Камера от первого лица — основной режим следующей волны, но архитектура обязана допускать переключение игроком в третье лицо и принудительный режим игры. Собранный exe нужен в конце волны, когда появится содержательная проверка с другим человеком, возможно с женой. Это вход в map, не активная задача и не запуск разработки."
     level: roadmap
     route: map
-    review_when: "Только в отдельном планировании следующей волны словами владельца; заново решить объём и порядок, не восстанавливая старые a-4b/a-5."
-    evidence: "Слова владельца в review 2026-08-04; history/2026-08-03-s-work-g-6b13-first-person-before-build-001.md; history/2026-08-04-s-review-g-6b13-two-stands-partial-001.md."
+    review_when: "Map-нога по `c-map-next-integrated-house-wave-001` развернула это в точную owner-approved карточку; не восстанавливать старые a-4b/a-5 и не выдавать capture за работу."
+    evidence: "history/2026-08-04-s-day-next-wave-basis-map-launch-001.md; work/c-map-next-integrated-house-wave-001-call.md; history/2026-08-03-s-work-g-6b13-first-person-before-build-001.md; history/2026-08-04-s-review-g-6b13-two-stands-partial-001.md."
   - id: i-multiple-cargo-geometries-residual-001
-    issue: "CAPTURE. Несколько переносимых грузов разной геометрии из g-6b13.done_when не сделаны и verdict `partial` их не закрывает. Владелец не включал этот хвост в следующую волну автоматически; его дальнейшая судьба остаётся отдельным решением."
+    issue: "DISPOSITION 2026-08-04. В следующую волну включён один уже существующий физический груз. Несколько переносимых грузов разной геометрии из g-6b13.done_when не сделаны, verdict `partial` их не закрывает, и в утверждённый базис новой волны они НЕ входят: это отдельный residual."
     level: roadmap
     route: map
-    review_when: "При отдельном планировании будущей волны: явно drop/park/admit; до этого не превращать в задачу."
-    evidence: "TREE.md g-6b13 критерий 1; history/2026-08-04-s-review-g-6b13-two-stands-partial-001.md."
+    review_when: "Текущая map-нога обязана сохранить границу «один груз внутри / несколько геометрий снаружи»; дальнейший admit нескольких геометрий требует отдельного слова владельца."
+    evidence: "Слова владельца `Один груз включаем; базис верен, сохраняй и продолжай планирование`; history/2026-08-04-s-day-next-wave-basis-map-launch-001.md; TREE.md g-6b13 критерий 1; history/2026-08-04-s-review-g-6b13-two-stands-partial-001.md."
   - id: i-cargo-low-fps-derived-velocity-gap-001
     issue: "CAPTURE. В опубликованном cargo-стенде `AuthoritativeCargoRoster.DeriveVelocity` выводит скорость из разницы поз; два тика в одном low-FPS кадре могут потерять гашение. Ограничение не чинилось и отдельного решения по нему нет."
     level: execution
@@ -232,13 +232,27 @@ issues:
     review_when: "Если будущая ставка снова допускает cargo-физику: до заявления о готовом поведении решить, принимать ли ограничение или расширять шов скоростью."
     evidence: "history/2026-08-04-s-work-g-6b13-a4-close-verification-checkpoint-002.md §evidence 9; продуктовый report docs/results/c-exec-two-carry-one-physical-cargo-proba-001.md."
   - id: i-tunnel-authored-first-future-input-001
-    issue: "CAPTURE. Владелец уже решил форму тоннеля: авторские ходы, первая реализация руками; editor-only генерация к заданным точкам через Dungeon Architect/PGG — лишь более поздняя сравнительная проба. Размер клетки, валюта, ситуационное копание и карточка узла не решены. Это не работа текущего review и не автоматическая часть следующей волны."
+    issue: "CAPTURE, ПРИНЯТЫЙ В ПЛАНИРОВАНИЕ `c-map-next-integrated-house-wave-001`. В первой версии тоннели заранее нарисованы и открываются: авторские ходы размещаются руками. Dungeon Architect/PGG допустимы позже только как editor-time сравнение с запечённым результатом, не как runtime-генератор. Валюта открытия не решена и не должна быть придумана планировщиком."
     level: roadmap
     route: map
-    review_when: "Только в отдельной будущей map/planning-ноге, если владелец выберет тоннельный узел."
-    evidence: "LOG.md receipts s-research-g-6b13-tunnel-form-decided-001 от 2026-08-03; Git state 494cb6e6; history/2026-08-04-s-review-g-6b13-two-stands-partial-001.md."
+    review_when: "Map-нога по `c-map-next-integrated-house-wave-001` развернула этот вход в точную owner-approved карточку без свободного копания, runtime procgen и выдуманной валюты."
+    evidence: "history/2026-08-04-s-day-next-wave-basis-map-launch-001.md; work/c-map-next-integrated-house-wave-001-call.md; LOG.md receipts s-research-g-6b13-tunnel-form-decided-001 от 2026-08-03; Git state 494cb6e6; history/2026-08-04-s-review-g-6b13-two-stands-partial-001.md."
+  - id: i-next-wave-integrated-slice-approved-basis-001
+    issue: "OWNER-APPROVED INPUT ДЛЯ MAP, НЕ АКТИВНАЯ РАБОТА. Следующая волна — один интегрированный сетевой фрагмент дома, а не отдельная камера или отдельный хозяин: один существующий физический груз; переключаемая архитектура камеры с первым лицом по умолчанию; data-driven хозяин без content-switch, с профилями, chatbot-редактором данных, POI/расписанием/памятью/вложенными отвлечениями/replan и погоней; одна runtime-сцена со split-ready границами; авторские открываемые тоннели; asset/toolkit spike до покупки; exe в конце для содержательного внешнего теста."
+    level: roadmap
+    route: map
+    review_when: "Убрать или заменить только после owner-approved точной карточки следующей волны, которая поглотит весь базис и даст явную судьбу устаревшим g-8f31, g-4d7a и g-c519."
+    evidence: "history/2026-08-04-s-day-next-wave-basis-map-launch-001.md; work/c-map-next-integrated-house-wave-001-call.md; history/2026-08-04-s-review-g-6b13-two-stands-partial-001.md; knowledge/host-shared-vocabulary.md; knowledge/where-art-lives.md; knowledge/code-survives-concept-resets.md."
 
-open_calls: []
+open_calls:
+  - id: c-map-next-integrated-house-wave-001
+    to: session
+    play: map
+    for: g-0c26
+    issued: 2026-08-04
+    status: ready
+    call: live/indie-game-development/work/c-map-next-integrated-house-wave-001-call.md
+    goal: "У следующей интегрированной игровой волны есть точная owner-approved карточка в roadmap, которая поглощает утверждённый базис и явно заменяет устаревшие предпосылки g-8f31, g-4d7a и g-c519."
 
 recurring: []
 
