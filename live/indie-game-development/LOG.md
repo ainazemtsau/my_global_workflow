@@ -1,5 +1,7 @@
 # LOG - indie-game-development
 
+2026-08-04 | s-review-g-6b13-two-stands-partial-001 | review | хозяин | g-6b13: verdict partial — один общий физический груз и расширяемый хозяин доказаны, exe и несколько геометрий отсутствуют; ставка, задачи, полосы и calls закрыты, camera/exe и residuals сохранены будущими inputs без запуска следующей волны. -> history/2026-08-04-s-review-g-6b13-two-stands-partial-001.md
+
 2026-08-04 | s-work-g-6b13-a4-close-verification-checkpoint-002 | work | переноска | g-6b13/a-4: binding fresh G5 выдержала exact code/history/report/checks и получила явные слова про второй хват и стену, но не получила различие «поперёк не проходит / вдоль проходит»; a-4 остаётся open, same-lane root ждёт только это наблюдение. -> history/2026-08-04-s-work-g-6b13-a4-close-verification-checkpoint-002.md
 
 2026-08-04 | s-work-g-6b13-a4-publish-return-checkpoint-001 | work | переноска | g-6b13/a-4: публикационный HOME принят — main/dev 839df47e содержат exact owner-tested blobs и честный report; прежний вывод, будто «всё работает» покрывает проём, стену и повторный хват, отозван, a-4 остаётся open до fresh close-verification. -> history/2026-08-04-s-work-g-6b13-a4-publish-return-checkpoint-001.md
