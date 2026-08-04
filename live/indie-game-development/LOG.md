@@ -1,5 +1,7 @@
 # LOG - indie-game-development
 
+2026-08-04 | s-map-g-0c26-integrated-house-slice-001 | map | direction | g-1d84: владелец принял точную карточку одного интегрированного куска дома, поглотившую весь базис волны; g-8f31 и g-4d7a закрыты, g-c519 сохранена и явно не наследуется; открыт один converge без ставки, задач и полос. -> history/2026-08-04-s-map-g-0c26-integrated-house-slice-001.md
+
 2026-08-04 | s-day-next-wave-basis-map-launch-001 | day | direction | Следующая волна: владелец утвердил интегрированный базис с одним существующим физическим грузом; базис сохранён и открыт один map-фронтир без ставки, задач, полос и запуска продукта. -> history/2026-08-04-s-day-next-wave-basis-map-launch-001.md
 
 2026-08-04 | s-review-g-6b13-two-stands-partial-001 | review | хозяин | g-6b13: verdict partial — один общий физический груз и расширяемый хозяин доказаны, exe и несколько геометрий отсутствуют; ставка, задачи, полосы и calls закрыты, camera/exe и residuals сохранены будущими inputs без запуска следующей волны. -> history/2026-08-04-s-review-g-6b13-two-stands-partial-001.md
