@@ -1,6 +1,6 @@
 # NOW: indie-game-development
 
-updated: 2026-08-04 by s-converge-arch-g-1d84-001
+updated: 2026-08-04 by s-converge-verify-g-1d84-001
 
 bet: null
 
@@ -228,14 +228,14 @@ issues:
     evidence: "Слова владельца 2026-08-04 в чате ноги s-converge-arch-g-1d84-001; `work/converge-g-1d84-arch.md` §A11 и §CONTRACTS C21; `knowledge/how-the-game-is-built-layers.md:74` (рабочие сцены уже разрешены принятым знанием); `i-owner-standing-rule-extend-never-rebuild-001` (его прежние слова о мелких пробных сценах)."
 
 open_calls:
-  - id: c-converge-verify-g-1d84-001
+  - id: c-converge-arch-g-1d84-002
     to: session
-    play: converge-verify
+    play: converge-arch
     for: g-1d84
     issued: 2026-08-04
     status: ready
-    call: live/indie-game-development/work/c-converge-verify-g-1d84-001-call.md
-    goal: "Свежая отдельная сессия пытается сломать закрытую поверхность g-1d84 до нарезки: каждый атомарный кусок двенадцати критериев доходит до строки, и каждая отвеченная строка стоит на источнике вне решавших ног. Первая converge-verify по этому узлу — потолок второго FAIL не действует."
+    call: live/indie-game-development/work/c-converge-arch-g-1d84-002-call.md
+    goal: "Свежая converge-arch отрабатывает семь строк, возвращённых первой converge-verify с вердиктом complete=FAIL smuggling=FAIL: две дыры полноты («сервисы» критерия 8 и содержание дома за целью и «зачем»), четыре строки, чей единственный источник — рассуждение решавшей ноги (доказательство отсутствия скрытых ссылок; довод про схему как проверялку; пять строк, объявленных закрытыми необязывающим файлом; чтение слова «инструментов»), и одно расхождение §SIGNOFF с собственным RESULT. Проверка ничего не отвечала и не чинила; после этой ноги converge-verify гоняется заново отдельной свежей сессией."
 
 recurring: []
 
