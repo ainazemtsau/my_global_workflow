@@ -1,6 +1,6 @@
 # NOW: indie-game-development
 
-updated: 2026-08-04 by s-map-g-0c26-integrated-house-slice-001
+updated: 2026-08-04 by s-converge-g-1d84-integrated-house-slice-001
 
 bet: null
 
@@ -221,14 +221,14 @@ issues:
     evidence: "TREE.md g-8f31 §dropped_when; слова владельца 2026-08-02 в TREE §owner_approved (ledger g-6b13); history/2026-08-03-s-research-g-6b13-cheap-digging-cost-001.md; history/2026-08-03-s-research-g-6b13-authoring-and-digging-001.md; history/2026-08-04-s-map-g-0c26-integrated-house-slice-001.md."
 
 open_calls:
-  - id: c-converge-g-1d84-integrated-house-slice-001
+  - id: c-converge-arch-g-1d84-001
     to: session
-    play: converge
+    play: converge-arch
     for: g-1d84
     issued: 2026-08-04
     status: ready
-    call: live/indie-game-development/work/c-converge-g-1d84-integrated-house-slice-001-call.md
-    goal: "У g-1d84 есть подписанный владельцем WHAT: спорные слова закреплены одним значением, каждое требование стоит на источнике вне решающей ноги, а каждая оставшаяся дыра названа и у неё есть тот, кто на неё отвечает."
+    call: live/indie-game-development/work/c-converge-arch-g-1d84-001-call.md
+    goal: "У g-1d84 закрыты контракты с соседями и отработаны девять высокорисковых архитектурных строк: каждая несёт опровергнутое сравнение вариантов и либо подпись владельца, либо явный open с названным отвечающим; форма файла профилей подписана им отдельно."
 
 recurring: []
 
