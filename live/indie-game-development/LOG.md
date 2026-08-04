@@ -1,5 +1,7 @@
 # LOG - indie-game-development
 
+2026-08-04 | s-work-g-6b13-a4-close-verification-checkpoint-002 | work | переноска | g-6b13/a-4: binding fresh G5 выдержала exact code/history/report/checks и получила явные слова про второй хват и стену, но не получила различие «поперёк не проходит / вдоль проходит»; a-4 остаётся open, same-lane root ждёт только это наблюдение. -> history/2026-08-04-s-work-g-6b13-a4-close-verification-checkpoint-002.md
+
 2026-08-04 | s-work-g-6b13-a4-publish-return-checkpoint-001 | work | переноска | g-6b13/a-4: публикационный HOME принят — main/dev 839df47e содержат exact owner-tested blobs и честный report; прежний вывод, будто «всё работает» покрывает проём, стену и повторный хват, отозван, a-4 остаётся open до fresh close-verification. -> history/2026-08-04-s-work-g-6b13-a4-publish-return-checkpoint-001.md
 
 2026-08-04 | s-work-g-6b13-a4-owner-visible-publish-checkpoint-001 | work | переноска | g-6b13/a-4: binding fresh G5 получила итоговые слова владельца на WIN-U3, но остановила закрытие на первом точном разрыве — проверенный tip 4f3cbc1c с видимым проёмом не входит в опубликованные main/dev 8da64943; a-4 остаётся open, открыт один same-lane root на публикацию принятых runtime-блобов и честное обновление отчёта. -> history/2026-08-04-s-work-g-6b13-a4-owner-visible-publish-checkpoint-001.md

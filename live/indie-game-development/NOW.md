@@ -1,6 +1,6 @@
 # NOW: indie-game-development
 
-updated: 2026-08-04 by s-work-g-6b13-a4-publish-return-checkpoint-001 (после s-work-g-6b13-a4-owner-visible-publish-checkpoint-001)
+updated: 2026-08-04 by s-work-g-6b13-a4-close-verification-checkpoint-002 (после s-work-g-6b13-a4-publish-return-checkpoint-001)
 
 bet:
   node: g-6b13
@@ -80,7 +80,7 @@ tasks:
     kind: executor
     status: open
     product_return: "ПРОДУКТ ДОСТАВЛЕН И ОПУБЛИКОВАН 2026-08-03, ЗАДАЧА НЕ ЗАКРЫТА. Наряд `c-exec-two-carry-one-physical-cargo-proba-001` вернулся терминально. Exact-history перепроверена первой рукой в этой сессии: basis `37519f52`; кандидат `49893ea7` (продукт) + `65540566` (отчёт) + `b7b8eaa0` (тюнинг после первого Play) + `dc5d48b0` (приёмка); `dev` подведён ЧИСТЫМ fast-forward `37519f52..dc5d48b0`, merge-коммита нет, все четыре SHA лежат на `dev` без переписывания; запись интеграции `4efbd70c`; `origin/main` = `origin/dev` = `4efbd70c`; `slot/win-u3` = `dc5d48b0` — предок `origin/dev`, непубликованного не осталось; WIN-U3 `CLEAN / AVAILABLE / lease none`. СВОЙ ПРОГОН на exact-кандидате `dc5d48b0`: `dotnet test tests/TunnelCrew.Core.Tests -c Release` → 38/38, 0 упало. Четыре блоба движения совпадают с basis побайтово (`6427b809`, `2346fe65`, `bfe9aa1d`, `df4a754f`) — расслоение выдержало. Диффом тронуты 36 файлов, все внутри разрешённой поверхности; `Packages/**`, `ProjectSettings/**`, `tools/**`, `validation.config`, `AGENTS.md` и полоса хозяина не тронуты. Рабочий масштаб назван одним числом: 1 юнит = 1 метр (мышь 2 юнита, балка 2.4×0.5, комната 24×24, проём 2). ЧТО ВЛАДЕЛЕЦ ПОДТВЕРДИЛ ГЛАЗАМИ, дословно: «два взялись, притом второй как-то не сразу взялся, но потом взялся»; «когда разъединяется, ну связь, видно, что разъединяется»; «два взяли, один отходит, у него разрывается. Это в принципе тема работает» — это пункт 1 `done_when`. ЧЕГО В ЕГО ПРИЁМКЕ НЕТ И ЧТО ПОЭТОМУ НЕ ЗАКРЫТО: пункт 2 целиком — балка в проёме (поперёк не проходит, разворачивается; вдоль проходит) и «мышь не входит в стену»; он об этом не сказал ни слова, и нога честно это записала вместо того, чтобы вывести. Плюс шаг «второй хват» стоит пройти ещё раз: его замечание отработано тюнингом `b7b8eaa0` (дальность взятия 1→1.3, длина связи 1.6→1.8) и после этого им не перепроверялось. ИЗВЕСТНОЕ ОГРАНИЧЕНИЕ, не чинилось намеренно и записано в отчёте: скорость груза судья выводит из разницы поз, поэтому при низком FPS два тика в одном кадре дают нулевую скорость и потерянное гашение; чинится только расширением шва до скорости, то есть отдельным решением владельца. ЗАМЕЩЕНИЕ ГЕЙТА — см. `i-unity-evidence-rests-on-owner-launch-001`. Binding fresh physical G5 всех трёх пунктов НЕ проводилась: продуктовая поставка, глаза владельца, merge и зелёные проверки её не заменяют."
-    close_verification_checkpoint: "2026-08-04 ПУБЛИКАЦИОННЫЙ РАЗРЫВ ЗАКРЫТ, НО a-4 ОСТАЁТСЯ OPEN. Read-only local refs и `git ls-remote` дали `origin/main` = `origin/dev` = `839df47e78127fe2ebfba5eabb307bf6bdd61e9b`. Merge `c26c2e08` сохраняет и актуальный host tip `8da64943`, и owner-tested `4f3cbc1c`; published runtime-блобы точны: `NetworkPlaySettings.asset` = `f750868c2b8d423ef678b6aedc09f31c808aa952`, `NetworkWalkers.unity` = `4c7b224b98b0e98dff508a65eaec4fc9d721c05c`. Отчёт честно обновлён до текущих 14×14 / divider z=5 / camera minimum 9 / cargo spawn z=2.5 / floor 16×16 и прямо говорит, что слова владельца «Так, проверил в слоте 3, да, действительно есть балка, всё работает, как ожидается. Можем закрывать» подтверждают видимый стенд, балку и переноску в целом, но НЕ называют отдельно разворот балки в проёме и упор мыши в стену; второй хват после тюнинга тоже отдельно не описан. Прежняя запись в `history/2026-08-04-s-work-g-6b13-a4-owner-visible-publish-checkpoint-001.md`, будто общая фраза автоматически покрыла все три наблюдения, была слишком сильным выводом за владельца и этим checkpoint ОТОЗВАНА. Следующий root — `c-work-a4-close-verification-002`: только его fresh physical binding PASS по exact published `839df47e` вправе закрыть a-4 и выпустить a-4b."
+    close_verification_checkpoint: "2026-08-04 BINDING FRESH G5 ДАЛА CHECKPOINT, a-4 ОСТАЁТСЯ OPEN. Exact published `origin/main` = `origin/dev` = `839df47e78127fe2ebfba5eabb307bf6bdd61e9b`; merge `c26c2e08` сохраняет host tip `8da64943` и owner-tested stand `4f3cbc1c`, report-only `839df47e` лежит сверху. Runtime-блобы точны: settings `f750868c2b8d423ef678b6aedc09f31c808aa952`, scene `4c7b224b98b0e98dff508a65eaec4fc9d721c05c`; четыре movement-блоба совпадают с basis. Код/history/report и recorded checks выдержали refutation по пунктам 1 и 3; пункт 2 выдержал по устройству физического тела, стен и плоской сцены, но не получил полного owner-eye. Владелец теперь явно сказал про второй хват «У второй, ну я не заметил проблем», а про стену — «мышь упёрлась тоже в стену»; про балку сказал «банк упёрлась просто как физический объект», что подтверждает столкновение в контексте вопроса, но НЕ называет последнее составное наблюдение: поперёк не прошла/упёрлась или развернулась, а вдоль прошла. Его общее «давай как бы там сильно не душнить, как бы закрывать» не подменено этим фактом. Известное low-FPS ограничение сохранено; Unity MCP остаётся `unrecorded`, его evidence законно заменён фактическим запуском владельца. Текущий root снят; `c-work-a4-doorway-orientation-verification-003` ждёт только явного наблюдения двух ориентаций, без немедленного повторного вопроса и без продуктовой работы. Только его PASS вправе закрыть a-4 и выпустить a-4b."
   - id: a-4b
     lane: переноска
     goal: "Смотришь на мир глазами своего человечка, а не сверху."
@@ -376,16 +376,17 @@ issues:
     review_when: "Отдельным следующим Direction-repair, не смешивая с двумя готовыми игровыми work-ногами; цель — привести NOW к шаблону и убрать закрытые факты из hot state с явными dispositions."
     evidence: "Свежий подсчёт после repair 2026-08-03: NOW.md = 374 строки при шаблонном потолке 150; `os/plays/repair.md` шаг 3 требует для hot-file bloat оставлять schema fields/pointers, потому что Git/history уже сохраняют committed detail."
 open_calls:
-  - id: c-work-a4-close-verification-002
+  - id: c-work-a4-doorway-orientation-verification-003
     to: session
     play: work
     for: a-4
     track: переноска
     issued: 2026-08-04
-    status: ready
-    call: live/indie-game-development/work/c-work-a4-close-verification-002-call.md
-    goal: "A-4 получила честный binding fresh-session вердикт на exact published `839df47e`: PASS только при явных словах владельца про проём, стену и второй хват после тюнинга; иначе один точный checkpoint."
-    note: "Публикация уже завершена: `origin/main` = `origin/dev` = `839df47e`, exact owner-tested runtime-блобы сохранены. Прежний вывод из общей фразы «всё работает» отозван: продуктовый отчёт прямо оставляет без owner-eye шаги про разворот балки в проёме и мышь у стены, а второй хват после тюнинга отдельно не описан."
+    status: waiting
+    waiting_on: "Владелец фактически наблюдал и назвал обе ориентации на published стенде: поперёк балка не проходит/упирается или разворачивается, вдоль проходит; либо прямо сказал, что этого не проверял."
+    call: live/indie-game-development/work/c-work-a4-doorway-orientation-verification-003-call.md
+    goal: "У exact published стенда `839df47e` есть честный owner-eye disposition последнего пробела a-4 — различия поведения балки поперёк и вдоль проёма."
+    note: "Binding fresh G5 уже выдержала refutation exact code/history/report/checks. Второй хват после тюнинга и упор мыши в стену подтверждены явными словами владельца; столкновение балки тоже названо. Не названо только: поперёк не проходит, вдоль проходит. Общий приказ закрывать этот факт не заменяет."
   - id: c-review-g-6b13-after-both-stands-001
     to: session
     play: review
@@ -485,11 +486,12 @@ decisions:
         нет». Это не отказ и не обещание; ни одна нога не имеет права ни назначить это задачей, ни
         объявить закрытым.
     route: work
-    when: "Наряд на a-4b выпускает fresh close-verification ПОСЛЕ закрытия a-4 — у полосы один
-      корень за раз. Публикация owner-tested стенда уже принята на exact `839df47e`; текущий root —
-      `c-work-a4-close-verification-002`, и только его fresh physical binding PASS вправе выпустить
-      a-4b. Наряд a-4b обязан явно сохранить уже закрытую владельцем границу: вертикали груза в нём
-      нет."
+    when: "Наряд на a-4b выпускается ПОСЛЕ закрытия a-4 — у полосы один корень за раз. Exact
+      published `839df47e` уже выдержал binding refutation по коду/history/report/checks; текущий
+      waiting root `c-work-a4-doorway-orientation-verification-003` держит только последнее
+      owner-eye различие: поперёк балка не проходит, вдоль проходит. Только его PASS вправе
+      выпустить a-4b. Наряд a-4b обязан явно сохранить уже закрытую владельцем границу: вертикали
+      груза в нём нет."
   - id: d-tunnel-form-authored-first-001
     date: 2026-08-03
     decided_by: owner
