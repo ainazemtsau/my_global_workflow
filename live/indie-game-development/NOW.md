@@ -1,6 +1,6 @@
 # NOW: indie-game-development
 
-updated: 2026-08-04 by s-work-g-1d84-first-lane-calls-001
+updated: 2026-08-05 by s-work-g-1d84-one-scene-owner-receipt-checkpoint-001
 
 bet:
   node: g-1d84
@@ -106,7 +106,8 @@ tasks:
     done_when: "Существует одна сцена, в которой одновременно работают двое сетевых ходоков на разных копиях и один существующий физический груз; нажатие Play поднимает игру сразу как судью, без прохода через экраны. Владелец нажал Play, походил и взял балку."
     visible: "Он ходит и берёт балку в новой общей сцене."
     from: "W01 · W13 · W15 · W17 · крит. 1 карточки; «нажал Play — уже в игре» — `knowledge/how-the-game-is-built-layers.md:74`."
-    status: ready
+    status: active
+    checkpoint: "Владелец проверил candidate `82a6a6c4` в WIN-U1 и сказал дословно: «вижу старую сцену по которой ношу балку», затем на явную развилку ответил «Принимаю базу». Это принимает старую геометрию как основание `IntegratedHouse`, но не закрывает задачу: продуктовый report всё ещё пишет `owner Play ... pending`, fresh binding G5 ещё не было, candidate не опубликован. Следующий same-lane root только записывает owner receipt в report поверх exact candidate, не поглощая посторонний Unity/MCP working-tree diff."
   - id: t-player-1
     track: игрок
     kind: executor
@@ -544,17 +545,19 @@ issues:
     evidence: "Слова владельца 2026-08-04 в чате ноги s-converge-arch-g-1d84-001; `work/converge-g-1d84-arch.md` §A11 и §CONTRACTS C21; `knowledge/how-the-game-is-built-layers.md:74` (рабочие сцены уже разрешены принятым знанием); `i-owner-standing-rule-extend-never-rebuild-001` (его прежние слова о мелких пробных сценах)."
 
 open_calls:
-  - id: c-exec-g-1d84-one-scene-what-exists-001
+  - id: c-exec-g-1d84-one-scene-owner-receipt-001
     to: executor
+    kind: engineering
+    repo: C:/projects/Unity/GasCoopGame_win-u1
+    engineering_contract: legacy:c-exec-g-1d84-one-scene-what-exists-001
     play: work
     for: g-1d84
     track: сцена
     task: t-scene-1
-    issued: 2026-08-04
-    status: running
-    launch_receipt: "ИЗМЕРЕНО ПЕРВОЙ РУКОЙ 2026-08-04 ногой s-work-g-1d84-first-lane-calls-001, а не сообщено: реестр `C:/projects/Unity/GasCoopGame_slot-state/gascoop-slot-state.v1.json` держит `WIN-U1` в `lifecycle: CLAIMED` с `lease: c-exec-g-1d84-one-scene-what-exists-001:BUILD`; в `C:/projects/Unity/GasCoopGame_WIN-U1` ветка `slot/win-u1` стоит на `82a6a6c4`, семь изменённых файлов, два коммита впереди `839df47e`, и оба коммита названы этим же id (`9113b24a` establish integrated scene, `82a6a6c4` record candidate report). Статус его собственного отчёта `docs/results/c-exec-g-1d84-one-scene-what-exists-001.md` дословно: `CANDIDATE on slot/win-u1; owner Play and fresh binding G5 pending`. Продуктовый кандидат: `NetworkWalkers.unity` → `Assets/TunnelCrew/Scenes/IntegratedHouse.unity` побайтовым переименованием с сохранением GUID `31d4e989f2353534182e51e1c86ef3e9` плюс две переведённые ссылки (`NetworkRuntime.prefab`, `EditorBuildSettings.asset`); свой прогон — 43 теста и `check.ps1` зелёные. В `main` (= `origin/main` = `839df47e`) этого НЕТ. НАРЯД БОЛЬШЕ НЕ ВЫДАЁТСЯ ПОВТОРНО. Закрытие остаётся за возвратом домой: слово владельца после Play плюс отдельная свежая биндинговая проверка в другом физическом чате — ни отчёт исполнителя, ни зелёный прогон закрытием не являются."
-    call: live/indie-game-development/work/c-exec-g-1d84-one-scene-what-exists-001-call.md
-    goal: "Одна запускаемая сцена, в которой одновременно двое сетевых ходоков на разных копиях и один существующий физический груз; Play поднимает игру сразу как судью. Первая задача волны и физическое основание всех остальных. База объявлена и все названные пути проверены первой рукой на `main` = `839df47e`."
+    issued: 2026-08-05
+    status: ready
+    call: live/indie-game-development/work/c-exec-g-1d84-one-scene-owner-receipt-001-call.md
+    goal: "Продуктовый отчёт честно содержит уже данную владельцем приёмку базовой интегрированной сцены, а exact runtime-candidate остаётся неизменным и отделённым от постороннего Unity/MCP diff."
   - id: c-exec-g-1d84-three-rooms-by-hand-001
     to: executor
     play: work

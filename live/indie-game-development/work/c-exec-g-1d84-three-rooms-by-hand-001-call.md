@@ -10,6 +10,8 @@ track: дом
 task: t-house-1
 issued: 2026-08-04 by s-work-g-1d84-first-lane-calls-001
 status: ready
+slot: НАЗЫВАЕТ ВЛАДЕЛЕЦ В СООБЩЕНИИ (этого требует контракт продукта). Рекомендация — `WIN-U2`,
+      запасной `WIN-U4`; `WIN-U1` занят первой задачей волны
 
 ## goal
 
@@ -85,9 +87,17 @@ status: ready
 - **`WIN-U2`, `WIN-U3`, `WIN-U4` свободны:** `AVAILABLE`, `lease: none`, рабочие каталоги ЧИСТЫ и стоят
   ровно на `839df47e` (`rev-list --left-right --count` = `0 0` у каждого).
 
-Слот выбирает исполняющая нога ИЗ ТРЁХ СВОБОДНЫХ; параллельно идут ещё наряды этой же волны, поэтому
-слот занимается ОДИН и до работы сверяется clean / HEAD / ancestry
-(`i-slots-carry-old-contour-until-updated-001`).
+**СЛОТ НАЗЫВАЕТ ВЛАДЕЛЕЦ В СООБЩЕНИИ С ЗАДАЧЕЙ — так требует контракт продукта (`AGENTS.md`,
+«Worktree workflow»), и агент выбирать не вправе:** «If the message does not name one of the four slots,
+ask the owner which slot to use and do not choose one automatically». Этот наряд слот НЕ фиксирует, он
+даёт рекомендацию — **`WIN-U2`** (`C:\projects\Unity\GasCoopGame_win-u2`, ветка `slot/win-u2`); запасной
+`WIN-U4`. `WIN-U1` занят и не рассматривается. Если слот в сообщении не назван — СТОП и вопрос владельцу.
+
+Первая операция ноги, до любой записи в рабочий каталог:
+`.\pwsh.cmd tools/select-slot.ps1 -Slot WIN-U<N> -Claim -LeaseId c-exec-g-1d84-three-rooms-by-hand-001:BUILD`.
+Не-`AVAILABLE`, несовпадение ветки или расхождение с названным слотом — STOP. Селектор не видит
+открытый Unity Editor, поэтому перед работой сверяются и селектор, и clean / HEAD / ancestry
+(`i-slots-carry-old-contour-until-updated-001`). Слот занимается ОДИН.
 
 ## context
 
