@@ -1,6 +1,6 @@
 # NOW: indie-game-development
 
-updated: 2026-08-05 by s-work-g-1d84-one-scene-binding-g5-001
+updated: 2026-08-05 by s-work-g-1d84-one-scene-binding-g5-pass-001
 
 bet:
   node: g-1d84
@@ -107,7 +107,7 @@ tasks:
     visible: "Он ходит и берёт балку в новой общей сцене."
     from: "W01 · W13 · W15 · W17 · крит. 1 карточки; «нажал Play — уже в игре» — `knowledge/how-the-game-is-built-layers.md:74`."
     status: active
-    checkpoint: "Terminal report-only HOME принят: commit `923f6f7c748b61bd5e85a272b3a5e012414e992f` с parent `82a6a6c4e88a4d216e8fa1db092118acf66b5fff` меняет только `docs/results/c-exec-g-1d84-one-scene-what-exists-001.md`; exact runtime-candidate `9113b24a9a9e753de702101b3dbf1eddcf1e8e0f` и его четыре runtime-пути не изменены. Report честно держит `CANDIDATE`: владелец сказал «вижу старую сцену по которой ношу балку» и «Принимаю базу», то есть принял старую геометрию как основание, но не будущий вид дома; fresh binding G5 и Control publication pending. WIN-U1 остаётся `DIRTY-PRESERVED / CLAIMED`, lease `c-exec-g-1d84-one-scene-what-exists-001:BUILD`, endpoint unrecorded; семь чужих путей сохранены. Задача остаётся active; следующий same-lane root — отдельная свежая binding G5 точного owner-tested candidate."
+    checkpoint: "Fresh physical binding G5 вернула PASS по всем пяти исходным done_when exact chain `839df47e` → runtime `9113b24a` → report `82a6a6c4` → owner receipt `923f6f7c`: scene/meta — R100 с сохранённым GUID, изменены только две path-ссылки, четыре runtime-пути между `9113b24a` и `923f6f7c` совпадают, owner words ограничены старой геометрией как основанием. Задача остаётся active до Control publication. WIN-U1 по последнему committed custody receipt остаётся `DIRTY-PRESERVED / CLAIMED` с семью foreign paths; обычный свежий status в G5 был недоступен из-за LFS clean-filter и не подменялся. Следующий same-lane root — `c-ctrl-g-1d84-one-scene-publish-001` на WIN-CTRL: публикация exact chain и lossless terminal release либо точный blocker."
   - id: t-player-1
     track: игрок
     kind: executor
@@ -545,16 +545,16 @@ issues:
     evidence: "Слова владельца 2026-08-04 в чате ноги s-converge-arch-g-1d84-001; `work/converge-g-1d84-arch.md` §A11 и §CONTRACTS C21; `knowledge/how-the-game-is-built-layers.md:74` (рабочие сцены уже разрешены принятым знанием); `i-owner-standing-rule-extend-never-rebuild-001` (его прежние слова о мелких пробных сценах)."
 
 open_calls:
-  - id: c-work-g-1d84-one-scene-binding-g5-001
-    to: session
+  - id: c-ctrl-g-1d84-one-scene-publish-001
+    to: executor
     play: work
     for: g-1d84
     track: сцена
     task: t-scene-1
     issued: 2026-08-05
     status: ready
-    call: live/indie-game-development/work/c-work-g-1d84-one-scene-binding-g5-001-call.md
-    goal: "Для exact owner-tested candidate установлен независимый binding fresh-session verdict: он либо удовлетворяет каждому исходному done_when и допускается к Control publication, либо имеет один точный blocker."
+    call: live/indie-game-development/work/c-ctrl-g-1d84-one-scene-publish-001-call.md
+    goal: "Exact owner-tested runtime/report chain опубликована в main/dev, report честно имеет статус DELIVERED после readback, а WIN-U1 терминально освобождён без потери семи foreign edits либо возвращён один точный blocker."
   - id: c-exec-g-1d84-three-rooms-by-hand-001
     to: executor
     play: work
