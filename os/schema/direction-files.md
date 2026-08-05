@@ -96,7 +96,7 @@ direction_forecast:
   # confidence: low            # low | medium | high
   # calibration: <empirical reference class/source + denominator>
 
-issues:                         # unresolved only; compact, not a task backlog
+issues:                         # unresolved only; pointer rows (~800 chars), not a task backlog or an archive
   - id: i-ab12                  # stable, never reused
     issue: <one factual problem/unknown>
     level: objective            # direction | roadmap | objective | execution
@@ -159,7 +159,7 @@ The forecast estimates one explicit dated direction target, not percentage of ta
 
 ### Issues
 
-An issue is a problem/unknown that cannot safely disappear and is not yet admitted work. It needs a route owner and `review_when`; otherwise it is noise and is not saved. Ideas go to captures/TREE, owner choices to decisions, tasks to the active bet, OS defects to MAINTENANCE/FRICTION — not issues. At the trigger, day/pulse routes it: resolve, merge, promote through its owning play, or drop with reason. Removing an issue requires its id plus disposition/evidence in RESULT/history. Issues do not authorize execution or count as progress.
+An issue is a problem/unknown that cannot safely disappear and is not yet admitted work. It needs a route owner and `review_when`; otherwise it is noise and is not saved. Ideas go to captures/TREE, owner choices to decisions, tasks to the active bet, OS defects to MAINTENANCE/FRICTION — not issues. At the trigger — or earlier, when a leg's own evidence settles it — day, pulse, or a leg running the play named in its `route` routes it: resolve, merge, promote through its owning play, or drop with reason. Removing an issue requires its id plus disposition/evidence in RESULT/history; closing is an ordinary state change, not an owner-approval event. A row is a pointer, never an archive: template keys only, `issue`/`review_when` ≤2 short sentences each, `evidence` pointers only, ~800 characters per row (audit flags past it). Owner words, analysis and enumerated findings stay in `history/`/`work/`; a settled durable fact goes to `knowledge/` — never into a new key on the row. Issues do not authorize execution or count as progress.
 
 ### Execution lanes
 

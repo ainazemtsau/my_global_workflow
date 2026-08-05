@@ -41,6 +41,9 @@ Hard habits:
 - NOW.issues holds only factual unresolved problems with stable id, owning
   route, review trigger and evidence pointer. It is not a task backlog. Ideas
   go to captures/TREE; owner choices to decisions; OS defects to maintenance.
+  A row is a pointer, not an archive (~800 chars, template keys only): owner
+  words and analysis live in history/knowledge. A leg that settles an issue
+  routed to its own play closes it in that RESULT with disposition+evidence.
 - Direction forecast is not task percent. Numeric chance/range requires a
   cited empirical reference class/calibration; otherwise say `no_basis` and
   name missing evidence/update trigger. Never force daily improvement.

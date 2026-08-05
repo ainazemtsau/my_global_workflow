@@ -104,7 +104,7 @@ ceiling only after the corresponding obligations are proved removed.
 | G41 | Unit tests contain no real-clock dependency. | `os/engineering/VALIDATION.md:96` |
 | G42 | Every test asserts. | `os/engineering/VALIDATION.md:97` |
 
-## X - cross-cutting axes (100)
+## X - cross-cutting axes (96)
 
 | ID | Independently removable axis | Authority |
 |---|---|---|
@@ -252,7 +252,7 @@ Each row must be answered independently `addressed | n/a because <reason>`.
 | S14d | Multi-actor-one-tick property row. | `os/engineering/VALIDATION.md:15` |
 | S14e | Boundary-biased property row. | `os/engineering/VALIDATION.md:15` |
 
-## E - artifacts and evidence objects (31)
+## E - artifacts and evidence objects (30)
 
 | ID | Required object | Authority |
 |---|---|---|
