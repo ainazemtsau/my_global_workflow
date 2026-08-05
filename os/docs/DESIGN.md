@@ -78,7 +78,7 @@ Rolling-wave, механически проверяемый. Отвергнут�
 | R-13 desync — норма | play repair; G5 «не выдумывать прогресс» |
 | R-14 рекурсивная декомпозиция | D1; shape Note про детей вместо задач |
 | R-15 волна детализации | G2 |
-| R-16 возникающая работа не теряется | capture-ход + `NOW.issues` с stable id, route, review_when и evidence (строка — указатель, не архив); триаж в day/pulse или в ноге плея, названного в `route` |
+| R-16 возникающая работа не теряется | capture-ход + `NOW.issues` с stable id, route, review_when и evidence (новая строка — указатель, не архив; прежние живут как есть); триаж в day/pulse или в ноге плея из `route`, чей `Writes:` несёт issues |
 | R-17 жёсткий отбор следующего | review шаг 6 + RAT в G6; day рекомендует один фокус и 0..N независимых execution lanes только внутри текущего бета |
 | R-18 сила отсечения | G3 (no extend), G6 (cut list), add-back check, parking lot |
 | R-19 кросс-функциональность из структуры | D5 |
