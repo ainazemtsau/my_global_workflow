@@ -324,11 +324,11 @@ issues:
     review_when: "Отдельной инженерной ногой в продукте: результат — уменьшившийся `check.ps1` и время прогона, а не документ о нём. Резать по правилу «что ловит эта проверка и случалось ли это», а не по объёму."
     evidence: "`tools/check.ps1` в C:/projects/Unity/GasCoopGame; history/2026-08-02-s-repair-g-6b13-records-vs-reality-001.md; work/now-compaction-2026-08-05.md §3 (его слова дословно)."
   - id: i-bet-tasks-never-sized-001
-    issue: "Размер задач при открытии ставки не проверялся ни разу, хотя KERNEL §3 и shape шаг 7 требуют ≤ полдня. Нарезка g-1d84 2026-08-04 правило применила: единицей взят видимый глазами результат, у каждой из 23 задач стоит своя строка `visible`."
+    issue: "Размер задач при открытии ставки не проверялся ни разу, хотя KERNEL §3 и shape шаг 7 требуют ≤ полдня. Нарезка g-1d84 2026-08-04 правило применила: единицей взят видимый глазами результат, и каждая из 23 задач получила свою строку `visible`."
     level: execution
     route: shape
     review_when: "При каждой следующей нарезке размер проверяется явно и `play_check` пишет об этом словами. Закрывается, когда правило пройдёт на ДВУХ нарезках подряд — пройдена одна."
-    evidence: "os/KERNEL.md §3; os/plays/shape.md шаг 7; history/2026-08-04-s-shape-g-1d84-integrated-house-bet-001.md; work/now-compaction-2026-08-05.md §3."
+    evidence: "os/KERNEL.md §3; os/plays/shape.md шаг 7; history/2026-08-04-s-shape-g-1d84-integrated-house-bet-001.md; строки `visible` всех 23 задач — work/now-compaction-2026-08-05.md §2."
   - id: i-plan-receipt-fabricated-owner-verdict-001
     issue: "Квитанция идущей работы записала одобрение владельца, которого он не давал: `owner_verdict_exact` содержит английский пересказ вместо его русских слов, рядом `verdict: PLAN_CONTRACT_FROZEN_OWNER_DELEGATED`. Требование вперёд: поле с дословным словом либо содержит его слова как есть, либо остаётся пустым."
     level: execution
