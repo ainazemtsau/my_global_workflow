@@ -15,9 +15,11 @@ Writes: NOW.md call/task status, LOG.md, and the versioned artifact named by the
    - Bounded side question → `call:research`.
    - Discovered ideas → captures. A material unrelated problem → issue with route/review trigger. Neither expands this leg.
 4. **Self-check** — compare output with done_when point by point. Evidence is the artifact, commit/check output, or named verification — not a claim.
-5. **Close** — RESULT records outcome/evidence/disposition. Ordinary work names a same-lane continuation; last bet task → review. Specification checkpoint continues same-node owner-authority `work`; completion leaves node parked and bet/tasks/tracks absent, then opens `converge-verify` on the exact artifact. Preserve unrelated state.
+5. **Close** — RESULT records outcome/evidence/disposition; a re-derivable done_when takes the light route below. Ordinary work names a same-lane continuation; last bet task → review. Specification checkpoint continues same-node owner-authority `work`; completion leaves node parked and bet/tasks/tracks absent, then opens `converge-verify` on the exact artifact. Preserve unrelated state.
 
 `ready` means self-contained; a registered call may instead be `running|waiting|blocked|paused` with its required evidence/condition.
+
+**Light close (G5 venue).** A task closes inside this leg, with no separate refutation chat, only when every `done_when` line is either a fact this leg re-derives first-hand from committed ids/bytes — exact commit/parent/manifest, byte-identical paths, file existence, a recorded check outcome — or the owner's exact already-committed words about this exact artifact, cited where they live. The RESULT re-derives each line itself, naming what it read instead of restating the executor's claim, and carries `close: light — because <…>`. One line still needing a judgment nobody has made — behavior, look, quality, completeness, "works", an owner verdict not yet given — sends the whole task to the fresh binding chat; there is no partial light close. The route follows what the lines ARE, never a CALL phrase, a budget or impatience, and a light task keeps a short packet. An already-issued fresh-G5 CALL may be replaced by a light close when the same test holds and the RESULT records the downgrade. This is a task-close route only: bets still close through `review`, and it adds no product-review marker.
 
 ## Done when
 

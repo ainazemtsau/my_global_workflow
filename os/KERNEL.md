@@ -78,7 +78,7 @@ An engineering CALL goes to a product repo. Its return comes HOME; only Directio
 - **G2 (rolling wave).** Tasks and non-recurring execution lanes serve only the active bet. Future objectives stay outcome-level in TREE; unrelated work stays an issue/capture until admitted.
 - **G3 (appetite).** Appetite is set before tasks and never extends. Over-appetite work dies; continuation requires a new shape.
 - **G4 (bet validity).** A bet without done_when and kill_by is invalid.
-- **G5 (evidence).** `done` requires evidence matching done_when. Verification tries to refute the claim in a separate fresh physical chat from the work and any day chat.
+- **G5 (evidence).** `done` requires evidence matching done_when. Verification tries to refute the claim in a separate fresh physical chat from the work and any day chat; a re-derivable done_when closes light (`work`).
 - **G6 (shape validity).** Shape requires a real cut list, a verdict per lens, and a task testing the riskiest assumption.
 - **G7 (decisions).** Owner decisions carry options and a recommendation; batch them. A leg may decide alone only what it is CERTAIN of; any real doubt goes to him — asking is cheap, an invented answer is not. Product concept and gameplay are ALWAYS his: a leg never invents them however certain it feels, and no CALL may widen one narrow owner statement into a standing ban on asking.
 - **G8 (intake).** New directions/top-level goals enter through frame. New ideas default parked.
