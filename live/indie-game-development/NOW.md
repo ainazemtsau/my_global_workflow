@@ -1,6 +1,6 @@
 # NOW: indie-game-development
 
-updated: 2026-08-05 by s-work-g-1d84-one-scene-owner-receipt-checkpoint-001
+updated: 2026-08-05 by s-work-g-1d84-one-scene-binding-g5-001
 
 bet:
   node: g-1d84
@@ -107,7 +107,7 @@ tasks:
     visible: "Он ходит и берёт балку в новой общей сцене."
     from: "W01 · W13 · W15 · W17 · крит. 1 карточки; «нажал Play — уже в игре» — `knowledge/how-the-game-is-built-layers.md:74`."
     status: active
-    checkpoint: "Владелец проверил candidate `82a6a6c4` в WIN-U1 и сказал дословно: «вижу старую сцену по которой ношу балку», затем на явную развилку ответил «Принимаю базу». Это принимает старую геометрию как основание `IntegratedHouse`, но не закрывает задачу: продуктовый report всё ещё пишет `owner Play ... pending`, fresh binding G5 ещё не было, candidate не опубликован. Следующий same-lane root только записывает owner receipt в report поверх exact candidate, не поглощая посторонний Unity/MCP working-tree diff."
+    checkpoint: "Terminal report-only HOME принят: commit `923f6f7c748b61bd5e85a272b3a5e012414e992f` с parent `82a6a6c4e88a4d216e8fa1db092118acf66b5fff` меняет только `docs/results/c-exec-g-1d84-one-scene-what-exists-001.md`; exact runtime-candidate `9113b24a9a9e753de702101b3dbf1eddcf1e8e0f` и его четыре runtime-пути не изменены. Report честно держит `CANDIDATE`: владелец сказал «вижу старую сцену по которой ношу балку» и «Принимаю базу», то есть принял старую геометрию как основание, но не будущий вид дома; fresh binding G5 и Control publication pending. WIN-U1 остаётся `DIRTY-PRESERVED / CLAIMED`, lease `c-exec-g-1d84-one-scene-what-exists-001:BUILD`, endpoint unrecorded; семь чужих путей сохранены. Задача остаётся active; следующий same-lane root — отдельная свежая binding G5 точного owner-tested candidate."
   - id: t-player-1
     track: игрок
     kind: executor
@@ -545,19 +545,16 @@ issues:
     evidence: "Слова владельца 2026-08-04 в чате ноги s-converge-arch-g-1d84-001; `work/converge-g-1d84-arch.md` §A11 и §CONTRACTS C21; `knowledge/how-the-game-is-built-layers.md:74` (рабочие сцены уже разрешены принятым знанием); `i-owner-standing-rule-extend-never-rebuild-001` (его прежние слова о мелких пробных сценах)."
 
 open_calls:
-  - id: c-exec-g-1d84-one-scene-owner-receipt-001
-    to: executor
-    kind: engineering
-    repo: C:/projects/Unity/GasCoopGame_win-u1
-    engineering_contract: legacy:c-exec-g-1d84-one-scene-what-exists-001
+  - id: c-work-g-1d84-one-scene-binding-g5-001
+    to: session
     play: work
     for: g-1d84
     track: сцена
     task: t-scene-1
     issued: 2026-08-05
     status: ready
-    call: live/indie-game-development/work/c-exec-g-1d84-one-scene-owner-receipt-001-call.md
-    goal: "Продуктовый отчёт честно содержит уже данную владельцем приёмку базовой интегрированной сцены, а exact runtime-candidate остаётся неизменным и отделённым от постороннего Unity/MCP diff."
+    call: live/indie-game-development/work/c-work-g-1d84-one-scene-binding-g5-001-call.md
+    goal: "Для exact owner-tested candidate установлен независимый binding fresh-session verdict: он либо удовлетворяет каждому исходному done_when и допускается к Control publication, либо имеет один точный blocker."
   - id: c-exec-g-1d84-three-rooms-by-hand-001
     to: executor
     play: work
