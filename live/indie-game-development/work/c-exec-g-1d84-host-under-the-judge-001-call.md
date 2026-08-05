@@ -185,6 +185,15 @@ ask the owner which slot to use and do not choose one automatically». Этот 
   экранах хозяин в одном месте» — он смотрит сам. Поэтому MCP-эндпоинт предусловием старта не
   является (`i-unity-evidence-rests-on-owner-launch-001`); если по ходу понадобится факт из Unity без
   него, эндпоинт записывается и проверяется ДО работы, а не вместо неё.
+- **ЧУЖОЙ ДИФФ ОТ ОТКРЫТИЯ UNITY НЕ ПРИПИСЫВАТЬ СЕБЕ.** В слоте `WIN-U1` после запуска Unity в рабочем
+  дереве появилось СЕМЬ незакоммиченных путей, к работе не относящихся:
+  `Assets/Plugins/NuGet/.nuget-installed.json`, `McpPlugin.Common.dll`, `McpPlugin.dll`,
+  `ReflectorNet.dll`, `Packages/manifest.json`, `Packages/packages-lock.json`,
+  `ProjectSettings/EditorBuildSettings.asset` — обновление MCP/NuGet `0.86.2` → `0.87.0` и
+  editor-сериализация. **В этом слоте ожидается то же самое.** Такие пути не stage, не commit, не
+  revert, не clean и не stash: в дифф задачи они не входят, а их происхождение и желательность этим
+  нарядом не решаются. Если из-за них не получается закоммитить свой результат отдельно — это один
+  точный blocker домой, а не очистка дерева.
 - **Закрывающий отчёт пишет САМА нога** в своём слоте, с честным статусом, до возврата домой; строку
   статуса на «DELIVERED on dev» переставляет интеграция после слияния. Красный `-Deliver` на ветке
   слота — нормальное прединтеграционное состояние (`i-closing-report-ownership-unclear-001`).
