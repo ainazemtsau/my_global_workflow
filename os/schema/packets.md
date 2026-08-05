@@ -82,7 +82,8 @@ evidence: |
   <proof matching done_when: artifact paths, commit/PR links, check output,
    source links. A claim without evidence is not an outcome.>
 state_changes: |
-  <exact edits: NOW.md task/track statuses, TREE.md node changes, files added to work/.
+  <exact edits: NOW.md task/track statuses, TREE.md node changes, files added to work/,
+   knowledge/ entries added by the KERNEL §2 `knowledge` move (schema: direction-files.md).
    Includes CALLs issued by this session with track/status, for NOW.md → open_calls,
    and clears the returning call.
    Written with stable targets and explicit postconditions so a mechanical

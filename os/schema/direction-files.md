@@ -193,6 +193,18 @@ accepted: <date>   read_by: <play/lens and trigger>   status: current | stale
 
 No real `read_by` consumer means no knowledge entry.
 
+**Who writes.** Any leg may ADD an entry through the KERNEL §2 `knowledge` move. `review` and `pulse` additionally merge, retire and set `status: stale`. The converge family (`converge`, `converge-arch`, `converge-verify`) never writes here: it imports canon born-closed, so minting its own would be self-certification — it proposes to review/pulse as before.
+
+**What qualifies — three tests, all required.**
+
+- **Sourced.** Every load-bearing line cites the owner's exact words (quote plus its `history/` leg id) or a resolvable artifact (`path:line`, SHA, run output). A line the leg reasoned out is not knowledge: it stays a `capture`, or an issue with its answerer named. This is the same outside-source test `converge` applies to an `answered` row.
+- **Durable.** The claim is expected to outlive the current bet. Operational facts owned by another authority — repo paths, branches, worktrees, slot state, tool versions — are read from that authority at use time, never frozen here (witness: FRICTION 2026-07-16, mutable venue paths copied into knowledge produced two competing dispatch systems).
+- **Consumed.** `read_by` names a real play/lens and the trigger at which it is read.
+
+**What this replaces.** A settled owner-approved fact — including one about work that is not the current bet — belongs here. Not in `NOW.issues`, which holds a problem or unknown, not a fact, and not ad-hoc keys invented on an issue or a TREE card. Not only inside a `history/` RESULT, which a later leg can reach only by sweeping. Entries written before this rule stay valid unchanged; no migration is required.
+
+**Staleness is the invalidation condition.** `status: stale` means the basis moved: a stale entry is never imported born-closed, it is re-asked or retired. Any leg that finds the basis moved records that; `review`/`pulse` decide retire-versus-rewrite.
+
 ## work/
 
 Outputs/evidence, not state. Large binaries use LFS/external storage with a small pointer.

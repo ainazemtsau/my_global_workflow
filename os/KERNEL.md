@@ -24,7 +24,8 @@ The OS runs the owner's long-term directions through short AI legs over durable 
    - `call:research` — bounded child question;
    - `call:executor` — delegated execution;
    - `capture` — one-line emergent idea for later triage, never acted on in the same leg;
-   - `decision` — owner question with 2–3 options and a recommendation.
+   - `decision` — owner question with 2–3 options and a recommendation;
+   - `knowledge` — record one settled durable fact where every load-bearing line cites his exact words or a resolvable artifact and `read_by` names a real consumer. What the leg reasoned out stays a capture. The converge family only proposes; review/pulse merge, retire and mark stale.
 3. **CLOSE** — emit RESULT (§4) as the leg's final message only: readable summary, then one fenced RESULT. It ends the leg; the writer applies/commits `state_changes`. A checkpoint issues a continuation CALL. A day chat may accept a later owner turn only after the saved transaction completes; `закрываем день` ends it. Read-only day turns emit no RESULT.
 
 **Orientation header.** Ordinary reply:
@@ -51,7 +52,7 @@ Day reply:
 | `NOW.md` | at most one active objective, tasks, execution lanes/calls, open issues, direction forecast, recurring work, decisions | every leg |
 | `LOG.md` | append-only one-line leg index | every leg |
 | `history/` | full RESULT of every leg | append-only |
-| `knowledge/` | accepted facts; each names who reads it and when | review, pulse |
+| `knowledge/` | accepted facts; each names who reads it and when | any leg (`knowledge` move); review/pulse curate |
 
 `work/` holds outputs and evidence, never current state.
 
