@@ -1,6 +1,6 @@
 # NOW: indie-game-development
 
-updated: 2026-08-05 by s-work-g-1d84-scene-move-and-call-frontier-001
+updated: 2026-08-05 by s-day-g-1d84-free-kits-manual-authoring-launch-blocked-001
 
 bet:
   node: g-1d84
@@ -305,8 +305,19 @@ tasks:
     done_when: "До любой покупки проведена проба бесплатных наборов — Quaternius, Kenney, KayKit, Poly Haven — и её результат виден в сцене; чужие модели завёрнуты в собственные заготовки проекта; арт лежит в `Assets/TunnelCrew/Art/`. Владелец посмотрел на угол дома и сказал, стыдно это или нет."
     visible: "Смотрит на угол дома и говорит, стыдно или нет."
     from: "W79 · W81 · крит. 10 карточки · I13 · `knowledge/where-art-lives.md`."
-    note: "ЕГО РАЗВИЛКА О СЛОВЕ «ИНСТРУМЕНТЫ» ЭТУ ЗАДАЧУ НЕ ДЕРЖИТ: при любом из трёх чтений первый шаг один и тот же. Развилка станет блокером только перед покупкой или установкой инструмента. Проверено первой рукой: папки `Assets/TunnelCrew/Art/` сегодня не существует. В наряд вопросами: W85 (ветка Unity 6000.5 ломает пакеты, собранные под 6000.0 — проверка ДО установки), W84 (лицензия Mixamo никем не прочитана — в наряд не писать), W86a (Blender как инструмент моделирования)."
-    status: ready
+    note: |
+      РАЗВИЛКА О СЛОВЕ «ИНСТРУМЕНТЫ» ЗАКРЫТА ВЛАДЕЛЬЦЕМ 2026-08-05 не названием программы, а
+      устройством работы: угол собирает руками он сам (позже так же сможет собирать жена), ассистент
+      готовит структуру и советует, а MCP прежде всего проверяет точность, сетку/привязку и ошибки.
+      Точный Unity-инструмент выбирает PLAN по уже стоящим возможностям; новая установка и покупка
+      по-прежнему требуют отдельного слова. Его точные слова и сила решения сохранены в
+      `history/2026-08-05-s-day-g-1d84-free-kits-manual-authoring-launch-blocked-001.md` и в наряде.
+      Запуск создан отдельной Codex-задачей. Первый ответ claim сообщил отказ записи lock, но поздний
+      readback и затем две независимые сверки самой задачи подтвердили терминальную квитанцию:
+      `WIN-U3 CLAIMED`, exact lease этой работы, ветка чиста на `839df47e`. Следующая обязательная
+      операция остановилась до product work: fast-forward к `02a53bbb` не смог создать lock в общей
+      Git worktree metadata. Слот сохраняет exact lease; игровых файлов и refs задача не изменила.
+    status: blocked_by_u3_fast_forward_permission
   - id: t-look-2
     track: внешний-вид
     kind: executor
@@ -610,7 +621,12 @@ open_calls:
     task: t-look-1
     issued: 2026-08-04
     rebased: 2026-08-05
-    status: ready
+    status: blocked
+    owner_launch: "2026-08-05 — «давай бесплатный внешний вид»"
+    thread: "Codex task `019fcfff-cd1b-7f60-8739-7b28633711ad` on saved project `GasCoopGame_win-u3`"
+    claim_receipt: "Codex task `019fcfff-cd1b-7f60-8739-7b28633711ad`; two independent readbacks confirmed `WIN-U3 CLAIMED`, `lease: c-exec-g-1d84-free-kits-probe-001:BUILD`, branch `slot/win-u3`, clean HEAD `839df47e`; no duplicate claim was run."
+    checkpoint: "STOP before product work: `git merge --ff-only 02a53bbb...` could not create `C:/projects/Unity/GasCoopGame/.git/worktrees/GasCoopGame_win-u3/ORIG_HEAD.lock` (Permission denied). `WIN-U3` remains claimed on the exact lease; HEAD stays `839df47e`; no product files or refs changed."
+    unblock_when: "An authorized Control environment fast-forwards the clean claimed `WIN-U3` worktree to exact `main=02a53bbb` without releasing or changing its lease, then the same Codex task is resumed and independently confirms registry/branch/clean/HEAD."
     dispatch: "ЛИШНИЙ наряд при WIP в три полосы. Направление держит три — сцена (`t-scene-2`), дом (`t-house-1`), игрок (`t-player-1`). Этот наряд написан целиком и готов, но запускает его САМ ВЛАДЕЛЕЦ своими словами «ок с 3х но если будут параллеьные еще я их буду запускать если будет время». Ни одна нога не запускает лишнюю полосу за него."
     call: live/indie-game-development/work/c-exec-g-1d84-free-kits-probe-001-call.md
     goal: "До любой покупки проведена проба бесплатных наборов — Quaternius, Kenney, KayKit, Poly Haven — и её результат виден: угол дома из бесплатного, чужие модели в своих заготовках, арт в `Assets/TunnelCrew/Art/`. **База перемеряна первой рукой 2026-08-05 на `main` = `02a53bbb`** (была `839df47e`): интегрированная сцена теперь есть в `main` и остаётся чужой поверхностью; `Assets/TunnelCrew/Art/` в `main` по-прежнему нет, но у неё появился кандидат в чужом слоте `WIN-U2`; моделей, папок наборов и ассетов Synty — ноль; указатель на образец `SOURCE.md` через `d8d3d67f^` перепроверен и разрешается; рекомендация слота сменена с `WIN-U4` (занят) на `WIN-U3` с оговоркой об отставании на пять коммитов."
@@ -637,14 +653,4 @@ decisions:
     evidence: "work/converge-g-1d84-arch.md §ПОПРАВКА A2; work/converge-g-1d84.md W52, W52a"
     status: waiting_owner
     blocks_task: "РОВНО ОДНА задача открытой ставки — `t-host-3` (профили текстом, отвержение неверного файла с местом ошибки). Полоса «хозяин» при этом НЕ стоит: `t-host-1` и `t-host-2` идут раньше и от формата файла не зависят. Названо нарезкой 2026-08-04; в работу задача не ставится, пока он не ответит."
-  - id: d-toolkit-reading-of-criterion-10-002
-    for: g-1d84
-    row: W80
-    question: "Что значит слово «инструментов» в критерии 10 («проведена проба бесплатных наборов и инструментов»). Это чтение ЕГО утверждённого текста, поэтому открывает его только его слово. Прежнее решение ноги стояло на доводе «карточка ни одного инструмента не называет» — довод опровергнут: утверждённый базис п.8 озаглавлен «Арт и инструменты», говорит «проводится visual/toolkit spike» и называет Blender для модульной оболочки дома, тоннелей и hero props."
-    options: "(а) «инструменты» = то, чем бесплатный материал вносят и собирают в дом, и проба — это СБОРКА угла дома, а не таблица сравнения; (б) инструменты сравниваются наравне с наборами отдельным списком; (в) считаются только четыре названных набора, слово снимается."
-    price: "При ЛЮБОМ из трёх чтений первый шаг работы один и тот же — собрать угол дома из бесплатного и посмотреть глазами. Расхождение начинает стоить только тогда, когда кто-нибудь соберётся покупать или ставить инструмент."
-    evidence: "work/converge-g-1d84-arch.md §ПОПРАВКА A8; work/converge-g-1d84.md W80, W86a"
-    status: waiting_owner
-    blocks_task: "НИ ОДНУ задачу открытой ставки не держит, и это проверено против его же цены: при любом из трёх чтений первый шаг работы один и тот же — собрать угол дома из бесплатного и посмотреть глазами, то есть `t-look-1` идёт без его ответа. Развилка становится блокером только перед первой покупкой или установкой инструмента. Названо нарезкой 2026-08-04."
-
 END_OF_FILE: live/indie-game-development/NOW.md
