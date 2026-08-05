@@ -1,5 +1,7 @@
 # LOG - indie-game-development
 
+2026-08-05 | s-work-g-1d84-one-scene-publish-close-001 | work | сцена | g-1d84/t-scene-1: binding G5 и exact Control publication закрыли первую общую сцену на `02a53bbb`, WIN-U1 освобождён без потери foreign edits; открыт `t-player-1` — переноска балки вдвоём от первого лица под owner-eye verdict. -> history/2026-08-05-s-work-g-1d84-one-scene-publish-close-001.md
+
 2026-08-05 | s-work-g-1d84-one-scene-binding-g5-pass-001 | work | сцена | g-1d84/t-scene-1: fresh physical binding G5 вернула PASS по всем пяти done_when exact owner-tested chain 839df47e→9113b24a→82a6a6c4→923f6f7c; задача оставлена active и открыт единственный WIN-CTRL Control CALL на публикацию и lossless release. -> history/2026-08-05-s-work-g-1d84-one-scene-binding-g5-pass-001.md
 
 2026-08-05 | s-work-g-1d84-one-scene-binding-g5-001 | work | сцена | g-1d84/t-scene-1: terminal report-only HOME 923f6f7c принят; owner receipt зафиксирован без изменения runtime 9113b24a, задача оставлена active и открыт fresh binding G5 до Control publication. -> history/2026-08-05-s-work-g-1d84-one-scene-binding-g5-001.md

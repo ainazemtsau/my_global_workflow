@@ -1,6 +1,6 @@
 # NOW: indie-game-development
 
-updated: 2026-08-05 by s-work-g-1d84-one-scene-binding-g5-pass-001
+updated: 2026-08-05 by s-work-g-1d84-one-scene-publish-close-001
 
 bet:
   node: g-1d84
@@ -106,8 +106,8 @@ tasks:
     done_when: "Существует одна сцена, в которой одновременно работают двое сетевых ходоков на разных копиях и один существующий физический груз; нажатие Play поднимает игру сразу как судью, без прохода через экраны. Владелец нажал Play, походил и взял балку."
     visible: "Он ходит и берёт балку в новой общей сцене."
     from: "W01 · W13 · W15 · W17 · крит. 1 карточки; «нажал Play — уже в игре» — `knowledge/how-the-game-is-built-layers.md:74`."
-    status: active
-    checkpoint: "Fresh physical binding G5 вернула PASS по всем пяти исходным done_when exact chain `839df47e` → runtime `9113b24a` → report `82a6a6c4` → owner receipt `923f6f7c`: scene/meta — R100 с сохранённым GUID, изменены только две path-ссылки, четыре runtime-пути между `9113b24a` и `923f6f7c` совпадают, owner words ограничены старой геометрией как основанием. Задача остаётся active до Control publication. WIN-U1 по последнему committed custody receipt остаётся `DIRTY-PRESERVED / CLAIMED` с семью foreign paths; обычный свежий status в G5 был недоступен из-за LFS clean-filter и не подменялся. Следующий same-lane root — `c-ctrl-g-1d84-one-scene-publish-001` на WIN-CTRL: публикация exact chain и lossless terminal release либо точный blocker."
+    status: done
+    checkpoint: "Binding G5 PASS — Direction commit `199c5936`. Exact product chain `839df47e` → `9113b24a` → `82a6a6c4` → `923f6f7c` опубликована Control merge `994ae03d`; truthful report `02a53bbb` говорит `DELIVERED on dev`, и local `main`/`dev` с `origin/main`/`origin/dev` равны `02a53bbb`. Четыре runtime blob совпадают с `9113b24a`, scene GUID `31d4e989f2353534182e51e1c86ef3e9`; light `tools/check.ps1` и `-Deliver` GREEN. WIN-U1 `CLEAN / AVAILABLE`, lease none; семь foreign paths не вошли в публикацию и сохранены 7/7 в named preservation artifact с manifest `A2AB228E593FDA2C077E732CEBDC1229CD5F741CEC6A6F4877842031D8E02F5E` и durable recovery ref `preserve/c-exec-g-1d84-one-scene-what-exists-001-win-u1-local-20260805` (`2c1a1969`)."
   - id: t-player-1
     track: игрок
     kind: executor
@@ -117,7 +117,7 @@ tasks:
     visible: "Он смотрит своими глазами и говорит, вяло это или нет."
     from: "W28 · W30 · крит. 3 карточки."
     note: "САМАЯ РИСКОВАННАЯ ДОГАДКА ВОЛНЫ, стоит второй по порядку. Сглаживание движения по сети ВЫРЕЗАНО и названо владельцу ДО просмотра — тиковое движение на второй копии ожидаемо и сюрпризом быть не должно."
-    status: blocked_by_t-scene-1
+    status: ready
   - id: t-scene-2
     track: сцена
     kind: executor
@@ -545,16 +545,17 @@ issues:
     evidence: "Слова владельца 2026-08-04 в чате ноги s-converge-arch-g-1d84-001; `work/converge-g-1d84-arch.md` §A11 и §CONTRACTS C21; `knowledge/how-the-game-is-built-layers.md:74` (рабочие сцены уже разрешены принятым знанием); `i-owner-standing-rule-extend-never-rebuild-001` (его прежние слова о мелких пробных сценах)."
 
 open_calls:
-  - id: c-ctrl-g-1d84-one-scene-publish-001
+  - id: c-exec-g-1d84-first-person-carry-001
     to: executor
     play: work
     for: g-1d84
-    track: сцена
-    task: t-scene-1
+    track: игрок
+    task: t-player-1
     issued: 2026-08-05
     status: ready
-    call: live/indie-game-development/work/c-ctrl-g-1d84-one-scene-publish-001-call.md
-    goal: "Exact owner-tested runtime/report chain опубликована в main/dev, report честно имеет статус DELIVERED после readback, а WIN-U1 терминально освобождён без потери семи foreign edits либо возвращён один точный blocker."
+    engineering_contract: 31
+    call: live/indie-game-development/work/c-exec-g-1d84-first-person-carry-001-call.md
+    goal: "Первое лицо: двое на разных копиях несут балку от первого лица."
   - id: c-exec-g-1d84-three-rooms-by-hand-001
     to: executor
     play: work
