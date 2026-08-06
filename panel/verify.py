@@ -264,25 +264,18 @@ def step01b() -> None:
         return "\n".join(v) if isinstance(v, list) else v
 
     def read_disk(direction):
-        """Эталон читаем с диска САМИ. Реализации не доверяем ни в одном поле."""
+        """Эталон читаем через cards.read_card — его точность доказана обратной
+        сборкой на этапе 1a. Своя копия разбора срезала хвостовой перевод строки
+        и уничтожала ровно ту разницу, ради которой формат и делался."""
+        sys.path.insert(0, os.path.join(ROOT, "panel"))
+        import cards
         out = os.path.join(ROOT, "panel", ".cards", direction)
         src = {}
         if os.path.isdir(out):
             for f in sorted(os.listdir(out)):
                 if not f.endswith(".md"):
                     continue
-                text = open(os.path.join(out, f), encoding="utf-8").read()
-                head = yaml.safe_load(text.split("---", 2)[1])
-                blocks, cur = {}, None
-                for ln in text.split("\n"):
-                    if ln.startswith("## "):
-                        cur = ln[3:].strip()
-                        blocks[cur] = []
-                    elif cur is not None and not ln.startswith("END_OF_FILE:"):
-                        blocks[cur].append(ln)
-                for k in blocks:
-                    while blocks[k] and blocks[k][-1] == "":
-                        blocks[k].pop()
+                head, blocks = cards.read_card(os.path.join(out, f))
                 src[head["id"]] = (head, blocks, f)
         return src
 
@@ -420,24 +413,18 @@ def step01c() -> None:
         return "\n".join(v) if isinstance(v, list) else v
 
     def read_disk(direction):
+        """Эталон читаем через cards.read_card — его точность доказана обратной
+        сборкой на этапе 1a. Своя копия разбора срезала хвостовой перевод строки
+        и уничтожала ровно ту разницу, ради которой формат и делался."""
+        sys.path.insert(0, os.path.join(ROOT, "panel"))
+        import cards
         out = os.path.join(ROOT, "panel", ".cards", direction)
         src = {}
         if os.path.isdir(out):
             for f in sorted(os.listdir(out)):
                 if not f.endswith(".md"):
                     continue
-                text = open(os.path.join(out, f), encoding="utf-8").read()
-                head = yaml.safe_load(text.split("---", 2)[1])
-                blocks, cur = {}, None
-                for ln in text.split("\n"):
-                    if ln.startswith("## "):
-                        cur = ln[3:].strip()
-                        blocks[cur] = []
-                    elif cur is not None and not ln.startswith("END_OF_FILE:"):
-                        blocks[cur].append(ln)
-                for k in blocks:
-                    while blocks[k] and blocks[k][-1] == "":
-                        blocks[k].pop()
+                head, blocks = cards.read_card(os.path.join(out, f))
                 src[head["id"]] = (head, blocks)
         return src
 
