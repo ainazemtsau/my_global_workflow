@@ -115,6 +115,62 @@ html, body {
   color: var(--fg-off);
 }
 
+/* строка чисел над списком: факты, не оценки */
+.numbers {
+  padding: 12px 20px;
+  border-bottom: 1px solid var(--line);
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  color: var(--fg-faint);
+}
+.num { color: var(--fg-dim); }
+.num + .num::before { content: " · "; color: var(--fg-off); }
+
+/* описание человеческим языком — главное, что читается в строке */
+.human { font-size: 15px; color: var(--fg); margin: 2px 0 10px; }
+.human.dim { color: var(--fg-off); font-size: 13px; }
+.human p { margin: 0 0 8px; }
+.human p:last-child { margin-bottom: 0; }
+.human ul { margin: 0 0 8px; padding-left: 18px; }
+.human strong { font-weight: 500; color: var(--fg); }
+.human code { font-family: var(--mono); font-size: 13px; color: var(--fg-dim); }
+
+/* пометка о черновом происхождении описания */
+.draft {
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--fg-off);
+  margin-bottom: 10px;
+}
+
+/* чего ждёт — тихо, цвет уже несёт строка статуса */
+.waitline { font-size: 13px; color: var(--fg-dim); margin-bottom: 10px; }
+
+/* кнопки: рамка и текст, никаких заливок */
+.act {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  padding: 5px 12px;
+  margin: 0 8px 0 0;
+  background: transparent;
+  color: var(--fg-dim);
+  border: 1px solid var(--line-strong);
+  border-radius: 4px;
+  cursor: pointer;
+}
+.act:hover { color: var(--accent); border-color: var(--accent); }
+
+/* техническое: свёрнуто, но целиком и дословно */
+.details {
+  margin-top: 12px;
+  padding-left: 14px;
+  border-left: 1px solid var(--line);
+}
+.details .desc { margin-bottom: 10px; }
+.details .desc:last-child { margin-bottom: 0; }
+
 /* проблема: полоса внизу, не всплывашка */
 .problem {
   border-top: 1px solid var(--bad-line);

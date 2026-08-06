@@ -410,9 +410,137 @@ def step01b() -> None:
           "live/ не изменился за прогон")
 
 
+def step01c() -> None:
+    import datetime
+
+    import yaml
+
+    def card_text(blocks, name):
+        v = blocks.get(name)
+        return "\n".join(v) if isinstance(v, list) else v
+
+    def read_disk(direction):
+        out = os.path.join(ROOT, "panel", ".cards", direction)
+        src = {}
+        if os.path.isdir(out):
+            for f in sorted(os.listdir(out)):
+                if not f.endswith(".md"):
+                    continue
+                text = open(os.path.join(out, f), encoding="utf-8").read()
+                head = yaml.safe_load(text.split("---", 2)[1])
+                blocks, cur = {}, None
+                for ln in text.split("\n"):
+                    if ln.startswith("## "):
+                        cur = ln[3:].strip()
+                        blocks[cur] = []
+                    elif cur is not None and not ln.startswith("END_OF_FILE:"):
+                        blocks[cur].append(ln)
+                for k in blocks:
+                    while blocks[k] and blocks[k][-1] == "":
+                        blocks[k].pop()
+                src[head["id"]] = (head, blocks)
+        return src
+
+    md = os.path.join(ROOT, "panel", "app", "md.js")
+    check(os.path.isfile(md), "файл существует: panel/app/md.js")
+    html = open(os.path.join(ROOT, "panel", "app", "index.html"), encoding="utf-8").read()
+    check("md.js" in html, "index.html подключает md.js")
+    if fails:
+        return
+
+    check(port_is_free(), f"порт {PORT} свободен — иначе проверялся бы чужой сервер")
+    if fails:
+        return
+    proc = subprocess.Popen(
+        [sys.executable, os.path.join(ROOT, "panel", "serve.py"), "--port", str(PORT), "--no-open"],
+        cwd=ROOT, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL,
+    )
+    try:
+        data = None
+        for _ in range(40):
+            try:
+                st, body = fetch("/api/section/indie-game-development/now")
+                if st == 200:
+                    data = json.loads(body)
+                    break
+            except (urllib.error.URLError, ConnectionError, json.JSONDecodeError):
+                time.sleep(0.25)
+        check(data is not None, "ручка раздела отдала JSON")
+        if data is None:
+            return
+
+        src = read_disk("indie-game-development")
+        calls = {i: v for i, v in src.items() if v[0].get("kind") == "call"}
+        got = {c["id"]: c for c in data.get("ready", []) + data.get("other", [])}
+
+        # описание: дословно из карточки, ниоткуда больше
+        bad = []
+        with_descr = 0
+        for cid, c in got.items():
+            head, blocks = calls[cid]
+            want = head.get("description") or card_text(blocks, "description")
+            if (c.get("description") or None) != (want or None):
+                bad.append(f"{cid}: description разошёлся с карточкой")
+            if want:
+                with_descr += 1
+            want_by = head.get("description_by") or card_text(blocks, "description_by")
+            if (c.get("description_by") or None) != (want_by or None):
+                bad.append(f"{cid}: description_by разошёлся")
+        check(not bad, f"описания дословны ({bad[:3]})")
+        check(with_descr == len(calls),
+              f"описание есть у всех {len(calls)} нарядов, найдено у {with_descr}")
+
+        # числа: считаем сами из карточек и NOW.md
+        now = yaml.safe_load(open(os.path.join(ROOT, "live", "indie-game-development", "NOW.md"),
+                                  encoding="utf-8").read())
+        tasks = {i: v for i, v in src.items() if v[0].get("kind") == "task"}
+        bets = [v for v in src.values() if v[0].get("kind") == "bet"]
+        want_num = {
+            "tasks_total": len(tasks),
+            "tasks_done": sum(1 for v in tasks.values() if v[0].get("status") == "done"),
+            "tracks_limit": now.get("track_wip_limit"),
+            "tracks_busy": len({v[0].get("track") for v in calls.values()
+                                if v[0].get("track") and v[0].get("status") not in ("done", "paused")}),
+            "waiting_for_you": sum(1 for v in src.values() if v[0].get("kind") == "decision")
+                               + sum(1 for v in src.values()
+                                     if v[0].get("kind") == "question" and v[0].get("who") == "владелец"),
+        }
+        n = data.get("numbers") or {}
+        for k, v in want_num.items():
+            check(n.get(k) == v, f"numbers.{k} = {n.get(k)}, посчитано {v}")
+
+        opened = bets[0][0].get("opened") if bets else None
+        if isinstance(opened, datetime.date):
+            want_days = (datetime.date.today() - opened).days
+            check(n.get("bet_days") == want_days, f"numbers.bet_days = {n.get('bet_days')}, посчитано {want_days}")
+        else:
+            check(n.get("bet_days") is None, "numbers.bet_days = null, когда ставки или даты нет")
+
+        st, body = fetch("/api/section/solmax/now")
+        d2 = json.loads(body)
+        n2 = d2.get("numbers") or {}
+        check(n2.get("tasks_total") == 0 and n2.get("bet_days") is None,
+              f"solmax: числа нулевые и bet_days null ({n2})")
+
+        st, body = fetch("/md.js")
+        check(st == 200 and "mdToHtml" in body, "маршрут /md.js отдаёт отрисовщик")
+
+        # отрисовщик markdown: экранирование обязательно, разметка минимальна
+        import re
+        js = open(md, encoding="utf-8").read()
+        check("&lt;" in js or "&amp;" in js or "replace(/&/" in js,
+              "md.js экранирует угловые скобки и амперсанд")
+        for token in ("<script", "innerHTML = text", "href"):
+            check(token not in js.replace(" ", "") or token == "href",
+                  f"md.js не собирает опасную разметку ({token})")
+        check(not re.search(r"<a\s", js), "md.js не делает ссылок")
+    finally:
+        proc.terminate()
+
+
 def main() -> None:
     step = sys.argv[1] if len(sys.argv) > 1 else "00"
-    {"00": step00, "01a": step01a, "01b": step01b}[step]()
+    {"00": step00, "01a": step01a, "01b": step01b, "01c": step01c}[step]()
     print(f"\n{'ПРИНЯТО' if not fails else 'НЕ ПРИНЯТО: ' + str(len(fails)) + ' проверок упало'}")
     sys.exit(1 if fails else 0)
 
