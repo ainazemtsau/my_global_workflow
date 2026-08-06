@@ -4,7 +4,7 @@ import { isAbsolute, relative, resolve, sep } from "node:path";
 // Куда Pi МОЖЕТ писать. Всё остальное в репозитории — только чтение.
 // Действующий workflow (os/, live/) меняется исключительно применением RESULT,
 // поэтому Pi к нему не допускается вообще, а не "с осторожностью".
-const WRITE_ALLOWED = ["tools", "os2", ".pi"];
+const WRITE_ALLOWED = ["panel", "os2", ".pi"];
 
 // Замороженные материалы: читать без явного слова владельца нельзя.
 const READ_DENIED = ["archive"];

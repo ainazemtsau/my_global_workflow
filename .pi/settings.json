@@ -1,5 +1,5 @@
 {
   "defaultProvider": "qwen-token-plan",
-  "defaultModel": "qwen3.7-plus",
+  "defaultModel": "qwen3.8-max-preview",
   "extensions": ["extensions/guard.ts"]
 }
