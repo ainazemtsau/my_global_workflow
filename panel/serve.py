@@ -1,6 +1,8 @@
-"""Локальный сервер панели: выбор направления, страница направления, раздел «Сейчас».
-Только стандартная библиотека + panel/cards.py. Запуск: python panel/serve.py [--port N] [--no-open]"""
+"""Сервер панели: выбор направления, страница, раздел «Сейчас». Только stdlib + yaml + panel/cards.py.
+Запуск: python panel/serve.py [--port N] [--no-open]"""
+
 import argparse
+import datetime
 import json
 import os
 import subprocess
@@ -10,50 +12,35 @@ import webbrowser
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 
 import cards
+import yaml
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 APP_DIR = os.path.join(ROOT, "panel", "app")
 LIVE_DIR = os.path.join(ROOT, "live")
 CARDS_DIR = os.path.join(ROOT, "panel", ".cards")
 
-# Один общий список разделов для всех направлений: (id, подпись).
-SECTIONS = [
-    ("now", "СЕЙЧАС"),
-    ("waiting", "ЖДЁТ ТЕБЯ"),
-    ("wave", "ВОЛНА"),
-    ("goals", "ЦЕЛИ"),
-    ("history", "ИСТОРИЯ"),
-    ("knowledge", "ЗНАНИЯ"),
-    ("direction", "НАПРАВЛЕНИЕ"),
-]
+SECTIONS = [("now", "СЕЙЧАС"), ("waiting", "ЖДЁТ ТЕБЯ"), ("wave", "ВОЛНА"), ("goals", "ЦЕЛИ"),
+            ("history", "ИСТОРИЯ"), ("knowledge", "ЗНАНИЯ"), ("direction", "НАПРАВЛЕНИЕ")]
 
-CONTENT_TYPES = {
-    ".html": "text/html; charset=utf-8",
-    ".js": "application/javascript; charset=utf-8",
-    ".css": "text/css; charset=utf-8",
-}
+CONTENT_TYPES = {".html": "text/html; charset=utf-8",
+                 ".js": "application/javascript; charset=utf-8",
+                 ".css": "text/css; charset=utf-8"}
 
-# Порядок статусов в списке «прочие наряды»; незнакомые статусы — после всех.
+# Незнакомые статусы идут после всех.
 STATUS_ORDER = ["running", "waiting", "blocked", "paused"]
-
-# По одному замку на направление: пересборка стирает папку карточек целиком,
-# и многопоточный сервер без замка мог бы читать папку в момент стирания.
+# По одному замку на направление: пересборка стирает папку карточек целиком.
 _DIR_LOCKS = {}
 _META_LOCK = threading.Lock()
 
 
 def lock_for(direction):
     with _META_LOCK:
-        if direction not in _DIR_LOCKS:
-            _DIR_LOCKS[direction] = threading.Lock()
-        return _DIR_LOCKS[direction]
+        return _DIR_LOCKS.setdefault(direction, threading.Lock())
 
 
 def git(*args):
     try:
-        out = subprocess.run(
-            ["git", *args], cwd=ROOT, capture_output=True, text=True, timeout=10
-        )
+        out = subprocess.run(["git", *args], cwd=ROOT, capture_output=True, text=True, timeout=10)
         return out.returncode, out.stdout.strip()
     except (OSError, subprocess.SubprocessError):
         return 1, ""
@@ -63,36 +50,23 @@ def build_info():
     _, commit = git("rev-parse", "--short", "HEAD")
     _, commit_date = git("log", "-1", "--format=%ad", "--date=short")
     code, count = git("rev-list", "--count", "origin/main..HEAD")
-    try:
-        unpushed = int(count) if code == 0 else 0
-    except ValueError:
-        unpushed = 0
+    unpushed = int(count) if code == 0 and count.isdigit() else 0
     return {"commit": commit, "commit_date": commit_date, "unpushed": unpushed, "unread": 0}
 
 
 def directions():
-    names = sorted(
-        name for name in os.listdir(LIVE_DIR)
-        if os.path.isdir(os.path.join(LIVE_DIR, name))
-    )
-    return [
-        {
-            "id": name,
-            "sections": [
-                {"id": sid, "label": label, "ready": sid == "now"}
-                for sid, label in SECTIONS
-            ],
-        }
-        for name in names
-    ]
+    names = sorted(n for n in os.listdir(LIVE_DIR) if os.path.isdir(os.path.join(LIVE_DIR, n)))
+    return [{"id": n, "sections": [{"id": sid, "label": label, "ready": sid == "now"}
+                                    for sid, label in SECTIONS]} for n in names]
 
 
 def ensure_cards(direction):
     """Пересборка только если папки нет или NOW.md новее папки. Вызывать под замком."""
     folder = os.path.join(CARDS_DIR, direction)
     now_path = os.path.join(LIVE_DIR, direction, "NOW.md")
-    if (os.path.isdir(folder) and os.path.isfile(now_path)
-            and os.path.getmtime(now_path) <= os.path.getmtime(folder)):
+    fresh = (os.path.isdir(folder) and os.path.isfile(now_path)
+             and os.path.getmtime(now_path) <= os.path.getmtime(folder))
+    if fresh:
         return
     cards.build(direction)  # сама стирает папку и строит заново
 
@@ -103,6 +77,14 @@ def block_text(blocks, key):
     return "\n".join(lines) if isinstance(lines, list) else None
 
 
+def value_of(head, blocks, key):
+    """Значение поля из шапки или из блока тела, дословно; нет или пусто — None."""
+    v = head.get(key)
+    if v in (None, ""):
+        v = block_text(blocks, key)
+    return None if v in (None, "") else v
+
+
 def status_rank(status):
     return STATUS_ORDER.index(status) if status in STATUS_ORDER else len(STATUS_ORDER)
 
@@ -110,30 +92,48 @@ def status_rank(status):
 def make_order(direction, head, blocks, tasks):
     """Наряд для раздела «Сейчас» — вид, описанный в контракте этапа."""
     track = head.get("track")
-    launch = f"collect next for {direction}/{track}" if track \
-        else f"collect next for {direction}"
+    launch = f"collect next for {direction}/{track}" if track else f"collect next for {direction}"
     title, title_source = head.get("id"), "self"
     task = tasks.get(head.get("for"))
     if task is not None:
         goal = task[0].get("goal") or block_text(task[1], "goal")
         if goal:
             title, title_source = goal, "task"
-    why = head.get("unblock_when")
-    if why is None:
-        why = block_text(blocks, "unblock_when")
     fields = [{"name": name, "text": "\n".join(lines)} for name, lines in blocks.items()]
-    return {
-        "id": head.get("id"),
-        "status": head.get("status"),
-        "track": track,
-        "for": head.get("for"),
-        "title": title,
-        "title_source": title_source,
-        "why": why,
-        "fields": fields,
-        "head": head,
-        "launch": launch,
-    }
+    return {"id": head.get("id"), "status": head.get("status"), "track": track,
+            "for": head.get("for"), "title": title, "title_source": title_source,
+            "why": value_of(head, blocks, "unblock_when"),
+            "description": value_of(head, blocks, "description"),
+            "description_by": value_of(head, blocks, "description_by"),
+            "fields": fields, "head": head, "launch": launch}
+
+
+def section_numbers(direction, loaded):
+    """Числа верхнего уровня. Считаю буквально из карточек и NOW.md, не выдумывая."""
+    path = os.path.join(LIVE_DIR, direction, "NOW.md")
+    try:
+        with open(path, encoding="utf-8") as f:
+            now = yaml.safe_load(f.read())
+    except OSError as e:
+        raise RuntimeError(f"не читается {path}: {e}")
+    if not isinstance(now, dict):
+        raise RuntimeError(f"{path}: верхний уровень не словарь")
+    heads = [head for head, _ in loaded.values()]
+    tasks = [h for h in heads if h.get("kind") == "task"]
+    busy = {h.get("track") for h in heads
+            if h.get("kind") == "call" and h.get("track")
+            and h.get("status") not in ("done", "paused")}
+    waiting = sum(1 for h in heads if h.get("kind") == "decision")
+    waiting += sum(1 for h in heads if h.get("kind") == "question" and h.get("who") == "владелец")
+    bet = next((h for h in heads if h.get("kind") == "bet"), None)
+    opened = bet.get("opened") if bet is not None else None
+    if isinstance(opened, datetime.datetime):
+        opened = opened.date()
+    bet_days = (datetime.date.today() - opened).days if isinstance(opened, datetime.date) else None
+    return {"tasks_done": sum(1 for h in tasks if h.get("status") == "done"),
+            "tasks_total": len(tasks), "tracks_busy": len(busy),
+            "tracks_limit": now.get("track_wip_limit"),
+            "waiting_for_you": waiting, "bet_days": bet_days}
 
 
 def section_now(direction):
@@ -162,13 +162,9 @@ def section_now(direction):
             (ready if head.get("status") == "ready" else other).append(order)
         ready.sort(key=lambda o: (o["track"] or "", str(o["id"])))
         other.sort(key=lambda o: (status_rank(o["status"]), str(o["id"])))
-        return {
-            "direction": direction,
-            "cards_total": len(names),
-            "ready": ready,
-            "other": other,
-            "unread": unread,
-        }
+        return {"direction": direction, "cards_total": len(names), "ready": ready,
+                "other": other, "unread": unread,
+                "numbers": section_numbers(direction, loaded)}
 
 
 class Handler(BaseHTTPRequestHandler):
@@ -176,15 +172,15 @@ class Handler(BaseHTTPRequestHandler):
         path = self.path.split("?", 1)[0]
         if path == "/":
             self.send_file(os.path.join(APP_DIR, "index.html"))
-        elif path in ("/app.js", "/style.css"):
+        elif path in ("/app.js", "/md.js", "/style.css"):
             self.send_file(os.path.join(APP_DIR, path.lstrip("/")))
         elif path == "/api/state":
             self.send_json({"build": build_info(), "directions": directions()})
         elif path.startswith("/api/section/"):
-            parts = [urllib.parse.unquote(p)
-                     for p in path[len("/api/section/"):].split("/") if p]
-            if (len(parts) == 2 and parts[1] == "now"
-                    and os.path.isdir(os.path.join(LIVE_DIR, parts[0]))):
+            parts = [urllib.parse.unquote(p) for p in path[len("/api/section/"):].split("/") if p]
+            known = len(parts) == 2 and parts[1] == "now" \
+                and os.path.isdir(os.path.join(LIVE_DIR, parts[0]))
+            if known:
                 self.send_json(section_now(parts[0]))
             else:
                 self.send_error(404, "not found")
@@ -198,17 +194,16 @@ class Handler(BaseHTTPRequestHandler):
         with open(full_path, "rb") as fh:
             data = fh.read()
         ext = os.path.splitext(full_path)[1]
-        self.send_response(200)
-        self.send_header("Content-Type", CONTENT_TYPES.get(ext, "application/octet-stream"))
-        self.send_header("Content-Length", str(len(data)))
-        self.end_headers()
-        self.wfile.write(data)
+        self.send_body(CONTENT_TYPES.get(ext, "application/octet-stream"), data)
 
     def send_json(self, obj):
         # default=str: в шапках карточек бывают datetime.date, на них dumps падает.
-        data = json.dumps(obj, ensure_ascii=False, default=str).encode("utf-8")
+        self.send_body("application/json; charset=utf-8",
+                       json.dumps(obj, ensure_ascii=False, default=str).encode("utf-8"))
+
+    def send_body(self, ctype, data):
         self.send_response(200)
-        self.send_header("Content-Type", "application/json; charset=utf-8")
+        self.send_header("Content-Type", ctype)
         self.send_header("Content-Length", str(len(data)))
         self.end_headers()
         self.wfile.write(data)
@@ -223,8 +218,7 @@ def main():
     parser.add_argument("--no-open", action="store_true", help="не открывать браузер")
     args = parser.parse_args()
 
-    # Один раз при старте: карточки каждого направления из live/.
-    for name in sorted(os.listdir(LIVE_DIR)):
+    for name in sorted(os.listdir(LIVE_DIR)):  # при старте: карточки направлений из live/
         if os.path.isdir(os.path.join(LIVE_DIR, name)):
             with lock_for(name):
                 ensure_cards(name)

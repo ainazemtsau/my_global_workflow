@@ -1,5 +1,6 @@
 // Панель направлений. Роутинг на хэшах, без перезагрузки страницы.
 // Весь вид — только классами из style.css: своих классов и инлайн-стилей нет.
+// innerHTML получает ТОЛЬКО вывод window.mdToHtml — тот экранирует входной текст.
 
 let STATE = null;
 // Токен отрисовки: ответ fetch, пришедший после ухода со страницы, не рисуется.
@@ -9,6 +10,14 @@ function el(tag, className, text) {
   const node = document.createElement(tag);
   if (className) node.className = className;
   if (text !== undefined) node.textContent = text;
+  return node;
+}
+
+// Узел, содержимое которого — markdown, отрисованный window.mdToHtml.
+function mdNode(tag, className, markdown) {
+  const node = document.createElement(tag);
+  if (className) node.className = className;
+  node.innerHTML = window.mdToHtml(markdown);
   return node;
 }
 
@@ -55,6 +64,40 @@ function renderPicker() {
   }
 }
 
+// Строка чисел сверху раздела: по одному span.num на число. Число null
+// пропускается целиком; разделитель «·» живёт внутри того же span.
+function renderNumbers(content, numbers) {
+  if (!numbers) return;
+  const items = [];
+  items.push("задачи " + numbers.tasks_done + " из " + numbers.tasks_total);
+  if (numbers.tracks_limit != null) {
+    items.push("полосы " + numbers.tracks_busy + " из " + numbers.tracks_limit);
+  }
+  items.push("ждёт тебя " + numbers.waiting_for_you);
+  if (numbers.bet_days != null) {
+    items.push("ставка идёт " + numbers.bet_days + " дня");
+  }
+  const box = el("div", "numbers");
+  for (let i = 0; i < items.length; i += 1) {
+    box.appendChild(el("span", "num", items[i] + (i < items.length - 1 ? " ·" : "")));
+  }
+  content.appendChild(box);
+}
+
+// Кнопка «скопировать запуск»: кладёт launch в буфер, на две секунды
+// меняет текст на «скопировано». Нет буфера — падаем с явной ошибкой.
+function copyLaunch(button, text) {
+  if (!navigator.clipboard || !navigator.clipboard.writeText) {
+    throw new Error("буфер обмена недоступен");
+  }
+  navigator.clipboard.writeText(text).then(() => {
+    button.textContent = "скопировано";
+    setTimeout(() => {
+      button.textContent = "скопировать запуск";
+    }, 2000);
+  });
+}
+
 // Одна строка наряда. isReady — наряд можно запускать; иначе он в «прочих».
 function renderOrderRow(container, order, isReady) {
   const row = el("div", "row");
@@ -66,16 +109,45 @@ function renderOrderRow(container, order, isReady) {
     const status = order.status == null ? "" : String(order.status).toUpperCase();
     row.appendChild(el("div", "status wait", status + track));
     row.appendChild(el("div", "title dim", order.title));
-    if (order.why != null) row.appendChild(el("div", "desc", order.why));
   }
+  if (order.description != null) {
+    row.appendChild(mdNode("div", "human", order.description));
+  } else {
+    row.appendChild(el("div", "human dim", "описания нет"));
+  }
+  if (order.description_by === "dev") {
+    row.appendChild(el(
+      "div", "draft",
+      "описание составлено при разработке панели, может быть неточным"
+    ));
+  }
+  if (order.why != null) {
+    row.appendChild(el("div", "waitline", "ждёт: " + order.why));
+  }
+  const copyButton = el("button", "act", "скопировать запуск");
+  copyButton.addEventListener("click", () => copyLaunch(copyButton, order.launch));
+  row.appendChild(copyButton);
+  const details = el("div", "details");
+  details.hidden = true;
   for (const field of order.fields) {
-    row.appendChild(el("div", "desc", field.name + ": " + field.text));
+    // unblock_when уже показан в waitline, description — в human: не повторять.
+    if (field.name === "unblock_when" || field.name === "description") continue;
+    const item = el("div", "desc");
+    item.appendChild(document.createTextNode(field.name + ": "));
+    item.appendChild(mdNode("div", null, field.text));
+    details.appendChild(item);
   }
+  const toggleButton = el("button", "act", "подробности");
+  toggleButton.addEventListener("click", () => {
+    details.hidden = !details.hidden;
+  });
+  row.appendChild(toggleButton);
+  row.appendChild(details);
   row.appendChild(el("div", "id", order.id));
   container.appendChild(row);
 }
 
-// Раздел «Сейчас»: готовые к запуску наряды, ниже — всё остальное.
+// Раздел «Сейчас»: строка чисел, готовые к запуску наряды, ниже — всё остальное.
 function renderNow(direction, content) {
   const token = ++RENDER_TOKEN;
   fetch("/api/section/" + encodeURIComponent(direction.id) + "/now")
@@ -86,6 +158,7 @@ function renderNow(direction, content) {
     .then((data) => {
       if (token !== RENDER_TOKEN) return;
       content.textContent = "";
+      renderNumbers(content, data.numbers);
       if (data.ready.length > 0) {
         for (const order of data.ready) renderOrderRow(content, order, true);
       } else {
