@@ -1,4 +1,4 @@
-# NOW: indie-game-development          updated: 2026-08-06 by s-work-g-1d84-house-as-data-close-001
+# NOW: indie-game-development          updated: 2026-08-06 by s-day-g-1d84-two-builds-and-tunnel-research-001
 
 bet:
   node: g-1d84
@@ -365,9 +365,19 @@ open_calls:
     call: live/indie-game-development/work/c-exec-g-1d84-world-noise-contact-001-call.md
     unblock_when: "Владелец называет в сообщении с запуском ровно один AVAILABLE слот WIN-U2 или WIN-U4; перед запуском база и selector перемеряются, агент слот не выбирает."
     note: "Корень объявлен принятой перенарезкой, но НЕ запущен и слот ему не назначен. БАЗА ПЕРЕБИТА 2026-08-06 этой ногой: `d60c2f04` -> `8ffe5a5d`, правка внесена в файл наряда. УЛИКА В `context` ОСТАЁТСЯ ВЕРНОЙ БУКВАЛЬНО, и это перемерено, а не предположено: `Assets/TunnelCrew/Editor/HouseholderRouteControllerEditor.cs` (`832c6aa8`) и `Assets/TunnelCrew/Core/Cargo/AuthoritativeCargoRoster.cs` (`9711121b`) на `8ffe5a5d` БАЙТ В БАЙТ те же, что на прежней базе — три инспекторных вызова по-прежнему единственные производители реакции, `cargo.Contact` заполняется каждый тик, у `GetContact` ноль потребителей."
+  - id: c-research-g-1d84-tunnel-section-shape-001
+    track: игрок
+    status: ready
+    to: research
+    parent: c-exec-g-1d84-tunnel-section-001
+    for: t-house-5
+    issued: 2026-08-06
+    call: live/indie-game-development/work/c-research-g-1d84-tunnel-section-shape-001-call.md
+    note: "ЕГО СЛОВО 2026-08-06: «тоннель не запускаем, а именно в обсуждение запускаем… я пока не очень представляю… хочу понять реализацию». Ребёнок сборочного корня, не второй корень полосы: WIP не тратит, артефактов не создаёт, продукт только читает. КЛЮЧЕВОЕ ИЗМЕРЕНИЕ, ради которого разбор и осмыслен: `HousePassage` приехал вчерашней поставкой `t-house-4` и несёт имя, два конца, координаты и `Width`, но НИ ОДНОГО поля про проходимость — а задача требует прохода, чья проходимость меняется событием игры. Развилка «чем именно открывается участок» оставлена карточкой открытой СОЗНАТЕЛЬНО и закрывается его словом, не этой ногой."
   - id: c-exec-g-1d84-tunnel-section-001
     track: игрок
-    status: blocked
+    status: waiting
+    waiting_on: "Возврат ребёнка `c-research-g-1d84-tunnel-section-shape-001` и слово владельца по развилке «чем открывается участок». Слот НЕ называть до этого: он сам сказал сборку не запускать. `blocked` -> `waiting` его словом 2026-08-06 «тоннель не запускаем, а именно в обсуждение запускаем»."
     to: executor
     for: t-house-5
     issued: 2026-08-06
