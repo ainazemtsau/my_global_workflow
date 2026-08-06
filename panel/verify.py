@@ -295,7 +295,7 @@ def step01b() -> None:
         [sys.executable, os.path.join(ROOT, "panel", "serve.py"), "--port", str(PORT), "--no-open"],
         cwd=ROOT, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL,
     )
-    calls = {}
+    calls_by_dir = {}
     try:
         for direction in ("indie-game-development", "solmax"):
             data = None
@@ -313,6 +313,7 @@ def step01b() -> None:
 
             src = read_disk(direction)
             calls = {i: v for i, v in src.items() if v[0].get("kind") == "call"}
+            calls_by_dir[direction] = calls
             tasks = {i: v for i, v in src.items() if v[0].get("kind") == "task"}
             ready, other = data.get("ready", []), data.get("other", [])
             got = {c["id"]: c for c in ready + other}
@@ -397,7 +398,7 @@ def step01b() -> None:
             d2 = json.loads(body)
             names = [u.get("file") for u in d2.get("unread", [])]
             check("zz-broken.md" in names, f"негативный контроль: битая карточка попала в unread ({names})")
-            check(len(d2.get("ready", []) + d2.get("other", [])) == len(calls),
+            check(len(d2.get("ready", []) + d2.get("other", [])) == len(calls_by_dir["indie-game-development"]),
                   "негативный контроль: остальные наряды всё равно дошли")
         finally:
             if os.path.exists(broken):

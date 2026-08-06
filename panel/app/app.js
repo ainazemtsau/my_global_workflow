@@ -2,6 +2,8 @@
 // Весь вид — только классами из style.css: своих классов и инлайн-стилей нет.
 
 let STATE = null;
+// Токен отрисовки: ответ fetch, пришедший после ухода со страницы, не рисуется.
+let RENDER_TOKEN = 0;
 
 function el(tag, className, text) {
   const node = document.createElement(tag);
@@ -53,6 +55,57 @@ function renderPicker() {
   }
 }
 
+// Одна строка наряда. isReady — наряд можно запускать; иначе он в «прочих».
+function renderOrderRow(container, order, isReady) {
+  const row = el("div", "row");
+  const track = order.track ? " · " + order.track : "";
+  if (isReady) {
+    row.appendChild(el("div", "status", "МОЖНО ЗАПУСКАТЬ" + track));
+    row.appendChild(el("div", "title", order.title));
+  } else {
+    const status = order.status == null ? "" : String(order.status).toUpperCase();
+    row.appendChild(el("div", "status wait", status + track));
+    row.appendChild(el("div", "title dim", order.title));
+    if (order.why != null) row.appendChild(el("div", "desc", order.why));
+  }
+  for (const field of order.fields) {
+    row.appendChild(el("div", "desc", field.name + ": " + field.text));
+  }
+  row.appendChild(el("div", "id", order.id));
+  container.appendChild(row);
+}
+
+// Раздел «Сейчас»: готовые к запуску наряды, ниже — всё остальное.
+function renderNow(direction, content) {
+  const token = ++RENDER_TOKEN;
+  fetch("/api/section/" + encodeURIComponent(direction.id) + "/now")
+    .then((response) => {
+      if (!response.ok) throw new Error("HTTP " + response.status);
+      return response.json();
+    })
+    .then((data) => {
+      if (token !== RENDER_TOKEN) return;
+      content.textContent = "";
+      if (data.ready.length > 0) {
+        for (const order of data.ready) renderOrderRow(content, order, true);
+      } else {
+        content.appendChild(el("div", "empty", "ЗАПУСКАТЬ НЕЧЕГО"));
+      }
+      for (const order of data.other) renderOrderRow(content, order, false);
+      if (data.unread.length > 0) {
+        const names = data.unread.map((u) => u.file).join(", ");
+        content.appendChild(
+          el("div", "problem", "НЕ ПРОЧИТАЛОСЬ " + data.unread.length + " — " + names)
+        );
+      }
+    })
+    .catch(() => {
+      if (token !== RENDER_TOKEN) return;
+      content.textContent = "";
+      content.appendChild(el("div", "problem", "НЕ УДАЛОСЬ ЗАГРУЗИТЬ РАЗДЕЛ"));
+    });
+}
+
 function renderDirection(direction, sectionId) {
   const nav = document.getElementById("nav");
   const content = document.getElementById("content");
@@ -79,10 +132,15 @@ function renderDirection(direction, sectionId) {
     content.appendChild(el("div", "empty", "РАЗДЕЛ ЕЩЁ НЕ СДЕЛАН"));
     return;
   }
+  if (sectionId === "now") {
+    renderNow(direction, content);
+    return;
+  }
   content.appendChild(el("div", "empty", "РАЗДЕЛ ПУСТ"));
 }
 
 function render() {
+  RENDER_TOKEN += 1;
   const route = parseHash();
   renderTopbar(route);
   if (!route.direction) {
