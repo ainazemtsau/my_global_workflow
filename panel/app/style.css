@@ -3,11 +3,15 @@
 
 :root {
   --bg: #000000;
-  --line: #1c1c1c;
-  --line-strong: #232323;
-  --fg: #f0f0f0;
-  --fg-dim: #7d7d7d;
-  --fg-faint: #3d3d3d;
+  --line: #202024;
+  --line-strong: #2a2a30;
+  /* Четыре уровня, не больше. На чистом чёрном низкий серый читается как грязь,
+     а не как тихий текст, поэтому значения выше привычных; едва заметный холодный
+     оттенок убирает мутность, которую даёт чисто нейтральный серый на #000. */
+  --fg: #f2f2f4;
+  --fg-dim: #a2a2aa;
+  --fg-faint: #6e6e78;
+  --fg-off: #4a4a52;
   --accent: #c8ff33;
   --wait: #ffb224;
   --bad: #ff4438;
@@ -44,13 +48,13 @@ html, body {
   font-family: var(--mono);
   font-size: 12px;
   letter-spacing: 0.18em;
-  color: #5c5c5c;
+  color: var(--fg-faint);
 }
 .dirs { display: flex; gap: 14px; align-items: baseline; }
-.dirs a { color: var(--fg-faint); text-decoration: none; font-size: 14px; }
-.dirs a:hover { color: var(--fg-dim); }
+.dirs a { color: var(--fg-dim); text-decoration: none; font-size: 14px; }
+.dirs a:hover { color: var(--fg); }
 .dirs a.active { color: var(--fg); }
-.build { font-family: var(--mono); font-size: 11px; color: #4a4a4a; }
+.build { font-family: var(--mono); font-size: 11px; color: var(--fg-faint); }
 .build .warn { color: var(--wait); }
 .build .bad { color: var(--bad); }
 
@@ -72,13 +76,13 @@ html, body {
   gap: 8px;
   padding: 8px 16px;
   border-left: 2px solid transparent;
-  color: #9a9a9a;
+  color: var(--fg-dim);
   text-decoration: none;
 }
 .nav a:hover { color: var(--fg); }
 .nav a.active { color: var(--accent); border-left-color: var(--accent); }
-.nav a.off { color: var(--fg-faint); cursor: not-allowed; }
-.nav a.off:hover { color: var(--fg-faint); }
+.nav a.off { color: var(--fg-off); cursor: not-allowed; }
+.nav a.off:hover { color: var(--fg-off); }
 .nav .count { color: var(--wait); }
 
 .content { flex: 1; min-width: 0; }
@@ -98,17 +102,17 @@ html, body {
 .status.bad { color: var(--bad); }
 
 .title { font-size: 16px; color: var(--fg); margin-bottom: 6px; }
-.title.dim { color: #8f8f8f; }
+.title.dim { color: var(--fg-dim); }
 .desc { font-size: 13px; color: var(--fg-dim); }
 .id { font-family: var(--mono); font-size: 11px; color: var(--fg-faint); margin-top: 10px; }
 
 /* пустой раздел и раздел, которого ещё нет */
 .empty {
-  padding: 40px 20px;
+  padding: 44px 20px;
   font-family: var(--mono);
   font-size: 12px;
   letter-spacing: 0.1em;
-  color: var(--fg-faint);
+  color: var(--fg-off);
 }
 
 /* проблема: полоса внизу, не всплывашка */
