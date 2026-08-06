@@ -1,4 +1,4 @@
-# NOW: indie-game-development          updated: 2026-08-06 by s-work-g-1d84-conditions-panel-close-001
+# NOW: indie-game-development          updated: 2026-08-06 by s-day-g-1d84-parallel-lane-calls-001
 
 bet:
   node: g-1d84
@@ -259,12 +259,6 @@ issues:
     route: map
     review_when: "Следующей ногой: `map` правит карточку (граница волны, узел «настоящий дом и вид», лут вместо обстановки как источник замеченного факта, тоннель ОСТАЁТСЯ, вырез на тесное место), затем `shape` перенарезает. До этого ни одна нога не удаляет задачи и не расширяет вырезы сама."
     evidence: "Его дословные слова, предложенное деление 17 → 12 и открытый вопрос про удар грузом по другому игроку — history/2026-08-06-s-day-g-1d84-profile-format-and-core-recut-001.md; `NOW.tasks` (23 строки не тронуты); `NOW.bet.cuts` вырез 3; прежняя запись — history/2026-08-05-s-repair-g-1d84-house-is-a-draft-001.md."
-  - id: i-probe-commit-exists-only-locally-001
-    issue: "Забанкованная 2026-08-05 проба бесплатных наборов `e9f23cef` (50 файлов) не существует НИ НА ОДНОЙ серверной ссылке — перемерено 2026-08-06 первой рукой. Сверху в `GasCoopGame_win-u3` лежат ещё 6 незакоммиченных файлов (~195 строк). Вчерашнее спасение было локальным, и `i-slot-u3-probe-work-unbanked-001` снята преждевременно."
-    level: execution
-    route: work
-    review_when: "До любой уборки, переезда или fast-forward слота `WIN-U3`: поднять коммит на именованную серверную ссылку и забанковать незакоммиченное. Закрывается, когда `e9f23cef` и надстройка окажутся на сервере."
-    evidence: "`git branch -r --contains e9f23cef` пусто и `git ls-remote origin` его не содержит; `GasCoopGame_win-u3` HEAD `e9f23cef` против `origin/slot/win-u3` `e4eba767`; `git status --short` = 6 файлов. Перемер — history/2026-08-06-s-day-g-1d84-profile-format-and-core-recut-001.md; вчерашнее снятие — history/2026-08-05-s-day-g-1d84-probe-banked-skills-cleaned-001.md."
   - id: i-host-walks-through-walls-001
     issue: "Хозяин ходит СКВОЗЬ перегородки, и это пересчитано по координатам, а не замечено на глаз. Отрезок РТ01 (−3.5; −2.5) → РТ02 (3.5; −2.5) идёт по прямой z = −2.5 и протыкает обе южные перегородки (они занимают z от −7 до −1 при x = ∓2.5); отрезок РТ03 (5.11; 5.58) → РТ04 (−3.5; 2.5) пересекает восточную при z ≈ 4.65 и западную при z ≈ 2.86, обе северные (z от 1 до 7). Проёмы (x = ±2.5, z от −1 до 1) не используются НИ РАЗУ — четыре прохода сквозь стену за круг. Маршрут при этом не круг, а челнок: `Householder.Step` разворачивается на концах массива. Причина не в шве: четыре точки нарисованы для пустого поля старой сцены `HostWalksHisDay.unity`, а теперь хозяин в доме."
     level: execution
@@ -404,6 +398,22 @@ issues:
     evidence: "history/2026-08-02-s-repair-g-6b13-a2-layering-defect-001.md (первое нарушение стоило отклонённой работы); history/2026-08-04-s-converge-arch-g-1d84-001.md; work/converge-g-1d84-arch.md §A11 и §CONTRACTS C21; слияние двух записей — history/2026-08-05-s-day-g-1d84-issues-cleanup-001.md."
 
 open_calls:
+  - id: c-exec-g-1d84-house-as-data-001
+    track: дом
+    status: ready
+    to: executor
+    for: t-house-4
+    issued: 2026-08-06
+    call: live/indie-game-development/work/c-exec-g-1d84-house-as-data-001-call.md
+    note: "База `d60c2f04`, все 16 названных путей проверены на ней поштучно `git cat-file -e`. Слот `WIN-U4` — единственный, стоящий РОВНО на базе (`AVAILABLE`, чист, HEAD = `d60c2f04`), подготовки не нужно. КЛЮЧЕВОЕ ИЗМЕРЕНИЕ: дома в слое правил нет вообще, `TunnelCrew.Core.asmdef` = `\"references\": []` + `noEngineReferences: true` — описание обязано лечь туда, не затащив движок; образец шва `IHouseholderWorldPort`. Хождение сквозь стены и высота стен здесь НЕ чинятся. Везёт два дважды непоехавших решения владельца: откат Unity Cloud и терминальная квитанция мёртвому корню."
+  - id: c-exec-g-1d84-householder-profile-file-001
+    track: хозяин
+    status: ready
+    to: executor
+    for: t-host-3
+    issued: 2026-08-06
+    call: live/indie-game-development/work/c-exec-g-1d84-householder-profile-file-001-call.md
+    note: "База `d60c2f04`, пути проверены поштучно. Слот `WIN-U1` (`AVAILABLE`, чист, 19 позади базы — первой операцией fast-forward). Несёт РЕШЕНИЕ ВЛАДЕЛЬЦА 2026-08-06 «давай дешёвый вариант»: схемы и валидатора нет вовсе, обычный JSON на уже стоящем Newtonsoft `3.2.1`, проверка = разрешение ссылок при старте, плюс обязательное падение на неизвестном ИМЕНИ ПОЛЯ. ИЗМЕРЕНО: распорядок и способности сегодня — восемь перечислений C# в `Householder.cs`, чтения файлов у хозяина нет; JSON нельзя читать в слое правил. ПАРАЛЛЕЛЬ: словарь дома принадлежит `c-exec-g-1d84-house-as-data-001`, эта нога ссылается на места непрозрачными именами и имён не выдумывает."
   - id: c-exec-g-1d84-cargo-tight-spot-001
     track: дом
     status: running
