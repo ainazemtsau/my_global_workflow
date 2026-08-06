@@ -38,6 +38,14 @@ def fetch(path: str):
         return r.status, r.read().decode("utf-8")
 
 
+def port_is_free() -> bool:
+    """Чужой сервер на этом порту — приёмка проверила бы не тот код и не заметила."""
+    import socket
+    with socket.socket() as s:
+        s.settimeout(1)
+        return s.connect_ex(("127.0.0.1", PORT)) != 0
+
+
 def step00() -> None:
     for rel in ("panel/serve.py", "panel/app/index.html", "panel/app/app.js", "panel/app/style.css"):
         check(os.path.isfile(os.path.join(ROOT, rel)), f"файл существует: {rel}")
@@ -53,6 +61,9 @@ def step00() -> None:
     check("app.js" in html, "index.html подключает app.js")
     check("<style" not in html.lower(), "в index.html нет своих стилей — весь вид в style.css")
 
+    check(port_is_free(), f"порт {PORT} свободен — иначе проверялся бы чужой сервер")
+    if fails:
+        return
     proc = subprocess.Popen(
         [sys.executable, os.path.join(ROOT, "panel", "serve.py"), "--port", str(PORT), "--no-open"],
         cwd=ROOT, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL,
@@ -243,9 +254,164 @@ def step01a() -> None:
           "live/ не изменился ни на байт")
 
 
+def step01b() -> None:
+    import yaml
+
+    ORDER = ["running", "waiting", "blocked", "paused"]
+
+    def card_text(blocks, name):
+        v = blocks.get(name)
+        return "\n".join(v) if isinstance(v, list) else v
+
+    def read_disk(direction):
+        """Эталон читаем с диска САМИ. Реализации не доверяем ни в одном поле."""
+        out = os.path.join(ROOT, "panel", ".cards", direction)
+        src = {}
+        if os.path.isdir(out):
+            for f in sorted(os.listdir(out)):
+                if not f.endswith(".md"):
+                    continue
+                text = open(os.path.join(out, f), encoding="utf-8").read()
+                head = yaml.safe_load(text.split("---", 2)[1])
+                blocks, cur = {}, None
+                for ln in text.split("\n"):
+                    if ln.startswith("## "):
+                        cur = ln[3:].strip()
+                        blocks[cur] = []
+                    elif cur is not None and not ln.startswith("END_OF_FILE:"):
+                        blocks[cur].append(ln)
+                for k in blocks:
+                    while blocks[k] and blocks[k][-1] == "":
+                        blocks[k].pop()
+                src[head["id"]] = (head, blocks, f)
+        return src
+
+    git_live_before = run("git", "status", "--porcelain", "live").stdout
+
+    check(port_is_free(), f"порт {PORT} свободен — иначе проверялся бы чужой сервер")
+    if fails:
+        return
+    proc = subprocess.Popen(
+        [sys.executable, os.path.join(ROOT, "panel", "serve.py"), "--port", str(PORT), "--no-open"],
+        cwd=ROOT, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL,
+    )
+    calls = {}
+    try:
+        for direction in ("indie-game-development", "solmax"):
+            data = None
+            for _ in range(40):
+                try:
+                    st, body = fetch("/api/section/" + direction + "/now")
+                    if st == 200:
+                        data = json.loads(body)
+                        break
+                except (urllib.error.URLError, ConnectionError, json.JSONDecodeError):
+                    time.sleep(0.25)
+            check(data is not None, f"{direction}: ручка раздела отдала JSON, код 200")
+            if data is None:
+                return
+
+            src = read_disk(direction)
+            calls = {i: v for i, v in src.items() if v[0].get("kind") == "call"}
+            tasks = {i: v for i, v in src.items() if v[0].get("kind") == "task"}
+            ready, other = data.get("ready", []), data.get("other", [])
+            got = {c["id"]: c for c in ready + other}
+
+            check(data.get("cards_total") == len(src),
+                  f"{direction}: cards_total {data.get('cards_total')}, карточек на диске {len(src)}")
+            check(len(ready) + len(other) == len(calls),
+                  f"{direction}: нарядов показано {len(ready) + len(other)}, на диске {len(calls)}")
+            check(set(got) == set(calls), f"{direction}: показаны все наряды и только они")
+            check(data.get("unread") == [], f"{direction}: unread пуст на исправных карточках")
+            if set(got) != set(calls):
+                continue
+
+            ready_ids = {c["id"] for c in ready}
+            want_ready = {i for i, v in calls.items() if v[0].get("status") == "ready"}
+            check(ready_ids == want_ready,
+                  f"{direction}: ready ровно те, у кого в шапке status ready")
+
+            bad = []
+            for cid, c in got.items():
+                head, blocks, _ = calls[cid]
+                for key in ("status", "for", "track"):
+                    if c.get(key) != head.get(key):
+                        bad.append(f"{cid}: {key} разошёлся с карточкой")
+                tr = head.get("track")
+                want_launch = ("collect next for " + direction + "/" + str(tr)) if tr \
+                    else ("collect next for " + direction)
+                if c.get("launch") != want_launch:
+                    bad.append(f"{cid}: launch {c.get('launch')!r}")
+
+                th = tasks.get(head.get("for"))
+                goal = None
+                if th is not None:
+                    goal = th[0].get("goal") or card_text(th[1], "goal")
+                want_title, want_src = (goal, "task") if goal else (cid, "self")
+                if c.get("title") != want_title:
+                    bad.append(f"{cid}: title {str(c.get('title'))[:40]!r} вместо {str(want_title)[:40]!r}")
+                if c.get("title_source") != want_src:
+                    bad.append(f"{cid}: title_source {c.get('title_source')!r} вместо {want_src!r}")
+
+                want_why = head.get("unblock_when") or card_text(blocks, "unblock_when")
+                if (c.get("why") or None) != (want_why or None):
+                    bad.append(f"{cid}: why разошёлся с unblock_when")
+
+                names = [f["name"] for f in c.get("fields", [])]
+                if names != list(blocks):
+                    bad.append(f"{cid}: список полей {names} вместо {list(blocks)}")
+                else:
+                    for f in c.get("fields", []):
+                        if f.get("text") != card_text(blocks, f["name"]):
+                            bad.append(f"{cid}:{f['name']} текст не дословный")
+            check(not bad, f"{direction}: наряды совпадают с карточками на диске ({bad[:3]})")
+
+            ranked = [ORDER.index(c.get("status")) if c.get("status") in ORDER else len(ORDER)
+                      for c in other]
+            check(ranked == sorted(ranked), f"{direction}: other отсортирован по статусу")
+
+        for path, mark in (("/app.js", "function"), ("/style.css", "#c8ff33")):
+            try:
+                st, body = fetch(path)
+            except Exception as e:
+                st, body = 0, str(e)
+            check(st == 200 and mark in body, f"маршрут {path} жив после переписывания")
+
+        code = 0
+        try:
+            code, _ = fetch("/api/section/no-such-direction/now")
+        except urllib.error.HTTPError as e:
+            code = e.code
+        except Exception as e:
+            code = repr(e)
+        check(code == 404, f"неизвестное направление отдаёт 404, отдало {code}")
+
+        # Негативный контроль. NOW.md не трогаем — значит пересборки быть не должно
+        # и подложенный файл доживёт до чтения. Если он пропал, реализация
+        # пересобирает на каждый запрос, что запрещено §4.1.
+        out = os.path.join(ROOT, "panel", ".cards", "indie-game-development")
+        broken = os.path.join(out, "zz-broken.md")
+        try:
+            open(broken, "w", encoding="utf-8").write("---\nне: [ямл\n---\n")
+            st, body = fetch("/api/section/indie-game-development/now")
+            d2 = json.loads(body)
+            names = [u.get("file") for u in d2.get("unread", [])]
+            check("zz-broken.md" in names, f"негативный контроль: битая карточка попала в unread ({names})")
+            check(len(d2.get("ready", []) + d2.get("other", [])) == len(calls),
+                  "негативный контроль: остальные наряды всё равно дошли")
+        finally:
+            if os.path.exists(broken):
+                os.remove(broken)
+    finally:
+        proc.terminate()
+
+    check(run("git", "status", "--porcelain", "live").stdout == git_live_before,
+          "live/ не изменился за прогон")
+
+
 def main() -> None:
     step = sys.argv[1] if len(sys.argv) > 1 else "00"
-    {"00": step00, "01a": step01a}[step]()
+    {"00": step00, "01a": step01a, "01b": step01b}[step]()
     print(f"\n{'ПРИНЯТО' if not fails else 'НЕ ПРИНЯТО: ' + str(len(fails)) + ' проверок упало'}")
     sys.exit(1 if fails else 0)
 
