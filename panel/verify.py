@@ -200,6 +200,11 @@ def step01a() -> None:
         bad_name = [f for f, h in heads.items() if h.get("id") != f[:-3]]
         check(not bad_name, f"{direction}: имя файла совпадает с id ({bad_name[:3]})")
         check(sorted(heads) == files, f"{direction}: все карточки разобрались ({len(heads)} из {len(files)})")
+        # В папке нет ничего кроме карточек. Это и есть доказательство, что `check`
+        # обязан читать NOW.md: снимок с этапа build ему негде было бы взять,
+        # а сам он запускается отдельным процессом с пустой памятью.
+        extra = sorted(set(names) - set(files))
+        check(not extra, f"{direction}: build не оставил ничего кроме карточек ({extra[:3]})")
 
         r = run(sys.executable, script, "check", direction)
         check(r.returncode == 0 and "СОВПАДАЕТ" in (r.stdout or ""),
