@@ -1,4 +1,4 @@
-# NOW: indie-game-development          updated: 2026-08-06 by s-work-g-1d84-householder-profile-close-001
+# NOW: indie-game-development          updated: 2026-08-06 by s-work-g-1d84-named-house-routes-launch-001
 
 bet:
   node: g-1d84
@@ -432,6 +432,22 @@ open_calls:
     call: live/indie-game-development/work/c-exec-g-1d84-world-noise-contact-001-call.md
     unblock_when: "Владелец называет в сообщении с запуском ровно один AVAILABLE слот WIN-U2 или WIN-U4; перед запуском база и selector перемеряются, агент слот не выбирает."
     note: "Корень объявлен принятой перенарезкой, но НЕ запущен и слот ему не назначен. БАЗА ПЕРЕБИТА 2026-08-06 этой ногой: `d60c2f04` -> `8ffe5a5d`, правка внесена в файл наряда. УЛИКА В `context` ОСТАЁТСЯ ВЕРНОЙ БУКВАЛЬНО, и это перемерено, а не предположено: `Assets/TunnelCrew/Editor/HouseholderRouteControllerEditor.cs` (`832c6aa8`) и `Assets/TunnelCrew/Core/Cargo/AuthoritativeCargoRoster.cs` (`9711121b`) на `8ffe5a5d` БАЙТ В БАЙТ те же, что на прежней базе — три инспекторных вызова по-прежнему единственные производители реакции, `cargo.Contact` заполняется каждый тик, у `GetContact` ноль потребителей."
+  - id: c-exec-g-1d84-named-house-routes-001
+    description: |
+      Хозяин ходит между названными местами через проходы размеченного дома.
+      После шума он возвращается к прежнему намерению по свежему пути, не
+      телепортируется и не проходит сквозь стены.
+    description_by: dev
+    track: дом
+    status: blocked
+    to: executor
+    for: t-host-2
+    issued: 2026-08-06
+    engineering_contract: 36
+    stage: PLAN
+    call: live/indie-game-development/work/c-exec-g-1d84-named-house-routes-001-call.md
+    unblock_when: "Владелец запускает этот наряд сообщением, которое дословно называет AVAILABLE слот WIN-U2; перед PLAN агент заново проверяет selector, lease, чистоту и свежий main."
+    note: "Наряд выпущен после фактического освобождения всех четырёх слотов. На момент выпуска selector: все AVAILABLE / lease none; WIN-U2 чист и уже стоит на опубликованном main `d647a58b`; WIN-U1 и WIN-U4 чисты, но требуют fast-forward; WIN-U3 расходится с main и не предлагается. `t-house-6` и `t-host-7` уже доставлены в product main, но их отдельные Direction-закрытия этим легом не присваиваются и их open_calls сохранены."
 
 recurring: []
 
