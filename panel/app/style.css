@@ -1,0 +1,123 @@
+/* Panel — брутальный минимализм для OLED.
+   Правила стиля: panel/PLAN.md §Стиль. Разметка сюда не лезет: меняем только этот файл. */
+
+:root {
+  --bg: #000000;
+  --line: #1c1c1c;
+  --line-strong: #232323;
+  --fg: #f0f0f0;
+  --fg-dim: #7d7d7d;
+  --fg-faint: #3d3d3d;
+  --accent: #c8ff33;
+  --wait: #ffb224;
+  --bad: #ff4438;
+  --bad-line: #331414;
+  --bad-bg: #0d0404;
+  --mono: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  --sans: ui-sans-serif, system-ui, "Segoe UI", Roboto, sans-serif;
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background: var(--bg);
+  color: var(--fg);
+  font-family: var(--sans);
+  font-size: 15px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* верхняя строка: где я и в каком состоянии сборка */
+.topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+  padding: 12px 20px;
+  border-bottom: 1px solid var(--line);
+}
+.brand {
+  font-family: var(--mono);
+  font-size: 12px;
+  letter-spacing: 0.18em;
+  color: #5c5c5c;
+}
+.dirs { display: flex; gap: 14px; align-items: baseline; }
+.dirs a { color: var(--fg-faint); text-decoration: none; font-size: 14px; }
+.dirs a:hover { color: var(--fg-dim); }
+.dirs a.active { color: var(--fg); }
+.build { font-family: var(--mono); font-size: 11px; color: #4a4a4a; }
+.build .warn { color: var(--wait); }
+.build .bad { color: var(--bad); }
+
+/* тело: узкое меню слева, содержимое справа */
+.shell { display: flex; align-items: stretch; min-height: calc(100vh - 108px); }
+
+.nav {
+  width: 168px;
+  flex: none;
+  border-right: 1px solid var(--line);
+  padding: 14px 0;
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.14em;
+}
+.nav a {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 8px 16px;
+  border-left: 2px solid transparent;
+  color: #9a9a9a;
+  text-decoration: none;
+}
+.nav a:hover { color: var(--fg); }
+.nav a.active { color: var(--accent); border-left-color: var(--accent); }
+.nav a.off { color: var(--fg-faint); cursor: not-allowed; }
+.nav a.off:hover { color: var(--fg-faint); }
+.nav .count { color: var(--wait); }
+
+.content { flex: 1; min-width: 0; }
+
+/* строка списка: разделяется линией, никогда заливкой */
+.row { padding: 18px 20px; border-bottom: 1px solid var(--line); }
+.row:last-child { border-bottom: none; }
+
+.status {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  color: var(--accent);
+  margin-bottom: 8px;
+}
+.status.wait { color: var(--wait); }
+.status.bad { color: var(--bad); }
+
+.title { font-size: 16px; color: var(--fg); margin-bottom: 6px; }
+.title.dim { color: #8f8f8f; }
+.desc { font-size: 13px; color: var(--fg-dim); }
+.id { font-family: var(--mono); font-size: 11px; color: var(--fg-faint); margin-top: 10px; }
+
+/* пустой раздел и раздел, которого ещё нет */
+.empty {
+  padding: 40px 20px;
+  font-family: var(--mono);
+  font-size: 12px;
+  letter-spacing: 0.1em;
+  color: var(--fg-faint);
+}
+
+/* проблема: полоса внизу, не всплывашка */
+.problem {
+  border-top: 1px solid var(--bad-line);
+  background: var(--bad-bg);
+  padding: 12px 20px;
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  color: var(--bad);
+}
