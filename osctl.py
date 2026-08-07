@@ -24,6 +24,8 @@ import sys
 import time
 from pathlib import Path
 
+import yaml
+
 SCHEMA = "osctl.slot-state.v1"
 LIFECYCLES = ("AVAILABLE", "CLAIMED")
 LEASE_RE = re.compile(r"^[A-Za-z0-9][A-Za-z0-9._-]*:[A-Za-z0-9][A-Za-z0-9._-]*$")
@@ -321,6 +323,213 @@ def cmd_slot_create(a) -> int:
     return 0
 
 
+
+# ------------------------------------------------------------------- карточки
+
+CARD_KINDS = ("bet", "node", "task", "call", "issue", "question", "decision")
+JOURNAL = "журнал"
+JOURNAL_CEILING = 20
+HEAD_LIMIT = 120
+
+
+def cards_dir(direction: str, override: str | None = None) -> Path:
+    return Path(override) if override else (REPO / "live" / direction / "cards")
+
+
+def card_path(direction: str, cid: str, override: str | None = None) -> Path:
+    return cards_dir(direction, override) / f"{cid}.md"
+
+
+def read_card(path: Path):
+    """Шапка — yaml между первой и второй ---; тело режется по строкам '## '.
+    Никакого другого разбора: закон 2."""
+    if not path.exists():
+        raise Stop(f"карточки нет: {path}")
+    text = path.read_text(encoding="utf-8")
+    parts = text.split("---", 2)
+    if len(parts) < 3:
+        raise Stop(f"{path.name}: нет шапки между --- и ---")
+    try:
+        head = yaml.safe_load(parts[1])
+    except yaml.YAMLError as e:
+        raise Stop(f"{path.name}: шапка не разбирается — {e}") from None
+    if not isinstance(head, dict):
+        raise Stop(f"{path.name}: шапка не отображение")
+    blocks, order, cur = {}, [], None
+    for line in parts[2].split(chr(10)):
+        if line.startswith("## "):
+            cur = line[3:].strip()
+            blocks[cur] = []
+            order.append(cur)
+        elif line.startswith("END_OF_FILE:"):
+            cur = None
+        elif cur is not None:
+            blocks[cur].append(line)
+    for k in blocks:
+        while blocks[k] and blocks[k][-1] == "":
+            blocks[k].pop()
+    return head, blocks, order
+
+
+def write_card(direction: str, cid: str, head: dict, blocks: dict, order: list,
+               override: str | None = None) -> None:
+    """Атомарно: временный файл, подмена, чтение обратно и сверка."""
+    for k, v in head.items():
+        if isinstance(v, str) and (len(v) > HEAD_LIMIT or chr(10) in v):
+            raise Stop(f"{cid}: поле {k} длиннее {HEAD_LIMIT} или многострочное — ему место в теле")
+    path = card_path(direction, cid, override)
+    path.parent.mkdir(parents=True, exist_ok=True)
+    body = "".join(
+        f"## {name}{chr(10)}" + chr(10).join(blocks.get(name) or []) + chr(10) + chr(10)
+        for name in order
+    )
+    rel = str(path.relative_to(REPO)).replace("\\", "/") if str(path).startswith(str(REPO)) else str(path)
+    text = ("---" + chr(10)
+            + yaml.safe_dump(head, sort_keys=False, allow_unicode=True, default_flow_style=False)
+            + "---" + chr(10) + chr(10) + body
+            + f"END_OF_FILE: {rel}" + chr(10))
+    tmp = path.with_suffix(".md.tmp")
+    tmp.write_text(text, encoding="utf-8")
+    tmp.replace(path)
+    back = path.read_text(encoding="utf-8")
+    if back != text:
+        raise Stop(f"{cid}: запись не сошлась при чтении обратно")
+
+
+def cmd_card_show(a) -> int:
+    direction = resolve_direction(a.direction)
+    head, blocks, order = read_card(card_path(direction, a.id, a.cards))
+    if a.json:
+        print(json.dumps({"head": head, "blocks": {k: chr(10).join(v) for k, v in blocks.items()},
+                          "order": order}, ensure_ascii=False, indent=2, default=str))
+        return 0
+    for k, v in head.items():
+        print(f"{k}: {v}")
+    for name in order:
+        print(f"{chr(10)}## {name}")
+        print(chr(10).join(blocks[name])[:600])
+    return 0
+
+
+def cmd_card_set(a) -> int:
+    """Значение приносится целиком. Команда никогда не правит кусок текста."""
+    direction = resolve_direction(a.direction)
+    path = card_path(direction, a.id, a.cards)
+    head, blocks, order = read_card(path)
+    if a.field in ("id", "kind"):
+        raise Stop(f"{a.field} не меняется командой set — это опора карточки")
+    if len(a.value) > HEAD_LIMIT or chr(10) in a.value:
+        raise Stop(f"значение длиннее {HEAD_LIMIT} символов — это блок тела, а не поле шапки")
+    head[a.field] = yaml.safe_load(a.value) if a.value not in ("", "null") else None
+    write_card(direction, a.id, head, blocks, order, a.cards)
+    print(f"{a.id}: {a.field} = {head[a.field]!r}")
+    return 0
+
+
+def cmd_card_block(a) -> int:
+    direction = resolve_direction(a.direction)
+    path = card_path(direction, a.id, a.cards)
+    head, blocks, order = read_card(path)
+    if a.name == JOURNAL:
+        raise Stop(f"«{JOURNAL}» пишется только командой log add")
+    if any(l.startswith("## ") for l in a.text.split(chr(10))):
+        raise Stop("в тексте есть строка, начинающаяся с '## ' — она разрежет карточку")
+    blocks[a.name] = a.text.split(chr(10))
+    if a.name not in order:
+        order.append(a.name)
+    write_card(direction, a.id, head, blocks, order, a.cards)
+    print(f"{a.id}: блок «{a.name}» переписан целиком, {len(blocks[a.name])} строк")
+    return 0
+
+
+def cmd_log_add(a) -> int:
+    """Порядок записи знает команда, а не тот, кто её зовёт. Новое — сверху."""
+    direction = resolve_direction(a.direction)
+    path = card_path(direction, a.id, a.cards)
+    head, blocks, order = read_card(path)
+    date = a.date or __import__("datetime").date.today().isoformat()
+    text = " ".join(a.text.split())
+    if not text:
+        raise Stop("пустая запись журнала")
+    line = f"{date} · {text}"
+    if a.history:
+        line += f" · history/{a.history}" if not a.history.startswith("history/") else f" · {a.history}"
+    lines = blocks.get(JOURNAL) or []
+    if line in lines:
+        raise Stop("такая запись уже есть — журнал не дублирует")
+    lines.insert(0, line)
+    blocks[JOURNAL] = lines
+    if JOURNAL not in order:
+        order.append(JOURNAL)
+    write_card(direction, a.id, head, blocks, order, a.cards)
+    note = f"  потолок {JOURNAL_CEILING} превышен: {len(lines)} строк — пора закрывать или чистить" \
+        if len(lines) > JOURNAL_CEILING else ""
+    print(f"{a.id}: записано в журнал, всего {len(lines)}")
+    if note:
+        print(note)
+    return 0
+
+
+def cmd_find(a) -> int:
+    direction = resolve_direction(a.direction)
+    d = cards_dir(direction, a.cards)
+    if not d.is_dir():
+        raise Stop(f"папки карточек нет: {d}")
+    hits = 0
+    for p in sorted(d.glob("*.md")):
+        text = p.read_text(encoding="utf-8")
+        if a.text.lower() in text.lower():
+            hits += 1
+            for i, line in enumerate(text.split(chr(10)), 1):
+                if a.text.lower() in line.lower():
+                    print(f"{p.stem}:{i}: {line.strip()[:100]}")
+                    break
+    print(f"{chr(10)}найдено карточек: {hits}")
+    return 0
+
+
+def cmd_check(a) -> int:
+    """Только механические факты. Ничего не оценивает и не судит смысл."""
+    direction = resolve_direction(a.direction)
+    d = cards_dir(direction, a.cards)
+    if not d.is_dir():
+        raise Stop(f"папки карточек нет: {d}")
+    problems, seen, total = [], {}, 0
+    for p in sorted(d.glob("*.md")):
+        total += 1
+        try:
+            head, blocks, _ = read_card(p)
+        except Stop as e:
+            problems.append(f"{p.name}: {e}")
+            continue
+        cid = str(head.get("id"))
+        if cid != p.stem:
+            problems.append(f"{p.name}: id {cid!r} не совпадает с именем файла")
+        if cid in seen:
+            problems.append(f"{p.name}: id повторяется, уже был в {seen[cid]}")
+        seen[cid] = p.name
+        if head.get("kind") not in CARD_KINDS:
+            problems.append(f"{p.name}: kind {head.get('kind')!r} не из {list(CARD_KINDS)}")
+        if not p.read_text(encoding="utf-8").rstrip().endswith(f"{p.name}"):
+            problems.append(f"{p.name}: нет хвоста END_OF_FILE")
+        for k, v in head.items():
+            if isinstance(v, str) and (len(v) > HEAD_LIMIT or chr(10) in v):
+                problems.append(f"{p.name}: поле {k} длинное — ему место в теле")
+        j = blocks.get(JOURNAL) or []
+        if len(j) > JOURNAL_CEILING:
+            problems.append(f"{p.name}: журнал {len(j)} строк, потолок {JOURNAL_CEILING}")
+        if head.get("kind") == "node" and not head.get("label"):
+            problems.append(f"{p.name}: у цели нет короткого имени (label)")
+    print(f"карточек: {total}")
+    if not problems:
+        print("механических проблем нет")
+        return 0
+    print(f"проблем: {len(problems)}")
+    for x in problems:
+        print("  " + x)
+    return 1
+
+
 def cmd_here_set(a) -> int:
     p = REPO / MARKER
     lines = [f"direction: {a.direction}"]
@@ -371,6 +580,36 @@ def build_parser() -> argparse.ArgumentParser:
     p.add_argument("--stage", required=True); p.add_argument("--direction")
     p.add_argument("--force", action="store_true", help="выбросить неопубликованную работу")
     p.set_defaults(fn=cmd_slot_release)
+
+    card = sub.add_parser("card").add_subparsers(dest="verb", required=True)
+    for name, fn, extra in (("show", cmd_card_show, "show"), ("set", cmd_card_set, "set"),
+                            ("block", cmd_card_block, "block")):
+        q = card.add_parser(name)
+        q.add_argument("--id", required=True)
+        q.add_argument("--direction")
+        q.add_argument("--cards", help="папка карточек, по умолчанию live/<направление>/cards")
+        if extra == "show":
+            q.add_argument("--json", action="store_true")
+        if extra == "set":
+            q.add_argument("--field", required=True)
+            q.add_argument("--value", required=True)
+        if extra == "block":
+            q.add_argument("--name", required=True)
+            q.add_argument("--text", required=True)
+        q.set_defaults(fn=fn)
+
+    log = sub.add_parser("log").add_subparsers(dest="verb", required=True)
+    q = log.add_parser("add", help="строка в журнал сущности; порядок знает команда")
+    q.add_argument("--id", required=True); q.add_argument("--text", required=True)
+    q.add_argument("--history"); q.add_argument("--date"); q.add_argument("--direction")
+    q.add_argument("--cards"); q.set_defaults(fn=cmd_log_add)
+
+    q = sub.add_parser("find", help="поиск по карточкам")
+    q.add_argument("--text", required=True); q.add_argument("--direction")
+    q.add_argument("--cards"); q.set_defaults(fn=cmd_find)
+
+    q = sub.add_parser("check", help="механические факты о карточках, без оценок")
+    q.add_argument("--direction"); q.add_argument("--cards"); q.set_defaults(fn=cmd_check)
 
     here = sub.add_parser("here").add_subparsers(dest="verb", required=True)
     p = here.add_parser("set", help="пометить рабочую копию направлением")
