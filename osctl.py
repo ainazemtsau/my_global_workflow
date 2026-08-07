@@ -299,6 +299,28 @@ def cmd_slot_release(a) -> int:
     return 0
 
 
+def cmd_slot_create(a) -> int:
+    """Рабочая копия слота от origin/main плюс метка направления в её корне."""
+    direction = resolve_direction(a.direction)
+    read_ledger(direction)                      # доска должна существовать
+    root = Path(a.root or (Path(REPO).parent.parent / "workflow-slots"))
+    path = root / direction / f"slot-{a.slot}"
+    br = slot_branch(direction, a.slot)
+    if path.exists():
+        raise Stop(f"копия уже есть: {path}")
+    git("fetch", "origin", "--quiet")
+    exists = git("rev-parse", "--verify", "--quiet", br).returncode == 0
+    args = ["worktree", "add", str(path)] + ([br] if exists else ["-b", br, "origin/main"])
+    r = git(*args)
+    if r.returncode != 0:
+        raise Stop(f"не удалось создать копию: {(r.stderr or r.stdout).strip()[:300]}")
+    marker = path / MARKER
+    marker.write_text(f"direction: {direction}\nslot: {a.slot}\n", encoding="utf-8")
+    print(f"слот {a.slot}: копия {path}")
+    print(f"  ветка {br}, метка {MARKER} на месте")
+    return 0
+
+
 def cmd_here_set(a) -> int:
     p = REPO / MARKER
     lines = [f"direction: {a.direction}"]
@@ -333,6 +355,11 @@ def build_parser() -> argparse.ArgumentParser:
     p = slot.add_parser("list", help="что с каждым слотом прямо сейчас")
     p.add_argument("--direction"); p.add_argument("--json", action="store_true")
     p.set_defaults(fn=cmd_slot_list)
+
+    p = slot.add_parser("create", help="сделать рабочую копию слота от origin/main")
+    p.add_argument("--slot", required=True); p.add_argument("--direction")
+    p.add_argument("--root", help="куда класть, по умолчанию ../workflow-slots")
+    p.set_defaults(fn=cmd_slot_create)
 
     p = slot.add_parser("claim", help="взять слот под наряд")
     p.add_argument("--slot", required=True); p.add_argument("--for", dest="for_", required=True)
