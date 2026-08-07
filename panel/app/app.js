@@ -179,6 +179,78 @@ function renderNow(direction, content) {
     });
 }
 
+function taskRow(r) {
+  const row = el("div", "row");
+  const st = (r.status || "нет статуса").toUpperCase();
+  const cls = r.status === "done" ? "status" : (r.status === "open" ? "status wait" : "status wait");
+  row.appendChild(el("div", cls, st + (r.order ? " · " + r.order : "")));
+  row.appendChild(el("div", r.status === "done" ? "title dim" : "title", r.goal || r.id));
+  if (r.missing) row.appendChild(el("div", "waitline", "карточки нет — полоса называет задачу, которой не существует"));
+  if (r.unblock_when) row.appendChild(el("div", "waitline", "ждёт: " + r.unblock_when));
+  if (r.done_when) {
+    const d = el("div", "desc");
+    d.innerHTML = window.mdToHtml("**готово, когда:** " + r.done_when);
+    row.appendChild(d);
+  }
+  row.appendChild(el("div", "id", r.id));
+  return row;
+}
+
+function renderWave(direction, content) {
+  const token = ++RENDER_TOKEN;
+  fetch("/api/section/" + encodeURIComponent(direction.id) + "/wave")
+    .then((response) => { if (!response.ok) throw new Error("HTTP " + response.status); return response.json(); })
+    .then((data) => {
+      if (token !== RENDER_TOKEN) return;
+      content.textContent = "";
+      const n = data.numbers || {};
+      const nums = el("div", "numbers");
+      nums.appendChild(el("span", "num", "задачи " + n.tasks_done + " из " + n.tasks_total));
+      nums.appendChild(el("span", "num", "полосы " + n.tracks_total + " из " + n.tracks_limit));
+      content.appendChild(nums);
+
+      if (data.bet) {
+        const b = el("div", "row");
+        b.appendChild(el("div", "status", "СТАВКА · " + data.bet.id));
+        if (data.bet.goal) b.appendChild(el("div", "title", data.bet.goal));
+        if (data.bet.description) {
+          const h = el("div", "human");
+          h.innerHTML = window.mdToHtml(data.bet.description);
+          b.appendChild(h);
+        }
+        if (data.bet.description_by === "dev") {
+          b.appendChild(el("div", "draft", "описание составлено при разработке панели, может быть неточным"));
+        }
+        if (data.bet.opened) b.appendChild(el("div", "id", "открыта " + data.bet.opened));
+        content.appendChild(b);
+      }
+
+      for (const t of data.tracks) {
+        const head = el("div", "row");
+        head.appendChild(el("div", t.done === t.total && t.total > 0 ? "status" : "status wait",
+          "ПОЛОСА · " + t.id + " · " + t.done + " из " + t.total));
+        if (t.label) head.appendChild(el("div", "title dim", t.label));
+        if (t.note) head.appendChild(el("div", "desc", t.note));
+        content.appendChild(head);
+        for (const r of t.tasks) content.appendChild(taskRow(r));
+      }
+
+      if (data.loose && data.loose.length) {
+        const h = el("div", "row");
+        h.appendChild(el("div", "status bad", "ВНЕ ПОЛОС · " + data.loose.length));
+        h.appendChild(el("div", "desc", "эти задачи не названы ни одной полосой"));
+        content.appendChild(h);
+        for (const r of data.loose) content.appendChild(taskRow(r));
+      }
+
+      if (data.unread && data.unread.length) {
+        content.appendChild(el("div", "problem",
+          "НЕ ПРОЧИТАЛОСЬ " + data.unread.length + " — " + data.unread.map((u) => u.file).join(", ")));
+      }
+    })
+    .catch((e) => { content.textContent = ""; content.appendChild(el("div", "empty", "НЕ ОТВЕЧАЕТ: " + e)); });
+}
+
 function renderSlots(direction, content) {
   const token = ++RENDER_TOKEN;
   fetch("/api/section/" + encodeURIComponent(direction.id) + "/slots")
@@ -266,6 +338,10 @@ function renderDirection(direction, sectionId) {
   }
   if (sectionId === "slots") {
     renderSlots(direction, content);
+    return;
+  }
+  if (sectionId === "wave") {
+    renderWave(direction, content);
     return;
   }
   content.appendChild(el("div", "empty", "РАЗДЕЛ ПУСТ"));

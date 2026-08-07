@@ -24,7 +24,7 @@ SECTIONS = [("now", "СЕЙЧАС"), ("slots", "СЛОТЫ"), ("waiting", "ЖД�
             ("goals", "ЦЕЛИ"), ("history", "ИСТОРИЯ"), ("knowledge", "ЗНАНИЯ"),
             ("direction", "НАПРАВЛЕНИЕ")]
 
-READY_SECTIONS = ("now", "slots")
+READY_SECTIONS = ("now", "slots", "wave")
 
 CONTENT_TYPES = {".html": "text/html; charset=utf-8",
                  ".js": "application/javascript; charset=utf-8",
@@ -92,6 +92,77 @@ def section_slots(direction):
             "published": facts["published"],
         })
     return out
+
+
+def section_wave(direction):
+    """Ставка, полосы и задачи. Принадлежность полосе сегодня живёт списком внутри
+    полосы, а не полем задачи — читаем как есть и показываем задачи вне полос отдельно,
+    чтобы расхождение было видно, а не съедено."""
+    with lock_for(direction):
+        ensure_cards(direction)
+        folder = os.path.join(CARDS_DIR, direction)
+        loaded, unread = {}, []
+        for name in sorted(f for f in os.listdir(folder) if f.endswith(".md")):
+            try:
+                head, blocks = cards.read_card(os.path.join(folder, name))
+            except (Exception, SystemExit) as e:
+                unread.append({"file": name, "error": str(e)})
+                continue
+            if isinstance(head, dict):
+                loaded[str(head.get("id"))] = (head, blocks)
+            else:
+                unread.append({"file": name, "error": "шапка не словарь"})
+    with open(os.path.join(LIVE_DIR, direction, "NOW.md"), encoding="utf-8") as fh:
+        now = yaml.safe_load(fh.read()) or {}
+    tracks_raw = (now.get("tracks") or []) if isinstance(now, dict) else []
+    tasks = {i: c for i, c in loaded.items() if c[0].get("kind") == "task"}
+    bet_card = next((c for c in loaded.values() if c[0].get("kind") == "bet"), None)
+
+    def task_view(tid):
+        c = tasks.get(tid)
+        if c is None:
+            return {"id": tid, "missing": True, "status": None, "goal": None, "order": None}
+        h, b = c
+        goal = h.get("goal") or block_text(b, "goal")
+        return {"id": tid, "missing": False, "status": h.get("status"),
+                "order": h.get("order"), "goal": goal,
+                "done_when": block_text(b, "done_when"),
+                "closed": block_text(b, "closed"),
+                "unblock_when": h.get("unblock_when") or block_text(b, "unblock_when")}
+
+    seen, out_tracks = set(), []
+    for t in tracks_raw:
+        ids = list(t.get("tasks") or [])
+        seen.update(ids)
+        rows = sorted((task_view(i) for i in ids),
+                      key=lambda r: (r["order"] is None, r["order"] or 0))
+        out_tracks.append({
+            "id": t.get("id"), "label": t.get("label"),
+            "note": t.get("completed") or t.get("emptied") or t.get("frontier_note"),
+            "tasks": rows,
+            "done": sum(1 for r in rows if r["status"] == "done"),
+            "total": len(rows),
+        })
+    loose = sorted((task_view(i) for i in tasks if i not in seen),
+                   key=lambda r: (r["order"] is None, r["order"] or 0))
+
+    bet = None
+    if bet_card:
+        h, b = bet_card
+        bet = {"id": h.get("id"), "opened": h.get("opened"),
+               "goal": h.get("goal") or block_text(b, "goal"),
+               "description": h.get("description") or block_text(b, "description"),
+               "description_by": h.get("description_by") or block_text(b, "description_by"),
+               "appetite": block_text(b, "appetite"), "cuts": block_text(b, "cuts")}
+
+    total = len(tasks)
+    return {"direction": direction, "bet": bet, "tracks": out_tracks, "loose": loose,
+            "unread": unread,
+            "numbers": {"tasks_done": sum(1 for c in tasks.values()
+                                          if c[0].get("status") == "done"),
+                        "tasks_total": total,
+                        "tracks_total": len(out_tracks),
+                        "tracks_limit": now.get("track_wip_limit") if isinstance(now, dict) else None}}
 
 
 def ensure_cards(direction):
@@ -217,6 +288,8 @@ class Handler(BaseHTTPRequestHandler):
                 self.send_json(section_now(parts[0]))
             elif ok_dir and parts[1] == "slots":
                 self.send_json(section_slots(parts[0]))
+            elif ok_dir and parts[1] == "wave":
+                self.send_json(section_wave(parts[0]))
             else:
                 self.send_error(404, "not found")
         else:

@@ -99,7 +99,7 @@ def step00() -> None:
             secs = [s.get("id") for s in d.get("sections", [])]
             check(secs == SECTIONS, f"{d.get('id')}: разделы в порядке {SECTIONS}, найдено {secs}")
             ready = [s.get("id") for s in d.get("sections", []) if s.get("ready")]
-            check(ready == ["now", "slots"], f"{d.get('id')}: готовы now и slots, найдено {ready}")
+            check(ready == ["now", "slots", "wave"], f"{d.get('id')}: готовы now, slots, wave — найдено {ready}")
 
         # негативный контроль: пустой ответ не должен считаться успехом
         check(len(json.dumps(state)) > 200, "ответ не пустая заглушка")
