@@ -530,6 +530,134 @@ def cmd_check(a) -> int:
     return 1
 
 
+
+# --------------------------------------------------------------------- переезд
+
+JOURNAL_SEED_MAX = 20
+
+
+def load_overlay(direction: str) -> dict:
+    """Накладка коротких имён. У неё назван конец: после переезда — в карточках."""
+    p = REPO / "os2" / "labels" / f"{direction}.yaml"
+    if not p.exists():
+        return {}
+    doc = yaml.safe_load(p.read_text(encoding="utf-8")) or {}
+    return doc.get("labels") or {}
+
+
+def journal_from_git(direction: str, cid: str) -> list:
+    """События сущности уже лежат в git. Переезд их материализует, а не выдумывает."""
+    sep = chr(31)
+    r = git("log", "--date=short", sep.join(["--format=%h", "%ad", "%s"]),
+            f"--grep={cid}", "--name-only", "--", f"live/{direction}")
+    if r.returncode != 0 or not r.stdout.strip():
+        return []
+    events, cur = [], None
+    for line in r.stdout.split(chr(10)):
+        if sep in line:
+            if cur:
+                events.append(cur)
+            sha, date, subject = line.split(sep)
+            text = subject.split(":", 1)[1].strip() if ":" in subject else subject
+            cur = {"date": date, "text": " ".join(text.split()), "sha": sha, "pointer": None}
+        elif cur and "/history/" in line and line.endswith(".md"):
+            cur["pointer"] = "history/" + line.rsplit("/", 1)[1]
+    if cur:
+        events.append(cur)
+    # Строка «и ещё N раньше» — тоже строка журнала. Считаем её в потолок,
+    # иначе засев сам же его и превышает.
+    limit = JOURNAL_SEED_MAX if len(events) <= JOURNAL_SEED_MAX else JOURNAL_SEED_MAX - 1
+    lines = []
+    for e in events[:limit]:
+        row = f"{e['date']} · {e['text']}"
+        row += f" · {e['pointer']}" if e["pointer"] else f" · {e['sha']}"
+        lines.append(row)
+    rest = len(events) - len(lines)
+    if rest > 0:
+        lines.append(f"…и ещё {rest} раньше · git log --grep={cid}")
+    return lines
+
+
+def cmd_migrate(a) -> int:
+    import shutil
+    sys.path.insert(0, str(REPO / "panel"))
+    import cards as projector
+
+    direction = resolve_direction(a.direction)
+
+    # 1. проекция проверенным конвертером и ДОКАЗАТЕЛЬСТВО обратной сборки
+    print("1. собираю карточки из источников")
+    projector.build(direction)
+    print("2. проверяю обратную сборку — без этого дальше нельзя")
+    try:
+        projector.check(direction)
+    except SystemExit:
+        raise Stop("обратная сборка НЕ сошлась — переезд отменён, источники не тронуты") from None
+
+    src = REPO / "panel" / ".cards" / direction
+    out = Path(a.out) if a.out else (REPO / "live" / direction / "cards")
+    overlay = load_overlay(direction)
+
+    # 2. обогащение: имена целям и журнал каждому
+    print("3. добавляю имена целям и журнал из git")
+    prepared, named, journaled, no_name = [], 0, 0, []
+    for p in sorted(src.glob("*.md")):
+        head, blocks, order = read_card(p)
+        cid = str(head.get("id"))
+        if head.get("kind") == "node":
+            lab = overlay.get(cid) or {}
+            if lab.get("label"):
+                head["label"] = lab["label"]
+                if lab.get("hook"):
+                    head["hook"] = lab["hook"]
+                named += 1
+            else:
+                no_name.append(cid)
+        j = journal_from_git(direction, cid)
+        if j:
+            blocks[JOURNAL] = j
+            if JOURNAL not in order:
+                order.append(JOURNAL)
+            journaled += 1
+        prepared.append((cid, head, blocks, order))
+
+    kinds = {}
+    for cid, head, _, _ in prepared:
+        k = head.get("kind")
+        kinds[k] = kinds.get(k, 0) + 1
+
+    print()
+    print(f"получится карточек: {len(prepared)}")
+    print("  " + ", ".join(f"{k} {v}" for k, v in sorted(kinds.items())))
+    print(f"целей с именем: {named}" + (f", без имени: {no_name}" if no_name else ""))
+    print(f"с журналом из git: {journaled}")
+    print(f"куда: {out}")
+
+    if not a.apply:
+        print()
+        print("ПРОБНЫЙ ПРОГОН — ничего не записано.")
+        print("  Записать: добавь --apply")
+        print("  TREE.md, LOG.md и NOW.md переезд НЕ трогает: это отдельные шаги,")
+        print("  и только после того, как карточки поработают.")
+        return 0
+
+    if no_name and not a.force:
+        raise Stop(f"без короткого имени остались цели: {no_name}\n"
+                   "  Имя пишется при создании (закон 4). Допиши накладку или добавь --force.")
+
+    print()
+    if out.exists():
+        if not a.force:
+            raise Stop(f"папка уже есть: {out}\n  Перезаписать: добавь --force")
+        shutil.rmtree(out)
+    out.mkdir(parents=True)
+    for cid, head, blocks, order in prepared:
+        write_card(direction, cid, head, blocks, order, str(out))
+    print(f"записано карточек: {len(prepared)} в {out}")
+    print("источники не тронуты: TREE.md, LOG.md, NOW.md на месте")
+    return 0
+
+
 def cmd_here_set(a) -> int:
     p = REPO / MARKER
     lines = [f"direction: {a.direction}"]
@@ -610,6 +738,12 @@ def build_parser() -> argparse.ArgumentParser:
 
     q = sub.add_parser("check", help="механические факты о карточках, без оценок")
     q.add_argument("--direction"); q.add_argument("--cards"); q.set_defaults(fn=cmd_check)
+
+    q = sub.add_parser("migrate", help="собрать карточки направления из нынешних источников")
+    q.add_argument("--direction"); q.add_argument("--out")
+    q.add_argument("--apply", action="store_true", help="записать; без него — пробный прогон")
+    q.add_argument("--force", action="store_true")
+    q.set_defaults(fn=cmd_migrate)
 
     here = sub.add_parser("here").add_subparsers(dest="verb", required=True)
     p = here.add_parser("set", help="пометить рабочую копию направлением")
