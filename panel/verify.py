@@ -161,7 +161,19 @@ def step01a() -> None:
         now = yaml.safe_load(open(now_paths[direction], encoding="utf-8").read())
         bet = now.get("bet")
         bet_ok = isinstance(bet, dict) and "node" in bet
-        want = sum(len(now.get(k) or []) for k in SECTIONS_TO_CARDS) + (1 if bet_ok else 0)
+        # узлы дерева тоже карточки: считаем их из TREE.md независимо от реализации
+        tree_path = os.path.join(ROOT, "live", direction, "TREE.md")
+        n_nodes = 0
+        if os.path.isfile(tree_path):
+            doc = yaml.safe_load(open(tree_path, encoding="utf-8").read())
+            def _count(ns):
+                total = 0
+                for x in (ns if isinstance(ns, list) else [ns]):
+                    if isinstance(x, dict) and "id" in x:
+                        total += 1 + _count(x.get("children") or [])
+                return total
+            n_nodes = _count((doc or {}).get("root") or [])
+        want = sum(len(now.get(k) or []) for k in SECTIONS_TO_CARDS) + (1 if bet_ok else 0) + n_nodes
         files = sorted(f for f in names if f.endswith(".md"))
         check(len(files) == want, f"{direction}: карточек {len(files)}, ожидалось {want}")
 
@@ -172,6 +184,17 @@ def step01a() -> None:
         for sec in SECTIONS_TO_CARDS:
             for rec in (now.get(sec) or []):
                 expected[str(rec.get("id"))] = dict(rec)
+        if os.path.isfile(tree_path):
+            def _flat(ns, acc):
+                for x in (ns if isinstance(ns, list) else [ns]):
+                    if isinstance(x, dict) and "id" in x:
+                        kids = x.get("children")
+                        drop = isinstance(kids, list) and len(kids) > 0
+                        acc[str(x["id"])] = {k: v for k, v in x.items()
+                                             if not (k == "children" and drop)}
+                        _flat(kids or [], acc)
+                return acc
+            _flat((doc or {}).get("root") or [], expected)
 
         heads: dict[str, dict] = {}
         bad_head, bad_trailer, bad_place = [], [], []
@@ -229,7 +252,11 @@ def step01a() -> None:
     # три негативных контроля: check обязан упасть на каждом
     out = os.path.join(ROOT, "panel", ".cards", "indie-game-development")
     cards = sorted(f for f in os.listdir(out) if f.endswith(".md"))
-    victim = os.path.join(out, next(f for f in cards if f.startswith("t-")))
+    # какая карточка — не важно, важно что она есть; задач может не быть вовсе
+    if not cards:
+        check(False, "негативный контроль: в папке нет ни одной карточки")
+        return
+    victim = os.path.join(out, cards[0])
     saved = open(victim, encoding="utf-8").read()
 
     def broken_check(label: str, mutate) -> None:

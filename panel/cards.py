@@ -22,7 +22,7 @@ for _s in (sys.stdout, sys.stderr):
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECTIONS = (("tasks", "task"), ("open_calls", "call"),
             ("issues", "issue"), ("decisions", "decision"))
-KINDS = ("bet", "task", "call", "issue", "decision")
+KINDS = ("bet", "node", "task", "call", "issue", "decision")
 BET_CARRIERS = ("task", "call", "decision")
 YAML_MARK = "```yaml"
 
@@ -70,7 +70,7 @@ def dump_yaml(v):
                           default_flow_style=False)
 
 
-def make_card(direction, cid, kind, pos, rec, bet_node):
+def make_card(direction, cid, kind, pos, rec, bet_node, parent=None):
     if not isinstance(rec, dict):
         fail(f"{kind} #{pos}: запись не словарь")
     for k in ("kind", "pos"):
@@ -81,6 +81,10 @@ def make_card(direction, cid, kind, pos, rec, bet_node):
         if "bet" in rec:
             fail(f"{cid}: у записи уже есть ключ bet, служебный не добавить")
         head["bet"] = bet_node
+    if parent is not None:
+        if "parent" in rec:
+            fail(f"{cid}: у записи уже есть ключ parent, служебный не добавить")
+        head["parent"] = parent
     head["pos"] = pos
     blocks = []
     for k, v in rec.items():
@@ -98,6 +102,74 @@ def make_card(direction, cid, kind, pos, rec, bet_node):
             + f"END_OF_FILE: panel/.cards/{direction}/{cid}.md\n")
 
 
+def load_tree(direction):
+    """TREE.md как есть. Нет файла — дерева просто нет, это не ошибка."""
+    path = os.path.join(ROOT, "live", direction, "TREE.md")
+    if not os.path.isfile(path):
+        return None
+    with open(path, encoding="utf-8") as f:
+        raw = f.read()
+    tail = f"END_OF_FILE: live/{direction}/TREE.md"
+    if not raw.rstrip().endswith(tail):
+        fail(f"{path}: нет хвоста {tail}")
+    try:
+        doc = yaml.safe_load(raw)
+    except yaml.YAMLError as e:
+        fail(f"{path}: не разбирается — {e}")
+    if not isinstance(doc, dict) or "root" not in doc:
+        fail(f"{path}: нет ключа root")
+    return doc
+
+
+def flatten_tree(doc):
+    """Узлы плоским списком: (id, parent, pos среди братьев, запись без children)."""
+    out = []
+
+    def walk(nodes, parent):
+        for pos, n in enumerate(nodes):
+            if not isinstance(n, dict) or "id" not in n:
+                fail(f"узел #{pos} под {parent}: нет словаря с id")
+            # непустой children — это СТРУКТУРА, она едет в parent/pos;
+            # пустой — обычное поле листа, и оно должно вернуться как было
+            kids_raw = n.get("children")
+            drop = isinstance(kids_raw, list) and len(kids_raw) > 0
+            rec = {k: v for k, v in n.items() if not (k == "children" and drop)}
+            out.append((str(n["id"]), parent, pos, rec))
+            kids = n.get("children")
+            if kids:
+                if not isinstance(kids, list):
+                    fail(f"{n['id']}: children не список")
+                walk(kids, str(n["id"]))
+
+    r = doc["root"]
+    walk(r if isinstance(r, list) else [r], None)
+    return out
+
+
+def rebuild_tree(nodes):
+    """Обратно в дерево: детей собираем по parent и упорядочиваем по pos."""
+    by_parent = {}
+    for cid, parent, pos, rec in nodes:
+        by_parent.setdefault(parent, []).append((pos, cid, rec))
+    for k in by_parent:
+        poss = [p for p, _, _ in by_parent[k]]
+        if len(set(poss)) != len(poss):
+            fail(f"узлы под {k}: pos повторяется")
+        by_parent[k].sort(key=lambda t: t[0])
+
+    def grow(parent):
+        out = []
+        for _, cid, rec in by_parent.get(parent, []):
+            node = dict(rec)
+            kids = grow(cid)
+            if kids:
+                node["children"] = kids   # структура восстановлена из parent/pos
+            out.append(node)
+        return out
+
+    return grow(None)
+
+
 def build(direction):
     now = load_now(direction)
     out = os.path.join(ROOT, "panel", ".cards", direction)
@@ -108,6 +180,11 @@ def build(direction):
     if isinstance(bet, dict) and "node" in bet:
         cid = str(bet["node"])
         cards.append(("bet", cid, make_card(direction, cid, "bet", 0, bet, bet_node)))
+    doc = load_tree(direction)
+    if doc is not None:
+        for cid, parent, pos, rec in flatten_tree(doc):
+            cards.append(("node", cid,
+                          make_card(direction, cid, "node", pos, rec, bet_node, parent)))
     for sec, kind in SECTIONS:
         for pos, rec in enumerate(section_list(now, sec)):
             if not isinstance(rec, dict) or "id" not in rec:
@@ -182,7 +259,7 @@ def reassemble(direction, now):
     if not os.path.isdir(d):
         fail(f"нет папки карточек: {d}")
     bet_node = bet_node_of(now)
-    sections, rebuilt_bet = {kind: [] for _, kind in SECTIONS}, None
+    sections, rebuilt_bet, nodes = {kind: [] for _, kind in SECTIONS}, None, []
     for name in sorted(os.listdir(d)):
         if not name.endswith(".md"):
             continue
@@ -201,10 +278,14 @@ def reassemble(direction, now):
                 continue  # в исходнике его не было, там оно живёт как node
             if k == "bet" and kind in BET_CARRIERS and bet_node is not None:
                 continue  # служебный bet
+            if k == "parent" and kind == "node":
+                continue  # служебный parent — структура, а не поле узла
             rec[k] = v
         for k, ls in blocks.items():
             rec[k] = body_value(path, k, ls)
-        if kind == "bet":
+        if kind == "node":
+            nodes.append((str(head.get("id")), head.get("parent"), pos, rec))
+        elif kind == "bet":
             if rebuilt_bet is not None:
                 fail(f"две карточки ставки: {name}")
             rebuilt_bet = rec
@@ -215,7 +296,7 @@ def reassemble(direction, now):
         if len(set(poss)) != len(poss):
             fail(f"раздел {kind}: pos повторяется")
         sections[kind] = [rec for _, rec in sorted(items, key=lambda t: t[0])]
-    return rebuilt_bet, sections
+    return rebuilt_bet, sections, nodes
 
 
 def diff(path, a, b):
@@ -247,7 +328,7 @@ def diff(path, a, b):
 
 def check(direction):
     now = load_now(direction)  # каждый раз заново с диска
-    rebuilt_bet, sections = reassemble(direction, now)
+    rebuilt_bet, sections, nodes = reassemble(direction, now)
     bet = now.get("bet")
     exp_bet = bet if (isinstance(bet, dict) and "node" in bet) else None
     found = diff("bet", exp_bet, rebuilt_bet)
@@ -256,6 +337,12 @@ def check(direction):
             found = diff(sec, section_list(now, sec), sections[kind])
             if found:
                 break
+    if found is None:
+        doc = load_tree(direction)
+        if doc is not None:
+            r = doc["root"]
+            expected = r if isinstance(r, list) else [r]
+            found = diff("tree", expected, rebuild_tree(nodes))
     if found:
         path, a, b = found
         print(f"РАСХОЖДЕНИЕ {path}")
