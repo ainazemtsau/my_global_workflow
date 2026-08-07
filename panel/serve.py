@@ -5,6 +5,7 @@ import argparse
 import datetime
 import json
 import os
+import sys
 import subprocess
 import threading
 import urllib.parse
@@ -19,8 +20,11 @@ APP_DIR = os.path.join(ROOT, "panel", "app")
 LIVE_DIR = os.path.join(ROOT, "live")
 CARDS_DIR = os.path.join(ROOT, "panel", ".cards")
 
-SECTIONS = [("now", "СЕЙЧАС"), ("waiting", "ЖДЁТ ТЕБЯ"), ("wave", "ВОЛНА"), ("goals", "ЦЕЛИ"),
-            ("history", "ИСТОРИЯ"), ("knowledge", "ЗНАНИЯ"), ("direction", "НАПРАВЛЕНИЕ")]
+SECTIONS = [("now", "СЕЙЧАС"), ("slots", "СЛОТЫ"), ("waiting", "ЖДЁТ ТЕБЯ"), ("wave", "ВОЛНА"),
+            ("goals", "ЦЕЛИ"), ("history", "ИСТОРИЯ"), ("knowledge", "ЗНАНИЯ"),
+            ("direction", "НАПРАВЛЕНИЕ")]
+
+READY_SECTIONS = ("now", "slots")
 
 CONTENT_TYPES = {".html": "text/html; charset=utf-8",
                  ".js": "application/javascript; charset=utf-8",
@@ -56,8 +60,38 @@ def build_info():
 
 def directions():
     names = sorted(n for n in os.listdir(LIVE_DIR) if os.path.isdir(os.path.join(LIVE_DIR, n)))
-    return [{"id": n, "sections": [{"id": sid, "label": label, "ready": sid == "now"}
+    return [{"id": n, "sections": [{"id": sid, "label": label, "ready": sid in READY_SECTIONS}
                                     for sid, label in SECTIONS]} for n in names]
+
+
+def section_slots(direction):
+    """Доска аренд плюс измеренное про каждую копию. Ничего не выводим и не оцениваем."""
+    sys.path.insert(0, ROOT)
+    import osctl
+    out = {"direction": direction, "ledger": str(osctl.ledger_path(direction)),
+           "slots": [], "error": None}
+    try:
+        data = osctl.read_ledger(direction)
+    except osctl.Stop as e:
+        out["error"] = str(e)
+        return out
+    for name, rec in sorted(data["slots"].items(), key=lambda kv: int(kv[0])):
+        lease = rec.get("lease")
+        facts = osctl.slot_facts(direction, name)
+        out["slots"].append({
+            "slot": name,
+            "lifecycle": rec.get("lifecycle"),
+            "lease": lease,
+            "call": lease.rsplit(":", 1)[0] if lease and lease != "none" else None,
+            "stage": lease.rsplit(":", 1)[1] if lease and lease != "none" else None,
+            "worktree": facts["worktree"],
+            "branch": facts["branch"],
+            "branch_exists": facts["branch_exists"],
+            "clean": facts["clean"],
+            "ahead": facts["ahead"],
+            "published": facts["published"],
+        })
+    return out
 
 
 def ensure_cards(direction):
@@ -178,10 +212,11 @@ class Handler(BaseHTTPRequestHandler):
             self.send_json({"build": build_info(), "directions": directions()})
         elif path.startswith("/api/section/"):
             parts = [urllib.parse.unquote(p) for p in path[len("/api/section/"):].split("/") if p]
-            known = len(parts) == 2 and parts[1] == "now" \
-                and os.path.isdir(os.path.join(LIVE_DIR, parts[0]))
-            if known:
+            ok_dir = len(parts) == 2 and os.path.isdir(os.path.join(LIVE_DIR, parts[0]))
+            if ok_dir and parts[1] == "now":
                 self.send_json(section_now(parts[0]))
+            elif ok_dir and parts[1] == "slots":
+                self.send_json(section_slots(parts[0]))
             else:
                 self.send_error(404, "not found")
         else:

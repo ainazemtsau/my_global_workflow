@@ -15,7 +15,7 @@ ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 PORT = 8787
 BASE = f"http://127.0.0.1:{PORT}"
 
-SECTIONS = ["now", "waiting", "wave", "goals", "history", "knowledge", "direction"]
+SECTIONS = ["now", "slots", "waiting", "wave", "goals", "history", "knowledge", "direction"]
 DIRECTIONS = ["indie-game-development", "solmax"]
 
 fails: list[str] = []
@@ -99,7 +99,7 @@ def step00() -> None:
             secs = [s.get("id") for s in d.get("sections", [])]
             check(secs == SECTIONS, f"{d.get('id')}: разделы в порядке {SECTIONS}, найдено {secs}")
             ready = [s.get("id") for s in d.get("sections", []) if s.get("ready")]
-            check(ready == ["now"], f"{d.get('id')}: готов ровно один раздел now, найдено {ready}")
+            check(ready == ["now", "slots"], f"{d.get('id')}: готовы now и slots, найдено {ready}")
 
         # негативный контроль: пустой ответ не должен считаться успехом
         check(len(json.dumps(state)) > 200, "ответ не пустая заглушка")

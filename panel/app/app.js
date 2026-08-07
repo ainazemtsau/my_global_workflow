@@ -179,6 +179,61 @@ function renderNow(direction, content) {
     });
 }
 
+function renderSlots(direction, content) {
+  const token = ++RENDER_TOKEN;
+  fetch("/api/section/" + encodeURIComponent(direction.id) + "/slots")
+    .then((response) => {
+      if (!response.ok) throw new Error("HTTP " + response.status);
+      return response.json();
+    })
+    .then((data) => {
+    if (token !== RENDER_TOKEN) return;
+    content.textContent = "";
+    if (data.error) {
+      content.appendChild(el("div", "empty", "ДОСКИ СЛОТОВ НЕТ"));
+      const how = el("div", "row");
+      how.appendChild(el("div", "desc", data.error));
+      content.appendChild(how);
+      return;
+    }
+    const free = data.slots.filter((s) => s.lifecycle === "AVAILABLE").length;
+    const nums = el("div", "numbers");
+    nums.appendChild(el("span", "num", "свободно " + free + " из " + data.slots.length));
+    nums.appendChild(el("span", "num", "доска вне репозитория"));
+    content.appendChild(nums);
+
+    for (const s of data.slots) {
+      const row = el("div", "row");
+      const busy = s.lifecycle === "CLAIMED";
+      row.appendChild(el("div", busy ? "status wait" : "status",
+        (busy ? "ЗАНЯТ" : "СВОБОДЕН") + " · слот " + s.slot));
+      row.appendChild(el("div", busy ? "title" : "title dim",
+        busy ? s.call : "готов принять работу"));
+      if (busy && s.stage) row.appendChild(el("div", "desc", "стадия: " + s.stage));
+
+      if (!s.branch_exists) {
+        row.appendChild(el("div", "desc", "рабочей копии ещё нет"));
+      } else {
+        if (s.worktree) row.appendChild(el("div", "desc", s.worktree));
+        if (s.clean === false) row.appendChild(el("div", "waitline", "копия грязная"));
+        if (s.ahead) {
+          row.appendChild(el("div", "waitline",
+            "не опубликовано: " + s.ahead + " — освободить слот сейчас значит похоронить их"));
+        }
+      }
+      row.appendChild(el("div", "id", s.branch));
+      content.appendChild(row);
+    }
+
+    const where = el("div", "row");
+    where.appendChild(el("div", "id", data.ledger));
+    content.appendChild(where);
+  }).catch((e) => {
+    content.textContent = "";
+    content.appendChild(el("div", "empty", "НЕ ОТВЕЧАЕТ: " + e));
+  });
+}
+
 function renderDirection(direction, sectionId) {
   const nav = document.getElementById("nav");
   const content = document.getElementById("content");
@@ -207,6 +262,10 @@ function renderDirection(direction, sectionId) {
   }
   if (sectionId === "now") {
     renderNow(direction, content);
+    return;
+  }
+  if (sectionId === "slots") {
+    renderSlots(direction, content);
     return;
   }
   content.appendChild(el("div", "empty", "РАЗДЕЛ ПУСТ"));
