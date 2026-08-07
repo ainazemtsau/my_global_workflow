@@ -268,7 +268,7 @@ def step01a() -> None:
             open(victim, "w", encoding="utf-8").write(saved)
 
     broken_check("испорченная шапка",
-                 lambda: open(victim, "w", encoding="utf-8").write(saved.replace("status:", "status_X:", 1)))
+                 lambda: open(victim, "w", encoding="utf-8").write(saved.replace("kind:", "kind_X:", 1)))
     broken_check("изменённое тело",
                  lambda: open(victim, "w", encoding="utf-8").write(
                      saved.replace("END_OF_FILE:", "хвост подделан\n\nEND_OF_FILE:", 1)))

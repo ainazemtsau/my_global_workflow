@@ -196,45 +196,33 @@ function taskRow(r) {
   return row;
 }
 
-const NODE_WORD = { active: "ИДЁТ СЕЙЧАС", shaped: "НАРЕЗАН", parked: "ВПЕРЕДИ",
-                    done: "СДЕЛАН", dropped: "СНЯТ" };
+function goalRow(n, tone) {
+  const row = el("div", "goal " + tone);
+  row.appendChild(el("div", "goal-name", n.label || n.id));
+  const sub = el("div", "goal-hook");
+  sub.textContent = (n.hook || "") + (n.hook ? " · " : "") + n.id;
+  row.appendChild(sub);
+  const d = el("details", "goal-more");
+  d.appendChild(el("summary", "act", "подробнее"));
+  const inner = el("div", "details");
+  if (n.goal) { const x = el("div", "desc"); x.innerHTML = window.mdToHtml("**цель:** " + n.goal); inner.appendChild(x); }
+  if (n.why) { const x = el("div", "desc"); x.innerHTML = window.mdToHtml("**зачем:** " + n.why); inner.appendChild(x); }
+  if (n.done_when) { const x = el("div", "desc"); x.innerHTML = window.mdToHtml("**чем закрывается:** " + n.done_when); inner.appendChild(x); }
+  if (n.detail) inner.appendChild(el("div", "id", n.detail));
+  d.appendChild(inner);
+  row.appendChild(d);
+  return row;
+}
 
-function nodeBlock(n, direction) {
-  const settled = n.status === "done" || n.status === "dropped";
-  const box = el("div", "node" + (settled ? " settled" : "") + (n.status === "active" ? " here" : ""));
-  box.setAttribute("data-depth", String(Math.min(n.depth, 2)));
-
-  const cls = n.status === "active" ? "status"
-            : n.status === "shaped" ? "status"
-            : settled ? "status" : "status wait";
-  const chip = el("div", cls, (NODE_WORD[n.status] || String(n.status).toUpperCase()));
-  if (settled) chip.style.color = "var(--fg-off)";
-  box.appendChild(chip);
-
-  box.appendChild(el("div", "title" + (settled ? " dim" : ""), n.goal || n.id));
-
-  if (!settled) {
-    if (n.why) box.appendChild(el("div", "desc", n.why));
-    const body = n.closes_when || n.done_when;
-    if (body) {
-      const d = el("details");
-      const sum = el("summary", "act", "чем закрывается");
-      d.appendChild(sum);
-      const t = el("div", "desc");
-      t.innerHTML = window.mdToHtml(body);
-      d.appendChild(t);
-      box.appendChild(d);
-    }
-    if (n.appetite) box.appendChild(el("div", "waitline", "аппетит: " + n.appetite));
+function goalGroup(content, word, tone, rows, emptyText) {
+  const head = el("div", "group " + tone);
+  head.textContent = word + " — " + rows.length;
+  content.appendChild(head);
+  if (!rows.length) {
+    content.appendChild(el("div", "group-empty", emptyText || "пусто"));
+    return;
   }
-
-  if (n.status === "active") {
-    const go = el("a", "act", "открыть волну");
-    go.href = "#/" + encodeURIComponent(direction.id) + "/wave";
-    box.appendChild(go);
-  }
-  box.appendChild(el("div", "id", n.id));
-  return box;
+  for (const n of rows) content.appendChild(goalRow(n, tone));
 }
 
 function renderGoals(direction, content) {
@@ -244,23 +232,39 @@ function renderGoals(direction, content) {
     .then((data) => {
       if (token !== RENDER_TOKEN) return;
       content.textContent = "";
-      if (data.error) {
-        content.appendChild(el("div", "problem", "ДЕРЕВО НЕ ПРОЧИТАЛОСЬ — " + data.error));
-        return;
-      }
-      const c = data.counts || {};
-      const nums = el("div", "numbers");
-      const order = [["active", "идёт"], ["shaped", "нарезано"], ["parked", "впереди"],
-                     ["done", "сделано"], ["dropped", "снято"]];
-      for (const [k, word] of order) if (c[k]) nums.appendChild(el("span", "num", word + " " + c[k]));
-      content.appendChild(nums);
 
-      const walk = (n) => {
-        content.appendChild(nodeBlock(n, direction));
-        for (const k of n.children || []) walk(k);
-      };
-      for (const top of (data.root || [])) walk(top);
-      if (!(data.root || []).length) content.appendChild(el("div", "empty", "ДЕРЕВО ПУСТО"));
+      const top = el("div", "aim");
+      top.appendChild(el("div", "status", "КУДА ИДЁМ"));
+      top.appendChild(el("div", "aim-goal", (data.root && data.root.label) || "—"));
+      if (data.target) {
+        const t = el("div", "aim-date");
+        t.textContent = "ближайшая дата: " + data.target;
+        top.appendChild(t);
+      }
+      content.appendChild(top);
+
+      const g = data.groups || {};
+      goalGroup(content, "ИДЁТ СЕЙЧАС", "now", g.running || [], "ставка не выбрана");
+      goalGroup(content, "ДАЛЬШЕ", "ahead", g.ahead || []);
+      goalGroup(content, "СДЕЛАНО", "done", g.closed_done || []);
+
+      const dropped = g.closed_dropped || [];
+      if (dropped.length) {
+        const d = el("details", "dropped");
+        d.appendChild(el("summary", "group gone", "СНЯТО — " + dropped.length));
+        for (const n of dropped) d.appendChild(goalRow(n, "gone"));
+        content.appendChild(d);
+      }
+
+      if ((data.no_label || []).length) {
+        content.appendChild(el("div", "problem",
+          "БЕЗ ИМЕНИ " + data.no_label.length + " — " + data.no_label.join(", ")
+          + " · имя пишется при создании цели"));
+      }
+      if ((data.unread || []).length) {
+        content.appendChild(el("div", "problem",
+          "НЕ ПРОЧИТАЛОСЬ " + data.unread.length + " — " + data.unread.map((u) => u.file).join(", ")));
+      }
     })
     .catch((e) => { content.textContent = ""; content.appendChild(el("div", "empty", "НЕ ОТВЕЧАЕТ: " + e)); });
 }

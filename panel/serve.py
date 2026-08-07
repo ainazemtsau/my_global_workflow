@@ -94,50 +94,82 @@ def section_slots(direction):
     return out
 
 
-def section_goals(direction):
-    """Дерево целей как есть. Ничего не выводим: статусы и тексты из файла."""
-    path = os.path.join(LIVE_DIR, direction, "TREE.md")
-    out = {"direction": direction, "root": None, "error": None, "counts": {}}
+def load_labels(direction):
+    """Накладка коротких имён. Временная, живёт вне live/, у неё назван конец."""
+    path = os.path.join(ROOT, "os2", "labels", direction + ".yaml")
     if not os.path.isfile(path):
-        out["error"] = "TREE.md нет"
-        return out
-    raw = open(path, encoding="utf-8").read()
-    if not raw.rstrip().endswith("END_OF_FILE: live/%s/TREE.md" % direction):
-        out["error"] = "нет хвоста END_OF_FILE — файл мог обрезаться при передаче"
-        return out
+        return {}, None
+    with open(path, encoding="utf-8") as fh:
+        doc = yaml.safe_load(fh.read()) or {}
+    return (doc.get("labels") or {}), doc.get("by")
+
+
+# Внутренние статусы наружу не показываются: владелец в них не думает.
+NODE_STATE = {"active": ("running", "ИДЁТ СЕЙЧАС"), "shaped": ("ahead", "ДАЛЬШЕ"),
+              "parked": ("ahead", "ДАЛЬШЕ"), "done": ("closed", "СДЕЛАНО"),
+              "dropped": ("closed", "СНЯТО")}
+
+
+def section_goals(direction):
+    """Карта целей. Строит из карточек узлов; имена берёт накладкой, ничего не выдумывает."""
+    with lock_for(direction):
+        ensure_cards(direction)
+        folder = os.path.join(CARDS_DIR, direction)
+        loaded, unread = {}, []
+        for name in sorted(f for f in os.listdir(folder) if f.endswith(".md")):
+            try:
+                head, blocks = cards.read_card(os.path.join(folder, name))
+            except (Exception, SystemExit) as e:
+                unread.append({"file": name, "error": str(e)})
+                continue
+            if isinstance(head, dict) and head.get("kind") == "node":
+                loaded[str(head.get("id"))] = (head, blocks)
+
+    labels, labels_by = load_labels(direction)
+    target = None
     try:
-        doc = yaml.safe_load(raw)
-    except yaml.YAMLError as e:
-        out["error"] = str(e)
-        return out
-    if not isinstance(doc, dict) or "root" not in doc:
-        out["error"] = "нет ключа root"
-        return out
+        with open(os.path.join(LIVE_DIR, direction, "NOW.md"), encoding="utf-8") as fh:
+            now = yaml.safe_load(fh.read()) or {}
+        target = ((now.get("direction_forecast") or {}).get("target"))
+    except (OSError, yaml.YAMLError):
+        pass
 
-    counts = {}
+    out = []
+    for cid, (h, b) in loaded.items():
+        raw = h.get("status")
+        state, word = NODE_STATE.get(raw, ("ahead", str(raw or "?").upper()))
+        lab = labels.get(cid) or {}
+        out.append({
+            "id": cid, "parent": h.get("parent"), "pos": h.get("pos"),
+            "state": state, "word": word, "raw_status": raw,
+            "label": lab.get("label"), "hook": lab.get("hook"),
+            "label_by": labels_by if lab else None,
+            "goal": h.get("goal") or block_text(b, "goal"),
+            "why": h.get("why") or block_text(b, "why"),
+            "done_when": h.get("done_when") or block_text(b, "done_when"),
+            "detail": h.get("detail"),
+            "is_root": h.get("parent") is None,
+        })
+    out.sort(key=lambda r: (r["pos"] if isinstance(r["pos"], int) else 999))
 
-    def node(n, depth):
-        if not isinstance(n, dict):
-            return None
-        st = n.get("status")
-        counts[st] = counts.get(st, 0) + 1
-        kids = [node(c, depth + 1) for c in (n.get("children") or [])]
-        return {
-            "id": n.get("id"), "status": st, "depth": depth,
-            "goal": n.get("goal"), "why": n.get("why"),
-            "done_when": n.get("done_when"), "closes_when": n.get("closes_when"),
-            "appetite": n.get("appetite"), "kill_by": n.get("kill_by"),
-            "outcome_kind": n.get("outcome_kind"),
-            "detail": n.get("detail"),
-            "children": [k for k in kids if k],
-        }
+    groups = {"running": [], "ahead": [], "closed_done": [], "closed_dropped": []}
+    root = None
+    for r in out:
+        if r["is_root"]:
+            root = r
+            continue
+        if r["state"] == "running":
+            groups["running"].append(r)
+        elif r["state"] == "ahead":
+            groups["ahead"].append(r)
+        elif r["raw_status"] == "done":
+            groups["closed_done"].append(r)
+        else:
+            groups["closed_dropped"].append(r)
 
-    r = doc["root"]
-    tops = r if isinstance(r, list) else [r]
-    out["root"] = [t for t in (node(t, 0) for t in tops) if t]
-    out["counts"] = counts
-    out["approved"] = str(doc.get("owner_approved"))[:400] if doc.get("owner_approved") else None
-    return out
+    return {"direction": direction, "root": root, "groups": groups, "target": target,
+            "unread": unread, "no_label": [r["id"] for r in out if not r["label"]],
+            "counts": {k: len(v) for k, v in groups.items()}}
 
 
 def section_wave(direction):
