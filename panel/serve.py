@@ -24,7 +24,7 @@ SECTIONS = [("now", "СЕЙЧАС"), ("slots", "СЛОТЫ"), ("waiting", "ЖД�
             ("goals", "ЦЕЛИ"), ("history", "ИСТОРИЯ"), ("knowledge", "ЗНАНИЯ"),
             ("direction", "НАПРАВЛЕНИЕ")]
 
-READY_SECTIONS = ("now", "slots", "wave")
+READY_SECTIONS = ("now", "slots", "wave", "goals")
 
 CONTENT_TYPES = {".html": "text/html; charset=utf-8",
                  ".js": "application/javascript; charset=utf-8",
@@ -91,6 +91,52 @@ def section_slots(direction):
             "ahead": facts["ahead"],
             "published": facts["published"],
         })
+    return out
+
+
+def section_goals(direction):
+    """Дерево целей как есть. Ничего не выводим: статусы и тексты из файла."""
+    path = os.path.join(LIVE_DIR, direction, "TREE.md")
+    out = {"direction": direction, "root": None, "error": None, "counts": {}}
+    if not os.path.isfile(path):
+        out["error"] = "TREE.md нет"
+        return out
+    raw = open(path, encoding="utf-8").read()
+    if not raw.rstrip().endswith("END_OF_FILE: live/%s/TREE.md" % direction):
+        out["error"] = "нет хвоста END_OF_FILE — файл мог обрезаться при передаче"
+        return out
+    try:
+        doc = yaml.safe_load(raw)
+    except yaml.YAMLError as e:
+        out["error"] = str(e)
+        return out
+    if not isinstance(doc, dict) or "root" not in doc:
+        out["error"] = "нет ключа root"
+        return out
+
+    counts = {}
+
+    def node(n, depth):
+        if not isinstance(n, dict):
+            return None
+        st = n.get("status")
+        counts[st] = counts.get(st, 0) + 1
+        kids = [node(c, depth + 1) for c in (n.get("children") or [])]
+        return {
+            "id": n.get("id"), "status": st, "depth": depth,
+            "goal": n.get("goal"), "why": n.get("why"),
+            "done_when": n.get("done_when"), "closes_when": n.get("closes_when"),
+            "appetite": n.get("appetite"), "kill_by": n.get("kill_by"),
+            "outcome_kind": n.get("outcome_kind"),
+            "detail": n.get("detail"),
+            "children": [k for k in kids if k],
+        }
+
+    r = doc["root"]
+    tops = r if isinstance(r, list) else [r]
+    out["root"] = [t for t in (node(t, 0) for t in tops) if t]
+    out["counts"] = counts
+    out["approved"] = str(doc.get("owner_approved"))[:400] if doc.get("owner_approved") else None
     return out
 
 
@@ -290,6 +336,8 @@ class Handler(BaseHTTPRequestHandler):
                 self.send_json(section_slots(parts[0]))
             elif ok_dir and parts[1] == "wave":
                 self.send_json(section_wave(parts[0]))
+            elif ok_dir and parts[1] == "goals":
+                self.send_json(section_goals(parts[0]))
             else:
                 self.send_error(404, "not found")
         else:

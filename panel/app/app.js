@@ -196,6 +196,75 @@ function taskRow(r) {
   return row;
 }
 
+const NODE_WORD = { active: "ИДЁТ СЕЙЧАС", shaped: "НАРЕЗАН", parked: "ВПЕРЕДИ",
+                    done: "СДЕЛАН", dropped: "СНЯТ" };
+
+function nodeBlock(n, direction) {
+  const settled = n.status === "done" || n.status === "dropped";
+  const box = el("div", "node" + (settled ? " settled" : "") + (n.status === "active" ? " here" : ""));
+  box.setAttribute("data-depth", String(Math.min(n.depth, 2)));
+
+  const cls = n.status === "active" ? "status"
+            : n.status === "shaped" ? "status"
+            : settled ? "status" : "status wait";
+  const chip = el("div", cls, (NODE_WORD[n.status] || String(n.status).toUpperCase()));
+  if (settled) chip.style.color = "var(--fg-off)";
+  box.appendChild(chip);
+
+  box.appendChild(el("div", "title" + (settled ? " dim" : ""), n.goal || n.id));
+
+  if (!settled) {
+    if (n.why) box.appendChild(el("div", "desc", n.why));
+    const body = n.closes_when || n.done_when;
+    if (body) {
+      const d = el("details");
+      const sum = el("summary", "act", "чем закрывается");
+      d.appendChild(sum);
+      const t = el("div", "desc");
+      t.innerHTML = window.mdToHtml(body);
+      d.appendChild(t);
+      box.appendChild(d);
+    }
+    if (n.appetite) box.appendChild(el("div", "waitline", "аппетит: " + n.appetite));
+  }
+
+  if (n.status === "active") {
+    const go = el("a", "act", "открыть волну");
+    go.href = "#/" + encodeURIComponent(direction.id) + "/wave";
+    box.appendChild(go);
+  }
+  box.appendChild(el("div", "id", n.id));
+  return box;
+}
+
+function renderGoals(direction, content) {
+  const token = ++RENDER_TOKEN;
+  fetch("/api/section/" + encodeURIComponent(direction.id) + "/goals")
+    .then((r) => { if (!r.ok) throw new Error("HTTP " + r.status); return r.json(); })
+    .then((data) => {
+      if (token !== RENDER_TOKEN) return;
+      content.textContent = "";
+      if (data.error) {
+        content.appendChild(el("div", "problem", "ДЕРЕВО НЕ ПРОЧИТАЛОСЬ — " + data.error));
+        return;
+      }
+      const c = data.counts || {};
+      const nums = el("div", "numbers");
+      const order = [["active", "идёт"], ["shaped", "нарезано"], ["parked", "впереди"],
+                     ["done", "сделано"], ["dropped", "снято"]];
+      for (const [k, word] of order) if (c[k]) nums.appendChild(el("span", "num", word + " " + c[k]));
+      content.appendChild(nums);
+
+      const walk = (n) => {
+        content.appendChild(nodeBlock(n, direction));
+        for (const k of n.children || []) walk(k);
+      };
+      for (const top of (data.root || [])) walk(top);
+      if (!(data.root || []).length) content.appendChild(el("div", "empty", "ДЕРЕВО ПУСТО"));
+    })
+    .catch((e) => { content.textContent = ""; content.appendChild(el("div", "empty", "НЕ ОТВЕЧАЕТ: " + e)); });
+}
+
 function renderWave(direction, content) {
   const token = ++RENDER_TOKEN;
   fetch("/api/section/" + encodeURIComponent(direction.id) + "/wave")
@@ -342,6 +411,10 @@ function renderDirection(direction, sectionId) {
   }
   if (sectionId === "wave") {
     renderWave(direction, content);
+    return;
+  }
+  if (sectionId === "goals") {
+    renderGoals(direction, content);
     return;
   }
   content.appendChild(el("div", "empty", "РАЗДЕЛ ПУСТ"));

@@ -171,6 +171,18 @@ html, body {
 .details .desc { margin-bottom: 10px; }
 .details .desc:last-child { margin-bottom: 0; }
 
+/* дерево целей: вложенность видна отступом и линией, а не словами */
+.node { padding: 12px 20px 12px 0; border-bottom: 1px solid var(--line); }
+.node:last-child { border-bottom: none; }
+.node[data-depth="1"] { padding-left: 28px; border-left: 1px solid var(--line); margin-left: 20px; }
+.node[data-depth="2"] { padding-left: 28px; border-left: 1px solid var(--line); margin-left: 48px; }
+.node.settled { padding-top: 7px; padding-bottom: 7px; }
+.node.settled .title { font-size: 14px; color: var(--fg-off); }
+.node.here { background: transparent; border-left-color: var(--accent); }
+
+/* ширина строки: без потолка глаз теряет начало следующей */
+.human, .desc, .title, .waitline { max-width: 68ch; }
+
 /* проблема: полоса внизу, не всплывашка */
 .problem {
   border-top: 1px solid var(--bad-line);
