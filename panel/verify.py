@@ -537,6 +537,30 @@ def step01c() -> None:
         check(n2.get("tasks_total") == 0 and n2.get("bet_days") is None,
               f"solmax: числа нулевые и bet_days null ({n2})")
 
+        # СВЕЖЕСТЬ: правка любого источника обязана дойти до экрана.
+        # Трогаем только время изменения — байты файла не меняются.
+        import os as _os
+        for src, sect, key in (("NOW.md", "now", "cards_total"),
+                               ("TREE.md", "goals", "counts")):
+            path = _os.path.join(ROOT, "live", "indie-game-development", src)
+            if not _os.path.isfile(path):
+                continue
+            before_st = _os.stat(path)
+            before_bytes = open(path, "rb").read()
+            folder = _os.path.join(ROOT, "panel", ".cards", "indie-game-development")
+            try:
+                fetch("/api/section/indie-game-development/" + sect)   # прогреть
+                built_before = _os.path.getmtime(folder)
+                _os.utime(path, None)                                   # источник «изменился»
+                time.sleep(0.05)
+                fetch("/api/section/indie-game-development/" + sect)
+                check(_os.path.getmtime(folder) > built_before,
+                      f"свежесть: правка {src} вызывает пересборку карточек")
+            finally:
+                _os.utime(path, (before_st.st_atime, before_st.st_mtime))
+                check(open(path, "rb").read() == before_bytes,
+                      f"свежесть: байты {src} не тронуты проверкой")
+
         st, body = fetch("/md.js")
         check(st == 200 and "mdToHtml" in body, "маршрут /md.js отдаёт отрисовщик")
 

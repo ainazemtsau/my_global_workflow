@@ -345,14 +345,24 @@ def section_wave(direction):
                         "tracks_limit": now.get("track_wip_limit") if isinstance(now, dict) else None}}
 
 
+# Всё, из чего строятся карточки. Забыть здесь файл — значит показывать вчерашнее
+# и не знать об этом: карточки собраны, папка свежая, а источник ушёл вперёд.
+SOURCES = ("NOW.md", "TREE.md")
+
+
 def ensure_cards(direction):
-    """Пересборка только если папки нет или NOW.md новее папки. Вызывать под замком."""
+    """Пересборка, если папки нет или ЛЮБОЙ источник новее её. Вызывать под замком."""
     folder = os.path.join(CARDS_DIR, direction)
-    now_path = os.path.join(LIVE_DIR, direction, "NOW.md")
-    fresh = (os.path.isdir(folder) and os.path.isfile(now_path)
-             and os.path.getmtime(now_path) <= os.path.getmtime(folder))
-    if fresh:
+    if not os.path.isdir(folder):
+        cards.build(direction)
         return
+    built = os.path.getmtime(folder)
+    for name in SOURCES:
+        path = os.path.join(LIVE_DIR, direction, name)
+        if os.path.isfile(path) and os.path.getmtime(path) > built:
+            cards.build(direction)
+            return
+    return
     cards.build(direction)  # сама стирает папку и строит заново
 
 
