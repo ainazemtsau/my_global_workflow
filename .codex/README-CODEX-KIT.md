@@ -26,8 +26,6 @@ Everything below is written so the kit functions in EITHER mode.
 | File | Scope | Purpose |
 |---|---|---|
 | `AGENTS.md` (repo root) | project | Auto-read by Codex. Holds the job-recognition table + hard rules + the spliced **"Codex: how to work this OS"** section. |
-| `.agents/skills/direction-os/SKILL.md` | project | The full "how to run the OS" procedure (progressive disclosure: AGENTS.md stays terse, detail lives here). |
-| `.agents/skills/parallel-verify/SKILL.md` | project | The fan-out + verification procedure (incl. the spawn limitation + the cross-family G5 routing). |
 | `.codex/agents/explorer.toml` | project | Role: read-only research/converge miner + nominal-group child. |
 | `.codex/agents/researcher.toml` | project | Role: read-only strategic_search child. |
 | `.codex/agents/validator.toml` | project | Role: read-only intra-family refutation child (NON-binding; the binding G5 is Claude). |
@@ -35,13 +33,13 @@ Everything below is written so the kit functions in EITHER mode.
 | `.codex/config.toml` | project | `[agents]` fan-out limits (`max_threads`, `max_depth`, `job_max_runtime_seconds`). |
 | `.codex/hooks.json` + `.codex/guard/` | project | Repo-scoped Codex hook guard. It blocks known-bad close claims and product-repo write hazards while allowing read-only inspection and checkpoint/pending text. |
 
-**The load-bearing pieces** — `.codex/agents/*`, `.agents/skills/`, and the AGENTS.md section — together make Codex work the OS by default: AGENTS.md tells it *what job it's in and when to fan out*, the skills tell it *the procedure*, the agent TOMLs are *the role text* a play's children run (spawned by name, or injected into a generic child).
+**The load-bearing pieces** — `.codex/agents/*` and the AGENTS.md section — together make Codex work the OS by default: AGENTS.md tells it *what job it's in and when to fan out*, the agent TOMLs are *the role text* a play's children run (spawned by name, or injected into a generic child).
 
 ---
 
 ## Repo-scope vs global — use **repo scope** (recommended)
 
-Keep **everything in this repo** (`.codex/`, `.agents/skills/`, root `AGENTS.md`). Do **not** put OS instructions in the global `~/.codex/AGENTS.md` or `~/.codex/agents/`.
+Keep **everything in this repo** (`.codex/`, root `AGENTS.md`). Do **not** put OS instructions in the global `~/.codex/AGENTS.md` or `~/.codex/agents/`.
 
 Why: Codex reads the **global `~/.codex/AGENTS.md` for ALL Codex work, in every repo**. A heavy Direction-OS prompt there would hijack unrelated projects (every session would think it's a Direction-OS writer). Global also competes for the same byte budget. Repo-scoped config only activates when Codex is launched inside this repo — which is exactly what we want. (Repo-scoped `.codex/` layers also require the project to be **trusted**; approve the trust prompt once.)
 
@@ -65,7 +63,7 @@ This keeps one consistent mechanism across the Direction OS repo and every produ
 ## Install (this repo)
 
 1. **Splice the section** from the repo's `AGENTS.md` Codex block (source: the `agents_md_section` shipped with this kit) into the root `AGENTS.md` between its `BEGIN/END` markers. Keep root `AGENTS.md` well under the **32 KiB** cap — push any new detail into the skill, not AGENTS.md.
-2. Ensure `.codex/agents/*.toml`, `.codex/config.toml`, and `.agents/skills/*/SKILL.md` exist.
+2. Ensure `.codex/agents/*.toml` and `.codex/config.toml` exist.
 3. Ensure `.codex/hooks.json` and `.codex/guard/` exist if you want the repo-scoped guard enabled.
 4. **Trust the project** when Codex prompts (repo-scoped `.codex/` only loads for trusted projects), then **restart Codex** so it re-scans agents, skills, and hooks. Review the hook trust prompt before enabling; the hook runs local Python from this repo.
 5. Run the **smoke tests** — the by-name-spawn check FIRST.
