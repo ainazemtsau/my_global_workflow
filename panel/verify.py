@@ -474,8 +474,9 @@ def step01c() -> None:
             if (c.get("description_by") or None) != (want_by or None):
                 bad.append(f"{cid}: description_by разошёлся")
         check(not bad, f"описания дословны ({bad[:3]})")
-        check(with_descr == len(calls),
-              f"описание есть у всех {len(calls)} нарядов, найдено у {with_descr}")
+        # Наличие описания — свойство ДАННЫХ, а не кода: новый наряд может прийти без него,
+        # и панель обязана честно написать «описания нет». Проверяем дословность, не наличие.
+        print(f"     справка: описание есть у {with_descr} нарядов из {len(calls)}")
 
         # числа: считаем сами из карточек и NOW.md
         now = yaml.safe_load(open(os.path.join(ROOT, "live", "indie-game-development", "NOW.md"),
