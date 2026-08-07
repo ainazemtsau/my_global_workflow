@@ -5,6 +5,7 @@ import argparse
 import datetime
 import json
 import os
+import re
 import sys
 import subprocess
 import threading
@@ -44,8 +45,9 @@ def lock_for(direction):
 
 def git(*args):
     try:
-        out = subprocess.run(["git", *args], cwd=ROOT, capture_output=True, text=True, timeout=10)
-        return out.returncode, out.stdout.strip()
+        out = subprocess.run(["git", *args], cwd=ROOT, capture_output=True, text=True,
+                             encoding="utf-8", errors="replace", timeout=10)
+        return out.returncode, (out.stdout or "").strip()
     except (OSError, subprocess.SubprocessError):
         return 1, ""
 
@@ -170,6 +172,106 @@ def section_goals(direction):
     return {"direction": direction, "root": root, "groups": groups, "target": target,
             "unread": unread, "no_label": [r["id"] for r in out if not r["label"]],
             "counts": {k: len(v) for k, v in groups.items()}}
+
+
+PLAY_WORD = {
+    "map": ("КАРТА", "plan"), "frame": ("УСТАВ", "plan"), "shape": ("НАРЕЗКА", "plan"),
+    "converge": ("РАЗБОР", "think"), "converge-arch": ("РАЗБОР", "think"),
+    "converge-verify": ("ПРОВЕРКА", "think"), "research": ("ИЗУЧЕНИЕ", "think"),
+    "review": ("ИТОГ", "done"), "work": ("РАБОТА", ""), "day": ("ДЕНЬ", ""),
+    "repair": ("ПОЧИНКА", "wait"), "pulse": ("ОБХОД", ""), "guide": ("РАЗБОР", "think"),
+}
+
+SEP = chr(31)
+
+# Сначала НОМЕР — он есть у каждого условия. Заголовок необязателен: если строка
+# не начинается с заглавного зачина, условие всё равно своё, просто без имени.
+NUMBERED = re.compile(r"^\s*(\d+)\.\s+(.*)$")
+TITLED = re.compile(r"^([А-ЯЁA-Z][А-ЯЁA-Z0-9 ,«»№()/–—-]{2,70}?)\.\s*(.*)$")
+
+
+def split_conditions(text):
+    """Условия закрытия уже пронумерованы в тексте. Раскладываем по номерам;
+    заголовок вынимаем, если он есть. Ни один номер не теряется."""
+    if not text:
+        return []
+    out = []
+    for line in text.split(chr(10)):
+        if not line.strip():
+            continue
+        m = NUMBERED.match(line)
+        if m:
+            rest = m.group(2).strip()
+            t = TITLED.match(rest)
+            name = t.group(1).strip().capitalize() if t else None
+            body = (t.group(2) if t else rest).strip()
+            out.append({"no": m.group(1), "name": name, "text": body})
+        elif out:
+            out[-1]["text"] += chr(10) + line.strip()
+        else:
+            out.append({"no": None, "name": None, "text": line.strip()})
+    return out
+
+
+def node_events(direction, node_id):
+    """Лента событий цели — из git. Подпись коммита содержит вид ноги и что сделано."""
+    code, out = git("log", "--date=short", SEP.join(["--format=%h","%ad","%s"]),
+                    f"--grep={node_id}", "--", f"live/{direction}")
+    events = []
+    if code != 0 or not out:
+        return events
+    for line in out.split(chr(10)):
+        parts = line.split(SEP)
+        if len(parts) != 3:
+            continue
+        sha, date, subject = parts
+        kind, tone = "", ""
+        for play, (word, t) in PLAY_WORD.items():
+            if f" {play} " in subject:
+                kind, tone = word, t
+                break
+        text = subject.split(":", 1)[1].strip() if ":" in subject else subject
+        events.append({"sha": sha, "date": date, "kind": kind or "—",
+                       "tone": tone, "text": text})
+    return events
+
+
+def goal_page(direction, node_id):
+    with lock_for(direction):
+        ensure_cards(direction)
+        folder = os.path.join(CARDS_DIR, direction)
+        nodes = {}
+        for name in sorted(f for f in os.listdir(folder) if f.endswith(".md")):
+            try:
+                head, blocks = cards.read_card(os.path.join(folder, name))
+            except (Exception, SystemExit):
+                continue
+            if isinstance(head, dict) and head.get("kind") == "node":
+                nodes[str(head.get("id"))] = (head, blocks)
+    if node_id not in nodes:
+        return None
+    h, b = nodes[node_id]
+    labels, _ = load_labels(direction)
+    state, word = NODE_STATE.get(h.get("status"), ("ahead", str(h.get("status") or "?").upper()))
+
+    def brief(cid):
+        lab = labels.get(cid) or {}
+        st = (nodes.get(cid) or ({}, {}))[0].get("status") if cid in nodes else None
+        return {"id": cid, "label": lab.get("label") or cid, "dropped": st == "dropped"}
+
+    kids = [brief(i) for i, (hh, _) in nodes.items() if hh.get("parent") == node_id]
+    lab = labels.get(node_id) or {}
+    return {
+        "id": node_id, "state": state, "word": word, "raw_status": h.get("status"),
+        "label": lab.get("label") or node_id, "hook": lab.get("hook"),
+        "goal": h.get("goal") or block_text(b, "goal"),
+        "why": h.get("why") or block_text(b, "why"),
+        "conditions": split_conditions(h.get("done_when") or block_text(b, "done_when")),
+        "detail": h.get("detail"),
+        "parent": brief(h["parent"]) if h.get("parent") else None,
+        "children": kids,
+        "events": node_events(direction, node_id),
+    }
 
 
 def section_wave(direction):
@@ -359,6 +461,15 @@ class Handler(BaseHTTPRequestHandler):
             self.send_file(os.path.join(APP_DIR, path.lstrip("/")))
         elif path == "/api/state":
             self.send_json({"build": build_info(), "directions": directions()})
+        elif path.startswith("/api/goal/"):
+            parts = [urllib.parse.unquote(p) for p in path[len("/api/goal/"):].split("/") if p]
+            page = None
+            if len(parts) == 2 and os.path.isdir(os.path.join(LIVE_DIR, parts[0])):
+                page = goal_page(parts[0], parts[1])
+            if page is None:
+                self.send_error(404, "not found")
+            else:
+                self.send_json(page)
         elif path.startswith("/api/section/"):
             parts = [urllib.parse.unquote(p) for p in path[len("/api/section/"):].split("/") if p]
             ok_dir = len(parts) == 2 and os.path.isdir(os.path.join(LIVE_DIR, parts[0]))
@@ -368,7 +479,7 @@ class Handler(BaseHTTPRequestHandler):
                 self.send_json(section_slots(parts[0]))
             elif ok_dir and parts[1] == "wave":
                 self.send_json(section_wave(parts[0]))
-            elif ok_dir and parts[1] == "goals":
+            elif ok_dir and parts[1] == "goals" and len(parts) == 2:
                 self.send_json(section_goals(parts[0]))
             else:
                 self.send_error(404, "not found")

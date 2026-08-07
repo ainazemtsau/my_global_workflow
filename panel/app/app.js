@@ -21,8 +21,11 @@ function mdNode(tag, className, markdown) {
   return node;
 }
 
+let ROUTE_EXTRA = null;
+
 function parseHash() {
   const parts = location.hash.replace(/^#\/?/, "").split("/").filter(Boolean);
+  ROUTE_EXTRA = parts[2] || null;
   return { direction: parts[0] || null, section: parts[1] || null };
 }
 
@@ -196,25 +199,17 @@ function taskRow(r) {
   return row;
 }
 
-function goalRow(n, tone) {
+function goalRow(n, tone, direction) {
   const row = el("div", "goal " + tone);
+  row.onclick = () => { location.hash = "#/" + encodeURIComponent(direction.id) + "/goals/" + n.id; };
   row.appendChild(el("div", "goal-name", n.label || n.id));
   const sub = el("div", "goal-hook");
   sub.textContent = (n.hook || "") + (n.hook ? " · " : "") + n.id;
   row.appendChild(sub);
-  const d = el("details", "goal-more");
-  d.appendChild(el("summary", "act", "подробнее"));
-  const inner = el("div", "details");
-  if (n.goal) { const x = el("div", "desc"); x.innerHTML = window.mdToHtml("**цель:** " + n.goal); inner.appendChild(x); }
-  if (n.why) { const x = el("div", "desc"); x.innerHTML = window.mdToHtml("**зачем:** " + n.why); inner.appendChild(x); }
-  if (n.done_when) { const x = el("div", "desc"); x.innerHTML = window.mdToHtml("**чем закрывается:** " + n.done_when); inner.appendChild(x); }
-  if (n.detail) inner.appendChild(el("div", "id", n.detail));
-  d.appendChild(inner);
-  row.appendChild(d);
   return row;
 }
 
-function goalGroup(content, word, tone, rows, emptyText) {
+function goalGroup(content, word, tone, rows, emptyText, direction) {
   const head = el("div", "group " + tone);
   head.textContent = word + " — " + rows.length;
   content.appendChild(head);
@@ -222,7 +217,7 @@ function goalGroup(content, word, tone, rows, emptyText) {
     content.appendChild(el("div", "group-empty", emptyText || "пусто"));
     return;
   }
-  for (const n of rows) content.appendChild(goalRow(n, tone));
+  for (const n of rows) content.appendChild(goalRow(n, tone, direction));
 }
 
 function renderGoals(direction, content) {
@@ -244,15 +239,15 @@ function renderGoals(direction, content) {
       content.appendChild(top);
 
       const g = data.groups || {};
-      goalGroup(content, "ИДЁТ СЕЙЧАС", "now", g.running || [], "ставка не выбрана");
-      goalGroup(content, "ДАЛЬШЕ", "ahead", g.ahead || []);
-      goalGroup(content, "СДЕЛАНО", "done", g.closed_done || []);
+      goalGroup(content, "ИДЁТ СЕЙЧАС", "now", g.running || [], "ставка не выбрана", direction);
+      goalGroup(content, "ДАЛЬШЕ", "ahead", g.ahead || [], null, direction);
+      goalGroup(content, "СДЕЛАНО", "done", g.closed_done || [], null, direction);
 
       const dropped = g.closed_dropped || [];
       if (dropped.length) {
         const d = el("details", "dropped");
         d.appendChild(el("summary", "group gone", "СНЯТО — " + dropped.length));
-        for (const n of dropped) d.appendChild(goalRow(n, "gone"));
+        for (const n of dropped) d.appendChild(goalRow(n, "gone", direction));
         content.appendChild(d);
       }
 
@@ -267,6 +262,110 @@ function renderGoals(direction, content) {
       }
     })
     .catch((e) => { content.textContent = ""; content.appendChild(el("div", "empty", "НЕ ОТВЕЧАЕТ: " + e)); });
+}
+
+const LEGEND = [["accent", "идёт сейчас"], ["plan", "впереди · карта"], ["think", "разбор"],
+                ["wait", "ждёт тебя"], ["bad", "сломано"], ["off", "снято"]];
+
+function firstSentence(t) {
+  const i = t.indexOf(". ");
+  return (i > 0 ? t.slice(0, i + 1) : t).slice(0, 78);
+}
+
+function renderGoalPage(direction, nodeId, content) {
+  const token = ++RENDER_TOKEN;
+  fetch("/api/goal/" + encodeURIComponent(direction.id) + "/" + encodeURIComponent(nodeId))
+    .then((r) => { if (!r.ok) throw new Error("HTTP " + r.status); return r.json(); })
+    .then((d) => {
+      if (token !== RENDER_TOKEN) return;
+      content.textContent = "";
+
+      const back = el("div", "back", "← ВСЕ ЦЕЛИ");
+      back.onclick = () => { location.hash = "#/" + encodeURIComponent(direction.id) + "/goals"; };
+      content.appendChild(back);
+
+      const head = el("div", "head " + d.state);
+      const top = el("div", "head-top");
+      const tone = d.state === "running" ? "" : (d.state === "ahead" ? " plan" : " gone");
+      top.appendChild(el("div", "status" + tone, d.word));
+      top.appendChild(el("div", "id", d.id));
+      head.appendChild(top);
+      head.appendChild(el("div", "head-name", d.label));
+      if (d.hook) head.appendChild(el("div", "head-hook", d.hook));
+      content.appendChild(head);
+
+      const ev = el("div", "sec");
+      ev.appendChild(el("div", "sec-title", "ЧТО БЫЛО — " + d.events.length));
+      if (!d.events.length) ev.appendChild(el("div", "group-empty", "событий пока нет"));
+      for (const e of d.events) {
+        const row = el("div", "ev");
+        row.appendChild(el("span", "ev-date", e.date.slice(5).replace("-", ".")));
+        row.appendChild(el("span", "ev-kind " + (e.tone || ""), e.kind));
+        row.appendChild(el("span", "ev-text", e.text));
+        ev.appendChild(row);
+      }
+      content.appendChild(ev);
+
+      if (d.conditions.length) {
+        const cs = el("div", "sec");
+        cs.appendChild(el("div", "sec-title", "ЧЕМ ЗАКРЫВАЕТСЯ — " + d.conditions.length + " УСЛОВИЙ"));
+        for (const c of d.conditions) {
+          const box = el("details", "cond");
+          const sum = el("summary");
+          sum.appendChild(el("span", "cond-no", String(c.no || "·").padStart(2, "0")));
+          const line = el("span");
+          if (c.name) line.appendChild(el("span", "cond-name", c.name));
+          line.appendChild(el("span", "cond-tail", (c.name ? " — " : "") + firstSentence(c.text)));
+          sum.appendChild(line);
+          box.appendChild(sum);
+          const body = el("div", "cond-body");
+          body.innerHTML = window.mdToHtml(c.text);
+          box.appendChild(body);
+          cs.appendChild(box);
+        }
+        content.appendChild(cs);
+      }
+
+      if (d.why) {
+        const w = el("div", "sec");
+        w.appendChild(el("div", "sec-title", "ЗАЧЕМ"));
+        const x = el("div", "ev-text");
+        x.innerHTML = window.mdToHtml(d.why);
+        w.appendChild(x);
+        content.appendChild(w);
+      }
+
+      const ln = el("div", "sec");
+      ln.appendChild(el("div", "sec-title", "СВЯЗИ"));
+      const jump = (b) => {
+        const node = el("b", null, b.label);
+        node.onclick = () => { location.hash = "#/" + encodeURIComponent(direction.id) + "/goals/" + b.id; };
+        return node;
+      };
+      if (d.parent) {
+        const r = el("div", "link");
+        r.appendChild(document.createTextNode("родитель · "));
+        r.appendChild(jump(d.parent));
+        ln.appendChild(r);
+      }
+      for (const k of d.children) {
+        const r = el("div", "link");
+        r.appendChild(document.createTextNode("вобрал · "));
+        if (k.dropped) { const st = el("s"); st.appendChild(jump(k)); r.appendChild(st); }
+        else { r.appendChild(jump(k)); }
+        ln.appendChild(r);
+      }
+      if (d.detail) ln.appendChild(el("div", "id", d.detail));
+      content.appendChild(ln);
+
+      const lg = el("div", "legend");
+      for (const pair of LEGEND) lg.appendChild(el("span", "lg-" + pair[0], "■ " + pair[1]));
+      content.appendChild(lg);
+    })
+    .catch((e) => {
+      content.textContent = "";
+      content.appendChild(el("div", "empty", "НЕ ОТВЕЧАЕТ: " + e));
+    });
 }
 
 function renderWave(direction, content) {
@@ -418,7 +517,8 @@ function renderDirection(direction, sectionId) {
     return;
   }
   if (sectionId === "goals") {
-    renderGoals(direction, content);
+    if (ROUTE_EXTRA) renderGoalPage(direction, ROUTE_EXTRA, content);
+    else renderGoals(direction, content);
     return;
   }
   content.appendChild(el("div", "empty", "РАЗДЕЛ ПУСТ"));
