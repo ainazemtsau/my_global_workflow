@@ -7,7 +7,8 @@ play: work
 node: g-1d84
 task: t-host-3
 issued: 2026-08-06 by s-work-g-1d84-householder-profile-file-route-001
-status: ready
+status: superseded
+superseded: 2026-08-07 by s-work-g-1d84-delivered-pair-close-001 — НЕ ЗАПУСКАТЬ. Наряд приехал в OS слиянием `8441787d` из параллельной сессии `main` и оказался сиротой: в `NOW.md` его нет ни в `open_calls`, ни в задаче. Все его несущие предпосылки умерли в день выпуска, и это перемерено, а не предположено. (1) Его `context` утверждает «продуктовые `origin/main` и `origin/dev` = `8ffe5a5d` и кандидата НЕ содержат» — сегодня `b1ac3674` И handoff `ae9ce7b1` ОБА предки опубликованного `main` = `f03b1468`. (2) Его цель — вердикт ДО публикации; публикация произошла 2026-08-06 14:34 (`f298271e` -> `15ee4151`). (3) Его `done_when` п.6 — «PASS оставляет `t-host-3: open` и открывает continuation на публикацию»; `t-host-3` закрыта `close: light` 2026-08-06 15:07. (4) Его `boundaries` — «проверяется exact кандидат `b1ac3674`; более поздний runtime-коммит требует нового verdict»; поехал не `b1ac3674`, а результат его слияния с работой шума, то есть нога проверила бы не то, что доставлено. СОДЕРЖАНИЕ ПРИ СЛИЯНИИ НЕ ПОТЕРЯЛОСЬ, ПРОВЕРЕНО ПО BLOB: на `f03b1468` `Assets/StreamingAssets/TunnelCrew/Householder/default.householder.json` = `fba2242a6801ba815dce4a75bf3b24376de269cd` и `docs/householder-profile-format.md` = `a20ec69c3c5c8a14d1fc4f7388bfe499e4d899ce` — оба совпадают с теми, что наряд называл поимённо. ЧТО НАРЯД ПОЙМАЛ БЫ, А СВЕТЛОЕ ЗАКРЫТИЕ НЕ ПОЙМАЛО, И ЭТО ДО СИХ ПОР ОТКРЫТО: перемерено на `f03b1468` — у `HouseholderProfileLoader` ноль тестов (упоминается только сам файл, `NetworkHouseholder.cs` и один документ), в `tests/` ни одного теста про сломанный файл, в `HouseholderProfileTests.cs` ровно 4 теста. Это запись `i-broken-profile-rejection-never-observed-001`, и снятие наряда её НЕ закрывает — её закрывает тест на неизвестное имя поля либо прогон владельца.
 
 ## goal
 
