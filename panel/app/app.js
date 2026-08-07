@@ -233,7 +233,8 @@ function renderGoals(direction, content) {
       top.appendChild(el("div", "aim-goal", (data.root && data.root.label) || "—"));
       if (data.target) {
         const t = el("div", "aim-date");
-        t.textContent = "ближайшая дата: " + data.target;
+        t.appendChild(document.createTextNode("ближайшая дата · "));
+        t.appendChild(el("b", null, data.target));
         top.appendChild(t);
       }
       content.appendChild(top);
@@ -251,6 +252,7 @@ function renderGoals(direction, content) {
         content.appendChild(d);
       }
 
+      content.appendChild(legendBlock());
       if ((data.no_label || []).length) {
         content.appendChild(el("div", "problem",
           "БЕЗ ИМЕНИ " + data.no_label.length + " — " + data.no_label.join(", ")
@@ -265,7 +267,13 @@ function renderGoals(direction, content) {
 }
 
 const LEGEND = [["accent", "идёт сейчас"], ["plan", "впереди · карта"], ["think", "разбор"],
-                ["wait", "ждёт тебя"], ["bad", "сломано"], ["off", "снято"]];
+                ["wait", "ждёт тебя"], ["bad", "сломано"], ["done", "сделано"], ["off", "снято"]];
+
+function legendBlock() {
+  const lg = el("div", "legend");
+  for (const pair of LEGEND) lg.appendChild(el("span", "lg-" + pair[0], "■ " + pair[1]));
+  return lg;
+}
 
 function firstSentence(t) {
   const i = t.indexOf(". ");
@@ -358,9 +366,7 @@ function renderGoalPage(direction, nodeId, content) {
       if (d.detail) ln.appendChild(el("div", "id", d.detail));
       content.appendChild(ln);
 
-      const lg = el("div", "legend");
-      for (const pair of LEGEND) lg.appendChild(el("span", "lg-" + pair[0], "■ " + pair[1]));
-      content.appendChild(lg);
+      content.appendChild(legendBlock());
     })
     .catch((e) => {
       content.textContent = "";

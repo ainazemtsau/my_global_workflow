@@ -181,18 +181,20 @@ html, body {
 .details .desc:last-child { margin-bottom: 0; }
 
 /* карта целей: группа — состояние, строка — одна цель, проза только по клику */
-.aim { padding: 22px 20px; border-bottom: 1px solid var(--line); }
+.aim { padding: 22px 20px; border-bottom: 1px solid var(--line);
+       border-left: 3px solid var(--plan); }
 .aim-goal { font-size: 20px; color: var(--fg); line-height: 1.35; margin-top: 6px; }
 .aim-date { font-size: 13px; color: var(--fg-dim); margin-top: 8px; }
+.aim-date b { font-weight: 400; color: var(--wait); }
 .aim-date::first-line { color: var(--fg-dim); }
 
 .group {
   font-family: var(--mono); font-size: 11px; letter-spacing: 0.16em;
   padding: 26px 20px 10px; color: var(--fg-dim);
 }
-.group.now { color: var(--wait); }
+.group.now { color: var(--accent); }
 .group.ahead { color: var(--plan); }
-.group.done { color: var(--accent); }
+.group.done { color: var(--fg-dim); }
 .group.gone { color: var(--fg-off); cursor: pointer; padding: 22px 20px; }
 .group-empty { padding: 0 20px 14px; font-size: 13px; color: var(--fg-off); }
 
@@ -201,9 +203,11 @@ html, body {
 .goal:hover .goal-name { color: var(--plan); }
 .goal.ahead { border-left-color: var(--plan); }
 .goal.now { border-left-color: var(--accent); }
-.goal.done { border-left-color: var(--accent); }
+.goal.done { border-left-color: var(--fg-dim); }
 .goal.gone { border-left-color: var(--line); }
 .goal-name { font-size: 17px; color: var(--fg); }
+.goal.done .goal-name::before { content: "✓ "; color: var(--fg-dim); }
+.goal.now .goal-name::before { content: "▶ "; color: var(--accent); }
 .goal.gone .goal-name { font-size: 14px; color: var(--fg-off); }
 .goal-hook { font-size: 12px; color: var(--fg-faint); margin-top: 3px; }
 .goal.gone .goal-hook { color: var(--fg-off); }
@@ -288,6 +292,7 @@ html, body {
 .lg-think { color: var(--think); }
 .lg-wait { color: var(--wait); }
 .lg-bad { color: var(--bad); }
+.lg-done { color: var(--fg-dim); }
 .lg-off { color: var(--fg-off); }
 
 END_OF_FILE: panel/app/style.css
