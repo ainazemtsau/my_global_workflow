@@ -1,7 +1,7 @@
 ---
 id: i-householder-activities-are-intentions-not-instructions-001
-kind: issue
-pos: 23
+_kind: issue
+_pos: 23
 level: execution
 route: work
 ---

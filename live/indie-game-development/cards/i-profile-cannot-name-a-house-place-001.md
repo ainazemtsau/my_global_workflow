@@ -1,7 +1,7 @@
 ---
 id: i-profile-cannot-name-a-house-place-001
-kind: issue
-pos: 24
+_kind: issue
+_pos: 24
 level: execution
 route: work
 ---

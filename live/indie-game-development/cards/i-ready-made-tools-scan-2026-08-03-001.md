@@ -1,7 +1,7 @@
 ---
 id: i-ready-made-tools-scan-2026-08-03-001
-kind: issue
-pos: 5
+_kind: issue
+_pos: 5
 level: execution
 route: work
 ---

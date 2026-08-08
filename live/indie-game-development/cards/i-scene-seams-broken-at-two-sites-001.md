@@ -1,7 +1,7 @@
 ---
 id: i-scene-seams-broken-at-two-sites-001
-kind: issue
-pos: 26
+_kind: issue
+_pos: 26
 level: execution
 route: work
 ---

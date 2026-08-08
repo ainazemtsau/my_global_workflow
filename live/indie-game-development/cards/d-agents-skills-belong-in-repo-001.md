@@ -1,7 +1,8 @@
 ---
 id: d-agents-skills-belong-in-repo-001
-kind: decision
-pos: 1
+_kind: decision
+_bet: g-5a7c
+_pos: 0
 track: direction
 ---
 

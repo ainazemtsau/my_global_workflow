@@ -1,7 +1,7 @@
 ---
 id: i-paper-loop-outran-the-build-001
-kind: issue
-pos: 9
+_kind: issue
+_pos: 9
 level: direction
 route: maintenance
 ---

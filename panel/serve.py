@@ -124,7 +124,7 @@ def section_goals(direction):
             except (Exception, SystemExit) as e:
                 unread.append({"file": name, "error": str(e)})
                 continue
-            if isinstance(head, dict) and head.get("kind") == "node":
+            if isinstance(head, dict) and head.get("_kind") == "node":
                 loaded[str(head.get("id"))] = (head, blocks)
 
     labels, labels_by = load_labels(direction)
@@ -142,7 +142,7 @@ def section_goals(direction):
         state, word = NODE_STATE.get(raw, ("ahead", str(raw or "?").upper()))
         lab = labels.get(cid) or {}
         out.append({
-            "id": cid, "parent": h.get("parent"), "pos": h.get("pos"),
+            "id": cid, "parent": h.get("_parent"), "pos": h.get("_pos"),
             "state": state, "word": word, "raw_status": raw,
             "label": lab.get("label"), "hook": lab.get("hook"),
             "label_by": labels_by if lab else None,
@@ -150,7 +150,7 @@ def section_goals(direction):
             "why": h.get("why") or block_text(b, "why"),
             "done_when": h.get("done_when") or block_text(b, "done_when"),
             "detail": h.get("detail"),
-            "is_root": h.get("parent") is None,
+            "is_root": h.get("_parent") is None,
         })
     out.sort(key=lambda r: (r["pos"] if isinstance(r["pos"], int) else 999))
 
@@ -246,7 +246,7 @@ def goal_page(direction, node_id):
                 head, blocks = cards.read_card(os.path.join(folder, name))
             except (Exception, SystemExit):
                 continue
-            if isinstance(head, dict) and head.get("kind") == "node":
+            if isinstance(head, dict) and head.get("_kind") == "node":
                 nodes[str(head.get("id"))] = (head, blocks)
     if node_id not in nodes:
         return None
@@ -259,7 +259,7 @@ def goal_page(direction, node_id):
         st = (nodes.get(cid) or ({}, {}))[0].get("status") if cid in nodes else None
         return {"id": cid, "label": lab.get("label") or cid, "dropped": st == "dropped"}
 
-    kids = [brief(i) for i, (hh, _) in nodes.items() if hh.get("parent") == node_id]
+    kids = [brief(i) for i, (hh, _) in nodes.items() if hh.get("_parent") == node_id]
     lab = labels.get(node_id) or {}
     return {
         "id": node_id, "state": state, "word": word, "raw_status": h.get("status"),
@@ -268,7 +268,7 @@ def goal_page(direction, node_id):
         "why": h.get("why") or block_text(b, "why"),
         "conditions": split_conditions(h.get("done_when") or block_text(b, "done_when")),
         "detail": h.get("detail"),
-        "parent": brief(h["parent"]) if h.get("parent") else None,
+        "parent": brief(h["_parent"]) if h.get("_parent") else None,
         "children": kids,
         "events": node_events(direction, node_id),
     }
@@ -295,8 +295,8 @@ def section_wave(direction):
     with open(os.path.join(LIVE_DIR, direction, "NOW.md"), encoding="utf-8") as fh:
         now = yaml.safe_load(fh.read()) or {}
     tracks_raw = (now.get("tracks") or []) if isinstance(now, dict) else []
-    tasks = {i: c for i, c in loaded.items() if c[0].get("kind") == "task"}
-    bet_card = next((c for c in loaded.values() if c[0].get("kind") == "bet"), None)
+    tasks = {i: c for i, c in loaded.items() if c[0].get("_kind") == "task"}
+    bet_card = next((c for c in loaded.values() if c[0].get("_kind") == "bet"), None)
 
     def task_view(tid):
         c = tasks.get(tid)
@@ -360,10 +360,8 @@ def ensure_cards(direction):
     for name in SOURCES:
         path = os.path.join(LIVE_DIR, direction, name)
         if os.path.isfile(path) and os.path.getmtime(path) > built:
-            cards.build(direction)
+            cards.build(direction)  # сама стирает папку и строит заново
             return
-    return
-    cards.build(direction)  # сама стирает папку и строит заново
 
 
 def block_text(blocks, key):
@@ -414,13 +412,13 @@ def section_numbers(direction, loaded):
     if not isinstance(now, dict):
         raise RuntimeError(f"{path}: верхний уровень не словарь")
     heads = [head for head, _ in loaded.values()]
-    tasks = [h for h in heads if h.get("kind") == "task"]
+    tasks = [h for h in heads if h.get("_kind") == "task"]
     busy = {h.get("track") for h in heads
-            if h.get("kind") == "call" and h.get("track")
+            if h.get("_kind") == "call" and h.get("track")
             and h.get("status") not in ("done", "paused")}
-    waiting = sum(1 for h in heads if h.get("kind") == "decision")
-    waiting += sum(1 for h in heads if h.get("kind") == "question" and h.get("who") == "владелец")
-    bet = next((h for h in heads if h.get("kind") == "bet"), None)
+    waiting = sum(1 for h in heads if h.get("_kind") == "decision")
+    waiting += sum(1 for h in heads if h.get("_kind") == "question" and h.get("who") == "владелец")
+    bet = next((h for h in heads if h.get("_kind") == "bet"), None)
     opened = bet.get("opened") if bet is not None else None
     if isinstance(opened, datetime.datetime):
         opened = opened.date()
@@ -448,10 +446,10 @@ def section_now(direction):
                 loaded[str(head.get("id"))] = (head, blocks)
             else:
                 unread.append({"file": name, "error": "шапка не словарь"})
-        tasks = {cid: v for cid, v in loaded.items() if v[0].get("kind") == "task"}
+        tasks = {cid: v for cid, v in loaded.items() if v[0].get("_kind") == "task"}
         ready, other = [], []
         for cid, (head, blocks) in loaded.items():
-            if head.get("kind") != "call":
+            if head.get("_kind") != "call":
                 continue
             order = make_order(direction, head, blocks, tasks)
             (ready if head.get("status") == "ready" else other).append(order)
@@ -464,7 +462,21 @@ def section_now(direction):
 
 class Handler(BaseHTTPRequestHandler):
     def do_GET(self):
-        path = self.path.split("?", 1)[0]
+        """Отказ сборки карточек — это ответ с причиной, а не убитый поток.
+        cards.fail бросает SystemExit, обычный except Exception его не ловит."""
+        try:
+            self.route(self.path.split("?", 1)[0])
+        except (Exception, SystemExit) as e:
+            sys.stderr.write(f"[panel] {self.path}: {e}\n")
+            if self.path.startswith("/api/"):
+                self.send_json({"error": str(e),
+                                "hint": "источник не раскладывается на карточки; "
+                                        "проверь: python panel/cards.py check <направление>"},
+                               code=500)
+            else:
+                self.send_error(500, "internal error")
+
+    def route(self, path):
         if path == "/":
             self.send_file(os.path.join(APP_DIR, "index.html"))
         elif path in ("/app.js", "/md.js", "/style.css"):
@@ -505,13 +517,13 @@ class Handler(BaseHTTPRequestHandler):
         ext = os.path.splitext(full_path)[1]
         self.send_body(CONTENT_TYPES.get(ext, "application/octet-stream"), data)
 
-    def send_json(self, obj):
+    def send_json(self, obj, code=200):
         # default=str: в шапках карточек бывают datetime.date, на них dumps падает.
         self.send_body("application/json; charset=utf-8",
-                       json.dumps(obj, ensure_ascii=False, default=str).encode("utf-8"))
+                       json.dumps(obj, ensure_ascii=False, default=str).encode("utf-8"), code)
 
-    def send_body(self, ctype, data):
-        self.send_response(200)
+    def send_body(self, ctype, data, code=200):
+        self.send_response(code)
         self.send_header("Content-Type", ctype)
         self.send_header("Content-Length", str(len(data)))
         self.end_headers()

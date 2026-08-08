@@ -1,7 +1,7 @@
 ---
 id: i-now-hot-file-over-ceiling-001
-kind: issue
-pos: 15
+_kind: issue
+_pos: 15
 level: direction
 route: repair
 ---

@@ -39,7 +39,7 @@ def main():
     tmp = Path(tempfile.mkdtemp(prefix="osctl-cards-"))
     card = tmp / "t-1.md"
     card.write_text(
-        "---\nid: t-1\nkind: task\nstatus: open\n---\n\n"
+        "---\nid: t-1\n_kind: task\nstatus: open\n---\n\n"
         "## goal\nСделать одно дело\n\n"
         f"END_OF_FILE: {card}\n", encoding="utf-8")
     C = ["--direction", D, "--cards", str(tmp)]
@@ -59,9 +59,17 @@ def main():
     check(r.returncode == 1 and "блок тела" in r.stderr,
           "длинное значение в шапку не пускается — ему место в теле")
 
-    for f in ("id", "kind"):
+    for f in ("id", "_kind", "_pos"):
         r = run("card", "set", "--id", "t-1", "--field", f, "--value", "zzz", *C)
-        check(r.returncode == 1, f"{f} командой set не меняется — это опора карточки")
+        check(r.returncode == 1, f"{f} командой set не меняется — это имя носителя")
+
+    # а поле ВЛАДЕЛЬЦА с таким же словом менять можно: имена больше не спорят
+    r = run("card", "set", "--id", "t-1", "--field", "kind", "--value", "executor", *C)
+    check(r.returncode == 0, "поле данных `kind` живёт рядом со служебным `_kind`")
+
+    r = run("card", "block", "--id", "t-1", "--name", "status", "--text", "другое", *C)
+    check(r.returncode == 1 and "два носителя" in r.stderr,
+          "одно имя разом в шапке и в теле не заводится")
 
     # --- блок переписывается целиком
     r = run("card", "block", "--id", "t-1", "--name", "goal", "--text", "Другое дело", *C)
@@ -95,7 +103,7 @@ def main():
 
     # --- карточка после всех правок цела
     r = run("card", "show", "--id", "t-1", "--json", *C)
-    check(r.returncode == 0 and '"kind": "task"' in r.stdout, "карточка читается после всех правок")
+    check(r.returncode == 0 and '"_kind": "task"' in r.stdout, "карточка читается после всех правок")
     check(card.read_text(encoding="utf-8").rstrip().endswith("t-1.md"), "хвост END_OF_FILE на месте")
 
     # --- check: механические факты
@@ -103,7 +111,7 @@ def main():
     check(r.returncode == 0 and "механических проблем нет" in r.stdout, "check на исправной папке чист")
 
     bad = tmp / "t-2.md"
-    bad.write_text("---\nid: ДРУГОЙ\nkind: task\n---\n\n## goal\nx\n\nEND_OF_FILE: t-2.md\n",
+    bad.write_text("---\nid: ДРУГОЙ\n_kind: task\n---\n\n## goal\nx\n\nEND_OF_FILE: t-2.md\n",
                    encoding="utf-8")
     r = run("check", *C)
     check(r.returncode == 1 and "не совпадает с именем файла" in r.stdout,
@@ -111,13 +119,13 @@ def main():
     bad.unlink()
 
     bad = tmp / "t-3.md"
-    bad.write_text("---\nid: t-3\nkind: выдумка\n---\n\nEND_OF_FILE: t-3.md\n", encoding="utf-8")
+    bad.write_text("---\nid: t-3\n_kind: выдумка\n---\n\nEND_OF_FILE: t-3.md\n", encoding="utf-8")
     r = run("check", *C)
     check(r.returncode == 1 and "не из" in r.stdout, "check ловит незнакомый вид карточки")
     bad.unlink()
 
     bad = tmp / "t-4.md"
-    bad.write_text("---\nid: t-4\nkind: task\n---\n\n## goal\nx\n", encoding="utf-8")
+    bad.write_text("---\nid: t-4\n_kind: task\n---\n\n## goal\nx\n", encoding="utf-8")
     r = run("check", *C)
     check(r.returncode == 1 and "END_OF_FILE" in r.stdout, "check ловит отсутствие хвоста")
     bad.unlink()

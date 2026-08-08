@@ -1,7 +1,7 @@
 ---
 id: i-owner-standing-rules-on-how-work-is-shaped-001
-kind: issue
-pos: 19
+_kind: issue
+_pos: 19
 level: direction
 route: work
 ---

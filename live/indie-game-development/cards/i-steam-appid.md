@@ -1,7 +1,7 @@
 ---
 id: i-steam-appid
-kind: issue
-pos: 13
+_kind: issue
+_pos: 13
 level: roadmap
 route: work
 ---

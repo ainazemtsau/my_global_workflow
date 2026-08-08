@@ -1,8 +1,8 @@
 ---
 id: g-4d7a
-kind: node
-parent: g-0c26
-pos: 6
+_kind: node
+_parent: g-0c26
+_pos: 6
 status: dropped
 detail: history/2026-08-01-s-map-burrow-first-node-cards-001.md
 label: Хозяин против тоннеля

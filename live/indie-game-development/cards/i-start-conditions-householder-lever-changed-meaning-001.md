@@ -1,7 +1,7 @@
 ---
 id: i-start-conditions-householder-lever-changed-meaning-001
-kind: issue
-pos: 25
+_kind: issue
+_pos: 25
 level: execution
 route: work
 ---

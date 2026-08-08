@@ -1,7 +1,7 @@
 ---
 id: i-parallel-session-commit-swallows-another-legs-edit-001
-kind: issue
-pos: 21
+_kind: issue
+_pos: 21
 level: direction
 route: maintenance
 ---

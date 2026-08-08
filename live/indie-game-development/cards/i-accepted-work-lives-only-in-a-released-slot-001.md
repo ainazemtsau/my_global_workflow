@@ -1,7 +1,7 @@
 ---
 id: i-accepted-work-lives-only-in-a-released-slot-001
-kind: issue
-pos: 20
+_kind: issue
+_pos: 20
 level: execution
 route: work
 ---

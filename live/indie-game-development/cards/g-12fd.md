@@ -1,8 +1,8 @@
 ---
 id: g-12fd
-kind: node
-parent: g-0c26
-pos: 14
+_kind: node
+_parent: g-0c26
+_pos: 14
 goal: Минимальное честное демо текущей игры однозначно определено одной утверждённой
   версией основы.
 status: dropped

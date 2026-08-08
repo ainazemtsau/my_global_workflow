@@ -1,7 +1,7 @@
 ---
 id: i-steam-demo-gates-unverified
-kind: issue
-pos: 14
+_kind: issue
+_pos: 14
 level: roadmap
 route: work
 review_when: До сохранения регистрации и не позже 2026-08-20.

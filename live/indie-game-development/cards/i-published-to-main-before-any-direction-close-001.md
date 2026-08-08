@@ -1,7 +1,7 @@
 ---
 id: i-published-to-main-before-any-direction-close-001
-kind: issue
-pos: 3
+_kind: issue
+_pos: 3
 level: direction
 route: review
 ---

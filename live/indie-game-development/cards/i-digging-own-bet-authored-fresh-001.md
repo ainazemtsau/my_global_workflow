@@ -1,7 +1,7 @@
 ---
 id: i-digging-own-bet-authored-fresh-001
-kind: issue
-pos: 17
+_kind: issue
+_pos: 17
 level: roadmap
 route: map
 ---

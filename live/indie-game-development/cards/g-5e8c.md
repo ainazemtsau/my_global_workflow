@@ -1,8 +1,8 @@
 ---
 id: g-5e8c
-kind: node
-parent: g-0c26
-pos: 9
+_kind: node
+_parent: g-0c26
+_pos: 9
 status: dropped
 detail: history/2026-08-01-s-map-tree-legacy-cleanup-001.md
 label: Целый заход демо

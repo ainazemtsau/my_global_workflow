@@ -56,7 +56,7 @@ def main():
     for p in files:
         text = p.read_text(encoding="utf-8")
         head = yaml.safe_load(text.split("---", 2)[1])
-        if head.get("kind") == "node":
+        if head.get("_kind") == "node":
             nodes += 1
             if not head.get("label"):
                 no_label.append(head.get("id"))

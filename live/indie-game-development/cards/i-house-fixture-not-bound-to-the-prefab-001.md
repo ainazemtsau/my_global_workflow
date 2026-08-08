@@ -1,7 +1,7 @@
 ---
 id: i-house-fixture-not-bound-to-the-prefab-001
-kind: issue
-pos: 27
+_kind: issue
+_pos: 27
 level: execution
 route: work
 ---

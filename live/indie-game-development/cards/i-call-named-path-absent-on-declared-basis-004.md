@@ -1,7 +1,7 @@
 ---
 id: i-call-named-path-absent-on-declared-basis-004
-kind: issue
-pos: 6
+_kind: issue
+_pos: 6
 level: execution
 route: maintenance
 ---

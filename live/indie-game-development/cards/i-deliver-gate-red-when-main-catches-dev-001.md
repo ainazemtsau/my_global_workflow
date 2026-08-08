@@ -1,7 +1,7 @@
 ---
 id: i-deliver-gate-red-when-main-catches-dev-001
-kind: issue
-pos: 2
+_kind: issue
+_pos: 2
 level: execution
 route: work
 ---

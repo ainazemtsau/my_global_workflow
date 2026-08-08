@@ -1,7 +1,7 @@
 ---
 id: i-broken-profile-rejection-never-observed-001
-kind: issue
-pos: 22
+_kind: issue
+_pos: 22
 level: execution
 route: work
 ---

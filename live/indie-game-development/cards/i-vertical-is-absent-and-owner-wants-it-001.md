@@ -1,7 +1,7 @@
 ---
 id: i-vertical-is-absent-and-owner-wants-it-001
-kind: issue
-pos: 18
+_kind: issue
+_pos: 18
 level: execution
 route: map
 ---

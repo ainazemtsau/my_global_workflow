@@ -1,7 +1,7 @@
 ---
 id: i-house-walls-below-eye-level-001
-kind: issue
-pos: 0
+_kind: issue
+_pos: 0
 level: execution
 route: work
 ---

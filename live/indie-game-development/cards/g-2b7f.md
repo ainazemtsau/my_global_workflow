@@ -1,8 +1,8 @@
 ---
 id: g-2b7f
-kind: node
-parent: g-0c26
-pos: 8
+_kind: node
+_parent: g-0c26
+_pos: 8
 status: parked
 detail: history/2026-07-27-s-map-october-demo-order-reset-001.md
 label: Страница в Steam

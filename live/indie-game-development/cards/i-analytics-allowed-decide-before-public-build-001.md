@@ -1,7 +1,7 @@
 ---
 id: i-analytics-allowed-decide-before-public-build-001
-kind: issue
-pos: 29
+_kind: issue
+_pos: 29
 level: roadmap
 route: work
 ---

@@ -1,7 +1,7 @@
 ---
 id: i-full-run-node-to-be-authored-001
-kind: issue
-pos: 12
+_kind: issue
+_pos: 12
 level: roadmap
 route: map
 ---

@@ -326,7 +326,17 @@ def cmd_slot_create(a) -> int:
 
 # ------------------------------------------------------------------- карточки
 
-CARD_KINDS = ("bet", "node", "task", "call", "issue", "question", "decision")
+# Формат карточки задаётся в одном месте — panel/cards.py. Второй список видов
+# здесь был бы ровно тем расхождением, которое мы лечим.
+sys.path.insert(0, str(REPO / "panel"))
+try:
+    import cards as _fmt
+except ImportError as _e:                                    # pragma: no cover
+    raise SystemExit(f"не найден panel/cards.py — формат карточки берётся оттуда: {_e}")
+
+CARD_KINDS = _fmt.KINDS + ("question",)   # question объявлен в os2/CONCEPT.md
+SERVICE = _fmt.SERVICE                     # ведущий знак служебных имён
+KIND_KEY = SERVICE + "kind"
 JOURNAL = "журнал"
 JOURNAL_CEILING = 20
 HEAD_LIMIT = 120
@@ -377,6 +387,10 @@ def write_card(direction: str, cid: str, head: dict, blocks: dict, order: list,
     for k, v in head.items():
         if isinstance(v, str) and (len(v) > HEAD_LIMIT or chr(10) in v):
             raise Stop(f"{cid}: поле {k} длиннее {HEAD_LIMIT} или многострочное — ему место в теле")
+    both = sorted(set(head) & set(order))
+    if both:
+        raise Stop(f"{cid}: имена {both} разом в шапке и в теле — два носителя одного поля, "
+                   "при сборке выиграет тело, а шапка станет протухшей уликой")
     path = card_path(direction, cid, override)
     path.parent.mkdir(parents=True, exist_ok=True)
     body = "".join(
@@ -416,8 +430,11 @@ def cmd_card_set(a) -> int:
     direction = resolve_direction(a.direction)
     path = card_path(direction, a.id, a.cards)
     head, blocks, order = read_card(path)
-    if a.field in ("id", "kind"):
-        raise Stop(f"{a.field} не меняется командой set — это опора карточки")
+    if a.field == "id" or a.field.startswith(SERVICE):
+        raise Stop(f"{a.field} не меняется командой set — это опора карточки, а не данные")
+    if a.field in blocks:
+        raise Stop(f"{a.field} уже лежит в теле блоком — правь его командой block, "
+                   "иначе у одного поля станет два носителя")
     if len(a.value) > HEAD_LIMIT or chr(10) in a.value:
         raise Stop(f"значение длиннее {HEAD_LIMIT} символов — это блок тела, а не поле шапки")
     head[a.field] = yaml.safe_load(a.value) if a.value not in ("", "null") else None
@@ -508,8 +525,11 @@ def cmd_check(a) -> int:
         if cid in seen:
             problems.append(f"{p.name}: id повторяется, уже был в {seen[cid]}")
         seen[cid] = p.name
-        if head.get("kind") not in CARD_KINDS:
-            problems.append(f"{p.name}: kind {head.get('kind')!r} не из {list(CARD_KINDS)}")
+        if head.get(KIND_KEY) not in CARD_KINDS:
+            problems.append(f"{p.name}: {KIND_KEY} {head.get(KIND_KEY)!r} не из {list(CARD_KINDS)}")
+        both = sorted(set(head) & set(blocks))
+        if both:
+            problems.append(f"{p.name}: имена {both} разом в шапке и в теле — два носителя")
         if not p.read_text(encoding="utf-8").rstrip().endswith(f"{p.name}"):
             problems.append(f"{p.name}: нет хвоста END_OF_FILE")
         for k, v in head.items():
@@ -518,7 +538,7 @@ def cmd_check(a) -> int:
         j = blocks.get(JOURNAL) or []
         if len(j) > JOURNAL_CEILING:
             problems.append(f"{p.name}: журнал {len(j)} строк, потолок {JOURNAL_CEILING}")
-        if head.get("kind") == "node" and not head.get("label"):
+        if head.get(KIND_KEY) == "node" and not head.get("label"):
             problems.append(f"{p.name}: у цели нет короткого имени (label)")
     print(f"карточек: {total}")
     if not problems:
@@ -604,7 +624,7 @@ def cmd_migrate(a) -> int:
     for p in sorted(src.glob("*.md")):
         head, blocks, order = read_card(p)
         cid = str(head.get("id"))
-        if head.get("kind") == "node":
+        if head.get(KIND_KEY) == "node":
             lab = overlay.get(cid) or {}
             if lab.get("label"):
                 head["label"] = lab["label"]
@@ -623,7 +643,7 @@ def cmd_migrate(a) -> int:
 
     kinds = {}
     for cid, head, _, _ in prepared:
-        k = head.get("kind")
+        k = head.get(KIND_KEY)
         kinds[k] = kinds.get(k, 0) + 1
 
     print()

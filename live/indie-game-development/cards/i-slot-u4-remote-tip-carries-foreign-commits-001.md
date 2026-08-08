@@ -1,7 +1,7 @@
 ---
 id: i-slot-u4-remote-tip-carries-foreign-commits-001
-kind: issue
-pos: 1
+_kind: issue
+_pos: 1
 level: execution
 route: work
 ---

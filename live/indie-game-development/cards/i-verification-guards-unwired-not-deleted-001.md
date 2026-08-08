@@ -1,7 +1,7 @@
 ---
 id: i-verification-guards-unwired-not-deleted-001
-kind: issue
-pos: 8
+_kind: issue
+_pos: 8
 level: execution
 route: work
 ---

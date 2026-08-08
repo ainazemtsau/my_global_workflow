@@ -1,7 +1,7 @@
 ---
 id: i-architecture-pass-skipped-for-this-bet-001
-kind: issue
-pos: 7
+_kind: issue
+_pos: 7
 level: execution
 route: converge-arch
 ---

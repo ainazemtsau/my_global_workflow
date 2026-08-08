@@ -1,7 +1,7 @@
 ---
 id: i-cargo-carry-open-questions-001
-kind: issue
-pos: 10
+_kind: issue
+_pos: 10
 level: execution
 route: research
 ---
