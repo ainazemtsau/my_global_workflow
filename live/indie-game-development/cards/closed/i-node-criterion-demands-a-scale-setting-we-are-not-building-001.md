@@ -12,5 +12,6 @@ _pos: 31
 ## review_when
 Ближайшая нога map — она приносит владельцу точный текст строки на подпись. Раньше — если строка всплывёт в любой другой ноге как основание для работы.
 ## журнал
+2026-08-08 · УСТРАНЕНА: строка 1 карточки узла переписана и подписана владельцем, требование «одной названной настройки» из узла убрано · history/2026-08-08-s-map-g-5a7c-scale-criterion-001.md
 2026-08-08 · t-scale-2 снята его словом «снимаем» — точка масштаба была изобретением ноги, а не требованием; наряд отозван, волна идёт на вертикаль · history/2026-08-08-s-repair-g-5a7c-scale-point-dropped-001.md
-END_OF_FILE: live/indie-game-development/cards/i-node-criterion-demands-a-scale-setting-we-are-not-building-001.md
+END_OF_FILE: live/indie-game-development/cards/closed/i-node-criterion-demands-a-scale-setting-we-are-not-building-001.md

@@ -11,5 +11,6 @@ _pos: 3
 ---
 
 ## журнал
+2026-08-08 · нога map принесла точный текст, получила подпись «да, оформляй» и записала его · history/2026-08-08-s-map-g-5a7c-scale-criterion-001.md
 2026-08-08 · t-scale-2 снята его словом «снимаем» — точка масштаба была изобретением ноги, а не требованием; наряд отозван, волна идёт на вертикаль · history/2026-08-08-s-repair-g-5a7c-scale-point-dropped-001.md
-END_OF_FILE: live/indie-game-development/cards/c-map-g-5a7c-scale-criterion-001.md
+END_OF_FILE: live/indie-game-development/cards/closed/c-map-g-5a7c-scale-criterion-001.md
