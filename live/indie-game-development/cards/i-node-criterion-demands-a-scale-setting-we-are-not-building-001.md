@@ -1,0 +1,16 @@
+---
+id: i-node-criterion-demands-a-scale-setting-we-are-not-building-001
+_kind: issue
+level: objective
+route: map
+evidence: history/2026-08-08-s-repair-g-5a7c-scale-point-dropped-001.md
+_pos: 31
+---
+
+## issue
+Строка 1 карточки узла требует, чтобы пропорция «жила одной названной настройкой». Задача, которая её строила, снята владельцем: пересчёт мира был однократным и кончился, а рост хозяина не является функцией роста налётчика. До правки строки узел несёт требование, которое волна сознательно не выполняет.
+## review_when
+Ближайшая нога map — она приносит владельцу точный текст строки на подпись. Раньше — если строка всплывёт в любой другой ноге как основание для работы.
+## журнал
+2026-08-08 · t-scale-2 снята его словом «снимаем» — точка масштаба была изобретением ноги, а не требованием; наряд отозван, волна идёт на вертикаль · history/2026-08-08-s-repair-g-5a7c-scale-point-dropped-001.md
+END_OF_FILE: live/indie-game-development/cards/i-node-criterion-demands-a-scale-setting-we-are-not-building-001.md
