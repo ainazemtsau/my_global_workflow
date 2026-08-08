@@ -15,5 +15,6 @@ _pos: 5
 ---
 
 ## журнал
+2026-08-08 · закрыт вместе с задачей t-scale-3: наряд был написан, но не отправлен — работа по нему не начиналась · history/2026-08-08-s-repair-g-5a7c-wave-reshape-001.md
 2026-08-08 · наряд на вертикаль у игрока написан; проверка происхождения дала находку — две строки задачи росли из замера стоимости, а не из требования, и переписаны в исход · history/2026-08-08-s-work-g-5a7c-scale-3-call-001.md
-END_OF_FILE: live/indie-game-development/cards/c-exec-g-5a7c-player-vertical-001.md
+END_OF_FILE: live/indie-game-development/cards/closed/c-exec-g-5a7c-player-vertical-001.md

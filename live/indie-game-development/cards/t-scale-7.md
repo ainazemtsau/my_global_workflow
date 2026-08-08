@@ -3,7 +3,7 @@ id: t-scale-7
 _kind: task
 _bet: g-5a7c
 _pos: 6
-order: 7
+order: 5
 kind: executor
 goal: Два шва, которые он потребовал заложить, стоят — и поведение игры не изменилось
   ни на грамм.
