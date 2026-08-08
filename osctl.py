@@ -902,6 +902,11 @@ def cmd_check(a) -> int:
         if head.get(KIND_KEY) == "node" and not head.get("label"):
             notes.append(f"{p.name}: у цели нет короткого имени (label) — "
                          "его пишет владелец или его нога, не команда")
+        if closed and head.get(KIND_KEY) in ("task", "node") \
+                and head.get("status") not in ("done", "dropped"):
+            notes.append(f"{p.name}: закрыта со статусом {head.get('status')!r} — "
+                         "чем кончилось, не записано, и панель честно скажет «ЗАКРЫТО» "
+                         "вместо «сделано». Закрывать так: card close --status done|dropped")
         if not closed:   # места считаются только среди живых: закрытые не собираются
             # У узла место — среди БРАТЬЕВ, поэтому родитель входит в ключ:
             # два узла у разных родителей законно стоят на одном номере.

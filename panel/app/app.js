@@ -184,13 +184,15 @@ function renderNow(direction, content) {
 
 function taskRow(r) {
   const row = el("div", "row");
-  // `done` приходит из сервера одним флагом: карточка может быть закрыта и
-  // уехать в closed/ вообще без терминального статуса, и угадывать по статусу
-  // значило бы показывать сделанное как открытое.
-  const st = r.done ? "СДЕЛАНО" : (r.status || "нет статуса").toUpperCase();
-  row.appendChild(el("div", r.done ? "status" : "status wait",
+  // Чем кончилось — приходит с сервера, а не угадывается по статусу.
+  // СДЕЛАНО и СНЯТО — разные вещи; «ЗАКРЫТО» значит, что причину не записали,
+  // и этот пробел надо показывать, а не замазывать словом «сделано».
+  const WORD = {done: "СДЕЛАНО", dropped: "СНЯТО", closed: "ЗАКРЫТО"};
+  const shut = Boolean(r.outcome);
+  const st = WORD[r.outcome] || (r.status || "нет статуса").toUpperCase();
+  row.appendChild(el("div", r.outcome === "done" ? "status" : (shut ? "status dim" : "status wait"),
     st + (r.order ? " · " + r.order : "")));
-  row.appendChild(el("div", r.done ? "title dim" : "title", r.goal || r.id));
+  row.appendChild(el("div", shut ? "title dim" : "title", r.goal || r.id));
   if (r.missing) row.appendChild(el("div", "waitline", "карточки нет — полоса называет задачу, которой не существует"));
   if (r.unblock_when) row.appendChild(el("div", "waitline", "ждёт: " + r.unblock_when));
   if (r.done_when) {
@@ -387,6 +389,9 @@ function renderWave(direction, content) {
       const n = data.numbers || {};
       const nums = el("div", "numbers");
       nums.appendChild(el("span", "num", "задачи " + n.tasks_done + " из " + n.tasks_total));
+      if (n.tasks_dropped) nums.appendChild(el("span", "num dim", "снято " + n.tasks_dropped));
+      if (n.tasks_closed_unnamed) nums.appendChild(el("span", "num wait",
+        "закрыто без причины " + n.tasks_closed_unnamed));
       nums.appendChild(el("span", "num", "полосы " + n.tracks_total + " из " + n.tracks_limit));
       content.appendChild(nums);
 

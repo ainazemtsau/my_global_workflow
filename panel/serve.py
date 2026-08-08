@@ -98,11 +98,25 @@ def now_field(now, name):
     return now.get(name)
 
 
+def outcome(head):
+    """Чем кончилось — ровно то, что известно, и ни словом больше.
+
+    `done` и `dropped` — разные вещи: одно сделано, другое СНЯТО его решением.
+    Карточка может лежать в closed/ вообще без терминального статуса (так снимали
+    `t-scale-2`), и называть это «сделано» — врать на экране. Тогда честный
+    ответ — «закрыто», и пробел виден, а не замазан.
+    """
+    if head.get("status") == "done":
+        return "done"
+    if head.get("status") == "dropped":
+        return "dropped"
+    return "closed" if head.get("_closed") else None
+
+
 def is_done(head):
-    """Сделано — это ЛИБО терминальный статус, ЛИБО переезд в closed/.
-    Одного статуса мало: команда закрытия уносит карточку из живой папки, живых
-    `done` не бывает по построению, и счётчик «сделано» был вечным нулём."""
-    return bool(head.get("_closed")) or head.get("status") in ("done", "dropped")
+    """Сделано — только это. Живых `done` не бывает по построению: команда
+    закрытия уносит карточку, — поэтому счёт идёт и по закрытой папке."""
+    return outcome(head) == "done"
 
 
 SECTIONS = [("now", "СЕЙЧАС"), ("slots", "СЛОТЫ"), ("waiting", "ЖДЁТ ТЕБЯ"), ("wave", "ВОЛНА"),
@@ -368,7 +382,8 @@ def section_wave(direction):
         # быть закрыта и лежать в closed/ вообще без терминального статуса.
         # Блок `closed` рядом — это ТЕКСТ разбора, а не флаг; имена похожи, смысл разный.
         return {"id": tid, "missing": False, "status": h.get("status"),
-                "done": is_done(h), "in_closed": bool(h.get("_closed")),
+                "done": is_done(h), "outcome": outcome(h),
+                "in_closed": bool(h.get("_closed")),
                 "order": h.get("order"), "goal": goal,
                 "done_when": block_text(b, "done_when"),
                 "closed": block_text(b, "closed"),
@@ -403,6 +418,11 @@ def section_wave(direction):
     return {"direction": direction, "bet": bet, "tracks": out_tracks, "loose": loose,
             "unread": unread,
             "numbers": {"tasks_done": sum(1 for c in tasks.values() if is_done(c[0])),
+                        "tasks_dropped": sum(1 for c in tasks.values()
+                                             if outcome(c[0]) == "dropped"),
+                        # закрыто, но чем кончилось — не записано: пробел показываем
+                        "tasks_closed_unnamed": sum(1 for c in tasks.values()
+                                                    if outcome(c[0]) == "closed"),
                         "tasks_total": total,
                         "tracks_total": len(out_tracks),
                         "tracks_limit": now_field(now, "track_wip_limit")}}

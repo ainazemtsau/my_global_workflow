@@ -125,7 +125,7 @@ def case_dead_dirs():
 
 
 def case_closed_is_visible():
-    """Закрытая карточка обязана считаться сделанной, а не исчезать из обоих чисел."""
+    """Закрытое видно как закрытое, с НАЗВАННЫМ исходом, а не исчезает из обоих чисел."""
     sys.path.insert(0, str(ROOT / "panel"))
     import serve
     d = "indie-game-development"
@@ -138,13 +138,22 @@ def case_closed_is_visible():
     if not shut:
         return
     tasks = [h for h, _ in loaded.values() if h.get("_kind") == "task"]
-    done = [h for h in tasks if serve.is_done(h)]
+    on_disk = sum(1 for cid in live | shut
+                  if (loaded.get(cid) or ({},))[0].get("_kind") == "task")
+    check(len(tasks) == on_disk,
+          f"задачи считаются из обеих папок: {len(tasks)} из {on_disk} на диске")
+
     closed_tasks = [h for h in tasks if h.get("_closed")]
-    check(len(tasks) >= len(live | shut) - len(live),
-          f"задачи считаются из обеих папок: всего {len(tasks)}")
-    check(len(done) >= len(closed_tasks) and len(closed_tasks) > 0,
-          f"закрытые задачи попали в «сделано»: закрытых {len(closed_tasks)}, "
-          f"сделанных {len(done)}")
+    check(closed_tasks, "закрытые задачи вообще есть — иначе проверять нечего")
+    # Закрытая задача обязана иметь НАЗВАННЫЙ исход. «Сделано» — только `done`:
+    # `t-scale-2` сняли его словом, и звать это сделанным было бы ложью на экране.
+    check(all(serve.outcome(h) for h in closed_tasks),
+          "у каждой закрытой задачи есть исход (done/dropped/closed)")
+    check(all(not serve.is_done(h) for h in tasks if h.get("status") != "done"),
+          "«сделано» не приписывается тому, у кого статус не done")
+    check(all(serve.outcome(h) is None for h in tasks if not h.get("_closed")
+              and h.get("status") not in ("done", "dropped")),
+          "у живой незакрытой задачи исхода нет — панель не выдумывает завершения")
 
 
 def case_service_key_not_written():
