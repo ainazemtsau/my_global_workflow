@@ -107,7 +107,6 @@ def step00() -> None:
         proc.terminate()
 
 
-SECTIONS_TO_CARDS = ("tasks", "open_calls", "issues", "decisions")
 
 
 def run(*args: str):
@@ -122,163 +121,6 @@ def head_belongs(v) -> bool:
     if isinstance(v, str):
         return len(v) <= 120 and "\n" not in v
     return isinstance(v, (int, float, bool, datetime.date)) or v is None
-
-
-def step01a() -> None:
-    import shutil
-
-    import yaml
-
-    script = os.path.join(ROOT, "panel", "cards.py")
-    check(os.path.isfile(script), "файл существует: panel/cards.py")
-    if fails:
-        return
-
-    now_paths = {d: os.path.join(ROOT, "live", d, "NOW.md")
-                 for d in ("indie-game-development", "solmax")}
-    before_bytes = {d: open(p, "rb").read() for d, p in now_paths.items()}
-    git_before = run("git", "status", "--porcelain", "live").stdout
-
-    for direction in ("indie-game-development", "solmax"):
-        out = os.path.join(ROOT, "panel", ".cards", direction)
-        shutil.rmtree(out, ignore_errors=True)
-        os.makedirs(out, exist_ok=True)
-        # маркер: build обязан вычистить папку сам, а не дописать в неё
-        open(os.path.join(out, "zz-stale.md"), "w", encoding="utf-8").write("stale\n")
-
-        r = run(sys.executable, script, "build", direction)
-        check(r.returncode == 0, f"{direction}: build завершился кодом 0")
-        if r.returncode != 0:
-            print("    ", (r.stdout + r.stderr).strip()[:400])
-            continue
-
-        check(os.path.isdir(out), f"{direction}: папка карточек создана даже при нуле карточек")
-        if not os.path.isdir(out):
-            continue
-        names = os.listdir(out)
-        check("zz-stale.md" not in names, f"{direction}: build вычистил папку от прошлого прогона")
-
-        now = yaml.safe_load(open(now_paths[direction], encoding="utf-8").read())
-        bet = now.get("bet")
-        bet_ok = isinstance(bet, dict) and "node" in bet
-        # узлы дерева тоже карточки: считаем их из TREE.md независимо от реализации
-        tree_path = os.path.join(ROOT, "live", direction, "TREE.md")
-        n_nodes = 0
-        if os.path.isfile(tree_path):
-            doc = yaml.safe_load(open(tree_path, encoding="utf-8").read())
-            def _count(ns):
-                total = 0
-                for x in (ns if isinstance(ns, list) else [ns]):
-                    if isinstance(x, dict) and "id" in x:
-                        total += 1 + _count(x.get("children") or [])
-                return total
-            n_nodes = _count((doc or {}).get("root") or [])
-        want = sum(len(now.get(k) or []) for k in SECTIONS_TO_CARDS) + (1 if bet_ok else 0) + n_nodes
-        files = sorted(f for f in names if f.endswith(".md"))
-        check(len(files) == want, f"{direction}: карточек {len(files)}, ожидалось {want}")
-
-        # ожидаемая раскладка, посчитанная из исходника независимо от реализации
-        expected: dict[str, dict] = {}
-        if bet_ok:
-            expected[bet["node"]] = dict(bet)
-        for sec in SECTIONS_TO_CARDS:
-            for rec in (now.get(sec) or []):
-                expected[str(rec.get("id"))] = dict(rec)
-        if os.path.isfile(tree_path):
-            def _flat(ns, acc):
-                for x in (ns if isinstance(ns, list) else [ns]):
-                    if isinstance(x, dict) and "id" in x:
-                        kids = x.get("children")
-                        drop = isinstance(kids, list) and len(kids) > 0
-                        acc[str(x["id"])] = {k: v for k, v in x.items()
-                                             if not (k == "children" and drop)}
-                        _flat(kids or [], acc)
-                return acc
-            _flat((doc or {}).get("root") or [], expected)
-
-        heads: dict[str, dict] = {}
-        bad_head, bad_trailer, bad_place = [], [], []
-        for f in files:
-            text = open(os.path.join(out, f), encoding="utf-8").read()
-            parts = text.split("---", 2)
-            head = yaml.safe_load(parts[1]) if len(parts) > 2 else None
-            if not isinstance(head, dict):
-                bad_head.append(f + " (шапка не разобралась)")
-                continue
-            heads[f] = head
-            if "id" not in head or "kind" not in head:
-                bad_head.append(f + " (нет id или kind)")
-            for k, v in head.items():
-                if isinstance(v, (list, dict)) or (isinstance(v, str) and (len(v) > 120 or "\n" in v)):
-                    bad_head.append(f"{f}:{k} (не место в шапке)")
-            if not text.rstrip().endswith(f"END_OF_FILE: panel/.cards/{direction}/{f}"):
-                bad_trailer.append(f)
-
-            # §4.2 соблюдён: короткое — в шапке, длинное — в теле, и наоборот
-            src = expected.get(f[:-3])
-            if src is not None:
-                body_names = {ln[3:].strip() for ln in text.splitlines() if ln.startswith("## ")}
-                for k, v in src.items():
-                    if head.get("kind") == "bet" and k == "node":
-                        continue
-                    if head_belongs(v):
-                        if k not in head:
-                            bad_place.append(f"{f}:{k} должно быть в шапке")
-                    elif k not in body_names:
-                        bad_place.append(f"{f}:{k} должно быть в теле")
-
-        check(not bad_head, f"{direction}: шапки чистые ({bad_head[:3]})")
-        check(not bad_trailer, f"{direction}: у всех карточек свой END_OF_FILE ({bad_trailer[:3]})")
-        check(not bad_place, f"{direction}: правило раскладки соблюдено ({bad_place[:3]})")
-
-        bad_name = [f for f, h in heads.items() if h.get("id") != f[:-3]]
-        check(not bad_name, f"{direction}: имя файла совпадает с id ({bad_name[:3]})")
-        check(sorted(heads) == files, f"{direction}: все карточки разобрались ({len(heads)} из {len(files)})")
-        # В папке нет ничего кроме карточек. Это и есть доказательство, что `check`
-        # обязан читать NOW.md: снимок с этапа build ему негде было бы взять,
-        # а сам он запускается отдельным процессом с пустой памятью.
-        extra = sorted(set(names) - set(files))
-        check(not extra, f"{direction}: build не оставил ничего кроме карточек ({extra[:3]})")
-
-        r = run(sys.executable, script, "check", direction)
-        check(r.returncode == 0 and "СОВПАДАЕТ" in (r.stdout or ""),
-              f"{direction}: обратная сборка совпадает с NOW.md")
-        if r.returncode != 0:
-            print("    ", ((r.stdout or "") + (r.stderr or "")).strip()[:400])
-
-    if fails:
-        return
-
-    # три негативных контроля: check обязан упасть на каждом
-    out = os.path.join(ROOT, "panel", ".cards", "indie-game-development")
-    cards = sorted(f for f in os.listdir(out) if f.endswith(".md"))
-    # какая карточка — не важно, важно что она есть; задач может не быть вовсе
-    if not cards:
-        check(False, "негативный контроль: в папке нет ни одной карточки")
-        return
-    victim = os.path.join(out, cards[0])
-    saved = open(victim, encoding="utf-8").read()
-
-    def broken_check(label: str, mutate) -> None:
-        try:
-            mutate()
-            r = run(sys.executable, script, "check", "indie-game-development")
-            check(r.returncode != 0, f"негативный контроль: {label} роняет check")
-        finally:
-            open(victim, "w", encoding="utf-8").write(saved)
-
-    broken_check("испорченная шапка",
-                 lambda: open(victim, "w", encoding="utf-8").write(saved.replace("kind:", "kind_X:", 1)))
-    broken_check("изменённое тело",
-                 lambda: open(victim, "w", encoding="utf-8").write(
-                     saved.replace("END_OF_FILE:", "хвост подделан\n\nEND_OF_FILE:", 1)))
-    broken_check("удалённая карточка", lambda: os.remove(victim))
-
-    # NOW.md не менялся во время прогона и live/ не тронут
-    for d, p in now_paths.items():
-        check(open(p, "rb").read() == before_bytes[d], f"{d}: NOW.md не менялся во время прогона")
-    check(run("git", "status", "--porcelain", "live").stdout == git_before,
-          "live/ не изменился ни на байт")
 
 
 def step01b() -> None:
@@ -296,7 +138,7 @@ def step01b() -> None:
         и уничтожала ровно ту разницу, ради которой формат и делался."""
         sys.path.insert(0, os.path.join(ROOT, "panel"))
         import cards
-        out = os.path.join(ROOT, "panel", ".cards", direction)
+        out = os.path.join(ROOT, "live", direction, "cards")
         src = {}
         if os.path.isdir(out):
             for f in sorted(os.listdir(out)):
@@ -332,9 +174,9 @@ def step01b() -> None:
                 return
 
             src = read_disk(direction)
-            calls = {i: v for i, v in src.items() if v[0].get("kind") == "call"}
+            calls = {i: v for i, v in src.items() if v[0].get("_kind") == "call"}
             calls_by_dir[direction] = calls
-            tasks = {i: v for i, v in src.items() if v[0].get("kind") == "task"}
+            tasks = {i: v for i, v in src.items() if v[0].get("_kind") == "task"}
             ready, other = data.get("ready", []), data.get("other", [])
             got = {c["id"]: c for c in ready + other}
 
@@ -410,7 +252,7 @@ def step01b() -> None:
         # Негативный контроль. NOW.md не трогаем — значит пересборки быть не должно
         # и подложенный файл доживёт до чтения. Если он пропал, реализация
         # пересобирает на каждый запрос, что запрещено §4.1.
-        out = os.path.join(ROOT, "panel", ".cards", "indie-game-development")
+        out = os.path.join(ROOT, "live", "indie-game-development", "cards")
         broken = os.path.join(out, "zz-broken.md")
         try:
             open(broken, "w", encoding="utf-8").write("---\nне: [ямл\n---\n")
@@ -445,7 +287,7 @@ def step01c() -> None:
         и уничтожала ровно ту разницу, ради которой формат и делался."""
         sys.path.insert(0, os.path.join(ROOT, "panel"))
         import cards
-        out = os.path.join(ROOT, "panel", ".cards", direction)
+        out = os.path.join(ROOT, "live", direction, "cards")
         src = {}
         if os.path.isdir(out):
             for f in sorted(os.listdir(out)):
@@ -484,7 +326,7 @@ def step01c() -> None:
             return
 
         src = read_disk("indie-game-development")
-        calls = {i: v for i, v in src.items() if v[0].get("kind") == "call"}
+        calls = {i: v for i, v in src.items() if v[0].get("_kind") == "call"}
         got = {c["id"]: c for c in data.get("ready", []) + data.get("other", [])}
 
         # описание: дословно из карточки, ниоткуда больше
@@ -508,17 +350,17 @@ def step01c() -> None:
         # числа: считаем сами из карточек и NOW.md
         now = yaml.safe_load(open(os.path.join(ROOT, "live", "indie-game-development", "NOW.md"),
                                   encoding="utf-8").read())
-        tasks = {i: v for i, v in src.items() if v[0].get("kind") == "task"}
-        bets = [v for v in src.values() if v[0].get("kind") == "bet"]
+        tasks = {i: v for i, v in src.items() if v[0].get("_kind") == "task"}
+        bets = [v for v in src.values() if v[0].get("_kind") == "bet"]
         want_num = {
             "tasks_total": len(tasks),
             "tasks_done": sum(1 for v in tasks.values() if v[0].get("status") == "done"),
             "tracks_limit": now.get("track_wip_limit"),
             "tracks_busy": len({v[0].get("track") for v in calls.values()
                                 if v[0].get("track") and v[0].get("status") not in ("done", "paused")}),
-            "waiting_for_you": sum(1 for v in src.values() if v[0].get("kind") == "decision")
+            "waiting_for_you": sum(1 for v in src.values() if v[0].get("_kind") == "decision")
                                + sum(1 for v in src.values()
-                                     if v[0].get("kind") == "question" and v[0].get("who") == "владелец"),
+                                     if v[0].get("_kind") == "question" and v[0].get("who") == "владелец"),
         }
         n = data.get("numbers") or {}
         for k, v in want_num.items():
@@ -537,29 +379,18 @@ def step01c() -> None:
         check(n2.get("tasks_total") == 0 and n2.get("bet_days") is None,
               f"solmax: числа нулевые и bet_days null ({n2})")
 
-        # СВЕЖЕСТЬ: правка любого источника обязана дойти до экрана.
-        # Трогаем только время изменения — байты файла не меняются.
-        import os as _os
-        for src, sect, key in (("NOW.md", "now", "cards_total"),
-                               ("TREE.md", "goals", "counts")):
-            path = _os.path.join(ROOT, "live", "indie-game-development", src)
-            if not _os.path.isfile(path):
-                continue
-            before_st = _os.stat(path)
-            before_bytes = open(path, "rb").read()
-            folder = _os.path.join(ROOT, "panel", ".cards", "indie-game-development")
-            try:
-                fetch("/api/section/indie-game-development/" + sect)   # прогреть
-                built_before = _os.path.getmtime(folder)
-                _os.utime(path, None)                                   # источник «изменился»
-                time.sleep(0.05)
-                fetch("/api/section/indie-game-development/" + sect)
-                check(_os.path.getmtime(folder) > built_before,
-                      f"свежесть: правка {src} вызывает пересборку карточек")
-            finally:
-                _os.utime(path, (before_st.st_atime, before_st.st_mtime))
-                check(open(path, "rb").read() == before_bytes,
-                      f"свежесть: байты {src} не тронуты проверкой")
+        # СВЕЖЕСТЬ. Раньше здесь проверяли, что правка источника вызывает
+        # пересборку кэша. Кэша больше нет — панель читает карточку на каждый
+        # запрос, — поэтому проверяется не поведение кэша, а его ОТСУТСТВИЕ:
+        # окна устаревания нет, потому что нет места, где оно могло бы возникнуть.
+        check(not os.path.isdir(os.path.join(ROOT, "panel", ".cards")),
+              "свежесть: папки-проекции нет — кэшу негде отстать")
+        serve_src = open(os.path.join(ROOT, "panel", "serve.py"), encoding="utf-8").read()
+        for token in ("ensure_cards", ".cards", "getmtime"):
+            check(token not in serve_src,
+                  f"свежесть: в сервере не осталось следов кэша ({token})")
+        check("live" in serve_src and "cards\")" in serve_src,
+              "свежесть: сервер читает live/<направление>/cards напрямую")
 
         st, body = fetch("/md.js")
         check(st == 200 and "mdToHtml" in body, "маршрут /md.js отдаёт отрисовщик")
@@ -577,9 +408,20 @@ def step01c() -> None:
         proc.terminate()
 
 
+STEPS = {"00": step00, "01b": step01b, "01c": step01c}
+
+
 def main() -> None:
-    step = sys.argv[1] if len(sys.argv) > 1 else "00"
-    {"00": step00, "01a": step01a, "01b": step01b, "01c": step01c}[step]()
+    """Без аргумента гоняются ВСЕ шаги. Пока по умолчанию шёл один, три других
+    молчали, и «приёмка ПРИНЯТО» означала четверть проверок."""
+    names = sys.argv[1:] or list(STEPS)
+    for name in names:
+        if name not in STEPS:
+            print(f"нет такого шага: {name}; есть {list(STEPS)}")
+            sys.exit(2)
+        print(f"\n=== шаг {name} ===")
+        STEPS[name]()
+    print(f"  шагов пройдено: {len(names)} ({', '.join(names)})")
     print(f"\n{'ПРИНЯТО' if not fails else 'НЕ ПРИНЯТО: ' + str(len(fails)) + ' проверок упало'}")
     sys.exit(1 if fails else 0)
 
