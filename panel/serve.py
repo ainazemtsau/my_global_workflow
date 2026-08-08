@@ -30,6 +30,81 @@ def cards_dir(direction):
     return d
 
 
+CLOSED = "closed"
+
+
+def load_cards(direction, kind=None):
+    """Все карточки направления: живые И закрытые.
+
+    Закрытая карточка — это СДЕЛАННОЕ, а не исчезнувшее. Пока читалась только
+    живая папка, закрытие задачи убирало её и из числителя, и из знаменателя:
+    семь задач превращались в шесть, из них ноль сделанных.
+
+    Где карточка лежит — кладётся в шапку служебным ключом `_closed`. В файле
+    его нет и быть не может: он выводится из папки. Наружу не пишется никогда —
+    панель вообще не пишет.
+    """
+    loaded, unread = {}, []
+    live = cards_dir(direction)
+    for folder, closed in ((live, False), (os.path.join(live, CLOSED), True)):
+        if not os.path.isdir(folder):
+            continue
+        for name in sorted(f for f in os.listdir(folder) if f.endswith(".md")):
+            try:
+                head, blocks = cards.read_card(os.path.join(folder, name))
+            except (Exception, SystemExit) as e:
+                # cards.fail бросает SystemExit — обычный except Exception не ловит.
+                unread.append({"file": name, "error": str(e)})
+                continue
+            if not isinstance(head, dict):
+                unread.append({"file": name, "error": "шапка не словарь"})
+                continue
+            head["_closed"] = closed
+            if kind is None or head.get("_kind") == kind:
+                loaded[str(head.get("id"))] = (head, blocks)
+    return loaded, unread
+
+
+def read_now(direction):
+    """Указатель направления — и проверка, что читатель не пережил свой источник.
+
+    Ключи сверяются с закрытым списком `osctl.NOW_FIELDS` в обе стороны: чужой
+    ключ в файле и чтение несуществующего ключа в коде одинаково означают, что
+    одна сторона отстала. Молчаливая пустота вместо этого стоила трёх поломок
+    подряд (`tracks`, `direction_forecast`, `LOG.md`).
+    """
+    sys.path.insert(0, ROOT)
+    import osctl
+    path = os.path.join(LIVE_DIR, direction, "NOW.md")
+    with open(path, encoding="utf-8") as fh:
+        now = yaml.safe_load(fh.read()) or {}
+    if not isinstance(now, dict):
+        raise RuntimeError(f"{path}: верхний уровень не отображение")
+    now.pop("END_OF_FILE", None)
+    unknown = [k for k in now if k not in osctl.NOW_FIELDS]
+    if unknown:
+        raise RuntimeError(f"{path}: ключи {unknown} не из указателя "
+                           f"{sorted(osctl.NOW_FIELDS)} — состояние живёт в карточках")
+    return now
+
+
+def now_field(now, name):
+    """Чтение поля указателя ТОЛЬКО по имени из закрытого списка."""
+    sys.path.insert(0, ROOT)
+    import osctl
+    if name not in osctl.NOW_FIELDS:
+        raise RuntimeError(f"в указателе нет поля {name!r}; есть {sorted(osctl.NOW_FIELDS)}. "
+                           "Если оно было раньше — оно стало карточкой.")
+    return now.get(name)
+
+
+def is_done(head):
+    """Сделано — это ЛИБО терминальный статус, ЛИБО переезд в closed/.
+    Одного статуса мало: команда закрытия уносит карточку из живой папки, живых
+    `done` не бывает по построению, и счётчик «сделано» был вечным нулём."""
+    return bool(head.get("_closed")) or head.get("status") in ("done", "dropped")
+
+
 SECTIONS = [("now", "СЕЙЧАС"), ("slots", "СЛОТЫ"), ("waiting", "ЖДЁТ ТЕБЯ"), ("wave", "ВОЛНА"),
             ("goals", "ЦЕЛИ"), ("history", "ИСТОРИЯ"), ("knowledge", "ЗНАНИЯ"),
             ("direction", "НАПРАВЛЕНИЕ")]
@@ -124,25 +199,19 @@ NODE_STATE = {"active": ("running", "ИДЁТ СЕЙЧАС"), "shaped": ("ahead"
 def section_goals(direction):
     """Карта целей. Строит из карточек узлов; имена берёт накладкой, ничего не выдумывает."""
     with lock_for(direction):
-        folder = cards_dir(direction)
-        loaded, unread = {}, []
-        for name in sorted(f for f in os.listdir(folder) if f.endswith(".md")):
-            try:
-                head, blocks = cards.read_card(os.path.join(folder, name))
-            except (Exception, SystemExit) as e:
-                unread.append({"file": name, "error": str(e)})
-                continue
-            if isinstance(head, dict) and head.get("_kind") == "node":
-                loaded[str(head.get("id"))] = (head, blocks)
+        loaded, unread = load_cards(direction, kind="node")
 
     labels, labels_by = load_labels(direction)
+    # Прогноз направления — своя карточка, а не ключ NOW.md: рез унёс оттуда всё,
+    # кроме ставки и лимита полос, и чтение старого ключа молча давало пустоту.
     target = None
-    try:
-        with open(os.path.join(LIVE_DIR, direction, "NOW.md"), encoding="utf-8") as fh:
-            now = yaml.safe_load(fh.read()) or {}
-        target = ((now.get("direction_forecast") or {}).get("target"))
-    except (OSError, yaml.YAMLError):
-        pass
+    forecast, _ = load_cards(direction, kind=cards.EXTRA)
+    fc = forecast.get("direction_forecast")
+    if fc:
+        v = cards.body_value("direction_forecast", "direction_forecast",
+                             fc[1].get("direction_forecast") or [])
+        if isinstance(v, dict):
+            target = v.get("target")
 
     out = []
     for cid, (h, b) in loaded.items():
@@ -246,15 +315,7 @@ def node_events(direction, node_id):
 
 def goal_page(direction, node_id):
     with lock_for(direction):
-        folder = cards_dir(direction)
-        nodes = {}
-        for name in sorted(f for f in os.listdir(folder) if f.endswith(".md")):
-            try:
-                head, blocks = cards.read_card(os.path.join(folder, name))
-            except (Exception, SystemExit):
-                continue
-            if isinstance(head, dict) and head.get("_kind") == "node":
-                nodes[str(head.get("id"))] = (head, blocks)
+        nodes, _ = load_cards(direction, kind="node")
     if node_id not in nodes:
         return None
     h, b = nodes[node_id]
@@ -286,31 +347,28 @@ def section_wave(direction):
     полосы, а не полем задачи — читаем как есть и показываем задачи вне полос отдельно,
     чтобы расхождение было видно, а не съедено."""
     with lock_for(direction):
-        folder = cards_dir(direction)
-        loaded, unread = {}, []
-        for name in sorted(f for f in os.listdir(folder) if f.endswith(".md")):
-            try:
-                head, blocks = cards.read_card(os.path.join(folder, name))
-            except (Exception, SystemExit) as e:
-                unread.append({"file": name, "error": str(e)})
-                continue
-            if isinstance(head, dict):
-                loaded[str(head.get("id"))] = (head, blocks)
-            else:
-                unread.append({"file": name, "error": "шапка не словарь"})
-    with open(os.path.join(LIVE_DIR, direction, "NOW.md"), encoding="utf-8") as fh:
-        now = yaml.safe_load(fh.read()) or {}
-    tracks_raw = (now.get("tracks") or []) if isinstance(now, dict) else []
+        loaded, unread = load_cards(direction)
+    now = read_now(direction)
+    # Полосы — карточки вида `track`, а не ключ NOW.md: после реза его там нет,
+    # и `now.get("tracks")` молча возвращал пустоту вместо настоящих полос.
+    tracks_raw = [dict(h, tasks=h.get("tasks") or cards.body_value(i, "tasks", b.get("tasks") or []))
+                  for i, (h, b) in sorted(loaded.items(), key=lambda kv: kv[0])
+                  if h.get("_kind") == "track"]
     tasks = {i: c for i, c in loaded.items() if c[0].get("_kind") == "task"}
     bet_card = next((c for c in loaded.values() if c[0].get("_kind") == "bet"), None)
 
     def task_view(tid):
         c = tasks.get(tid)
         if c is None:
-            return {"id": tid, "missing": True, "status": None, "goal": None, "order": None}
+            return {"id": tid, "missing": True, "status": None, "goal": None,
+                    "order": None, "done": False}
         h, b = c
         goal = h.get("goal") or block_text(b, "goal")
+        # `done` — однозначный признак, а не догадка по статусу: карточка может
+        # быть закрыта и лежать в closed/ вообще без терминального статуса.
+        # Блок `closed` рядом — это ТЕКСТ разбора, а не флаг; имена похожи, смысл разный.
         return {"id": tid, "missing": False, "status": h.get("status"),
+                "done": is_done(h), "in_closed": bool(h.get("_closed")),
                 "order": h.get("order"), "goal": goal,
                 "done_when": block_text(b, "done_when"),
                 "closed": block_text(b, "closed"),
@@ -344,11 +402,10 @@ def section_wave(direction):
     total = len(tasks)
     return {"direction": direction, "bet": bet, "tracks": out_tracks, "loose": loose,
             "unread": unread,
-            "numbers": {"tasks_done": sum(1 for c in tasks.values()
-                                          if c[0].get("status") == "done"),
+            "numbers": {"tasks_done": sum(1 for c in tasks.values() if is_done(c[0])),
                         "tasks_total": total,
                         "tracks_total": len(out_tracks),
-                        "tracks_limit": now.get("track_wip_limit") if isinstance(now, dict) else None}}
+                        "tracks_limit": now_field(now, "track_wip_limit")}}
 
 
 # Всё, из чего строятся карточки. Забыть здесь файл — значит показывать вчерашнее
@@ -391,59 +448,43 @@ def make_order(direction, head, blocks, tasks):
 
 
 def section_numbers(direction, loaded):
-    """Числа верхнего уровня. Считаю буквально из карточек и NOW.md, не выдумывая."""
-    path = os.path.join(LIVE_DIR, direction, "NOW.md")
-    try:
-        with open(path, encoding="utf-8") as f:
-            now = yaml.safe_load(f.read())
-    except OSError as e:
-        raise RuntimeError(f"не читается {path}: {e}")
-    if not isinstance(now, dict):
-        raise RuntimeError(f"{path}: верхний уровень не словарь")
+    """Числа верхнего уровня. Считаю буквально из карточек и указателя, не выдумывая."""
+    now = read_now(direction)
     heads = [head for head, _ in loaded.values()]
     tasks = [h for h in heads if h.get("_kind") == "task"]
     busy = {h.get("track") for h in heads
             if h.get("_kind") == "call" and h.get("track")
-            and h.get("status") not in ("done", "paused")}
-    waiting = sum(1 for h in heads if h.get("_kind") == "decision")
+            and not is_done(h) and h.get("status") != "paused"}
+    waiting = sum(1 for h in heads if h.get("_kind") == "decision" and not is_done(h))
     waiting += sum(1 for h in heads if h.get("_kind") == "question" and h.get("who") == "владелец")
     bet = next((h for h in heads if h.get("_kind") == "bet"), None)
     opened = bet.get("opened") if bet is not None else None
     if isinstance(opened, datetime.datetime):
         opened = opened.date()
     bet_days = (datetime.date.today() - opened).days if isinstance(opened, datetime.date) else None
-    return {"tasks_done": sum(1 for h in tasks if h.get("status") == "done"),
+    return {"tasks_done": sum(1 for h in tasks if is_done(h)),
             "tasks_total": len(tasks), "tracks_busy": len(busy),
-            "tracks_limit": now.get("track_wip_limit"),
+            "tracks_limit": now_field(now, "track_wip_limit"),
             "waiting_for_you": waiting, "bet_days": bet_days}
 
 
 def section_now(direction):
     with lock_for(direction):
-        folder = cards_dir(direction)
-        names = sorted(f for f in os.listdir(folder) if f.endswith(".md"))
-        loaded, unread = {}, []
-        for name in names:
-            try:
-                head, blocks = cards.read_card(os.path.join(folder, name))
-            except (Exception, SystemExit) as e:
-                # cards.fail бросает SystemExit — обычный except Exception не ловит.
-                unread.append({"file": name, "error": str(e)})
-                continue
-            if isinstance(head, dict):
-                loaded[str(head.get("id"))] = (head, blocks)
-            else:
-                unread.append({"file": name, "error": "шапка не словарь"})
+        loaded, unread = load_cards(direction)
         tasks = {cid: v for cid, v in loaded.items() if v[0].get("_kind") == "task"}
         ready, other = [], []
         for cid, (head, blocks) in loaded.items():
-            if head.get("_kind") != "call":
+            # «Сейчас» — про живое: отработавший наряд здесь не место, его след
+            # в журнале сущности и в «Волне», где он считается сделанным.
+            if head.get("_kind") != "call" or head.get("_closed"):
                 continue
             order = make_order(direction, head, blocks, tasks)
             (ready if head.get("status") == "ready" else other).append(order)
         ready.sort(key=lambda o: (o["track"] or "", str(o["id"])))
         other.sort(key=lambda o: (status_rank(o["status"]), str(o["id"])))
-        return {"direction": direction, "cards_total": len(names), "ready": ready,
+        live_total = sum(1 for h, _ in loaded.values() if not h.get("_closed"))
+        return {"direction": direction, "cards_total": live_total,
+                "cards_closed": len(loaded) - live_total, "ready": ready,
                 "other": other, "unread": unread,
                 "numbers": section_numbers(direction, loaded)}
 

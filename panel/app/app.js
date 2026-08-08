@@ -184,10 +184,13 @@ function renderNow(direction, content) {
 
 function taskRow(r) {
   const row = el("div", "row");
-  const st = (r.status || "нет статуса").toUpperCase();
-  const cls = r.status === "done" ? "status" : (r.status === "open" ? "status wait" : "status wait");
-  row.appendChild(el("div", cls, st + (r.order ? " · " + r.order : "")));
-  row.appendChild(el("div", r.status === "done" ? "title dim" : "title", r.goal || r.id));
+  // `done` приходит из сервера одним флагом: карточка может быть закрыта и
+  // уехать в closed/ вообще без терминального статуса, и угадывать по статусу
+  // значило бы показывать сделанное как открытое.
+  const st = r.done ? "СДЕЛАНО" : (r.status || "нет статуса").toUpperCase();
+  row.appendChild(el("div", r.done ? "status" : "status wait",
+    st + (r.order ? " · " + r.order : "")));
+  row.appendChild(el("div", r.done ? "title dim" : "title", r.goal || r.id));
   if (r.missing) row.appendChild(el("div", "waitline", "карточки нет — полоса называет задачу, которой не существует"));
   if (r.unblock_when) row.appendChild(el("div", "waitline", "ждёт: " + r.unblock_when));
   if (r.done_when) {

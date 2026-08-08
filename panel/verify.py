@@ -138,13 +138,16 @@ def step01b() -> None:
         и уничтожала ровно ту разницу, ради которой формат и делался."""
         sys.path.insert(0, os.path.join(ROOT, "panel"))
         import cards
-        out = os.path.join(ROOT, "live", direction, "cards")
+        live = os.path.join(ROOT, "live", direction, "cards")
         src = {}
-        if os.path.isdir(out):
-            for f in sorted(os.listdir(out)):
+        for folder, closed in ((live, False), (os.path.join(live, "closed"), True)):
+            if not os.path.isdir(folder):
+                continue
+            for f in sorted(os.listdir(folder)):
                 if not f.endswith(".md"):
                     continue
-                head, blocks = cards.read_card(os.path.join(out, f))
+                head, blocks = cards.read_card(os.path.join(folder, f))
+                head["_closed"] = closed   # эталон знает про закрытые, как и панель
                 src[head["id"]] = (head, blocks, f)
         return src
 
@@ -174,14 +177,20 @@ def step01b() -> None:
                 return
 
             src = read_disk(direction)
-            calls = {i: v for i, v in src.items() if v[0].get("_kind") == "call"}
+            # «Сейчас» — про живое: закрытый наряд отработал, его место в журнале
+            # сущности и в «Волне», где он считается сделанным.
+            live = {i: v for i, v in src.items() if not v[0].get("_closed")}
+            calls = {i: v for i, v in live.items() if v[0].get("_kind") == "call"}
             calls_by_dir[direction] = calls
             tasks = {i: v for i, v in src.items() if v[0].get("_kind") == "task"}
             ready, other = data.get("ready", []), data.get("other", [])
             got = {c["id"]: c for c in ready + other}
 
-            check(data.get("cards_total") == len(src),
-                  f"{direction}: cards_total {data.get('cards_total')}, карточек на диске {len(src)}")
+            check(data.get("cards_total") == len(live),
+                  f"{direction}: cards_total {data.get('cards_total')}, живых на диске {len(live)}")
+            check(data.get("cards_closed") == len(src) - len(live),
+                  f"{direction}: cards_closed {data.get('cards_closed')}, "
+                  f"закрытых на диске {len(src) - len(live)}")
             check(len(ready) + len(other) == len(calls),
                   f"{direction}: нарядов показано {len(ready) + len(other)}, на диске {len(calls)}")
             check(set(got) == set(calls), f"{direction}: показаны все наряды и только они")
@@ -287,13 +296,16 @@ def step01c() -> None:
         и уничтожала ровно ту разницу, ради которой формат и делался."""
         sys.path.insert(0, os.path.join(ROOT, "panel"))
         import cards
-        out = os.path.join(ROOT, "live", direction, "cards")
+        live = os.path.join(ROOT, "live", direction, "cards")
         src = {}
-        if os.path.isdir(out):
-            for f in sorted(os.listdir(out)):
+        for folder, closed in ((live, False), (os.path.join(live, "closed"), True)):
+            if not os.path.isdir(folder):
+                continue
+            for f in sorted(os.listdir(folder)):
                 if not f.endswith(".md"):
                     continue
-                head, blocks = cards.read_card(os.path.join(out, f))
+                head, blocks = cards.read_card(os.path.join(folder, f))
+                head["_closed"] = closed   # эталон знает про закрытые, как и панель
                 src[head["id"]] = (head, blocks)
         return src
 
@@ -354,7 +366,8 @@ def step01c() -> None:
         bets = [v for v in src.values() if v[0].get("_kind") == "bet"]
         want_num = {
             "tasks_total": len(tasks),
-            "tasks_done": sum(1 for v in tasks.values() if v[0].get("status") == "done"),
+            "tasks_done": sum(1 for v in tasks.values()
+                              if v[0].get("_closed") or v[0].get("status") in ("done", "dropped")),
             "tracks_limit": now.get("track_wip_limit"),
             "tracks_busy": len({v[0].get("track") for v in calls.values()
                                 if v[0].get("track") and v[0].get("status") not in ("done", "paused")}),
@@ -379,18 +392,35 @@ def step01c() -> None:
         check(n2.get("tasks_total") == 0 and n2.get("bet_days") is None,
               f"solmax: числа нулевые и bet_days null ({n2})")
 
-        # СВЕЖЕСТЬ. Раньше здесь проверяли, что правка источника вызывает
-        # пересборку кэша. Кэша больше нет — панель читает карточку на каждый
-        # запрос, — поэтому проверяется не поведение кэша, а его ОТСУТСТВИЕ:
-        # окна устаревания нет, потому что нет места, где оно могло бы возникнуть.
-        check(not os.path.isdir(os.path.join(ROOT, "panel", ".cards")),
-              "свежесть: папки-проекции нет — кэшу негде отстать")
-        serve_src = open(os.path.join(ROOT, "panel", "serve.py"), encoding="utf-8").read()
-        for token in ("ensure_cards", ".cards", "getmtime"):
-            check(token not in serve_src,
-                  f"свежесть: в сервере не осталось следов кэша ({token})")
-        check("live" in serve_src and "cards\")" in serve_src,
-              "свежесть: сервер читает live/<направление>/cards напрямую")
+        # СВЕЖЕСТЬ. Раньше проверяли, что правка источника вызывает пересборку
+        # кэша. Кэша больше нет — панель читает карточку на каждый запрос.
+        # Отсутствие кэша и мёртвых адресов сторожит panel/test_readers.py:
+        # у одного правила один хозяин, иначе две копии однажды разойдутся.
+        # Здесь остаётся ПОВЕДЕНЧЕСКАЯ половина: правка карточки видна сразу.
+        import os as _os
+        probe = _os.path.join(ROOT, "live", "indie-game-development", "cards", "g-5a7c.md")
+        if _os.path.isfile(probe):
+            before_bytes = open(probe, "rb").read()
+            _, body_before = fetch("/api/section/indie-game-development/goals")
+            marker = "ПРОБА-СВЕЖЕСТИ".encode()
+            # Концы строк в рабочей копии бывают и CRLF, и LF — git выдаёт по
+            # своим настройкам. Проба, знающая только один вид, молча не находит
+            # места правки и «падает» не на том, что проверяет.
+            eol = b"\r\n" if b"\r\n" in before_bytes else b"\n"
+            head = b"## goal" + eol
+            check(head in before_bytes, "свежесть: место правки найдено в карточке")
+            try:
+                # правим блок `## goal` — его панель читает ИЗ КАРТОЧКИ
+                # (имя цели приходит накладкой, на нём проба ничего бы не показала)
+                open(probe, "wb").write(
+                    before_bytes.replace(head, head + marker + b" ", 1))
+                _, body_after = fetch("/api/section/indie-game-development/goals")
+                check(marker.decode() in body_after and body_after != body_before,
+                      "свежесть: правка карточки видна на следующем же запросе")
+            finally:
+                open(probe, "wb").write(before_bytes)
+                check(open(probe, "rb").read() == before_bytes,
+                      "свежесть: байты карточки восстановлены проверкой")
 
         st, body = fetch("/md.js")
         check(st == 200 and "mdToHtml" in body, "маршрут /md.js отдаёт отрисовщик")
