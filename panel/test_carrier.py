@@ -11,6 +11,7 @@ import os
 import shutil
 import sys
 import tempfile
+from pathlib import Path
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import cards  # noqa: E402
@@ -162,6 +163,34 @@ def case_service_name_in_source():
     check(not ok and "_kind" in msg, f"поле с ведущим _ в источнике останавливает: {msg.strip()[:70]}")
 
 
+def case_two_readers_agree():
+    """Один файл — два читателя. Разошлись — и панель читает не то, что писал osctl."""
+    cards.ROOT = REAL_ROOT
+    sys.path.insert(0, str(Path(REAL_ROOT)))
+    import osctl
+    seen = disagree = 0
+    for d in sorted(Path(REAL_ROOT, "live").iterdir()):
+        folder = d / "cards"
+        if not folder.is_dir():
+            continue
+        for p in sorted(folder.rglob("*.md")):
+            seen += 1
+            try:
+                h1, b1, _ = osctl.read_card(p)
+                h2, b2 = cards.read_card(str(p))
+            except (SystemExit, Exception) as e:      # noqa: B014 — cards.fail это SystemExit
+                disagree += 1
+                if disagree == 1:
+                    print(f"     не читается: {p.name}: {e}")
+                continue
+            if h1 != h2 or {k: list(v) for k, v in b1.items()} != {k: list(v) for k, v in b2.items()}:
+                disagree += 1
+                if disagree == 1:
+                    print(f"     первое расхождение: {p.name}")
+    check(seen > 0, f"живых карточек найдено: {seen}")
+    check(disagree == 0, f"osctl и панель читают их одинаково (расхождений {disagree})")
+
+
 def case_real_state():
     """Последнее слово — настоящее живое состояние, какое оно сейчас есть."""
     cards.ROOT = REAL_ROOT
@@ -176,7 +205,7 @@ def main():
     for fn in (case_data_may_use_any_name, case_unknown_key_is_carried_and_named,
                case_extras_are_compared, case_abolished_key_is_named,
                case_two_carriers_one_name, case_service_name_in_source,
-               case_real_state):
+               case_two_readers_agree, case_real_state):
         print(f"\n--- {fn.__doc__.splitlines()[0]}")
         try:
             fn()

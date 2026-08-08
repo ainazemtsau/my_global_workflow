@@ -21,8 +21,6 @@ hook: Понять, чего стоил соло-выпуск, и выбрать
 ```yaml
 []
 ```
-
 ## журнал
 2026-07-27 · owner approved a seven-outcome roadmap with his own playable gameplay first · history/2026-07-26-s-map-october-demo-order-reset-001.md
-
 END_OF_FILE: live/indie-game-development/cards/g-c4af.md

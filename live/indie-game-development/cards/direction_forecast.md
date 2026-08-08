@@ -34,9 +34,8 @@ update_when: Узел настоящего ядра даст сцену, кот�
   либо появится внешний плейтест на второй машине; либо наступит уставный пересмотр
   2026-08-15; либо Valve изменит внешний маршрут.
 ```
-
 ## журнал
+2026-08-08 · the card carrier survives live state and stops losing keys silently · 2b700e8a
 2026-08-05 · горячее состояние сведено к форме схемы, вынутый текст сохранён дословно · history/LOG-archive-indie-game-development.md
 2026-07-26 · install the never-run day play instead of a fourth control layer · history/2026-07-26-s-day-manager-layer-install-001.md
-
 END_OF_FILE: live/indie-game-development/cards/direction_forecast.md
