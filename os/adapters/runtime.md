@@ -11,7 +11,7 @@ remain authoritative.
 
 1. `live/**`, `os/**`, product repos, and committed artifacts are the source of
    truth. A runtime database is a cache, queue, or UI state only; a Direction
-   CALL's durable launch claim is its `open_calls.status: running` receipt.
+   CALL's durable launch claim is its call card's `status: running` receipt.
 2. Durable changes enter Direction OS only as RESULTs applied by the writer.
    No runtime step edits `live/**` directly.
 3. No-code tools are clients. They may display status, trigger allowlisted
@@ -19,9 +19,9 @@ remain authoritative.
    decide strategy, or rewrite packets.
 4. Shell access is wrapped by named commands (`osctl ...` or equivalent), never
    arbitrary command text stored in a visual node.
-5. Owner gates remain gates: CHARTER/TREE approval, external/irreversible
-   effects, merge/push gates, and any play `(owner)` step require the owner's
-   explicit words or an owner-ack token.
+5. Owner gates remain gates: CHARTER and node-card approval,
+   external/irreversible effects, merge/push gates, and any play `(owner)` step
+   require the owner's explicit words or an owner-ack token.
 
 ## Job lifecycle
 
@@ -66,11 +66,11 @@ receipt lives in product progress/evidence; no internal transition edits
 
 ## Strategy day shell
 
-An owner starts one direction-level day chat with `начинаем день`. No controller track/root, runtime queue or copied plan is created. The thread id is cache only; CHARTER, TREE, NOW, recent LOG/history and declared knowledge remain authority.
+An owner starts one direction-level day chat with `начинаем день`. No controller track/root, runtime queue or copied plan is created. The thread id is cache only; CHARTER, NOW, the cards, recent history and declared knowledge remain authority.
 
 The shell runs `play: day`. It refreshes Git before each turn and derives a plain-language briefing: target/hard dates, roadmap and future objectives, active objective or planning gap, recent evidence, tasks/execution lanes, due issues/decisions, and direction forecast. It may discuss and revise advice for the whole owner day, but chat memory never authorizes state.
 
-Discussion is read-only. Only explicit owner save/record/launch words start one mutating day leg. That leg saves only the exact agreed NOW/CALL delta, emits one RESULT, acquires the direction writer lock, applies/commits, then releases the lock before another save. Mission, roadmap, objective activation/closure, contradiction and OS defects route to their owning play; day does not perform those changes itself.
+Discussion is read-only. Only explicit owner save/record/launch words start one mutating day leg. That leg saves only the exact agreed card/NOW delta, emits one RESULT, acquires the direction writer lock, applies/commits, then releases the lock before another save. Mission, roadmap, objective activation/closure, contradiction and OS defects route to their owning play; day does not perform those changes itself.
 
 A launch receipt may mark a matching ready call running before dispatch; a lost/cancelled receipt may restore that same call. The runtime never invents progress, forecast numbers, issues or a second objective. `закрываем день` ends the chat; unsaved discussion stays unsaved. A lost chat is reconstructed from Git, not memory.
 

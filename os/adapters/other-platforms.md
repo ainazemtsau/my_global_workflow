@@ -6,7 +6,7 @@ The OS is platform-agnostic by construction: rules in git, self-contained CALL/R
 
 1. If the platform has a custom-instructions slot (Gemini Gem, system prompt, etc.): paste `os/adapters/SESSION_PAYLOAD.md` payload with `<direction-id>` filled. One gem/profile per direction.
 2. If it has repo access (connector, file search): point it at `ainazemtsau/my_global_workflow`.
-3. If it has neither: start each chat by pasting, in this order — the payload, the play file, NOW.md, then the CALL last. CALLs are self-contained, so even a bare chat works; it just costs one extra paste.
+3. If it has neither: start each chat by pasting, in this order — the payload, the play file, NOW.md and the cards the CALL names, then the CALL last. CALLs are self-contained, so even a bare chat works; it just costs one extra paste.
 4. RESULT goes to the writer as always.
 
 ## Migration between platforms

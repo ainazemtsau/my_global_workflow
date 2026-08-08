@@ -32,7 +32,7 @@ engineering_contract: <N | legacy:<origin-call-id> | re-sync:<N>>  # engineering
 
 **Grounds are not authority.** A CALL's instructions bind; the GROUNDS it states for them do not — a derivation, a `path:line` citation, a count, "the next free id". The receiver re-derives every ground its work would freeze into an artifact, corrects a wrong one there and reports the correction; a right instruction with a wrong ground is carried out, never justified by that ground. Copying a ground onward because the CALL asserted it is how a false fact reaches a frozen document (witnessed 2026-07-30 on `c-exec-g-37a1-gas-rest-amend-001`: a floor's stated theorem bound, a `validation.config` line range, a free ADR number and a literal count were all wrong while every instruction was right).
 
-A specification-authoring CALL is the only no-bet `work` exception: `to: session`, no track/task, `node`/`for` resolves to a parked TREE node marked `outcome_kind: specification`, and done_when names the exact versioned owner-approved artifact. Checkpoints continue same-node work; completion keeps the node parked and opens fresh `converge-verify`; PASS opens narrow review, never shape. Executor CALLs may support mechanics/research but cannot select or approve the specification's owner-content.
+A specification-authoring CALL is the only no-bet `work` exception: `to: session`, no track/task, `node`/`for` resolves to a parked node card marked `outcome_kind: specification`, and done_when names the exact versioned owner-approved artifact. Checkpoints continue same-node work; completion keeps the node parked and opens fresh `converge-verify`; PASS opens narrow review, never shape. Executor CALLs may support mechanics/research but cannot select or approve the specification's owner-content.
 
 Executor CALLs (`to: executor`) add `repo: <org/repo>` and `kind: engineering | mechanical`:
 - `engineering` — a business task in a product repo. The agent owns design and implementation; evidence = commits/PR + check output (tests, build). Conventions and the run contract live in that repo's AGENTS.md/CLAUDE.md, not in the OS. `goal`/`done_when` stay business-level — hygiene extends to architecture; `context` may point to the direction's `work/` design-exploration docs as input evidence for the planner, never as a binding spec. A direction's first engineering CALL while no initialized product repo exists is repo setup — interactive (stack interview), its `context` points to `os/engineering/PROJECT_SETUP.md` and `os/engineering/profiles/`.
@@ -40,12 +40,12 @@ Executor CALLs (`to: executor`) add `repo: <org/repo>` and `kind: engineering | 
 
 **Engineering contract pin (v29+).** Every newly issued root `kind: engineering` CALL carries the current integer
 `engineering_contract`; every Direction successor of that root inherits it. An issued pin keeps its feature route/gates
-through Re-sync; v34 process-close is the sole control-plane exception. A CALL already registered in `open_calls` when v29 lands may return unmarked; its first
+through Re-sync; v34 process-close is the sole control-plane exception. A CALL already registered as an open call when v29 lands may return unmarked; its first
 later successor uses `legacy:<origin-call-id>` and later successors preserve that marker. `legacy:` is invalid on a new
 root. A bounded `re-sync:<N>` CALL may only install contract N and stamp the repo; it runs under the repo's pre-upgrade
 contract and cannot carry product-feature work. The writer validates a return against its pinned/originating contract,
 never against requirements added after issuance. The legacy snapshot is exactly the unmarked engineering CALLs already
-in `open_calls` when v29 activates; no later unmarked root is legal. A legacy return may only close/checkpoint its leg or
+registered as open calls when v29 activates; no later unmarked root is legal. A legacy return may only close/checkpoint its leg or
 issue a same-leg legacy successor; it never atomically opens Re-sync or an unrelated integer-pinned root. A later
 Direction transaction may issue `re-sync:<N>` while older roots remain open: Re-sync changes repo authority only and
 neither consumes/retargets them nor rewrites active artifacts. After Re-sync HOME, new roots may coexist with them; each
@@ -55,7 +55,7 @@ The CALL pin selects its feature route.
 this control-plane close may release any non-released v30+ root while its feature work remains judged under the original
 pin; no v34 feature gate is retroactive. It commits salvage and the product receipt releases the old root as `replaced`,
 naming its planned `replaced_by`; it runs no downstream delivery gates and returns `REPLACED` HOME. A later Direction `repair` atomically swaps the
-old `open_calls` row for a new current-pinned root. The new CALL names `replaces`, `resume_from` (earliest affected
+old root's open call card for a new current-pinned root. The new CALL names `replaces`, `resume_from` (earliest affected
 stage), clean committed `basis`, and exact `carry`/`stale` dispositions. It preserves business goal/done_when unless
 cited owner words change them. Old commits/manifests/ref remain evidence; superseded files are absent from replacement
 checkout/gates. Replacement is not delivery, never marks the task done, cannot bundle Re-sync, and transfers no
@@ -82,9 +82,9 @@ evidence: |
   <proof matching done_when: artifact paths, commit/PR links, check output,
    source links. A claim without evidence is not an outcome.>
 state_changes: |
-  <exact edits: NOW.md task/track statuses, TREE.md node changes, files added to work/,
+  <exact edits: task/track card statuses, node card changes, files added to work/,
    knowledge/ entries added by the KERNEL §2 `knowledge` move (schema: direction-files.md).
-   Includes CALLs issued by this session with track/status, for NOW.md → open_calls,
+   Includes CALLs issued by this session with track/status, as call cards to register,
    and clears the returning call.
    Written with stable targets and explicit postconditions so a mechanical
    executor needs only the bounded merge judgment defined below.>
@@ -96,14 +96,14 @@ play_check:
   - <step# name>: done | skipped <why>
   # one line per play step; steps the play marks (owner) cite the owner's
   # actual words (his answer, verdict, or explicit waiver) — gate G10
-log: <one line for LOG.md>
+log: <one line — this leg's journal entry, recorded by `osctl leg close`>
 next: |
   <one new local continuation CALL registered by state_changes | awaiting_decision | return-to-parent <id> | return-to-owner>
 ```
 
-**Lane routing.** When `NOW.md` has tracks, each CALL, RESULT and pending decision names one. Tracks are execution lanes under the one active bet, never future goals or parallel strategies; their `for` resolves to that bet/node/task or a recurring obligation. Each lane has at most one parentless root CALL. A child names an existing same-lane parent, appears in its `waiting_on`, inherits budget, and has acyclic ancestry. Its RESULT clears only itself, adds the history receipt to the direct parent, and makes that parent ready only after the last wait clears. A RESULT may issue one same-position successor plus children. Other call ids survive semantic rebase. `RESULT.next` hands off only a local continuation/decision/parent return/owner return; it is not copied into NOW and cannot select foreign work.
+**Lane routing.** When the direction has tracks, each CALL, RESULT and pending decision names one. Tracks are execution lanes under the one active bet, never future goals or parallel strategies; their `for` resolves to that bet/node/task or a recurring obligation. Each lane has at most one parentless root CALL. A child names an existing same-lane parent, appears in its `waiting_on`, inherits budget, and has acyclic ancestry. Its RESULT clears only itself, adds the history receipt to the direct parent, and makes that parent ready only after the last wait clears. A RESULT may issue one same-position successor plus children. Other call ids survive semantic rebase. `RESULT.next` hands off only a local continuation/decision/parent return/owner return; it is not copied into NOW and cannot select foreign work.
 
-An owner/runtime-confirmed launch may change an existing `open_calls` row `ready → running` without changing the CALL; `running` is durable duplicate-launch prevention, not a new packet or progress claim. It requires a `started` evidence pointer, is never dispatchable, and returns normally. Resetting `running → ready` requires an explicit lost/cancelled-run receipt; elapsed time alone never resets or relaunches it.
+An owner/runtime-confirmed launch may change an existing open call card's status `ready → running` without changing the CALL; `running` is durable duplicate-launch prevention, not a new packet or progress claim. It requires a `started` evidence pointer, is never dispatchable, and returns normally. Resetting `running → ready` requires an explicit lost/cancelled-run receipt; elapsed time alone never resets or relaunches it.
 
 **State-change rebase semantics.** The authoritative per-operation merge and
 replay rules are `os/adapters/coding-agent.md` Role 1. Optional blob/SHA/commit
@@ -143,7 +143,7 @@ outcome: |
 evidence: |
   work/trailer-script.md; структура согласована с владельцем в сессии.
 state_changes: |
-  NOW.md: t-2 → done; clear c-117; register c-118 ready in open_calls.
+  t-2 → done; clear c-117; register c-118 ready.
   work/: + trailer-script.md
 captures:
   - идея: gif-нарезка сцены 3 для devlog — кандидат в задачи audience-линзы

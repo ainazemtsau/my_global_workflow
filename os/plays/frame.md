@@ -3,7 +3,7 @@
 Purpose: create a new direction's foundation — charter and tree root ONLY. The goal tree itself is built afterwards in a dedicated map session (one entity per chat). Also the entry point for revising an existing charter. The only entry for new directions (gate G8).
 
 Reads: owner's intent; for revision — CHARTER.md.
-Writes: CHARTER.md, TREE.md (root node only), NOW.md, LOG.md.
+Writes: CHARTER.md, cards/ (the root node card and the issued call), NOW.md.
 
 ## Steps
 
@@ -11,12 +11,12 @@ Writes: CHARTER.md, TREE.md (root node only), NOW.md, LOG.md.
 2. **Homework (outside view)** — the session researches before drafting: 2–3 reference cases — how attempts like this usually go (base rates) AND how the outliers actually won; a lens proposal derived from the ambition's competence demands; 2–3 success-criteria options, each naming the reference case it is calibrated against. One outside-view paragraph — cases and what they imply for sequencing — goes into the charter. Also derive 3–5 owner edges from the interview (each with its proving fact) and propose a risk posture — explore | guarded — with a one-line rationale.
 3. **Charter draft (owner)** — mission (1–2 sentences), 2–4 measurable success criteria (the owner picks among the calibrated options; recommendation per G7), constraints, lenses, repos, edges, risk posture. Show it; iterate until the owner explicitly approves it (gate G9).
 4. **Pre-mortem (owner)** — "this direction failed three years from now": ≥5 distinct failure reasons, each mapped to a mitigation, a kill_by candidate, or an explicit accepted risk. Into the charter; owner approves.
-5. **Root node** — TREE.md gets ONLY the root: the mission as an outcome with done_when. No children (they are map's job). Everything the interview or homework surfaced as possible goals or paths (including how outliers won) goes into RESULT.captures as candidates for the map session.
-6. **Close (owner)** — RESULT with `owner_approved` marks for charter and root (G9); log line; state_changes register a `map_evidence` research CALL in `NOW.open_calls` (research play; deep-research-capable model) and `RESULT.next` hands it off locally; its RESULT chains to the map CALL carrying the candidate outcomes — evidence ready before map opens. If the owner explicitly waives evidence, register and hand off the map CALL directly.
+5. **Root node** — cards/ gets ONLY the root `node` card: the mission as an outcome with done_when. No children (they are map's job). Everything the interview or homework surfaced as possible goals or paths (including how outliers won) goes into RESULT.captures as candidates for the map session.
+6. **Close (owner)** — RESULT with `owner_approved` marks for charter and root (G9); log line; state_changes register a `map_evidence` research CALL as a `call` card (research play; deep-research-capable model) and `RESULT.next` hands it off locally; its RESULT chains to the map CALL carrying the candidate outcomes — evidence ready before map opens. If the owner explicitly waives evidence, register and hand off the map CALL directly.
 
 ## Done when
 
-CHARTER.md and the tree root exist, each explicitly approved by the owner in-session; the issued map path is registered in `NOW.open_calls` and handed off by `RESULT.next`.
+CHARTER.md and the tree root exist, each explicitly approved by the owner in-session; the issued map path is registered as a `call` card and handed off by `RESULT.next`.
 
 ## Notes
 

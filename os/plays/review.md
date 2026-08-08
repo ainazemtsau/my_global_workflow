@@ -1,9 +1,9 @@
 # Play: review
 
-Purpose: close/stop the active bet, or narrowly close a parked specification outcome; update TREE with the owner and select what comes next.
+Purpose: close/stop the active bet, or narrowly close a parked specification outcome; update the tree with the owner and select what comes next.
 
-Reads: CHARTER.md, TREE.md, NOW.md, target history/evidence.
-Writes: TREE.md, NOW.md, LOG.md, knowledge/.
+Reads: CHARTER.md, cards/, NOW.md, target history/evidence.
+Writes: cards/, NOW.md, knowledge/.
 
 Trigger: tasks closed, appetite/kill_by/evidence stops the bet, the owner wants change, or a specification outcome has its exact owner-approved artifact plus a later fresh `converge-verify` PASS. Run in a fresh physical chat; never the work/day chat whose claim is judged.
 
@@ -24,7 +24,7 @@ Trigger: tasks closed, appetite/kill_by/evidence stops the bet, the owner wants 
 
 ## Done when
 
-The bet or specification outcome has one honest verdict; TREE/evidence agree; NOW has no stale work; forecast is calibrated or `no_basis`; the owner has a next-node choice.
+The bet or specification outcome has one honest verdict; cards and evidence agree; no card holds stale work; forecast is calibrated or `no_basis`; the owner has a next-node choice.
 
 ## Notes
 

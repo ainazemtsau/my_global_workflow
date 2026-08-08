@@ -1,0 +1,40 @@
+---
+id: owner_approved
+_kind: extra
+_pos: 0
+---
+
+## owner_approved
+```yaml
+status: true
+evidence:
+- '2026-06-24: owner approved resetting Zaratusta TREE to root-only before a fresh
+  evidence-led map.'
+- '2026-06-26: owner approved g-zara-operate as a 4-child first-node split; first
+  child is g-zara-operate-contract.'
+- '2026-07-02: owner approved TREE closure for g-zara-operate-contract after review
+  verdict met. Owner words: "Нужен исправленный RESULT/repair, который явно несёт
+  owner approval для TREE closure и приводит NOW.next к текущему writer-формату."'
+- '2026-07-05: owner approved activating g-zara-operate-state as the full Markdown
+  operating-manager-v1 workspace/state surface bet. Owner words: "A".'
+- '2026-07-06: owner approved pausing Zaratusta live-use/product repair and routing
+  to a new reusable operating-substrate architecture node. Owner words: "Заратустра
+  ставится в блок ... мы переключаемся вот на этот режим ... сначала ... надо вот
+  архитектуру, где она применяется, как там с ней работать ... в новой сессии ...
+  начали ... над новой нодой."'
+- '2026-07-06: owner approved option A for umbrella placement repair. Owner words:
+  "Option A". TREE root becomes g-solmax; existing Zaratusta tree moves under g-zara
+  as first product/application branch; g-operating-substrate is added as a parked
+  sibling architecture/spec route.'
+- '2026-07-12: owner approved g-operating-substrate-first-process-creator as the complete
+  bounded first Process Creator bootstrap and active bet. Appetite B means 3 focused
+  execution days without cutting mandatory bounded functionality. Owner words: "A".'
+- '2026-07-20: owner approved closing the first Process Creator bet after self-directed
+  testing. Owner words: "сейчас больше удовлетворяет" and "Я хочу, чтобы мы закрыли
+  задачи ... чтобы я в ChatGPT, в проекте SolMax, смог обсудить новую задачу". The
+  review records the late close as dropped, not a deadline PASS.'
+```
+## журнал
+2026-07-02 · repair g-zara-operate-contract review writer-bounce: previous review RESULT was not applied; repaired TREE closure with explicit owner_approved marker/owner words, closed b-zara-operate-contract-002 as met after t-1/t-2/t-3 PASS against Zaratusta commit 79578ac87c73591000409f9f82a3bb4d0e33aa5b, and replaced NOW.next with one-line work/ CALL pointer; next-bet decision open, recommendation shape g-zara-operate-state. · history/2026-07-02-s-zara-operate-contract-review-bounce-repair-001.md
+2026-06-15 · shape g-kernel — Wave-0 RLK активирован как 1-week bet with 3 executor tasks; TREE owner_approved; next c-work-kernel-t1 · history/s-shape-001.md
+END_OF_FILE: live/solmax/cards/owner_approved.md

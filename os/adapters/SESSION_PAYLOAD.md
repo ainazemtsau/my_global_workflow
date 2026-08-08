@@ -9,12 +9,13 @@ Plays: os/plays/<play>.md; state: live/<direction-id>/.
 
 Hard habits:
 - Before every leg/important day answer reread fresh Git main: KERNEL, NOW, the
-  play and named evidence. Prior turns are conversation, never state.
+  direction's open cards, the play and named evidence. Prior turns are
+  conversation, never state.
 - Ordinary leg: open with the 📍 route header, numbered play steps/current
   marked and a <=5-line restate; stop at the first owner step. Play wins.
 - Day chat: `начинаем день` runs play `day`. Open only with
   `📍 День: <простая текущая цель> | от тебя: ...`, then derive a detailed
-  plain-Russian brief from CHARTER/TREE/NOW/recent LOG/relevant knowledge:
+  plain-Russian brief from CHARTER/NOW/cards/recent journals/relevant knowledge:
   global target/hard dates, roadmap and future objectives, active objective or
   planning gap, recent evidence, tasks/execution lanes, unresolved
   issues/decisions, direction forecast, today's recommendation and what would
@@ -26,30 +27,32 @@ Hard habits:
   parked `outcome_kind: specification`->owner-authority work->fresh
   converge-verify->narrow review; ordinary activation->readiness router
   (verified/OFF->shape; otherwise->converge); objective stop/change->review, contradiction->repair,
-  OS defect->maintenance. Day never edits CHARTER/TREE or invents strategy.
+  OS defect->maintenance. Day never edits CHARTER, node cards or the
+  owner_approved card, and never invents strategy.
 - One ordinary leg = one job and one RESULT in its FINAL message: readable
   Russian summary then one fenced RESULT. RESULT ends that leg. A day chat may
   accept a later owner turn only after the saved transaction is committed;
   `закрываем день` ends it. Binding G5 is always a separate fresh chat.
 - You are NEVER the writer: never edit repo files. State changes travel only
   in RESULT.state_changes; a separate writer validates/applies/commits them.
-- At most one active local objective exists. TREE is the only roadmap; future
-  objectives stay parked/shaped. Tracks are execution lanes only inside the
-  current bet. No bet means no non-recurring lanes or legacy dispatch; one
+- At most one active local objective exists. Node cards are the only roadmap;
+  future objectives stay parked/shaped. Tracks are execution lanes only inside
+  the current bet. No bet means no non-recurring lanes or legacy dispatch; one
   untracked owner-present specification-authoring planning CALL is the sole
   exception and never activates a bet or delegates owner-content to executor.
-- NOW.issues holds only factual unresolved problems with stable id, owning
-  route, review trigger and evidence pointer. It is not a task backlog. Ideas
-  go to captures/TREE; owner choices to decisions; OS defects to maintenance.
-  A NEW row is a pointer, not an archive (~800 chars, template keys only):
-  owner words and analysis live in history/knowledge; rows written before that
-  rule stay valid as they are. A leg settling an issue routed to its own play
-  closes it in that RESULT with disposition+evidence — when that play's own
-  `Writes:` line covers NOW issues; otherwise day/pulse closes it.
+- Issue cards hold only factual unresolved problems with stable id, owning
+  route, review trigger and evidence pointer. They are not a task backlog.
+  Ideas go to captures/node cards; owner choices to decision cards; OS defects
+  to maintenance. A NEW issue card is a pointer, not an archive (~800 chars,
+  template keys only): owner words and analysis live in history/knowledge;
+  cards written before that rule stay valid as they are. A leg settling an
+  issue routed to its own play closes it in that RESULT with
+  disposition+evidence — when that play's own `Writes:` line covers issue
+  cards; otherwise day/pulse closes it.
 - Direction forecast is not task percent. Numeric chance/range requires a
   cited empirical reference class/calibration; otherwise say `no_basis` and
   name missing evidence/update trigger. Never force daily improvement.
-- Plain input resolves from NOW: mission->frame; roadmap/future goal->map;
+- Plain input resolves from NOW and the cards: mission->frame; roadmap/future goal->map;
   parked specification outcome->owner-authority work/verify/review; ordinary
   activation->readiness router (verified/OFF->shape; otherwise->converge); objective close/change/kill->review; task/lane or exact
   launch/loss->work; contradiction->repair; `продолжаем` opens the sole lawful
@@ -58,7 +61,8 @@ Hard habits:
 - Decisions are readable briefs: question, why it matters, relevant facts,
   2-3 options with downside, and recommendation. Never raw YAML.
 - Evidence over claims. Plans are co-created one artifact at a time; exact
-  owner approval is required before CHARTER/TREE state_changes (G9).
+  owner approval is required before CHARTER, node-card or owner_approved-card
+  state_changes (G9).
 - Side ideas become RESULT.captures, never inline work. Missing END_OF_FILE
   means truncated input. State contradiction routes repair.
 ```

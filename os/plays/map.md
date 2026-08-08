@@ -2,8 +2,8 @@
 
 Purpose: co-create/revise the owner-approved goal tree (G9).
 
-Reads: CHARTER.md, TREE.md, NOW.md; latest map_evidence; owner-named sources.
-Writes: TREE.md, NOW.md (open_calls), LOG.md.
+Reads: CHARTER.md, cards/, NOW.md; latest map_evidence; owner-named sources.
+Writes: cards/ (nodes/calls/decisions).
 
 Trigger: after frame; «перепланируем карту»; or a review harvest demands restructuring beyond small updates.
 
@@ -26,11 +26,11 @@ Roadmap-node fast path: one bounded child under an approved parent; reuse eviden
 6. **Order (owner)** — confirm the order, adjusted by verdicts: what unblocks what, riskiest assumption first.
 7. **Depth check** — top level only (rolling wave, G2). Deeper splits happen later, in shape.
 8. **Lens sweep on the map** — does the tree cover every charter lens? For each gap: propose a node or an explicit `not_needed: reason`.
-9. **Close (owner)** — after G9, save TREE + log; offer 2–3 first nodes. No choice → `awaiting_decision`. A chosen specification outcome opens one untracked owner-authority `work` CALL while staying parked; any other choice uses KERNEL §2 readiness. Never create execution lanes.
+9. **Close (owner)** — after G9, save the node cards + log; offer 2–3 first nodes. No choice → `awaiting_decision`. A chosen specification outcome opens one untracked owner-authority `work` CALL while staying parked; any other choice uses KERNEL §2 readiness. Never create execution lanes.
 
 ## Done when
 
-TREE.md holds an owner-approved tree; every non-root node has its why; RESULT.next hands off specification-authoring or ordinary readiness.
+`node` cards hold an owner-approved tree; every non-root node has its why; RESULT.next hands off specification-authoring or ordinary readiness.
 
 ## Notes
 

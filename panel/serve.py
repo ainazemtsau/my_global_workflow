@@ -19,7 +19,16 @@ import yaml
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 APP_DIR = os.path.join(ROOT, "panel", "app")
 LIVE_DIR = os.path.join(ROOT, "live")
-CARDS_DIR = os.path.join(ROOT, "panel", ".cards")
+
+def cards_dir(direction):
+    """Живые карточки направления. Проекции больше нет: карточки И ЕСТЬ состояние."""
+    d = os.path.join(LIVE_DIR, direction, "cards")
+    if not os.path.isdir(d):
+        raise FileNotFoundError(
+            f"у направления «{direction}» нет папки карточек: live/{direction}/cards/. "
+            "Состояние живёт в карточках — показывать нечего.")
+    return d
+
 
 SECTIONS = [("now", "СЕЙЧАС"), ("slots", "СЛОТЫ"), ("waiting", "ЖДЁТ ТЕБЯ"), ("wave", "ВОЛНА"),
             ("goals", "ЦЕЛИ"), ("history", "ИСТОРИЯ"), ("knowledge", "ЗНАНИЯ"),
@@ -115,8 +124,7 @@ NODE_STATE = {"active": ("running", "ИДЁТ СЕЙЧАС"), "shaped": ("ahead"
 def section_goals(direction):
     """Карта целей. Строит из карточек узлов; имена берёт накладкой, ничего не выдумывает."""
     with lock_for(direction):
-        ensure_cards(direction)
-        folder = os.path.join(CARDS_DIR, direction)
+        folder = cards_dir(direction)
         loaded, unread = {}, []
         for name in sorted(f for f in os.listdir(folder) if f.endswith(".md")):
             try:
@@ -238,8 +246,7 @@ def node_events(direction, node_id):
 
 def goal_page(direction, node_id):
     with lock_for(direction):
-        ensure_cards(direction)
-        folder = os.path.join(CARDS_DIR, direction)
+        folder = cards_dir(direction)
         nodes = {}
         for name in sorted(f for f in os.listdir(folder) if f.endswith(".md")):
             try:
@@ -279,8 +286,7 @@ def section_wave(direction):
     полосы, а не полем задачи — читаем как есть и показываем задачи вне полос отдельно,
     чтобы расхождение было видно, а не съедено."""
     with lock_for(direction):
-        ensure_cards(direction)
-        folder = os.path.join(CARDS_DIR, direction)
+        folder = cards_dir(direction)
         loaded, unread = {}, []
         for name in sorted(f for f in os.listdir(folder) if f.endswith(".md")):
             try:
@@ -347,23 +353,6 @@ def section_wave(direction):
 
 # Всё, из чего строятся карточки. Забыть здесь файл — значит показывать вчерашнее
 # и не знать об этом: карточки собраны, папка свежая, а источник ушёл вперёд.
-SOURCES = ("NOW.md", "TREE.md")
-
-
-def ensure_cards(direction):
-    """Пересборка, если папки нет или ЛЮБОЙ источник новее её. Вызывать под замком."""
-    folder = os.path.join(CARDS_DIR, direction)
-    if not os.path.isdir(folder):
-        cards.build(direction)
-        return
-    built = os.path.getmtime(folder)
-    for name in SOURCES:
-        path = os.path.join(LIVE_DIR, direction, name)
-        if os.path.isfile(path) and os.path.getmtime(path) > built:
-            cards.build(direction)  # сама стирает папку и строит заново
-            return
-
-
 def block_text(blocks, key):
     """Текст блока тела: только объединение строк."""
     lines = blocks.get(key)
@@ -431,8 +420,7 @@ def section_numbers(direction, loaded):
 
 def section_now(direction):
     with lock_for(direction):
-        ensure_cards(direction)
-        folder = os.path.join(CARDS_DIR, direction)
+        folder = cards_dir(direction)
         names = sorted(f for f in os.listdir(folder) if f.endswith(".md"))
         loaded, unread = {}, []
         for name in names:
@@ -470,8 +458,8 @@ class Handler(BaseHTTPRequestHandler):
             sys.stderr.write(f"[panel] {self.path}: {e}\n")
             if self.path.startswith("/api/"):
                 self.send_json({"error": str(e),
-                                "hint": "источник не раскладывается на карточки; "
-                                        "проверь: python panel/cards.py check <направление>"},
+                                "hint": "проверь карточки: "
+                                        "python osctl.py check --direction <направление>"},
                                code=500)
             else:
                 self.send_error(500, "internal error")
@@ -539,11 +527,7 @@ def main():
     parser.add_argument("--no-open", action="store_true", help="не открывать браузер")
     args = parser.parse_args()
 
-    for name in sorted(os.listdir(LIVE_DIR)):  # при старте: карточки направлений из live/
-        if os.path.isdir(os.path.join(LIVE_DIR, name)):
-            with lock_for(name):
-                ensure_cards(name)
-
+    # Прогрева больше нет: карточки лежат готовыми, собирать при старте нечего.
     server = ThreadingHTTPServer(("127.0.0.1", args.port), Handler)
     thread = threading.Thread(target=server.serve_forever, daemon=True)
     thread.start()

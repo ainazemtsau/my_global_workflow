@@ -14,7 +14,7 @@ The OS cannot cover every future stage up front — and must not try (KERNEL §7
 
 ## Rules
 
-1. **Additivity.** No level may override gates G1–G10, the CALL/RESULT schemas, or the six state file types. Local plays are procedure files, not state — the six-type budget is untouched.
+1. **Additivity.** No level may override gates G1–G10, the CALL/RESULT schemas, or the five state file types. Local plays are procedure files, not state — the six-type budget is untouched.
 2. **Same discipline locally.** A local play follows the `os/plays/` format (Purpose / Reads / Writes / Steps / Done when / Notes) and budget. A direction may have at most 5 local plays; wanting a sixth means two should merge — or one should be promoted.
 3. **Promotion path.** A local play that proves itself in ≥2 directions is a friction-candidate for promotion into `os/plays/` (via a maintenance session). The reverse also holds: an os/ play used by only one direction is a candidate for demotion to local.
 4. **No speculative extension.** A local play or module is created when real work needs it in the current bet — never "for the future" (G8 spirit applies to structure, not just goals).

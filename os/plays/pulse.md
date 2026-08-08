@@ -2,8 +2,8 @@
 
 Purpose: recurring sweep (weekly by default) that keeps every direction trustworthy. The only play that looks across directions.
 
-Reads: each direction's NOW.md, CHARTER/TREE headers, LOG tail; os/FRICTION.md.
-Writes: NOW.md of affected directions, LOG.md, knowledge staleness marks.
+Reads: each direction's NOW.md and cards/, CHARTER header, recent card journals and `git log`; os/FRICTION.md.
+Writes: NOW.md pointer and cards of affected directions with their journal lines, knowledge staleness marks.
 
 ## Checklist — report every item
 

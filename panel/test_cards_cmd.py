@@ -134,7 +134,8 @@ def main():
     for i in range(25):
         run("log", "add", "--id", "t-1", "--text", f"событие {i}", "--date", f"2026-07-{i%28+1:02d}", *C)
     r = run("check", *C)
-    check(r.returncode == 1 and "потолок" in r.stdout, "check называет журнал сверх потолка")
+    check(r.returncode == 0 and "потолок" in r.stdout,
+          "check называет журнал сверх потолка — но НЕ судит по нему (CONCEPT §4)")
 
     # --- поиск
     r = run("find", "--text", "Другое дело", *C)

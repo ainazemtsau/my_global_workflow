@@ -2,8 +2,8 @@
 
 Purpose: be the owner's daily strategic adviser without creating a second plan. The chat derives a complete current view, helps adapt it, and records nothing until the owner explicitly says to save.
 
-Reads: CHARTER.md, TREE.md, NOW.md, recent LOG.md, due issue evidence, and knowledge entries whose `read_by` names day/current planning.
-Writes after explicit save only: NOW.md, LOG.md, and issued CALL artifacts. It never writes CHARTER.md or TREE.md.
+Reads: CHARTER.md, NOW.md, cards/, recent card journals and `git log`, due issue evidence, and knowledge entries whose `read_by` names day/current planning.
+Writes after explicit save only: cards and their journal lines, and issued CALL artifacts. It never writes CHARTER.md, node cards, or the `owner_approved` registry card.
 
 ## Steps
 

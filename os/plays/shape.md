@@ -2,8 +2,8 @@
 
 Purpose: turn one tree node into the active bet.
 
-Reads: CHARTER.md, TREE.md, NOW.md, relevant knowledge/.
-Writes: TREE.md (the node), NOW.md (the bet), LOG.md.
+Reads: CHARTER.md, cards/, NOW.md, relevant knowledge/.
+Writes: cards/ (node/bet/tasks/tracks/call), NOW.md (bet pointer).
 
 Precondition: no active bet (G1), chosen ordinary build node (never `outcome_kind: specification`), and cleared **Definition-of-Ready** (os/plays/converge.md).
 
@@ -17,15 +17,15 @@ Precondition: no active bet (G1), chosen ordinary build node (never `outcome_kin
 6. **Riskiest assumption** — list the assumptions this bet rests on, starting with the chosen approach's bet from step 3, ranked by kill-power. The top one gets a task that tests it as early and cheaply as possible (gate G6). Calibrate test depth to the charter's risk_posture.
 7. **Tasks** — 3–7 tasks, each ≤ half a focused day, each with verifiable done_when. Order them so the riskiest-assumption task comes first or near-first. Mark each task's kind: session, executor (engineering), or guide (os/plays/guide.md). Executor-heavy bets name the evaluator and rollback first. ≥2 independent lines of work → offer the owner lanes and their WIP limit (G7).
 8. **Kill criteria** — kill_by: metric + threshold + date (gate G4). If the bet reaches the date or breaches the threshold, review triggers automatically. State next_if_true / next_if_false — which branch opens, dies, or mutates either way.
-9. **Close** — show one screen: appetite, tasks, lanes, cuts, lens verdicts, kill_by, forecast and against. On approval, RESULT makes the node `active`, writes the bet, declares any lanes the owner named in exact words, registers its first-task CALL in `open_calls`, and hands it off through `RESULT.next`.
+9. **Close** — show one screen: appetite, tasks, lanes, cuts, lens verdicts, kill_by, forecast and against. On approval, RESULT makes the node `active`, writes the bet, declares any lanes the owner named in exact words, registers its first-task CALL as a `call` card, and hands it off through `RESULT.next`.
 
 ## Done when
 
-NOW.md has an approved bet passing G1–G6; its first-task CALL is in `open_calls` and local `RESULT.next`.
+NOW.md names an approved bet whose `bet` card passes G1–G6; its first-task CALL is a `call` card and in local `RESULT.next`.
 
 ## Notes
 
 - Shape is one session — or two when appetite exceeds a week: close with a checkpoint once approaches are on the table; choose in the next session (≥1 night). If shaping stalls on an unknown, spawn `call:research` and close awaiting its return — do not pad the bet with guesses.
-- Shaping a node may reveal it needs children instead of tasks (too big for one appetite). Then: split into 2–4 child outcome nodes in TREE.md (each a card with its why, owner-approved in-session — G9), recommend which child to shape, close — a valid result. Recursion happens here, on demand, never in advance.
+- Shaping a node may reveal it needs children instead of tasks (too big for one appetite). Then: split into 2–4 child outcome `node` cards (each with its why, owner-approved in-session — G9), recommend which child to shape, close — a valid result. Recursion happens here, on demand, never in advance.
 
 END_OF_FILE: os/plays/shape.md

@@ -573,6 +573,77 @@ def journal_put(blocks: dict, order: list, line: str, cid: str) -> list:
     return lines
 
 
+# ------------------------------------------------------------ указатель NOW.md
+
+# После реза `NOW.md` — указатель направления и больше ничего. Список полей
+# ЗАКРЫТ: самодельные ключи в горячем состоянии уже были (`exit_decided_2026_08_06`,
+# `warning_2026_08_06`), и лечатся они не аккуратностью, а отказом команды.
+NOW_FIELDS = {"bet": "id узла активной ставки, или null",
+              "track_wip_limit": "сколько полос идёт разом; только когда есть полосы"}
+
+
+def now_path(direction: str, root: str | None = None) -> Path:
+    return live_root(direction, root) / "NOW.md"
+
+
+def read_now(direction: str, root: str | None = None) -> dict:
+    p = now_path(direction, root)
+    if not p.exists():
+        raise Stop(f"нет указателя направления: {p}")
+    data = yaml.safe_load(p.read_text(encoding="utf-8"))
+    if not isinstance(data, dict):
+        raise Stop(f"{p}: верхний уровень не отображение")
+    data.pop("END_OF_FILE", None)
+    return data
+
+
+def write_now(direction: str, data: dict, root: str | None = None) -> None:
+    p = now_path(direction, root)
+    rel = str(p.relative_to(REPO)).replace(chr(92), "/") if str(p).startswith(str(REPO)) else str(p)
+    # Отображение целиком одним вызовом: safe_dump СКАЛЯРА дописывает маркер
+    # конца документа `...`, и следующая строка становится вторым документом.
+    keep = {k: data[k] for k in NOW_FIELDS if k in data}
+    body = yaml.safe_dump(keep, sort_keys=False, allow_unicode=True,
+                          default_flow_style=False) if keep else ""
+    text = f"# NOW: {direction}{chr(10)}{chr(10)}{body}{chr(10)}END_OF_FILE: {rel}{chr(10)}"
+    tmp = p.with_suffix(".md.tmp")
+    tmp.write_text(text, encoding="utf-8", newline="")
+    tmp.replace(p)
+    if p.read_text(encoding="utf-8") != text:
+        raise Stop(f"{p}: запись не сошлась при чтении обратно")
+
+
+def cmd_now_show(a) -> int:
+    direction = resolve_direction(a.direction)
+    data = read_now(direction, a.live_root)
+    if a.json:
+        print(json.dumps(data, ensure_ascii=False, indent=2, default=str))
+        return 0
+    for k in NOW_FIELDS:
+        print(f"{k}: {data.get(k)!r}")
+    return 0
+
+
+def cmd_now_set(a) -> int:
+    direction = resolve_direction(a.direction)
+    if a.field not in NOW_FIELDS:
+        raise Stop(f"поля {a.field!r} в указателе нет. Есть только:{chr(10)}"
+                   + chr(10).join(f"  {k} — {v}" for k, v in NOW_FIELDS.items())
+                   + f"{chr(10)}  Всё остальное — карточка.")
+    data = read_now(direction, a.live_root)
+    value = None if a.value in ("", "null", "none") else yaml.safe_load(a.value)
+    if a.field == "bet" and value is not None:
+        # ставка указывает на карточку; несуществующий id — это молчаливая ложь
+        locate(direction, f"bet-{value}", a.cards)
+    if value is None:
+        data.pop(a.field, None)
+    else:
+        data[a.field] = value
+    write_now(direction, data, a.live_root)
+    print(f"{direction}: {a.field} = {value!r}")
+    return 0
+
+
 def cmd_card_new(a) -> int:
     """Заводит карточку. Без человеческих полей отказывает, а не создаёт
     «допишем потом»: дописывать потом некому, и панель показывает машинный id."""
@@ -814,7 +885,9 @@ def cmd_check(a) -> int:
     d = cards_dir(direction, a.cards)
     if not d.is_dir():
         raise Stop(f"папки карточек нет: {d}")
-    problems, seen, places, total, shut = [], {}, {}, 0, 0
+    # Поломки не дают собрать состояние. Замечания — факты о содержании
+    # (нет имени, длинный журнал): их называют, но не судят по ним (CONCEPT §4).
+    problems, notes, seen, places, total, shut = [], [], {}, {}, 0, 0
     for p, closed in all_cards(direction, a.cards):
         total += 1
         shut += 1 if closed else 0
@@ -841,9 +914,11 @@ def cmd_check(a) -> int:
                 problems.append(f"{p.name}: поле {k} длинное — ему место в теле")
         j = blocks.get(JOURNAL) or []
         if len(j) > JOURNAL_CEILING:
-            problems.append(f"{p.name}: журнал {len(j)} строк, потолок {JOURNAL_CEILING}")
+            notes.append(f"{p.name}: журнал {len(j)} строк, потолок {JOURNAL_CEILING} — "
+                         "пора закрывать или чистить")
         if head.get(KIND_KEY) == "node" and not head.get("label"):
-            problems.append(f"{p.name}: у цели нет короткого имени (label)")
+            notes.append(f"{p.name}: у цели нет короткого имени (label) — "
+                         "его пишет владелец или его нога, не команда")
         if not closed:   # места считаются только среди живых: закрытые не собираются
             # У узла место — среди БРАТЬЕВ, поэтому родитель входит в ключ:
             # два узла у разных родителей законно стоят на одном номере.
@@ -858,6 +933,10 @@ def cmd_check(a) -> int:
                                     f"карточкой {places[key]} — панель на этом не соберётся")
                 places[key] = p.name
     print(f"карточек: {total}" + (f" (живых {total - shut}, закрытых {shut})" if shut else ""))
+    if notes:
+        print(f"замечаний: {len(notes)} (не мешают работе)")
+        for x in notes:
+            print("  " + x)
     if not problems:
         print("механических проблем нет")
         return 0
@@ -866,133 +945,6 @@ def cmd_check(a) -> int:
         print("  " + x)
     return 1
 
-
-
-# --------------------------------------------------------------------- переезд
-
-JOURNAL_SEED_MAX = 20
-
-
-def load_overlay(direction: str) -> dict:
-    """Накладка коротких имён. У неё назван конец: после переезда — в карточках."""
-    p = REPO / "os2" / "labels" / f"{direction}.yaml"
-    if not p.exists():
-        return {}
-    doc = yaml.safe_load(p.read_text(encoding="utf-8")) or {}
-    return doc.get("labels") or {}
-
-
-def journal_from_git(direction: str, cid: str) -> list:
-    """События сущности уже лежат в git. Переезд их материализует, а не выдумывает."""
-    sep = chr(31)
-    r = git("log", "--date=short", sep.join(["--format=%h", "%ad", "%s"]),
-            f"--grep={cid}", "--name-only", "--", f"live/{direction}")
-    if r.returncode != 0 or not r.stdout.strip():
-        return []
-    events, cur = [], None
-    for line in r.stdout.split(chr(10)):
-        if sep in line:
-            if cur:
-                events.append(cur)
-            sha, date, subject = line.split(sep)
-            text = subject.split(":", 1)[1].strip() if ":" in subject else subject
-            cur = {"date": date, "text": " ".join(text.split()), "sha": sha, "pointer": None}
-        elif cur and "/history/" in line and line.endswith(".md"):
-            cur["pointer"] = "history/" + line.rsplit("/", 1)[1]
-    if cur:
-        events.append(cur)
-    # Строка «и ещё N раньше» — тоже строка журнала. Считаем её в потолок,
-    # иначе засев сам же его и превышает.
-    limit = JOURNAL_SEED_MAX if len(events) <= JOURNAL_SEED_MAX else JOURNAL_SEED_MAX - 1
-    lines = []
-    for e in events[:limit]:
-        row = f"{e['date']} · {e['text']}"
-        row += f" · {e['pointer']}" if e["pointer"] else f" · {e['sha']}"
-        lines.append(row)
-    rest = len(events) - len(lines)
-    if rest > 0:
-        lines.append(f"…и ещё {rest} раньше · git log --grep={cid}")
-    return lines
-
-
-def cmd_migrate(a) -> int:
-    import shutil
-    sys.path.insert(0, str(REPO / "panel"))
-    import cards as projector
-
-    direction = resolve_direction(a.direction)
-
-    # 1. проекция проверенным конвертером и ДОКАЗАТЕЛЬСТВО обратной сборки
-    print("1. собираю карточки из источников")
-    projector.build(direction)
-    print("2. проверяю обратную сборку — без этого дальше нельзя")
-    try:
-        projector.check(direction)
-    except SystemExit:
-        raise Stop("обратная сборка НЕ сошлась — переезд отменён, источники не тронуты") from None
-
-    src = REPO / "panel" / ".cards" / direction
-    out = Path(a.out) if a.out else (REPO / "live" / direction / "cards")
-    overlay = load_overlay(direction)
-
-    # 2. обогащение: имена целям и журнал каждому
-    print("3. добавляю имена целям и журнал из git")
-    prepared, named, journaled, no_name = [], 0, 0, []
-    for p in sorted(src.glob("*.md")):
-        head, blocks, order = read_card(p)
-        cid = str(head.get("id"))
-        if head.get(KIND_KEY) == "node":
-            lab = overlay.get(cid) or {}
-            if lab.get("label"):
-                head["label"] = lab["label"]
-                if lab.get("hook"):
-                    head["hook"] = lab["hook"]
-                named += 1
-            else:
-                no_name.append(cid)
-        j = journal_from_git(direction, cid)
-        if j:
-            blocks[JOURNAL] = j
-            if JOURNAL not in order:
-                order.append(JOURNAL)
-            journaled += 1
-        prepared.append((cid, head, blocks, order))
-
-    kinds = {}
-    for cid, head, _, _ in prepared:
-        k = head.get(KIND_KEY)
-        kinds[k] = kinds.get(k, 0) + 1
-
-    print()
-    print(f"получится карточек: {len(prepared)}")
-    print("  " + ", ".join(f"{k} {v}" for k, v in sorted(kinds.items())))
-    print(f"целей с именем: {named}" + (f", без имени: {no_name}" if no_name else ""))
-    print(f"с журналом из git: {journaled}")
-    print(f"куда: {out}")
-
-    if not a.apply:
-        print()
-        print("ПРОБНЫЙ ПРОГОН — ничего не записано.")
-        print("  Записать: добавь --apply")
-        print("  TREE.md, LOG.md и NOW.md переезд НЕ трогает: это отдельные шаги,")
-        print("  и только после того, как карточки поработают.")
-        return 0
-
-    if no_name and not a.force:
-        raise Stop(f"без короткого имени остались цели: {no_name}\n"
-                   "  Имя пишется при создании (закон 4). Допиши накладку или добавь --force.")
-
-    print()
-    if out.exists():
-        if not a.force:
-            raise Stop(f"папка уже есть: {out}\n  Перезаписать: добавь --force")
-        shutil.rmtree(out)
-    out.mkdir(parents=True)
-    for cid, head, blocks, order in prepared:
-        write_card(direction, cid, head, blocks, order, str(out))
-    print(f"записано карточек: {len(prepared)} в {out}")
-    print("источники не тронуты: TREE.md, LOG.md, NOW.md на месте")
-    return 0
 
 
 def cmd_here_set(a) -> int:
@@ -1093,6 +1045,17 @@ def build_parser() -> argparse.ArgumentParser:
     q.add_argument("--history"); q.add_argument("--date"); q.add_argument("--direction")
     q.add_argument("--cards"); q.set_defaults(fn=cmd_log_add)
 
+    now = sub.add_parser("now").add_subparsers(dest="verb", required=True)
+    for name, fn in (("show", cmd_now_show), ("set", cmd_now_set)):
+        q = now.add_parser(name, help="указатель направления: ставка и лимит полос")
+        q.add_argument("--direction"); q.add_argument("--cards")
+        q.add_argument("--live-root", dest="live_root")
+        if name == "show":
+            q.add_argument("--json", action="store_true")
+        else:
+            q.add_argument("--field", required=True); q.add_argument("--value", required=True)
+        q.set_defaults(fn=fn)
+
     leg = sub.add_parser("leg").add_subparsers(dest="verb", required=True)
     q = leg.add_parser("close", help="конец ноги: отчёт, общий журнал и журналы сущностей")
     q.add_argument("--leg", required=True, help="id сессии, например s-work-g-5a7c-001")
@@ -1112,12 +1075,6 @@ def build_parser() -> argparse.ArgumentParser:
 
     q = sub.add_parser("check", help="механические факты о карточках, без оценок")
     q.add_argument("--direction"); q.add_argument("--cards"); q.set_defaults(fn=cmd_check)
-
-    q = sub.add_parser("migrate", help="собрать карточки направления из нынешних источников")
-    q.add_argument("--direction"); q.add_argument("--out")
-    q.add_argument("--apply", action="store_true", help="записать; без него — пробный прогон")
-    q.add_argument("--force", action="store_true")
-    q.set_defaults(fn=cmd_migrate)
 
     here = sub.add_parser("here").add_subparsers(dest="verb", required=True)
     p = here.add_parser("set", help="пометить рабочую копию направлением")

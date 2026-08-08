@@ -1,0 +1,29 @@
+---
+id: next
+_kind: extra
+_pos: 0
+---
+
+## next
+CALL: live/solmax/work/calls/c-solmax-next-bet-selection-024.md
+
+## журнал
+2026-07-16 · terminal v26 Re-sync checkpoint; CALL 017 next · history/2026-07-16-s-solmax-operating-substrate-first-process-creator-t4-terminal-v26-resync-checkpoint-017.md
+2026-07-12 · repo-bootstrap checkpoint applied · history/2026-07-12-s-solmax-operating-substrate-first-process-creator-t2-repo-bootstrap-setup-001.md
+2026-07-10 · Q4 instantiation research complete; next architecture-forge · history/2026-07-10-s-solmax-operating-substrate-process-pack-instantiation-best-practice-research-001.md
+2026-07-10 · Q3 relationship semantics complete; next architecture-forge · history/2026-07-10-s-solmax-operating-substrate-service-zone-relationship-best-practice-research-001.md
+2026-07-10 · Q2 service-zone classification accepted; atomic responsibility rule frozen, final service-block list and implementation remain open; Q3 relationship research routed next. · history/2026-07-10-s-solmax-operating-substrate-service-zone-classification-architecture-forge-001.md
+2026-07-10 · eight-system primary-source Q2 note complete; responsibility boundaries and promotion criteria derived; gap_event none; next service-zone/classification forge. · history/2026-07-10-s-solmax-operating-substrate-kernel-service-zone-best-practice-research-001.md
+2026-07-09 · Operating-substrate universal-structure cartography owner-approved with recursive graph-growth steering; Q15 amended; next forge = q01_core_invariant with spawned-question classification · history/2026-07-09-s-solmax-operating-substrate-universal-structure-cartography-001.md
+2026-07-08 · approve operating-substrate scope boundary card · history/2026-07-08-s-solmax-operating-substrate-scope-boundary-architecture-forge-001.md
+2026-07-04 · repair Markdown manager v1 route · history/2026-07-04-c-solmax-zaratusta-markdown-manager-v1-route-repair-004.md
+2026-07-02 · repair g-zara-operate-contract review writer-bounce: previous review RESULT was not applied; repaired TREE closure with explicit owner_approved marker/owner words, closed b-zara-operate-contract-002 as met after t-1/t-2/t-3 PASS against Zaratusta commit 79578ac87c73591000409f9f82a3bb4d0e33aa5b, and replaced NOW.next with one-line work/ CALL pointer; next-bet decision open, recommendation shape g-zara-operate-state. · history/2026-07-02-s-zara-operate-contract-review-bounce-repair-001.md
+2026-07-02 · clean verification PASS; next review · history/2026-07-02-s-zara-operate-contract-t3-verify-corrected-map-008.md
+2026-07-01 · t-1 state lag repaired after Zaratusta main commit 79578ac; stale t-1 executor call cleared; next clean t-3 verification · history/2026-07-01-s-zara-operate-contract-repair-t1-t3-state-sync-007.md
+2026-06-28 · trace repair PASS; next shape · history/2026-06-28-s-zara-operate-contract-converge-verify-trace-repair-004.md
+2026-06-28 · W2/W6/W13/W17 trace repair; next converge-verify · history/2026-06-28-s-zara-operate-contract-converge-trace-repair-003.md
+2026-06-26 · owner-boundary WHAT repaired; next converge-verify · history/2026-06-26-s-zara-operate-contract-converge-owner-boundary-002.md
+2026-06-17 · repair g-kernel: recovered Q1-Q15 owner decision A into valid RESULT shape and routed next to Q1-Q15 converge signoff · history/2026-06-17-s-repair-nc-solmax-g-kernel-q1-q15.md
+2026-06-15 · shape g-kernel — Wave-0 RLK активирован как 1-week bet with 3 executor tasks; TREE owner_approved; next c-work-kernel-t1 · history/s-shape-001.md
+2026-06-14 · create direction foundation (charter + pre-mortem + root g-zara); product Zaratusta; engine=subscriptions-not-API; core=RLK; next=map c-map-001 · history/s-frame-001.md
+END_OF_FILE: live/solmax/cards/next.md

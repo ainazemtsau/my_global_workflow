@@ -2,8 +2,8 @@
 
 Purpose: a SEPARATE refutation session that tries to BREAK either a converged build spec before shape, or the exact owner-approved artifact that exhausts a parked specification outcome before review. A self-check cannot catch the assumption its author never saw (G5). No G1–G10 gate is weakened; it no longer demands an answer to every question.
 
-Reads: TREE.md, CHARTER.md, knowledge/ checklists/canon; for build, closed `work/converge-<node>.md`; for `outcome_kind: specification`, the exact versioned artifact and owner-approval receipt. It does NOT read deciding-session reasoning.
-Writes: NOW.md (decisions, open_calls — below the ceiling a finding bounces a row), LOG.md. Never writes knowledge/. Never answers a question; it only refutes or passes.
+Reads: the node card, CHARTER.md, knowledge/ checklists/canon; for build, closed `work/converge-<node>.md`; for `outcome_kind: specification`, the exact versioned artifact and owner-approval receipt. It does NOT read deciding-session reasoning.
+Writes: decision and call cards (below the ceiling a finding bounces a row) and journals. Never writes knowledge/. Never answers a question; it only refutes or passes.
 
 Precondition: either converge done (plus converge-arch when required), or a parked specification node has its exact artifact and owner words. Reached via `to: session, play: converge-verify`; never the authoring/work/day chat.
 

@@ -1,6 +1,6 @@
 # Schema: direction state files
 
-Templates for the six state file types (KERNEL §3). Keys/statuses stay English; values may use the owner's language. Hot files should fit roughly one screen; audit flags files past ~150 lines. Full rationale, owner words and evidence live in `history/`/`work/`; hot state keeps pointers.
+Templates for the five state file types (KERNEL §3). Keys/statuses stay English; values may use the owner's language. Hot files should fit roughly one screen; audit flags files past ~150 lines. Full rationale, owner words and evidence live in `history/`/`work/`; hot state keeps pointers.
 
 ## CHARTER.md
 
@@ -32,122 +32,222 @@ repos:
   - <org/repo>: <role>
 ```
 
-## TREE.md
+## cards/
+
+State lives in `live/<direction-id>/cards/` — one entity, one file, `<id>.md`. Kinds: `bet` · `node` · `task` · `call` · `issue` · `decision` · `recurring` · `track`; a top-level key with no assigned home keeps its own `extra` card named after the key, so nothing is lost silently. Carrier names lead with `_` — `_kind`, `_pos`, `_parent`, `_bet` — so an owner field may be named anything, including `kind` and `status`.
+
+A card is a short YAML header between `---` lines, then `## <name>` body blocks, then the `END_OF_FILE:` trailer. Header values are single-line and short; anything longer, multi-line, or a list/dict is a body block, lists and dicts under a YAML fence. `_pos` is the place among same-kind siblings; for a `node` the place is among siblings under the same `_parent`.
+
+Every card carries a `## журнал` block: its own history, newest first, one line/≤2 short sentences per leg — `<date> · <what changed> · <history pointer or commit>`. It is an index, not a second summary; `osctl check` flags a journal past 20 lines.
+
+State changes only through `osctl`: `card new|set|block|unset|close|reopen`, `log add`, `leg close`. A card is never hand-edited. `card close` writes the reason into the journal and moves the file to `cards/closed/` in the same format; `card reopen` returns it. A closed card reads exactly like a live one, so closing loses nothing. `card new` refuses a card without the human fields it enforces — `label` and `hook` on a `node`, `description` on a `call` — so no card shows the owner a machine id.
+
+The direction journal is assembled from these journals plus `git log`: the commit message is the journal line. Full leg reports stay in `history/`.
+
+### node
 
 ```markdown
-# Goal tree: <direction-id>
+---
+id: g-xxxx
+_kind: node
+_parent: g-0c26             # absent on the root
+_pos: 3                     # place among siblings
+label: <short human name>
+hook: <one line: what this is>
+status: parked              # parked | shaped | active | done | dropped
+# outcome_kind: specification  # only when the approved spec artifact itself exhausts done_when
+# shaped/active add appetite + kill_by
+# detail: history/<file>.md
+---
 
-owner_approved: <date> — history/<file>.md
-
-- id: g-root
-  goal: <mission as outcome>
-  done_when: <verifiable>
-  children:
-    - id: g-xxxx
-      goal: <outcome, not activity>
-      done_when: <verifiable>
-      why: <one line: contribution to parent>
-      # outcome_kind: specification  # only when the approved spec artifact itself exhausts done_when
-      status: parked              # parked | shaped | active | done | dropped
-      # shaped/active add appetite + kill_by
-      # detail: history/<file>.md
-      children: []
+## goal
+<outcome, not activity>
+## done_when
+<verifiable>
+## why
+<contribution to parent>
 ```
 
-Rules: outcomes only; tasks never appear here. At most one non-root node is `active`: `NOW.bet.node`. Future objectives stay visible as `parked|shaped`; they are not execution lanes. Width ≤7 open children per node. Every non-root node has `why`. A dropped node keeps a compact reason/pointer; Git/history hold removed detail. `outcome_kind: specification` is an optional owner-approved card field; absence means ordinary build outcome. Its done_when ends at one exact versioned owner-approved specification, not implementation.
+The goal tree is the set of `node` cards: `_parent` says whose child a node is, `_pos` its place among siblings. Rules: outcomes only; tasks are never `node` cards. At most one non-root node is `active`: `NOW.bet`. Future objectives stay visible as `parked|shaped`; they are not execution lanes. Width ≤7 open children per node. Every non-root node has `why`. A dropped node keeps a compact reason/pointer; Git/history hold removed detail. `outcome_kind: specification` is an optional owner-approved card field; absence means ordinary build outcome. Its done_when ends at one exact versioned owner-approved specification, not implementation.
+
+### bet
+
+One card while a bet is open; none between objectives (`NOW.bet: null`).
+
+```markdown
+---
+id: bet-g-xxxx
+_kind: bet
+node: g-xxxx
+opened: <date>
+---
+
+## goal
+<recitation from the node card>
+## appetite
+2w (started <date>)
+## kill_by
+<threshold + date/event>
+## forecast
+<earliest signal + expected observation>
+## against
+<strongest contrary case + switch trigger>
+## cut_list
+<real exclusions>
+## lens_verdicts
+product: <task ids | not_needed: reason>
+audience: <...>
+business: <...>
+```
+
+### task
+
+No `task` card exists while `NOW.bet` is null; active ≤ the owner-set WIP limit.
+
+```markdown
+---
+id: t-1
+_kind: task
+_bet: g-xxxx
+status: open                # open | active | blocked | done
+# blocked adds unblock_when
+---
+
+## goal
+<outcome>
+## done_when
+<verifiable>
+```
+
+### issue
+
+Unresolved only; a pointer card, not a task backlog or an archive.
+
+```markdown
+---
+id: i-ab12                  # stable, never reused
+_kind: issue
+level: objective            # direction | roadmap | objective | execution
+route: review               # frame | map | shape | review | work | repair | pulse
+evidence: <history/work/knowledge pointer>
+# blocks: <stable node/task/call>
+---
+
+## issue
+<one factual problem/unknown>
+## review_when
+<date/event>
+```
+
+### track, call, decision
+
+```markdown
+---
+id: gameplay
+_kind: track
+label: "Gameplay proof"
+for: t-1                    # current bet node/task, or recurring id
+---
+```
+
+```markdown
+---
+id: c-117
+_kind: call
+_bet: g-xxxx
+track: gameplay             # required when tracks exist
+status: ready               # ready | running | waiting | blocked | paused
+to: executor                # session | research | executor
+for: t-1
+issued: <date>
+call: work/c-117-call.md
+description: <one line: what this call is for>
+# parent: c-116             # same-lane child
+# waiting_on: [c-117-a]
+# receipts: [history/<result>.md]
+# started: <date/time — launch receipt>     # running
+# unblock_when: <condition>                 # blocked
+# paused_by: <owner history pointer>        # paused
+# note: <one-line context/pointer>
+---
+```
+
+```markdown
+---
+id: d-1
+_kind: decision
+track: gameplay             # required when tracks exist
+---
+
+## q
+<question>
+## options
+<a, b, c>
+## recommendation
+<a, because ...>
+```
+
+### recurring
+
+```markdown
+---
+id: r-1
+_kind: recurring
+cadence: weekly
+lens: audience
+last_done: <date>
+---
+
+## goal
+<standing obligation>
+## done_when
+<verifiable>
+```
+
+### extra
+
+A top-level key with no assigned home keeps its own card named after the key. Two exist: `owner_approved`, the approval registry, which is never dropped; and `direction_forecast`.
+
+```markdown
+---
+id: direction_forecast
+_kind: extra
+---
+
+## direction_forecast
+status: no_basis             # no_basis | forecast
+target: <one explicit dated success criterion>
+as_of: <date>
+basis: <history/work/source pointer or exact missing basis>
+drivers: [<major up/down drivers, max 4>]
+update_when: <material evidence/date that forces recompute>
+# status: forecast additionally requires:
+# chance: 35%                # central estimate; not completion percent
+# range: 20-50%
+# confidence: low            # low | medium | high
+# calibration: <empirical reference class/source + denominator>
+```
 
 ## NOW.md
 
+A pointer to the direction, and nothing longer.
+
 ```markdown
-# NOW: <direction-id>          updated: <date> by <session-id>
+# NOW: <direction-id>
 
-bet: null                     # legal between objectives
-# OR:
-bet:
-  node: g-xxxx
-  goal: <recitation from TREE>
-  appetite: 2w (started <date>)
-  kill_by: <threshold + date/event>
-  forecast: <earliest signal + expected observation>
-  against: <strongest contrary case + switch trigger>
-  cut_list: [<real exclusions>]
-  lens_verdicts:
-    product: <task ids | not_needed: reason>
-    audience: <...>
-    business: <...>
-
-tasks:                         # [] when bet:null; active ≤ the owner-set WIP limit
-  - id: t-1
-    goal: <outcome>
-    done_when: <verifiable>
-    status: open               # open | active | blocked | done
-    # blocked adds unblock_when
-
-direction_forecast:
-  status: no_basis             # no_basis | forecast
-  target: <one explicit dated success criterion>
-  as_of: <date>
-  basis: <history/work/source pointer or exact missing basis>
-  drivers: [<major up/down drivers, max 4>]
-  update_when: <material evidence/date that forces recompute>
-  # status: forecast additionally requires:
-  # chance: 35%                # central estimate; not completion percent
-  # range: 20-50%
-  # confidence: low            # low | medium | high
-  # calibration: <empirical reference class/source + denominator>
-
-issues:                         # unresolved only; pointer rows (~800 chars), not a task backlog or an archive
-  - id: i-ab12                  # stable, never reused
-    issue: <one factual problem/unknown>
-    level: objective            # direction | roadmap | objective | execution
-    route: review               # frame | map | shape | review | work | repair | pulse
-    review_when: <date/event>
-    evidence: <history/work/knowledge pointer>
-    # blocks: <stable node/task/call>
-
+bet: g-xxxx                    # id of the active bet's node card, or null
 track_wip_limit: 4             # present only with tracks; owner-set, no fixed ceiling
-tracks:                         # optional execution lanes inside the current bet
-  - id: gameplay
-    label: "Gameplay proof"
-    for: t-1                    # current bet node/task, or recurring id
 
-open_calls:
-  - id: c-117
-    track: gameplay             # required when tracks exist
-    status: ready               # ready | running | waiting | blocked | paused
-    to: executor                # session | research | executor
-    for: t-1
-    issued: <date>
-    call: work/c-117-call.md
-    # parent: c-116             # same-lane child
-    # waiting_on: [c-117-a]
-    # receipts: [history/<result>.md]
-    # started: <date/time — launch receipt>     # running
-    # unblock_when: <condition>                 # blocked
-    # paused_by: <owner history pointer>        # paused
-    # note: <one-line context/pointer>
-
-recurring:
-  - id: r-1
-    goal: <standing obligation>
-    done_when: <verifiable>
-    cadence: weekly
-    lens: audience
-    last_done: <date>
-
-decisions:
-  - id: d-1
-    track: gameplay             # required when tracks exist
-    q: <question>
-    options: [a, b, c]
-    recommendation: <a, because ...>
+END_OF_FILE: live/<direction-id>/NOW.md
 ```
 
-### NOW hygiene
+Everything NOW once carried as sections — tasks, open_calls, issues, decisions, recurring, tracks, direction_forecast — is a card in `cards/`.
 
-NOW is current state, not a diary. `open_calls`, `issues` and `decisions` contain only unresolved items. Returned/done/cancelled items leave hot state for LOG/history. No free-form running narrative and no removed `next` selector: `RESULT.next` is handoff transport only.
+### Hot state hygiene
 
-`bet: null` is normal between objectives. Then `tasks: []`, and no non-recurring execution track/CALL may exist; one untracked `frame|map|converge|converge-arch|converge-verify|shape|review|repair` CALL may be the planning frontier. The sole extra legal frontier is `to: session, play: work` for a parked `outcome_kind: specification`: no track/task, exact node in `for`, owner-authority artifact in done_when. It is planning, not an execution lane. The daily adviser may name a conversational focus, but only shape activates a stored build bet.
+Live cards are current state, not a diary. `call`, `issue` and `decision` cards stay live only while unresolved. Returned/done/cancelled entities leave hot state by `osctl card close`; their journals and `history/` hold the record. No free-form running narrative and no removed `next` selector: `RESULT.next` is handoff transport only.
+
+`bet: null` is normal between objectives. Then no live `task` card exists, and no non-recurring execution track/CALL may exist; one untracked `frame|map|converge|converge-arch|converge-verify|shape|review|repair` CALL may be the planning frontier. The sole extra legal frontier is `to: session, play: work` for a parked `outcome_kind: specification`: no track/task, exact node in `for`, owner-authority artifact in done_when. It is planning, not an execution lane. The daily adviser may name a conversational focus, but only shape activates a stored build bet.
 
 ### Specification outcomes
 
@@ -155,15 +255,15 @@ Map marks the exact approved card `outcome_kind: specification` only when its ve
 
 ### Direction forecast
 
-The forecast estimates one explicit dated direction target, not percentage of tasks finished. `no_basis` is required when no defensible dated basis exists. Numeric chance/range are legal only with a cited empirical reference class or local calibrated denominator plus uncertainty; model intuition alone is not calibration. Update only after material evidence and, in a day chat, explicit owner save words. Do not force daily movement or monotonic improvement. History/LOG records each saved prior estimate; NOW holds only the latest.
+The forecast estimates one explicit dated direction target, not percentage of tasks finished. `no_basis` is required when no defensible dated basis exists. Numeric chance/range are legal only with a cited empirical reference class or local calibrated denominator plus uncertainty; model intuition alone is not calibration. Update only after material evidence and, in a day chat, explicit owner save words. Do not force daily movement or monotonic improvement. History and the card's own journal record each saved prior estimate; the card holds only the latest.
 
 ### Issues
 
-An issue is a problem/unknown that cannot safely disappear and is not yet admitted work. It needs a route owner and `review_when`; otherwise it is noise and is not saved. Ideas go to captures/TREE, owner choices to decisions, tasks to the active bet, OS defects to MAINTENANCE/FRICTION — not issues. At the trigger — or earlier, when a leg's own evidence settles it — day, pulse, or a leg whose play is named in the row's `route` **and whose own `Writes:` line covers NOW issues** routes it: resolve, merge, promote through its owning play, or drop with reason. The play's `Writes:` line is the grant; this schema never hands a play authority that line withholds, and a `route` naming no play at all, or one barred from `live/**`, hands out nothing. Rows those routes carry stay closable by day/pulse. Removing an issue requires its id plus disposition/evidence in RESULT/history; closing is an ordinary state change, not an owner-approval event. A row is a pointer, never an archive: template keys only, `issue`/`review_when` ≤2 short sentences each, `evidence` pointers only, ~800 characters per row. Owner words, analysis and enumerated findings stay in `history/`/`work/`; a settled durable fact goes to `knowledge/` — never into a new key on the row. The pointer form is guidance for rows written from 2026-08-05 on: `audit` flags a row past it by id, nothing bounces on its shape. Rows written on or before 2026-08-05 stay valid unchanged; no migration is required, they are never retro-illegal, and their shape is never a reason to clear, compact or repair them (repair play, Removal boundary). Issues do not authorize execution or count as progress.
+An issue is a problem/unknown that cannot safely disappear and is not yet admitted work. It needs a route owner and `review_when`; otherwise it is noise and is not saved. Ideas go to captures/`node` cards, owner choices to decisions, tasks to the active bet, OS defects to MAINTENANCE/FRICTION — not issues. At the trigger — or earlier, when a leg's own evidence settles it — day, pulse, or a leg whose play is named in the row's `route` **and whose own `Writes:` line covers issues — an unqualified state line counts, a line qualified to other sections does not** routes it: resolve, merge, promote through its owning play, or drop with reason. The play's `Writes:` line is the grant; this schema never hands a play authority that line withholds, and a `route` naming no play at all, or one barred from `live/**`, hands out nothing. Rows those routes carry stay closable by day/pulse. Removing an issue requires its id plus disposition/evidence in RESULT/history; closing is an ordinary state change, not an owner-approval event. A card is a pointer, never an archive: template keys only, `issue`/`review_when` ≤2 short sentences each, `evidence` pointers only, ~800 characters per card outside its `## журнал`. Owner words, analysis and enumerated findings stay in `history/`/`work/`; a settled durable fact goes to `knowledge/` — never into a new key on the row. The pointer form is guidance for rows written from 2026-08-05 on: `audit` flags a row past it by id, nothing bounces on its shape. Rows written on or before 2026-08-05 stay valid unchanged; no migration is required, they are never retro-illegal, and their shape is never a reason to clear, compact or repair them (repair play, Removal boundary). Issues do not authorize execution or count as progress.
 
 ### Execution lanes
 
-Tracks are a routing index for parallel execution inside one active bet, never a strategic hierarchy. Every non-recurring track `for` resolves to the current bet node/task; every call/decision names an existing track when tracks are present. A positive owner-approved WIP limit caps lanes with a non-paused root/decision; occupancy cannot exceed it. Each lane has at most one ordinary parentless root. Children are same-lane, acyclic, listed in direct parent `waiting_on`; return clears only the child, appends its receipt, and makes parent ready only when the last wait clears. Every current lane has a root or decision. Only `shape` creates a lane and only `review` retires it, at the close of the bet it serves; creating/retiring a lane or changing its limit needs cited owner words. Future objectives remain in TREE; unrelated urgent work first routes through review/map/repair.
+Tracks are a routing index for parallel execution inside one active bet, never a strategic hierarchy. Every non-recurring track `for` resolves to the current bet node/task; every call/decision names an existing track when tracks are present. A positive owner-approved WIP limit caps lanes with a non-paused root/decision; occupancy cannot exceed it. Each lane has at most one ordinary parentless root. Children are same-lane, acyclic, listed in direct parent `waiting_on`; return clears only the child, appends its receipt, and makes parent ready only when the last wait clears. Every current lane has a root or decision. Only `shape` creates a lane and only `review` retires it, at the close of the bet it serves; creating/retiring a lane or changing its limit needs cited owner words. Future objectives remain `node` cards; unrelated urgent work first routes through review/map/repair.
 
 `ready` is dispatchable. `running` requires an exact owner/runtime launch receipt and is not reoffered. `waiting` has live `waiting_on`; `blocked` has `unblock_when`; `paused` has `paused_by`. Exact lost/cancelled words may move matching `running → ready`; time/silence never does. Call ids are unique forever; a continuation gets a new id.
 
@@ -171,17 +271,11 @@ Tracks are a routing index for parallel execution inside one active bet, never a
 
 Recurring entries are not bet tasks and are capped at 3. Only pulse instantiates due work; incomplete runs do not advance `last_done`.
 
-`open_calls` is the sole durable dispatch frontier. A fresh session resolves named lane/call directly; `продолжаем` opens the sole ready call/decision, shows choices if several, or reports blocks/issues/planning route if none. `что можно делать` shows ready calls plus concise non-ready counts. List order/recommendation is never persisted strategy.
-
-## LOG.md
-
-Newest first, one line/≤2 short sentences per leg with a history pointer. It is an index, not a second summary.
-
-When over the soft ceiling, repair keeps roughly the newest half-ceiling and moves older lines verbatim into `history/LOG-archive-<direction-id>.md`. LOG keeps one bottom pointer: `archived: ... — sessions before <date>`. Later rotations append to that same archive.
+Live `call` cards are the sole durable dispatch frontier. A fresh session resolves named lane/call directly; `продолжаем` opens the sole ready call/decision, shows choices if several, or reports blocks/issues/planning route if none. `что можно делать` shows ready calls plus concise non-ready counts. List order/recommendation is never persisted strategy.
 
 ## history/
 
-One immutable file per leg: `history/<date>-<session-id>.md`, full RESULT verbatim.
+One immutable file per leg: `history/<date>-<session-id>.md`, full RESULT verbatim. `osctl leg close` writes that file and the matching journal line on every named entity as one move. Direction LOG lines written before the move stay verbatim in `history/LOG-archive-<direction-id>.md`.
 
 ## knowledge/
 
@@ -201,13 +295,13 @@ No real `read_by` consumer means no knowledge entry.
 - **Durable.** The claim is expected to outlive the current bet. Operational facts owned by another authority — repo paths, branches, worktrees, slot state, tool versions — are read from that authority at use time, never frozen here (witness: FRICTION 2026-07-16, mutable venue paths copied into knowledge produced two competing dispatch systems).
 - **Consumed.** `read_by` names a real play/lens and the trigger at which it is read.
 
-**What this replaces.** A settled owner-approved fact — including one about work that is not the current bet — belongs here. Not in `NOW.issues`, which holds a problem or unknown, not a fact, and not ad-hoc keys invented on an issue or a TREE card. Not only inside a `history/` RESULT, which a later leg can reach only by sweeping. Entries written before this rule stay valid unchanged; no migration is required.
+**What this replaces.** A settled owner-approved fact — including one about work that is not the current bet — belongs here. Not on an `issue` card, which holds a problem or unknown, not a fact, and not ad-hoc keys invented on an issue or a `node` card. Not only inside a `history/` RESULT, which a later leg can reach only by sweeping. Entries written before this rule stay valid unchanged; no migration is required.
 
 **Staleness is the invalidation condition.** `status: stale` means the basis moved: a stale entry is never imported born-closed, it is re-asked or retired. Any leg that finds the basis moved records that; `review`/`pulse` decide retire-versus-rewrite.
 
 ## work/
 
-Outputs/evidence, not state. Large binaries use LFS/external storage with a small pointer.
+Outputs/evidence, not state. Being outside state, it is outside `osctl`: CALL briefs and `work/converge-*.md` documents stay hand-written files. Large binaries use LFS/external storage with a small pointer.
 
 ## Truncation guard
 

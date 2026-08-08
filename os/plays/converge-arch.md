@@ -2,8 +2,8 @@
 
 Purpose: close the cross-node CONTRACTS a converged node consumes or produces, and — heavy node only — work its high-risk architecture as a refuted chain into an architecture-on-paper that rides PLAN as input evidence, never into done_when. No gate touched; closure refuted by converge-verify before shape.
 
-Reads: work/converge-<node>.md (closed §GLOSSARY/§WHAT), TREE.md, NOW.md, knowledge/contract-*, sibling canon.
-Writes: work/converge-<node>.md (§CONTRACTS) and, heavy, work/converge-<node>-arch.md; NOW.md (open_calls, decisions); LOG.md. Proposes contract canon for review/pulse; never writes knowledge/.
+Reads: work/converge-<node>.md (closed §GLOSSARY/§WHAT), node cards, NOW.md, knowledge/contract-*, sibling canon.
+Writes: work/converge-<node>.md (§CONTRACTS) and, heavy, work/converge-<node>-arch.md; call and decision cards; entity journals. Proposes contract canon for review/pulse; never writes knowledge/.
 
 Precondition: converge WHAT spec closed (converge done) AND node is sibling-bearing (→ DECLARE) or heavy (→ DECLARE + DECOMPOSE + ARCHITECT). Reached via CALL `to: session, play: converge-arch`.
 
