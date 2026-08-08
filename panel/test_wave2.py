@@ -2,7 +2,7 @@
 """Приёмка волны 2: создание, закрытие, снятие ключа и конец ноги.
 
 Всё гоняется на ВРЕМЕННОЙ папке. Последним делом проверяется, что live/
-не изменился ни на байт — команды умеют писать в LOG.md и history/,
+не изменился ни на байт — команды умеют писать в history/ и в карточки,
 поэтому доказательство обязательно.
 
     python panel/test_wave2.py
@@ -43,10 +43,11 @@ class Env:
         self.root = Path(tempfile.mkdtemp(prefix="wave2-"))
         self.cards = self.root / "cards"
         self.cards.mkdir()
-        (self.root / "history").mkdir()
-        io.open(self.root / "LOG.md", "w", encoding="utf-8", newline="").write(
-            f"# LOG - {D}\n\n2026-08-01 | s-старая-001 | work | direction | прежняя строка\n\n"
-            f"END_OF_FILE: live/{D}/LOG.md\n")
+        # НИ history/, НИ LOG.md здесь не создаётся, и это главное в фикстуре.
+        # Пока она делала себе LOG.md сама, она не могла увидеть, что команда его
+        # ТРЕБУЕТ — а рез его удалил. Первая живая нога упала именно на этом
+        # (2026-08-08): отчёт записан, журналы нет. Форма приёмки обязана быть
+        # той же, что в жизни, иначе приёмка проверяет не то, что работает.
 
     def run(self, *args):
         env = dict(os.environ, PYTHONIOENCODING="utf-8")
@@ -202,42 +203,39 @@ def case_yaml_marker():
 
 
 def case_leg_close():
-    """Конец ноги: отчёт, общий журнал и журналы сущностей — одной командой."""
+    """Конец ноги: отчёт и журналы сущностей — одной командой, без LOG.md."""
     e = Env()
     try:
         e.run("card", "new", "--id", "t-1", "--kind", "task")
         e.run("card", "new", "--id", "t-2", "--kind", "task")
         res = e.file("res.md", "outcome: |\n  сделано\nevidence: |\n  ссылка\n")
 
+        check(not (e.root / "LOG.md").exists(), "LOG.md нет — как в жизни после реза")
         rc, out = e.run("leg", "close", "--leg", "s-work-001", "--play", "work",
-                        "--log", "первая  волна   пошла", "--result-file", res,
-                        "--id", "t-1", "--id", "t-2", "--date", "2026-08-08")
-        check(rc == 0, f"проходит: {out.splitlines()[0][:60]}")
+                        "--scope", "g-5a7c", "--log", "первая  волна   пошла",
+                        "--result-file", res, "--id", "t-1", "--id", "t-2",
+                        "--date", "2026-08-08")
+        check(rc == 0, f"проходит без общего журнала: {out.splitlines()[0][:60]}")
 
         h = e.root / "history" / "2026-08-08-s-work-001.md"
-        check(h.is_file() and "outcome" in h.read_text(encoding="utf-8"), "отчёт сохранён в history/")
-
-        log = io.open(e.root / "LOG.md", encoding="utf-8").read().split("\n")
-        check(log[0].startswith("# LOG"), "заголовок общего журнала на месте")
-        check(log[2].startswith("2026-08-08 | s-work-001 | work | direction |"),
-              f"новая строка СРАЗУ под заголовком, а не в конце: {log[2][:60]!r}")
-        check("первая волна пошла" in log[2], "пробелы схлопнуты, строка одна")
-        check("прежняя строка" in "\n".join(log), "прежние строки на месте")
-        check(log[-2].startswith("END_OF_FILE"), "хвост общего журнала уцелел")
+        check(h.is_file() and "outcome" in h.read_text(encoding="utf-8"),
+              "отчёт сохранён в history/")
+        check(not (e.root / "LOG.md").exists(), "и LOG.md не воскрешён")
 
         for cid in ("t-1", "t-2"):
             t = e.card(cid)
             check("2026-08-08 · первая волна пошла · history/2026-08-08-s-work-001.md" in t,
                   f"журнал {cid} получил запись с указателем на отчёт")
+        check("t-dir work g-5a7c: первая волна пошла" in out,
+              f"напечатано готовое сообщение коммита: {out.splitlines()[-1].strip()[:60]}")
 
         # повтор той же ноги — доказательство, что запись уже прошла целиком
         rc, out = e.run("leg", "close", "--leg", "s-work-001", "--play", "work",
                         "--log", "первая волна пошла", "--result-file", res,
-                        "--date", "2026-08-08")
+                        "--id", "t-1", "--date", "2026-08-08")
         check(rc == 0 and "байт в байт" in out and "уже была" in out,
               "повтор ноги — не запись, а подтверждение")
-        check(io.open(e.root / "LOG.md", encoding="utf-8").read().count("s-work-001") == 1,
-              "и строка в общем журнале не задвоилась")
+        check(e.card("t-1").count("первая волна пошла") == 1, "и журнал не задвоился")
 
         other = e.file("other.md", "совсем другой отчёт\n")
         rc, out = e.run("leg", "close", "--leg", "s-work-001", "--play", "work",
@@ -245,35 +243,30 @@ def case_leg_close():
         check(rc == 1 and "столкновение" in out,
               "другой текст под тем же именем — столкновение, а не перезапись")
 
-        broken = Env()
-        io.open(broken.root / "LOG.md", "w", encoding="utf-8", newline="").write("что-то не то\n")
-        rc, out = broken.run("leg", "close", "--leg", "s-2", "--play", "work",
-                             "--log", "x", "--result", "y")
-        check(rc == 1 and "заголовок" in out, "без заголовка в общий журнал вслепую не пишут")
-        broken.drop()
+        rc, out = e.run("leg", "close", "--leg", "s-work-002", "--play", "work",
+                        "--log", "", "--result", "x", "--date", "2026-08-08")
+        check(rc == 1, "нога без строки журнала не закрывается")
     finally:
         e.drop()
 
 
-def case_eol():
-    """Вставка одной строки не переписывает концы строк во всём файле."""
-    for name, eol in (("CRLF", b"\r\n"), ("LF", b"\n")):
-        e = Env()
-        try:
-            (e.root / "LOG.md").write_bytes(
-                f"# LOG - {D}".encode() + eol + eol
-                + "2026-08-01 | s-старая-001 | work | direction | прежняя".encode()
-                + eol + eol + b"END_OF_FILE: x" + eol)
-            rc, _ = e.run("leg", "close", "--leg", "s-1", "--play", "work",
-                          "--log", "новая", "--result", "r", "--date", "2026-08-08")
-            raw = (e.root / "LOG.md").read_bytes()
-            crlf, lf = raw.count(b"\r\n"), raw.count(b"\n") - raw.count(b"\r\n")
-            check(rc == 0 and bool(crlf) != bool(lf) and (crlf if name == "CRLF" else lf),
-                  f"{name} сохранён целиком (CRLF={crlf}, одиночных LF={lf})")
-            check(raw.decode("utf-8").split(eol.decode())[2].startswith("2026-08-08"),
-                  f"{name}: новая строка всё равно вторая")
-        finally:
-            e.drop()
+def case_leg_close_is_all_or_nothing():
+    """Проверки ДО первой записи. Иначе отчёт ложится, а журналы нет — то самое,
+    ради чего команда и существует (упало на первой живой ноге 2026-08-08)."""
+    e = Env()
+    try:
+        e.run("card", "new", "--id", "t-1", "--kind", "task")
+        rc, out = e.run("leg", "close", "--leg", "s-3", "--play", "work",
+                        "--log", "проба", "--result", "x\n",
+                        "--id", "t-1", "--id", "нет-такой", "--date", "2026-08-08")
+        check(rc == 1 and "нет ни среди живых" in out,
+              f"стоп на несуществующей сущности: {out.splitlines()[-1][:60]}")
+        check(not (e.root / "history" / "2026-08-08-s-3.md").exists(),
+              "отчёт НЕ записан — ни одного байта до того, как всё сошлось")
+        check("журнал" not in e.card("t-1"),
+              "и журнал уцелевшей сущности тоже не тронут")
+    finally:
+        e.drop()
 
 
 def case_places():
@@ -303,12 +296,12 @@ def case_places():
 def main():
     before = live_fingerprint()
     for fn in (case_new, case_close_reopen, case_unset, case_yaml_marker,
-               case_leg_close, case_eol, case_places):
+               case_leg_close, case_leg_close_is_all_or_nothing, case_places):
         print(f"\n--- {fn.__doc__.splitlines()[0]}")
         fn()
     print("\n--- Живое состояние")
     check(live_fingerprint() == before,
-          "live/ не изменился ни на байт — а ведь команды умеют писать в LOG.md и history/")
+          "live/ не изменился ни на байт — а ведь команды умеют писать в history/ и карточки")
     print(f"\n{'ПРИНЯТО' if not fails else 'НЕ ПРИНЯТО: ' + str(len(fails)) + ' упало'}")
     return 1 if fails else 0
 

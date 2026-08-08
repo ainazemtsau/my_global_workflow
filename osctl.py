@@ -505,7 +505,6 @@ def cmd_log_add(a) -> int:
 CLOSED = "closed"
 # Человеческие поля, без которых панель показывает машинный id (закон 4).
 REQUIRED = {"node": ("label", "hook"), "call": ("description",)}
-LOG_HEAD = "# LOG"
 
 
 def closed_dir(direction: str, override: str | None = None) -> Path:
@@ -762,39 +761,17 @@ def cmd_card_unset(a) -> int:
     return 0
 
 
-def log_prepend(direction: str, line: str, root: str | None = None) -> str:
-    """Строка общего журнала ложится СРАЗУ ПОД ЗАГОЛОВКОМ. Куда именно — знает
-    команда: ровно здесь модель однажды дописала в конец вместо начала."""
-    p = live_root(direction, root) / "LOG.md"
-    if not p.exists():
-        raise Stop(f"нет общего журнала: {p}")
-    raw = p.read_bytes().decode("utf-8")
-    # Концы строк остаются какими были. Вставка одной строки не имеет права
-    # переписать весь файл: на Windows это превратило бы диff в «изменено всё».
-    eol = "\r\n" if "\r\n" in raw else chr(10)
-    lines = raw.split(eol)
-    if not lines or not lines[0].startswith(LOG_HEAD):
-        raise Stop(f"{p}: первая строка не заголовок {LOG_HEAD!r} — вставлять вслепую нельзя")
-    if line in lines:
-        return "уже была"
-    at = 2 if len(lines) > 1 and lines[1].strip() == "" else 1
-    lines[at:at] = [line, ""]
-    body = eol.join(lines)
-    tmp = p.with_suffix(".md.tmp")
-    tmp.write_bytes(body.encode("utf-8"))
-    tmp.replace(p)
-    if p.read_bytes().decode("utf-8") != body:
-        raise Stop(f"{p}: запись не сошлась при чтении обратно")
-    return "записана"
-
-
 def cmd_leg_close(a) -> int:
-    """Три вещи конца ноги, которые всегда происходят вместе: полный отчёт в
-    history/, строка в общий журнал, запись в журнал каждой затронутой сущности.
-    Порознь их забывают — 107 случаев на 45 отчётов.
+    """Конец ноги: полный отчёт в `history/` и запись в журнал каждой затронутой
+    сущности. Порознь их забывают — 107 случаев на 45 отчётов.
 
-    LOG.md здесь доживает свой срок: когда общий журнал уйдёт, отсюда уйдёт один
-    вызов, а история и журналы сущностей останутся на месте.
+    ВСЁ ПРОВЕРЯЕТСЯ ДО ПЕРВОЙ ЗАПИСИ. Пока это было не так, команда успевала
+    сохранить отчёт и падала перед журналами — частичная запись ровно там, где
+    команда существует, чтобы её не было (2026-08-08, первая живая нога).
+
+    В `LOG.md` больше не пишется: рез его удалил, и правила его не называют.
+    Общий журнал направления — это `git log`, поэтому команда печатает готовое
+    сообщение коммита: строка журнала и сообщение коммита теперь один текст.
 
     Поле `updated:` НЕ пишется намеренно: оно живёт в комментарии, дублирует дату
     и ногу из этой же записи, и правка его требовала бы поиска места в тексте.
@@ -803,11 +780,14 @@ def cmd_leg_close(a) -> int:
     date = a.date or __import__("datetime").date.today().isoformat()
     result = value_of(a, "result")
     log_text = " ".join(value_of(a, "log").split())
+    if not log_text:
+        raise Stop("пустая строка журнала — нога без следа не закрывается")
 
+    # --- ПРОВЕРКИ. Ни одного байта на диск, пока не сошлось всё.
     hist_dir = live_root(direction, a.live_root) / "history"
-    hist_dir.mkdir(parents=True, exist_ok=True)
     hist = hist_dir / f"{date}-{a.leg}.md"
     body = result if result.endswith(chr(10)) else result + chr(10)
+    saved = "сохранён"
     if hist.exists():
         # повтор ноги: тот же байт в байт — это доказательство, что запись уже
         # прошла целиком; другой текст под тем же именем — логическое столкновение
@@ -816,37 +796,40 @@ def cmd_leg_close(a) -> int:
         else:
             raise Stop(f"{hist.name} уже есть с ДРУГИМ текстом — это столкновение, "
                        "а не повтор. Разбирайся вручную, перезаписывать нельзя.")
-    else:
+
+    line = journal_line(date, log_text, hist.name)
+    planned, already = [], []
+    for cid in (a.id or []):
+        path = live_only(direction, cid, a.cards)      # нет карточки — стоп ЗДЕСЬ
+        head, blocks, order = read_card(path)
+        if line in (blocks.get(JOURNAL) or []):
+            already.append(cid)                        # повтор, а не ошибка
+            continue
+        planned.append((cid, path, head, blocks, order))
+
+    # --- ЗАПИСЬ. Дальше отказать уже нечему.
+    if saved == "сохранён":
+        hist_dir.mkdir(parents=True, exist_ok=True)
         tmp = hist.with_suffix(".md.tmp")
         tmp.write_text(body, encoding="utf-8", newline="")
         tmp.replace(hist)
         if hist.read_text(encoding="utf-8") != body:
             raise Stop(f"{hist}: запись не сошлась при чтении обратно")
-        saved = "сохранён"
-
-    scope = a.scope or "direction"
-    logged = log_prepend(direction, f"{date} | {a.leg} | {a.play} | {scope} | {log_text}",
-                         a.live_root)
-
-    touched = []
-    for cid in (a.id or []):
-        path = live_only(direction, cid, a.cards)
-        head, blocks, order = read_card(path)
-        try:
-            journal_put(blocks, order, journal_line(date, log_text, hist.name), cid)
-        except Stop as e:
-            touched.append(f"{cid}: {e}")
-            continue
+    for cid, path, head, blocks, order in planned:
+        journal_put(blocks, order, line, cid)
         write_card(direction, cid, head, blocks, order, a.cards, path=path)
-        touched.append(f"{cid}: записано")
 
     print(f"отчёт {hist.name}: {saved}")
-    print(f"общий журнал: {logged}")
-    for t in touched:
-        print(f"журнал {t}")
-    if not touched:
-        print("журналы сущностей: ни одна не названа (--id) — общий журнал остаётся "
-              "единственным следом")
+    for cid, *_ in planned:
+        print(f"журнал {cid}: записано")
+    for cid in already:
+        print(f"журнал {cid}: уже была та же запись")
+    if not (planned or already):
+        print("журналы сущностей: ни одна не названа (--id) — следом остаётся "
+              "только отчёт и коммит")
+    scope = a.scope or "direction"
+    print(f"{chr(10)}сообщение коммита (оно же строка общего журнала):")
+    print(f"  {direction} {a.play} {scope}: {log_text}")
     return 0
 
 
