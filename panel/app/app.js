@@ -6,6 +6,13 @@ let STATE = null;
 // Токен отрисовки: ответ fetch, пришедший после ухода со страницы, не рисуется.
 let RENDER_TOKEN = 0;
 
+// Куда вести ссылку на направление: на первый ГОТОВЫЙ раздел. Имя в коде
+// означало бы, что закрытие раздела оставляет мёртвую ссылку.
+function firstReady(d) {
+  const s = (d.sections || []).find((x) => x.ready);
+  return "#/" + d.id + "/" + (s ? s.id : "");
+}
+
 function el(tag, className, text) {
   const node = document.createElement(tag);
   if (className) node.className = className;
@@ -38,7 +45,7 @@ function renderTopbar(route) {
   dirs.textContent = "";
   for (const d of STATE.directions) {
     const link = el("a", d.id === route.direction ? "active" : "", d.id);
-    link.href = "#/" + d.id + "/now";
+    link.href = firstReady(d);
     dirs.appendChild(link);
   }
 
@@ -60,7 +67,7 @@ function renderPicker() {
   content.textContent = "";
   for (const d of STATE.directions) {
     const row = el("a", "row");
-    row.href = "#/" + d.id + "/now";
+    row.href = firstReady(d);
     row.appendChild(el("div", "status", "СТАВКА · —"));
     row.appendChild(el("div", "title", d.id));
     content.appendChild(row);
@@ -150,10 +157,12 @@ function renderOrderRow(container, order, isReady) {
   container.appendChild(row);
 }
 
-// Раздел «Сейчас»: строка чисел, готовые к запуску наряды, ниже — всё остальное.
-function renderNow(direction, content) {
+// Раздел «Сводка». ЗАКРЫТ до отдельной работы: он станет приборной панелью
+// с числами, а сегодняшний вид врал — писал «можно запускать» про наряд,
+// который владелец уже запустил. Код оставлен как основа, из меню не виден.
+function renderDashboard(direction, content) {
   const token = ++RENDER_TOKEN;
-  fetch("/api/section/" + encodeURIComponent(direction.id) + "/now")
+  fetch("/api/section/" + encodeURIComponent(direction.id) + "/dashboard")
     .then((response) => {
       if (!response.ok) throw new Error("HTTP " + response.status);
       return response.json();
@@ -518,8 +527,8 @@ function renderDirection(direction, sectionId) {
     content.appendChild(el("div", "empty", "РАЗДЕЛ ЕЩЁ НЕ СДЕЛАН"));
     return;
   }
-  if (sectionId === "now") {
-    renderNow(direction, content);
+  if (sectionId === "dashboard") {
+    renderDashboard(direction, content);
     return;
   }
   if (sectionId === "slots") {
@@ -551,7 +560,10 @@ function render() {
     renderPicker();
     return;
   }
-  renderDirection(direction, route.section || "now");
+  // Умолчание — ПЕРВЫЙ готовый раздел, а не имя в коде: закроешь раздел, и
+  // ссылка по умолчанию сама перестанет на него вести.
+  const first = (direction.sections || []).find((s) => s.ready);
+  renderDirection(direction, route.section || (first && first.id) || "wave");
 }
 
 function start() {

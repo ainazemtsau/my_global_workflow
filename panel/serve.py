@@ -119,11 +119,14 @@ def is_done(head):
     return outcome(head) == "done"
 
 
-SECTIONS = [("now", "СЕЙЧАС"), ("slots", "СЛОТЫ"), ("waiting", "ЖДЁТ ТЕБЯ"), ("wave", "ВОЛНА"),
+SECTIONS = [("dashboard", "СВОДКА"), ("slots", "СЛОТЫ"), ("waiting", "ЖДЁТ ТЕБЯ"), ("wave", "ВОЛНА"),
             ("goals", "ЦЕЛИ"), ("history", "ИСТОРИЯ"), ("knowledge", "ЗНАНИЯ"),
             ("direction", "НАПРАВЛЕНИЕ")]
 
-READY_SECTIONS = ("now", "slots", "wave", "goals")
+# «СВОДКА» закрыта до отдельной работы: она станет приборной панелью с числами,
+# а не списком нарядов. Сегодняшний её вид врал — писал «можно запускать» про
+# наряд, который владелец уже запустил.
+READY_SECTIONS = ("slots", "wave", "goals")
 
 CONTENT_TYPES = {".html": "text/html; charset=utf-8",
                  ".js": "application/javascript; charset=utf-8",
@@ -478,7 +481,7 @@ def section_numbers(direction, loaded):
             "waiting_for_you": waiting, "bet_days": bet_days}
 
 
-def section_now(direction):
+def section_dashboard(direction):
     with lock_for(direction):
         loaded, unread = load_cards(direction)
         tasks = {cid: v for cid, v in loaded.items() if v[0].get("_kind") == "task"}
@@ -534,8 +537,8 @@ class Handler(BaseHTTPRequestHandler):
         elif path.startswith("/api/section/"):
             parts = [urllib.parse.unquote(p) for p in path[len("/api/section/"):].split("/") if p]
             ok_dir = len(parts) == 2 and os.path.isdir(os.path.join(LIVE_DIR, parts[0]))
-            if ok_dir and parts[1] == "now":
-                self.send_json(section_now(parts[0]))
+            if ok_dir and parts[1] == "dashboard":
+                self.send_json(section_dashboard(parts[0]))
             elif ok_dir and parts[1] == "slots":
                 self.send_json(section_slots(parts[0]))
             elif ok_dir and parts[1] == "wave":

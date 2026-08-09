@@ -15,7 +15,7 @@ ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 PORT = 8787
 BASE = f"http://127.0.0.1:{PORT}"
 
-SECTIONS = ["now", "slots", "waiting", "wave", "goals", "history", "knowledge", "direction"]
+SECTIONS = ["dashboard", "slots", "waiting", "wave", "goals", "history", "knowledge", "direction"]
 DIRECTIONS = ["indie-game-development", "solmax"]
 
 fails: list[str] = []
@@ -99,7 +99,7 @@ def step00() -> None:
             secs = [s.get("id") for s in d.get("sections", [])]
             check(secs == SECTIONS, f"{d.get('id')}: разделы в порядке {SECTIONS}, найдено {secs}")
             ready = [s.get("id") for s in d.get("sections", []) if s.get("ready")]
-            check(ready == ["now", "slots", "wave", "goals"], f"{d.get('id')}: готовы now, slots, wave, goals — найдено {ready}")
+            check(ready == ["slots", "wave", "goals"], f"{d.get('id')}: готовы slots, wave, goals — найдено {ready}")
 
         # негативный контроль: пустой ответ не должен считаться успехом
         check(len(json.dumps(state)) > 200, "ответ не пустая заглушка")
@@ -166,7 +166,7 @@ def step01b() -> None:
             data = None
             for _ in range(40):
                 try:
-                    st, body = fetch("/api/section/" + direction + "/now")
+                    st, body = fetch("/api/section/" + direction + "/dashboard")
                     if st == 200:
                         data = json.loads(body)
                         break
@@ -251,7 +251,7 @@ def step01b() -> None:
 
         code = 0
         try:
-            code, _ = fetch("/api/section/no-such-direction/now")
+            code, _ = fetch("/api/section/no-such-direction/dashboard")
         except urllib.error.HTTPError as e:
             code = e.code
         except Exception as e:
@@ -265,7 +265,7 @@ def step01b() -> None:
         broken = os.path.join(out, "zz-broken.md")
         try:
             open(broken, "w", encoding="utf-8").write("---\nне: [ямл\n---\n")
-            st, body = fetch("/api/section/indie-game-development/now")
+            st, body = fetch("/api/section/indie-game-development/dashboard")
             d2 = json.loads(body)
             names = [u.get("file") for u in d2.get("unread", [])]
             check("zz-broken.md" in names, f"негативный контроль: битая карточка попала в unread ({names})")
@@ -327,7 +327,7 @@ def step01c() -> None:
         data = None
         for _ in range(40):
             try:
-                st, body = fetch("/api/section/indie-game-development/now")
+                st, body = fetch("/api/section/indie-game-development/dashboard")
                 if st == 200:
                     data = json.loads(body)
                     break
@@ -388,7 +388,7 @@ def step01c() -> None:
         else:
             check(n.get("bet_days") is None, "numbers.bet_days = null, когда ставки или даты нет")
 
-        st, body = fetch("/api/section/solmax/now")
+        st, body = fetch("/api/section/solmax/dashboard")
         d2 = json.loads(body)
         n2 = d2.get("numbers") or {}
         check(n2.get("tasks_total") == 0 and n2.get("bet_days") is None,
