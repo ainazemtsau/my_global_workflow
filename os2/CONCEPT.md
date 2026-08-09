@@ -55,6 +55,7 @@ osctl leg close    --leg s-work-... --play work --log "..." --result-file ...
 osctl now set      --field bet --value g-5a7c
 osctl slot claim   --slot 2 --for c-... --stage BUILD
 osctl slot release --slot 2 --for c-... --stage BUILD
+osctl context      --for t-house-2
 osctl find         --text "тоннель"
 osctl check        --direction indie-game-development
 ```

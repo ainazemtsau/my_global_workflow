@@ -890,6 +890,134 @@ def cmd_find(a) -> int:
     return 0
 
 
+# Вопрос/решение носит две вещи: к чему привязан и кто отвечает. Без первого
+# его негде искать, без второго он либо теряется, либо носится владельцу зря.
+ABOUT, ASKS, OWNER = "about", "asks", "владелец"
+
+
+def rel_path(p: Path) -> str:
+    try:
+        return str(p.relative_to(REPO)).replace(chr(92), "/")
+    except ValueError:
+        return str(p)
+
+
+def words_in(p: Path) -> int:
+    return len(p.read_text(encoding="utf-8").split())
+
+
+def cmd_context(a) -> int:
+    """Рабочий набор ноги: что читать и что ждёт слова владельца.
+
+    Замерено 2026-08-09: `Reads: cards/` в плеях означало 27 029 слов состояния
+    при рабочем наборе одной задачи около 4 200 — шестикратный перегруз, внутри
+    которого реестр подписей на 5 146 слов, читаемый одним гейтом.
+
+    Набор строит КОМАНДА ПО ССЫЛКАМ, которые в карточках уже есть (`_bet`,
+    `node`, `_parent`, `for`, `about`), а не модель по вкусу. И остаток называется
+    вслух: включённое плюс исключённое = все живые карточки. Молчаливая недостача
+    неотличима от «нечего показывать» — это тот самый класс, ради которого
+    написан `panel/test_readers.py`.
+    """
+    direction = resolve_direction(a.direction)
+    d = cards_dir(direction, a.cards)
+    if not d.is_dir():
+        raise Stop(f"папки карточек нет: {d}")
+    cards = {}
+    for p in sorted(d.glob("*.md")):
+        head, blocks, _ = read_card(p)
+        cards[p.stem] = (p, head, blocks)
+
+    now_file = now_path(direction, a.live_root)
+    now = read_now(direction, a.live_root)
+    target = a.for_ or now.get("bet")
+    if not target:
+        raise Stop("не названа цель (--for), и в указателе направления нет ставки")
+    if target not in cards:
+        raise Stop(f"нет живой карточки {target} — не с чего собирать набор. "
+                   f"Закрытую смотри так: card show --id {target}")
+
+    chosen: dict[str, str] = {}
+
+    def take(cid, why):
+        if cid and cid in cards and cid not in chosen:
+            chosen[cid] = why
+
+    take(target, "цель этой ноги")
+    anchor, head = target, cards[target][1]
+    if head.get("for") in cards:                    # наряд тянет свою задачу
+        take(head["for"], "задача этого наряда")
+        anchor = head["for"]
+        head = cards[anchor][1]
+    kind = head.get(KIND_KEY)
+    node = (head.get("node") if kind == "bet"
+            else anchor if kind == "node" else head.get(SERVICE + "bet"))
+
+    for cid, (_, h, _) in cards.items():
+        if h.get(KIND_KEY) == "bet" and h.get("node") == node:
+            take(cid, "ставка")
+    take(node, "цель ставки")
+    if node in cards:
+        take(cards[node][1].get(SERVICE + "parent"), "родитель цели")
+    for cid, (_, h, _) in cards.items():
+        if h.get("for") == anchor:
+            take(cid, "наряд под эту задачу")
+    if kind in ("node", "bet"):                     # ставку берут целиком со списком задач
+        for cid, (_, h, _) in cards.items():
+            if h.get(SERVICE + "bet") == node and h.get(KIND_KEY) == "task":
+                take(cid, "задача ставки")
+
+    waiting = []
+    for cid, (_, h, b) in sorted(cards.items()):
+        if h.get(KIND_KEY) not in ("question", "decision"):
+            continue
+        if str(h.get(ASKS) or OWNER).lower() not in (OWNER, "owner"):
+            continue                                # отвечает не он — не носим
+        about = h.get(ABOUT)
+        if about and about not in chosen:
+            continue                                # привязан к чужому месту
+        text = next((chr(10).join(v).strip() for v in b.values() if any(x.strip() for x in v)), "")
+        waiting.append({"id": cid, "about": about or "направление",
+                        "text": " ".join(text.split())[:300]})
+        take(cid, "ждёт слова владельца")
+
+    rest = [cid for cid in cards if cid not in chosen]
+    by_kind: dict[str, int] = {}
+    for cid in rest:
+        k = str(cards[cid][1].get(KIND_KEY))
+        by_kind[k] = by_kind.get(k, 0) + 1
+    excluded = {"ids": sorted(rest), "words": sum(words_in(cards[c][0]) for c in rest),
+                "by_kind": dict(sorted(by_kind.items()))}
+
+    chosen_set = [{"id": "NOW", "path": rel_path(now_file), "words": words_in(now_file),
+                   "why": "указатель направления"}]
+    chosen_set += [{"id": cid, "path": rel_path(cards[cid][0]), "words": words_in(cards[cid][0]),
+                    "why": why} for cid, why in sorted(chosen.items())]
+    out = {"direction": direction, "bet": now.get("bet"), "target": target,
+           "set": chosen_set, "waiting": waiting, "excluded": excluded}
+    if a.json:
+        print(json.dumps(out, ensure_ascii=False, indent=2, default=str))
+        return 0
+
+    print(f"направление: {direction} · ставка: {now.get('bet')} · цель ноги: {target}")
+    if waiting:
+        print(f"{chr(10)}ЖДЁТ СЛОВА ВЛАДЕЛЬЦА ({len(waiting)})")
+        for w in waiting:
+            print(f"  {w['id']} · про {w['about']}")
+            print(f"      {w['text']}")
+    else:
+        print(f"{chr(10)}ждёт слова владельца: ничего")
+    total = sum(x["words"] for x in chosen_set)
+    print(f"{chr(10)}РАБОЧИЙ НАБОР ({len(chosen_set)} файлов, {total} слов)")
+    for x in chosen_set:
+        print(f"  {x['path']:<58} {x['words']:>6}  {x['why']}")
+    kinds = " · ".join(f"{k} {n}" for k, n in excluded["by_kind"].items())
+    print(f"{chr(10)}НЕ ВКЛЮЧЕНО: {len(rest)} карточек, {excluded['words']} слов — {kinds}")
+    print(f"  дочитать: python osctl.py card show --id <id> · "
+          f"python osctl.py find --text <текст>")
+    return 0
+
+
 def cmd_check(a) -> int:
     """Только механические факты. Ничего не оценивает и не судит смысл."""
     direction = resolve_direction(a.direction)
@@ -1097,6 +1225,12 @@ def build_parser() -> argparse.ArgumentParser:
     q = sub.add_parser("find", help="поиск по карточкам")
     q.add_argument("--text", required=True); q.add_argument("--direction")
     q.add_argument("--cards"); q.set_defaults(fn=cmd_find)
+
+    q = sub.add_parser("context", help="рабочий набор ноги: что читать и что ждёт владельца")
+    q.add_argument("--for", dest="for_", help="id задачи/наряда/узла; без него — ставка")
+    q.add_argument("--direction"); q.add_argument("--cards")
+    q.add_argument("--live-root", dest="live_root")
+    q.add_argument("--json", action="store_true"); q.set_defaults(fn=cmd_context)
 
     q = sub.add_parser("check", help="механические факты о карточках, без оценок")
     q.add_argument("--direction"); q.add_argument("--cards"); q.set_defaults(fn=cmd_check)

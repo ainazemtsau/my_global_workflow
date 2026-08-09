@@ -13,7 +13,7 @@ The OS runs the owner's long-term directions through short AI legs over durable 
 
 ## 2. Session contract
 
-1. **OPEN** — input is a CALL or a plain owner message. Read fresh `NOW.md`/cards, the play and named evidence. Resolve plain input from state:
+1. **OPEN** — input is a CALL or a plain owner message. Assemble the working set with `python osctl.py context --for <target>`: it reads by card links, not by folder, and names what it left out — reading `cards/` whole is 6× the set. Add the play and named evidence. Whatever it lists as waiting for the owner goes to him in plain words BEFORE the first play step; he may defer, and a deferred item stays. Resolve plain input from state:
    - `начинаем день`, a daily status request, or continued discussion in today's day chat → `day`;
    - mission/success change → `frame`; roadmap/future-goal change → `map`; active-objective close, replacement or kill → `review`; a parked `outcome_kind: specification` → owner-authority `work` → fresh `converge-verify` → narrow `review`; ordinary activation → readiness router: passing `converge-verify` RESULT → `shape`; recorded `triage: <type> — converge OFF — because <reason>` copied into shape `play_check` → `shape`; a second-FAIL ceiling decision in his words → its chosen branch, `shape` on what is answered included; otherwise → `converge`;
    - task, lane, launch/loss receipt or recurring work → its `work` CALL; contradiction → `repair`;

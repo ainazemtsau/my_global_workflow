@@ -177,6 +177,7 @@ description: <one line: what this call is for>
 id: d-1
 _kind: decision
 track: gameplay             # required when tracks exist
+about: g-5a7c               # the card this belongs to; omit for the whole direction
 ---
 
 ## q
@@ -185,6 +186,30 @@ track: gameplay             # required when tracks exist
 <a, b, c>
 ## recommendation
 <a, because ...>
+```
+
+### question
+
+An open question with no options yet. `about` is what makes it findable, `asks` is
+who owes the answer. `osctl context` puts owner-owed ones at the top of any leg
+whose working set contains the `about` card, so he meets the question in chat
+instead of in a file he never opens. A capture needing his word is this card, never
+prose in a report: 395 capture lines accumulated in `history/`, and the one play
+that reads them ran once in 213 legs.
+
+```markdown
+---
+id: q-cargo-hits-player-001
+_kind: question
+about: g-5a7c               # omit for the whole direction
+asks: владелец              # владелец | нога — who owes the answer
+opened: <date>
+---
+
+## q
+<the question in the words it was asked>
+## why_it_matters
+<what stalls, or gets invented, while it stays unanswered>
 ```
 
 ### recurring
