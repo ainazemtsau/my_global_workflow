@@ -7,6 +7,7 @@ status: active
 detail: history/2026-08-07-s-shape-g-5a7c-001.md
 label: Игра, в которую играется
 hook: Четверо налётчиков тащат добычу телекинезом, хозяин мешает им причинно
+label_by: dev
 ---
 
 ## goal

@@ -7,6 +7,7 @@ status: parked
 detail: history/2026-07-27-s-map-october-demo-order-reset-001.md
 label: Страница в Steam
 hook: Публичная страница и сохранённая регистрация на октябрьский фестиваль
+label_by: dev
 ---
 
 ## goal

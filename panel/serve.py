@@ -194,16 +194,6 @@ def section_slots(direction):
     return out
 
 
-def load_labels(direction):
-    """Накладка коротких имён. Временная, живёт вне live/, у неё назван конец."""
-    path = os.path.join(ROOT, "os2", "labels", direction + ".yaml")
-    if not os.path.isfile(path):
-        return {}, None
-    with open(path, encoding="utf-8") as fh:
-        doc = yaml.safe_load(fh.read()) or {}
-    return (doc.get("labels") or {}), doc.get("by")
-
-
 # Внутренние статусы наружу не показываются: владелец в них не думает.
 NODE_STATE = {"active": ("running", "ИДЁТ СЕЙЧАС"), "shaped": ("ahead", "ДАЛЬШЕ"),
               "parked": ("ahead", "ДАЛЬШЕ"), "done": ("closed", "СДЕЛАНО"),
@@ -215,7 +205,6 @@ def section_goals(direction):
     with lock_for(direction):
         loaded, unread = load_cards(direction, kind="node")
 
-    labels, labels_by = load_labels(direction)
     # Прогноз направления — своя карточка, а не ключ NOW.md: рез унёс оттуда всё,
     # кроме ставки и лимита полос, и чтение старого ключа молча давало пустоту.
     target = None
@@ -231,12 +220,14 @@ def section_goals(direction):
     for cid, (h, b) in loaded.items():
         raw = h.get("status")
         state, word = NODE_STATE.get(raw, ("ahead", str(raw or "?").upper()))
-        lab = labels.get(cid) or {}
         out.append({
             "id": cid, "parent": h.get("_parent"), "pos": h.get("_pos"),
             "state": state, "word": word, "raw_status": raw,
-            "label": lab.get("label"), "hook": lab.get("hook"),
-            "label_by": labels_by if lab else None,
+            # имя и крючок — ИЗ КАРТОЧКИ. Накладка `os2/labels/` снята: пока она
+            # была, панель показывала её, а карточку игнорировала — переименование
+            # командой не дошло бы до экрана и об этом никто бы не узнал.
+            "label": h.get("label"), "hook": h.get("hook"),
+            "label_by": h.get("label_by"),
             "goal": h.get("goal") or block_text(b, "goal"),
             "why": h.get("why") or block_text(b, "why"),
             "done_when": h.get("done_when") or block_text(b, "done_when"),
@@ -333,19 +324,18 @@ def goal_page(direction, node_id):
     if node_id not in nodes:
         return None
     h, b = nodes[node_id]
-    labels, _ = load_labels(direction)
     state, word = NODE_STATE.get(h.get("status"), ("ahead", str(h.get("status") or "?").upper()))
 
     def brief(cid):
-        lab = labels.get(cid) or {}
-        st = (nodes.get(cid) or ({}, {}))[0].get("status") if cid in nodes else None
-        return {"id": cid, "label": lab.get("label") or cid, "dropped": st == "dropped"}
+        hh = (nodes.get(cid) or ({}, {}))[0]
+        return {"id": cid, "label": hh.get("label") or cid,
+                "dropped": hh.get("status") == "dropped"}
 
     kids = [brief(i) for i, (hh, _) in nodes.items() if hh.get("_parent") == node_id]
-    lab = labels.get(node_id) or {}
     return {
         "id": node_id, "state": state, "word": word, "raw_status": h.get("status"),
-        "label": lab.get("label") or node_id, "hook": lab.get("hook"),
+        "label": h.get("label") or node_id, "hook": h.get("hook"),
+        "label_by": h.get("label_by"),
         "goal": h.get("goal") or block_text(b, "goal"),
         "why": h.get("why") or block_text(b, "why"),
         "conditions": split_conditions(h.get("done_when") or block_text(b, "done_when")),

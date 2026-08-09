@@ -366,8 +366,10 @@ def step01c() -> None:
         bets = [v for v in src.values() if v[0].get("_kind") == "bet"]
         want_num = {
             "tasks_total": len(tasks),
-            "tasks_done": sum(1 for v in tasks.values()
-                              if v[0].get("_closed") or v[0].get("status") in ("done", "dropped")),
+            # «сделано» — ТОЛЬКО статус done. Закрытая без исхода сделанной не
+            # считается: `t-scale-2` сняли его словом, и звать это сделанным —
+            # ложь на экране. Прежняя строка считала любую закрытую.
+            "tasks_done": sum(1 for v in tasks.values() if v[0].get("status") == "done"),
             "tracks_limit": now.get("track_wip_limit"),
             "tracks_busy": len({v[0].get("track") for v in calls.values()
                                 if v[0].get("track") and v[0].get("status") not in ("done", "paused")}),

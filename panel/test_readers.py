@@ -156,6 +156,32 @@ def case_closed_is_visible():
           "у живой незакрытой задачи исхода нет — панель не выдумывает завершения")
 
 
+def case_no_second_source():
+    """У поля карточки не бывает второго источника.
+
+    Накладка `os2/labels/` жила рядом с карточками, и панель читала ЕЁ, а
+    карточку игнорировала: переименование командой не дошло бы до экрана, и
+    никто бы не узнал. Совпадали они ровно до первого расхождения.
+    """
+    check(not (ROOT / "os2" / "labels").exists(),
+          "накладки имён нет — у неё был назван конец, и он наступил")
+    bad = []
+    for rel in WATCHED:
+        for n, line in code_text(rel):
+            if "os2" in line and "labels" in line:
+                bad.append(f"{rel}:{n}")
+    check(not bad, f"никто её больше не читает ({bad[:3]})")
+
+    sys.path.insert(0, str(ROOT / "panel"))
+    import serve
+    nodes, _ = serve.load_cards("indie-game-development", kind="node")
+    named = [h for h, _ in nodes.values() if h.get("label")]
+    check(named, f"имена целей лежат в карточках ({len(named)} из {len(nodes)})")
+    # Чьи это слова — обязано ехать вместе с ними: имена писал не владелец.
+    check(all(h.get("label_by") for h in named),
+          "у каждого имени записано, кем оно написано")
+
+
 def case_service_key_not_written():
     """`_closed` выводится из папки и НИКОГДА не пишется в файл."""
     bad = [p.name for d in (ROOT / "live").iterdir() if d.is_dir()
@@ -169,7 +195,8 @@ def case_service_key_not_written():
 
 def main():
     for fn in (case_now_fields, case_kinds, case_paths, case_dead_dirs,
-               case_closed_is_visible, case_service_key_not_written):
+               case_closed_is_visible, case_no_second_source,
+               case_service_key_not_written):
         print(f"\n--- {fn.__doc__.splitlines()[0]}")
         fn()
     print(f"\n{'ПРИНЯТО' if not fails else 'НЕ ПРИНЯТО: ' + str(len(fails)) + ' упало'}")

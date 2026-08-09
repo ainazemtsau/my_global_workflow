@@ -7,6 +7,7 @@ status: dropped
 detail: history/2026-08-01-s-map-tree-legacy-cleanup-001.md
 label: Целый заход демо
 hook: Снято — узел будет заведён заново под новый концепт
+label_by: dev
 ---
 
 ## goal

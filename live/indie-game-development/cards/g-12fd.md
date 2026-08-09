@@ -9,6 +9,7 @@ status: dropped
 detail: history/2026-07-27-s-map-october-demo-order-reset-001.md
 label: Минимальное честное демо
 hook: Снято — требовало обещаний до того, как появилась сама игра
+label_by: dev
 ---
 
 ## done_when

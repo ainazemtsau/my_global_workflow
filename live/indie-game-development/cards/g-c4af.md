@@ -10,6 +10,7 @@ status: parked
 detail: history/2026-07-25-s-map-october-demo-release-roadmap-001.md
 label: Разбор пройденного пути
 hook: Понять, чего стоил соло-выпуск, и выбрать следующий курс
+label_by: dev
 ---
 
 ## done_when
