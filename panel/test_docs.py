@@ -202,9 +202,48 @@ def case_acceptances():
           f"число словом совпадает: сказано «{word}», на диске {len(on_disk) + 1}")
 
 
+def declared(pattern):
+    """Где число объявлено и какое. Одно число живёт в трёх-четырёх файлах —
+    ровно тот случай, ради которого приёмка и написана."""
+    out = {}
+    for rel in DOCS:
+        for m in re.finditer(pattern, text(rel)):
+            out.setdefault(m.group(1), []).append(rel)
+    return out
+
+
+def case_budgets():
+    """Потолки объявлены одним числом везде и посчитаны, а не приняты на слово."""
+    kern = declared(r"kernel ≤(\d+) words?")
+    check(len(kern) == 1, f"потолок ядра объявлен одним числом: {kern}")
+    if len(kern) == 1:
+        limit = int(next(iter(kern)))
+        words = len(text("os/KERNEL.md").split())
+        check(words <= limit, f"ядро {words} слов при потолке {limit}")
+
+    play = declared(r"(?:a play|each play) ≤(\d+)")
+    for num, where in declared(r"≤(\d+)-word budget").items():
+        play.setdefault(num, []).extend(where)
+    check(len(play) == 1, f"потолок плея объявлен одним числом: {play}")
+    if len(play) == 1:
+        limit = int(next(iter(play)))
+        over = [(p.name, n) for p in sorted((ROOT / "os" / "plays").glob("*.md"))
+                for n in [len(io.open(p, encoding="utf-8").read().split())] if n > limit]
+        check(not over, f"каждый плей в потолке {limit} (перебор: {over})")
+
+    types = declared(r"(\w+) (?:state )?file types")
+    check(len(types) == 1, f"число видов файлов состояния одно и то же: {types}")
+    # `os/EXTENDING.md` говорил «five state file types» и «six-type budget» в ОДНОМ
+    # предложении: рез поправил первое и не заметил второго.
+    budget_word = declared(r"(\w+)-type budget")
+    check(set(budget_word) <= set(types),
+          f"и слово в «...-type budget» то же самое: {budget_word} против {types}")
+
+
 def main():
     print(f"инструктирующих документов: {len(DOCS)}")
-    for fn in (case_commands, case_paths, case_kinds, case_sections, case_acceptances):
+    for fn in (case_commands, case_paths, case_kinds, case_sections,
+               case_acceptances, case_budgets):
         print(f"\n--- {fn.__doc__.splitlines()[0]}")
         fn()
     print(f"\n{'ПРИНЯТО' if not fails else 'НЕ ПРИНЯТО: ' + str(len(fails)) + ' упало'}")

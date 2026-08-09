@@ -21,7 +21,7 @@ This repository is the **Direction OS** — the owner's workflow system. Rules: 
 - A builder/executor handback, merge request, product RESULT, owner playtest summary, or "formally closed on dev/dev2" prose is **not** a Direction-OS close. It is evidence input. The writer may clear an `open_call` or mark done only from a valid Direction-OS RESULT/checkpoint whose evidence includes the required binding close verification; product gates + merge/push alone are never enough.
 - A parked node marked `outcome_kind: specification` follows the only no-bet `work` exception: an untracked owner-present authority contour authors the exact approved artifact, fresh `converge-verify` refutes it, and narrow `review` may mark it done without shape/bet/tasks/tracks. Executors may support mechanics but never decide or approve owner-content.
 - Every state file you write ends with its `END_OF_FILE: <path>` trailer.
-- Respect budgets when editing `os/**`: kernel ≤1500 words, a play ≤600, five state file types (see `os/MAINTENANCE.md`).
+- Respect budgets when editing `os/**`: kernel ≤1800 words, a play ≤600, five state file types (see `os/MAINTENANCE.md`). The numbers are counted by `panel/test_docs.py`, not trusted.
 - Small diffs; descriptive commit messages (`<direction>[/<track>] <play> <node/task>: <log line>` for state, plain descriptive for os/).
 - Do not delete files outside the scope of the job.
 

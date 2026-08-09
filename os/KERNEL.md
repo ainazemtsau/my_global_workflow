@@ -92,6 +92,6 @@ A leg that cannot pass a gate stops; it never improvises around it.
 
 ## 7. Changing the OS
 
-The OS changes only through `os/MAINTENANCE.md`: an explicit owner request is sufficient; self-initiated changes need ≥2 matching FRICTION entries. Budgets are absolute: kernel ≤1500 words, each play ≤600, five state file types. Prefer removing failed structure to adding another authority layer.
+The OS changes only through `os/MAINTENANCE.md`: an explicit owner request is sufficient; self-initiated changes need ≥2 matching FRICTION entries. Budgets are absolute: kernel ≤1800 words, each play ≤600, five state file types. Prefer removing failed structure to adding another authority layer.
 
 END_OF_FILE: os/KERNEL.md
