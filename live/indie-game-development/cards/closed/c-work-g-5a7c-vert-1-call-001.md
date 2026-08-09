@@ -13,5 +13,7 @@ _pos: 8
 ---
 
 ## журнал
+2026-08-09 · Исполнен: новый engineering-наряд c-exec-g-5a7c-player-vertical-probe-001 написан, происхождение проверено, WIN-U1 и база перемерены · history/2026-08-09-s-work-g-5a7c-vert-1-call-001.md
+2026-08-09 · наряд ПРОБЫ вертикали написан — WIN-U1 и база 11f8ddbf перемерены, три строки стоят на источниках, старые требования к форме state/step/snapshot сняты как замер стоимости · history/2026-08-09-s-work-g-5a7c-vert-1-call-001.md
 2026-08-08 · луч берёт на 8 ростов вместо 0.65 и выбор груза ушёл к хозяину игры — задача закрыта его словами «всё в принципе работает, можем закрывать»; порог убийства (3) не сработал · history/2026-08-08-s-work-g-5a7c-telekinesis-close-001.md
-END_OF_FILE: live/indie-game-development/cards/c-work-g-5a7c-vert-1-call-001.md
+END_OF_FILE: live/indie-game-development/cards/closed/c-work-g-5a7c-vert-1-call-001.md
