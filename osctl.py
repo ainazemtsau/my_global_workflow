@@ -354,6 +354,25 @@ def card_path(direction: str, cid: str, override: str | None = None) -> Path:
     return cards_dir(direction, override) / f"{cid}.md"
 
 
+def scalar(value: str):
+    """Значение поля шапки. Разбирается как YAML — но ТОЛЬКО до скаляра.
+
+    Если разбор дал словарь или список, значит в тексте было двоеточие или тире,
+    и это ПРОЗА, а не структура: «Наряд на t-vert-1: мышь поднимается над полом»
+    превращалось в отображение из одного ключа, панель печатала `[object Object]`,
+    а слова владельца молча меняли форму. Ровно тот отказ, ради которого всё это
+    и переделывалось (CONCEPT §2: «одно двоеточие в прозе валит разбор»).
+    Структуре место в теле блоком, в шапке живут только скаляры.
+    """
+    if value in ("", "null", "none"):
+        return None
+    try:
+        v = yaml.safe_load(value)
+    except yaml.YAMLError:
+        return value          # не разобралось — значит это просто текст
+    return value if isinstance(v, (dict, list)) else v
+
+
 def read_card(path: Path):
     """Шапка — yaml между первой и второй ---; тело режется по строкам '## '.
     Никакого другого разбора: закон 2."""
@@ -389,6 +408,9 @@ def write_card(direction: str, cid: str, head: dict, blocks: dict, order: list,
                override: str | None = None, path: Path | None = None) -> None:
     """Атомарно: временный файл, подмена, чтение обратно и сверка."""
     for k, v in head.items():
+        if isinstance(v, (dict, list)):
+            raise Stop(f"{cid}: поле {k} — {type(v).__name__}, а в шапке живут только скаляры. "
+                       "Структуре место в теле блоком: card block --name {k} --text-file <файл>")
         if isinstance(v, str) and (len(v) > HEAD_LIMIT or chr(10) in v):
             raise Stop(f"{cid}: поле {k} длиннее {HEAD_LIMIT} или многострочное — ему место в теле")
     both = sorted(set(head) & set(order))
@@ -438,7 +460,7 @@ def cmd_card_show(a) -> int:
 def cmd_card_set(a) -> int:
     """Значение приносится целиком. Команда никогда не правит кусок текста."""
     direction = resolve_direction(a.direction)
-    path = live_only(direction, a.id, a.cards)
+    path = live_only(direction, a.id, a.cards, a.closed)
     head, blocks, order = read_card(path)
     if a.field == "id" or a.field.startswith(SERVICE):
         raise Stop(f"{a.field} не меняется командой set — это опора карточки, а не данные")
@@ -447,15 +469,15 @@ def cmd_card_set(a) -> int:
                    "иначе у одного поля станет два носителя")
     if len(a.value) > HEAD_LIMIT or chr(10) in a.value:
         raise Stop(f"значение длиннее {HEAD_LIMIT} символов — это блок тела, а не поле шапки")
-    head[a.field] = yaml.safe_load(a.value) if a.value not in ("", "null") else None
-    write_card(direction, a.id, head, blocks, order, a.cards)
+    head[a.field] = scalar(a.value)
+    write_card(direction, a.id, head, blocks, order, a.cards, path=path)
     print(f"{a.id}: {a.field} = {head[a.field]!r}")
     return 0
 
 
 def cmd_card_block(a) -> int:
     direction = resolve_direction(a.direction)
-    path = live_only(direction, a.id, a.cards)
+    path = live_only(direction, a.id, a.cards, a.closed)
     head, blocks, order = read_card(path)
     if a.name == JOURNAL:
         raise Stop(f"«{JOURNAL}» пишется только командой log add")
@@ -478,7 +500,7 @@ def cmd_card_block(a) -> int:
     blocks[a.name] = lines
     if a.name not in order:
         order.append(a.name)
-    write_card(direction, a.id, head, blocks, order, a.cards)
+    write_card(direction, a.id, head, blocks, order, a.cards, path=path)
     print(f"{a.id}: блок «{a.name}» переписан целиком, {len(blocks[a.name])} строк")
     return 0
 
@@ -526,11 +548,17 @@ def locate(direction: str, cid: str, override: str | None = None):
     raise Stop(f"карточки нет ни среди живых, ни среди закрытых: {cid}")
 
 
-def live_only(direction: str, cid: str, override: str | None = None) -> Path:
+def live_only(direction: str, cid: str, override: str | None = None,
+              allow_closed: bool = False) -> Path:
+    """Закрытую карточку молча не правят. Но и чинить её иногда надо — например
+    когда порчу в неё записал сам инструмент. Тогда правка идёт с ЯВНЫМ `--closed`:
+    запрет был на молчаливое, а не на всякое."""
     p, is_closed = locate(direction, cid, override)
-    if is_closed:
-        raise Stop(f"{cid} закрыта и лежит в {CLOSED}/ — сначала верни её: "
-                   f"python osctl.py card reopen --id {cid}")
+    if is_closed and not allow_closed:
+        raise Stop(f"{cid} закрыта и лежит в {CLOSED}/." + chr(10)
+                   + f"  Вернуть в работу:   python osctl.py card reopen --id {cid} --why ..."
+                   + chr(10)
+                   + "  Или поправить на месте, не открывая: добавь --closed")
     return p
 
 
@@ -630,7 +658,7 @@ def cmd_now_set(a) -> int:
                    + chr(10).join(f"  {k} — {v}" for k, v in NOW_FIELDS.items())
                    + f"{chr(10)}  Всё остальное — карточка.")
     data = read_now(direction, a.live_root)
-    value = None if a.value in ("", "null", "none") else yaml.safe_load(a.value)
+    value = scalar(a.value)
     if a.field == "bet" and value is not None:
         # ставка указывает на карточку; несуществующий id — это молчаливая ложь
         locate(direction, f"bet-{value}", a.cards)
@@ -662,7 +690,7 @@ def cmd_card_new(a) -> int:
         k, v = pair.split("=", 1)
         if k == "id" or k.startswith(SERVICE):
             raise Stop(f"{k} не задаётся через --field — это опора карточки")
-        head[k] = yaml.safe_load(v) if v not in ("", "null") else None
+        head[k] = scalar(v)
     for pair in (a.block or []):
         if "=" not in pair:
             raise Stop(f"--block ждёт вида имя=путь-к-файлу, получено {pair!r}")
@@ -737,7 +765,7 @@ def cmd_card_reopen(a) -> int:
 def cmd_card_unset(a) -> int:
     """Убирает ключ совсем. `set --value ""` клал null — это не то же самое."""
     direction = resolve_direction(a.direction)
-    path = live_only(direction, a.id, a.cards)
+    path = live_only(direction, a.id, a.cards, a.closed)
     head, blocks, order = read_card(path)
     if bool(a.field) == bool(a.block):
         raise Stop("нужно ровно одно: --field (шапка) или --block (тело)")
@@ -756,7 +784,7 @@ def cmd_card_unset(a) -> int:
         del blocks[a.block]
         order.remove(a.block)
         what = f"блок {a.block}"
-    write_card(direction, a.id, head, blocks, order, a.cards)
+    write_card(direction, a.id, head, blocks, order, a.cards, path=path)
     print(f"{a.id}: {what} убран")
     return 0
 
@@ -893,6 +921,9 @@ def cmd_check(a) -> int:
         if not p.read_text(encoding="utf-8").rstrip().endswith(f"{p.name}"):
             problems.append(f"{p.name}: нет хвоста END_OF_FILE")
         for k, v in head.items():
+            if isinstance(v, (dict, list)):
+                problems.append(f"{p.name}: поле {k} — {type(v).__name__}, а не скаляр; "
+                                "скорее всего в прозе было двоеточие и её разобрали как структуру")
             if isinstance(v, str) and (len(v) > HEAD_LIMIT or chr(10) in v):
                 problems.append(f"{p.name}: поле {k} длинное — ему место в теле")
         j = blocks.get(JOURNAL) or []
@@ -1007,15 +1038,21 @@ def build_parser() -> argparse.ArgumentParser:
 
     q = common(card.add_parser("set", help="заменить значение поля шапки целиком"))
     q.add_argument("--field", required=True); q.add_argument("--value", required=True)
+    q.add_argument("--closed", action="store_true",
+                   help="править карточку, лежащую в closed/, не открывая её")
     q.set_defaults(fn=cmd_card_set)
 
     q = common(card.add_parser("block", help="переписать блок тела целиком"))
     q.add_argument("--name", required=True)
     q.add_argument("--text"); q.add_argument("--text-file", dest="text_file")
+    q.add_argument("--closed", action="store_true",
+                   help="править карточку, лежащую в closed/, не открывая её")
     q.set_defaults(fn=cmd_card_block)
 
     q = common(card.add_parser("unset", help="убрать ключ совсем (set --value '' клал null)"))
-    q.add_argument("--field"); q.add_argument("--block"); q.set_defaults(fn=cmd_card_unset)
+    q.add_argument("--field"); q.add_argument("--block"); q.add_argument("--closed", action="store_true",
+                   help="править карточку, лежащую в closed/, не открывая её")
+    q.set_defaults(fn=cmd_card_unset)
 
     q = common(card.add_parser("close", help="причина в журнал, карточка в closed/"))
     q.add_argument("--why"); q.add_argument("--why-file", dest="why_file")

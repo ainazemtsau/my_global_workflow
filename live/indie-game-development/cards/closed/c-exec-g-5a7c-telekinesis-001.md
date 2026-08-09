@@ -8,8 +8,8 @@ issued: 2026-08-08
 call: work/c-exec-g-5a7c-telekinesis-001-call.md
 repo: ainazemtsau/GasCoopGame
 engineering_contract: 36
-description:
-  Телекинез лучом: брать и вести груз на расстоянии, кандидат по прицелу И близости
+description: 'Телекинез лучом: брать и вести груз на расстоянии, кандидат по прицелу
+  И близости'
 _pos: 7
 ---
 

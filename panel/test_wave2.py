@@ -293,10 +293,69 @@ def case_places():
         e.drop()
 
 
+def case_prose_stays_prose():
+    """Двоеточие в прозе не превращает её в структуру.
+
+    Ровно этот отказ назван в CONCEPT §2 причиной всей переделки — «одно
+    двоеточие в прозе валит разбор» — и он воспроизвёлся внутри самой команды:
+    `--value "Наряд на t-vert-1: мышь поднимается"` разбиралось YAML'ом в
+    отображение, панель печатала `[object Object]`, а слова владельца молча
+    меняли форму. В шапке живут только скаляры.
+    """
+    e = Env()
+    try:
+        prose = "Наряд исполнителю на t-vert-1: мышь поднимается над полом"
+        rc, _ = e.run("card", "new", "--id", "c-1", "--kind", "call",
+                      "--field", f"description={prose}")
+        check(rc == 0, "наряд с двоеточием в описании заводится")
+        sys.path.insert(0, str(ROOT / "panel"))
+        import cards as fmt
+        h, _b = fmt.read_card(str(e.cards / "c-1.md"))
+        check(isinstance(h.get("description"), str),
+              f"описание осталось строкой, а не {type(h.get('description')).__name__}")
+        check(h.get("description") == prose, f"и текст дословный: {h.get('description')!r}")
+
+        rc, _ = e.run("card", "set", "--id", "c-1", "--field", "note",
+                      "--value", "срок: завтра, ответственный: он")
+        h, _b = fmt.read_card(str(e.cards / "c-1.md"))
+        check(isinstance(h.get("note"), str), "и через set — тоже строка")
+
+        # а настоящие скаляры по-прежнему скаляры
+        e.run("card", "set", "--id", "c-1", "--field", "order", "--value", "7")
+        e.run("card", "set", "--id", "c-1", "--field", "ready", "--value", "true")
+        h, _b = fmt.read_card(str(e.cards / "c-1.md"))
+        check(h.get("order") == 7 and h.get("ready") is True,
+              f"число осталось числом, булево булевым ({h.get('order')!r}, {h.get('ready')!r})")
+    finally:
+        e.drop()
+
+
+def case_closed_edit_is_explicit():
+    """Закрытую правят только явным словом — и правка ложится НА МЕСТО."""
+    e = Env()
+    try:
+        e.run("card", "new", "--id", "t-1", "--kind", "task")
+        e.run("card", "close", "--id", "t-1", "--why", "кончилась", "--status", "done")
+        rc, out = e.run("card", "set", "--id", "t-1", "--field", "note", "--value", "x")
+        check(rc == 1 and "--closed" in out, "без флага — отказ, и сказано как быть")
+
+        rc, out = e.run("card", "set", "--id", "t-1", "--field", "note",
+                        "--value", "поправлено", "--closed")
+        check(rc == 0, f"с флагом проходит: {out[:50]}")
+        check(not (e.cards / "t-1.md").exists(),
+              "и карточка НЕ всплыла в живой папке — правка легла на место")
+        check("поправлено" in e.card("t-1", closed=True), "правка дошла до закрытой карточки")
+        rc, out = e.run("check")
+        check(rc == 0 and "повторяется" not in out, "дублей id не появилось")
+    finally:
+        e.drop()
+
+
 def main():
     before = live_fingerprint()
     for fn in (case_new, case_close_reopen, case_unset, case_yaml_marker,
-               case_leg_close, case_leg_close_is_all_or_nothing, case_places):
+               case_leg_close, case_leg_close_is_all_or_nothing, case_places,
+               case_prose_stays_prose, case_closed_edit_is_explicit):
         print(f"\n--- {fn.__doc__.splitlines()[0]}")
         fn()
     print("\n--- Живое состояние")

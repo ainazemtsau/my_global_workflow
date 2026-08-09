@@ -8,9 +8,8 @@ issued: 2026-08-08
 call: work/c-exec-g-5a7c-player-vertical-001-call.md
 repo: ainazemtsau/GasCoopGame
 engineering_contract: 36
-description:
-  Вертикаль у игрока: высота авторитетна, едет по сети, её видят камера и проверка
-    места
+description: 'Вертикаль у игрока: высота авторитетна, едет по сети, её видят камера
+  и проверка места'
 _pos: 5
 ---
 

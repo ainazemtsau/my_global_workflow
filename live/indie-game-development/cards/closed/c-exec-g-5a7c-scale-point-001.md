@@ -8,8 +8,8 @@ issued: 2026-08-08
 call: work/c-exec-g-5a7c-scale-point-001-call.md
 repo: ainazemtsau/GasCoopGame
 engineering_contract: 36
-description:
-  Единая точка масштаба: пропорция живёт одной настройкой, мир при этом не меняется
+description: 'Единая точка масштаба: пропорция живёт одной настройкой, мир при этом
+  не меняется'
 _pos: 2
 ---
 
