@@ -12,8 +12,12 @@ import urllib.error
 import urllib.request
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-PORT = 8787
-BASE = f"http://127.0.0.1:{PORT}"
+# Порт НЕ фиксирован. Пока он был 8787, приёмка требовала гасить панель владельца,
+# и её красная строка «порт занят» означала не дефект, а то, что панелью
+# пользуются — сигнал, который горит в покое, перестаёт быть сигналом
+# (`os2/CONCEPT.md` §9). Теперь каждый прогон берёт свободный порт у системы;
+# чужому серверу на нём взяться неоткуда, а гасить нечего.
+BASE = ""
 
 SECTIONS = ["dashboard", "slots", "waiting", "wave", "goals", "history", "knowledge", "direction"]
 DIRECTIONS = ["indie-game-development", "solmax"]
@@ -38,12 +42,22 @@ def fetch(path: str):
         return r.status, r.read().decode("utf-8")
 
 
-def port_is_free() -> bool:
-    """Чужой сервер на этом порту — приёмка проверила бы не тот код и не заметила."""
+def start_panel() -> subprocess.Popen:
+    """Свой сервер на своём порту; `BASE` начинает указывать на него.
+
+    Порт спрашивается у системы (`bind` на 0), поэтому проверять его занятость
+    больше нечем и незачем: приёмка меряет процесс, который сама и запустила.
+    """
+    global BASE
     import socket
     with socket.socket() as s:
-        s.settimeout(1)
-        return s.connect_ex(("127.0.0.1", PORT)) != 0
+        s.bind(("127.0.0.1", 0))
+        port = s.getsockname()[1]
+    BASE = f"http://127.0.0.1:{port}"
+    return subprocess.Popen(
+        [sys.executable, os.path.join(ROOT, "panel", "serve.py"), "--port", str(port), "--no-open"],
+        cwd=ROOT, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL,
+    )
 
 
 def step00() -> None:
@@ -61,13 +75,9 @@ def step00() -> None:
     check("app.js" in html, "index.html подключает app.js")
     check("<style" not in html.lower(), "в index.html нет своих стилей — весь вид в style.css")
 
-    check(port_is_free(), f"порт {PORT} свободен — иначе проверялся бы чужой сервер")
     if fails:
         return
-    proc = subprocess.Popen(
-        [sys.executable, os.path.join(ROOT, "panel", "serve.py"), "--port", str(PORT), "--no-open"],
-        cwd=ROOT, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL,
-    )
+    proc = start_panel()
     try:
         state = None
         for _ in range(40):
@@ -153,13 +163,9 @@ def step01b() -> None:
 
     git_live_before = run("git", "status", "--porcelain", "live").stdout
 
-    check(port_is_free(), f"порт {PORT} свободен — иначе проверялся бы чужой сервер")
     if fails:
         return
-    proc = subprocess.Popen(
-        [sys.executable, os.path.join(ROOT, "panel", "serve.py"), "--port", str(PORT), "--no-open"],
-        cwd=ROOT, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL,
-    )
+    proc = start_panel()
     calls_by_dir = {}
     try:
         for direction in ("indie-game-development", "solmax"):
@@ -316,13 +322,9 @@ def step01c() -> None:
     if fails:
         return
 
-    check(port_is_free(), f"порт {PORT} свободен — иначе проверялся бы чужой сервер")
     if fails:
         return
-    proc = subprocess.Popen(
-        [sys.executable, os.path.join(ROOT, "panel", "serve.py"), "--port", str(PORT), "--no-open"],
-        cwd=ROOT, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL,
-    )
+    proc = start_panel()
     try:
         data = None
         for _ in range(40):
