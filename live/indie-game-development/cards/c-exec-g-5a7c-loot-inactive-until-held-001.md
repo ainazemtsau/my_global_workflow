@@ -1,0 +1,18 @@
+---
+id: c-exec-g-5a7c-loot-inactive-until-held-001
+_kind: call
+status: ready
+to: executor
+for: t-scale-4
+issued: 2026-08-09
+call: work/c-exec-g-5a7c-loot-inactive-until-held-001-call.md
+repo: ainazemtsau/GasCoopGame
+engineering_contract: 36
+description: 'Лут живой только пока его держат лучом или он падает; лёг и никто не
+  держит — неактивен, но пройти мешает'
+_pos: 11
+---
+
+## журнал
+2026-08-09 · наряд на неактивный лут написан — WIN-U1 и база 102af1b1 перемерены первой рукой, расчёт снял утверждённые «165–195 Н» и закрыл дешёвый неправильный путь «гравитация 3 и оно тихо», расхождение двух вертикальных законов сведено к одному названному числу, откат назван деревом 900bc02b · history/2026-08-09-s-work-g-5a7c-scale-4-call-001.md
+END_OF_FILE: live/indie-game-development/cards/c-exec-g-5a7c-loot-inactive-until-held-001.md
