@@ -126,7 +126,7 @@ SECTIONS = [("dashboard", "СВОДКА"), ("slots", "СЛОТЫ"), ("waiting", 
 # «СВОДКА» закрыта до отдельной работы: она станет приборной панелью с числами,
 # а не списком нарядов. Сегодняшний её вид врал — писал «можно запускать» про
 # наряд, который владелец уже запустил.
-READY_SECTIONS = ("slots", "waiting", "wave", "goals", "ideas")
+READY_SECTIONS = ("slots", "waiting", "wave", "goals", "ideas", "history")
 
 CONTENT_TYPES = {".html": "text/html; charset=utf-8",
                  ".js": "application/javascript; charset=utf-8",
@@ -402,6 +402,98 @@ def section_ideas(direction):
     if loose:
         groups.append({"about": None, "label": "про направление целиком", "rows": loose})
     return {"direction": direction, "count": len(rows), "groups": groups}
+
+
+# «ИСТОРИЯ». Три механических источника: имя отчёта (дата и id ноги), строка
+# `play:` внутри него и коммит, который его добавил. Поле `outcome:` не читается:
+# оно есть у одного отчёта из десяти, и показывать его — врать пустотой.
+LEG_NAME = re.compile(r"^(\d{4}-\d{2}-\d{2})-(.+)\.md$")
+# Якоря на начало строки тут быть НЕ ДОЛЖНО, и это измерено: в solmax и части
+# indie плей стоит внутри строки — `direction: solmax   play: review   node/task: …`.
+# С якорем находилось 194 отчёта из 300, без него 295, и разница молча вышла бы
+# на экран как «плей не записан» — тот самый отказ, когда панель говорит меньше,
+# чем есть. Пробел перед именем обязателен, иначе сюда попал бы `display:`.
+PLAY_LINE = re.compile(r"(?:^|\s)play:\s*(\S+)", re.M)
+
+
+def play_from_text(text):
+    """Плей из шапки отчёта. Чистая: форматов отчёта два, разбор один."""
+    m = PLAY_LINE.search(text)
+    return m.group(1) if m else None
+
+
+def leg_from_name(fname):
+    """Имя отчёта -> дата и id ноги. Чистая: ничего не читает с диска.
+    Всё, что не начинается с даты, — не нога: так в папке лежит архив
+    прежнего общего журнала (LOG-archive-*), он не строка списка."""
+    m = LEG_NAME.match(fname)
+    if not m:
+        return None
+    return {"date": m.group(1), "leg": m.group(2)}
+
+
+def history_row(fname, play, commit, direction=None):
+    """Одна строка «ИСТОРИИ». Чистая: чего нет в источниках, того нет в строке —
+    плей, сообщение коммита и хеш не подставляются и не выдумываются."""
+    parsed = leg_from_name(fname) or {}
+    path = f"live/{direction}/history/{fname}" if direction is not None else fname
+    return {"date": parsed.get("date"), "leg": parsed.get("leg"),
+            "play": play,
+            "text": commit["subject"] if commit else None,
+            "sha": commit["sha"] if commit else None,
+            "path": path}
+
+
+def _history_commits(direction):
+    """Один git log на весь раздел: какой коммит добавил каждый отчёт.
+    git идёт от новых к старым, поэтому файлу достаётся первый встреченный."""
+    code, out = git("log", "--diff-filter=A", "--name-only", "--date=short",
+                    "--pretty=format:%h" + SEP + "%ad" + SEP + "%s",
+                    "--", f"live/{direction}/history")
+    commits = {}
+    current = None
+    if code != 0 or not out:
+        return commits
+    for line in out.split(chr(10)):
+        if not line.strip():
+            continue
+        if SEP in line:
+            parts = line.split(SEP, 2)
+            current = {"sha": parts[0], "date": parts[1], "subject": parts[2]} \
+                if len(parts) == 3 else None
+            continue
+        name = os.path.basename(line)
+        if current is not None and name not in commits:
+            commits[name] = current
+    return commits
+
+
+def section_history(direction):
+    """По дням, что делали ноги и чем это кончилось. Строка несёт ровно то, что
+    измеримо; недостающее показано как недостающее, а кэш не заводится: второй
+    источник правды однажды разошёлся бы с первым."""
+    folder = os.path.join(LIVE_DIR, direction, "history")
+    names = sorted(f for f in os.listdir(folder) if f.endswith(".md")) \
+        if os.path.isdir(folder) else []
+    archive = next((f"live/{direction}/history/{f}" for f in names
+                    if f.startswith("LOG-archive-")), None)
+    commits = _history_commits(direction)
+    rows = []
+    for fname in names:
+        if leg_from_name(fname) is None:
+            continue
+        with open(os.path.join(folder, fname), "rb") as fh:
+            play = play_from_text(fh.read(700).decode("utf-8", errors="replace"))
+        rows.append(history_row(fname, play, commits.get(fname), direction))
+    by_day = {}
+    for r in rows:
+        by_day.setdefault(r["date"], []).append(r)
+    days = [{"date": d, "rows": sorted(by_day[d], key=lambda r: r["leg"] or "")}
+            for d in sorted(by_day, reverse=True)]
+    return {"direction": direction, "days": days, "count": len(rows),
+            "without_commit": sum(1 for r in rows if r["text"] is None),
+            "without_play": sum(1 for r in rows if r["play"] is None),
+            "archive": archive}
 
 
 PLAY_WORD = {
@@ -694,6 +786,8 @@ class Handler(BaseHTTPRequestHandler):
                 self.send_json(section_goals(parts[0]))
             elif ok_dir and parts[1] == "ideas":
                 self.send_json(section_ideas(parts[0]))
+            elif ok_dir and parts[1] == "history":
+                self.send_json(section_history(parts[0]))
             else:
                 self.send_error(404, "not found")
         else:

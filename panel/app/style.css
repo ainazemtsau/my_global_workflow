@@ -115,6 +115,7 @@ html, body {
 .desc { font-size: 13px; color: var(--fg-dim); }
 .desc.dim { color: var(--fg-off); }
 .id { font-family: var(--mono); font-size: 11px; color: var(--fg-faint); margin-top: 10px; }
+.id .dim { color: var(--fg-off); }
 
 /* пустой раздел и раздел, которого ещё нет */
 .empty {

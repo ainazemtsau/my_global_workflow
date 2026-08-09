@@ -553,6 +553,62 @@ function renderIdeas(direction, content) {
     .catch((e) => { content.textContent = ""; content.appendChild(el("div", "empty", "НЕ ОТВЕЧАЕТ: " + e)); });
 }
 
+// Раздел «ИСТОРИЯ»: по дням, что делали ноги и чем это кончилось. Строка —
+// сообщение коммита; чего в источниках нет, то показано тускло и дословно,
+// а не выдумано. Тексты владельца взяты из наряда дословно.
+function renderHistory(direction, content) {
+  const token = ++RENDER_TOKEN;
+  fetch("/api/section/" + encodeURIComponent(direction.id) + "/history")
+    .then((response) => { if (!response.ok) throw new Error("HTTP " + response.status); return response.json(); })
+    .then((data) => {
+      if (token !== RENDER_TOKEN) return;
+      content.textContent = "";
+      const sub = el("div", "row");
+      sub.appendChild(el("div", "desc",
+        "Что делали ноги, по дням. Строка — сообщение коммита, которым нога закончилась."));
+      content.appendChild(sub);
+
+      if (!data.count) {
+        content.appendChild(el("div", "empty", "Пока ни одной ноги."));
+      }
+      for (const day of data.days || []) {
+        const head = el("div", "group", day.date);
+        content.appendChild(head);
+        for (const r of day.rows) {
+          const row = el("div", "row");
+          if (r.text) {
+            row.appendChild(el("div", "human", r.text));
+          } else {
+            row.appendChild(el("div", "human dim", "коммит не найден"));
+          }
+          const meta = el("div", "id");
+          if (r.play) {
+            meta.appendChild(document.createTextNode(r.play));
+          } else {
+            meta.appendChild(el("span", "dim", "плей не записан"));
+          }
+          meta.appendChild(document.createTextNode(" · " + r.leg));
+          if (r.sha) meta.appendChild(document.createTextNode(" · " + r.sha));
+          meta.appendChild(document.createTextNode(" · " + r.path));
+          row.appendChild(meta);
+          content.appendChild(row);
+        }
+      }
+
+      if (data.archive) {
+        const a = el("div", "row");
+        a.appendChild(el("div", "desc", "Прежний общий журнал направления лежит архивом:"));
+        a.appendChild(el("div", "id", data.archive));
+        content.appendChild(a);
+      }
+
+      content.appendChild(el("div", "numbers",
+        "Всего ног: " + data.count + ". Без сообщения: " + data.without_commit
+        + ". Без плея: " + data.without_play + "."));
+    })
+    .catch((e) => { content.textContent = ""; content.appendChild(el("div", "empty", "НЕ ОТВЕЧАЕТ: " + e)); });
+}
+
 function renderSlots(direction, content) {
   const token = ++RENDER_TOKEN;
   fetch("/api/section/" + encodeURIComponent(direction.id) + "/slots")
@@ -652,6 +708,10 @@ function renderDirection(direction, sectionId) {
   }
   if (sectionId === "ideas") {
     renderIdeas(direction, content);
+    return;
+  }
+  if (sectionId === "history") {
+    renderHistory(direction, content);
     return;
   }
   if (sectionId === "goals") {

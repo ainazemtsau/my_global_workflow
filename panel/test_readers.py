@@ -212,6 +212,47 @@ def case_idea_keeps_its_author():
     check(bare["his_words"] is None, "и цитаты нет, когда её нет")
 
 
+def case_history_never_invents():
+    """«ИСТОРИЯ» собирается из трёх механических источников и молчит там, где их нет.
+
+    Замерено 2026-08-09 на 303 отчётах обоих направлений: `play:` внутри отчёта
+    есть у 298, коммит, добавивший отчёт, находится у 220 из 222 (indie), а вот
+    `outcome:` — только у 24 из 221: форматов отчёта два, и поле, которого нет у
+    девяти из десяти, показывать нельзя. Поэтому строка несёт ровно то, что
+    измеримо, а недостающее показывает как недостающее.
+    """
+    sys.path.insert(0, str(ROOT / "panel"))
+    import serve
+    got = serve.leg_from_name("2026-08-09-s-work-g-5a7c-vert-1-close-001.md")
+    check(got and got["date"] == "2026-08-09"
+          and got["leg"] == "s-work-g-5a7c-vert-1-close-001",
+          f"имя файла даёт дату и id ноги: {got}")
+    check(serve.leg_from_name("LOG-archive-indie-game-development.md") is None,
+          "архив прежнего журнала — не нога, в список ног не идёт")
+    check(serve.leg_from_name("что-угодно.md") is None, "мусорное имя — не нога")
+
+    commit = {"sha": "abc1234", "date": "2026-08-09", "subject": "работа: сделано то-то"}
+    row = serve.history_row("2026-08-09-s-work-x-001.md", "work", commit)
+    check(row["play"] == "work" and row["text"] == "работа: сделано то-то"
+          and row["sha"] == "abc1234", f"строка несёт плей, сообщение коммита и его хеш: {row}")
+    check(row["path"].endswith("2026-08-09-s-work-x-001.md"), "и путь к отчёту")
+
+    bare = serve.history_row("2026-08-09-s-work-x-001.md", None, None)
+    check(bare["text"] is None and bare["sha"] is None,
+          "коммита нет — строка молчит, а не сочиняет сообщение")
+    check(bare["play"] is None, "плей не записан — так и остаётся пустым")
+
+    # Форматов отчёта ДВА, и разбор обязан брать оба. Якорь на начало строки
+    # находил 194 из 300 — остальные 101 молча стали бы «плей не записан».
+    check(serve.play_from_text("direction: x\nplay: work\nnode/task: y") == "work",
+          "плей своей строкой — читается")
+    check(serve.play_from_text("direction: solmax   play: review   node/task: z") == "review",
+          "плей внутри строки — читается тоже, иначе треть истории онемеет")
+    check(serve.play_from_text("display: none") is None,
+          "и `display:` плеем не считается — пробел перед именем обязателен")
+    check(serve.play_from_text("ничего похожего") is None, "нет плея — None, не выдумка")
+
+
 def case_service_key_not_written():
     """`_closed` выводится из папки и НИКОГДА не пишется в файл."""
     bad = [p.name for d in (ROOT / "live").iterdir() if d.is_dir()
@@ -270,6 +311,7 @@ def main():
     for fn in (case_now_fields, case_kinds, case_paths, case_dead_dirs,
                case_closed_is_visible, case_no_second_source,
                case_waiting_is_only_yours, case_idea_keeps_its_author,
+               case_history_never_invents,
                case_service_key_not_written):
         print(f"\n--- {fn.__doc__.splitlines()[0]}")
         fn()
