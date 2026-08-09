@@ -126,7 +126,7 @@ SECTIONS = [("dashboard", "СВОДКА"), ("slots", "СЛОТЫ"), ("waiting", 
 # «СВОДКА» закрыта до отдельной работы: она станет приборной панелью с числами,
 # а не списком нарядов. Сегодняшний её вид врал — писал «можно запускать» про
 # наряд, который владелец уже запустил.
-READY_SECTIONS = ("slots", "wave", "goals")
+READY_SECTIONS = ("slots", "waiting", "wave", "goals")
 
 CONTENT_TYPES = {".html": "text/html; charset=utf-8",
                  ".js": "application/javascript; charset=utf-8",
@@ -257,6 +257,103 @@ def section_goals(direction):
     return {"direction": direction, "root": root, "groups": groups, "target": target,
             "unread": unread, "no_label": [r["id"] for r in out if not r["label"]],
             "counts": {k: len(v) for k, v in groups.items()}}
+
+
+# «ЖДЁТ ТЕБЯ»: сюда попадает только то, где отвечает владелец. Порядок кортежа —
+# порядок групп на экране: сначала работа стоит, потом «нужно твоё слово».
+WAITING_GROUPS = (("decision", "РЕШЕНИЕ", True),
+                  ("question", "ВОПРОС", True),
+                  ("owner_call", "НАРЯД К ТЕБЕ", True),
+                  ("stalled", "СТОИТ", False),
+                  ("unnamed_goal", "ЦЕЛЬ БЕЗ ИМЕНИ", False),
+                  ("closed_unnamed", "ЗАКРЫТО БЕЗ ПРИЧИНЫ", False))
+WAIT_TITLE_FIELDS = ("label", "q", "question", "goal", "description")
+WAIT_DETAIL_FIELDS = ("options", "recommendation", "why")
+
+
+def waiting_group(head):
+    """В какую группу попадает карточка — и попадает ли вообще.
+    Записи (issue) сюда не зовутся: у них свой отвечающий и условие-событие."""
+    if head.get("_closed"):
+        if head.get("_kind") in ("task", "node") \
+                and head.get("status") not in ("done", "dropped"):
+            return "closed_unnamed"
+        return None
+    kind = head.get("_kind")
+    if kind == "decision":
+        return "decision"
+    if kind == "question":
+        return "question"
+    if kind == "call":
+        if head.get("to") == "owner":
+            return "owner_call"
+        if head.get("status") in ("blocked", "waiting", "paused"):
+            return "stalled"
+        return None
+    if kind == "node" and not head.get("label"):
+        return "unnamed_goal"
+    return None
+
+
+def waiting_value(cid, head, blocks, name):
+    """Длинное значение может лежать И в шапке, И блоком тела. Из шапки берём
+    строку; иначе блок, и ```yaml в нём разбирается cards.body_value."""
+    v = head.get(name)
+    if isinstance(v, str) and v.strip():
+        return v
+    lines = blocks.get(name)
+    if lines:
+        return cards.body_value(cid, name, lines)
+    return None if v in (None, "") else v
+
+
+def waiting_row(cid, head, blocks, group):
+    title = cid
+    for name in WAIT_TITLE_FIELDS:
+        v = waiting_value(cid, head, blocks, name)
+        if isinstance(v, str) and v.strip():
+            title = v
+            break
+    detail = None
+    for name in WAIT_DETAIL_FIELDS:
+        v = waiting_value(cid, head, blocks, name)
+        if v in (None, ""):
+            continue
+        if isinstance(v, list):
+            detail = "\n".join(str(x) for x in v)
+        elif isinstance(v, dict):
+            detail = json.dumps(v, ensure_ascii=False)
+        else:
+            detail = v
+        break
+    return {"id": cid, "kind": head.get("_kind"), "group": group,
+            "blocking": group in {g for g, _, b in WAITING_GROUPS if b},
+            "title": title, "detail": detail,
+            "unblock": waiting_value(cid, head, blocks, "unblock_when"),
+            "since": head.get("opened") or head.get("issued")}
+
+
+def section_waiting(direction):
+    """Только то, где отвечает владелец. Угадывать «пора/не пора» нельзя:
+    записи с условием-событием не показываются, а считаются строкой внизу."""
+    with lock_for(direction):
+        loaded, unread = load_cards(direction)
+    rows = {key: [] for key, _, _ in WAITING_GROUPS}
+    issues_parked = 0
+    for cid, (head, blocks) in loaded.items():
+        if head.get("_kind") == "issue":
+            if not head.get("_closed"):
+                issues_parked += 1
+            continue
+        group = waiting_group(head)
+        if group is not None:
+            rows[group].append(waiting_row(cid, head, blocks, group))
+    blocking, other = [], []
+    for key, _, is_blocking in WAITING_GROUPS:
+        rows[key].sort(key=lambda r: str(r["id"]))
+        (blocking if is_blocking else other).extend(rows[key])
+    return {"direction": direction, "blocking": blocking, "other": other,
+            "issues_parked": issues_parked, "unread": unread}
 
 
 PLAY_WORD = {
@@ -541,6 +638,8 @@ class Handler(BaseHTTPRequestHandler):
                 self.send_json(section_dashboard(parts[0]))
             elif ok_dir and parts[1] == "slots":
                 self.send_json(section_slots(parts[0]))
+            elif ok_dir and parts[1] == "waiting":
+                self.send_json(section_waiting(parts[0]))
             elif ok_dir and parts[1] == "wave":
                 self.send_json(section_wave(parts[0]))
             elif ok_dir and parts[1] == "goals" and len(parts) == 2:

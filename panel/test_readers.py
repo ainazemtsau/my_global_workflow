@@ -193,9 +193,50 @@ def case_service_key_not_written():
     check(not writes, "и команда записи о нём не знает")
 
 
+def case_waiting_is_only_yours():
+    """«ЖДЁТ ТЕБЯ» показывает только то, где отвечает ВЛАДЕЛЕЦ.
+
+    Разбор проверяется напрямую, а не по живым данным: групп «СТОИТ» и
+    «ЗАКРЫТО БЕЗ ПРИЧИНЫ» сегодня в состоянии нет, и без этого случая они
+    были бы написаны, но никогда не проверены.
+    """
+    sys.path.insert(0, str(ROOT / "panel"))
+    import serve
+    cases = [
+        ({"_kind": "decision"}, "decision", True),
+        ({"_kind": "question"}, "question", True),
+        ({"_kind": "call", "to": "owner", "status": "ready"}, "owner_call", True),
+        # наряд стоит НЕ на владельце: условие снятия — свободный текст,
+        # вычислить «это на нём» нельзя, поэтому в блокирующие он не идёт
+        ({"_kind": "call", "to": "exec", "status": "blocked"}, "stalled", False),
+        ({"_kind": "call", "to": "exec", "status": "ready"}, None, None),
+        ({"_kind": "node", "label": ""}, "unnamed_goal", False),
+        ({"_kind": "node", "label": "Есть имя"}, None, None),
+        ({"_kind": "issue"}, None, None),          # у записи свой отвечающий
+        ({"_kind": "task", "_closed": True, "status": "open"}, "closed_unnamed", False),
+        ({"_kind": "task", "_closed": True, "status": "done"}, None, None),
+        ({"_kind": "task", "_closed": True, "status": "dropped"}, None, None),
+    ]
+    bad = []
+    for head, want, blocking in cases:
+        got = serve.waiting_group(head)
+        if got != want:
+            bad.append(f"{head} -> {got}, ждали {want}")
+            continue
+        if want and serve.waiting_row("x", head, {}, got)["blocking"] != blocking:
+            bad.append(f"{head}: blocking не {blocking}")
+    check(not bad, f"разбор по группам сходится на {len(cases)} случаях ({bad[:2]})")
+
+    row = serve.waiting_row("c-1", {"_kind": "call", "to": "e", "status": "blocked",
+                                    "unblock_when": "пока он не назовёт слот"}, {}, "stalled")
+    check(row.get("unblock") == "пока он не назовёт слот",
+          "условие снятия доходит до строки — владелец сам видит, на нём ли это")
+
+
 def main():
     for fn in (case_now_fields, case_kinds, case_paths, case_dead_dirs,
                case_closed_is_visible, case_no_second_source,
+               case_waiting_is_only_yours,
                case_service_key_not_written):
         print(f"\n--- {fn.__doc__.splitlines()[0]}")
         fn()

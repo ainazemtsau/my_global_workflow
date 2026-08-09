@@ -446,6 +446,65 @@ function renderWave(direction, content) {
     .catch((e) => { content.textContent = ""; content.appendChild(el("div", "empty", "НЕ ОТВЕЧАЕТ: " + e)); });
 }
 
+// Раздел «ЖДЁТ ТЕБЯ»: только то, где отвечает владелец. Слова групп приходят
+// с сервера ключом; вид — только классами из style.css.
+const WAITING_WORD = {decision: "РЕШЕНИЕ", question: "ВОПРОС", owner_call: "НАРЯД К ТЕБЕ",
+  stalled: "СТОИТ", unnamed_goal: "ЦЕЛЬ БЕЗ ИМЕНИ", closed_unnamed: "ЗАКРЫТО БЕЗ ПРИЧИНЫ"};
+
+function waitingRow(r) {
+  const row = el("div", "row");
+  row.appendChild(el("div", r.blocking ? "status" : "status wait",
+    WAITING_WORD[r.group] || r.group));
+  row.appendChild(el("div", r.blocking ? "title" : "title dim", r.title));
+  if (r.detail) {
+    row.appendChild(mdNode("div", "desc", r.detail));
+  }
+  if (r.unblock) {
+    row.appendChild(el("div", "waitline", "ждёт: " + r.unblock));
+  }
+  row.appendChild(el("div", "id", r.id));
+  return row;
+}
+
+function renderWaiting(direction, content) {
+  const token = ++RENDER_TOKEN;
+  fetch("/api/section/" + encodeURIComponent(direction.id) + "/waiting")
+    .then((response) => { if (!response.ok) throw new Error("HTTP " + response.status); return response.json(); })
+    .then((data) => {
+      if (token !== RENDER_TOKEN) return;
+      content.textContent = "";
+      const blocking = data.blocking || [];
+      const other = data.other || [];
+      const counts = {};
+      for (const r of blocking.concat(other)) counts[r.group] = (counts[r.group] || 0) + 1;
+      const WAITING_COUNTS = [["ждёт ответа", ["decision", "question", "owner_call"]],
+        ["стоит", ["stalled"]], ["нужно имя", ["unnamed_goal"]], ["закрыто без причины", ["closed_unnamed"]]];
+      const nums = el("div", "numbers");
+      for (const [word, groups] of WAITING_COUNTS) {
+        const n = groups.reduce((s, g) => s + (counts[g] || 0), 0);
+        if (n) nums.appendChild(el("span", "num", word + " " + n));
+      }
+      if (nums.childNodes.length) content.appendChild(nums);
+
+      if (!blocking.length && !other.length) {
+        content.appendChild(el("div", "empty", "НИЧЕГО НЕ ЖДЁТ"));
+      }
+      for (const r of blocking) content.appendChild(waitingRow(r));
+      for (const r of other) content.appendChild(waitingRow(r));
+
+      // Записи ждут события, а не даты — в списках им не место, но число честно показываем.
+      if (data.issues_parked > 0) {
+        content.appendChild(el("div", "desc",
+          data.issues_parked + " записей ждут своего события, дат у них нет"));
+      }
+      if ((data.unread || []).length) {
+        content.appendChild(el("div", "problem",
+          "НЕ ПРОЧИТАЛОСЬ " + data.unread.length + " — " + data.unread.map((u) => u.file).join(", ")));
+      }
+    })
+    .catch((e) => { content.textContent = ""; content.appendChild(el("div", "empty", "НЕ ОТВЕЧАЕТ: " + e)); });
+}
+
 function renderSlots(direction, content) {
   const token = ++RENDER_TOKEN;
   fetch("/api/section/" + encodeURIComponent(direction.id) + "/slots")
@@ -533,6 +592,10 @@ function renderDirection(direction, sectionId) {
   }
   if (sectionId === "slots") {
     renderSlots(direction, content);
+    return;
+  }
+  if (sectionId === "waiting") {
+    renderWaiting(direction, content);
     return;
   }
   if (sectionId === "wave") {
