@@ -212,6 +212,34 @@ opened: <date>
 <what stalls, or gets invented, while it stays unanswered>
 ```
 
+### idea
+
+The other half of the same capture: content nobody is committed to build. An idea
+is **never a requirement** — no leg may treat one as a `done_when` line, and no bet
+absorbs one without the owner's word. `from` is load-bearing: his own deferred
+content and a leg's invention must never become indistinguishable, which is the
+failure the approval registry exists to prevent. `source` points at the report the
+idea came from, so the reasoning survives without being copied.
+
+Closes with `card close --status taken|dropped`: `taken` names the card that
+absorbed it, `dropped` names why.
+
+```markdown
+---
+id: idea-music-box-001
+_kind: idea
+about: g-5a7c               # omit for the whole direction
+from: владелец              # владелец | нога — whose idea this is
+source: history/2026-08-08-s-repair-g-5a7c-wave-reshape-001.md
+opened: <date>
+---
+
+## idea
+<one short paragraph: what it is>
+## his_words
+<verbatim quote — only when it exists; never paraphrased into one>
+```
+
 ### recurring
 
 ```markdown

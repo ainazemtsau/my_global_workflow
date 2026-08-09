@@ -19,7 +19,7 @@ ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # чужому серверу на нём взяться неоткуда, а гасить нечего.
 BASE = ""
 
-SECTIONS = ["dashboard", "slots", "waiting", "wave", "goals", "history", "knowledge", "direction"]
+SECTIONS = ["dashboard", "slots", "waiting", "wave", "goals", "ideas", "history", "knowledge", "direction"]
 DIRECTIONS = ["indie-game-development", "solmax"]
 
 fails: list[str] = []
@@ -109,7 +109,8 @@ def step00() -> None:
             secs = [s.get("id") for s in d.get("sections", [])]
             check(secs == SECTIONS, f"{d.get('id')}: разделы в порядке {SECTIONS}, найдено {secs}")
             ready = [s.get("id") for s in d.get("sections", []) if s.get("ready")]
-            check(ready == ["slots", "waiting", "wave", "goals"], f"{d.get('id')}: готовы slots, waiting, wave, goals — найдено {ready}")
+            check(ready == ["slots", "waiting", "wave", "goals", "ideas"],
+                  f"{d.get('id')}: готовы slots, waiting, wave, goals, ideas — найдено {ready}")
 
         # негативный контроль: пустой ответ не должен считаться успехом
         check(len(json.dumps(state)) > 200, "ответ не пустая заглушка")

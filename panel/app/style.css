@@ -113,6 +113,7 @@ html, body {
 .title { font-size: 16px; color: var(--fg); margin-bottom: 6px; }
 .title.dim { color: var(--fg-dim); }
 .desc { font-size: 13px; color: var(--fg-dim); }
+.desc.dim { color: var(--fg-off); }
 .id { font-family: var(--mono); font-size: 11px; color: var(--fg-faint); margin-top: 10px; }
 
 /* пустой раздел и раздел, которого ещё нет */
@@ -144,6 +145,16 @@ html, body {
 .human ul { margin: 0 0 8px; padding-left: 18px; }
 .human strong { font-weight: 500; color: var(--fg); }
 .human code { font-family: var(--mono); font-size: 13px; color: var(--fg-dim); }
+
+/* дословные слова владельца внутри идеи: цитата видна отдельно от пересказа */
+.quote {
+  border-left: 2px solid var(--think-line);
+  padding: 2px 0 2px 12px;
+  margin: 0 0 10px;
+  font-size: 14px;
+  font-style: italic;
+  color: var(--fg);
+}
 
 /* пометка о черновом происхождении описания */
 .draft {

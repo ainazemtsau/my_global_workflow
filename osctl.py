@@ -334,7 +334,10 @@ try:
 except ImportError as _e:                                    # pragma: no cover
     raise SystemExit(f"не найден panel/cards.py — формат карточки берётся оттуда: {_e}")
 
-CARD_KINDS = _fmt.KINDS + ("question",)   # question объявлен в os2/CONCEPT.md
+# Оба вида объявлены в `os2/CONCEPT.md` и описаны в `os/schema/direction-files.md`.
+# Здесь они дописываются к списку носителя: в разделах прежнего `NOW.md` их не было,
+# и в `panel/cards.py` им взяться неоткуда.
+CARD_KINDS = _fmt.KINDS + ("question", "idea")
 SERVICE = _fmt.SERVICE                     # ведущий знак служебных имён
 KIND_KEY = SERVICE + "kind"
 POS_KEY = SERVICE + "pos"

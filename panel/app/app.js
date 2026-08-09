@@ -505,6 +505,54 @@ function renderWaiting(direction, content) {
     .catch((e) => { content.textContent = ""; content.appendChild(el("div", "empty", "НЕ ОТВЕЧАЕТ: " + e)); });
 }
 
+// Раздел «ИДЕИ»: отложенное содержание. Ничего не оценивается и не
+// сортируется по важности; главное свойство строки — видно, ЧЬЯ это идея.
+function ideaRowView(r) {
+  const row = el("div", "row");
+  if (r.text) row.appendChild(mdNode("div", "human", r.text));
+  // Цитата владельца — отдельно от пересказа: его слова не имеют права
+  // выглядеть как выдумка ноги.
+  if (r.his_words) row.appendChild(el("div", "quote", r.his_words));
+  if (r.from === "владелец") {
+    row.appendChild(el("div", "desc", "его слова"));
+  } else if (r.from === "нога") {
+    row.appendChild(el("div", "desc", "придумала нога"));
+  } else if (r.from) {
+    row.appendChild(el("div", "desc", r.from));
+  } else {
+    row.appendChild(el("div", "desc dim", "автор не записан"));
+  }
+  if (r.opened) row.appendChild(el("div", "id", r.opened));
+  if (r.source) row.appendChild(el("div", "id", r.source));
+  row.appendChild(el("div", "id", r.id));
+  return row;
+}
+
+function renderIdeas(direction, content) {
+  const token = ++RENDER_TOKEN;
+  fetch("/api/section/" + encodeURIComponent(direction.id) + "/ideas")
+    .then((response) => { if (!response.ok) throw new Error("HTTP " + response.status); return response.json(); })
+    .then((data) => {
+      if (token !== RENDER_TOKEN) return;
+      content.textContent = "";
+      const sub = el("div", "row");
+      sub.appendChild(el("div", "desc", "Отложенное содержание. Ничего из этого не является требованием."));
+      content.appendChild(sub);
+      if (!data.count) {
+        content.appendChild(el("div", "empty",
+          "Пока ни одной. Захват ног живёт в отчётах — перенос оттуда отдельная работа."));
+        return;
+      }
+      for (const g of data.groups || []) {
+        const head = el("div", "group");
+        head.textContent = g.label + " — " + g.rows.length;
+        content.appendChild(head);
+        for (const r of g.rows) content.appendChild(ideaRowView(r));
+      }
+    })
+    .catch((e) => { content.textContent = ""; content.appendChild(el("div", "empty", "НЕ ОТВЕЧАЕТ: " + e)); });
+}
+
 function renderSlots(direction, content) {
   const token = ++RENDER_TOKEN;
   fetch("/api/section/" + encodeURIComponent(direction.id) + "/slots")
@@ -600,6 +648,10 @@ function renderDirection(direction, sectionId) {
   }
   if (sectionId === "wave") {
     renderWave(direction, content);
+    return;
+  }
+  if (sectionId === "ideas") {
+    renderIdeas(direction, content);
     return;
   }
   if (sectionId === "goals") {

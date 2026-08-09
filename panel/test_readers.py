@@ -86,8 +86,13 @@ def case_now_fields():
 
 
 def case_kinds():
-    """Сравнение с несуществующим видом карточки даёт вечный ноль и молчит."""
-    known = set(cards.KINDS) | {"question"}
+    """Сравнение с несуществующим видом карточки даёт вечный ноль и молчит.
+
+    Список берётся у `osctl`, а не переписывается сюда: свой экземпляр уже
+    отстал — `idea` появился в `CARD_KINDS`, а здесь стояло `| {"question"}`,
+    и живой код пришлось бы обходить стороной вместо того, чтобы писать прямо.
+    """
+    known = set(osctl.CARD_KINDS)
     bad = []
     for rel in WATCHED:
         for n, line in code_text(rel):
@@ -182,6 +187,31 @@ def case_no_second_source():
           "у каждого имени записано, кем оно написано")
 
 
+def case_idea_keeps_its_author():
+    """У идеи всегда видно, ЧЬЯ она, и незаполненное авторство не выдумывается.
+
+    Это тот же закон, что у имён целей (`label_by`): его отложенное содержание и
+    выдумка ноги не имеют права выглядеть одинаково. Проверяется разбор напрямую —
+    живых идей сегодня ноль, и без этого случая функция была бы написана и
+    никогда не проверена.
+    """
+    sys.path.insert(0, str(ROOT / "panel"))
+    import serve
+    row = serve.idea_row("idea-1", {"_kind": "idea", "from": "владелец", "about": "g-1",
+                                    "source": "history/x.md"},
+                         {"idea": ["музыкальная шкатулка"], "his_words": ["влетела, коснулась"]})
+    check(row["from"] == "владелец", "авторство едет в строке дословно")
+    check(row["text"] and "шкатулка" in row["text"], "текст идеи доходит")
+    check(row["his_words"] and "влетела" in row["his_words"], "и его слова отдельно от пересказа")
+    check(row["about"] == "g-1" and row["source"] == "history/x.md",
+          "привязка и источник доходят — иначе идею негде найти и нечем проверить")
+
+    bare = serve.idea_row("idea-2", {"_kind": "idea"}, {"idea": ["без автора"]})
+    check(bare["from"] is None,
+          "автор не проставлен — панель НЕ угадывает, что это его слова")
+    check(bare["his_words"] is None, "и цитаты нет, когда её нет")
+
+
 def case_service_key_not_written():
     """`_closed` выводится из папки и НИКОГДА не пишется в файл."""
     bad = [p.name for d in (ROOT / "live").iterdir() if d.is_dir()
@@ -213,6 +243,9 @@ def case_waiting_is_only_yours():
         ({"_kind": "node", "label": ""}, "unnamed_goal", False),
         ({"_kind": "node", "label": "Есть имя"}, None, None),
         ({"_kind": "issue"}, None, None),          # у записи свой отвечающий
+        # Идея НЕ ждёт его слова: это отложенное содержание, а не вопрос. Попади
+        # она сюда — «ждёт тебя» станет свалкой, и он перестанет туда смотреть.
+        ({"_kind": "idea", "from": "владелец"}, None, None),
         ({"_kind": "task", "_closed": True, "status": "open"}, "closed_unnamed", False),
         ({"_kind": "task", "_closed": True, "status": "done"}, None, None),
         ({"_kind": "task", "_closed": True, "status": "dropped"}, None, None),
@@ -236,7 +269,7 @@ def case_waiting_is_only_yours():
 def main():
     for fn in (case_now_fields, case_kinds, case_paths, case_dead_dirs,
                case_closed_is_visible, case_no_second_source,
-               case_waiting_is_only_yours,
+               case_waiting_is_only_yours, case_idea_keeps_its_author,
                case_service_key_not_written):
         print(f"\n--- {fn.__doc__.splitlines()[0]}")
         fn()

@@ -118,7 +118,7 @@ status: open
 ### Виды карточек
 
 `bet` · `node` · `task` · `call` · `issue` · `decision` · `recurring` · `track`
-· `extra` · `question`.
+· `extra` · `question` · `idea`.
 
 Набор закрыт и живёт в коде одним списком (`panel/cards.py`, плюс `question`
 отсюда). Приёмка `panel/test_docs.py` держит эту строку равной коду: разошлись —

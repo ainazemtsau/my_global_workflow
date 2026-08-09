@@ -120,13 +120,13 @@ def is_done(head):
 
 
 SECTIONS = [("dashboard", "СВОДКА"), ("slots", "СЛОТЫ"), ("waiting", "ЖДЁТ ТЕБЯ"), ("wave", "ВОЛНА"),
-            ("goals", "ЦЕЛИ"), ("history", "ИСТОРИЯ"), ("knowledge", "ЗНАНИЯ"),
+            ("goals", "ЦЕЛИ"), ("ideas", "ИДЕИ"), ("history", "ИСТОРИЯ"), ("knowledge", "ЗНАНИЯ"),
             ("direction", "НАПРАВЛЕНИЕ")]
 
 # «СВОДКА» закрыта до отдельной работы: она станет приборной панелью с числами,
 # а не списком нарядов. Сегодняшний её вид врал — писал «можно запускать» про
 # наряд, который владелец уже запустил.
-READY_SECTIONS = ("slots", "waiting", "wave", "goals")
+READY_SECTIONS = ("slots", "waiting", "wave", "goals", "ideas")
 
 CONTENT_TYPES = {".html": "text/html; charset=utf-8",
                  ".js": "application/javascript; charset=utf-8",
@@ -354,6 +354,54 @@ def section_waiting(direction):
         (blocking if is_blocking else other).extend(rows[key])
     return {"direction": direction, "blocking": blocking, "other": other,
             "issues_parked": issues_parked, "unread": unread}
+
+
+def idea_row(cid, head, blocks):
+    """Одна идея. Чистая: ничего не читает и не печатает.
+
+    Авторство не угадывается: чего нет в карточке, того нет и в строке.
+    Пустой блок (одни пустые строки) считается отсутствующим."""
+    def idea_block(key):
+        lines = blocks.get(key)
+        if not lines or not any(line.strip() for line in lines):
+            return None
+        return "\n".join(lines)
+
+    def head_field(key):
+        v = head.get(key)
+        return None if v in (None, "") else v
+
+    opened = head.get("opened")
+    return {"id": cid,
+            "text": idea_block("idea"),
+            "his_words": idea_block("his_words"),
+            "from": head_field("from"),
+            "about": head_field("about"),
+            "source": head_field("source"),
+            "opened": None if opened in (None, "") else str(opened)}
+
+
+def section_ideas(direction):
+    """Отложенное СОДЕРЖАНИЕ: придумали, но строить никто не обязался.
+    Идея никогда не требование. Раздел не оценивает и не сортирует по важности:
+    единственная раскладка — по цели, к которой идея привязана."""
+    with lock_for(direction):
+        ideas, _unread = load_cards(direction, kind="idea")
+        nodes, _nodes_unread = load_cards(direction, kind="node")
+    live_nodes = {cid: h for cid, (h, _b) in nodes.items() if not h.get("_closed")}
+    rows = sorted((idea_row(cid, h, b) for cid, (h, b) in ideas.items()
+                   if not h.get("_closed")), key=lambda r: str(r["id"]))
+    by_about, loose = {}, []
+    for r in rows:
+        if r["about"] in live_nodes:
+            by_about.setdefault(r["about"], []).append(r)
+        else:
+            loose.append(r)
+    groups = [{"about": a, "label": live_nodes[a].get("label") or a, "rows": by_about[a]}
+              for a in sorted(by_about, key=lambda a: str(live_nodes[a].get("label") or a))]
+    if loose:
+        groups.append({"about": None, "label": "про направление целиком", "rows": loose})
+    return {"direction": direction, "count": len(rows), "groups": groups}
 
 
 PLAY_WORD = {
@@ -644,6 +692,8 @@ class Handler(BaseHTTPRequestHandler):
                 self.send_json(section_wave(parts[0]))
             elif ok_dir and parts[1] == "goals" and len(parts) == 2:
                 self.send_json(section_goals(parts[0]))
+            elif ok_dir and parts[1] == "ideas":
+                self.send_json(section_ideas(parts[0]))
             else:
                 self.send_error(404, "not found")
         else:
