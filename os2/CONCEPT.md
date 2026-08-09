@@ -45,18 +45,22 @@
 Один вход: `python osctl.py <предмет> <действие> [--параметры]`.
 
 ```
-osctl task close   --id t-house-2 --evidence history/2026-08-07-....md
-osctl call issue   --id c-... --for t-house-6 --track сцена --to executor
-osctl call status  --id c-... --set blocked --unblock-when "..."
+osctl card new     --id t-house-2 --kind task --field status=open
 osctl card set     --id t-house-2 --field status --value done
-osctl card note    --id t-house-2 --block note --text "..."
-osctl question add --text "..." --answer-by "перед копанием" --who владелец
-osctl slot claim   --slot 2 --for c-...
-osctl slot release --slot 2
-osctl show         --id t-house-2
+osctl card block   --id t-house-2 --name description --text "..."
+osctl card close   --id t-house-2 --status done --why "..."
+osctl card show    --id t-house-2
+osctl log add      --id g-1d84 --text "..." --history 2026-08-09-....md
+osctl leg close    --leg s-work-... --play work --log "..." --result-file ...
+osctl now set      --field bet --value g-5a7c
+osctl slot claim   --slot 2 --for c-... --stage BUILD
+osctl slot release --slot 2 --for c-... --stage BUILD
 osctl find         --text "тоннель"
 osctl check        --direction indie-game-development
 ```
+
+Список выше сверяется с настоящим разбором `osctl` приёмкой `panel/test_docs.py`:
+названа команда, которой нет, или ключ, которого у неё нет, — приёмка красная.
 
 Правила инструмента:
 
@@ -112,7 +116,12 @@ status: open
 
 ### Виды карточек
 
-`bet` · `node` · `task` · `call` · `issue` · `question` · `decision`.
+`bet` · `node` · `task` · `call` · `issue` · `decision` · `recurring` · `track`
+· `extra` · `question`.
+
+Набор закрыт и живёт в коде одним списком (`panel/cards.py`, плюс `question`
+отсюда). Приёмка `panel/test_docs.py` держит эту строку равной коду: разошлись —
+красная.
 
 **Узел дерева — такая же карточка**, с полем `parent`. Поэтому `TREE.md` исчезает
 как хранилище: дерево — это множество карточек, кто чей родитель написано в самой
@@ -151,16 +160,18 @@ status: open
 `label`, `hook` у узла и `description` у наряда — это не украшение, а то, без чего
 панель показывает либо пустоту, либо машинный id. Поэтому:
 
-- `osctl node add` требует `--label` и `--hook`, `osctl call issue` требует `--description`.
-  Нет — отказ с объяснением, а не создание «допишем потом».
+- `osctl card new --kind node` требует `label` и `hook`, `--kind call` требует
+  `description`. Нет — отказ с объяснением, а не создание «допишем потом».
 - Плей, который заводит сущность (`map` для узлов, `shape` для задач, `work` для нарядов),
   называет эти поля в своём шаге создания.
 - `osctl check` перечисляет сущности без них — как факт, не как приговор.
 
-**Разовое заполнение того, что уже есть, — отдельная работа и она кончается.**
-Пятнадцать нынешних узлов получают имена накладкой `os2/labels/<направление>.yaml`,
-потому что писать в `live/` сейчас нельзя. При миграции поля переезжают в шапку
-карточки, а файл накладки удаляется. У него есть конец, и он назван здесь.
+**Разовое заполнение того, что уже есть, — отдельная работа, и она кончилась.**
+Шестнадцати узлам имена дала временная накладка `os2/labels/`, пока писать
+в `live/` было нельзя. Конец ей был назван здесь заранее и наступил 2026-08-09:
+имена переехали в шапки карточек вместе с `label_by`, накладка удалена.
+Задержись она на сутки дольше — панель читала бы её вместо карточки и молча
+показывала старое имя после переименования командой.
 
 ### Журнал живёт внутри сущности
 
@@ -196,7 +207,7 @@ live/<направление>/
     t-house-2.md      задача + её журнал
     c-exec-...-001.md наряд + его журнал
   cards/closed/     ЗАКРЫТОЕ — тот же формат, та же команда читает
-  history/2026-08/  отчёты ног по месяцам
+  history/          отчёты ног, по файлу на ногу: <дата>-<id сессии>.md
   knowledge/
   work/
 ```
@@ -207,7 +218,7 @@ live/<направление>/
 
 Живая папка не растёт: закрытая карточка переезжает в `closed/` командой,
 а не остаётся числиться. Достать из закрытого просто — формат тот же,
-`osctl show --id …` и `osctl find --text …` смотрят в обе папки.
+`osctl card show --id …` и `osctl find --text …` смотрят в обе папки.
 
 Списков нет нигде. «Какие задачи в полосе дом» — это «все карточки с `track: дом`».
 Списка никто не пишет, значит нечему разойтись.
@@ -439,7 +450,7 @@ Python 3 и стандартная библиотека плюс `PyYAML`. Ни 
 ни `.sh` — вызов одинаков на Windows и на Mac:
 
 ```
-python osctl.py task close --id t-house-2
+python osctl.py card close --id t-house-2 --status done
 ```
 
 Пути только через `pathlib`, файлы только в UTF-8 с явным указанием, переводы
