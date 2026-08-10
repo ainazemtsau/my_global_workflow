@@ -55,6 +55,7 @@ _pos: 3                     # place among siblings
 label: <short human name>
 hook: <one line: what this is>
 status: parked              # parked | shaped | active | done | dropped
+# by: 2026-08-31            # date the goal must be MET by — ONLY when the owner named it
 # outcome_kind: specification  # only when the approved spec artifact itself exhausts done_when
 # shaped/active add appetite + kill_by
 # detail: history/<file>.md

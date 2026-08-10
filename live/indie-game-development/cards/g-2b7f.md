@@ -8,6 +8,7 @@ detail: history/2026-07-27-s-map-october-demo-order-reset-001.md
 label: Страница в Steam
 hook: Публичная страница и сохранённая регистрация на октябрьский фестиваль
 label_by: dev
+by: 2026-08-31
 ---
 
 ## goal
@@ -31,6 +32,7 @@ label_by: dev
 []
 ```
 ## журнал
+2026-08-10 · срок 2026-08-31 перенесён в поле by из подписанной хартии, критерий 1: «регистрация завершена до 31 августа 2026 года». Значение не менялось, только место.
 2026-08-01 · дерево очищено от наследия мёртвого концепта · history/2026-08-01-s-map-tree-legacy-cleanup-001.md
 2026-08-01 · три первых узла нового концепта утверждены владельцем · history/2026-08-01-s-map-burrow-first-node-cards-001.md
 2026-07-31 · close the reset — dead CALLs banished, dangling Steam reference named, v35 wired into the writer and setup · b6cfb6b1
