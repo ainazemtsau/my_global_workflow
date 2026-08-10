@@ -649,7 +649,9 @@ function knowledgeRowView(r) {
   if (r.body) {
     const details = el("div", "details");
     details.hidden = true;
-    details.appendChild(mdNode("div", "desc", r.body));
+    // Тело записи — человеческий текст целым документом, а не служебная
+    // подпись: класс `human` несёт и меру строки, и вид заголовков с цитатами.
+    details.appendChild(mdNode("div", "human", r.body));
     const toggleButton = el("button", "act", "подробности");
     toggleButton.addEventListener("click", () => {
       details.hidden = !details.hidden;

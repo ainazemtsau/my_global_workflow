@@ -143,9 +143,29 @@ html, body {
 .human.dim { color: var(--fg-off); font-size: 13px; }
 .human p { margin: 0 0 8px; }
 .human p:last-child { margin-bottom: 0; }
-.human ul { margin: 0 0 8px; padding-left: 18px; }
+.human ul, .human ol { margin: 0 0 8px; padding-left: 18px; }
+.human li { margin: 0 0 3px; }
 .human strong { font-weight: 500; color: var(--fg); }
 .human code { font-family: var(--mono); font-size: 13px; color: var(--fg-dim); }
+
+/* Целый документ внутри строки: заголовки, цитаты и таблицы. Браузерные
+   умолчания здесь не годятся — они светят белым и рвут ритм страницы. */
+.human h2, .human h3, .human h4 {
+  font-size: 13px; font-weight: 500; letter-spacing: 0.06em;
+  color: var(--fg-dim); margin: 16px 0 6px;
+}
+.human h2:first-child, .human h3:first-child { margin-top: 0; }
+.human blockquote {
+  margin: 0 0 10px; padding: 2px 0 2px 12px;
+  border-left: 2px solid var(--think-line); color: var(--fg-dim);
+}
+.human blockquote p { margin: 0; }
+.human table { border-collapse: collapse; margin: 0 0 10px; font-size: 13px; }
+.human th, .human td {
+  border: 1px solid var(--line); padding: 5px 10px;
+  text-align: left; vertical-align: top;
+}
+.human th { color: var(--fg-dim); font-weight: 500; }
 
 /* дословные слова владельца внутри идеи: цитата видна отдельно от пересказа */
 .quote {

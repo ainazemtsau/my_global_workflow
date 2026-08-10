@@ -83,8 +83,9 @@
 
 ## Где мы сейчас — 2026-08-09
 
-Восемь приёмок зелёные: `panel/verify.py` (три шага) · `test_osctl` · `test_cards_cmd`
-· `test_carrier` · `test_wave2` · `test_readers` · `test_docs` · `test_context`.
+Девять приёмок зелёные: `panel/verify.py` (три шага) · `test_osctl` · `test_cards_cmd`
+· `test_carrier` · `test_wave2` · `test_readers` · `test_docs` · `test_context` · `test_md`.
+`test_md` гоняется на node: `node panel/test_md.cjs`.
 Гонять из корня рабочей копии. Панель гасить не нужно: приёмка берёт свободный
 порт у системы и меряет сервер, который сама и подняла.
 

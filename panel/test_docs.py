@@ -193,7 +193,11 @@ def case_acceptances():
     i = body.index("приёмок зелёные")
     para = body[body.rindex("\n", 0, i) + 1:body.index("\n\n", i)]
     named = set(re.findall(r"`(test_[a-z0-9_]+)`", para))
-    on_disk = {p.stem for p in (ROOT / "panel").glob("test_*.py")}
+    # Приёмки бывают не только на питоне: отрисовщик markdown проверяется на node,
+    # потому что он и сам на node. Считать только `.py` значило бы объявить
+    # приёмку несуществующей ровно тогда, когда она есть.
+    on_disk = {p.stem for pat in ("test_*.py", "test_*.cjs")
+               for p in (ROOT / "panel").glob(pat)}
     check(named == on_disk, f"названные приёмки лежат на диске (лишние "
                             f"{sorted(named - on_disk)}, недостающие {sorted(on_disk - named)})")
     check("`panel/verify.py`" in para, "и verify.py назван вместе с ними")
