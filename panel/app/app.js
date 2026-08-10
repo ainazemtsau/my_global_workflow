@@ -58,6 +58,16 @@ function renderTopbar(route) {
   build.appendChild(document.createTextNode(" · не прочиталось "));
   const bad = el("span", b.unread > 0 ? "bad" : null, String(b.unread));
   build.appendChild(bad);
+
+  // Отставшая копия молча показывает позавчерашний мир — и разделы, и состояние
+  // направления. Полоса та же, что у нечитаемого файла: есть — видно, нет — её нет.
+  const shown = document.getElementById("stale");
+  if (shown) shown.remove();
+  if (b.stale) {
+    const bar = el("div", "problem", b.stale);
+    bar.id = "stale";
+    document.body.appendChild(bar);
+  }
 }
 
 function renderPicker() {

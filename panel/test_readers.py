@@ -212,6 +212,28 @@ def case_idea_keeps_its_author():
     check(bare["his_words"] is None, "и цитаты нет, когда её нет")
 
 
+def case_stale_checkout_announces_itself():
+    """Панель, запущенная из отставшей копии, обязана сказать это сама.
+
+    Случай живой: 2026-08-09 владелец не увидел раздела «ИДЕИ», потому что
+    `start.cmd` лежит в ОБЕИХ рабочих копиях и запускает панель из своей. Он
+    кликнул корневую, отставшую на 16 коммитов, и она молча показывала
+    позавчерашние разделы И позавчерашнее состояние направления. Молчаливая
+    подмена хуже пустого места — то же правило, что у нечитаемого файла.
+    """
+    sys.path.insert(0, str(ROOT / "panel"))
+    import serve
+    check(serve.staleness_note(0, "C:/x") is None, "копия свежая — полосы нет вообще")
+    note = serve.staleness_note(16, "C:/my_global_workflow")
+    check(note and "16" in note, f"отстала — число коммитов названо: {note}")
+    check(note and "my_global_workflow" in note,
+          "и названа сама копия — иначе непонятно, какое окно закрывать")
+
+    b = serve.build_info()
+    check(isinstance(b.get("behind"), int), f"build.behind — целое число ({b.get('behind')})")
+    check(isinstance(b.get("root"), str) and b["root"], "build.root — путь запущенной копии")
+
+
 def case_history_never_invents():
     """«ИСТОРИЯ» собирается из трёх механических источников и молчит там, где их нет.
 
@@ -311,7 +333,7 @@ def main():
     for fn in (case_now_fields, case_kinds, case_paths, case_dead_dirs,
                case_closed_is_visible, case_no_second_source,
                case_waiting_is_only_yours, case_idea_keeps_its_author,
-               case_history_never_invents,
+               case_stale_checkout_announces_itself, case_history_never_invents,
                case_service_key_not_written):
         print(f"\n--- {fn.__doc__.splitlines()[0]}")
         fn()

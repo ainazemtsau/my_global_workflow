@@ -153,12 +153,29 @@ def git(*args):
         return 1, ""
 
 
+def staleness_note(behind, root):
+    """Текст красной полосы про отставшую копию. Чистая: свежая — молчит.
+
+    `start.cmd` лежит в каждой рабочей копии и поднимает панель из своей.
+    Кликнув не ту, владелец получает не только старые разделы, но и старое
+    состояние направления — и ничто на экране об этом не говорит."""
+    if not behind:
+        return None
+    return (f"ЭТА КОПИЯ ОТСТАЛА НА {behind} — на экране старое состояние. "
+            f"ЗАПУЩЕНО ИЗ {root}")
+
+
 def build_info():
     _, commit = git("rev-parse", "--short", "HEAD")
     _, commit_date = git("log", "-1", "--format=%ad", "--date=short")
     code, count = git("rev-list", "--count", "origin/main..HEAD")
     unpushed = int(count) if code == 0 and count.isdigit() else 0
-    return {"commit": commit, "commit_date": commit_date, "unpushed": unpushed, "unread": 0}
+    code, count = git("rev-list", "--count", "HEAD..origin/main")
+    behind = int(count) if code == 0 and count.isdigit() else 0
+    root = ROOT.replace(chr(92), "/")
+    return {"commit": commit, "commit_date": commit_date, "unpushed": unpushed,
+            "behind": behind, "root": root, "stale": staleness_note(behind, root),
+            "unread": 0}
 
 
 def directions():

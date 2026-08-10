@@ -100,6 +100,13 @@ def step00() -> None:
               f"build.commit совпадает с git HEAD ({git('rev-parse', '--short', 'HEAD')})")
         check(isinstance(b.get("unpushed"), int), "build.unpushed — целое число")
         check(isinstance(b.get("unread"), int), "build.unread — целое число")
+        check(isinstance(b.get("behind"), int), "build.behind — целое число")
+        # Отставшая копия обязана назвать себя: 2026-08-09 владелец смотрел
+        # панель из чекаута на 16 коммитов позади и не знал об этом.
+        check(isinstance(b.get("root"), str) and b.get("root"),
+              "build.root — путь копии, из которой поднята панель")
+        check((b.get("stale") is None) == (b.get("behind") == 0),
+              "полоса про отставание есть ровно тогда, когда копия отстала")
 
         dirs = state.get("directions", [])
         ids = [d.get("id") for d in dirs]
