@@ -212,6 +212,33 @@ def case_idea_keeps_its_author():
     check(bare["his_words"] is None, "и цитаты нет, когда её нет")
 
 
+def case_look_lives_only_in_the_stylesheet():
+    """Вид живёт в `style.css` и только там — правило записано, но не проверялось.
+
+    Первой строкой `app.js` стоит «весь вид — только классами из style.css: своих
+    классов и инлайн-стилей нет», и держалось это на аккуратности. Один цвет,
+    поставленный в разметке, делает стиль незаменяемым целиком — а весь смысл
+    отдельного файла в том, чтобы его можно было заменить, не трогая разметку
+    (`panel/PLAN.md` §Стиль).
+    """
+    js = source("panel/app/app.js")
+    lines = [(n, l) for n, l in enumerate(js.split("\n"), 1)
+             if not l.strip().startswith("//")]
+    colors = [f"{n}: {l.strip()[:60]}" for n, l in lines
+              if re.search(r"#[0-9a-fA-F]{3,6}\b|rgba?\(", l)]
+    check(not colors, f"в разметке нет ни одного цвета ({colors[:3]})")
+    inline = [f"{n}: {l.strip()[:60]}" for n, l in lines
+              if re.search(r"\.style\s*\.|\.style\s*=|setAttribute\(\s*[\"']style", l)]
+    check(not inline, f"и ни одного инлайн-стиля ({inline[:3]})")
+
+    css = source("panel/app/style.css")
+    used = set(re.findall(r'el\("[a-z]+",\s*"([a-z][a-z0-9 -]*)"', js))
+    used |= set(re.findall(r'mdNode\("[a-z]+",\s*"([a-z][a-z0-9 -]*)"', js))
+    names = {c for group in used for c in group.split()}
+    missing = sorted(c for c in names if f".{c}" not in css)
+    check(not missing, f"каждый класс из разметки описан в стиле ({missing[:6]})")
+
+
 def case_deadlines_are_transferred_never_computed():
     """Полоса сроков: даты приходят из полей, а «через N дней» считается.
 
@@ -454,7 +481,7 @@ def main():
                case_waiting_is_only_yours, case_idea_keeps_its_author,
                case_stale_checkout_announces_itself, case_history_never_invents,
                case_knowledge_reads_both_spellings, case_charter_sections_come_from_the_file,
-               case_deadlines_are_transferred_never_computed,
+               case_deadlines_are_transferred_never_computed, case_look_lives_only_in_the_stylesheet,
                case_service_key_not_written):
         print(f"\n--- {fn.__doc__.splitlines()[0]}")
         fn()

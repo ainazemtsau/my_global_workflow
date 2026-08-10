@@ -97,24 +97,57 @@ html, body {
 .row { padding: 18px 20px; border-bottom: 1px solid var(--line); }
 .row:last-child { border-bottom: none; }
 
-.status {
+/* Строка головы: метка слева, дата справа. Дата всегда в одном месте —
+   глаз перестаёт её искать. */
+.rowhead { display: flex; align-items: baseline; gap: 10px; margin-bottom: 9px; }
+.when {
+  margin-left: auto;
   font-family: var(--mono);
   font-size: 11px;
-  letter-spacing: 0.14em;
-  color: var(--accent);
-  margin-bottom: 8px;
+  color: var(--fg-faint);
+  white-space: nowrap;
 }
+.when.near { color: var(--accent); }
+
+/* Статус — короткая метка в рамке, а не подпись во всю ширину. Цвет по-прежнему
+   несёт смысл, но пятно стало маленьким: раньше оно спорило с заголовком. */
+.status {
+  display: inline-block;
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  color: var(--accent);
+  border: 1px solid currentColor;
+  border-radius: 3px;
+  padding: 1px 6px;
+  margin-bottom: 9px;
+}
+.rowhead .status { margin-bottom: 0; }
+/* Метка вида — не сигнал, а подпись «что это»: цветом не кричит, но и не тонет.
+   Самый тёмный серый на рамке читался как грязь, а не как тихая метка. */
+.status.quiet { color: var(--fg-faint); }
 .status.wait { color: var(--wait); }
 .status.plan { color: var(--plan); }
 .status.think { color: var(--think); }
 .status.gone { color: var(--fg-off); }
 .status.bad { color: var(--bad); }
 
-.title { font-size: 16px; color: var(--fg); margin-bottom: 6px; }
+/* Лестница веса делается размером и воздухом, а не приглушением: серые уже
+   один раз опускали до нечитаемости, и это пришлось откатывать. Заголовок
+   крупнее и просторнее, служебный хвост мельче и ниже. */
+.title { font-size: 17px; line-height: 1.35; color: var(--fg); margin-bottom: 7px; }
 .title.dim { color: var(--fg-dim); }
 .desc { font-size: 13px; color: var(--fg-dim); }
 .desc.dim { color: var(--fg-off); }
-.id { font-family: var(--mono); font-size: 11px; color: var(--fg-faint); margin-top: 10px; }
+/* Путь и id — подпись под строкой, а не её содержание: раньше они шли тем же
+   кеглем, что и смысл, и спорили с ним за внимание. */
+.id {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.02em;
+  color: var(--fg-faint);
+  margin-top: 14px;
+}
 .id .dim { color: var(--fg-off); }
 
 /* пустой раздел и раздел, которого ещё нет */

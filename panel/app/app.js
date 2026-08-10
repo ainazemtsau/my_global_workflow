@@ -668,7 +668,7 @@ function knowledgeMeta(row) {
     if (meta.childNodes.length) meta.appendChild(document.createTextNode(" · "));
     meta.appendChild(node);
   };
-  if (row.accepted) put(document.createTextNode(row.accepted));
+  // Дата принятия уже стоит в голове строки — второй раз её здесь не печатаем.
   put(row.status
     ? document.createTextNode(row.status)
     : el("span", "dim", "статус не проставлен"));
@@ -678,6 +678,12 @@ function knowledgeMeta(row) {
 
 function knowledgeRowView(r) {
   const row = el("div", "row");
+  // Дата принятия уходит вправо в голову строки — туда же, где даты во всех
+  // остальных разделах. Искать её глазами в потоке служебной подписи не надо.
+  const head = el("div", "rowhead");
+  head.appendChild(el("span", "status quiet", "ЗНАНИЕ"));
+  if (r.accepted) head.appendChild(el("span", "when", String(r.accepted).slice(0, 10)));
+  row.appendChild(head);
   row.appendChild(el("div", "title", r.title));
   row.appendChild(knowledgeMeta(r));
   // Кто читает — самое полезное в записи, поэтому отдельной строкой.
