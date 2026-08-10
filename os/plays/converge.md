@@ -3,7 +3,7 @@
 Purpose: drive a build node to the owner-signed WHAT spec shape consumes — disputed terms locked, requirements a cited node-on-paper, every remaining hole named and owned.
 
 Reads: cards/ (node), CHARTER.md (lenses, risk_posture), NOW.md, knowledge/ + the node's history/.
-Writes: work/converge-<node>.md; call and decision cards. Proposes glossary canon for review/pulse; never writes knowledge/.
+Writes: work/converge-<node>.md; call and decision cards. Proposes glossary canon for review; never writes knowledge/.
 
 Precondition: chosen non-specification node, no bet conflict (G1). Reached via CALL `to: session, play: converge`. A shaped/in-flight node runs as RETROFIT: import settled decisions (step 1), then frame only what remains open.
 

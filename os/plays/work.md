@@ -31,7 +31,7 @@ The CALL is evidenced, checkpointed, or closes blocked/obsolete; completed speci
 - Tracks are execution lanes under the active bet, never future goals. Creating/retiring a lane needs cited owner words; a future objective stays in the tree.
 - Long work or platform degradation checkpoints into a continuation.
 - A recurring CALL updates `last_done` only when evidence is complete.
-- Waiting on a human-world event is normal; pulse watches it.
+- Waiting on a human-world event is normal; day watches it.
 - Two failed correction rounds → checkpoint and fresh session.
 
 END_OF_FILE: os/plays/work.md

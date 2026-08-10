@@ -17,6 +17,6 @@ How to run OS sessions in a ChatGPT Project. One project per direction.
 
 ## When to route here
 
-Good for: frame interviews, long thinking dialogs in work sessions, mobile use, cheaper/simpler tasks. State-heavy plays (shape, review, pulse, repair) and anything reading many repo files run with fewer relay hops in an agentic CLI (coding-agent adapter).
+Good for: frame interviews, long thinking dialogs in work sessions, mobile use, cheaper/simpler tasks. State-heavy plays (shape, review, day, repair) and anything reading many repo files run with fewer relay hops in an agentic CLI (coding-agent adapter).
 
 END_OF_FILE: os/adapters/chatgpt-project.md

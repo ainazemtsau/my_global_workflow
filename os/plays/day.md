@@ -1,27 +1,29 @@
 # Play: day
 
-Purpose: be the owner's daily strategic adviser without creating a second plan. The chat derives a complete current view, helps adapt it, and records nothing until the owner explicitly says to save.
+Purpose: the owner's daily adviser and the sweep that keeps the direction trustworthy. Nothing is recorded until he says to save.
 
-Reads: CHARTER.md, NOW.md, cards/, recent card journals and `git log`, due issue evidence, and knowledge entries whose `read_by` names day/current planning.
-Writes after explicit save only: cards and their journal lines, and issued CALL artifacts. It never writes CHARTER.md, node cards, or the `owner_approved` registry card.
+Reads: the `osctl context` working set (never the whole `cards/` folder), CHARTER.md, recent journals and `git log`, due issue evidence, knowledge whose `read_by` names day.
+Writes after explicit save only: the `day` card, other cards with journal lines, issued CALL artifacts. Never CHARTER.md, node cards, or `owner_approved`.
 
 ## Steps
 
-1. **Refresh reality** — reread fresh Git. Resolve the global target and hard dates, roadmap, active objective if any, future objectives, current tasks/lanes, unresolved issues/decisions, recent outcomes, and the stored direction forecast. Follow evidence pointers only where they can change today's advice; never bulk-load history.
-2. **Derived brief** — explain in plain Russian what changed since the previous working day, where the direction stands, what is or is not on plan, the important evidence and problems, and the current chance of the dated target. `no_basis` is an honest forecast. Do not expose ids, packet/status labels, empty fields, or a fixed questionnaire.
-3. **Advise** — recommend one focus for today and 0..N collision-free starts. Every non-recurring start must serve the active bet; without a bet, recommend the correct planning route instead of launching legacy work. Name why this is the best move, what is deliberately not being done, and which event would change the advice.
-4. **Discuss** — answer, challenge assumptions, compare alternatives and revise the proposed day plan in chat. This remains read-only. Conversation memory may support the discussion but never overrides freshly read state.
-5. **Save boundary (owner)** — only exact owner words such as `сохрани`, `запиши` or `запускай` authorize the agreed delta. Cite those words in `play_check`. Save only explicit issue/forecast/decision or launch-state changes, bounded CALLs inside the active objective, or — when `bet: null` — one lawful untracked planning CALL. Mission → frame; roadmap → map; specification outcome → owner-authority work/verify/review; ordinary activation → KERNEL §2 readiness; objective stop/change → review; contradiction → repair; OS defect → maintenance. Issue no foreign strategic change.
-6. **Close** — a saved leg emits one RESULT, then writer apply/commit. A later owner turn may start another fresh day leg in this physical chat. `закрываем день` ends the chat; unsaved discussion stays unsaved.
+1. **Refresh reality** — fresh Git, then `osctl context` for the bet: target and hard dates, roadmap, objective, tasks/lanes, open issues/decisions, recent outcomes, forecast. Follow evidence pointers only where they change today's advice; never bulk-load history.
+2. **His first** — before any brief: what waits for HIS word, and which dates are near with days left. He may defer; a deferred item stays and returns tomorrow.
+3. **Derived brief** — plain Russian: what changed since the previous working day, where it stands, what is not on plan, key evidence and problems, chance of the dated target. `no_basis` is honest. No ids, enum labels or fixed questionnaire.
+4. **Sweep** — report each item that has something to say, stay silent on the rest. One bet at most, and has it a ready task/CALL. Passed appetite/kill_by or invalidating evidence → review. Hot-state drift → repair. Calls beyond budget, paused against intent, or waiting without a live receipt → check, nudge, cancel, pause or drop; never infer progress. Every issue has route owner, trigger, evidence; due ones resolve, merge, promote or drop. New captures become `question`/`idea` cards or die named. Roadmap stays outcome-level. Overdue recurring → ready work CALL in the batch, never executed here. Forecast basis current, else `no_basis`. Knowledge whose `read_by` no longer applies → stale. ≥2 matching FRICTION entries → recommend one maintenance session. Did recent decisions touch a cited external signal. Propose; never decide, never reshape a bet.
+5. **Advise** — one focus and 0..N collision-free starts. Every non-recurring start serves the active bet; without a bet, recommend the planning route, not legacy work. Name why, what is deliberately not done, and what would change the advice.
+6. **Discuss** — challenge assumptions, compare alternatives, revise the plan in chat. Read-only; memory never overrides freshly read state.
+7. **Save boundary (owner)** — only his exact words (`сохрани`, `запиши`, `запускай`) authorize the delta; cite them in `play_check`. A saved day writes the `day` card — focus, starts, deliberately-not, and what would change the advice — REPLACING yesterday's: hot state is current state, not a diary; past days stay in Git. Otherwise save only explicit issue/forecast/decision or launch-state changes, bounded CALLs inside the objective, or — at `bet: null` — one lawful untracked planning CALL. Mission → frame; roadmap → map; specification → owner-authority work/verify/review; activation → KERNEL §2; objective stop → review; contradiction → repair; OS defect → maintenance.
+8. **Close** — a saved leg emits one RESULT, then writer apply/commit. A later owner turn may start another fresh day leg here. `закрываем день` ends it; unsaved discussion stays unsaved.
 
 ## Done when
 
-The owner has a truthful, detailed operating view and a recommended next move; no state changed without explicit save words, and any saved delta is owned by the correct play.
+He has a truthful operating view, what waits for him came first, the sweep answered every item that had something to say, and nothing was saved without his words.
 
 ## Notes
 
-- The dashboard is the chat response, derived each time; no daily file or HTML mirror is created.
-- Forecast is not task-completion percent and never rises by ritual.
-- An urgent unrelated problem enters the issue register; it does not silently become today's second objective.
+- The dashboard is the chat answer, derived each time; the `day` card holds only the agreed plan.
+- Forecast is not completion percent; never rises by ritual.
+- Absorbed `pulse` 2026-08-10 by owner decision: it ran once in 213 legs because nothing triggered it. The cross-direction view died with it — `day` sees one direction, and no play now looks across.
 
 END_OF_FILE: os/plays/day.md

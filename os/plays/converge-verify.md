@@ -22,7 +22,7 @@ Both attacks fail to find a hole; signoff exists; build hands evidence to shape,
 
 ## Notes
 - State the guarantee honestly: cited openings are structurally excluded; this pass attacks uncited assumptions. Rigorous, not a closed proof.
-- Decision-class checklists are cross-node canon in knowledge/; review/pulse promote them.
+- Decision-class checklists are cross-node canon in knowledge/; review promotes them.
 - No new owner G7 point below the ceiling: verify routes findings and decides nothing; at the ceiling it raises his choice without picking it.
 
 END_OF_FILE: os/plays/converge-verify.md

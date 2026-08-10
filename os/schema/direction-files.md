@@ -34,7 +34,7 @@ repos:
 
 ## cards/
 
-State lives in `live/<direction-id>/cards/` — one entity, one file, `<id>.md`. Kinds: `bet` · `node` · `task` · `call` · `issue` · `decision` · `recurring` · `track`; a top-level key with no assigned home keeps its own `extra` card named after the key, so nothing is lost silently. Carrier names lead with `_` — `_kind`, `_pos`, `_parent`, `_bet` — so an owner field may be named anything, including `kind` and `status`.
+State lives in `live/<direction-id>/cards/` — one entity, one file, `<id>.md`. Kinds: `bet` · `node` · `task` · `call` · `issue` · `decision` · `recurring` · `track` · `question` · `idea` · `day`; a top-level key with no assigned home keeps its own `extra` card named after the key, so nothing is lost silently. Carrier names lead with `_` — `_kind`, `_pos`, `_parent`, `_bet` — so an owner field may be named anything, including `kind` and `status`.
 
 A card is a short YAML header between `---` lines, then `## <name>` body blocks, then the `END_OF_FILE:` trailer. Header values are single-line and short; anything longer, multi-line, or a list/dict is a body block, lists and dicts under a YAML fence. `_pos` is the place among same-kind siblings; for a `node` the place is among siblings under the same `_parent`.
 
@@ -42,7 +42,7 @@ Every card carries a `## журнал` block: its own history, newest first, one
 
 Known head fields, one list for every kind — `osctl check` names any head field outside it and `card unset` removes it. It is a visibility rule, not a ban: forbidding unknown keys outright would break running legs, and the promise that they were "impossible" was false for six weeks while eight live tasks carried `order` beside `_pos` with different values.
 
-`id` · `_kind` · `_pos` · `_parent` · `_bet` · `status` · `label` · `hook` · `detail` · `by` · `outcome_kind` · `goal` · `why` · `appetite` · `kill_by` · `track` · `for` · `to` · `issued` · `call` · `description` · `description_by` · `label_by` · `opened` · `node` · `level` · `route` · `evidence` · `review_when` · `blocks` · `repo` · `engineering_contract` · `play` · `slot` · `basis` · `closed` · `cadence` · `lens` · `last_done` · `about` · `asks` · `from` · `source` · `parent` · `waiting_on` · `receipts` · `started` · `unblock_when` · `paused_by` · `note` · `superseded_by` · `at` · `updated`
+`id` · `_kind` · `_pos` · `_parent` · `_bet` · `status` · `label` · `hook` · `detail` · `by` · `outcome_kind` · `goal` · `why` · `appetite` · `kill_by` · `track` · `for` · `to` · `issued` · `call` · `description` · `description_by` · `label_by` · `opened` · `node` · `level` · `route` · `evidence` · `review_when` · `blocks` · `repo` · `engineering_contract` · `play` · `slot` · `basis` · `closed` · `cadence` · `lens` · `last_done` · `about` · `asks` · `from` · `source` · `parent` · `waiting_on` · `receipts` · `started` · `unblock_when` · `paused_by` · `note` · `superseded_by` · `at` · `updated` · `date`
 
 Terminal status `superseded` — this card was overtaken by another, which is a different fact from abandoned. It is written only by `repair`, only through `card close --status superseded --superseded-by <id>`, and the command refuses it without the successor: without naming what overtook it, the status says no more than `dropped`. It stamps `superseded_by` and `at`.
 
@@ -135,7 +135,7 @@ Unresolved only; a pointer card, not a task backlog or an archive.
 id: i-ab12                  # stable, never reused
 _kind: issue
 level: objective            # direction | roadmap | objective | execution
-route: review               # frame | map | shape | review | work | repair | pulse
+route: review               # frame | map | shape | review | work | repair | day
 evidence: <history/work/knowledge pointer>
 # blocks: <stable node/task/call>
 ---
@@ -247,6 +247,27 @@ opened: <date>
 <verbatim quote — only when it exists; never paraphrased into one>
 ```
 
+### day
+
+The agreed plan for today, and there is exactly ONE — id `day`, replaced each morning, never accumulated. Hot state is current state, not a diary: a card per day would be 365 files a year inside every leg's working set. Yesterday's plan stays in Git and in the day leg's report. Written only by `day`, only on the owner's explicit save words.
+
+```markdown
+---
+id: day
+_kind: day
+date: 2026-08-10
+---
+
+## фокус
+<one focus for today, his words where he gave them>
+## старты
+<0..N collision-free starts, each serving the active bet>
+## не делаем
+<what is deliberately left alone today>
+## передумаю если
+<the event that would change this advice>
+```
+
 ### recurring
 
 ```markdown
@@ -319,7 +340,7 @@ The forecast estimates one explicit dated direction target, not percentage of ta
 
 ### Issues
 
-An issue is a problem/unknown that cannot safely disappear and is not yet admitted work. It needs a route owner and `review_when`; otherwise it is noise and is not saved. Ideas go to captures/`node` cards, owner choices to decisions, tasks to the active bet, OS defects to MAINTENANCE/FRICTION — not issues. At the trigger — or earlier, when a leg's own evidence settles it — day, pulse, or a leg whose play is named in the row's `route` **and whose own `Writes:` line covers issues — an unqualified state line counts, a line qualified to other sections does not** routes it: resolve, merge, promote through its owning play, or drop with reason. The play's `Writes:` line is the grant; this schema never hands a play authority that line withholds, and a `route` naming no play at all, or one barred from `live/**`, hands out nothing. Rows those routes carry stay closable by day/pulse. Removing an issue requires its id plus disposition/evidence in RESULT/history; closing is an ordinary state change, not an owner-approval event. A card is a pointer, never an archive: template keys only, `issue`/`review_when` ≤2 short sentences each, `evidence` pointers only, ~800 characters per card outside its `## журнал`. Owner words, analysis and enumerated findings stay in `history/`/`work/`; a settled durable fact goes to `knowledge/` — never into a new key on the row. The pointer form is guidance for rows written from 2026-08-05 on: `audit` flags a row past it by id, nothing bounces on its shape. Rows written on or before 2026-08-05 stay valid unchanged; no migration is required, they are never retro-illegal, and their shape is never a reason to clear, compact or repair them (repair play, Removal boundary). Issues do not authorize execution or count as progress.
+An issue is a problem/unknown that cannot safely disappear and is not yet admitted work. It needs a route owner and `review_when`; otherwise it is noise and is not saved. Ideas go to captures/`node` cards, owner choices to decisions, tasks to the active bet, OS defects to MAINTENANCE/FRICTION — not issues. At the trigger — or earlier, when a leg's own evidence settles it — day, or a leg whose play is named in the row's `route` **and whose own `Writes:` line covers issues — an unqualified state line counts, a line qualified to other sections does not** routes it: resolve, merge, promote through its owning play, or drop with reason. The play's `Writes:` line is the grant; this schema never hands a play authority that line withholds, and a `route` naming no play at all, or one barred from `live/**`, hands out nothing. Rows those routes carry stay closable by day. Removing an issue requires its id plus disposition/evidence in RESULT/history; closing is an ordinary state change, not an owner-approval event. A card is a pointer, never an archive: template keys only, `issue`/`review_when` ≤2 short sentences each, `evidence` pointers only, ~800 characters per card outside its `## журнал`. Owner words, analysis and enumerated findings stay in `history/`/`work/`; a settled durable fact goes to `knowledge/` — never into a new key on the row. The pointer form is guidance for rows written from 2026-08-05 on: `audit` flags a row past it by id, nothing bounces on its shape. Rows written on or before 2026-08-05 stay valid unchanged; no migration is required, they are never retro-illegal, and their shape is never a reason to clear, compact or repair them (repair play, Removal boundary). Issues do not authorize execution or count as progress.
 
 ### Execution lanes
 
@@ -329,7 +350,7 @@ Tracks are a routing index for parallel execution inside one active bet, never a
 
 ### Recurring/frontier
 
-Recurring entries are not bet tasks and are capped at 3. Only pulse instantiates due work; incomplete runs do not advance `last_done`.
+Recurring entries are not bet tasks and are capped at 3. Only day instantiates due work; incomplete runs do not advance `last_done`.
 
 Live `call` cards are the sole durable dispatch frontier. A fresh session resolves named lane/call directly; `продолжаем` opens the sole ready call/decision, shows choices if several, or reports blocks/issues/planning route if none. `что можно делать` shows ready calls plus concise non-ready counts. List order/recommendation is never persisted strategy.
 
@@ -347,7 +368,7 @@ accepted: <date>   read_by: <play/lens and trigger>   status: current | stale
 
 No real `read_by` consumer means no knowledge entry.
 
-**Who writes.** Any leg may ADD an entry through the KERNEL §2 `knowledge` move. `review` and `pulse` additionally merge, retire and set `status: stale`. The converge family (`converge`, `converge-arch`, `converge-verify`) never writes here: it imports canon born-closed, so minting its own would be self-certification — it proposes to review/pulse as before.
+**Who writes.** Any leg may ADD an entry through the KERNEL §2 `knowledge` move. `review` merges and retires; `day` sets `status: stale` on its sweep. The converge family (`converge`, `converge-arch`, `converge-verify`) never writes here: it imports canon born-closed, so minting its own would be self-certification — it proposes to review as before.
 
 **What qualifies — three tests, all required.**
 
@@ -357,7 +378,7 @@ No real `read_by` consumer means no knowledge entry.
 
 **What this replaces.** A settled owner-approved fact — including one about work that is not the current bet — belongs here. Not on an `issue` card, which holds a problem or unknown, not a fact, and not ad-hoc keys invented on an issue or a `node` card. Not only inside a `history/` RESULT, which a later leg can reach only by sweeping. Entries written before this rule stay valid unchanged; no migration is required.
 
-**Staleness is the invalidation condition.** `status: stale` means the basis moved: a stale entry is never imported born-closed, it is re-asked or retired. Any leg that finds the basis moved records that; `review`/`pulse` decide retire-versus-rewrite.
+**Staleness is the invalidation condition.** `status: stale` means the basis moved: a stale entry is never imported born-closed, it is re-asked or retired. Any leg that finds the basis moved records that; `review` decides retire-versus-rewrite.
 
 ## work/
 

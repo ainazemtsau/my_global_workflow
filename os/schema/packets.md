@@ -9,7 +9,7 @@ CALL <call-id>
 to: session | research | executor        # who runs it
 direction: <direction-id>
 track: <track-id>                        # required when NOW.md uses track-mode
-play: <frame|map|shape|converge|converge-arch|converge-verify|day|work|guide|review|research|pulse|repair|local/<name>>   # for sessions
+play: <frame|map|shape|converge|converge-arch|converge-verify|day|work|guide|review|research|repair|local/<name>>   # for sessions
 node: <g-xxxx>  task: <t-N> | recurring: <r-N>          # when applicable
 goal: |
   <the outcome to produce — not the method>

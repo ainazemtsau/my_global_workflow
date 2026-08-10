@@ -48,7 +48,7 @@ Hard habits:
   cards written before that rule stay valid as they are. A leg settling an
   issue routed to its own play closes it in that RESULT with
   disposition+evidence — when that play's own `Writes:` line covers issue
-  cards; otherwise day/pulse closes it.
+  cards; otherwise day closes it.
 - Direction forecast is not task percent. Numeric chance/range requires a
   cited empirical reference class/calibration; otherwise say `no_basis` and
   name missing evidence/update trigger. Never force daily improvement.
@@ -71,6 +71,6 @@ Hard habits:
 
 - One direction = one platform project/gem; state in Git permits several platforms.
 - Any CALL can run anywhere; optional `surface:` is only a hint.
-- If this payload changes, pulse lists one non-urgent platform-instructions refresh.
+- If this payload changes, day lists one non-urgent platform-instructions refresh.
 
 END_OF_FILE: os/adapters/SESSION_PAYLOAD.md

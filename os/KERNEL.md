@@ -25,7 +25,7 @@ The OS runs the owner's long-term directions through short AI legs over durable 
    - `call:executor` — delegated execution;
    - `capture` — an emergent finding, never acted on in the same leg, and it lands where it can be found again, not in prose: one needing HIS word becomes a `question` card (`about` the card it belongs to, `asks: владелец`); his own deferred content becomes an `idea` card (`from`, `source`); the rest stays a RESULT line. Both travel in `state_changes` like any card, and `osctl context` puts owner-owed ones in front of him when a leg next opens on that card;
    - `decision` — owner question with 2–3 options and a recommendation;
-   - `knowledge` — record one settled durable fact where every load-bearing line cites his exact words or a resolvable artifact and `read_by` names a real consumer. What the leg reasoned out stays a capture. The converge family only proposes; review/pulse merge, retire and mark stale.
+   - `knowledge` — record one settled durable fact where every load-bearing line cites his exact words or a resolvable artifact and `read_by` names a real consumer. What the leg reasoned out stays a capture. The converge family only proposes; review merges and retires, day marks stale.
 3. **CLOSE** — emit RESULT (§4) as the leg's final message only: readable summary, then one fenced RESULT. It ends the leg; the writer applies/commits `state_changes`. A checkpoint issues a continuation CALL. A day chat may accept a later owner turn only after the saved transaction completes; `закрываем день` ends it. Read-only day turns emit no RESULT.
 
 **Orientation header.** Ordinary reply:
@@ -51,7 +51,7 @@ Day reply:
 | `NOW.md` | pointer: bet node id, lane WIP limit | every leg |
 | `cards/` | one file per entity — bet/node/task/call/issue/decision/recurring/track/extra — each carrying its journal; `node` cards are the roadmap, future objectives visible; closed → `cards/closed/` | `node`: frame/map/shape/review; rest: every leg |
 | `history/` | full RESULT of every leg | append-only |
-| `knowledge/` | accepted facts; each names who reads it and when | any leg (`knowledge` move); review/pulse curate |
+| `knowledge/` | accepted facts; each names who reads it and when | any leg (`knowledge` move); review curates, day marks stale |
 
 `work/` holds outputs and evidence, never current state.
 
@@ -88,7 +88,7 @@ A leg that cannot pass a gate stops; it never improvises around it.
 
 ## 6. Plays
 
-`frame · map · shape · converge · converge-arch · converge-verify · day · work · guide · review · research · pulse · repair` live in `os/plays/`. Directions may add local plays in `live/<id>/plays/`; a missing/unknown play routes to repair.
+`frame · map · shape · converge · converge-arch · converge-verify · day · work · guide · review · research · repair` live in `os/plays/`. Directions may add local plays in `live/<id>/plays/`; a missing/unknown play routes to repair.
 
 ## 7. Changing the OS
 

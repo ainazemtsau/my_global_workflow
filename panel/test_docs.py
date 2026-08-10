@@ -182,6 +182,34 @@ def sections_from_plan():
     return names(ready), names(closed)
 
 
+def case_plays_exist():
+    """Плей, названный в правилах, лежит в `os/plays/`.
+
+    2026-08-10 владелец снял `pulse`. Он держался за ШЕСТНАДЦАТЬ мест в правилах
+    и адаптерах — «review/pulse решают», «day/pulse закрывает», «раз в неделю
+    свежий pulse». Пропусти одно, и правило посылает ногу к процедуре, которой
+    нет: ровно тот класс, что стоил владельцу времени на журнале. Считается
+    механически, потому что глазами шестнадцать мест не удержать.
+    """
+    real = {p.stem for p in (ROOT / "os" / "plays").glob("*.md")}
+    # Снятые плеи. Назвать такой в правилах МОЖНО — но только в предложении,
+    # которое говорит, что он снят: запись о снятии полезна, указание к нему
+    # смертельно. Различие механическое, по метке в той же строке.
+    retired = {"pulse"}
+    marks = ("снят", "absorbed", "retired", "ходил 1 раз", "died with it")
+    named, bad = set(), []
+    for rel in DOCS:
+        for n, line in enumerate(text(rel).split("\n"), 1):
+            for m in re.finditer(r"`(?:local/)?([a-z][a-z-]{2,})`", line):
+                w = m.group(1)
+                if w in real:
+                    named.add(w)
+                elif w in retired and not any(k in line for k in marks):
+                    bad.append(f"{rel}:{n} `{w}` — плей снят, а строка зовёт его как живого")
+    check(not bad, f"каждый названный плей существует или назван снятым ({len(bad)}) {bad[:3]}")
+    check(len(named) >= 8, f"и правила вообще называют плеи: {len(named)} из {len(real)}")
+
+
 def case_head_fields():
     """Список известных полей шапки один: код и схема обязаны совпасть.
 
@@ -272,7 +300,7 @@ def case_budgets():
 
 def main():
     print(f"инструктирующих документов: {len(DOCS)}")
-    for fn in (case_commands, case_paths, case_kinds, case_head_fields, case_sections,
+    for fn in (case_commands, case_paths, case_kinds, case_plays_exist, case_head_fields, case_sections,
                case_acceptances, case_budgets):
         print(f"\n--- {fn.__doc__.splitlines()[0]}")
         fn()

@@ -12,13 +12,13 @@ The tier - not the agent's judgment - decides whether the owner is interrupted.
 
 ## Stage 1: manual relay
 
-For v29/legacy work, the owner carries a Direction CALL to the executor, then carries each current-stage HOME to a fresh Direction leg/writer; that leg emits the successor CALL. An owner-started day chat may hold read-only discussion for one day; each explicit save is a fresh `day` leg with its own RESULT/apply/commit, while workers, reviewers and binding G5 stay fresh chats. For a v30/v31 engineering root the owner carries the root once: its repo runner launches the separate fresh stages and returns only REPORT or ESCALATE HOME. If that runner cannot launch truly separate sessions, the root stops before work instead of collapsing roles. Decision inbox = the direction's decision cards, surfaced by sessions and pulse.
+For v29/legacy work, the owner carries a Direction CALL to the executor, then carries each current-stage HOME to a fresh Direction leg/writer; that leg emits the successor CALL. An owner-started day chat may hold read-only discussion for one day; each explicit save is a fresh `day` leg with its own RESULT/apply/commit, while workers, reviewers and binding G5 stay fresh chats. For a v30/v31 engineering root the owner carries the root once: its repo runner launches the separate fresh stages and returns only REPORT or ESCALATE HOME. If that runner cannot launch truly separate sessions, the root stops before work instead of collapsing roles. Decision inbox = the direction's decision cards, surfaced by sessions and the day sweep.
 
 ## Stage 2: runtime-assisted relay
 
 A local runtime, scheduled job, or short-lived headless agent on this repo:
 - applies RESULTs through the writer contract as they arrive (owner pastes once, not twice);
-- runs digest/audit/pulse on schedule, producing consolidated decision batches;
+- runs digest/audit on schedule, producing consolidated decision batches;
 - prepares every lawful ready CALL grouped by execution lane, shows `running` separately, and never offers a running CALL twice; the owner can open one or several without assembling packets;
 - may trigger fresh review of executor evidence before writer apply.
 Owner's manual work shrinks to: choose a ready CALL card grouped by execution lane, open its chat, report launches/losses once, and answer batched decisions.
@@ -28,11 +28,11 @@ Owner's manual work shrinks to: choose a ready CALL card grouped by execution la
 A loop (cron + agentic CLI, or a small service) that:
 - claims owner- or policy-selected ready calls and runs separate API/CLI sessions without overlapping product writes; several calls with no explicit policy require a choice;
 - chains v29/legacy RESULT -> writer -> issued CALL, and v30/v31 product-stage receipts inside one root, without human hops;
-- pushes only two kinds of notification to the owner: owner-gated decision batches (including G9 and tier 2), and pulse/day digests. Four response verbs: approve / edit / reject-with-reason / answer.
+- pushes only two kinds of notification to the owner: owner-gated decision batches (including G9 and tier 2), and day digests. Four response verbs: approve / edit / reject-with-reason / answer.
 - hard caps: <=N interrupts/day (default 3 batches); any run exceeding its CALL budget stops and surfaces as blocked, never silently retries.
 
 ## Honesty instrument
 
-At every stage, pulse tracks two numbers per week: owner-minutes spent on the system (decisions + relays) and bets closed. If the first grows while the second doesn't, the OS is failing regardless of how it feels - log it as friction.
+At every stage, day tracks two numbers per week: owner-minutes spent on the system (decisions + relays) and bets closed. If the first grows while the second doesn't, the OS is failing regardless of how it feels - log it as friction.
 
 END_OF_FILE: os/adapters/autonomy.md

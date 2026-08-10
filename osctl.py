@@ -337,7 +337,7 @@ except ImportError as _e:                                    # pragma: no cover
 # Оба вида объявлены в `os2/CONCEPT.md` и описаны в `os/schema/direction-files.md`.
 # Здесь они дописываются к списку носителя: в разделах прежнего `NOW.md` их не было,
 # и в `panel/cards.py` им взяться неоткуда.
-CARD_KINDS = _fmt.KINDS + ("question", "idea")
+CARD_KINDS = _fmt.KINDS + ("question", "idea", "day")
 SERVICE = _fmt.SERVICE                     # ведущий знак служебных имён
 KIND_KEY = SERVICE + "kind"
 POS_KEY = SERVICE + "pos"
@@ -376,7 +376,7 @@ KNOWN_HEAD = frozenset({
     "level", "route", "evidence", "review_when", "blocks",
     "repo", "engineering_contract", "play", "slot", "basis", "closed",
     "cadence", "lens", "last_done", "about", "asks", "from", "source",
-    "parent", "waiting_on", "receipts", "started", "unblock_when",
+    "parent", "waiting_on", "receipts", "started", "unblock_when", "date",
     "paused_by", "note", "superseded_by", "at", "updated",
 })
 HEAD_LIMIT = 120
