@@ -182,6 +182,25 @@ def sections_from_plan():
     return names(ready), names(closed)
 
 
+def case_head_fields():
+    """Список известных полей шапки один: код и схема обязаны совпасть.
+
+    Два списка одного и того же — это тот же класс, что накладка имён и два
+    имени у «кем читается». Здесь он опаснее: разойдясь, схема начнёт называть
+    законным поле, которое `check` объявит чужим, и наоборот.
+    """
+    # Только САМА строка списка, а не абзац вокруг неё: пояснение рядом называет
+    # `order` и `_pos` как пример дрейфа, и первая версия этой проверки утащила
+    # их в список. Список узнаётся по разделителю «·».
+    line = next(l for l in text("os/schema/direction-files.md").split("\n")
+                if l.startswith("`id` ·"))
+    named = set(re.findall(r"`([a-z_]+)`", line))
+    real = set(osctl.KNOWN_HEAD)
+    check(named == real,
+          f"схема равна коду (лишние в схеме {sorted(named - real)}, "
+          f"недостающие {sorted(real - named)})")
+
+
 def case_sections():
     """Готовые и закрытые разделы, названные в плане, равны коду панели."""
     ready, closed = sections_from_plan()
@@ -253,7 +272,7 @@ def case_budgets():
 
 def main():
     print(f"инструктирующих документов: {len(DOCS)}")
-    for fn in (case_commands, case_paths, case_kinds, case_sections,
+    for fn in (case_commands, case_paths, case_kinds, case_head_fields, case_sections,
                case_acceptances, case_budgets):
         print(f"\n--- {fn.__doc__.splitlines()[0]}")
         fn()

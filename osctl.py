@@ -353,6 +353,30 @@ JOURNAL_CEILING = 20
 # требованием сделать то, чего сделать нечем: переписать журнал запрещено
 # (append-only), закрыть узел нельзя. Замечание висело неснимаемым.
 LONG_LIVED = ("node", "bet")
+
+# Поля шапки, которые система знает. Список ОДИН и живёт здесь; схема обязана
+# ему равняться — за этим следит `panel/test_docs.py`.
+#
+# `os2/CONCEPT.md` §3 обещал «известные поля только: самодельные ключи в шапке
+# становятся невозможны» — и это было неправдой: команда принимала любое имя
+# молча. Цена измерена 2026-08-10 на живом состоянии: восемь задач несут `order`
+# рядом с `_pos` (значения РАЗНЫЕ) и `kind` рядом с `_kind` (там `executor`,
+# то есть слово занято под другой смысл). Запрещать задним числом нельзя — это
+# сломало бы работающие ноги; поэтому check НАЗЫВАЕТ незнакомое поле фактом,
+# а убрать его есть чем: `card unset --field <имя>`.
+KNOWN_HEAD = frozenset({
+    "id", "_kind", "_pos", "_parent", "_bet",   # `_closed` тут НЕТ: он
+    # выводится из папки и в файл не пишется никогда — сторож `test_readers`
+    # поймал это через минуту после того, как я его сюда вписал.
+    "status", "label", "hook", "detail", "by", "outcome_kind",
+    "goal", "why", "appetite", "kill_by", "track", "for", "to", "issued",
+    "call", "description", "description_by", "label_by", "opened", "node",
+    "level", "route", "evidence", "review_when", "blocks",
+    "repo", "engineering_contract", "play", "slot", "basis", "closed",
+    "cadence", "lens", "last_done", "about", "asks", "from", "source",
+    "parent", "waiting_on", "receipts", "started", "unblock_when",
+    "paused_by", "note", "superseded_by", "at", "updated",
+})
 HEAD_LIMIT = 120
 
 
@@ -1064,6 +1088,10 @@ def cmd_check(a) -> int:
                                 "скорее всего в прозе было двоеточие и её разобрали как структуру")
             if isinstance(v, str) and (len(v) > HEAD_LIMIT or chr(10) in v):
                 problems.append(f"{p.name}: поле {k} длинное — ему место в теле")
+        unknown = sorted(k for k in head if k not in KNOWN_HEAD)
+        if unknown:
+            notes.append(f"{p.name}: поля шапки вне известных: {', '.join(unknown)} "
+                         f"(убрать: card unset --field <имя>)")
         j = blocks.get(JOURNAL) or []
         if len(j) > JOURNAL_CEILING and head.get(KIND_KEY) not in LONG_LIVED:
             notes.append(f"{p.name}: журнал {len(j)} строк, потолок {JOURNAL_CEILING}")
