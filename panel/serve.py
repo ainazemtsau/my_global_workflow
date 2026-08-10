@@ -574,6 +574,78 @@ def _knowledge_accepted_date(row):
 # 2026-08-09, у направлений они на разных языках, и список в коде совпал бы ровно
 # с одним. Раздел ничего не оценивает: никаких процентов по критериям успеха.
 
+# Полоса сроков строится ТОЛЬКО из полей: шапка хартии и `by` у целей. Замерено
+# 2026-08-09: из шестнадцати дат направления в поле лежала одна, остальные —
+# проза, и прозу сюда перенесли вручную по его слову. Вынимать дату из прозы
+# разбором нельзя: переписанная фраза молча уводит срок с экрана.
+CHARTER_FIELD = re.compile(r"^([A-Za-z_][A-Za-z0-9_-]*):(.*)$")
+
+
+def charter_head(text):
+    """Поля шапки хартии: строки `имя: значение` до первой строки `## `.
+    Чистая: ничего не читает с диска.
+
+    Заголовок `# CHARTER — …` полем не считается. Шапки нет — пустой словарь.
+    Значение — весь остаток строки, обрезанный по краям."""
+    fields = {}
+    for line in (text or "").split(chr(10)):
+        if line.startswith("## "):
+            break
+        if line.startswith("#"):
+            continue
+        m = CHARTER_FIELD.match(line)
+        if m:
+            fields[m.group(1)] = m.group(2).strip()
+    return fields
+
+
+def days_phrase(days):
+    """«через 21 день», а не «через 21 дней». Фразу собирает сервер.
+
+    Русское числительное — единственное место экрана, где ошибка видна каждому
+    и сразу: первая версия печатала одну форму на все числа и выдала «через 21
+    дней». Разметке этого знать незачем — она печатает готовую строку.
+    """
+    n = abs(int(days))
+    last, tens = n % 10, n % 100
+    if last == 1 and tens != 11:
+        word, was = "день", "был"
+    elif last in (2, 3, 4) and tens not in (12, 13, 14):
+        word, was = "дня", "было"
+    else:
+        word, was = "дней", "было"
+    if days == 0:
+        return "сегодня"
+    if days > 0:
+        return f"через {n} {word}"
+    return f"{was} {n} {word} назад"
+
+
+def deadlines(items, today):
+    """Сколько дней до каждой даты. Чистая: вход — строки с полем `date`.
+
+    Добавляет `days` (отрицательное у прошедшей), `past` и готовую человеческую
+    `phrase`, сортирует по дате от ранних к поздним, остальные ключи сохраняет
+    как есть. Нечитаемая дата пропускается молча, не роняя остальные.
+
+    Ключей `late`/`overdue` здесь нет и не будет: пропуск срока провалом не
+    объявляется — панель не судит, судит владелец."""
+    rows = []
+    for item in items:
+        try:
+            d = datetime.datetime.strptime(str(item.get("date") or "").strip(),
+                                           "%Y-%m-%d").date()
+        except ValueError:
+            continue
+        row = dict(item)
+        row["date"] = d.isoformat()
+        row["days"] = (d - today).days
+        row["past"] = d < today
+        row["phrase"] = days_phrase(row["days"])
+        rows.append(row)
+    rows.sort(key=lambda r: r["date"])
+    return rows
+
 
 def charter_sections(text):
     """Разделы хартии по строкам `## ` (ровно две решётки). Чистая: не читает диск.
@@ -616,6 +688,7 @@ def section_direction(direction):
     approvals = None
     with lock_for(direction):
         extras, _unread = load_cards(direction, kind=cards.EXTRA)
+        nodes, _nodes_unread = load_cards(direction, kind="node")
     fc = extras.get("direction_forecast")
     if fc:
         v = cards.body_value("direction_forecast", "direction_forecast",
@@ -628,12 +701,35 @@ def section_direction(direction):
         approvals = {"path": f"live/{direction}/cards/owner_approved.md",
                      "words": len(body.split())}
 
+    # Сроки — из полей: шапка хартии и живые цели с `by`. Ни одной даты нет —
+    # пустой список, а не выдуманная строка.
+    head_fields = charter_head(text)
+    deadline_items = []
+    if head_fields.get("review_by"):
+        deadline_items.append({"date": head_fields["review_by"],
+                               "title": "Твоё условие в хартии",
+                               "what": head_fields.get("review_what"),
+                               "source": head_fields.get("review_source")})
+    for cid, (h, _b) in nodes.items():
+        if h.get("_closed"):
+            continue
+        by = h.get("by")
+        if by in (None, ""):
+            continue
+        if isinstance(by, datetime.datetime):
+            by = by.date()
+        deadline_items.append({"date": str(by).strip(),
+                               "title": h.get("label") or cid,
+                               "what": h.get("hook") or "",
+                               "goal": cid})
+
     return {"direction": direction,
             "charter": {"path": charter_rel,
                         "changed": _charter_changed(charter_rel) if text else None,
                         "sections": charter_sections(text)},
             "forecast": forecast,
-            "approvals": approvals}
+            "approvals": approvals,
+            "deadlines": deadlines(deadline_items, datetime.date.today())}
 
 
 def section_knowledge(direction):

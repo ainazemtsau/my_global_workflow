@@ -327,4 +327,39 @@ html, body {
 .lg-done { color: var(--fg-dim); }
 .lg-off { color: var(--fg-off); }
 
+/* полоса сроков: сетка на волосяных линиях, без заливок — как числовая плашка.
+   Цвета только существующие: акцент у ближайшей, приглушённый у прошедших.
+   Красного нет: пропуск срока — не провал, панель не судит. */
+.deadlines { padding: 16px 20px; border-bottom: 1px solid var(--line); }
+.dl-head {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  color: var(--fg-faint);
+  margin-bottom: 12px;
+}
+.dl-grid { display: flex; flex-wrap: wrap; }
+/* Отрицательные поля накладывают волосяные рамки соседей друг на друга —
+   получается одна общая сетка и при переносе на узкий экран. */
+.dl-tile {
+  flex: 1 1 200px;
+  min-width: 180px;
+  padding: 10px 14px;
+  border: 1px solid var(--line);
+  margin: 0 -1px -1px 0;
+}
+.dl-date { font-size: 15px; color: var(--fg); }
+.dl-days { font-family: var(--mono); font-size: 12px; color: var(--fg-dim); margin: 4px 0 6px; }
+.dl-what { font-size: 13px; color: var(--fg-dim); max-width: 40ch; }
+.dl-who { font-size: 12px; color: var(--fg-faint); margin-top: 4px; }
+.dl-src { font-family: var(--mono); font-size: 10px; color: var(--fg-off); margin-top: 4px; }
+.dl-tile.next { border-color: var(--accent); z-index: 1; }
+.dl-tile.next .dl-date,
+.dl-tile.next .dl-days { color: var(--accent); }
+.dl-tile.past .dl-date,
+.dl-tile.past .dl-days,
+.dl-tile.past .dl-what,
+.dl-tile.past .dl-who { color: var(--fg-off); }
+.dl-note { font-size: 12px; color: var(--fg-off); margin-top: 10px; }
+
 END_OF_FILE: panel/app/style.css

@@ -28,6 +28,46 @@ function mdNode(tag, className, markdown) {
   return node;
 }
 
+// Короткие имена месяцев для полосы сроков: дата показывается человеком (15 авг).
+const MONTHS_RU = ["янв", "фев", "мар", "апр", "май", "июн",
+                   "июл", "авг", "сен", "окт", "ноя", "дек"];
+
+// Фразу про дни собирает СЕРВЕР и присылает готовой (`serve.days_phrase`):
+// здесь она собиралась одной формой на все числа и выдавала «через 21 дней».
+// Прошедшая дата — не «просрочено»: красного и оценок здесь нет вообще.
+function deadlineDaysText(row) {
+  return row.phrase;
+}
+
+// Полоса сроков. Список пуст — полосы нет совсем: ни заголовка, ни рамки.
+function deadlinesBar(rows) {
+  if (!rows || !rows.length) return null;
+  const bar = el("div", "deadlines");
+  bar.appendChild(el("div", "dl-head", "СРОКИ"));
+  const grid = el("div", "dl-grid");
+  // Строки уже отсортированы по дате: первая непрошедшая — ближайшая будущая.
+  const next = rows.find((r) => !r.past) || null;
+  for (const r of rows) {
+    let cls = "dl-tile";
+    if (r === next) cls += " next";
+    if (r.past) cls += " past";
+    const tile = el("div", cls);
+    const parts = String(r.date).split("-");
+    const month = MONTHS_RU[parseInt(parts[1], 10) - 1];
+    tile.appendChild(el("div", "dl-date",
+      month ? parseInt(parts[2], 10) + " " + month : r.date));
+    tile.appendChild(el("div", "dl-days", deadlineDaysText(r)));
+    if (r.what) tile.appendChild(el("div", "dl-what", r.what));
+    if (r.title) tile.appendChild(el("div", "dl-who", r.title));
+    if (r.source) tile.appendChild(el("div", "dl-src", r.source));
+    grid.appendChild(tile);
+  }
+  bar.appendChild(grid);
+  bar.appendChild(el("div", "dl-note",
+    "Даты — его слова. Панель их не назначает и не двигает."));
+  return bar;
+}
+
 let ROUTE_EXTRA = null;
 
 function parseHash() {
@@ -696,6 +736,11 @@ function renderDirection2(direction, content) {
     .then((data) => {
       if (token !== RENDER_TOKEN) return;
       content.textContent = "";
+
+      // Полоса сроков — самая первая в разделе, до прогноза и до хартии.
+      const bar = deadlinesBar(data.deadlines);
+      if (bar) content.appendChild(bar);
+
       const sub = el("div", "row");
       sub.appendChild(el("div", "desc",
         "Устав направления. Панель его не оценивает и не считает выполненным."));

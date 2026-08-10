@@ -212,6 +212,61 @@ def case_idea_keeps_its_author():
     check(bare["his_words"] is None, "и цитаты нет, когда её нет")
 
 
+def case_deadlines_are_transferred_never_computed():
+    """Полоса сроков: даты приходят из полей, а «через N дней» считается.
+
+    Замерено 2026-08-09: в направлении шестнадцать дат, и ровно ОДНА лежала
+    в машинном поле — остальные прозой. Поэтому строится полоса только из
+    `by` у целей и шапки хартии; ни одна дата не вынимается разбором прозы,
+    иначе переписанная фраза молча уводит срок с экрана.
+
+    «Просрочено» НЕ рисуется: пропуск октября по хартии провалом не является,
+    и красить его красным значило бы судить вместо владельца. Прошедшая дата
+    показывает, сколько дней назад она была, и гаснет.
+    """
+    sys.path.insert(0, str(ROOT / "panel"))
+    import serve
+    import datetime
+    head = serve.charter_head("# CHARTER — x\n\nreview_by: 2026-08-15\n"
+                              "review_what: пересмотреть маршрут\n"
+                              "review_source: критерий 1\n\n## Миссия\n\nтекст\n")
+    check(head.get("review_by") == "2026-08-15", f"дата из шапки хартии читается: {head}")
+    check(head.get("review_what") == "пересмотреть маршрут", "и что именно к ней надо")
+    check(serve.charter_head("# CHARTER — y\n\n## Миссия\n\nтекст\n") == {},
+          "шапки нет — пустой словарь, а не выдумка")
+
+    today = datetime.date(2026, 8, 10)
+    rows = serve.deadlines([{"date": "2026-08-31", "title": "Страница в Steam", "what": "х"},
+                            {"date": "2026-08-15", "title": "хартия", "what": "у"},
+                            {"date": "2026-08-01", "title": "прошлое", "what": "z"}], today)
+    check([r["date"] for r in rows] == ["2026-08-01", "2026-08-15", "2026-08-31"],
+          f"строки идут по дате, ближайшие раньше: {[r['date'] for r in rows]}")
+    check(rows[1]["days"] == 5, f"дней до 15 августа от 10-го: {rows[1]['days']}")
+    check(rows[0]["days"] == -9 and rows[0]["past"] is True,
+          f"прошедшая дата считается назад и помечена прошедшей: {rows[0]}")
+    check(rows[2]["past"] is False, "будущая — не прошедшая")
+    check(all("late" not in r and "overdue" not in r for r in rows),
+          "никакого «просрочено»: панель не судит, пропуск срока провалом не объявляет")
+
+    # Фразу собирает СЕРВЕР, а не разметка: русское числительное — единственное
+    # место экрана, где «21 дней» выглядит как поломка, и на глаз оно и было
+    # поймано. Здесь оно закреплено на всех трёх формах и на исключении 11–14.
+    p = serve.days_phrase
+    check(p(0) == "сегодня", f"ноль дней — «сегодня», а не «через 0 дней»: {p(0)}")
+    check(p(1) == "через 1 день", p(1))
+    check(p(2) == "через 2 дня", p(2))
+    check(p(5) == "через 5 дней", p(5))
+    check(p(11) == "через 11 дней", f"одиннадцать — исключение: {p(11)}")
+    check(p(14) == "через 14 дней", f"четырнадцать — тоже: {p(14)}")
+    check(p(21) == "через 21 день", f"двадцать один — снова «день»: {p(21)}")
+    check(p(22) == "через 22 дня", p(22))
+    check(p(77) == "через 77 дней", p(77))
+    check(p(-1) == "был 1 день назад", f"прошедшее говорит в прошедшем: {p(-1)}")
+    check(p(-9) == "было 9 дней назад", p(-9))
+    check(p(-2) == "было 2 дня назад", p(-2))
+    check(all(x["phrase"] for x in rows), "и каждая строка полосы несёт готовую фразу")
+
+
 def case_charter_sections_come_from_the_file():
     """Разделы хартии берутся ИЗ ФАЙЛА, а не из списка в коде.
 
@@ -399,6 +454,7 @@ def main():
                case_waiting_is_only_yours, case_idea_keeps_its_author,
                case_stale_checkout_announces_itself, case_history_never_invents,
                case_knowledge_reads_both_spellings, case_charter_sections_come_from_the_file,
+               case_deadlines_are_transferred_never_computed,
                case_service_key_not_written):
         print(f"\n--- {fn.__doc__.splitlines()[0]}")
         fn()
