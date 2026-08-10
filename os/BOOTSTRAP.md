@@ -2,6 +2,10 @@
 
 Пакеты писать руками не нужно: вход — обычные слова. CALL/RESULT являются машинным транспортом.
 
+Локальные Python-инструменты репозитория запускаются из корня через
+`uv run --locked python <script> ...`. Версия Python закреплена в `.python-version`,
+а PyYAML — в `pyproject.toml` и `uv.lock`; глобальный `pip install` не нужен.
+
 ## Вариант A: ChatGPT / Claude Project
 
 1. Создай Project с именем направления.

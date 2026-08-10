@@ -1,4 +1,5 @@
 __pycache__/
 *.pyc
+.venv/
 panel/board.html
 .osctl-here.yaml

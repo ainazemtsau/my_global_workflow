@@ -42,7 +42,7 @@
 
 ## 3. Инструмент
 
-Один вход: `python osctl.py <предмет> <действие> [--параметры]`.
+Один вход: `uv run --locked python osctl.py <предмет> <действие> [--параметры]`.
 
 ```
 osctl card new     --id t-house-2 --kind task --field status=open
@@ -451,7 +451,7 @@ Python 3 и стандартная библиотека плюс `PyYAML`. Ни 
 ни `.sh` — вызов одинаков на Windows и на Mac:
 
 ```
-python osctl.py card close --id t-house-2 --status done
+uv run --locked python osctl.py card close --id t-house-2 --status done
 ```
 
 Пути только через `pathlib`, файлы только в UTF-8 с явным указанием, переводы

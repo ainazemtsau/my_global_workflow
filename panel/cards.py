@@ -104,8 +104,8 @@ if __name__ == "__main__":
     raise SystemExit(
         "Это определение формата, а не команда.\n"
         "  Состояние читается и меняется через osctl:\n"
-        "    python osctl.py check   --direction <направление>\n"
-        "    python osctl.py card show --id <id>\n"
+        "    uv run --locked python osctl.py check   --direction <направление>\n"
+        "    uv run --locked python osctl.py card show --id <id>\n"
         "  Прежний конвертер из NOW.md/TREE.md снят вместе с источниками "
         "(git show 4138113c:panel/cards.py)."
     )

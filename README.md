@@ -9,6 +9,19 @@ The owner's personal workflow system: life directions run through short AI sessi
 - **`archive/`** — frozen legacy of previous generations. Read-only evidence, never authority (`archive/README.md`).
 - `AGENTS.md` / `CLAUDE.md` — instructions agent sessions read automatically when opened on this repo.
 
+## Local Python tools
+
+Install `uv`; the repository pins Python 3.13 and PyYAML in `pyproject.toml` / `uv.lock`.
+Run tools from the repository root through the locked environment, without a global
+`pip install`:
+
+```text
+uv run --locked python osctl.py --help
+uv run --locked python panel/test_docs.py
+```
+
+The first run creates the ignored `.venv/` and installs the locked dependency.
+
 ## Quick start
 
 1. Create a ChatGPT/Claude Project, paste `os/adapters/SESSION_PAYLOAD.md` (with your direction id), connect the GitHub connector to this repo.

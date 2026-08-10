@@ -3,9 +3,9 @@
 """osctl — состояние workflow меняется только этими командами.
 
 Запуск одинаков на Windows и macOS:
-    python osctl.py slot list
-    python osctl.py slot claim --slot 2 --for c-exec-...-001 --stage BUILD
-    python osctl.py slot release --slot 2 --for c-exec-...-001 --stage BUILD
+    uv run --locked python osctl.py slot list
+    uv run --locked python osctl.py slot claim --slot 2 --for c-exec-...-001 --stage BUILD
+    uv run --locked python osctl.py slot release --slot 2 --for c-exec-...-001 --stage BUILD
 
 Доска аренд лежит ВНЕ всех рабочих копий и вне .git — иначе её переписывает
 любое слияние или смена ветки (так уже было в GasCoopGame до 2026-07-30).
@@ -72,7 +72,7 @@ def resolve_direction(explicit: str | None) -> str:
     raise Stop(
         f"направление не определено: нет {MARKER} в {REPO} и не передан --direction.\n"
         "  Угадывать по имени папки нельзя — неверная догадка пишет в чужое состояние.\n"
-        f"  Создай метку: python osctl.py here set --direction <id> [--slot N]"
+        f"  Создай метку: uv run --locked python osctl.py here set --direction <id> [--slot N]"
     )
 
 
@@ -107,7 +107,7 @@ def read_ledger(direction: str) -> dict:
     if not p.exists():
         raise Stop(
             f"доски слотов нет: {p}\n"
-            f"  Создай один раз: python osctl.py slot init --direction {direction} --count 4"
+            f"  Создай один раз: uv run --locked python osctl.py slot init --direction {direction} --count 4"
         )
     try:
         data = json.loads(p.read_text(encoding="utf-8"))
@@ -559,7 +559,7 @@ def live_only(direction: str, cid: str, override: str | None = None,
     p, is_closed = locate(direction, cid, override)
     if is_closed and not allow_closed:
         raise Stop(f"{cid} закрыта и лежит в {CLOSED}/." + chr(10)
-                   + f"  Вернуть в работу:   python osctl.py card reopen --id {cid} --why ..."
+                   + f"  Вернуть в работу:   uv run --locked python osctl.py card reopen --id {cid} --why ..."
                    + chr(10)
                    + "  Или поправить на месте, не открывая: добавь --closed")
     return p
@@ -1016,8 +1016,8 @@ def cmd_context(a) -> int:
         print(f"  {x['path']:<58} {x['words']:>6}  {x['why']}")
     kinds = " · ".join(f"{k} {n}" for k, n in excluded["by_kind"].items())
     print(f"{chr(10)}НЕ ВКЛЮЧЕНО: {len(rest)} карточек, {excluded['words']} слов — {kinds}")
-    print(f"  дочитать: python osctl.py card show --id <id> · "
-          f"python osctl.py find --text <текст>")
+    print(f"  дочитать: uv run --locked python osctl.py card show --id <id> · "
+          f"uv run --locked python osctl.py find --text <текст>")
     return 0
 
 
