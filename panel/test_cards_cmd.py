@@ -35,6 +35,37 @@ def run(*args):
                           errors="replace", env=env)
 
 
+def case_tool_never_advises_in_prose():
+    """Инструмент говорит ФАКТ или называет команду. Совета словами не даёт.
+
+    Случай 2026-08-10, стоивший владельцу времени зря: `osctl check` печатал
+    «пора закрывать или чистить». Команды чистки в системе нет и не должно быть
+    (журнал append-only), но нога прочитала совет, поверила инструменту, принесла
+    его владельцу предложением, тот согласился — и работа упёрлась в запрет.
+
+    Совет, названный командой, проверяем: команда либо есть, либо нет — сквозной
+    прогон 2026-08-10 нашёл девять таких и все настоящие. Совет, сказанный
+    прозой, не проверяем ничем, поэтому его здесь просто нет.
+    """
+    import io
+    import re
+    src = io.open(ROOT / "osctl.py", encoding="utf-8").read()
+    # Только то, что уходит человеку: строки внутри print(...) и Stop(...).
+    said = re.findall(r'(?:print|Stop)\(\s*((?:f?["\'][^"\']*["\']\s*)+)', src)
+    # По границам слова, а не по подстроке: «опора карточки» — не «пора».
+    banned = re.compile(r"\b(пора|стоит|следует|рекомендуется|лучше бы|надо бы)\b")
+    bad = [(banned.search(s).group(1), s[:80]) for s in said if banned.search(s.lower())]
+    check(not bad, f"инструмент не советует прозой ({bad[:2]})")
+
+    # А каждая команда, которую он всё-таки называет, обязана существовать.
+    # `(?!-)` — иначе «find --text» разбирается как команда «find --text».
+    named = {" ".join(x for x in m.groups() if x)
+             for m in re.finditer(r"osctl\.py\s+([a-z]+)(?:\s+(?!-)([a-z-]+))?", src)}
+    missing = [c for c in sorted(named)
+               if run(*c.split(), "--help").returncode != 0]
+    check(not missing, f"и каждая названная им команда существует ({missing})")
+
+
 def main():
     tmp = Path(tempfile.mkdtemp(prefix="osctl-cards-"))
     card = tmp / "t-1.md"
@@ -164,6 +195,9 @@ def main():
     # --- поиск
     r = run("find", "--text", "Другое дело", *C)
     check(r.returncode == 0 and "t-1" in r.stdout, "find находит карточку по тексту")
+
+    print("\n--- Инструмент говорит факт или называет команду, но не советует прозой")
+    case_tool_never_advises_in_prose()
 
     print(f"\n{'ПРИНЯТО' if not fails else 'НЕ ПРИНЯТО: ' + str(len(fails)) + ' упало'}")
     return 1 if fails else 0
