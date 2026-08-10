@@ -10,22 +10,46 @@ node: g-5a7c
 task: t-scale-7
 issued: 2026-08-10 by s-work-g-5a7c-scale-7-call-001
 status: ready
-basis: **заполняется при отправке.** Наряд обязан стоять на состоянии, в которое `WIN-CTRL`
-       интегрировал принятый кандидат `t-scale-6` (`9f4eb6cf897e83f6cdda5dcf672ae62110c7ccf1`,
-       отчёт `c8861472110457ee1337e121cce83ef070e4dac2`). До этой интеграции наряд НЕ отправляется:
-       он трогает ровно те файлы, которые она публикует. При отправке перемерить
-       `git ls-remote origin` и вписать точный коммит и дерево.
+basis: `918600ba355c693068035894ef86d258b46ccb0f`, дерево
+       `84701a5d0e78fb70ddbd2215bc6910c7c3c7544b` — `origin/dev` = `origin/main` =
+       `origin/slot/win-u1`. Перемерено `git ls-remote origin` непосредственно перед выпуском.
+       Это состояние уже содержит интегрированный и опубликованный `t-scale-6`: продуктовый коммит
+       `9f4eb6cf897e83f6cdda5dcf672ae62110c7ccf1`, merge `3d24731accada1820388ba26361fe420207e816a`,
+       закрывающий документный `918600ba`. Ground для свежего перемера, не freshness-lock.
+
+**Одно расхождение, названное прямо: локальная `main` = `11f8ddbf1f11722c5bfa25e3104c3847e45d7b04`
+и отстала на 15 коммитов** (`main...origin/main` = `0 15`). Опубликованное состояние живёт в
+`origin/*` и в `slot/win-u1`. Локальную `main` этой работой не двигать и не догонять — на этой
+поверхности висит улика `i-deliver-gate-red-when-main-catches-dev-001`, и `origin/main` уже догнал
+`origin/dev`. **Если финальный `-Deliver` встанет красным на ЧУЖОЙ истории, а не на своей работе —
+это она: назвать в возврате и НЕ чинить чужие отчёты внутри этого наряда.**
+
+Пин перемерен: `engineering_contract: 36` против продуктового `validation.config`
+`synced_contract_version: 36`. Re-sync не нужен.
 
 ## slot
 
-**Заполняется при отправке, по слову владельца.** Направление слот не выбирает. Требуется: один из
-WIN-U1..WIN-U4, названный им; свежий read-only readback `tools/select-slot.ps1 -Slot <SLOT>` со
-`state: CLEAN`, `lifecycle: AVAILABLE`, `lease: none`; и первое меняющее состояние действие —
+**WIN-U1** — прямое слово владельца 2026-08-10: «u1».
+Каталог `C:\projects\Unity\GasCoopGame_win-u1`, постоянная ветка `slot/win-u1`.
 
-`.\pwsh.cmd tools/select-slot.ps1 -Slot <SLOT> -Claim -LeaseId c-exec-g-5a7c-cargo-class-seam-001:BUILD`
+Перемерено настоящим селектором (`tools/select-slot.ps1 -Slot WIN-U1`, только чтение)
+непосредственно перед выпуском наряда:
 
-Любое расхождение, чужая аренда или не-AVAILABLE — СТОП домой. Инструмент, Editor или точный MCP
-endpoint недоступен — **СТОП и вопрос владельцу**, без обходного пути.
+- `state: CLEAN`, `lifecycle: AVAILABLE`, `lease: none`;
+- `branch: slot/win-u1`, HEAD `918600ba355c693068035894ef86d258b46ccb0f` — знак в знак базис этого
+  наряда;
+- `state-authority: C:\projects\Unity\GasCoopGame_slot-state\gascoop-slot-state.v1.json`;
+- `mcp-endpoint: unrecorded`.
+
+**Первое действие, меняющее состояние:**
+
+`.\pwsh.cmd tools/select-slot.ps1 -Slot WIN-U1 -Claim -LeaseId c-exec-g-5a7c-cargo-class-seam-001:BUILD`
+
+Селектор заново проверяет path/branch/HEAD/state. Любое расхождение, чужая аренда или не-AVAILABLE —
+СТОП домой; другой слот не выбирать. Для Unity-действия записать и непосредственно перед вызовом
+live-проверить endpoint именно этого lease. Сейчас endpoint не записан: если прямой Unity MCP
+недоступен или не верифицируется как WIN-U1 — **СТОП и вопрос владельцу**, без shell/HTTP/headless
+обхода. Claim не запускает и не останавливает Editor.
 
 ## goal
 
@@ -156,7 +180,8 @@ endpoint недоступен — **СТОП и вопрос владельцу*
 
 ## откат
 
-- **Точка возврата — коммит и дерево, вписанные в `basis` при отправке.**
+- **Точка возврата — `918600ba355c693068035894ef86d258b46ccb0f`**, дерево
+  `84701a5d0e78fb70ddbd2215bc6910c7c3c7544b`.
 - Откат назвать ОДНОЙ точной командой и **проверить первой рукой**: после отката
   `git rev-parse <ветка>^{tree}` возвращает дерево базы знак в знак.
 - Прямо заявить, что для отката не нужно ничего вне репозитория.
