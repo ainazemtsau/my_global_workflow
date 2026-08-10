@@ -44,6 +44,8 @@ Known head fields, one list for every kind — `osctl check` names any head fiel
 
 `id` · `_kind` · `_pos` · `_parent` · `_bet` · `status` · `label` · `hook` · `detail` · `by` · `outcome_kind` · `goal` · `why` · `appetite` · `kill_by` · `track` · `for` · `to` · `issued` · `call` · `description` · `description_by` · `label_by` · `opened` · `node` · `level` · `route` · `evidence` · `review_when` · `blocks` · `repo` · `engineering_contract` · `play` · `slot` · `basis` · `closed` · `cadence` · `lens` · `last_done` · `about` · `asks` · `from` · `source` · `parent` · `waiting_on` · `receipts` · `started` · `unblock_when` · `paused_by` · `note` · `superseded_by` · `at` · `updated`
 
+Terminal status `superseded` — this card was overtaken by another, which is a different fact from abandoned. It is written only by `repair`, only through `card close --status superseded --superseded-by <id>`, and the command refuses it without the successor: without naming what overtook it, the status says no more than `dropped`. It stamps `superseded_by` and `at`.
+
 State changes only through `osctl`: `card new|set|block|unset|close|reopen`, `log add`, `leg close`. A card is never hand-edited. `card close` writes the reason into the journal and moves the file to `cards/closed/` in the same format; `card reopen` returns it. A closed card reads exactly like a live one, so closing loses nothing. `card new` refuses a card without the human fields it enforces — `label` and `hook` on a `node`, `description` on a `call` — so no card shows the owner a machine id.
 
 The direction journal is assembled from these journals plus `git log`: the commit message is the journal line. Full leg reports stay in `history/`.

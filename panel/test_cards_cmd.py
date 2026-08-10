@@ -35,6 +35,46 @@ def run(*args):
                           errors="replace", env=env)
 
 
+def case_superseded_names_its_successor(tmp, C):
+    """«Эту ногу перебило вот этой» наконец записывается — и только с указателем.
+
+    Статус объявлен в `os2/CONCEPT.md` как недостающий с обязательными
+    `superseded_by` и `at`; во `FRICTION.md` он ждал с 27 июля. До сегодня его
+    не писал никто: поля были узаконены, писателя не было. Закрытие без
+    указателя запрещено — иначе «перебито» неотличимо от «брошено», а вся
+    ценность статуса ровно в том, что видно, ЧЕМ перебило.
+    """
+    src = tmp / "c-old.md"
+    src.write_text("---\nid: c-old\n_kind: call\nstatus: ready\n---\n\n"
+                   "## description\nстарый наряд\n\n"
+                   f"END_OF_FILE: {src}\n", encoding="utf-8")
+
+    r = run("card", "close", "--id", "c-old", "--status", "superseded",
+            "--why", "перебит", *C)
+    check(r.returncode == 1 and "superseded-by" in r.stderr,
+          f"без указателя на преемника закрыть нельзя: {r.stderr.strip()[:90]}")
+    check(src.exists(), "и карточка осталась на месте — отказ ничего не тронул")
+
+    r = run("card", "close", "--id", "c-old", "--status", "superseded",
+            "--superseded-by", "c-new", "--why", "перебит", "--date", "2026-08-10", *C)
+    check(r.returncode == 0, f"с указателем — закрывается ({r.stderr.strip()[:80]})")
+    body = (tmp / "closed" / "c-old.md").read_text(encoding="utf-8")
+    check("superseded_by: c-new" in body, "преемник записан в шапку")
+    check("at: 2026-08-10" in body, "и дата, когда перебило")
+    check("status: superseded" in body, "и сам статус")
+
+    # Отдельная живая карточка: прежняя уже уехала в closed/, и стоп пришёл бы
+    # не от статуса, а от «карточки нет» — проверка мерила бы не то.
+    other = tmp / "c-two.md"
+    other.write_text("---\nid: c-two\n_kind: call\nstatus: ready\n---\n\n"
+                     "## description\nвторой наряд\n\n"
+                     f"END_OF_FILE: {other}\n", encoding="utf-8")
+    r = run("card", "close", "--id", "c-two", "--status", "done",
+            "--superseded-by", "c-new", "--why", "просто закрыт", *C)
+    check(r.returncode == 1 and "superseded" in r.stderr,
+          f"указатель без этого статуса — тоже стоп: {r.stderr.strip()[:70]}")
+
+
 def case_tool_never_advises_in_prose():
     """Инструмент говорит ФАКТ или называет команду. Совета словами не даёт.
 
@@ -195,6 +235,9 @@ def main():
     # --- поиск
     r = run("find", "--text", "Другое дело", *C)
     check(r.returncode == 0 and "t-1" in r.stdout, "find находит карточку по тексту")
+
+    print("\n--- «Перебито» записывается и называет, чем именно")
+    case_superseded_names_its_successor(tmp, C)
 
     print("\n--- Инструмент говорит факт или называет команду, но не советует прозой")
     case_tool_never_advises_in_prose()

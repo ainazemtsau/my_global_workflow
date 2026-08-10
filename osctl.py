@@ -353,6 +353,8 @@ JOURNAL_CEILING = 20
 # требованием сделать то, чего сделать нечем: переписать журнал запрещено
 # (append-only), закрыть узел нельзя. Замечание висело неснимаемым.
 LONG_LIVED = ("node", "bet")
+# Терминальный статус «перебито». Пишется только вместе с указателем на преемника.
+SUPERSEDED = "superseded"
 
 # Поля шапки, которые система знает. Список ОДИН и живёт здесь; схема обязана
 # ему равняться — за этим следит `panel/test_docs.py`.
@@ -771,8 +773,23 @@ def cmd_card_close(a) -> int:
     src = live_only(direction, a.id, a.cards)
     why = value_of(a, "why")
     head, blocks, order = read_card(src)
+    # «Перебито» без указателя на преемника неотличимо от «брошено», а вся его
+    # ценность в том, что видно, ЧЕМ перебило. Статус объявлен в `os2/CONCEPT.md`
+    # и ждал во `FRICTION.md` с 27 июля: поля были узаконены, писателя не было.
+    # ВСЁ ПРОВЕРЯЕТСЯ ДО ПЕРВОЙ ЗАПИСИ — отказ не должен оставлять карточку
+    # наполовину закрытой.
+    if a.status == SUPERSEDED and not a.superseded_by:
+        raise Stop(f"статус {SUPERSEDED} без --superseded-by: «перебито» обязано назвать, "
+                   "чем именно, иначе оно неотличимо от «брошено»")
+    if a.superseded_by and a.status != SUPERSEDED:
+        raise Stop(f"--superseded-by ставится только со статусом {SUPERSEDED}")
     if a.status:
         head["status"] = a.status
+    if a.superseded_by:
+        head["superseded_by"] = a.superseded_by
+        # Через `scalar`, как все прочие даты: иначе yaml запишет её строкой
+        # в кавычках, и одно и то же поле в разных карточках будет разного вида.
+        head["at"] = scalar(a.date or __import__("datetime").date.today().isoformat())
     lines = journal_put(blocks, order, journal_line(a.date, why, a.history), a.id)
     dest = closed_dir(direction, a.cards) / f"{a.id}.md"
     write_card(direction, a.id, head, blocks, order, a.cards, path=dest)
@@ -1222,6 +1239,8 @@ def build_parser() -> argparse.ArgumentParser:
     q = common(card.add_parser("close", help="причина в журнал, карточка в closed/"))
     q.add_argument("--why"); q.add_argument("--why-file", dest="why_file")
     q.add_argument("--status", help="терминальный статус, если он у этого вида есть")
+    q.add_argument("--superseded-by", dest="superseded_by",
+                   help=f"id того, чем перебило; обязателен при --status {SUPERSEDED}")
     q.add_argument("--history"); q.add_argument("--date"); q.set_defaults(fn=cmd_card_close)
 
     q = common(card.add_parser("reopen", help="вернуть закрытую в живые"))
