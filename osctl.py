@@ -346,6 +346,13 @@ POS_KEY = SERVICE + "pos"
 ORDERED = frozenset(k for _, k in _fmt.SECTIONS) | {"node"}
 JOURNAL = "журнал"
 JOURNAL_CEILING = 20
+# Потолок журнала осмыслен только там, где у карточки есть выход из горячего
+# состояния своей же командой: `card close` уносит её в closed/, и журнал
+# перестаёт расти. У `node` и `bet` такого выхода нет — их закрывает `review`,
+# и многоволновой узел живёт волнами по слову владельца. Для них потолок был
+# требованием сделать то, чего сделать нечем: переписать журнал запрещено
+# (append-only), закрыть узел нельзя. Замечание висело неснимаемым.
+LONG_LIVED = ("node", "bet")
 HEAD_LIMIT = 120
 
 
@@ -516,11 +523,11 @@ def cmd_log_add(a) -> int:
     line = journal_line(a.date, value_of(a, "text"), a.history)
     lines = journal_put(blocks, order, line, a.id)
     write_card(direction, a.id, head, blocks, order, a.cards)
-    note = f"  потолок {JOURNAL_CEILING} превышен: {len(lines)} строк — пора закрывать или чистить" \
-        if len(lines) > JOURNAL_CEILING else ""
     print(f"{a.id}: записано в журнал, всего {len(lines)}")
-    if note:
-        print(note)
+    # Факт, а не совет: «пора закрывать» — это суждение о жизни сущности, а
+    # команда объявляет, что ничего не оценивает. Решает читающий.
+    if len(lines) > JOURNAL_CEILING and head.get(KIND_KEY) not in LONG_LIVED:
+        print(f"  потолок {JOURNAL_CEILING} превышен: {len(lines)} строк")
     return 0
 
 
@@ -1058,9 +1065,8 @@ def cmd_check(a) -> int:
             if isinstance(v, str) and (len(v) > HEAD_LIMIT or chr(10) in v):
                 problems.append(f"{p.name}: поле {k} длинное — ему место в теле")
         j = blocks.get(JOURNAL) or []
-        if len(j) > JOURNAL_CEILING:
-            notes.append(f"{p.name}: журнал {len(j)} строк, потолок {JOURNAL_CEILING} — "
-                         "пора закрывать или чистить")
+        if len(j) > JOURNAL_CEILING and head.get(KIND_KEY) not in LONG_LIVED:
+            notes.append(f"{p.name}: журнал {len(j)} строк, потолок {JOURNAL_CEILING}")
         if head.get(KIND_KEY) == "node" and not head.get("label"):
             notes.append(f"{p.name}: у цели нет короткого имени (label) — "
                          "его пишет владелец или его нога, не команда")

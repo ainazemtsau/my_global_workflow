@@ -130,12 +130,36 @@ def main():
     check(r.returncode == 1 and "END_OF_FILE" in r.stdout, "check ловит отсутствие хвоста")
     bad.unlink()
 
-    # --- потолок журнала называется, но не блокирует
+    # --- потолок журнала называется, но не блокирует и НЕ СОВЕТУЕТ
     for i in range(25):
         run("log", "add", "--id", "t-1", "--text", f"событие {i}", "--date", f"2026-07-{i%28+1:02d}", *C)
     r = run("check", *C)
     check(r.returncode == 0 and "потолок" in r.stdout,
           "check называет журнал сверх потолка — но НЕ судит по нему (CONCEPT §4)")
+    # Эта строка утверждала «не судит» и принимала «пора закрывать или чистить» —
+    # то есть ровно суждение. Теперь она это и проверяет.
+    check("пора" not in r.stdout and "чистить" not in r.stdout,
+          "и совета в нём нет: решает читающий, а не команда")
+
+    # --- у долгоживущей карточки потолок не называется вовсе
+    long_card = tmp / "g-long.md"
+    long_card.write_text(
+        "---\nid: g-long\n_kind: node\nlabel: цель\nhook: зачем\n---\n\n"
+        "## goal\nдолгая цель\n\n"
+        f"END_OF_FILE: {long_card}\n", encoding="utf-8")
+    for i in range(25):
+        run("log", "add", "--id", "g-long", "--text", f"волна {i}",
+            "--date", f"2026-07-{i%28+1:02d}", *C)
+    r = run("check", *C)
+    check("g-long" not in r.stdout,
+          "у узла замечания про журнал нет: закрыть его командой нельзя, а переписать "
+          "журнал нельзя никому — замечание было бы неснимаемым по построению")
+    r = run("log", "add", "--id", "g-long", "--text", "ещё одна", "--date", "2026-07-05", *C)
+    check(r.returncode == 0 and "потолок" not in r.stdout,
+          "и сама запись в журнал узла про потолок молчит")
+    r = run("card", "block", "--id", "g-long", "--name", "журнал", "--text", "переписано", *C)
+    check(r.returncode == 1 and "log add" in r.stderr,
+          "переписать журнал по-прежнему нельзя ни у кого — append-only не ослаблен")
 
     # --- поиск
     r = run("find", "--text", "Другое дело", *C)
