@@ -212,6 +212,39 @@ def case_idea_keeps_its_author():
     check(bare["his_words"] is None, "и цитаты нет, когда её нет")
 
 
+def case_knowledge_reads_both_spellings():
+    """У «кем читается» ДВА имени на диске, и панель обязана знать оба.
+
+    Замерено 2026-08-09 на 15 записях обоих направлений: `read_by` стоит в 13,
+    `reads` — в 2, читателя нет НИ У ОДНОЙ. Знать одно имя значило бы объявить
+    читателя неназванным у двух записей, где он назван словом «КАЖДАЯ нога».
+
+    Число получено со второй попытки, и это стоит помнить: первый замер читал
+    только первые 1200 байт файла и насчитал 8 — поля, стоящие ниже длинного
+    `fact:`, в окно не попали. Замер с произвольной отсечкой — такой же
+    ненадёжный источник, как читатель, переживший свой файл.
+
+    Устаревание НЕ вычисляется: `status: current` стоит у всех четырнадцати,
+    кто статус имеет, и вывести из этого «протухло» неоткуда.
+    """
+    sys.path.insert(0, str(ROOT / "panel"))
+    import serve
+    a = serve.knowledge_row("x.md", "# Как сложена игра\n\naccepted: 2026-08-02 владельцем\n"
+                                    "status: current\nreads: КАЖДАЯ нога\n\n## Почему\ntext")
+    check(a["title"] == "Как сложена игра", f"заголовок берётся из первой строки: {a['title']}")
+    check(a["reader"] and "КАЖДАЯ" in a["reader"], f"`reads:` читается: {a['reader']}")
+    check(a["accepted"] and "2026-08-02" in a["accepted"], "дата принятия доходит")
+    check(a["status"] == "current", "статус доходит как есть")
+
+    b = serve.knowledge_row("y.md", "# Другое\n\naccepted: 2026-07-01\nread_by: shape, work\n")
+    check(b["reader"] == "shape, work", "`read_by:` — то же поле под другим именем")
+
+    bare = serve.knowledge_row("z.md", "# Без шапки\n\nпросто текст\n")
+    check(bare["reader"] is None and bare["status"] is None and bare["accepted"] is None,
+          "чего нет — то None: панель не подставляет ни читателя, ни статус")
+    check(bare["title"] == "Без шапки", "а заголовок всё равно есть")
+
+
 def case_stale_checkout_announces_itself():
     """Панель, запущенная из отставшей копии, обязана сказать это сама.
 
@@ -334,6 +367,7 @@ def main():
                case_closed_is_visible, case_no_second_source,
                case_waiting_is_only_yours, case_idea_keeps_its_author,
                case_stale_checkout_announces_itself, case_history_never_invents,
+               case_knowledge_reads_both_spellings,
                case_service_key_not_written):
         print(f"\n--- {fn.__doc__.splitlines()[0]}")
         fn()

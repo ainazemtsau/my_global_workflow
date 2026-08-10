@@ -619,6 +619,72 @@ function renderHistory(direction, content) {
     .catch((e) => { content.textContent = ""; content.appendChild(el("div", "empty", "НЕ ОТВЕЧАЕТ: " + e)); });
 }
 
+// Раздел «ЗНАНИЯ»: принятые факты направления. Кто их читает — из самой
+// записи; устаревание никто не вычисляет. Чего в записи нет, то показано
+// тускло и дословно, а не выдумано. Тексты владельца взяты из наряда дословно.
+function knowledgeMeta(row) {
+  const meta = el("div", "id");
+  const put = (node) => {
+    if (meta.childNodes.length) meta.appendChild(document.createTextNode(" · "));
+    meta.appendChild(node);
+  };
+  if (row.accepted) put(document.createTextNode(row.accepted));
+  put(row.status
+    ? document.createTextNode(row.status)
+    : el("span", "dim", "статус не проставлен"));
+  if (row.source) put(document.createTextNode(row.source));
+  return meta;
+}
+
+function knowledgeRowView(r) {
+  const row = el("div", "row");
+  row.appendChild(el("div", "title", r.title));
+  row.appendChild(knowledgeMeta(r));
+  // Кто читает — самое полезное в записи, поэтому отдельной строкой.
+  if (r.reader) {
+    row.appendChild(el("div", "human", r.reader));
+  } else {
+    row.appendChild(el("div", "human dim", "читатель не назван"));
+  }
+  if (r.body) {
+    const details = el("div", "details");
+    details.hidden = true;
+    details.appendChild(mdNode("div", "desc", r.body));
+    const toggleButton = el("button", "act", "подробности");
+    toggleButton.addEventListener("click", () => {
+      details.hidden = !details.hidden;
+    });
+    row.appendChild(toggleButton);
+    row.appendChild(details);
+  }
+  row.appendChild(el("div", "id", r.path));
+  return row;
+}
+
+function renderKnowledge(direction, content) {
+  const token = ++RENDER_TOKEN;
+  fetch("/api/section/" + encodeURIComponent(direction.id) + "/knowledge")
+    .then((response) => { if (!response.ok) throw new Error("HTTP " + response.status); return response.json(); })
+    .then((data) => {
+      if (token !== RENDER_TOKEN) return;
+      content.textContent = "";
+      const sub = el("div", "row");
+      sub.appendChild(el("div", "desc",
+        "Принятые факты. Кто их читает — из самой записи; устаревание никто не вычисляет."));
+      content.appendChild(sub);
+
+      if (!data.count) {
+        content.appendChild(el("div", "empty", "Пока ни одной записи."));
+      }
+      for (const r of data.rows || []) content.appendChild(knowledgeRowView(r));
+
+      content.appendChild(el("div", "numbers",
+        "Всего записей: " + data.count + ". Без читателя: " + data.without_reader
+        + ". Без статуса: " + data.without_status + "."));
+    })
+    .catch((e) => { content.textContent = ""; content.appendChild(el("div", "empty", "НЕ ОТВЕЧАЕТ: " + e)); });
+}
+
 function renderSlots(direction, content) {
   const token = ++RENDER_TOKEN;
   fetch("/api/section/" + encodeURIComponent(direction.id) + "/slots")
@@ -722,6 +788,10 @@ function renderDirection(direction, sectionId) {
   }
   if (sectionId === "history") {
     renderHistory(direction, content);
+    return;
+  }
+  if (sectionId === "knowledge") {
+    renderKnowledge(direction, content);
     return;
   }
   if (sectionId === "goals") {

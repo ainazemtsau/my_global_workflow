@@ -126,7 +126,7 @@ SECTIONS = [("dashboard", "СВОДКА"), ("slots", "СЛОТЫ"), ("waiting", 
 # «СВОДКА» закрыта до отдельной работы: она станет приборной панелью с числами,
 # а не списком нарядов. Сегодняшний её вид врал — писал «можно запускать» про
 # наряд, который владелец уже запустил.
-READY_SECTIONS = ("slots", "waiting", "wave", "goals", "ideas", "history")
+READY_SECTIONS = ("slots", "waiting", "wave", "goals", "ideas", "history", "knowledge")
 
 CONTENT_TYPES = {".html": "text/html; charset=utf-8",
                  ".js": "application/javascript; charset=utf-8",
@@ -513,6 +513,85 @@ def section_history(direction):
             "archive": archive}
 
 
+# «ЗНАНИЯ». Шапка записи — строки до первого `## `. У поля «кто читает» на диске
+# ДВА имени — `read_by` и `reads`, и знать надо оба: прочитать одно значило бы
+# объявить читателя неназванным там, где он назван. Устаревание здесь НЕ
+# вычисляется: `status: current` стоит у всех, у кого статус вообще есть,
+# вывести из этого «протухло» неоткуда — судят владелец и плеи `review`/`pulse`.
+KNOWLEDGE_FIELD = re.compile(r"^(accepted|status|read_by|reads|source):(.*)$")
+KNOWLEDGE_ANY_FIELD = re.compile(r"^[A-Za-z_][A-Za-z0-9_-]*:")
+KNOWLEDGE_TITLE = re.compile(r"^#\s+(.*\S)")
+KNOWLEDGE_DATE = re.compile(r"^\d{4}-\d{2}-\d{2}")
+
+
+def knowledge_row(fname, text, direction=None):
+    """Одна запись «ЗНАНИЙ». Чистая: ничего не читает с диска и не печатает.
+
+    Значение поля — весь остаток строки и её продолжения: строки до пустой
+    или до начала следующего поля. Пустое значение — это None, а не пустая
+    строка: неназванный читатель не имеет права выглядеть названным."""
+    lines = text.split(chr(10))
+    body_start = next((i for i, line in enumerate(lines) if line.startswith("## ")),
+                      len(lines))
+    head = lines[:body_start]
+    stem = fname[:-3] if fname.endswith(".md") else fname
+    title = stem
+    fields = {}
+    i = 0
+    while i < len(head):
+        t = KNOWLEDGE_TITLE.match(head[i]) if title == stem else None
+        if t:
+            title = t.group(1).strip()
+        m = KNOWLEDGE_FIELD.match(head[i])
+        if m:
+            parts = [m.group(2).strip()]
+            i += 1
+            while i < len(head):
+                nxt = head[i]
+                if not nxt.strip() or nxt.startswith("## ") \
+                        or KNOWLEDGE_ANY_FIELD.match(nxt):
+                    break
+                parts.append(nxt.strip())
+                i += 1
+            fields[m.group(1)] = " ".join(p for p in parts if p) or None
+        else:
+            i += 1
+    path = f"live/{direction}/knowledge/{fname}" if direction is not None else fname
+    return {"id": stem, "title": title,
+            "accepted": fields.get("accepted"), "status": fields.get("status"),
+            "reader": fields.get("read_by") or fields.get("reads"),
+            "source": fields.get("source"),
+            "body": chr(10).join(lines[body_start:]), "path": path}
+
+
+def _knowledge_accepted_date(row):
+    m = KNOWLEDGE_DATE.match(row["accepted"] or "")
+    return m.group(0) if m else None
+
+
+def section_knowledge(direction):
+    """Принятые факты направления. Новые сверху — по дате принятия в самой
+    записи; записи без даты идут последними, между собой по id. Устаревание
+    не вычисляется: `accepted` и `status` показываются как есть."""
+    folder = os.path.join(LIVE_DIR, direction, "knowledge")
+    names = sorted(f for f in os.listdir(folder) if f.endswith(".md")) \
+        if os.path.isdir(folder) else []
+    rows = []
+    for fname in names:
+        with open(os.path.join(folder, fname), encoding="utf-8") as fh:
+            rows.append(knowledge_row(fname, fh.read(), direction))
+    dated = [r for r in rows if _knowledge_accepted_date(r)]
+    undated = [r for r in rows if _knowledge_accepted_date(r) is None]
+    dated.sort(key=lambda r: r["id"])
+    dated.sort(key=_knowledge_accepted_date, reverse=True)
+    undated.sort(key=lambda r: r["id"])
+    rows = dated + undated
+    return {"direction": direction, "count": len(rows),
+            "without_reader": sum(1 for r in rows if r["reader"] is None),
+            "without_status": sum(1 for r in rows if r["status"] is None),
+            "rows": rows}
+
+
 PLAY_WORD = {
     "map": ("КАРТА", "plan"), "frame": ("УСТАВ", "plan"), "shape": ("НАРЕЗКА", "plan"),
     "converge": ("РАЗБОР", "think"), "converge-arch": ("РАЗБОР", "think"),
@@ -805,6 +884,8 @@ class Handler(BaseHTTPRequestHandler):
                 self.send_json(section_ideas(parts[0]))
             elif ok_dir and parts[1] == "history":
                 self.send_json(section_history(parts[0]))
+            elif ok_dir and parts[1] == "knowledge":
+                self.send_json(section_knowledge(parts[0]))
             else:
                 self.send_error(404, "not found")
         else:
