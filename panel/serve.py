@@ -1,5 +1,5 @@
 """Сервер панели: выбор направления, страница, раздел «Сейчас». Только stdlib + yaml + panel/cards.py.
-Запуск: python panel/serve.py [--port N] [--no-open]"""
+Запуск: uv run --locked python panel/serve.py [--port N] [--no-open]"""
 
 import argparse
 import datetime
@@ -126,7 +126,8 @@ SECTIONS = [("dashboard", "СВОДКА"), ("slots", "СЛОТЫ"), ("waiting", 
 # «СВОДКА» закрыта до отдельной работы: она станет приборной панелью с числами,
 # а не списком нарядов. Сегодняшний её вид врал — писал «можно запускать» про
 # наряд, который владелец уже запустил.
-READY_SECTIONS = ("slots", "waiting", "wave", "goals", "ideas", "history", "knowledge")
+READY_SECTIONS = ("slots", "waiting", "wave", "goals", "ideas", "history", "knowledge",
+                  "direction")
 
 CONTENT_TYPES = {".html": "text/html; charset=utf-8",
                  ".js": "application/javascript; charset=utf-8",
@@ -569,6 +570,72 @@ def _knowledge_accepted_date(row):
     return m.group(0) if m else None
 
 
+# «НАПРАВЛЕНИЕ» — устав направления. Имена разделов хартии НЕ зашиты: замерено
+# 2026-08-09, у направлений они на разных языках, и список в коде совпал бы ровно
+# с одним. Раздел ничего не оценивает: никаких процентов по критериям успеха.
+
+
+def charter_sections(text):
+    """Разделы хартии по строкам `## ` (ровно две решётки). Чистая: не читает диск.
+
+    `# CHARTER — …` разделом не считается, подразделы `### ` остаются внутри
+    тела своего раздела, порядок — как в файле. Пустой текст — пустой список."""
+    sections = []
+    current = None
+    for line in (text or "").split(chr(10)):
+        if line.startswith("## "):
+            current = {"title": line[3:].strip(), "body": []}
+            sections.append(current)
+        elif current is not None:
+            current["body"].append(line)
+    for s in sections:
+        s["body"] = chr(10).join(s["body"]).strip()
+    return sections
+
+
+def _charter_changed(relpath):
+    """Дата последнего коммита файла. Не смогли — null, не сегодняшняя дата."""
+    code, out = git("log", "-1", "--format=%ad", "--date=short", "--", relpath)
+    return out if code == 0 and out else None
+
+
+def section_direction(direction):
+    """Устав направления: хартия, прогноз и реестр подписей.
+
+    Прогноз — карточка `direction_forecast`; нет карточки — null целиком.
+    Реестр `owner_approved` наружу отдаётся только путём и числом слов:
+    одна запись на тысячи слов целиком была бы стеной."""
+    charter_rel = f"live/{direction}/CHARTER.md"
+    text = ""
+    charter_abs = os.path.join(LIVE_DIR, direction, "CHARTER.md")
+    if os.path.isfile(charter_abs):
+        with open(charter_abs, encoding="utf-8") as fh:
+            text = fh.read()
+
+    forecast = None
+    approvals = None
+    with lock_for(direction):
+        extras, _unread = load_cards(direction, kind=cards.EXTRA)
+    fc = extras.get("direction_forecast")
+    if fc:
+        v = cards.body_value("direction_forecast", "direction_forecast",
+                             fc[1].get("direction_forecast") or [])
+        if isinstance(v, dict):
+            forecast = v
+    oa = extras.get("owner_approved")
+    if oa:
+        body = chr(10).join(oa[1].get("owner_approved") or [])
+        approvals = {"path": f"live/{direction}/cards/owner_approved.md",
+                     "words": len(body.split())}
+
+    return {"direction": direction,
+            "charter": {"path": charter_rel,
+                        "changed": _charter_changed(charter_rel) if text else None,
+                        "sections": charter_sections(text)},
+            "forecast": forecast,
+            "approvals": approvals}
+
+
 def section_knowledge(direction):
     """Принятые факты направления. Новые сверху — по дате принятия в самой
     записи; записи без даты идут последними, между собой по id. Устаревание
@@ -846,7 +913,7 @@ class Handler(BaseHTTPRequestHandler):
             if self.path.startswith("/api/"):
                 self.send_json({"error": str(e),
                                 "hint": "проверь карточки: "
-                                        "python osctl.py check --direction <направление>"},
+                                        "uv run --locked python osctl.py check --direction <направление>"},
                                code=500)
             else:
                 self.send_error(500, "internal error")
@@ -886,6 +953,8 @@ class Handler(BaseHTTPRequestHandler):
                 self.send_json(section_history(parts[0]))
             elif ok_dir and parts[1] == "knowledge":
                 self.send_json(section_knowledge(parts[0]))
+            elif ok_dir and parts[1] == "direction":
+                self.send_json(section_direction(parts[0]))
             else:
                 self.send_error(404, "not found")
         else:

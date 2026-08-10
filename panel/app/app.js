@@ -687,6 +687,80 @@ function renderKnowledge(direction, content) {
     .catch((e) => { content.textContent = ""; content.appendChild(el("div", "empty", "НЕ ОТВЕЧАЕТ: " + e)); });
 }
 
+// Раздел «НАПРАВЛЕНИЕ»: устав направления. Панель его не оценивает и не считает
+// выполненным. Тексты владельца взяты из наряда дословно.
+function renderDirection2(direction, content) {
+  const token = ++RENDER_TOKEN;
+  fetch("/api/section/" + encodeURIComponent(direction.id) + "/direction")
+    .then((response) => { if (!response.ok) throw new Error("HTTP " + response.status); return response.json(); })
+    .then((data) => {
+      if (token !== RENDER_TOKEN) return;
+      content.textContent = "";
+      const sub = el("div", "row");
+      sub.appendChild(el("div", "desc",
+        "Устав направления. Панель его не оценивает и не считает выполненным."));
+      content.appendChild(sub);
+
+      // Прогноз идёт первым. Нет карточки — отсутствие показывается как отсутствие.
+      const fr = el("div", "row");
+      const f = data.forecast;
+      if (f) {
+        fr.appendChild(el("div", "status",
+          "ПРОГНОЗ" + (f.status ? " · " + f.status : "")
+          + (f.as_of ? " · на " + f.as_of : "")));
+        if (f.target) fr.appendChild(el("div", "title", f.target));
+        if (f.basis) fr.appendChild(mdNode("div", "human", f.basis));
+        if (Array.isArray(f.drivers) && f.drivers.length) {
+          const md = f.drivers.map((d) => "- " + d).join("\n\n");
+          fr.appendChild(mdNode("div", "human", md));
+        }
+      } else {
+        fr.appendChild(el("div", "human dim", "Прогноза у направления нет."));
+      }
+      content.appendChild(fr);
+
+      // Хартия: раздел на блок, первый раскрыт, остальные — по кнопке,
+      // как в «Знаниях». Имена разделов приходят из файла, не из кода.
+      const secs = (data.charter && data.charter.sections) || [];
+      if (!secs.length) {
+        content.appendChild(el("div", "empty", "Хартии у направления нет."));
+      }
+      secs.forEach((s, i) => {
+        const row = el("div", "row");
+        row.appendChild(el("div", "title", s.title));
+        if (i === 0) {
+          row.appendChild(mdNode("div", "human", s.body));
+        } else {
+          const details = el("div", "details");
+          details.hidden = true;
+          details.appendChild(mdNode("div", "human", s.body));
+          const toggleButton = el("button", "act", "подробности");
+          toggleButton.addEventListener("click", () => {
+            details.hidden = !details.hidden;
+          });
+          row.appendChild(toggleButton);
+          row.appendChild(details);
+        }
+        content.appendChild(row);
+      });
+
+      // Внизу — реестр подписей одной строкой (целиком он стена) и дата
+      // последнего изменения хартии. Чего нет, то показано как недостающее.
+      const foot = el("div", "row");
+      if (data.approvals) {
+        foot.appendChild(el("div", "desc",
+          "Реестр подписей: " + data.approvals.words
+          + " слов одной записью, читается плохо."));
+        foot.appendChild(el("div", "id", data.approvals.path));
+      }
+      const changed = data.charter && data.charter.changed;
+      foot.appendChild(el("div", "desc",
+        changed ? "Хартия менялась: " + changed + "." : "Хартия менялась: неизвестно."));
+      content.appendChild(foot);
+    })
+    .catch((e) => { content.textContent = ""; content.appendChild(el("div", "empty", "НЕ ОТВЕЧАЕТ: " + e)); });
+}
+
 function renderSlots(direction, content) {
   const token = ++RENDER_TOKEN;
   fetch("/api/section/" + encodeURIComponent(direction.id) + "/slots")
@@ -794,6 +868,10 @@ function renderDirection(direction, sectionId) {
   }
   if (sectionId === "knowledge") {
     renderKnowledge(direction, content);
+    return;
+  }
+  if (sectionId === "direction") {
+    renderDirection2(direction, content);
     return;
   }
   if (sectionId === "goals") {

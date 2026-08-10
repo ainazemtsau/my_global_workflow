@@ -29,13 +29,27 @@ def check(ok, msg):
 
 
 def live_fingerprint():
-    """Отпечаток всего live/: любая правка любым байтом изменит его."""
-    h = hashlib.sha256()
+    """Отпечаток live/ ПОФАЙЛОВО: любая правка любым байтом изменит его.
+
+    Пофайлово, а не одной суммой, ровно по одной причине: в этом репозитории
+    рядом идут другие сессии, и они пишут в `live/` прямо во время прогона —
+    2026-08-09 так и случилось, соседняя нога положила два файла в `work/`.
+    Одна сумма говорит только «разошлось», и на поиск призрака уходит полчаса.
+    Здесь падение сразу называет пути, и видно, наши это байты или чужие.
+    """
+    out = {}
     for p in sorted((ROOT / "live").rglob("*")):
         if p.is_file():
-            h.update(str(p.relative_to(ROOT)).encode("utf-8"))
-            h.update(p.read_bytes())
-    return h.hexdigest()
+            rel = str(p.relative_to(ROOT)).replace(chr(92), "/")
+            out[rel] = hashlib.sha256(p.read_bytes()).hexdigest()
+    return out
+
+
+def live_diff(before, after):
+    """Что именно разошлось: появилось, исчезло, изменилось."""
+    return (sorted(set(after) - set(before)),
+            sorted(set(before) - set(after)),
+            sorted(k for k in set(before) & set(after) if before[k] != after[k]))
 
 
 class Env:
@@ -359,8 +373,11 @@ def main():
         print(f"\n--- {fn.__doc__.splitlines()[0]}")
         fn()
     print("\n--- Живое состояние")
-    check(live_fingerprint() == before,
-          "live/ не изменился ни на байт — а ведь команды умеют писать в history/ и карточки")
+    added, removed, changed = live_diff(before, live_fingerprint())
+    check(not (added or removed or changed),
+          "live/ не изменился ни на байт — а ведь команды умеют писать в history/ и карточки"
+          + (f" | появилось: {added} | исчезло: {removed} | изменилось: {changed}"
+             if (added or removed or changed) else ""))
     print(f"\n{'ПРИНЯТО' if not fails else 'НЕ ПРИНЯТО: ' + str(len(fails)) + ' упало'}")
     return 1 if fails else 0
 

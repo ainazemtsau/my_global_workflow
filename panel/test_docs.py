@@ -168,7 +168,14 @@ def sections_from_plan():
     i = body.index("Разделы панели:")
     para = body[i:body.index("\n\n", i)].replace("\n", " ")
     para = re.sub(r"\([^)]*\)", "", para)          # пояснения в скобках — не имя
-    ready, closed = para.split("**Закрыты**")
+    # Метка — жирное «Закрыт…», а не одна её форма: разделов может остаться
+    # и один, и тогда по-русски пишут «Закрыта». Приёмка не должна заставлять
+    # писать неграмотно ради своего разбора.
+    parts = re.split(r"\*\*Закрыт[аыо]?\*\*", para)
+    if len(parts) != 2:
+        check(False, f"в плане нет метки «**Закрыты**»/«**Закрыта**»: {para[:90]}")
+        return set(), set()
+    ready, closed = parts
     def names(s):
         s = s.split("**готовы**")[-1]
         return {x.strip(" .·") for x in s.split("·") if x.strip(" .·")}

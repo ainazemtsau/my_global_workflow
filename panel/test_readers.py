@@ -212,6 +212,37 @@ def case_idea_keeps_its_author():
     check(bare["his_words"] is None, "и цитаты нет, когда её нет")
 
 
+def case_charter_sections_come_from_the_file():
+    """Разделы хартии берутся ИЗ ФАЙЛА, а не из списка в коде.
+
+    Замерено 2026-08-09: у indie разделы названы по-русски (Миссия, Критерии
+    успеха, Жёсткие ограничения…), у solmax по-английски (Mission, Success
+    criteria, Constraints…). Список имён в коде совпал бы ровно с одним
+    направлением, а у второго показал бы пустоту — и это была бы та же
+    молчаливая недостача, что и всегда.
+
+    Прогноз есть не у всех: у indie карточка `direction_forecast` лежит,
+    у solmax её нет вовсе. Отсутствие показывается как отсутствие.
+    """
+    sys.path.insert(0, str(ROOT / "panel"))
+    import serve
+    text = ("# CHARTER — x\n\n## Миссия\n\nтекст миссии\n\n"
+            "## Критерии успеха\n\n### 1. Первый\n\nподробность\n\n"
+            "## Жёсткие ограничения\n\nодно ограничение\n")
+    secs = serve.charter_sections(text)
+    check([s["title"] for s in secs] == ["Миссия", "Критерии успеха", "Жёсткие ограничения"],
+          f"разделы и их порядок — из файла: {[s['title'] for s in secs]}")
+    check("текст миссии" in secs[0]["body"], "тело раздела едет вместе с заголовком")
+    check("### 1. Первый" in secs[1]["body"],
+          "подразделы остаются внутри своего раздела, а не становятся своими")
+    check(not any(s["title"].startswith("CHARTER") for s in secs),
+          "название файла разделом не считается")
+
+    en = serve.charter_sections("# CHARTER — y\n\n## Mission\n\ntext\n")
+    check([s["title"] for s in en] == ["Mission"], "английские имена читаются так же")
+    check(serve.charter_sections("") == [], "пустая хартия — пустой список, не выдумка")
+
+
 def case_knowledge_reads_both_spellings():
     """У «кем читается» ДВА имени на диске, и панель обязана знать оба.
 
@@ -367,7 +398,7 @@ def main():
                case_closed_is_visible, case_no_second_source,
                case_waiting_is_only_yours, case_idea_keeps_its_author,
                case_stale_checkout_announces_itself, case_history_never_invents,
-               case_knowledge_reads_both_spellings,
+               case_knowledge_reads_both_spellings, case_charter_sections_come_from_the_file,
                case_service_key_not_written):
         print(f"\n--- {fn.__doc__.splitlines()[0]}")
         fn()
