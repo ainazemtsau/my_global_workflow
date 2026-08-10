@@ -270,6 +270,10 @@ date: 2026-08-10
 
 ### recurring
 
+A standing obligation — something done on a cadence, not once. Created ONLY on the owner's explicit word, recorded by `day`; no play invents one, because a standing obligation the owner did not ask for is a chore the system gave itself. `day` notices an overdue one on its sweep and puts a ready work CALL in the batch; `work` executes it.
+
+None exist as of 2026-08-10, by his decision that day: «да пока вроде нет, я если что сам буду прямо говорить». The kind stays because the noticing and the executing are already built and cost nothing while empty.
+
 ```markdown
 ---
 id: r-1
