@@ -78,6 +78,15 @@ def case_placement_can_be_written(tmp, C):
     check("t-place" not in r.stdout.split("без ставки")[0].split("\n")[-1],
           "а привязанную не называет")
 
+    # И НЕ называет закрытую: она отработала, в рабочий набор ей не надо, а
+    # `card set` без `--closed` её не тронет — замечание было бы неисполнимым.
+    # Первый прогон на живом состоянии поймал `t-vert-1` (`status: done`,
+    # лежит в closed/) и послал владельца чинить не то.
+    run("card", "close", "--id", "t-orphan", "--status", "done", "--why", "готово", *C)
+    r = run("check", *C)
+    check("t-orphan" not in r.stdout,
+          "закрытая задача без ставки не называется — исправить её всё равно нечем")
+
 
 def case_superseded_names_its_successor(tmp, C):
     """«Эту ногу перебило вот этой» наконец записывается — и только с указателем.

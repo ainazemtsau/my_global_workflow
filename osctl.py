@@ -1120,11 +1120,16 @@ def cmd_check(a) -> int:
         # Карточка без МЕСТА не попадает в рабочий набор: `osctl context` ходит
         # ровно по этим ссылкам. Заведённая по правилам задача терялась для
         # следующей ноги, и заметить это было нечем.
-        if head.get(KIND_KEY) == "task" and not head.get(SERVICE + "bet"):
-            notes.append(f"{p.name}: задача без ставки — в рабочий набор не попадёт "
-                         f"(card set --field _bet --value <id цели>)")
-        if head.get(KIND_KEY) == "node" and not head.get(SERVICE + "parent"):
-            roots.append(p.name)
+        # ТОЛЬКО у живых. Закрытая карточка в рабочий набор и не должна попадать —
+        # она отработала; а `card set` её без `--closed` всё равно не тронет, то есть
+        # замечание было бы неисполнимым. Первый же прогон поймал `t-vert-1`
+        # (`status: done`, лежит в closed/) и заставил владельца чинить не то.
+        if not closed:
+            if head.get(KIND_KEY) == "task" and not head.get(SERVICE + "bet"):
+                notes.append(f"{p.name}: задача без ставки — в рабочий набор не попадёт "
+                             f"(card set --field _bet --value <id цели>)")
+            if head.get(KIND_KEY) == "node" and not head.get(SERVICE + "parent"):
+                roots.append(p.name)
         unknown = sorted(k for k in head if k not in KNOWN_HEAD)
         if unknown:
             notes.append(f"{p.name}: поля шапки вне известных: {', '.join(unknown)} "
