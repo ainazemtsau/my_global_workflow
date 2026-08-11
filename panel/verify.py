@@ -20,7 +20,12 @@ ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 BASE = ""
 
 SECTIONS = ["dashboard", "slots", "waiting", "wave", "goals", "ideas", "history", "knowledge", "direction"]
-DIRECTIONS = ["indie-game-development", "solmax"]
+# Список направлений НЕ зашит: 2026-08-11 появилось третье (`direction-os`),
+# и приёмка упала не потому, что панель сломалась, а потому, что знала два.
+# Проверяется настоящее свойство: панель показывает ровно то, что лежит в live/,
+# ничего не выдумывая и ничего не теряя.
+DIRECTIONS = sorted(n for n in os.listdir(os.path.join(ROOT, "live"))
+                    if os.path.isdir(os.path.join(ROOT, "live", n)))
 
 fails: list[str] = []
 

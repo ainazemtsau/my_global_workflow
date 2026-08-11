@@ -105,14 +105,22 @@ def case_kinds():
 def case_paths():
     """Путь под live/, названный строкой, обязан существовать у каждого направления."""
     dirs = sorted(p.name for p in (ROOT / "live").iterdir() if p.is_dir())
+    # Обязательны только те, без которых направления нет. `knowledge/`, `history/`
+    # и `work/` появляются с первой записью: git не хранит пустых папок, поэтому
+    # требовать их у свежего направления значит требовать невозможного. Свежее
+    # направление `direction-os` (2026-08-11) поймало это на первом же слиянии,
+    # и панель на нём при этом работает — раздел просто отдаёт ноль.
+    MUST = ("CHARTER.md", "NOW.md", "cards")
     bad = []
     for rel in WATCHED:
         for n, line in code_text(rel):
             for m in re.finditer(r'LIVE_DIR,\s*direction,\s*"([^"]+)"', line):
+                if m.group(1) not in MUST:
+                    continue
                 for d in dirs:
                     if not (ROOT / "live" / d / m.group(1)).exists():
                         bad.append(f"{rel}:{n} live/{d}/{m.group(1)}")
-    check(not bad, f"каждый названный файл направления существует ({bad[:3]})")
+    check(not bad, f"каждый обязательный файл направления существует ({bad[:3]})")
 
 
 def case_dead_dirs():
