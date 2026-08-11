@@ -34,7 +34,7 @@ repos:
 
 ## cards/
 
-State lives in `live/<direction-id>/cards/` — one entity, one file, `<id>.md`. Kinds: `bet` · `node` · `task` · `call` · `issue` · `decision` · `recurring` · `track` · `question` · `idea` · `day`; a top-level key with no assigned home keeps its own `extra` card named after the key, so nothing is lost silently. Carrier names lead with `_` — `_kind`, `_pos`, `_parent`, `_bet` — so an owner field may be named anything, including `kind` and `status`.
+State lives in `live/<direction-id>/cards/` — one entity, one file, `<id>.md`. Kinds: `bet` · `node` · `task` · `call` · `issue` · `decision` · `recurring` · `track` · `question` · `idea` · `day`; a top-level key with no assigned home keeps its own `extra` card named after the key, so nothing is lost silently. Carrier names lead with `_` — `_kind`, `_pos`, `_parent`, `_bet` — so an owner field may be named anything, including `kind` and `status`. They split in two: IDENTITY (`id`, `_kind`, `_closed`) is never set by a caller — it comes from `--id`, `--kind` and the folder; PLACEMENT (`_bet`, `_parent`, `_pos`) is set at `card new` and moved by `card set`, because a card without its place falls out of the `osctl context` working set and is simply lost to the next leg. `card unset` still refuses placement: removing the link is how a card disappears. `osctl check` names a task with no `_bet` and a second root.
 
 A card is a short YAML header between `---` lines, then `## <name>` body blocks, then the `END_OF_FILE:` trailer. Header values are single-line and short; anything longer, multi-line, or a list/dict is a body block, lists and dicts under a YAML fence. `_pos` is the place among same-kind siblings; for a `node` the place is among siblings under the same `_parent`.
 

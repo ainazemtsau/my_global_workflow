@@ -355,6 +355,17 @@ JOURNAL_CEILING = 20
 LONG_LIVED = ("node", "bet")
 # Терминальный статус «перебито». Пишется только вместе с указателем на преемника.
 SUPERSEDED = "superseded"
+# Служебные ключи делятся надвое, и разницу стоило измерить раньше.
+# ЛИЧНОСТЬ носителя — `id`, `_kind`, `_closed`: их не задаёт зовущий никогда.
+# `id` приходит из `--id`, `_kind` из `--kind`, `_closed` выводится из папки.
+# МЕСТО — `_bet`, `_parent`, `_pos`: это не внутренности носителя, а то, ЧЬЯ
+# карточка и где она стоит. Запрет на них скопом стоил живого дефекта: задачу
+# заводили штатно, привязать к ставке было нечем (отказывали и `card new`,
+# и `card set`), а `osctl context` ходит именно по этим ссылкам — значит
+# заведённая по правилам задача не попадала в рабочий набор следующей ноги
+# и просто терялась. Убрать место по-прежнему нельзя: `unset` — как раз тот
+# способ, которым карточка исчезает из виду.
+PLACEMENT = (SERVICE + "bet", SERVICE + "parent", SERVICE + "pos")
 
 # Поля шапки, которые система знает. Список ОДИН и живёт здесь; схема обязана
 # ему равняться — за этим следит `panel/test_docs.py`.
@@ -498,7 +509,7 @@ def cmd_card_set(a) -> int:
     direction = resolve_direction(a.direction)
     path = live_only(direction, a.id, a.cards, a.closed)
     head, blocks, order = read_card(path)
-    if a.field == "id" or a.field.startswith(SERVICE):
+    if a.field == "id" or (a.field.startswith(SERVICE) and a.field not in PLACEMENT):
         raise Stop(f"{a.field} не меняется командой set — это опора карточки, а не данные")
     if a.field in blocks:
         raise Stop(f"{a.field} уже лежит в теле блоком — правь его командой block, "
@@ -724,7 +735,7 @@ def cmd_card_new(a) -> int:
         if "=" not in pair:
             raise Stop(f"--field ждёт вида имя=значение, получено {pair!r}")
         k, v = pair.split("=", 1)
-        if k == "id" or k.startswith(SERVICE):
+        if k == "id" or (k.startswith(SERVICE) and k not in PLACEMENT):
             raise Stop(f"{k} не задаётся через --field — это опора карточки")
         head[k] = scalar(v)
     for pair in (a.block or []):
@@ -1078,6 +1089,7 @@ def cmd_check(a) -> int:
     # Поломки не дают собрать состояние. Замечания — факты о содержании
     # (нет имени, длинный журнал): их называют, но не судят по ним (CONCEPT §4).
     problems, notes, seen, places, total, shut = [], [], {}, {}, 0, 0
+    roots: list[str] = []
     for p, closed in all_cards(direction, a.cards):
         total += 1
         shut += 1 if closed else 0
@@ -1105,6 +1117,14 @@ def cmd_check(a) -> int:
                                 "скорее всего в прозе было двоеточие и её разобрали как структуру")
             if isinstance(v, str) and (len(v) > HEAD_LIMIT or chr(10) in v):
                 problems.append(f"{p.name}: поле {k} длинное — ему место в теле")
+        # Карточка без МЕСТА не попадает в рабочий набор: `osctl context` ходит
+        # ровно по этим ссылкам. Заведённая по правилам задача терялась для
+        # следующей ноги, и заметить это было нечем.
+        if head.get(KIND_KEY) == "task" and not head.get(SERVICE + "bet"):
+            notes.append(f"{p.name}: задача без ставки — в рабочий набор не попадёт "
+                         f"(card set --field _bet --value <id цели>)")
+        if head.get(KIND_KEY) == "node" and not head.get(SERVICE + "parent"):
+            roots.append(p.name)
         unknown = sorted(k for k in head if k not in KNOWN_HEAD)
         if unknown:
             notes.append(f"{p.name}: поля шапки вне известных: {', '.join(unknown)} "
@@ -1133,6 +1153,10 @@ def cmd_check(a) -> int:
                     problems.append(f"{p.name}: место {pos} среди {among} уже занято "
                                     f"карточкой {places[key]} — панель на этом не соберётся")
                 places[key] = p.name
+    # Корень у дерева один. Второй узел без родителя — не корень, а сирота:
+    # он не найдётся ни картой, ни рабочим набором.
+    if len(roots) > 1:
+        notes.append(f"целей без родителя {len(roots)}: {', '.join(sorted(roots))} — корень один, остальные не найдутся (card set --field _parent --value <id>)")
     print(f"карточек: {total}" + (f" (живых {total - shut}, закрытых {shut})" if shut else ""))
     if notes:
         print(f"замечаний: {len(notes)} (не мешают работе)")

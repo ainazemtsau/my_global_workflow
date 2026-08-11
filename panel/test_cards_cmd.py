@@ -35,6 +35,50 @@ def run(*args):
                           errors="replace", env=env)
 
 
+def case_placement_can_be_written(tmp, C):
+    """Карточку можно привязать к её месту — и без места она видна как потерянная.
+
+    Живой дефект 2026-08-10: задачу заводили штатно, а привязать к ставке было
+    нечем — отказывали ОБЕ команды, потому что запрет стоял на любом ключе с `_`
+    скопом. `osctl context` ходит именно по `_bet`/`_parent`, значит заведённая
+    по правилам задача не попадала в рабочий набор следующей ноги и просто
+    терялась. Личность носителя (`id`, `_kind`) по-прежнему не задаётся никем,
+    и убрать место нельзя: `unset` — ровно тот способ, которым карточка исчезает.
+    """
+    goal = tmp / "goal.txt"
+    goal.write_text("дело\n", encoding="utf-8")
+
+    r = run("card", "new", "--id", "t-place", "--kind", "task",
+            "--field", "_bet=g-цель", "--field", "status=open",
+            "--block", f"goal={goal}", *C)
+    check(r.returncode == 0, f"место задаётся при заведении: {r.stderr.strip()[:80]}")
+    check("_bet: g-цель" in (tmp / "t-place.md").read_text(encoding="utf-8"),
+          "и ссылка действительно легла в файл")
+
+    r = run("card", "new", "--id", "t-loose", "--kind", "task",
+            "--field", "status=open", "--block", f"goal={goal}", *C)
+    check(r.returncode == 0, "задача без места всё ещё заводится — это не ошибка ввода")
+    r = run("card", "set", "--id", "t-loose", "--field", "_bet", "--value", "g-цель", *C)
+    check(r.returncode == 0, f"и привязывается после создания: {r.stderr.strip()[:70]}")
+
+    for f in ("id", "_kind"):
+        r = run("card", "set", "--id", "t-loose", "--field", f, "--value", "zzz", *C)
+        check(r.returncode == 1, f"{f} по-прежнему не задаётся — это личность носителя")
+
+    r = run("card", "unset", "--id", "t-loose", "--field", "_bet", *C)
+    check(r.returncode == 1 and "опора" in r.stderr,
+          "убрать место нельзя: так карточка и исчезает из виду")
+
+    # И это должно быть ВИДНО, а не только возможно.
+    r = run("card", "new", "--id", "t-orphan", "--kind", "task",
+            "--field", "status=open", "--block", f"goal={goal}", *C)
+    r = run("check", *C)
+    check("t-orphan" in r.stdout and "без ставки" in r.stdout,
+          "check называет задачу без ставки — иначе потеря молчалива")
+    check("t-place" not in r.stdout.split("без ставки")[0].split("\n")[-1],
+          "а привязанную не называет")
+
+
 def case_superseded_names_its_successor(tmp, C):
     """«Эту ногу перебило вот этой» наконец записывается — и только с указателем.
 
@@ -130,9 +174,15 @@ def main():
     check(r.returncode == 1 and "блок тела" in r.stderr,
           "длинное значение в шапку не пускается — ему место в теле")
 
-    for f in ("id", "_kind", "_pos"):
+    # ЛИЧНОСТЬ носителя не задаётся никем. `_pos` сюда больше НЕ входит: он про
+    # место среди соседей, а место обязано задаваться — иначе карточку нельзя
+    # ни привязать, ни переставить, и она выпадает из рабочего набора (дефект
+    # 2026-08-10). Разделение проверяется в case_placement_can_be_written.
+    for f in ("id", "_kind"):
         r = run("card", "set", "--id", "t-1", "--field", f, "--value", "zzz", *C)
         check(r.returncode == 1, f"{f} командой set не меняется — это имя носителя")
+    r = run("card", "set", "--id", "t-1", "--field", "_pos", "--value", "3", *C)
+    check(r.returncode == 0, "а `_pos` меняется: переставить карточку среди соседей — законно")
 
     # а поле ВЛАДЕЛЬЦА с таким же словом менять можно: имена больше не спорят
     r = run("card", "set", "--id", "t-1", "--field", "kind", "--value", "executor", *C)
@@ -235,6 +285,9 @@ def main():
     # --- поиск
     r = run("find", "--text", "Другое дело", *C)
     check(r.returncode == 0 and "t-1" in r.stdout, "find находит карточку по тексту")
+
+    print("\n--- Место карточки задаётся, а без места она видна как потерянная")
+    case_placement_can_be_written(tmp, C)
 
     print("\n--- «Перебито» записывается и называет, чем именно")
     case_superseded_names_its_successor(tmp, C)
