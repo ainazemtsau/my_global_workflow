@@ -9,8 +9,8 @@ call: work/c-exec-g-5a7c-body-1-002-call.md
 repo: ainazemtsau/GasCoopGame
 engineering_contract: 36
 slot: WIN-U1
-basis: 4e5858b4b7cf4a6c8c9cad08e3fde4a6915200f3
-description: 'Перебазировать кандидата тела на опубликованную голову, переисполнить откат и опубликовать'
+basis: a7d37b3ecc28151126f950e271e2ec9ddcaed36c
+description: 'Перебазировать кандидата тела на опубликованную голову и переисполнить откат; публикация после его глаза'
 _pos: 75
 ---
 
