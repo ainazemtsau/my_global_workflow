@@ -12,11 +12,16 @@ goal
 способами; критерий done_when, не давший строки; замер, который не воспроизводится.
 
 context
-- набор: live/direction-os/work/converge-g-one-screen.md
+- набор: live/direction-os/work/converge-g-one-screen.md (в нём же лежат замеры M1–M7)
 - узел: live/direction-os/cards/g-one-screen.md
-- отчёт ноги: live/direction-os/history/2026-08-12-s-converge-g-one-screen-001.md
 - устав: live/direction-os/CHARTER.md
 - разбор узла: live/direction-os/history/2026-08-12-s-map-direction-os-001.md
+  (нога `map`, не `converge` — это законная улика, на неё указывает `detail:` узла)
+
+НЕ ЧИТАТЬ: `history/2026-08-12-s-converge-g-one-screen-001.md` и
+`-002.md` — это рассуждения решавшей ноги, и плей их читать запрещает
+(«It does NOT read deciding-session reasoning»). Всё, на что набор имеет право
+опираться, лежит в самом наборе; если чего-то там нет — это и есть находка.
 
 boundaries
 - владельческие решения 2026-08-12 (вид экрана, отсутствие сводного балла, цвет
