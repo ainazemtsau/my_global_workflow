@@ -4,10 +4,9 @@ _kind: call
 to: session
 play: map
 for: g-zara
-status: waiting
+status: ready
 issued: 2026-08-12
 call: work/calls/c-solmax-zaratustra-map-finalize-026.md
-waiting_on: c-solmax-zaratustra-map-evidence-025
 description: Записать уже утверждённую карту после свежего map_evidence без повторного
   опроса
 _pos: 1
@@ -42,5 +41,10 @@ One map RESULT applying the already-approved map or one honest owner-decision ch
 ## budget
 one focused returning map leg
 ## журнал
+2026-08-12 · fresh 2026 map evidence kept the 1→6 order and conditional Health-first probe, found four material acceptance gaps, and readied the returning map leg for one narrow owner verdict · history/2026-08-12-s-solmax-zaratustra-map-evidence-025.md
 2026-08-12 · 2026-08-12 - owner approved Zaratustra Area/Workflow/Run and web-first map; exact draft preserved, fresh map_evidence opened before node mutation · history/2026-08-12-s-solmax-zaratustra-map-owner-approved-checkpoint-025.md
+## receipts
+```yaml
+- history/2026-08-12-s-solmax-zaratustra-map-evidence-025.md
+```
 END_OF_FILE: live/solmax/cards/c-solmax-zaratustra-map-finalize-026.md

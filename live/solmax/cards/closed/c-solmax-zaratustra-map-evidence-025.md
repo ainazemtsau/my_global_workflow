@@ -45,5 +45,7 @@ One research RESULT as fresh map_evidence, with no successful child CALL. Close 
 ## budget
 one focused research leg; current web and named local evidence
 ## журнал
+2026-08-12 · fresh map_evidence returned to c-solmax-zaratustra-map-finalize-026; no successful Direction-OS child CALL · history/2026-08-12-s-solmax-zaratustra-map-evidence-025.md
+2026-08-12 · fresh 2026 map evidence kept the 1→6 order and conditional Health-first probe, found four material acceptance gaps, and readied the returning map leg for one narrow owner verdict · history/2026-08-12-s-solmax-zaratustra-map-evidence-025.md
 2026-08-12 · 2026-08-12 - owner approved Zaratustra Area/Workflow/Run and web-first map; exact draft preserved, fresh map_evidence opened before node mutation · history/2026-08-12-s-solmax-zaratustra-map-owner-approved-checkpoint-025.md
-END_OF_FILE: live/solmax/cards/c-solmax-zaratustra-map-evidence-025.md
+END_OF_FILE: live/solmax/cards/closed/c-solmax-zaratustra-map-evidence-025.md
