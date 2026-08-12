@@ -17,4 +17,6 @@ _pos: 0
 значит твоя прежняя настройка едет на 20%. Пока вопрос не отвечен, любая нога, увидевшая более
 дёрганого хозяина, будет спорить, дефект это или купленное следствие. Перекрутка порогов
 принадлежит дорожке `householder` (`t-react-2`), а не общей задаче, поэтому здесь она не делается.
-END_OF_FILE: live/indie-game-development/cards/q-house-hears-20-percent-earlier-001.md
+## журнал
+2026-08-12 · Текущая волна закрыта без перекрутки порогов; будущая настройка требует конкретного demo fixture · history/2026-08-12-s-review-g-5a7c-wave-2-partial-001.md
+END_OF_FILE: live/indie-game-development/cards/closed/q-house-hears-20-percent-earlier-001.md
