@@ -2,7 +2,7 @@
 id: t-sight-1
 _kind: task
 _bet: g-5a7c
-status: blocked
+status: open
 kind: executor
 track: householder-life
 order: 2

@@ -4,6 +4,7 @@ _kind: issue
 _pos: 24
 level: execution
 route: work
+status: done
 ---
 
 ## issue
@@ -12,4 +13,4 @@ route: work
 В `c-map-real-core-node-001` либо при первом явно принятом занятии хозяина, использующем место дома. Читать вместе с `i-householder-activities-are-intentions-not-instructions-001`; закрывается, когда профиль сможет назвать место дома и хозяин по такому профилю запустится. ПЕРЕПРОВЕРЕНО REVIEW НА `352f96b0` — держится байт в байт, и владелец 2026-08-07 отдельно вывел эту запись из класса «код просто не вызывается»: `IsKnownPlace` вызывается и возвращает `false`, поэтому профиль, назвавший место, не деградирует, а УБИВАЕТ хозяина целиком — он молча не появляется. Починка ~10 строк и едет с первой же задачей, дающей хозяину занятие в названной комнате.
 ## evidence
 `f03b1468:Assets/TunnelCrew/Profiles/HouseholderProfileLoader.cs:20,55,261`; `f03b1468:docs/results/c-exec-g-1d84-named-house-routes-001.md` §Cuts («Крючок профиля НЕ подключён, и это названо вслух») — исполнитель назвал это владельцу ДО закрытия, и владелец выбрал закрывать задачу; разбор — history/2026-08-06-s-work-g-1d84-named-house-routes-close-001.md.
-END_OF_FILE: live/indie-game-development/cards/i-profile-cannot-name-a-house-place-001.md
+END_OF_FILE: live/indie-game-development/cards/closed/i-profile-cannot-name-a-house-place-001.md

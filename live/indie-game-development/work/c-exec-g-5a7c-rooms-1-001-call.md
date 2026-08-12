@@ -10,18 +10,19 @@ node: g-5a7c
 track: house-and-things
 task: t-rooms-1
 issued: 2026-08-12 by s-work-g-5a7c-rooms-1-dispatch-001
-status: blocked
-unblock_when: закрыта `t-places-1` (наряд `c-exec-g-5a7c-places-1-001`) и её работа опубликована
-basis: возьми ТОГДАШНЮЮ опубликованную голову, а не сегодняшнюю. На момент написания
-       `origin/main` = `origin/dev` = `f3c40c4010ee2f0f700cdf1bfbcea14a301d488c`.
+status: ready
+basis: `4e5858b4b7cf4a6c8c9cad08e3fde4a6915200f3` — `origin/main` = `origin/dev` =
+       `origin/slot/win-u2`, перемерено `git ls-remote origin` 2026-08-12 после публикации шва.
 
-**ПОЧЕМУ НАРЯД ЗАБЛОКИРОВАН — ИЗМЕРЕННАЯ ПРИЧИНА, А НЕ ПРАВИЛО.** Параллельный наряд
-`c-exec-g-5a7c-places-1-001` добавляет поле роли в `Assets/TunnelCrew/World/HousePlaceMarker.cs`.
-Этот наряд обязан РАССТАВИТЬ роли по местам нового дома, то есть пользуется этим самым полем. Оба
-работают в `World/**` и оба идут к дому. Запускать их одновременно — это ровно тот случай, который
-владелец описал словом «одна задача блочит две полосы, то, ну, естественно, ждем».
+**НАРЯД РАЗБЛОКИРОВАН: шов `t-places-1` опубликован и закрыт.** Поле роли у места существует
+(`World/HousePlaceMarker.cs:30` — `public string Role`), поиск по роли живёт в
+`Core/House/HousePlan.cs:139` (`TryFindPlaceByRole`), а профиль называет роль через
+`TryResolvePlaceRole`. Неизвестная роль теперь НЕ убивает хозяина: шаг с ней просто становится
+пустым. Ты этим пользуешься, а не заводишь заново.
 
-Как только шов опубликован — слот **WIN-U2** свободен, стоит на свежей голове и берётся сразу.
+**ЕСЛИ `origin/main` СДВИНУЛСЯ — НЕ СТОП, А ПЕРЕБАЗИРОВАНИЕ.** База прогона на `4e5858b4`:
+**219 passed, 0 failed, 0 skipped**, прогнано Направлением. Слот WIN-U2 отпущен:
+`CLEAN / AVAILABLE / lease none`, дерево уже на `4e5858b4`.
 
 ## slot
 
@@ -105,8 +106,9 @@ rules layer instead». То есть шов не различает, ЧТО им
 на недоделанную разметку), `Network/NetworkHouseholder.cs:42,80,102` (спрашивает план один раз до
 движения).
 
-**Поле роли места добавляет наряд `c-exec-g-5a7c-places-1-001`.** Ты им ПОЛЬЗУЕШЬСЯ, а не заводишь
-его заново; если по факту его нет — СТОП домой, значит шов не доехал.
+**Поле роли места УЖЕ ЕСТЬ** — его привёз опубликованный шов `t-places-1`: `HousePlaceMarker.Role`,
+`HousePlan.TryFindPlaceByRole`, разрешение роли в загрузчике профиля. Ты им ПОЛЬЗУЕШЬСЯ, а не
+заводишь заново.
 
 ### Сцены — фикстуры тестов, и это меняет цену правки
 
@@ -131,9 +133,9 @@ PolyHaven; раскладка `Art/FreeKitsProbe/Sources/<вендор>/` с `Li
 
 ### База прогонов
 
-`dotnet test tests/TunnelCrew.Core.Tests/TunnelCrew.Core.Tests.csproj -c Release` → **214 passed,
-0 failed, 0 skipped**, прогнано 2026-08-12 на `f3c40c40`. К моменту твоего старта число будет
-другим — шов добавит свои тесты; возьми фактическое как базу и назови его.
+`dotnet test tests/TunnelCrew.Core.Tests/TunnelCrew.Core.Tests.csproj -c Release` → **219 passed,
+0 failed, 0 skipped**, прогнано Направлением 2026-08-12 на опубликованной голове `4e5858b4`. Это
+твоя база.
 
 `tools/hygiene.ps1` — зелёный. **`tools/check.ps1 -Deliver` КРАСНЫЙ на семи исторических отчётах —
 зарегистрированный дефект `i-deliver-gate-red-when-main-catches-dev-001`, НЕ твоя работа.**
