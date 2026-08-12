@@ -34,5 +34,6 @@ consumer/failure-case, while reusable operating-substrate is a separate
 sibling architecture route.
 
 ## журнал
+2026-08-13 · map Zaratustra finalized: owner-approved six-node 1→6 roadmap recorded with four evidence-backed boundaries, old unfinished operating-manager branch dropped, and Health converge opened as the sole frontier · history/2026-08-13-s-solmax-zaratustra-map-finalize-026.md
 2026-08-12 · 2026-08-12 - owner approved Zaratustra Area/Workflow/Run and web-first map; exact draft preserved, fresh map_evidence opened before node mutation · history/2026-08-12-s-solmax-zaratustra-map-owner-approved-checkpoint-025.md
 END_OF_FILE: live/solmax/cards/g-solmax.md

@@ -31,6 +31,7 @@ the first consumer/failure-case/evidence source for the reusable
 operating-substrate route, not the whole umbrella.
 
 ## журнал
+2026-08-13 · map Zaratustra finalized: owner-approved six-node 1→6 roadmap recorded with four evidence-backed boundaries, old unfinished operating-manager branch dropped, and Health converge opened as the sole frontier · history/2026-08-13-s-solmax-zaratustra-map-finalize-026.md
 2026-08-12 · 2026-08-12 - owner approved Zaratustra Area/Workflow/Run and web-first map; exact draft preserved, fresh map_evidence opened before node mutation · history/2026-08-12-s-solmax-zaratustra-map-owner-approved-checkpoint-025.md
 2026-07-06 · paused Zaratusta live-use route · history/2026-07-06-s-solmax-zaratusta-pause-operating-substrate-route-001.md
 2026-07-05 · PASS verified Zaratusta full Markdown surface · history/2026-07-05-s-zara-operate-markdown-manager-v1-full-surface-t3-001.md

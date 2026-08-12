@@ -3,7 +3,7 @@ id: g-zara-operate-state
 _kind: node
 _parent: g-zara-operate
 _pos: 1
-status: parked
+status: dropped
 appetite: 3 focused days
 ---
 
@@ -39,8 +39,10 @@ A personal operating system is not real if it forgets, invents
 continuity or corrupts the external OS state.
 
 ## журнал
+2026-08-13 · unfinished old state branch dropped as superseded by the owner-approved trusted-context and six-node Zaratustra roadmap; done_when not claimed · history/2026-08-13-s-solmax-zaratustra-map-finalize-026.md
+2026-08-13 · map Zaratustra finalized: owner-approved six-node 1→6 roadmap recorded with four evidence-backed boundaries, old unfinished operating-manager branch dropped, and Health converge opened as the sole frontier · history/2026-08-13-s-solmax-zaratustra-map-finalize-026.md
 2026-07-06 · paused Zaratusta live-use route · history/2026-07-06-s-solmax-zaratusta-pause-operating-substrate-route-001.md
 2026-07-05 · PASS verified Zaratusta full Markdown surface · history/2026-07-05-s-zara-operate-markdown-manager-v1-full-surface-t3-001.md
 2026-07-05 · shape writer-bounce repaired; t-1 executor CALL ready · history/2026-07-05-s-zara-operate-markdown-manager-v1-full-shape-repair-001.md
 2026-07-02 · repair g-zara-operate-contract review writer-bounce: previous review RESULT was not applied; repaired TREE closure with explicit owner_approved marker/owner words, closed b-zara-operate-contract-002 as met after t-1/t-2/t-3 PASS against Zaratusta commit 79578ac87c73591000409f9f82a3bb4d0e33aa5b, and replaced NOW.next with one-line work/ CALL pointer; next-bet decision open, recommendation shape g-zara-operate-state. · history/2026-07-02-s-zara-operate-contract-review-bounce-repair-001.md
-END_OF_FILE: live/solmax/cards/g-zara-operate-state.md
+END_OF_FILE: live/solmax/cards/closed/g-zara-operate-state.md
