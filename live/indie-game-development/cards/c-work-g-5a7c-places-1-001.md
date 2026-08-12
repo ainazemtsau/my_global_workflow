@@ -5,11 +5,12 @@ to: session
 play: work
 for: t-places-1
 node: g-5a7c
-status: ready
+status: waiting
 issued: 2026-08-12
 description_by: dev
 description: 'Довести общую задачу-шов «роли мест» до закрытия: наряд, доставка с распиской, возврат'
 _pos: 65
+waiting_on: c-exec-g-5a7c-places-1-001
 ---
 
 ## goal
@@ -87,5 +88,6 @@ RESULT ноги `work` с закрытой `t-places-1` и распиской и
 паузу встаёт `body`, следом `t-loot-1`. Половина дня работы исполнителя.
 
 ## журнал
+2026-08-12 · наряд написан и выдан исполнителю в WIN-U2 как c-exec-g-5a7c-places-1-001; ждём возврата с распиской · history/2026-08-12-s-work-g-5a7c-places-1-dispatch-001.md
 2026-08-12 · наряд зарегистрирован shape третьей волны и не запущен · history/2026-08-12-s-shape-g-5a7c-wave-3-001.md
 END_OF_FILE: live/indie-game-development/cards/c-work-g-5a7c-places-1-001.md

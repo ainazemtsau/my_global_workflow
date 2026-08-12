@@ -2,7 +2,7 @@
 id: t-body-1
 _kind: task
 _bet: g-5a7c
-status: ready
+status: open
 kind: executor
 track: body
 order: 4
