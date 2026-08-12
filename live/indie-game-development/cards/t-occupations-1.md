@@ -2,7 +2,7 @@
 id: t-occupations-1
 _kind: task
 _bet: g-5a7c
-status: open
+status: active
 kind: executor
 track: householder-life
 order: 5
@@ -52,4 +52,6 @@ _pos: 58
 возвращения с более жёстким средством.
 
 **ЗАКРЫТИЕ:** светлое НЕДОСТУПНО — строку 4 судит его глаз.
+## журнал
+2026-08-12 · наряд выдан в WIN-U3 от c1d8d384; строки 1-2 доказываются headless на синтетических планах дома, строка 3 закрывается последней на опубликованном доме, и если он не приехал — СТОП, а не выдуманные роли · history/2026-08-12-s-work-g-5a7c-occupations-1-dispatch-001.md
 END_OF_FILE: live/indie-game-development/cards/t-occupations-1.md
