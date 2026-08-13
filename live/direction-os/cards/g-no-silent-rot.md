@@ -2,7 +2,7 @@
 id: g-no-silent-rot
 _kind: node
 _parent: g-direction-os
-_pos: 2
+_pos: 3
 status: parked
 label: Список оставшегося не гниёт
 hook: Утверждение системы о себе сверяется с диском, а не с памятью
