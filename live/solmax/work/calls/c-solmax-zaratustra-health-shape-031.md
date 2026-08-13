@@ -19,6 +19,18 @@ goal: |
   использовать, разбивать файлы нормально, да, там не сваливать всё в кучу ...
   истории огромные могут быть, чтобы получал контекст важный."
 
+  His addendum the same day, verbatim, which raises three things from "somewhere
+  in node 1" to "in the FIRST bet":
+  "я в начале ожидаю именно чёткую структуру, которую я могу видеть ... как все
+  идут процессы и так далее. То есть каждый файл, каждая процедура должна быть
+  там, как бы типизирована, иметь свою метаинформацию или что-то мы сделаем.
+  Понятно, где вызывается, быть консистентной. То есть у нас сразу должна быть
+  внедрена какая-то тема с ошибками, да, то, что мы, если какие-то проблемы
+  возникнут, потому что они будут возникать. Мы, типа, делаем антихрупкую
+  систему, что мы просто потом их рассматриваем, адаптируем, адаптируем,
+  адаптируем дальше. Соответственно, система должна расширяемая быть и так
+  далее."
+
 context: |
   Read fresh through osctl context, plus:
   - live/solmax/work/converge-g-zara-health-vertical.md — the FROZEN WHAT
@@ -113,6 +125,31 @@ done_when: |
      огромные могут быть, чтобы получал контекст важный").
   5. Every task carries the acceptance rows it must satisfy, copied from the
      frozen A1-A21 EXCEPT A2 (node 4) and as amended by C1-C5.
+  6. STRUCTURE IS VISIBLE IN BET 1, not only the result. Every contract, handler
+     and procedure carries a typed identity and declared metainfo — what it is,
+     what it takes in and returns, which context it may read, what it may write,
+     which transitions follow — and the call site of every procedure is explicit
+     rather than implied by naming or discovery. One entity per file, the same
+     shape repeated, no heap. He must be able to see the structure BOTH in the
+     repository and in the localhost projection ("каждый файл, каждая процедура
+     ... типизирована, иметь свою метаинформацию ... понятно, где вызывается,
+     быть консистентной"). This is A12/A15 plus W24/W31/W32/W33 pulled into the
+     first bet instead of a later one; it invents no new contract.
+  7. THE FAILURE SURFACE SHIPS IN BET 1. Every failure, block, missing grant,
+     unauthorized input or executor error is a typed recorded trace event with
+     an honest visible closure — success, bounded owner question, diagnostic
+     block or recoverable failure — never a silent stop and never an invented
+     result. He can see on screen what broke and why. The system RECORDS and
+     SHOWS; it never adapts itself from that record: changing active semantics
+     stays his review call and node 6's outcome (W35, W39, W45, A17-A18). This
+     is the antifragile loop he named — problems surface, he looks, we adapt on
+     purpose ("сразу должна быть внедрена какая-то тема с ошибками ... мы просто
+     потом их рассматриваем, адаптируем").
+  8. EXTENSIBILITY GETS A VERDICT, NOT A CLAIM. Shared code carries no
+     Health-specific branch (A3), and the lens-1 verdict states in plain terms
+     what adding a second Capability would cost against bet 1's design. Naming
+     the cost is a paper check inside the cut list; building the second
+     Capability is NOT in bet 1.
 
 return: |
   One shape RESULT with the bet, cut list, tasks, lens verdicts, PLAN agenda and
