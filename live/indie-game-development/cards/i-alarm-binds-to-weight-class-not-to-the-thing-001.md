@@ -8,42 +8,18 @@ _pos: 86
 ---
 
 ## issue
-**БУДИЛЬНИК ПРИВЯЗАН К ВЕСОВОМУ КЛАССУ, А НЕ К ПРЕДМЕТУ — И ЗАМОРОЖЕННЫЙ КАНДИДАТ ЛУТА ПОРОДИЛ БЫ ПЯТЬ ЗАВЕДЁННЫХ БУДИЛЬНИКОВ.**
-
-Перемерено чтением байтов на `origin/main` = `c485b30e`:
-
-- `Assets/TunnelCrew/Settings/GameRulesSettings.asset:70` → `_alarmCargoClassId: 0`.
-- `Assets/TunnelCrew/Core/Cargo/AlarmClockCargoThing.cs:37-42` → `InitialStateFor(cargoClassId)`
-  возвращает `Armed` тогда и только тогда, когда `cargoClassId == _cargoClassId`.
-- `Assets/TunnelCrew/Settings/GameRulesSettings.cs:195-196` → вызывается при создании КАЖДОГО груза.
-
-Пока предметов было четыре и класса `0` был один, это работало и выглядело правильным. Замороженный
-кандидат `e0a30194` ставит **ПЯТЬ** предметов класса `0` — Bedside Radio, Kitchen Timer, Hall Key Box,
-Remote Control, Desk Clock. Опубликуйся он как есть, в доме зазвонили бы пять будильников вместо
-одного, и это сломало бы закрытую `t-thing-1`.
-
-**НАШЁЛ ЭТО ИСПОЛНИТЕЛЬ В СЛОТЕ, а не тесты и не ворота, и сформулировал МЯГЧЕ, чем есть:** его слова
-«любой предмет класса 0 потенциально считается будильником». Измерение говорит жёстче — не
-потенциально, а гарантированно, на пяти предметах из десяти.
-
-**ЭТО ТРЕТИЙ ДЕФЕКТ ОДНОГО КЛАССА В НАПРАВЛЕНИИ:** идентичность вещи выведена из её ПАРАМЕТРА
-(весового класса), а не из её собственного стабильного имени. Тот же корень, что у доставки, которая
-видит только первый груз.
-
-**ЧЕМ ЛЕЧИТСЯ.** Будильник привязывается к конкретному определению предмета. Это ОДНА строка нового
-разреза, а не реестр поведений: реестр запрещён вырезом 9 ставки как второй новый слой.
+На опубликованной сцене runtime-порядок классов уже `0,0,1,2`, а Host инициализирует alarm rule по
+class id для каждого cargo; поэтому behavior вещи выведен из физического параметра и случайно
+наследуется несколькими экземплярами, а preserve-раскладка увеличила бы их до пяти. Новый
+owner-handoff требует stable definition-based dispatch, а не прежний class selector.
 ## review_when
-Первая задача нового разреза лута, и **отложить нельзя**: она же приносит десять предметов, то есть
-именно она и взводит пять будильников. Закрывается вместе с публикацией новой раскладки.
-
-Отдельного решения владельца НЕ требует, пока лечение остаётся привязкой к определению: игровой смысл
-«будильник ровно один» — это то, что уже принято закрытой `t-thing-1`, и лечение его восстанавливает, а
-не меняет. Решение понадобится только если он захочет, чтобы будильников стало несколько.
+`c-exec-g-5a7c-loot-foundation-001`: только явно выбранное alarm definition получает stable
+`BehaviorId`, остальные definitions нейтральны независимо от массы; прежние states/timing/event path
+сохраняются. Закрыть после публикации миграции и regressions.
 ## evidence
-Перемерено этой ногой 2026-08-13 на `origin/main` = `origin/dev` = `c485b30e704b1706675dd92d15c5223b0d166b92`:
-`Settings/GameRulesSettings.asset:70`; `Core/Cargo/AlarmClockCargoThing.cs:37-42`;
-`Settings/GameRulesSettings.cs:195-196`. Состав замороженного кандидата — таблица в
-`origin/main:docs/results/c-exec-g-5a7c-loot-1-001.md` §outcome: пять предметов массой 48 (класс 0),
-три массой 100, два массой 240. Предложение исполнителя и полное ревью Направления —
-`live/indie-game-development/work/2026-08-13-loot-structure-proposal.md`.
+`c485b30e`: `IntegratedHouse.unity` + `GameRulesSettings.CreateCargoSpawnState` /
+`AlarmClockCargoThing.InitialStateFor`; `work/2026-08-13-loot-owner-architecture-handoff.md`;
+`origin/main:docs/results/c-exec-g-5a7c-loot-1-001.md`.
+## журнал
+2026-08-13 · владелец выбрал один полный первый BUILD лута вместо split/cut; точный handoff сохранён, старый candidate оставлен PRESERVED-PAUSED, выпущен отдельный child CALL от свежего origin/main со stable IDs, physical supports, network/visual/behavior seams и stale-contact fix · history/2026-08-13-s-work-g-5a7c-loot-foundation-dispatch-001.md
 END_OF_FILE: live/indie-game-development/cards/i-alarm-binds-to-weight-class-not-to-the-thing-001.md

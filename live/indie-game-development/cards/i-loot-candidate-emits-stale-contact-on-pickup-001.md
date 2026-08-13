@@ -8,48 +8,17 @@ _pos: 85
 ---
 
 ## issue
-**ЗАМОРОЖЕННЫЙ КАНДИДАТ ЛУТА ВЫСТРЕЛИВАЕТ ПРОТУХШИЙ УДАР, КОГДА ПРЕДМЕТ БЕРУТ В РУКИ.** Это ЕДИНСТВЕННАЯ
-причина, по которой `t-loot-1` не опубликована, и она найдена свежим разбором на стороне продукта, а не
-тестами.
-
-**МЕХАНИКА.** Кандидат делает ровно то, что владелец заказал словами «лут не должен через друг друга
-проходить»: неактивный покоящийся груз перестаёт выпадать из симуляции целиком и остаётся кинематическим
-препятствием с включёнными `Collider` и `detectCollisions`. Но его окно контакта при этом **не читается,
-пока предмет неактивен, и не сбрасывается на переходе неактивный → активный**. Удар, накопленный, пока
-предмет лежал, может быть выдан как сила и шум позже — в момент, когда предмет подняли.
-
-**ПОЧЕМУ ЭТО СТАЛО ХУЖЕ ИМЕННО СЕЙЧАС.** Пока лут ехал, приехало зрение. Ложный шум груза попадает в тот
-же тик-лист и участвует в сведении «один самый громкий за тик»; при рангах `Landing` 4 >
-`RepeatedHeavyNoise` 3 > `SawRat` 2.5 выдуманный удар груза **побьёт настоящее увиденное** и съест факт.
-
-**У ЗАМОРОЖЕННОГО КАНДИДАТА НЕТ РЕГРЕССА НА ЭТУ ПОСЛЕДОВАТЕЛЬНОСТЬ.**
-
-**ЧТО ПРИ ЭТОМ УЖЕ ЗАРАБОТАЛО И НЕ ПОТЕРЯНО** (кандидат сохранён целиком, ни байта не выброшено):
-десять предметов данными в четырёх комнатах по ориентиру владельца 5 / 3 / 2; библиотека
-`HouseLootLibrary.asset`, где следующий предмет добавляется одной строкой из четырёх полей и без правки
-кода; твёрдость доказана настоящим Unity-прогоном на живой `PhysicsScene` с явным контролем; цена
-включения измерена числом — **66.548 мс на 10 240 шагов, ≈ 0.00650 мс на шаг**, решатель не сломался.
-Пороги по рукам `144 / 300 / 720` и шума `60 / 150 / 400` не тронуты, доставка не тронута.
-
-**ЕГО ГЛАЗ УЖЕ СКАЗАЛ ДА ПО ТВЁРДОСТИ** (записано исполнителем 2026-08-13): твёрдость принята; он
-отдельно заметил, что покрытие пола временное, и при этом отметил настоящее ощущение погружения. Ремонт
-покрытия и ручной Y-сдвиг как обходной путь **запрещены** и не входят в починку.
-
-**ЧЕГО ЗДЕСЬ НЕТ.** Улика `i-cargo-passes-through-cargo-in-the-running-game-001` — про ПРОХОД насквозь,
-и кандидат её лечит. Эта — про ОБРАТНУЮ сторону лечения. Закрываются они разными фактами и вместе не
-сливаются.
+Preserved candidate keeps resting cargo solid but does not consume/reset its inactive contact window;
+after pickup an old hit can emit false force/noise and beat a real sight/situation. The frozen ref is
+custody-only and has no regression for strike → wait → pickup.
 ## review_when
-Следующая нога `t-loot-1`. Она обязана быть НОВЫМ нарядом от сохранённого точного SHA
-`e0a301947c28ef04a8465a411104098f54d9b9f7` (ветка `preserve/c-exec-g-5a7c-loot-1-001-win-u1-local-20260813`
-на `origin`), а не правкой замороженного кандидата на месте: у продукта заморозка означает custody, и
-патчить её запрещено его же контрактом. Наряд владеет починкой окна контакта и публикацией, ремонт
-покрытия пола и ручной Y-сдвиг в него не входят. Улика закрывается вместе с публикацией.
+`c-exec-g-5a7c-loot-foundation-001` builds from fresh `origin/main`, uses `e0a30194` only as evidence,
+and owns inactive→active reset plus fresh-contact/one-shot/sight regressions. Close with publication;
+never patch preserve, edit covering or add manual Y.
 ## evidence
-Перемерено этой ногой 2026-08-13: `git ls-remote origin` → `main` = `dev` =
-`c485b30e704b1706675dd92d15c5223b0d166b92`, а `refs/heads/preserve/c-exec-g-5a7c-loot-1-001-win-u1-local-20260813`
-= `e0a301947c28ef04a8465a411104098f54d9b9f7`. `git ls-tree -r origin/main` даёт **ноль** файлов лута;
-те же файлы (`Settings/LootLibrary.cs`, `Settings/HouseLootLibrary.asset`,
-`Tests/.../LootSolidityEditModeTests.cs`) присутствуют на сохранённом SHA. Полный разбор —
-`origin/main:docs/results/c-exec-g-5a7c-loot-1-001.md`, статус `PRESERVED-PAUSED; NOT DELIVERED on dev`,
-§evidence — формулировка блокера, §manual-acceptance — вердикт владельца по твёрдости, §cost — измерение.
+`origin/main:docs/results/c-exec-g-5a7c-loot-1-001.md`; preserve ref
+`e0a301947c28ef04a8465a411104098f54d9b9f7`;
+`work/2026-08-13-loot-owner-architecture-handoff.md`.
+## журнал
+2026-08-13 · владелец выбрал один полный первый BUILD лута вместо split/cut; точный handoff сохранён, старый candidate оставлен PRESERVED-PAUSED, выпущен отдельный child CALL от свежего origin/main со stable IDs, physical supports, network/visual/behavior seams и stale-contact fix · history/2026-08-13-s-work-g-5a7c-loot-foundation-dispatch-001.md
 END_OF_FILE: live/indie-game-development/cards/i-loot-candidate-emits-stale-contact-on-pickup-001.md
