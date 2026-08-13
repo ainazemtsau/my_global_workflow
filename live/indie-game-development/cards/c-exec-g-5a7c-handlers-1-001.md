@@ -10,7 +10,7 @@ issued: 2026-08-13
 call: work/c-exec-g-5a7c-handlers-1-001-call.md
 repo: ainazemtsau/GasCoopGame
 engineering_contract: 36
-basis: c485b30e704b1706675dd92d15c5223b0d166b92
+basis: 27c98d14918568543d92c6a199953777be8a5cad
 description: Инцидент локален третьим видом обработчика; строки обработчиков лежат
   в игровом профиле и работают
 _pos: 87
