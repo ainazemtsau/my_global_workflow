@@ -17,7 +17,7 @@ Precondition: no active bet (G1), chosen ordinary build node (never `outcome_kin
 6. **Riskiest assumption** — list the assumptions this bet rests on, starting with the chosen approach's bet from step 3, ranked by kill-power. The top one gets a task that tests it as early and cheaply as possible (gate G6). Calibrate test depth to the charter's risk_posture.
 7. **Tasks** — 3–7 tasks, each ≤ half a focused day, each with verifiable done_when. Order them so the riskiest-assumption task comes first or near-first. Mark each task's kind: session, executor (engineering), or guide (os/plays/guide.md). Executor-heavy bets name the evaluator and rollback first. ≥2 independent lines of work → offer the owner lanes and their WIP limit (G7).
 8. **Kill criteria** — kill_by: metric + threshold + date (gate G4). If the bet reaches the date or breaches the threshold, review triggers automatically. State next_if_true / next_if_false — which branch opens, dies, or mutates either way.
-9. **Close** — show one screen: appetite, tasks, lanes, cuts, lens verdicts, kill_by, forecast and against. On approval, RESULT makes the node `active`, writes the bet, declares any lanes the owner named in exact words, registers its first-task CALL as a `call` card, and hands it off through `RESULT.next`.
+9. **Close** — show one screen: appetite, tasks, lanes, cuts, extension gates, lens verdicts, kill_by, forecast and against. On approval, RESULT makes the node `active`, writes the bet, declares any lanes the owner named in exact words, registers its first-task CALL as a `call` card, and hands it off through `RESULT.next`.
 
 ## Done when
 
