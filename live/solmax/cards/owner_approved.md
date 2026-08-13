@@ -42,8 +42,23 @@ evidence:
   normally use their own data, common owner information is separate, other Areas
   may access it when needed, and it is not loaded every time. Exact O1-O11 words
   and signed WHAT: history/2026-08-13-s-solmax-zaratustra-health-converge-027.md.'
+- '2026-08-13: owner verdict on the four rows fresh converge-verify demoted in the
+  Health WHAT. Answered against an EXACTLY preserved displayed package (§OWNER
+  PACKAGE 2026-08-13 in work/converge-g-zara-health-vertical.md), which is the
+  repair of the specific defect that failed revision 1. Owner words, verbatim and
+  complete: "1Б, 2 это что угодно может быть шлавное понимать может ли это
+  следовать нашим процедорам сохранения (например вызывать python skrip) chatgpt
+  web этого не может поэтому он не может писмать формально (но может например
+  сорхранять request или еше как то) , 3 не знаю не понимаю про что вообщзе
+  вопрос , 4А". Read as: Area creation moves to node 4 and node 1 authors Health
+  directly; the save boundary is bound by whether a surface can execute the
+  authorized save procedure, not by host; question 3 was NOT recognized and is
+  recorded as absence of support, never as assent; localhost is a minimal action
+  surface. Revision 2 and full record:
+  history/2026-08-13-s-solmax-zaratustra-health-converge-repair-029.md.'
 ```
 ## журнал
+2026-08-13 · converge repair rev2 on Health WHAT: owner placed Area creation in node 4 and kept node 1 authoring Health directly, replaced the localhost/external request reading with a procedure-capability discriminator and chose a minimal localhost action surface; multi-step, effect/spend and agent-buildability gaps closed, files/scripts widening cut; 48 answered/6 open, fresh verification opened · history/2026-08-13-s-solmax-zaratustra-health-converge-repair-029.md
 2026-08-13 · converge Health WHAT signed: thin shared Area-creation/context/web-writer spine exercised by Nutrition+Training Health; 43 answered/5 open/0 deferred, A1-A20 complete; fresh converge-verify opened · history/2026-08-13-s-solmax-zaratustra-health-converge-027.md
 2026-08-13 · map Zaratustra finalized: owner-approved six-node 1→6 roadmap recorded with four evidence-backed boundaries, old unfinished operating-manager branch dropped, and Health converge opened as the sole frontier · history/2026-08-13-s-solmax-zaratustra-map-finalize-026.md
 2026-07-02 · repair g-zara-operate-contract review writer-bounce: previous review RESULT was not applied; repaired TREE closure with explicit owner_approved marker/owner words, closed b-zara-operate-contract-002 as met after t-1/t-2/t-3 PASS against Zaratusta commit 79578ac87c73591000409f9f82a3bb4d0e33aa5b, and replaced NOW.next with one-line work/ CALL pointer; next-bet decision open, recommendation shape g-zara-operate-state. · history/2026-07-02-s-zara-operate-contract-review-bounce-repair-001.md

@@ -43,6 +43,7 @@ A universal factory may reappear before useful Areas exist. If onboarding one
 addition needs more platform code than domain work, keep a manual explicit
 package template and return to dogfood.
 ## журнал
+2026-08-13 · converge repair rev2 on Health WHAT: owner placed Area creation in node 4 and kept node 1 authoring Health directly, replaced the localhost/external request reading with a procedure-capability discriminator and chose a minimal localhost action surface; multi-step, effect/spend and agent-buildability gaps closed, files/scripts widening cut; 48 answered/6 open, fresh verification opened · history/2026-08-13-s-solmax-zaratustra-health-converge-repair-029.md
 2026-08-13 · converge Health WHAT signed: thin shared Area-creation/context/web-writer spine exercised by Nutrition+Training Health; 43 answered/5 open/0 deferred, A1-A20 complete; fresh converge-verify opened · history/2026-08-13-s-solmax-zaratustra-health-converge-027.md
 2026-08-13 · map Zaratustra finalized: owner-approved six-node 1→6 roadmap recorded with four evidence-backed boundaries, old unfinished operating-manager branch dropped, and Health converge opened as the sole frontier · history/2026-08-13-s-solmax-zaratustra-map-finalize-026.md
 END_OF_FILE: live/solmax/cards/g-zara-extensible-areas-workflows.md

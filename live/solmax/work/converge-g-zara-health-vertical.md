@@ -4,8 +4,13 @@ node: g-zara-health-vertical
 direction: solmax
 play: converge
 status: closed_for_converge_verify
-revision: 1
+revision: 2
 date: 2026-08-13
+supersedes: |
+  revision 1, which FAILED fresh converge-verify —
+  history/2026-08-13-s-solmax-zaratustra-health-converge-verify-028.md,
+  findings F1-F7. Every row not named by a finding is byte-identical to
+  revision 1.
 
 imported:
   - S1: live/solmax/CHARTER.md
@@ -15,10 +20,19 @@ imported:
   - S5: live/solmax/work/zaratustra-owner-approved-map-draft-025.md
   - S6: live/solmax/knowledge/first-process-creator-live-proof-boundary.md
   - S7: live/solmax/knowledge/zaratusta-live-use-failure-and-operating-substrate-route.md
-  - S8: C:/projects/solmax-operating-substrate@4ed9cd1542ce8d6bf327b7aba443db759b77f92b/packs/health-reclamation/**
+  - S8: C:/projects/solmax-operating-substrate/packs/health-reclamation/** —
+    definition basis @4ed9cd1542ce8d6bf327b7aba443db759b77f92b (2026-07-17);
+    owner-USE artifacts (workspace/reports/day-report-2026-07-20..22,
+    workspace/reports/first-live-*, workspace/versions/nutrition-menu-2026-07-22-v2)
+    @f1289413bf29eaf9bf205daf0d1506198e8183fd (2026-07-23). Every behavioral
+    claim in W8/W10/W11/W12 already resolves at 4ed9cd1, so those rows are not
+    reopened; the later pin only carries the "owner-used"/"working" adjective. →F7
   - S9: C:/projects/concept-lab@2a5be4558714757d7a40db868446f9645ed0e7ed/web-inbox/README.md, web-inbox/PROJECT_INSTRUCTIONS.md, concept_lab/cli.py and tests/test_core.py
   - S10: C:/projects/solmax-operating-substrate@caffd17ffd0408626cf4e1311449fc684e50fe5f/packs/process-creator/** and adapters/github-monorepo.md
   - S11: owner-chat:2026-08-13:c-solmax-zaratustra-health-converge-027
+  - S12: owner-chat:2026-08-13:c-solmax-zaratustra-health-converge-repair-029 —
+    the EXACT package displayed before his verdict is preserved verbatim in
+    §OWNER PACKAGE 2026-08-13, not paraphrased.
 
 triage: standard — converge ON — because owner-visible Area creation, shared
   context, Health content, web-to-writer persistence and six sibling/root
@@ -44,17 +58,23 @@ strategic_search:
     - thin shared spine exercised by Health in node 1;
     - predeclared Health with shared owner surface deferred to later nodes;
     - a new shared-shell node after Health.
-  selected: thin shared spine exercised by Health. It alone preserves both
-    the owner's requirement that Health be created through Zaratustra and the
-    evidence pressure that the first external proof remain one useful Health
-    run rather than a platform-first factory. →S3 →S6 →S11
+  selected (revision 2): thin shared spine exercised by a DIRECTLY AUTHORED
+    Health — i.e. the survivor "predeclared Health with shared owner surface,
+    Area-creation deferred to a later node". Revision 1 selected the variant in
+    which Health is created THROUGH the shared ordinary-language flow, and
+    justified it by "the owner's requirement that Health be created through
+    Zaratustra". Fresh verification refuted that: no owner token said it (F2).
+    Put to him directly, he chose the deferral: "1Б". The retained justification
+    is the evidence pressure that the first external proof remain one useful
+    Health run rather than a platform-first factory. →W49 →S3 →S6 →S12/O12
   refuted:
     - platform/factory before useful Health — reverses the accepted proof
       order and repeats the old substrate-first failure; →S6 →S7
     - permanent Health-specific copies of shared functions — contradicts the
       owner's instruction to extract generally applicable functionality; →S11
-    - defer all creation/persistence to node 4/5 — makes node 1 a manual
-      one-off and its web surface unable to save the first real result; →S2 →S5
+    - defer all creation AND persistence to node 4/5 — persistence must exist in
+      node 1 or its surface cannot save the first real result; the CREATION half
+      of this option is what the owner selected. →S2 →S5 →S12/O12
     - renewed Process Creator or custom workflow language — violates the
       explicit registered-handler/no-DSL boundary. →S5 →S10
 
@@ -111,6 +131,26 @@ strategic_search:
   - O9: "я не хочу, чтобы она каждый раз попадала."
   - O10: "другие area, они обычно работают со своей."
   - O11: "Отдельно должна быть какая-то общая информация, в которую записывается там, да, не знаю, ну, какая-то там, не знаю, что уместно, что может быть в разных area важно."
+- S12 — Owner verdict on the four demoted rows, 2026-08-13, answering the exact
+  package preserved in §OWNER PACKAGE 2026-08-13. His reply verbatim, in full:
+  "1Б, 2 это что угодно может быть шлавное понимать может ли это следовать нашим
+  процедорам сохранения (например вызывать python skrip) chatgpt web этого не
+  может поэтому он не может писмать формально (но может например сорхранять
+  request или еше как то) , 3 не знаю не понимаю про что вообщзе вопрос , 4А"
+  - O12: "1Б" — displayed option Б: "Health в узле 1 просто есть — её делаем мы
+    напрямую, как первую и пока единственную область. А «создай любую область
+    словами» доказываем в узле 4, где по плану и лежит расширяемость."
+  - O13: "2 это что угодно может быть шлавное понимать может ли это следовать
+    нашим процедорам сохранения (например вызывать python skrip) chatgpt web
+    этого не может поэтому он не может писмать формально (но может например
+    сорхранять request или еше как то)" — he refused the displayed A/B framing
+    and supplied the discriminator instead.
+  - O14: "3 не знаю не понимаю про что вообщзе вопрос" — the question was
+    displayed and NOT recognized. This records the ABSENCE of owner support in
+    either direction; it is never read as assent.
+  - O15: "4А" — displayed option А: "минимальная поверхность действия: из
+    браузера ты ЗАПУСКАЕШЬ прогон и отвечаешь на его вопросы / подтверждаешь
+    шаг. Остальное — только чтение."
 
 ## §GLOSSARY
 
@@ -121,72 +161,93 @@ strategic_search:
 | G3 | Operation | One bounded typed action with declared input/output, context, effect/write scope, executor requirements and closure. | [typed] machine-validatable envelope; [registered-handler] executed by explicit code/adapter; [prose-opaque] deterministic code never derives action/authority from prose. | Free-form instruction interpreted by Python; workflow-language statement. |
 | G4 | Workflow | One versioned, bounded, multi-step owner journey through registered Operations toward a named result. | [multi-step] more than one observable state/decision; [registered] explicit handler/transition graph; [not-separate-product] a journey inside an Area; [not-DSL] no custom language/compiler/interpreter. | Separate application; generic process; chat transcript; executable prompt DSL. |
 | G5 | Run | One execution of an exact Workflow version with typed step events, owner actions, artifacts and an honest closure. | [version-bound] exact Workflow identity; [observable] trace and current step; [resumable] continuation is explicit; [honest-closure] success, bounded question, diagnostic block or recoverable failure. | Chat session; background agent lifetime; log file. |
-| G6 | Area creation | An owner-visible Zaratustra action that turns ordinary intent into a bounded proposed Area, lets the owner correct/accept its expected contents, and makes the accepted Area usable through the shared contracts. | [ordinary-language] no manifest/form required from owner; [bounded-template] customizes only inside known constraints; [no-surprise] shows material contents/effects before activation; [first-consumer] Health is created through it; [not-universal-factory] no general process language or unlimited generator. | Manual developer setup; unconstrained agent generation; revived Process Creator; arbitrary folder creation. |
+| G6 | Area creation | An owner-visible Zaratustra action that turns ordinary intent into a bounded proposed Area, lets the owner correct/accept its expected contents, and makes the accepted Area usable through the shared contracts. | [ordinary-language] no manifest/form required from owner; [bounded-template] customizes only inside known constraints; [no-surprise] shows material contents/effects before activation; [born-in-node-4] node 1 authors Health directly and never exercises this action; the flow and its generality belong to g-zara-extensible-areas-workflows (→W49); [not-universal-factory] no general process language or unlimited generator. | Manual developer setup; unconstrained agent generation; revived Process Creator; arbitrary folder creation; an Area-creation subsystem standing in front of the first useful Run. |
 | G7 | Area context | Facts, decisions, records and opaque artifacts owned by one Area. | [default-isolated] other Areas do not receive it automatically; [on-demand] even the owning Area loads only what an Operation needs; [authoritative-owner] one named Area/source owns each structured fact. | Whole Area transcript always in prompt; global mutable memory. |
 | G8 | shared owner context | A curated set of typed owner facts explicitly useful across more than one Area. | [separate] distinguishable from every Area's context; [explicit-promotion] an example/message is not automatically a shared fact; [provenance] source/currentness/sensitivity recorded; [not-global-prompt] not injected into every Run. | Everything known about owner; hidden system prompt; copy of each Area. |
 | G9 | context reference/access grant | A typed declaration that one Operation may load a named context item or bounded set for a stated purpose. | [purpose-bound] reason and consumer declared; [minimum] only required/optional references; [deny-by-default] absence of grant means no read; [auditable] projection/trace can show why data was seen. | Repository permission; broad Area membership; model deciding from prose what to fetch. |
-| G10 | web save/change request | A non-authoritative typed handoff produced after a web conversation for an authorized writer to validate and apply. | [exact-input] preserves owner words and proposed structured change; [may-carry-artifacts] can carry/reference complete files or scripts required by the proposal; [no-effect-by-request] request creation changes no canonical state; [validated-apply] writer re-reads basis/authority and applies once; [receipt] observed outcome returns. | Web chat writes canonical state directly; transcript summary; executable arbitrary script; patch assumed applied. |
+| G10 | save/change request | A non-authoritative typed handoff produced by a conversation surface that cannot itself execute the authorized save procedure, for an authorized writer to validate and apply. | [exact-input] preserves owner words and proposed structured change; [procedure-capable] the discriminator is whether the surface can execute the authorized save procedure, NOT which host it runs on — a surface that can, writes through validated apply; one that cannot (owner's named example: ChatGPT Web) may only request (→W50); [no-effect-by-request] request creation changes no canonical state; [validated-apply] writer re-reads basis/authority and applies once; [receipt] observed outcome returns. | Web chat writes canonical state directly; transcript summary; executable arbitrary script; patch assumed applied; localhost-versus-external mistaken for the boundary; a request treated as an artifact carrier (retired property, →W51). |
 | G11 | opaque prose/artifact | Natural language or model output whose meaning is read by a person/model, while deterministic code treats its bytes and typed wrapper as opaque. | [no-semantic-parser] no keyword/regex/heading inference; [typed-verdict] semantic reviewer returns a separate typed judgment; [traceable] identity/source/version preserved. | Python extracts facts/authority/success from prose; untracked chat memory. |
 | G12 | useful low-consequence Run | A real owner-originated Run whose effects are bounded/reversible, whose closure the owner judges useful for the intended need, and whose failures remain safe and observable. | [real] not a fixture; [owner-useful] explicit owner judgment; [low-consequence] no clinical/time-critical/irreversible behavior; [end-to-end] owner surface through result/closure. | Passing test; successful API call; model says result is useful. |
 | G13 | non-clinical Health boundary | Health may support general wellness, organization and self-observation, but not clinical or time-critical decisions. | [allowed] general-wellness/admin/self-observation; [forbidden] diagnose, prescribe/treat, change medication, time-critical advice; [stop-handoff] out-of-scope input stops explicitly; [data-declared] each executor path names sensitive data received and controls. | Personal clinician; treatment planner; unrestricted wellness coach. |
 
-§SIGNOFF: Define owner-approved @ 2026-08-13 from S11/O4-O11. The
-owner approved the thin shared Zaratustra spine, bounded Area creation,
-Health as its first consumer, Area-local default context and a separate common
-owner context that is not automatically loaded. Physical storage and cheap
-mechanism parameters remain PLAN, not hidden glossary properties.
+§SIGNOFF: Define owner-approved @ 2026-08-13 from S11/O4-O11, then REVISED
+@ 2026-08-13 from S12/O12-O15 after the fresh converge-verify FAIL. From S11 the
+owner approved the thin shared Zaratustra spine, Area-local default context and
+a separate common owner context that is not automatically loaded. In revision 2
+he additionally placed Area creation in node 4 rather than node 1 ("1Б"),
+replaced the localhost-versus-external reading of the request boundary with a
+procedure-capability discriminator ("может ли это следовать нашим процедорам
+сохранения (например вызывать python skrip)"), and chose a minimal localhost
+action surface ("4А"). Two glossary properties are retired as unsupported:
+G6[first-consumer] → G6[born-in-node-4], and G10[may-carry-artifacts] → removed,
+with G10[procedure-capable] added and G10's term dropping "web" because the word
+itself carried the ambiguity. No new term was minted. Physical storage and cheap
+mechanism parameters remain PLAN, not hidden glossary properties. The exact
+package he answered is preserved verbatim in §OWNER PACKAGE 2026-08-13.
 
 ## §WHAT
 
 W1 — What exactly is the first product slice?
 status: answered
 answer: The slice is the minimum shared Zaratustra spine exercised by one new
-  Health Area, not a manually preinstalled Health exception and not a generic
-  platform completed before use. It contains only the shared contracts,
-  conversation, context access, persistence handoff and localhost projection
-  needed to create/open Health and complete the first useful Run. →GLOSSARY:G1[extensible]
-  →GLOSSARY:G6[first-consumer] →GLOSSARY:G12[end-to-end] →S3 →S6 →S11/O7
-acceptance: Health must be created/opened through the same owner-visible Area
-  creation boundary intended for later Areas; a developer-only manual Health
-  bootstrap cannot close node 1. →GLOSSARY:G6[ordinary-language]
-  →GLOSSARY:G6[first-consumer]
+  Health Area, and not a generic platform completed before use. It contains only
+  the shared contracts, conversation, context access, persistence handoff and
+  localhost projection needed to OPERATE Health and complete the first useful
+  Run. Health itself is authored directly; the ordinary-language Area-creation
+  flow is not part of this slice and is not built here. →GLOSSARY:G1[extensible]
+  →GLOSSARY:G12[end-to-end] →W49 →S3 →S6 →S12/O12
+acceptance: node 1 closes with Health authored directly on the shared contracts.
+  No owner-visible Area-creation flow, creation-proposal contract or adversarial
+  creation case is required for closure, and the slice contains no Area-creation
+  subsystem standing in front of the first useful Run. →W49
+  →GLOSSARY:G6[born-in-node-4] →GLOSSARY:G1[extensible]
 
 W2 — What does the owner do to create an Area?
 status: answered
+scope: node 4 (g-zara-extensible-areas-workflows) — NOT a node-1 closure
+  obligation. The semantics are settled and carried forward so node 4 imports
+  rather than re-derives them. →W49
 answer: The owner states ordinary intent or asks for an Area; Zaratustra
   proposes the Area and expected contents, walks through only material choices,
   accepts corrections/approval and produces a usable versioned Area. →GLOSSARY:G6[ordinary-language]
   →GLOSSARY:G6[no-surprise] →S10 →S11/O5-O6
-acceptance: an owner can begin Area creation without ids, manifest fields,
-  prompt templates, repository commands or internal lifecycle vocabulary.
-  →GLOSSARY:G6[ordinary-language]
+acceptance: carried to node 4 — an owner can begin Area creation without ids,
+  manifest fields, prompt templates, repository commands or internal lifecycle
+  vocabulary. Shape does not copy this row into a node-1 executor done_when.
+  →GLOSSARY:G6[ordinary-language] →W49
 
 W3 — How constrained is Area creation?
 status: answered
+scope: node 4 (g-zara-extensible-areas-workflows) — NOT a node-1 closure
+  obligation. →W49
 answer: Creation may customize the known Area/Capability/Operation/Workflow/
   projection contracts, but must show and stop on any material choice outside
   the accepted template; it cannot invent an unexpected product structure or
   self-activate an unreviewed semantic expansion. →GLOSSARY:G6[bounded-template]
   →GLOSSARY:G6[no-surprise] →S5 →S11/O5
-acceptance: an adversarial creation case outside the supported template must
-  yield a bounded owner question/block, not an arbitrary generated subsystem.
-  →GLOSSARY:G6[bounded-template]
+acceptance: carried to node 4 — an adversarial creation case outside the
+  supported template must yield a bounded owner question/block, not an arbitrary
+  generated subsystem. Shape does not copy this row into a node-1 executor
+  done_when. →GLOSSARY:G6[bounded-template] →W49
 
 W4 — What generality does node 1 prove?
 status: answered
-answer: Node 1 proves that the shared spine can create and operate this Health
-  Area. It does not yet prove arbitrary Areas or no-redesign extensibility; node
-  4 proves that with a materially different second Area. →GLOSSARY:G6[first-consumer]
-  →S3 →S4
-acceptance: node 1 must not claim general Area extensibility, recurring
-  three-Area reliance or the root success criteria from Health alone.
+answer: Node 1 proves that the shared spine can OPERATE this directly authored
+  Health Area. It proves nothing about turning ordinary language into an Area,
+  about arbitrary Areas or about no-redesign extensibility; node 4 proves those
+  with a materially different second Area. →GLOSSARY:G1[extensible]
+  →GLOSSARY:G6[born-in-node-4] →W49 →S3 →S4
+acceptance: node 1 must not claim Area-creation generality, general Area
+  extensibility, recurring three-Area reliance or the root success criteria from
+  Health alone.
 
 W5 — Which functions are shared rather than Health-specific?
 status: answered
-answer: Ordinary conversation, Area creation, typed context access, explicit
-  save/change requests, writer receipts, continuation, Run/history projection
-  and common owner-context access are shared Zaratustra functions. Nutrition
-  and training semantics remain Health-owned. →GLOSSARY:G1[domain-owned]
+answer: Ordinary conversation, typed context access, explicit save/change
+  requests, writer receipts, continuation, Run/history projection and common
+  owner-context access are the shared Zaratustra functions built in node 1. Area
+  creation is also a shared function, but it is born in node 4 and not here
+  (→W49). Nutrition and training semantics remain Health-owned. →GLOSSARY:G1[domain-owned]
   →GLOSSARY:G8[separate] →GLOSSARY:G10[validated-apply] →S9 →S11/O4
 acceptance: central shared components/handlers may depend on fixed typed
   contracts but contain no Nutrition/Training-specific routing or folder
@@ -283,8 +344,10 @@ answerer: owner, after PLAN presents one concrete smallest proposal grounded in
   the current working Health evidence.
 constraint: the proposal must involve both accepted Health scope and the thin
   shared path only to the degree needed for one genuine useful result; it must
-  be low-consequence and cannot be an evidence-navigation/admin substitute.
-  →GLOSSARY:G12[real] →GLOSSARY:G12[low-consequence] →S6 →S11/O1-O3
+  be MULTI-STEP (more than one observable state/decision), low-consequence, and
+  cannot be an evidence-navigation/admin substitute or a single-step
+  question-answer exchange. →GLOSSARY:G4[multi-step] →GLOSSARY:G12[real]
+  →GLOSSARY:G12[low-consequence] →S6 →S11/O1-O3
 
 W15 — What Health intended use is allowed?
 status: answered
@@ -393,29 +456,38 @@ rewrites: exact authentication, encryption, retention, redaction, deletion,
 constraint: choices must satisfy W17-W25, declared sensitive-data controls and
   the Charter privacy/trust boundary. →S1 →S3
 
-W27 — How does a web conversation request persistence?
+W27 — How does a conversation surface request persistence?
 status: answered
-answer: The web surface emits a typed non-authoritative save/change request
-  preserving the exact owner input and proposed structured change. An
-  authorized writer later re-reads the current basis and authority, validates
-  the complete request, applies once and returns an observed receipt.
-  →GLOSSARY:G10[exact-input] →GLOSSARY:G10[no-effect-by-request]
-  →GLOSSARY:G10[validated-apply] →S9 →S11/O4
-acceptance: the web surface says plainly `not saved/pending` until an observed
+answer: A surface that cannot execute the authorized save procedure emits a
+  typed non-authoritative save/change request preserving the exact owner input
+  and proposed structured change. An authorized writer later re-reads the
+  current basis and authority, validates the complete request, applies once and
+  returns an observed receipt. A surface that CAN execute the procedure uses
+  that same validated apply directly rather than a request. →W50
+  →GLOSSARY:G10[exact-input] →GLOSSARY:G10[procedure-capable]
+  →GLOSSARY:G10[no-effect-by-request] →GLOSSARY:G10[validated-apply]
+  →S9 →S11/O4 →S12/O13
+acceptance: the surface says plainly `not saved/pending` until an observed
   writer receipt exists; request creation alone never changes Area/shared
   state. →GLOSSARY:G10[receipt]
 
-W28 — May the handoff include files or scripts discussed in web chat?
+W28 — May the handoff include files or scripts discussed in the conversation?
 status: answered
-answer: Yes, a request may carry or reference the complete proposed artifacts,
-  including files/scripts, but they remain inert proposal payloads. The typed
-  action, targets, basis, scope and authority are explicit; the writer does not
-  infer an executable action from their prose/code. →GLOSSARY:G10[may-carry-artifacts]
-  →GLOSSARY:G10[no-effect-by-request] →GLOSSARY:G11[no-semantic-parser]
-  →S9 →S11/O4
-acceptance: a payload containing a script cannot execute or become canonical
-  merely by import; only the authorized writer's validated apply and read-back
-  receipt establish the exact effect.
+answer: Node 1 asserts no requirement in either direction. The request contract
+  carries the exact owner input and the proposed structured change; whether it
+  may ALSO carry or reference complete files/scripts is an explicitly
+  NON-CLOSING permissive note, not a node-1 obligation (→W51). If such a payload
+  ever travels, it is inert: the typed action, targets, basis, scope and
+  authority are explicit and the writer never infers an executable action from
+  prose or code. Revision 1 asserted "yes, may carry" on →S9 →S11/O4; fresh
+  verification refuted both citations and the owner did not recognize the
+  question when it was put to him. →W51 →GLOSSARY:G10[no-effect-by-request]
+  →GLOSSARY:G11[no-semantic-parser] →S9 →S12/O14
+acceptance: no node-1 test, contract or executor done_when may REQUIRE an
+  artifact-carrying request; and no payload of any kind can execute or become
+  canonical merely by import — only the authorized writer's validated apply and
+  read-back receipt establish the exact effect.
+  →GLOSSARY:G10[no-effect-by-request]
 
 W29 — Which writer outcomes are distinguishable?
 status: answered
@@ -438,12 +510,13 @@ acceptance: a test conversation with no typed save action leaves durable
 W31 — What minimum versioned contracts exist?
 status: answered
 answer: Area, Capability, Operation, Workflow, Step, Run, state transition,
-  effect, artifact, owner projection, trace event, Area creation proposal,
-  context item/reference/grant and web save/change request; each has stable
-  identity and machine-validated fields needed by this slice.
+  effect, artifact, owner projection, trace event, context item/reference/grant
+  and save/change request; each has stable identity and machine-validated fields
+  needed by this slice. No Area-creation-proposal contract is required by node 1
+  (→W49), which restores the exact contract list of node done_when 1.
   →GLOSSARY:G1[logical-boundary] →GLOSSARY:G2[operation-backed]
   →GLOSSARY:G3[typed] →GLOSSARY:G4[registered]
-  →GLOSSARY:G5[version-bound] →GLOSSARY:G6[bounded-template]
+  →GLOSSARY:G5[version-bound] →GLOSSARY:G6[born-in-node-4]
   →GLOSSARY:G7[authoritative-owner] →GLOSSARY:G8[separate]
   →GLOSSARY:G9[purpose-bound] →GLOSSARY:G10[exact-input]
   →GLOSSARY:G11[traceable] →S2 →S11/O4-O11
@@ -493,20 +566,25 @@ answer: Versioned normal, edge and adversarial cases for the selected Health
   typed verdicts for semantic prose; step and end-to-end trace grading. It stays
   as thin as the selected paths until real failures demand more. →GLOSSARY:G11[typed-verdict]
   →S2 →S6
-acceptance: the minimum suite covers Area creation, Nutrition, Training,
-  context isolation/grants, web save/write truth, non-clinical stop and honest
-  Run closure; a broad generic benchmark framework is not required.
+acceptance: the minimum suite covers Nutrition, Training, context isolation/
+  grants, save/write truth, non-clinical stop and honest Run closure; Area
+  creation is NOT in node 1's suite (→W49) and a broad generic benchmark
+  framework is not required.
 
 W37 — What localhost UI must node 1 expose?
 status: answered
-answer: A simple home view, Area creation entry, Health view, Nutrition and
-  Training Capability visibility, Workflow graph, current Run/Step, pending
-  owner action, context-use reason, save status and concise eval/trace status
-  from typed projections. Raw technical detail remains optional. →GLOSSARY:G1[extensible]
-  →GLOSSARY:G9[auditable] →GLOSSARY:G10[receipt] →S2 →S5 →S11/O4-O6
+answer: A simple home view, Health view, Nutrition and Training Capability
+  visibility, Workflow graph, current Run/Step, pending owner action,
+  context-use reason, save status and concise eval/trace status from typed
+  projections. There is NO Area-creation entry (→W49). Beyond reading, the
+  surface carries exactly two owner actions (→W52): start a Run, and answer its
+  bounded question or confirm its pending step. Raw technical detail remains
+  optional. →GLOSSARY:G1[extensible] →GLOSSARY:G9[auditable]
+  →GLOSSARY:G10[receipt] →W49 →W52 →S2 →S5 →S11/O4 →S12/O15
 acceptance: central pages parse no prose or Area-specific folder layout and
   contain no Nutrition/Training routing branches; localhost is the first-class
-  owner surface from node 1.
+  owner surface from node 1, and the owner can both start and advance the proof
+  Run from it. →W52
 
 W38 — What real-use evidence closes node 1?
 status: answered
@@ -559,12 +637,15 @@ acceptance: node 1 does not claim a global best model or economical routing
 
 W43 — What belongs to g-zara-extensible-areas-workflows?
 status: answered
-answer: Node 1 uses the shared creation/registration boundary for Health; node
-  4 proves it is actually general by adding another Health Capability and a
-  materially different second Area without central semantic changes.
-  →GLOSSARY:G1[extensible] →GLOSSARY:G6[first-consumer] →S3 →S4 →S11/O6
+answer: Node 1 authors Health directly and exercises no shared Area-creation
+  boundary (→W49). Node 4 owns BOTH the ordinary-language creation flow whose
+  semantics W2/W3/A2 carry forward, AND the proof that it is actually general —
+  by adding another Health Capability and a materially different second Area
+  without central semantic changes. →GLOSSARY:G1[extensible]
+  →GLOSSARY:G6[born-in-node-4] →W49 →W2-W3 →S3 →S4 →S11/O6 →S12/O12
 acceptance: the second-Area proof must compare semantic/code/file changes and
-  cannot be replaced by another Health example or an empty template.
+  cannot be replaced by another Health example or an empty template; node 1
+  contributes no creation-generality evidence.
 
 W44 — What belongs to g-zara-daily-owner-use?
 status: answered
@@ -604,16 +685,133 @@ rewrites: exact framework, database/files, repository/service topology, UI
   components, graph rendering, schemas/serialization, request carrier, locking,
   provider/adapter, test runner, trace storage, ids, thresholds, timeouts and
   number/shape of internal handlers.
-constraint: PLAN may choose the cheapest reversible path only within W1-W47
+constraint: PLAN may choose the cheapest reversible path only within W1-W53
   acceptance and must not invent product semantics.
+
+W49 — Must Health itself be created through the shared ordinary-language
+Area-creation flow inside node 1, or may node 1 author Health directly while
+creation generality is proved in node 4?
+status: answered
+answer: Node 1 authors Health DIRECTLY as its first and only Area. The shared
+  ordinary-language Area-creation flow is not a node-1 obligation, is not built
+  here and is not exercised here; it belongs to node 4
+  (g-zara-extensible-areas-workflows), which already owns registration contracts
+  and the materially different second Area. Revision 1 asserted the opposite on
+  S11/O5-O7; fresh verification refuted all three — O5 describes bounded-template
+  creation BEHAVIOR and is silent on timing, O6 reads the other way round
+  ("сделали health ... я могу ПОТОМ легко создать любую другую area"), and O7 was
+  a bare assent whose displayed antecedent was preserved nowhere. Put to the
+  owner directly with options and a recommendation, he answered "1Б".
+  →S12/O12 →S3 →S4 →S5
+acceptance: node 1 closes with Health authored directly; no ordinary-language
+  Area-creation flow, creation-proposal contract, Area-creation UI entry, eval
+  case or adversarial creation case is required for node-1 closure, and node 1
+  claims no creation generality. →GLOSSARY:G6[born-in-node-4]
+governs: this row rewrote W1, W2, W3, W4, W5, W31, W36, W37, W43, A1, A2, A14,
+  the G6[first-consumer] property and the header strategic_search selection in
+  revision 2. Every one of those changes is enumerated in the repair RESULT.
+
+W50 — Which ingress surface does the node-1 save/change request boundary bind:
+the localhost interface, an external hosted chat, or neither?
+status: answered
+answer: Neither — the boundary is not defined by which host the conversation
+  happened on. The owner's discriminator is whether the surface can execute the
+  authorized save procedure: "может ли это следовать нашим процедорам сохранения
+  (например вызывать python skrip)". A surface that CAN execute it writes
+  through the same validated apply as any other surface. A surface that CANNOT —
+  his named example is ChatGPT Web, which "не может писмать формально" — may only
+  produce a request or an equivalent handoff. Node-1 acceptance therefore binds
+  this capability class rather than localhost-versus-external. Node 1 is not
+  required to build an external hosted-chat bridge: proving at least two real
+  ingress surfaces is g-zara-daily-owner-use done_when 3, restated by W44 — and
+  that placement rests on the map, not on his words, which named no node.
+  →GLOSSARY:G10[procedure-capable] →GLOSSARY:G10[validated-apply]
+  →S12/O13 →S3 →S4 →W44
+acceptance: every ingress surface used in node 1 is classified before it is
+  trusted; a surface that cannot execute the authorized save procedure produces
+  only a non-authoritative request and never a saved claim. Node 1 neither
+  requires nor forbids an external hosted-chat surface, and closing node 1 with
+  localhost alone is legitimate. →GLOSSARY:G10[procedure-capable]
+
+W51 — Does the node-1 save/change request contract carry complete files or
+scripts?
+status: answered
+answer: No node-1 requirement exists in either direction, and none is asserted.
+  The cited evidence does not support the revision-1 widening: at
+  concept-lab@2a5be455 the request carries the exact owner turn as a raw seed,
+  the contract has no attachment/file field, and `concept_lab/cli.py:408`
+  deliberately confines request lookup to web-inbox/requests/ precisely so that a
+  request argument cannot "be used to make the importer read an arbitrary local
+  file" — counter-evidence, not support. S11/O4 concerns extracting generally
+  applicable functionality and says nothing about files or scripts. The question
+  was displayed to the owner in this leg and he did not recognize it ("не знаю не
+  понимаю про что вообщзе вопрос"), so no owner support exists either way. The
+  clause therefore LEAVES acceptance and survives only as the explicitly
+  non-closing note in W28. Non-recognition is recorded as absence of support and
+  is never read as assent. →S9 →S12/O14 →W28
+acceptance: A11 carries no files/scripts obligation, and G10 no longer proposes
+  [may-carry-artifacts] as a load-bearing canon property. A later node or the
+  owner may reopen this; node 1 may not be blocked or widened by it. →W28
+
+W52 — Is node 1's localhost surface a read-only projection or an action surface
+from which the owner starts and advances a Run?
+status: answered
+answer: A MINIMAL ACTION surface. The owner starts a Run and answers its bounded
+  question or confirms its pending step from the browser; everything else is
+  read-only typed projection. Those two writes use the same typed
+  authority/effect contracts as every other surface, so the map's "read-first"
+  default (S5 invariant 5) is honored rather than bypassed, and the full UI
+  mutation surface remains g-zara-daily-owner-use done_when 8. Revision 1
+  specified only what the surface SHOWS, which left the node GOAL's "use a local
+  Zaratustra web interface TO RUN" reaching no row. The owner answered "4А".
+  →S12/O15 →S5 →W37 →W44 →GLOSSARY:G5[observable]
+acceptance: the W38 proof Runs are started and advanced by the owner from
+  localhost; a UI that can only display, with starting and advancing done
+  elsewhere, does not close node 1. Both UI writes are typed commands passing
+  the same authority/effect checks as any other surface, and the projection
+  layer never becomes a second state owner.
+
+W53 — What effect and spend boundary applies to node 1?
+status: answered
+answer: The Charter's effect-tier gate applies unchanged: any irreversible,
+  external or spend-incurring action requires explicit owner approval before it
+  runs, and there is no silent spend. The W34 executor path is external and
+  spend-bearing, so before execution it declares its access mode and cost class
+  alongside the sensitive data it receives; exhaustion of a subscription credit,
+  quota or budget surfaces as an honest bounded block or a declared failover,
+  never a silent stop. Nothing is invented here — this is CHARTER Constraints
+  (privacy/trust), lens 5, lens 6 and pre-mortem 5/6 restated at node scope.
+  Exact budgets, thresholds, exhaustion detection and failover order are cheap
+  reversible PLAN choices under this constraint (→W48). →S1 →W17 →W34 →W35
+  →GLOSSARY:G12[low-consequence]
+acceptance: no node-1 Run performs an irreversible, external or spend-incurring
+  action without a recorded owner approval; the owner sees access mode and cost
+  class before approving; and a simulated credit/quota exhaustion on the W34
+  path produces an explicit bounded block or declared failover rather than a
+  silent stop or a guessed result. →A21
+
+W54 — What keeps A1-A21 decomposable into small, independently verifiable,
+agent-buildable increments?
+status: open
+answerer: PLAN
+rewrites: increment boundaries, contract surface per increment, test seams,
+  build order and review cadence.
+constraint: CHARTER build mode and lens 3 require increments a background agent
+  can build and that are independently verifiable by test/contract/done_when;
+  pre-mortem 3 makes an unreviewable increment a stop trigger. Shape's cut list
+  legitimately owns the answer, and no cut may weaken an A-row. →S1
 
 ## §ACCEPTANCE SURFACE FOR SHAPE
 
-A1 — acceptance — Health is created/opened through the shared ordinary-language
-Area creation boundary, not a manual Health-only bootstrap. →W1-W3
+A1 — acceptance — Health is authored directly in node 1 as its first and only
+Area; no ordinary-language Area-creation flow, creation-proposal contract,
+Area-creation UI entry or adversarial creation case is required for node-1
+closure, and node 1 claims no creation generality. →W1 →W4 →W49
 
-A2 — acceptance — Area creation stays inside a visible bounded template, shows
-material contents/effects and blocks unexpected semantic expansion. →W2-W3
+A2 — acceptance — CARRIED TO NODE 4 (g-zara-extensible-areas-workflows), NOT a
+node-1 obligation; shape must not copy it into a node-1 executor done_when:
+Area creation stays inside a visible bounded template, shows material
+contents/effects and blocks unexpected semantic expansion. →W2-W3 →W49
 
 A3 — acceptance — shared conversation/context/persistence/projection code has
 no Nutrition/Training-specific routing or folder interpretation. →W5-W6
@@ -642,10 +840,11 @@ A10 — acceptance — at least one owner-confirmed shared fact is used by an
 authorized Operation and withheld from an unrelated Run; conversational
 examples are not promoted automatically. →W21-W22
 
-A11 — acceptance — web chat produces a non-authoritative exact save/change
-request; complete files/scripts remain inert until validated apply; saved truth
-requires observed writer receipt and partial/unknown blocks blind retry.
-→W27-W30
+A11 — acceptance — a surface that cannot execute the authorized save procedure
+produces only a non-authoritative exact save/change request and never a saved
+claim; saved truth requires an observed writer receipt and partial/unknown
+blocks blind retry. This binds the capability class, not a specific host, and
+carries no files/scripts obligation. →W27-W30 →W50-W51
 
 A12 — acceptance — minimum versioned contracts cover W31 and deterministic
 validation never infers semantics/authority/facts from prose. →W25 →W31-W33
@@ -654,17 +853,22 @@ A13 — acceptance — one actual registered executor/access path is visible and
 traceable with recommendation/reason/alternatives/action and no silent
 substitution. →W34
 
-A14 — acceptance — focused normal/edge/adversarial cases cover Area creation,
-Nutrition, Training, context isolation/grants, web save truth, non-clinical
-stop and honest Run closure; semantic grading uses typed verdicts. →W36
+A14 — acceptance — focused normal/edge/adversarial cases cover Nutrition,
+Training, context isolation/grants, save truth, non-clinical stop and honest Run
+closure; semantic grading uses typed verdicts. Area creation is NOT in node 1's
+suite. →W36 →W49
 
 A15 — acceptance — localhost typed projections expose the W37 owner surface
-without parsing prose/folders or embedding Area-specific branches centrally.
-→W37
+without parsing prose/folders or embedding Area-specific branches centrally,
+and the owner starts and advances the proof Run from that surface through typed
+commands passing the same authority/effect checks as any other surface.
+→W37 →W52
 
 A16 — acceptance — three genuine low-consequence Runs include at least one
-explicitly owner-useful end-to-end Run; simulations, navigation and model
-self-verdicts do not count. →W38
+explicitly owner-useful end-to-end Run through a Workflow with more than one
+observable state/decision; simulations, navigation, model self-verdicts and a
+single-step question-answer exchange do not count.
+→GLOSSARY:G4[multi-step] →W14 →W38
 
 A17 — acceptance — generalized machinery beyond A1-A16 is justified by an
 observed trace/failure or later node obligation. →W39
@@ -679,59 +883,116 @@ governed improvement or root completion. →W41-W47
 A20 — acceptance — fresh separate refutation checks this WHAT before shape and
 later checks the implemented evidence named in W40. →W40
 
+A21 — acceptance — irreversible, external or spend-incurring actions require a
+recorded owner approval before execution; access mode and cost class are visible
+before approval; credit or quota exhaustion on the executor path blocks or fails
+over honestly and never silently. →W34 →W53
+
 §SIGNOFF: Resolve owner-approved @ 2026-08-13 — "Да, смотри еще, я в
 принципе согласен" — with the added owner boundary that Areas normally work
 with their own data, shared owner information exists separately, different
 Areas may access it when needed, and it must not be loaded every time. Exact
-owner words are preserved in S11/O7-O11. The placement is: thin shared spine
-in node 1 exercised by Health; context hardening in node 2; second-Area proof
-in node 4. W7/W13/W26/W48 are PLAN-owned reversible HOW. W14 is the only
-remaining owner-owned content row and must be answered before activation, not
-before converge-verify.
+owner words are preserved in S11/O7-O11.
+
+RE-SIGNED for revision 2 @ 2026-08-13 against the exactly preserved package in
+§OWNER PACKAGE 2026-08-13, with his verbatim verdict: "1Б, 2 это что угодно
+может быть шлавное понимать может ли это следовать нашим процедорам сохранения
+(например вызывать python skrip) chatgpt web этого не может поэтому он не может
+писмать формально (но может например сорхранять request или еше как то) , 3 не
+знаю не понимаю про что вообщзе вопрос , 4А" (S12/O12-O15). The revision-1
+assent O7 no longer carries the Area-creation timing; W49 does. Owner question 3
+was displayed and NOT recognized, so the unsourced W28 clause was CUT from
+acceptance rather than answered in either direction.
+
+The placement is: thin shared spine in node 1 exercised by a DIRECTLY AUTHORED
+Health; ordinary-language Area creation and its generality in node 4; context
+hardening in node 2; a second real ingress surface in node 5.
+W7/W13/W26/W48/W54 are PLAN-owned reversible HOW.
+
+Owner-owed items are exactly TWO and both are named here, because one of them is
+otherwise findable only inside an acceptance line:
+  1. W14 — open: the exact first Health proof Workflow, answered after one
+     concrete PLAN proposal. Blocks activation, not converge-verify.
+  2. A4/A5 — embedded: each S8 behavior that is retained, deferred or rejected
+     needs the owner's explicit `owner-approved defer/reject`. This is not an
+     open row; it is discharged per behavior during shape/build against the
+     W10-W12 surface, and it is not owed before activation.
 
 ## §COVERAGE
 
 converge_coverage:
   node_done_when:
     - D1 minimal contracts/stable identity/machine fields: W25, W31, A12
-    - D2 Health Area/Capability/Workflow and legacy evidence-only: W1, W8-W14, A1-A5
+    - D2 Health Area/Capability/Workflow and legacy evidence-only: W1, W8-W14,
+      W49, A1-A5. The atomic clause "multi-step" — unreached in revision 1 (F1) —
+      is now carried by W14's constraint and A16 via GLOSSARY:G4[multi-step].
+      "A new Health Area" is satisfied by direct authoring per W49.
     - D3 non-clinical intended use/stop/data controls: W15-W17, A6-A7
     - D4 typed Steps/fail closed: W24-W25, W32-W35, A7/A12
     - D5 real registered access path/owner explanation: W34, A13
     - D6 eval harness/deterministic-vs-semantic trace grading: W36, A14
-    - D7 localhost typed UI projection: W5-W6, W37, A3/A15
+    - D7 localhost typed UI projection: W5-W6, W37, W52, A3/A15
     - D8 three real Runs/one useful/honest closure: W14, W38-W39, A16-A17
     - D9 fresh separate refutation: W40, A20
+  node_goal_clauses:
+    - "use a local Zaratustra web interface TO RUN" — unreached in revision 1
+      (F5): W52, W37, A15
+    - "one genuinely useful MULTI-STEP Health workflow" — unreached in revision 1
+      (F1): W14, A16 via GLOSSARY:G4[multi-step]
+  charter_lenses_swept:
+    - effect-tier gate, lens 5/6 cost discipline, no silent spend and the
+      credit-cliff behavior of the W34 executor path — absent in revision 1
+      (F6a): W53, A21
+    - lens 3 agent-buildability and pre-mortem 3 — absent in revision 1 (F6b):
+      W54, on the PLAN agenda; shape's cut list owns the answer
+    - lens 2 real depth: W14, A16 via GLOSSARY:G4[multi-step]
   newly_signed_owner_boundaries:
-    - shared Area creation before/manual-Health alternative: W1-W4, A1-A2
+    - Health authored directly in node 1; ordinary-language Area creation and
+      its generality in node 4: W1-W5, W31, W36-W37, W43, W49, A1-A2, A14
     - shared functions extracted from Health: W5-W6, A3
     - Nutrition plus Training full minimum: W8-W14, A4-A5
     - Area-local/default-on-demand context: W18-W20, A8-A9
     - separate common owner facts/no automatic load: W21-W25, A10
-    - web conversation to validated writer including artifacts/scripts: W27-W30, A11
+    - request boundary bound by procedure capability, not by host; artifacts/
+      scripts NOT a node-1 obligation: W27-W30, W50-W51, A11
+    - minimal localhost action surface: W37, W52, A15
   cross_node_edges:
     - g-zara root success criteria: W4, W38, W43-W44, W47, A19
     - g-zara-trusted-context-state: W18-W26, W41, A8-A10/A19
     - g-zara-model-qualification-routing: W34, W42, A13/A19
-    - g-zara-extensible-areas-workflows: W1-W5, W43, A1-A3/A19
-    - g-zara-daily-owner-use: W5-W6, W27-W30, W37-W38, W44, A11/A15-A16/A19
+    - g-zara-extensible-areas-workflows: W1-W5, W43, W49, A1-A3/A19 — node 4 now
+      additionally owns the ordinary-language creation flow itself (W2/W3/A2
+      carried forward verbatim), not only the proof that it is general
+    - g-zara-daily-owner-use: W5-W6, W27-W30, W37-W38, W44, W50, W52,
+      A11/A15-A16/A19 — node 5 keeps the second real ingress surface and the
+      full UI mutation surface; node 1 keeps two typed UI actions only
     - g-zara-governed-improvement: W39, W45, A17-A19
     - Direction OS read-only: W46, A18
     - legacy Health evidence-only: W8, A5
     - opaque-prose/registered-handler/no-DSL: W6, W25, W31-W33, A12
     - useful-run-first proof pressure: W14, W38-W39, A16-A17
 
-open_rows: 5
+open_rows: 6
 open_row_accounting:
   - W7 — PLAN: physical product/storage topology
   - W13 — PLAN: exact Capability/Operation/Workflow division
   - W14 — owner after one concrete PLAN proposal: exact first Health proof Workflow
   - W26 — PLAN: storage-security mechanisms/parameters
   - W48 — PLAN: remaining cheap implementation choices
+  - W54 — PLAN: agent-buildable increment decomposition of A1-A21
+
+owner_owed:
+  - W14 — open row; blocks activation, not converge-verify.
+  - A4/A5 — embedded obligation, not an open row: each retained, deferred or
+    rejected S8 behavior needs the owner's explicit approval during shape/build.
+    Named here because it is otherwise findable only inside an acceptance line.
 
 deferred_rows: 0
 
-answered_rows: 43
+answered_rows: 48
+
+total_rows: 54  (W1-W54; 48 answered + 6 open + 0 deferred)
+acceptance_rows: 21  (A1-A21; A2 is explicitly carried to node 4)
 
 canon_proposed:
   - G1 Area
@@ -739,19 +1000,143 @@ canon_proposed:
   - G3 Operation
   - G4 Workflow
   - G5 Run
-  - G6 Area creation
+  - G6 Area creation — property change in revision 2: [first-consumer] RETIRED
+    (unsourced, F2), replaced by [born-in-node-4]
   - G7 Area context
   - G8 shared owner context
   - G9 context reference/access grant
-  - G10 web save/change request
+  - G10 save/change request — revision 2 drops "web" from the term (the word
+    carried the F3 ambiguity), RETIRES [may-carry-artifacts] as unsourced (F4)
+    and adds [procedure-capable] from the owner's own discriminator (S12/O13)
   - G11 opaque prose/artifact
   - G12 useful low-consequence Run
   - G13 non-clinical Health boundary
 
-§SIGNOFF: WHAT revision 1 closed for fresh converge-verify on 2026-08-13.
-No implementation, bet, task, framework, database, repository, topology,
-provider or executor CALL was created. Shape must copy A1-A20 verbatim unless
-fresh converge-verify rejects an exact row; W7/W13/W26/W48 are its PLAN agenda,
-and W14 remains a visible owner gate before activation.
+§SIGNOFF: WHAT revision 2 closed for fresh converge-verify on 2026-08-13.
+It repairs F1-F7 of
+history/2026-08-13-s-solmax-zaratustra-health-converge-verify-028.md and changes
+nothing else: every row not named by a finding is byte-identical to revision 1.
+No implementation, bet, task, lane, framework, database, repository, topology,
+provider or executor CALL was created. Shape must copy A1-A21 verbatim unless
+fresh converge-verify rejects an exact row — EXCEPT A2, which is explicitly
+carried to node 4 and is not a node-1 obligation. W7/W13/W26/W48/W54 are shape's
+PLAN agenda, and W14 remains a visible owner gate before activation.
+
+## §OWNER PACKAGE 2026-08-13
+
+This is the EXACT text displayed to the owner before his S12 verdict, preserved
+verbatim rather than paraphrased. Revision 1 failed verification partly because
+the antecedent of his assent was preserved nowhere (F2); this section is the
+repair of that specific failure. It is a RECORD, not a specification: nothing
+here is load-bearing except through the rows that cite S12.
+
+```text
+## Что я чиню сам (тебя не спрашиваю)
+
+**1. Слово «многошаговый» ничего не значило.** В цели узла записано «один
+по-настоящему полезный **многошаговый** Health workflow». В спеке это слово
+встречается ровно один раз — в словаре — и ни один критерий приёмки его не
+требует. То есть узел 1 можно было закрыть одношаговым «вопрос → ответ» —
+ровно тем, от чего мы отличаемся. Ставлю требование «больше одного
+наблюдаемого шага/решения» в строку про первый доказательный сценарий и в
+критерий приёмки про три реальных прогона.
+
+**2. Деньги и необратимые действия отсутствовали целиком.** В Хартии у тебя
+записано: одобрение владельца на необратимые / внешние / тратящие деньги
+действия, «никаких молчаливых трат», и отдельно — что подписочный кредит может
+молча кончиться, поэтому движок обязан считать бюджет и уметь переключаться. В
+спеке узла 1 — ноль упоминаний трат, при том что узел 1 обязан прогнать реальный
+подписочный/облачный путь. Добавляю строку и критерий приёмки, опираясь на твою
+же Хартию, ничего нового не выдумывая. Точные бюджеты и пороги уходят на этап
+планирования.
+
+Плюс мелочь: «собираемость фоновыми агентами» (твоя линза 3) ставлю в список
+вопросов к планированию, и уточняю ссылку на коммит рабочего Health — старая
+указывала на версию, где есть только описание процесса, а сами отчёты и меню за
+20–22 июля лежат в более позднем коммите `f128941` от 23.07.
+
+## Что решаешь ты — четыре пункта
+
+### Пункт 1. Как в узле 1 появляется Health
+
+**А.** Ты говоришь локальной Zaratustra обычными словами «сделай мне область
+Health», она предлагает состав, ты правишь и соглашаешься, область появляется.
+Значит, узел 1 обязан содержать разговорный конструктор областей — с проверкой
+«не придумай того, чего мы не ждём».
+
+**Б.** Health в узле 1 просто есть — её делаем мы напрямую, как первую и пока
+единственную область. А «создай любую область словами» доказываем в узле 4, где
+по карте и лежит расширяемость.
+
+Что на кону: вариант А ставит целую подсистему-конструктор **перед** первым
+полезным прогоном. Это ровно то давление «сначала платформа, потом польза», от
+которого мы защищались после провала Zaratusta v1. Твои собственные слова
+читаются в другую сторону: «если я потом, вот мы сделали health, все, окей,
+работает, я могу потом легко создать любую другую area» — сначала Health, потом
+легко другие. И карта отдаёт общность создания узлу 4 прямым текстом.
+
+**Рекомендую Б.** Это не отказ от разговорного создания — это его перенос туда,
+где он и так запланирован, чтобы первый полезный прогон случился раньше.
+
+### Пункт 2. Что такое «веб-разговор», который просит сохранить
+
+**А.** Твой локальный интерфейс на компьютере. Всё внутри, наружу ничего не
+ходит.
+
+**Б.** Внешний ChatGPT/Claude в браузере: оттуда прилетает заявка на сохранение,
+а локальный «писатель» её проверяет и применяет.
+
+Что на кону: при Б узел 1 обязан построить мост к стороннему сервису. По карте
+это узел 5 — «минимум две реальные поверхности, включая подписочный
+веб-хендофф». Сейчас спека написана так, что читается обоими способами, и
+критерий приёмки унаследовал обе трактовки сразу.
+
+**Рекомендую А** для узла 1. Мост к внешнему чату — узел 5, как и было
+согласовано.
+
+### Пункт 3. Может ли заявка на сохранение тащить с собой готовые файлы и скрипты
+
+Сейчас в спеке написано «да, может», и это стало **обязательством узла 1**. Под
+этим нет ни одного твоего слова. А улика, на которую спека ссылается, говорит
+скорее обратное: в Concept Lab заявка несёт только твою точную реплику, а
+импортёр специально защищён от того, чтобы его заставили прочитать произвольный
+локальный файл (`concept_lab/cli.py:408` — проверил сам). Никакого переноса
+файлов там нет вообще.
+
+**А.** Убрать из обязательств узла 1. Остаётся пометка «возможно позже», которая
+ничего не закрывает и никого ни к чему не обязывает.
+
+**Б.** Оставить обязательством узла 1 — но тогда это должно быть твоим решением,
+твоими словами.
+
+**Рекомендую А.** Тем более что при варианте А в пункте 2 внешних заявок в узле
+1 вообще нет.
+
+### Пункт 4. Локальный веб-интерфейс: смотреть или действовать
+
+Цель узла написана так: «владелец может использовать локальный веб-интерфейс,
+**чтобы прогнать** один полезный многошаговый Health workflow». А в критериях
+приёмки стоит только «показывает». Читается как витрина.
+
+**А.** Минимальная поверхность действия: из браузера ты **запускаешь** прогон и
+отвечаешь на его вопросы / подтверждаешь шаг. Всё остальное — только чтение.
+
+**Б.** Только витрина. Запуск — из командной строки или чата, а интерфейс
+показывает, что происходит.
+
+Что на кону: при Б цель узла 1 буквально становится неправдой — «использовать
+интерфейс, чтобы прогнать» не выполняется. При этом в карте есть оговорка
+«веб-сервер сначала на чтение, записи разрешаются позже», а узел 5 владеет
+полноценными действиями из UI. Вариант А — самый маленький шаг, который делает
+цель узла честной: две кнопки, а не панель управления.
+
+**Рекомендую А.**
+```
+
+Owner reply, verbatim and complete:
+
+```text
+1Б, 2 это что угодно может быть шлавное понимать может ли это следовать нашим процедорам сохранения (например вызывать python skrip) chatgpt web этого не может поэтому он не может писмать формально (но может например сорхранять request или еше как то) , 3 не знаю не понимаю про что вообщзе вопрос , 4А
+```
 
 END_OF_FILE: live/solmax/work/converge-g-zara-health-vertical.md

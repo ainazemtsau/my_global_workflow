@@ -4,7 +4,7 @@ _kind: call
 to: session
 play: converge
 for: g-zara-health-vertical
-status: ready
+status: closed
 issued: 2026-08-13
 call: work/calls/c-solmax-zaratustra-health-converge-repair-029.md
 description: Починить шесть находок converge-verify и выпустить WHAT revision 2
@@ -35,5 +35,6 @@ continuation or an honest owner-decision checkpoint.
 ## budget
 one focused converge repair leg
 ## журнал
+2026-08-13 · converge repair rev2 on Health WHAT: owner placed Area creation in node 4 and kept node 1 authoring Health directly, replaced the localhost/external request reading with a procedure-capability discriminator and chose a minimal localhost action surface; multi-step, effect/spend and agent-buildability gaps closed, files/scripts widening cut; 48 answered/6 open, fresh verification opened · history/2026-08-13-s-solmax-zaratustra-health-converge-repair-029.md
 2026-08-13 · converge-verify FAIL on Health WHAT rev1: "multi-step" reaches no row and the Area-creation-in-node-1 timing rests on an unpreserved assent, not owner words; six rows returned to converge with named minimal repairs, backward-clean confirmed · history/2026-08-13-s-solmax-zaratustra-health-converge-verify-028.md
-END_OF_FILE: live/solmax/cards/c-solmax-zaratustra-health-converge-repair-029.md
+END_OF_FILE: live/solmax/cards/closed/c-solmax-zaratustra-health-converge-repair-029.md
