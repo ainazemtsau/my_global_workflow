@@ -3,7 +3,7 @@
 node: g-zara-health-vertical
 direction: solmax
 play: converge
-status: frozen_second_fail_awaiting_owner_decision
+status: frozen_ceiling_proceed_on_answered
 revision: 2
 date: 2026-08-13
 supersedes: |
