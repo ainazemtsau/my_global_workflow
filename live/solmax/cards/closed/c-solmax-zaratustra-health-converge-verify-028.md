@@ -4,7 +4,7 @@ _kind: call
 to: session
 play: converge-verify
 for: g-zara-health-vertical
-status: ready
+status: closed
 issued: 2026-08-13
 call: work/calls/c-solmax-zaratustra-health-converge-verify-028.md
 description: Свежо опровергнуть подписанный WHAT первого Health-среза до shape
@@ -32,5 +32,6 @@ One converge-verify RESULT and exactly one next route.
 ## budget
 one fresh focused verification session
 ## журнал
+2026-08-13 · converge-verify FAIL on Health WHAT rev1: "multi-step" reaches no row and the Area-creation-in-node-1 timing rests on an unpreserved assent, not owner words; six rows returned to converge with named minimal repairs, backward-clean confirmed · history/2026-08-13-s-solmax-zaratustra-health-converge-verify-028.md
 2026-08-13 · converge Health WHAT signed: thin shared Area-creation/context/web-writer spine exercised by Nutrition+Training Health; 43 answered/5 open/0 deferred, A1-A20 complete; fresh converge-verify opened · history/2026-08-13-s-solmax-zaratustra-health-converge-027.md
-END_OF_FILE: live/solmax/cards/c-solmax-zaratustra-health-converge-verify-028.md
+END_OF_FILE: live/solmax/cards/closed/c-solmax-zaratustra-health-converge-verify-028.md
