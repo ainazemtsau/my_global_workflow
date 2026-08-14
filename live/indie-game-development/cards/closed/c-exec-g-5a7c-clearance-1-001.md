@@ -4,7 +4,7 @@ _kind: call
 to: executor
 for: t-clearance-1
 play: work
-status: running
+status: done
 issued: 2026-08-14
 basis: 53afdc2d
 slot: WIN-U2
@@ -18,4 +18,5 @@ _pos: 86
 2026-08-14 · СТАТУС ИСПРАВЛЕН НА ФАКТИЧЕСКИЙ ПО ЕГО ЗАМЕЧАНИЮ «сейчас же только 4 рабоатет где ты 6 увидел?». Задача была переведена в active, а наряд в running по факту того, что паста ВЫДАНА, — но выдача наряда не есть его запуск. Расписки о раздаче не было, и правило ставки требует для running точную расписку запуска. Возвращено в ready: наряд нарезан, слот заведён, ждёт его слова · history/2026-08-14-s-review-g-5a7c-wave-3-close-001.md
 2026-08-14 · шёл в слоте WIN-U2, а не U6 — перемерено по дереву слота; работа готова коммитом 42895fbb, отчёт docs/results/c-exec-g-5a7c-clearance-1-001.md на 313 строк, ждёт публикации · history/2026-08-14-s-review-g-5a7c-wave-3-close-001.md
 2026-08-14 · УТОЧНЕНО ЕГО СЛОВОМ «работа из U6 перешла в u2»: наряд был выдан в WIN-U6, а исполнялся и доехал в WIN-U2. Это и есть причина, по которой мой учёт разошёлся с git — слот выдачи не равен слоту исполнения, и меряться надо деревом · history/2026-08-14-s-review-g-5a7c-wave-3-close-001.md
-END_OF_FILE: live/indie-game-development/cards/c-exec-g-5a7c-clearance-1-001.md
+2026-08-14 · наряд ЗАКРЫТ его словом «выполнена 2026-08-14-call-clearance-1.md»; опубликовано слиянием 973d9349, голова main a520e804, отчёт docs/results/c-exec-g-5a7c-clearance-1-001.md · history/2026-08-14-s-review-g-5a7c-wave-3-close-001.md
+END_OF_FILE: live/indie-game-development/cards/closed/c-exec-g-5a7c-clearance-1-001.md
