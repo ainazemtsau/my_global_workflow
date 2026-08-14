@@ -4,7 +4,7 @@ _kind: call
 to: session
 play: shape
 for: g-zara-health-vertical
-status: ready
+status: closed
 issued: 2026-08-13
 call: work/calls/c-solmax-zaratustra-health-shape-031.md
 description: Нарезать первую маленькую ставку узла 1 — запустил в браузере и увидел
