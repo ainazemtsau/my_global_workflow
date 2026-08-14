@@ -2,10 +2,12 @@
 id: g-zara-health-vertical
 _kind: node
 _parent: g-zara
-status: parked
+status: active
 label: Первый полезный Health-срез
 hook: Один полезный неклинический Health workflow через локальный web UI.
 _pos: 0
+appetite: семь задач по полдня и одна новая живая поверхность — полный текст в bet-g-zara-health-1
+kill_by: 13.09.2026 либо любой из пяти порогов события — полный текст в bet-g-zara-health-1
 ---
 
 ## goal
@@ -63,6 +65,7 @@ workflow remains useless. Revisit the cut if three real runs yield no useful
 result, if the UI/metadata work grows faster than the vertical workflow, or if
 the legacy process is being wrapped rather than explicitly re-authored.
 ## журнал
+2026-08-13 · shape закрыт и ставка активирована: владелец ответил на единственную открытую строку «вариант А» (сценарий «Свод дня» на его трёх настоящих июльских днях), до подписи поправил «тренировки тоже должны быть включены как я писал» — это переопределило done_when 8 наряда и решение сессии C5 и превратило линзу расширяемости из бумажного вердикта в измеряемый коммит с нулевым диффом внутри ставки, поставил границу старого пакета на свой токен («идеи и функционал, но не структуру») и подписал исправленный экран словом «да»; семь задач с проверкой главного допущения первой и видимым результатом последним, десять вырезов, шесть вердиктов по линзам, пять порогов и 13.09.2026, все шесть открытых строк перенесены поимённо, а продуктовый репозиторий оказался не заведён под код — его настройка заняла место, освободившееся от сворачивания его прогона в последнюю задачу · history/2026-08-13-s-solmax-zaratustra-health-shape-033.md
 2026-08-13 · наряд дополнен до запуска словами владельца: типизированная видимая структура с явными точками вызова уже в первой ставке, поверхность ошибок с первой версии (записываем и показываем, сами ничего не адаптируем), расширяемость — вердиктом, а не заявлением · history/2026-08-13-s-solmax-zaratustra-health-shape-call-addendum-032.md
 2026-08-13 · ceiling resolved: owner delegated the second-FAIL decision («сам решай ... главное, чтобы работа шла»), branch (а) proceed-on-what-is-answered taken, both holes closed by five reversible session corrections — no standalone chat in node 1, localhost procedure-capable with the request bridge moved to node 5, W6 Area-creation residue void, corrected contract list, first-bet staging; shape opened on a walking skeleton he can launch and see · history/2026-08-13-s-solmax-zaratustra-health-ceiling-applied-031.md
 2026-08-13 · converge-verify SECOND FAIL on Health WHAT rev2: F1-F7 verified repaired and the owner's S12 words carried faithfully, but W6 still asserts node-1 Area creation in free language and no row says where node-1 ordinary conversation happens or classifies the localhost surface under the new save-procedure discriminator; paper phase frozen and one owner ceiling decision opened instead of a third repair round · history/2026-08-13-s-solmax-zaratustra-health-converge-verify-030.md

@@ -7,7 +7,8 @@ for: g-zara-health-vertical
 status: ready
 issued: 2026-08-13
 call: work/calls/c-solmax-zaratustra-health-shape-031.md
-description: Нарезать первую маленькую ставку узла 1 — запустил в браузере и увидел результат
+description: Нарезать первую маленькую ставку узла 1 — запустил в браузере и увидел
+  результат
 _pos: 4
 ---
 
@@ -35,6 +36,7 @@ One shape RESULT and the first task's work CALL after his answer.
 ## budget
 one focused shape session
 ## журнал
+2026-08-13 · нога shape отработала и вернула RESULT: узел активирован ставкой bet-g-zara-health-vertical, семь задач, наряд на первую выдан · history/2026-08-13-s-solmax-zaratustra-health-shape-033.md
 2026-08-13 · наряд дополнен до запуска словами владельца: типизированная видимая структура с явными точками вызова уже в первой ставке, поверхность ошибок с первой версии (записываем и показываем, сами ничего не адаптируем), расширяемость — вердиктом, а не заявлением · history/2026-08-13-s-solmax-zaratustra-health-shape-call-addendum-032.md
 2026-08-13 · открыт после того как владелец делегировал разрешение потолка второго FAIL и потребовал перейти к небольшой работе с видимым результатом; несёт пять обязательных поправок C1-C5 поверх замороженного WHAT · history/2026-08-13-s-solmax-zaratustra-health-ceiling-applied-031.md
-END_OF_FILE: live/solmax/cards/c-solmax-zaratustra-health-shape-031.md
+END_OF_FILE: live/solmax/cards/closed/c-solmax-zaratustra-health-shape-031.md
