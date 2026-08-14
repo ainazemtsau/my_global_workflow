@@ -2,10 +2,9 @@
 id: t-scale-20-1
 _kind: task
 _bet: bet-g-5a7c-wave-4
-status: waiting
+status: ready
 kind: executor
 order: 10
-waiting_on: t-bodies-1
 goal: 'Налётчик становится ростом 20 см вместо 16'
 _pos: 70
 ---
@@ -45,4 +44,5 @@ _pos: 70
 
 ## журнал
 2026-08-14 · заведена его прямым словом «давай брать 20 см» после того, как расхождение между планом Concept Lab (20 см) и подписанной пропорцией первой волны (16 см) было названо ему как решение, которое дешевле сейчас, чем потом; замер полной цены запущен тремя углами в тот же час, наряд режется по его возврату · history/2026-08-14-s-review-g-5a7c-wave-3-close-001.md
+2026-08-14 · РАЗБЛОКИРОВАНА возвратом t-bodies-1: PresentationSettings.asset и презентационный шов тел освободились, слияние опубликовано в main коммитом cdb560c9 · history/2026-08-14-s-review-g-5a7c-wave-3-close-001.md
 END_OF_FILE: live/indie-game-development/cards/t-scale-20-1.md

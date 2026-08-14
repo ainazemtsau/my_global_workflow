@@ -2,11 +2,10 @@
 id: t-householder-size-1
 _kind: task
 _bet: bet-g-5a7c-wave-4
-status: waiting
+status: ready
 kind: executor
 order: 9
 goal: 'Хозяин становится меньше двух метров'
-waiting_on: t-bodies-1
 _pos: 69
 ---
 ## done_when
@@ -35,4 +34,5 @@ _pos: 69
 
 ## журнал
 2026-08-14 · заведена в очередь четвёртой волны после того, как её поверхность была ИЗМЕРЕНА по коду и арбитр границ проверил её против четырёх УЖЕ идущих ног; позиция в очереди выведена из замера, а не из вкуса · history/2026-08-14-s-review-g-5a7c-wave-3-close-001.md
+2026-08-14 · РАЗБЛОКИРОВАНА возвратом t-bodies-1: PresentationSettings.asset и презентационный шов тел освободились, слияние опубликовано в main коммитом cdb560c9 · history/2026-08-14-s-review-g-5a7c-wave-3-close-001.md
 END_OF_FILE: live/indie-game-development/cards/t-householder-size-1.md
