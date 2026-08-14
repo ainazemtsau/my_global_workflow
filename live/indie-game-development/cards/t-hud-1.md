@@ -2,11 +2,10 @@
 id: t-hud-1
 _kind: task
 _bet: bet-g-5a7c-wave-4
-status: waiting
+status: ready
 kind: executor
 order: 7
 goal: 'Экранный интерфейс: игрок видит, что он несёт'
-waiting_on: t-noise-1
 _pos: 67
 ---
 ## done_when
@@ -38,4 +37,5 @@ _pos: 67
 
 ## журнал
 2026-08-14 · заведена в очередь четвёртой волны после того, как её поверхность была ИЗМЕРЕНА по коду и арбитр границ проверил её против четырёх УЖЕ идущих ног; позиция в очереди выведена из замера, а не из вкуса · history/2026-08-14-s-review-g-5a7c-wave-3-close-001.md
+2026-08-14 · РАЗБЛОКИРОВАНА возвратом t-noise-1: три полосы шума стали достижимы в собранной игре, работа опубликована коммитом de9ea893 · history/2026-08-14-s-review-g-5a7c-wave-3-close-001.md
 END_OF_FILE: live/indie-game-development/cards/t-hud-1.md
