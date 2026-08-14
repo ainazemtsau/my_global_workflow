@@ -1,6 +1,8 @@
 # Прогон проверок над входом из объявленных карточек
 
-Воспроизводится: `cd live/solmax/work && python health-gate-cards-check-v3.py health-gate-runs/run-2026-07-21-cards.md health-gate-runs/run-2026-07-22-cards.md`
+Воспроизводится: `cd live/solmax/work && python health-gate-cards-check-v3.py health-gate-runs/run-2026-07-20-cards.md health-gate-runs/run-2026-07-21-cards.md health-gate-runs/run-2026-07-22-cards.md`
+
+Возвраты передаются в порядке дней.
 
 ## 1. v2 НА ВХОДЕ ИЗ КАРТОЧЕК — КРАСНЫЙ (и это улика, а не поломка)
 
@@ -65,7 +67,18 @@ SKIP  возврат прогона ещё не сохранён: /nonexistent
 
 ## 2. v3 — ЗЕЛЁНЫЙ
 
+Вывод ниже перегенерирован ногой 038, когда в проверку добавлен день 20. Часть по
+дням 21 и 22 не изменилась. Добавлены гейты D, A/B/C, P и F для дня 20 по срезу
+`4aad56d` и гейт E — комплаенс всех трёх возвратов.
+
 ```
+
+
+========= ГЕЙТ D — поданное множество равно объявленному списку (day20) =========
+ok    day20: необязательная 16 `health.nutrition.preferences` подана с названным условием
+ok    day20: необязательная 17 `health.nutrition.prep` подана с названным условием
+ok    day20: необязательная 18 `health.nutrition.deviations_policy` подана с названным условием
+-- day20: обязательных 15/15, необязательных 3, посторонних 0
 
 ========= ГЕЙТ D — поданное множество равно объявленному списку (day21) =========
 ok    day21: необязательная 16 `health.nutrition.preferences` подана с названным условием
@@ -80,6 +93,24 @@ ok    day22: необязательная 16 `health.nutrition.preferences` по
 ========= САМОТЕСТ 1 — регрессия к дефекту v1 =========
 ok    проба v1 годна на дне 21 (1 вхожд.) — гейт A её пропускает
 ok    проба v1 ОТВЕРГНУТА на дне 22 (0 вхожд.) — гейт A сработал
+
+========= ГЕЙТЫ A/B/C — утечка ответа day20 =========
+ok    day20 проба «does not automatically progress Wednesday»: годна (ответ 1) · срез 0 · билет 0 · карточки 0
+ok    day20 проба «the only clear signal to stop earlier»: годна (ответ 1) · срез 0 · билет 0 · карточки 0
+ok    day20 проба «second comparable exposure»: годна (ответ 1) · срез 0 · билет 0 · карточки 0
+ok    day20 проба «creates no compensation or menu change»: годна (ответ 1) · срез 0 · билет 0 · карточки 0
+ok    day20 проба «do not reconstruct pulse»: годна (ответ 1) · срез 0 · билет 0 · карточки 0
+ok    day20 проба «near the current energy orientation»: годна (ответ 1) · срез 0 · билет 0 · карточки 0
+ok    day20 проба «Full-day disposition»: годна (ответ 1) · срез 0 · билет 0 · карточки 0
+ok    day20 проба «2,200–2,600»: годна (ответ 1) · срез 0 · билет 0 · карточки 0
+-- day20: годных проб 8, негодных 0
+-- day20: русских проб сработало 0 (не засчитываются в годные)
+
+========= ГЕЙТ P — числовой провенанс карточек day20 =========
+ok    day20: каждое число и каждая дата карточек прослеживаются к срезу 4aad56d
+
+========= ГЕЙТ F — структурная чистота билета day20 =========
+ok    day20: билет несёт только дословные реплики и нейтральную нумерацию
 
 ========= ГЕЙТЫ A/B/C — утечка ответа day21 =========
 ok    day21 проба «passata»: годна (ответ 4) · срез 0 · билет 0 · карточки 0
@@ -141,6 +172,28 @@ ok    day22 проба «550 g raw»: годна (ответ 1) · срез 0 ·
 FAIL  day22: числа в карточках, которых НЕТ в улике по срезу 78f8607: 123.9, 2550
 ok    гейт C покраснел на отравленной карточке
 ok    гейт P покраснел на отравленной карточке
+
+========= ГЕЙТ E — комплаенс day20 =========
+ok    day20 ПРОЧИТАНО называет billet.md
+ok    day20 ПРОЧИТАНО называет context/01-owner.profile.md
+ok    day20 ПРОЧИТАНО называет context/02-owner.mission.md
+ok    day20 ПРОЧИТАНО называет context/03-health.nutrition.menu.current.md
+ok    day20 ПРОЧИТАНО называет context/04-health.nutrition.budget.md
+ok    day20 ПРОЧИТАНО называет context/05-health.nutrition.substitutions.md
+ok    day20 ПРОЧИТАНО называет context/06-health.nutrition.corrections.md
+ok    day20 ПРОЧИТАНО называет context/07-health.training.programme.current.md
+ok    day20 ПРОЧИТАНО называет context/08-health.training.phase.md
+ok    day20 ПРОЧИТАНО называет context/09-health.training.progression.md
+ok    day20 ПРОЧИТАНО называет context/10-health.training.risk_branches.md
+ok    day20 ПРОЧИТАНО называет context/11-health.training.recovery.md
+ok    day20 ПРОЧИТАНО называет context/12-health.state.next_action.md
+ok    day20 ПРОЧИТАНО называет context/13-health.metrics.baseline.md
+ok    day20 ПРОЧИТАНО называет context/14-health.policy.unknowns.md
+ok    day20 ПРОЧИТАНО называет context/15-health.observation.latest_training.md
+ok    day20 ПРОЧИТАНО называет context/16-health.nutrition.preferences.md
+ok    day20 ПРОЧИТАНО называет context/17-health.nutrition.prep.md
+ok    day20 ПРОЧИТАНО называет context/18-health.nutrition.deviations_policy.md
+-- day20: комплаенс подтверждён присутствием всех имён
 
 ========= ГЕЙТ E — комплаенс day21 =========
 ok    day21 ПРОЧИТАНО называет billet.md

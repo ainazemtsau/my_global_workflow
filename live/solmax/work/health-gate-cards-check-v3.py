@@ -42,7 +42,11 @@
 
 Зелёный невозможен при нуле годных проб и при непройденном самотесте.
 
-Запуск:  python health-gate-cards-check-v3.py [возврат-day21] [возврат-day22]
+Запуск:  python health-gate-cards-check-v3.py [возврат-day20] [возврат-day21] [возврат-day22]
+
+Возвраты передаются В ПОРЯДКЕ ДНЕЙ. День 20 добавлен ногой 038; срез ДО него —
+`4aad56d`, и на этом срезе отчётов предыдущих дней не существует вовсе, потому что
+20 июля — первый день окна.
 """
 import os
 import re
@@ -57,8 +61,9 @@ EVID = os.environ.get("EVID", "C:/projects/solmax-operating-substrate")
 PIN = os.environ.get("PIN", "f1289413bf29eaf9bf205daf0d1506198e8183fd")
 W = "packs/health-reclamation/workspace"
 
-SLICE = {"day21": "6192699", "day22": "78f8607"}
-DATE = {"day21": "2026-07-21", "day22": "2026-07-22"}
+SLICE = {"day20": "4aad56d", "day21": "6192699", "day22": "78f8607"}
+DATE = {"day20": "2026-07-20", "day21": "2026-07-21", "day22": "2026-07-22"}
+DAYS = ("day20", "day21", "day22")
 
 MANDATORY = [
     "owner.profile", "owner.mission", "health.nutrition.menu.current",
@@ -74,6 +79,11 @@ OPTIONAL = ["health.nutrition.preferences", "health.nutrition.prep",
 
 # Пробы — строки из утаённого принятого отчёта соответствующего дня.
 PROBES = {
+    "day20": ["does not automatically progress Wednesday",
+              "the only clear signal to stop earlier", "second comparable exposure",
+              "creates no compensation or menu change", "do not reconstruct pulse",
+              "near the current energy orientation", "Full-day disposition",
+              "2,200–2,600"],
     "day21": ["passata", "does not silently rewrite", "no missed-work debt exists",
               "does not establish a comparable", "unpalatable melon",
               "Full-day disposition", "2,400", "190–210 g"],
@@ -86,6 +96,8 @@ PROBES = {
 # Авторские русские пробы: гейт A к ним неприменим (отчёт английский), поэтому
 # они НЕ засчитываются в число годных. Это дополнительная сеть на смене языка.
 PROBES_RU = {
+    "day20": ["не открывают прогресси", "остановиться раньше", "второго сопоставимого",
+              "штатная замена крупы"],
     "day21": ["молча не переписыв", "отдельной операции выбора",
               "невкусн", "тяга к сладкому 2026-07-21"],
     "day22": ["постоянн", "ложн", "-v2", "отцеженн"],
@@ -347,16 +359,16 @@ def gate_G():
         fail("самотест: гейт P НЕ поймал отравление — проверка вырождена")
 
 
-for d in ("day21", "day22"):
+for d in DAYS:
     gate_D(d)
 selftest_v1_probe()
-for d in ("day21", "day22"):
+for d in DAYS:
     gate_ABC(d)
     gate_P(d)
     gate_F(d)
 gate_G()
-gate_E("day21", sys.argv[1] if len(sys.argv) > 1 else None)
-gate_E("day22", sys.argv[2] if len(sys.argv) > 2 else None)
+for i, d in enumerate(DAYS, 1):
+    gate_E(d, sys.argv[i] if len(sys.argv) > i else None)
 
 print("")
 if not FAIL:
