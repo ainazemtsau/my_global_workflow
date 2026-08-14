@@ -4,7 +4,7 @@ _kind: call
 to: session
 play: work
 for: t-health-context
-status: ready
+status: done
 issued: 2026-08-14
 call: work/calls/c-solmax-zaratustra-health-context-cards-037.md
 _bet: g-zara-health-vertical
@@ -14,5 +14,6 @@ _pos: 8
 ---
 
 ## журнал
+2026-08-14 · гейт впервые прогнан на объявленном списке: решение по тунцу на дне 21 УСТОЯЛО на карточках (слово «тунец» в них ноль раз, tool_uses: 0), день 22 решение не воспроизвёл и точно назвал недостающую ссылку, вскрыв, что принятая операция того дня — смена версии меню, которую сценарий исключает; порог 1 не срабатывает и впервые проверен по букве, но на двух днях из трёх · history/2026-08-14-s-solmax-zaratustra-health-context-cards-037.md
 2026-08-14 · выдан после переработки вердикта: девять находок предпрохода перепроверены и устояли, но десятая весит больше всех — гейт ни разу не подавал модели объявленный список карточек, подавались файлы старого пакета, надмножество в 1212 строк против 268; ни один идентификатор списка во входе не встречается. Проверка шла в сторону поблажки, поэтому done_when 5 не выполнена независимо от того, как хорошо отработали прогоны · history/2026-08-14-s-solmax-zaratustra-health-context-037.md
-END_OF_FILE: live/solmax/cards/c-solmax-zaratustra-health-context-cards-037.md
+END_OF_FILE: live/solmax/cards/closed/c-solmax-zaratustra-health-context-cards-037.md
