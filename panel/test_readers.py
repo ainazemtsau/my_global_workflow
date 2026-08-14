@@ -123,6 +123,32 @@ def case_paths():
     check(not bad, f"каждый обязательный файл направления существует ({bad[:3]})")
 
 
+def case_head_keys_exist():
+    """Читатель не спрашивает у карточки поля, которого нет ни в одной карточке.
+
+    Случай 2026-08-11: и панель, и приёмка считали ждущих владельца по полю
+    `who`. Поля `who` не существует — отвечающий лежит в `asks`. Обе стороны
+    молча получали ноль вопросов, и обе показывали неверное число, СОГЛАСОВАННО
+    неверное: приёмка не могла поймать то, что читала так же неправильно.
+
+    Тот же класс, что `NOW.tracks` и `LOG.md`: пустота неотличима от «нечего
+    показывать». Список полей берётся у `osctl`, второго экземпляра нет.
+    """
+    # `order` — не законное поле, а ДРЕЙФ: восемь задач несут его рядом с `_pos`
+    # с другим значением. Панель его пока читает, чтобы не сломать эти карточки;
+    # `osctl check` называет их каждым прогоном, и когда нога `repair` их почистит,
+    # эта поблажка уходит вместе с чтением. Записано здесь, а не в списке известных,
+    # чтобы дрейф не стал законным молча.
+    known = set(osctl.KNOWN_HEAD) | {"_closed", "order"}
+    bad = []
+    for rel in WATCHED:
+        for n, line in code_text(rel):
+            for m in re.finditer(r'\b(?:h|head|card)\.get\(\s*"([a-z_][a-z_0-9]*)"', line):
+                if m.group(1) not in known:
+                    bad.append(f"{rel}:{n} .get({m.group(1)!r})")
+    check(not bad, f"никто не спрашивает у шапки несуществующее поле ({bad[:4]})")
+
+
 def case_dead_dirs():
     """Снятая папка не должна оставаться адресом ни в одном читателе."""
     dead = (".cards", "TREE.md", "LOG.md")
@@ -484,7 +510,7 @@ def case_waiting_is_only_yours():
 
 
 def main():
-    for fn in (case_now_fields, case_kinds, case_paths, case_dead_dirs,
+    for fn in (case_now_fields, case_kinds, case_paths, case_head_keys_exist, case_dead_dirs,
                case_closed_is_visible, case_no_second_source,
                case_waiting_is_only_yours, case_idea_keeps_its_author,
                case_stale_checkout_announces_itself, case_history_never_invents,
