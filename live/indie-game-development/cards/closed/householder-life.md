@@ -29,4 +29,5 @@ _pos: 51
 
 ## журнал
 2026-08-12 · дорожка объявлена подписью третьей волны · history/2026-08-12-s-shape-g-5a7c-wave-3-001.md
-END_OF_FILE: live/indie-game-development/cards/householder-life.md
+2026-08-14 · дорожка РАСПУЩЕНА вместе с закрытием третьей волны. Полосы существуют только внутри своей ставки, и распускает их review той ставки. Четвёртая волна дорожек НЕ объявляет: её единица параллельности — слот с доказанной по файлам поверхностью, а не тематическая полоса · history/2026-08-14-s-review-g-5a7c-wave-3-close-001.md
+END_OF_FILE: live/indie-game-development/cards/closed/householder-life.md

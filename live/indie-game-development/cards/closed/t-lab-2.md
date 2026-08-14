@@ -2,7 +2,7 @@
 id: t-lab-2
 _kind: task
 _bet: g-5a7c
-status: blocked
+status: dropped
 kind: executor
 track: householder-life
 order: 11
@@ -40,4 +40,7 @@ _pos: 64
 другое»), автоматической приёмки обработчиков.
 
 **ЗАКРЫТИЕ:** светлое НЕДОСТУПНО — строку 1 судит его глаз.
-END_OF_FILE: live/indie-game-development/cards/t-lab-2.md
+
+## журнал
+2026-08-14 · СНЯТА ЕГО СЛОВОМ «лабораторию снимаем» при закрытии третьей волны. Довод назван ему ДО вердикта и он его принял: консоль в СОБРАННОЙ игре (наряд t-console-1 четвёртой волны) делает редакторское окно почти ненужным — он будет щупать поведение в игре, а не в окне, а строка 6 этой же карточки прямо запрещала закрывать галки тем, что «в лаборатории работает». Улика i-observation-lab-no-longer-mirrors-house-loot-001 маршрутизировалась сюда и остаётся открытой без исполнителя · history/2026-08-14-s-review-g-5a7c-wave-3-close-001.md
+END_OF_FILE: live/indie-game-development/cards/closed/t-lab-2.md
