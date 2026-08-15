@@ -6,7 +6,7 @@ status: active
 kind: executor
 order: 20
 goal: 'Присланная модель хозяина убрана из репозитория'
-_pos: 80
+_pos: 82
 ---
 
 ## done_when
