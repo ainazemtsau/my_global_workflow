@@ -9,7 +9,7 @@ issued: 2026-08-14
 slot: WIN-U2
 call: work/2026-08-14-call-dropmodel-1.md
 description: 'Убрать присланную модель хозяина из репозитория'
-_pos: 94
+_pos: 96
 ---
 
 ## журнал
