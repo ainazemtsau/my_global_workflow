@@ -2,10 +2,9 @@
 id: t-carrydistance-1
 _kind: task
 _bet: bet-g-5a7c-wave-4
-status: waiting
+status: active
 kind: executor
 order: 17
-waiting_on: t-cargophys-1
 goal: 'Груз притягивается к себе и отдаляется, пока игрок его держит'
 _pos: 77
 ---
@@ -49,4 +48,5 @@ _pos: 77
 
 ## журнал
 2026-08-14 · заведена его словом при перерезке волны; проверено, что просьба давняя и что шов под неё построен ещё второй волной, поэтому работа короткая · history/2026-08-14-s-review-g-5a7c-wave-3-close-001.md
+2026-08-14 · РАЗБЛОКИРОВАНА возвратом t-cargophys-1: ядро груза освободилось, работа опубликована коммитом 29fbfe8e. Выдаётся в WIN-U1 · history/2026-08-14-s-review-g-5a7c-wave-3-close-001.md
 END_OF_FILE: live/indie-game-development/cards/t-carrydistance-1.md

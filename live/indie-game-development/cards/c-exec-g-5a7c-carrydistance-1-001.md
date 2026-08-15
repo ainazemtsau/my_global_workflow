@@ -4,7 +4,8 @@ _kind: call
 to: executor
 for: t-carrydistance-1
 play: work
-status: waiting
+slot: WIN-U1
+status: ready
 issued: 2026-08-14
 call: work/2026-08-14-call-carrydistance-1.md
 description: 'Груз притягивается и отдаляется, пока игрок его держит'
@@ -13,4 +14,5 @@ _pos: 92
 
 ## журнал
 2026-08-14 · наряд нарезан заранее и ждёт возврата t-cargophys-1: обе работы живут в ядре груза; в наряд вложены три измеренных факта, делающих работу короткой, и прямой запрет трогать вертикаль, которую владелец подтвердил рабочей · history/2026-08-14-s-review-g-5a7c-wave-3-close-001.md
+2026-08-14 · разблокирован и выдаётся в WIN-U1 · history/2026-08-14-s-review-g-5a7c-wave-3-close-001.md
 END_OF_FILE: live/indie-game-development/cards/c-exec-g-5a7c-carrydistance-1-001.md
