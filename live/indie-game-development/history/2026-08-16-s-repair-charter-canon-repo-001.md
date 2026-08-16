@@ -4,7 +4,7 @@ direction: indie-game-development
 play: repair
 node/task: — (устав направления)
 track: —
-date: 2026-08-15
+date: 2026-08-16
 outcome_kind: repair — устав называл каноном репозиторий, выведенный словами владельца, и противоречил сам себе
 
 owner_approved: |
@@ -43,7 +43,7 @@ outcome: |
   тронута — удаление чужого репозитория действие владельца, не сессии.
 
 evidence: |
-  Проверено этой ногой 2026-08-15 по живому состоянию, командами, а не по памяти:
+  Проверено этой ногой 2026-08-16 по живому состоянию, командами, а не по памяти:
 
   - `grep -n -i "canon\|gas_coop\|газ" live/indie-game-development/CHARTER.md` → строки 84, 89, 99,
     137, 138. Только 137–138 объявляют власть; 89 и 99 ей противоречат и верны.
@@ -55,7 +55,7 @@ evidence: |
   - Продуктовый репозиторий: `git remote -v` в `C:\projects\Unity\GasCoopGame` → адрес
     `github.com/ainazemtsau/GasCoopGame`, то есть имя `gas_coop_game` в уставе не существует.
   - Канон: `git remote -v` в `C:\projects\concept-lab` → `github.com/ainazemtsau/game_conceptions`,
-    ветка `main`. Живая карточка — `CAND-0010 BURROW-RAIDERS`, единственная тронутая 2026-08-15;
+    ветка `main`. Живая карточка — `CAND-0010 BURROW-RAIDERS`, единственная тронутая 2026-08-16;
     `CAND-0011 «Шахта с газами»` там лежит невыбранным черновиком и каноном не является.
   - Выведенный репозиторий перед удалением: рабочее дерево чистое, `origin/main..HEAD` пуст, то есть
     удаление локальной копии ничего не уничтожило.
@@ -70,7 +70,7 @@ state_changes: |
      `game_conceptions`, локально `C:\projects\concept-lab` — по словам владельца и в согласие
      со строкой 89 того же устава. Фраза о неизменности адресов уточнена и несёт причину вывода
      канона с датой и цитатой.
-  2. Полный RESULT сохранён в `history/2026-08-15-s-repair-charter-canon-repo-001.md`.
+  2. Полный RESULT сохранён в `history/2026-08-16-s-repair-charter-canon-repo-001.md`.
 
   Ничего больше в `live/**` не тронуто. Ни одна карточка, ни `NOW.md`, ни идущий наряд
   `t-housebuilder-2` не менялись: ремонт касается только указателей устава.
@@ -114,4 +114,4 @@ next: |
   `concept-lab` в продукт, где уже найдено, что там есть `CONTRACT.md`, `SHARED_HANDOFFS.md` и
   `asset-forge`, то есть пристраиваться надо к существующему, а не строить рядом.
 
-END_OF_FILE: live/indie-game-development/history/2026-08-15-s-repair-charter-canon-repo-001.md
+END_OF_FILE: live/indie-game-development/history/2026-08-16-s-repair-charter-canon-repo-001.md
