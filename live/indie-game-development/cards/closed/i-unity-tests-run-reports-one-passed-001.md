@@ -3,7 +3,7 @@ id: i-unity-tests-run-reports-one-passed-001
 _kind: issue
 level: execution
 route: review
-status: open
+status: closed
 evidence: docs/results/c-exec-g-5a7c-scale-1-001.md
 _pos: 104
 ---
@@ -31,4 +31,5 @@ _pos: 104
 
 ## журнал
 2026-08-14 · заведена возвратом ноги роста; число 44 против 1 приведено ею же · history/2026-08-14-s-review-g-5a7c-wave-3-close-001.md
-END_OF_FILE: live/indie-game-development/cards/i-unity-tests-run-reports-one-passed-001.md
+2026-08-17 · ЗАКРЫТА `t-unitygate-1`, И ПРИ ЗАКРЫТИИ ОКАЗАЛОСЬ, ЧТО УЛИКА НЕДООЦЕНИВАЛА СЕБЯ. Она говорила `TotalTests: 44, PassedTests: 1` — то есть врало «прошло». На самом деле тестов **45**, и инструмент занижал ещё и сам total: нога, поверившая сводке, не увидела бы один тест ВОВСЕ. Штатный путь Unity (`-runTests -batchmode -testResults`) заведён командой `tools/unity-tests.ps1`, даёт настоящие 45/45, кладёт машиночитаемый `Logs/unity-gate/editmode-summary.json` рядом с сырым NUnit3 от Unity, и НЕ считает ни одного числа сам — при противоречии внутри файла падает громко. Сверка проведена поимённо по 45 FQN и подтверждена третьим независимым прогоном · history/2026-08-17-s-review-g-5a7c-wave-4-close-001.md
+END_OF_FILE: live/indie-game-development/cards/closed/i-unity-tests-run-reports-one-passed-001.md

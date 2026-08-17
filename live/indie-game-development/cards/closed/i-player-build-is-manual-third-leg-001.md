@@ -3,7 +3,7 @@ id: i-player-build-is-manual-third-leg-001
 _kind: issue
 level: execution
 route: review
-status: open
+status: closed
 evidence: docs/results/c-exec-g-5a7c-handlers-2-001.md
 _pos: 102
 ---
@@ -27,4 +27,5 @@ _pos: 102
 
 ## журнал
 2026-08-14 · заведена третьим повторением подряд, названным самим исполнителем · history/2026-08-14-s-review-g-5a7c-wave-3-close-001.md
-END_OF_FILE: live/indie-game-development/cards/i-player-build-is-manual-third-leg-001.md
+2026-08-17 · ЗАКРЫТА `t-unitygate-1`: билд плеера собирается командой `tools/unity-build.ps1` и кладётся в `Builds/StandaloneWindows64/TunnelCrew.exe`, отчёт Unity — `Logs/unity-gate/player-build.json`. Список сцен НЕ продублирован в скрипте, он читается из `EditorBuildSettings`, поэтому новая сцена не потребует правки кода сборки. Отдельно закрыт вопрос, который улика не ставила, но который иначе убил бы доверие к скрипту: билд может залогировать ошибки и всё равно быть хорошим билдом — решает поле `result`, и код возврата идёт именно по нему · history/2026-08-17-s-review-g-5a7c-wave-4-close-001.md
+END_OF_FILE: live/indie-game-development/cards/closed/i-player-build-is-manual-third-leg-001.md
