@@ -69,11 +69,17 @@ evidence: |
   - `uv run --locked python panel/test_docs.py` = `ПРИНЯТО`.
   - owner panel для направления не объявлен.
 
-  Дополнительная точная acceptance-boundary владельца в этой сессии:
-  «Не разрешай future CALL просто удалить rollback proof или добавить reflection/string/private
-  test hook»; доказательство может идти через «production-grade engine-driver boundary (или другой
-  честный seam)», где «один и тот же runnable тест считает фактические simulate calls» и
-  «заставляет engine call бросить, доказывая bare rethrow + возврат SimulationMode/gravity».
+  Direction engineering self-check / follow-up (не owner quote):
+  - Фактический owner mandate — фоновая автономная работа, при необходимости отдельный слот,
+    «ожидаем чистое решение, расширяемое, лучшее», «никаких костылей», «обязательно жёсткая
+    проверка всего» и «нужна проверка кода» — хранится дословно в
+    `history/2026-08-20-s-work-g-5a7c-client-state-owner-word-001.md:19-24`.
+  - Production-used engine seam, raw `PhysicsStepsPerTick = int.MaxValue` с подсчётом фактических
+    `Simulate` calls, deterministic engine throw с bare rethrow/rollback и запрет
+    reflection/string/private/test-only hook — инженерное решение Direction, выведенное из
+    Repair-A code evidence выше и этого owner mandate; это не точная acceptance-boundary владельца.
+  - Причина correction: delegated engineering follow-up был ошибочно принят за owner word;
+    forward repair: `history/2026-08-20-s-repair-g-5a7c-cargo-owner-provenance-001.md`.
 state_changes: |
   1. Создать `work/2026-08-20-call-cargo-tuning-safety-1.md` с полным engineering CALL
      `c-exec-g-5a7c-cargo-tuning-safety-1-001`: to executor, direction/node/task/repo,
@@ -161,9 +167,9 @@ captures: []
 decisions_needed: []
 play_check:
   - 1 Recite: done — оформляется только будущая structural-safety defect-class фоновой cargo-программы; screenshot wave и running Repair A не расширяются.
-  - 2 Owner inputs (owner): done — владелец написал «engineering details are authorized» и отдельно запретил удалять rollback proof или подменять его reflection/string/private test hook; exact feel maxima не требуются и не изобретены.
+  - 2 Owner inputs (owner): done — фактические слова владельца: работа «условно ... в бэкграунде»; «желательно, чтобы ты работал автономно»; «тебе самой нужно выстроить работу»; «если нужен слот, там я тебе могу выделить»; «ожидаем чистое решение, расширяемое, лучшее»; «никаких костылей»; «обязательно жёсткая проверка всего»; «нужна проверка кода».
   - 3 Do the work: done — подготовлены один issue, одна blocked task и один blocked CALL с единым tuning boundary, production-used actual-loop/throw seam, тремя done_when и без product implementation/Unity launch.
-  - 4 Self-check: done — current getters, actual Unity writes, `int.MaxValue` loop, authored asset, `+Infinity` seed, bare `throw;`, Repair A status/dependency и contract 36 перемерены; вакуумный/test-only proof и запрещённые scope исключены.
+  - 4 Self-check: done — как Direction engineering self-check, а не owner words, перемерены current getters, actual Unity writes, raw `int.MaxValue` loop с counted `Simulate` calls, authored asset, `+Infinity` seed, production-used deterministic-throw seam, bare `throw;`, rollback, Repair A status/dependency и contract 36; reflection/string/private/test-only proof и запрещённые scope исключены.
   - 5 Close: done — будущая работа зарегистрирована blocked после Repair A, слот/basis не назначены, существующая task/CALL не закрыта; G5 не применяется, потому что никакой product claim этой ногой не закрывается.
 log: cargo physics tuning оформлен отдельной blocked-задачей после Repair A — одна граница, bounded substeps и production-used rollback seam
 next: |

@@ -36,12 +36,15 @@ evidence: |
   требуется. Способ передачи выбирает инженерия; мёртвые поля ради будущего держать не надо.
   В текущую волну скриншотов реализацию не добавлять.»
 
-  Текущий live input задаёт точный технический разрез:
-  «sparse pose/hold delta остаётся отдельной полосой, а глобально наблюдаемое gameplay-state
+  Direction engineering reconstruction (не owner quote):
+  sparse pose/hold delta остаётся отдельной полосой, а глобально наблюдаемое gameplay-state
   получает отдельный lifecycle carrier/consumer с server tick/sequence, start/change/end и
-  late-join current-state catch-up»; «уменьшающийся RemainingSeconds не должен делать предмет
-  dirty каждый tick»; «room interest в будущем не фильтрует эту state-полосу»; «внутренние/
-  нечитаемые поля удаляются, не резервируются».
+  late-join current-state catch-up; уменьшающийся RemainingSeconds не делает предмет dirty каждый
+  tick; room interest в будущем не фильтрует эту state-полосу; внутренние/нечитаемые поля
+  удаляются, не резервируются. Direction вывела этот технический разрез из фактического owner
+  invariant выше плюс research/B0 evidence ниже. Delegated engineering prompt был ошибочно принят
+  за owner word; forward repair:
+  `history/2026-08-20-s-repair-g-5a7c-cargo-owner-provenance-001.md`.
 
   `history/2026-08-20-s-research-g-5a7c-interactive-density-part1-recheck-001.md`:
   current `AlarmClockCargoThing` уменьшает `RemainingSeconds` каждый такт; compare-all-fields
@@ -129,8 +132,8 @@ decisions_needed: []
 play_check:
   - 1 Name the contradiction: done — B1/C acceptance смешивала sparse pose/hold с глобальным gameplay-state, а свежий B0 registry уже умеет помечать timer dirty.
   - 2 Reconstruct: done — newest-first прочитаны origin/main 2c3e7412, B0 checkpoint/current continuation, running repair A -002, ready beam -001, owner authority, research evidence и обе issue-card.
-  - 3 Propose corrected state: done — отдельная blocked task/CALL перед B1, точный dependency graph, B1 только pose/hold, C/D наследуют раздельные interest-границы; все текущие факты сохранены.
-  - 4 Confirm (owner): done — текущие точные слова: «sparse pose/hold delta остаётся отдельной полосой», gameplay-state получает «отдельный lifecycle carrier/consumer», RemainingSeconds «не должен делать предмет dirty каждый tick», room interest «не фильтрует эту state-полосу», поля «удаляются, не резервируются»; продуктовая цитата сохранена в history/2026-08-20-s-work-g-5a7c-client-state-owner-word-001.md.
+  - 3 Propose corrected state: done — Direction engineering reconstruction: отдельная blocked task/CALL перед B1; B1 только sparse pose/hold; state lane несёт lifecycle carrier/consumer, server tick + sequence/revision, start/change/end, late-join catch-up, end-tick без timer-dirty и global interest; C/D наследуют раздельные interest-границы; все текущие факты сохранены.
+  - 4 Confirm (owner): done — фактические слова владельца: «Игровые состояния предметов, которые существуют в мире — звон, разлив, след и их окончание, — должны быть видны или слышны каждому клиенту»; «Внутренние технические состояния показывать не требуется»; «Способ передачи выбирает инженерия; мёртвые поля ради будущего держать не надо»; «В текущую волну скриншотов реализацию не добавлять» — источник `history/2026-08-20-s-work-g-5a7c-client-state-owner-word-001.md`.
   - 5 Friction: skipped — OS-hole нет; это ожидаемый concurrent state desync после B0/A checkpoint, исправляемый repair без изменения правил.
 log: B1 отделена от глобального gameplay-state — pose/hold остаётся sparse, lifecycle вынесен в отдельную blocked-задачу перед B1, мёртвые wire-поля не резервируются
 next: |
