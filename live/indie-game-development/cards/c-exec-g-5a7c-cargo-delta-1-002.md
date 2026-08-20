@@ -18,9 +18,14 @@ _pos: 108
 ---
 
 ## note
-Только B0 runtime evidence. B1 запрещена до возврата и интеграции
-c-exec-g-5a7c-cargo-sleep-repair-1-001 и c-exec-g-5a7c-beam-1-001.
-State-observability остаётся B1/C acceptance, а не результатом этой ноги.
+Только B0 runtime evidence: raw shadow counters/serialized bytes и 60-second idle.
+B1, sparse delivery и item-state эта нога не реализует.
+
+B1 теперь означает только pose/hold и ждёт B0 runtime, интегрированные
+`c-exec-g-5a7c-cargo-sleep-repair-1-002` + `c-exec-g-5a7c-beam-1-001` и закрытую
+`t-cargo-state-lifecycle-1`. Global gameplay-state принадлежит
+`c-exec-g-5a7c-cargo-state-lifecycle-1-001` и не входит в room-interest scope.
 ## журнал
+2026-08-20 · B1 отделена от глобального gameplay-state — pose/hold остаётся sparse, lifecycle вынесен в отдельную blocked-задачу перед B1, мёртвые wire-поля не резервируются · history/2026-08-20-s-repair-g-5a7c-cargo-state-lane-001.md
 2026-08-20 · B0 опубликована как code/control checkpoint без изменения доставки; live counter/bytes и 60 секунд покоя остаются, continuation ждёт Unity-слот · history/2026-08-20-s-work-g-5a7c-cargo-delta-b0-checkpoint-001.md
 END_OF_FILE: live/indie-game-development/cards/c-exec-g-5a7c-cargo-delta-1-002.md

@@ -8,6 +8,29 @@
 
 ---
 
+## REPAIR-ГРАНИЦА 2026-08-20 — B1 ТОЛЬКО POSE/HOLD
+
+Этот раздел — текущая authority для ещё не начатой B1; прежний текст ниже остаётся
+доказательством B0/B1-разреза и пяти тихих отказов.
+
+- B0 и `c-exec-g-5a7c-cargo-delta-1-002` остаются только registry/runtime evidence; их scope
+  не расширяется.
+- B1 переводит на sparse delivery только позу и удержание, которые реально читает клиент.
+  `Integrity`, `ThingStateId`, `ThingRemainingSeconds` и `Moved` не входят в dirty projection B1.
+  B1 не резервирует эти поля и не удаляет/не переиспользует carrier gameplay-state.
+- Глобально наблюдаемое gameplay-state принадлежит отдельной
+  `t-cargo-state-lifecycle-1` / `c-exec-g-5a7c-cargo-state-lifecycle-1-001`:
+  ordered start/change/end, server tick + sequence/revision, late-join current-state
+  catch-up и клиентский consumer для каждого существующего игрового состояния.
+- Конечное состояние передаётся authoritative end tick под revision; уменьшающийся
+  `RemainingSeconds` вычисляется клиентом и не делает предмет dirty каждый tick.
+- Эта state-полоса доходит до каждого клиента и не фильтруется будущим room interest;
+  room interest вправе касаться pose/hold.
+- Порядок: B0 runtime evidence + интегрированный repair A + интегрированный beam →
+  global item-state lifecycle → B1 pose/hold → C → D. До выполнения state-задачи B1 не выдаётся.
+
+---
+
 ## РАЗРЕЗ: две части, и он не там, где казался
 
 Атака проверила, можно ли резать ногу по границе «хост / клиент». **Нельзя, и это доказано, а не

@@ -16,6 +16,9 @@ context: |
   docs/results/c-exec-g-5a7c-cargo-delta-1-001.md.
   Direction order:
   live/indie-game-development/work/2026-08-17-call-cargo-delta-1.md.
+  Repair authority before B1:
+  t-cargo-state-lifecycle-1 and
+  live/indie-game-development/work/2026-08-20-call-cargo-state-lifecycle-1.md.
   B0 уже даёт live shadow metrics API, но ни одного runtime-числа ещё не снято.
   CALL остаётся blocked, пока screenshot-wave не освободит Unity-слот.
 boundaries: |
@@ -23,7 +26,8 @@ boundaries: |
   Не начинать B1, sparse/delta RPC, removal delivery, catch-up или изменение
   получателей/клиентской full-replacement семантики. Не трогать screenshot,
   scene, art, prefab, householder и работу скриншотной волны.
-  Не объявлять реализованной state-observability: это обязательная B1/C acceptance.
+  Не реализовывать item-state и не считать его B1/C-полем: он принадлежит отдельной
+  t-cargo-state-lifecycle-1. B1 после неё остаётся только pose/hold.
 done_when: |
   1. Live host/server run на точном named commit записывает raw full/would-publish
      counters, ticks/duration/roster и реальные serialized bytes полного и
