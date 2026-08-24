@@ -986,7 +986,7 @@ DASH_WINDOW_DAYS = 30
 DASH_STALLED = ("blocked", "waiting", "paused")
 
 
-def dash_block(bid, label, rows, how, gap=None, note=None):
+def dash_block(bid, label, rows, how, gap=None, note=None, view_how=None):
     """Один блок сводки. Число тут не живёт отдельно от способа счёта: линза 3
     хартии и урок устава — число без названного способа фактом не является.
 
@@ -994,7 +994,8 @@ def dash_block(bid, label, rows, how, gap=None, note=None):
     объясняется честный ноль или намеренно не показанная часть (объявленный рез).
     Это разные вещи, и сливать их в одно поле значило бы прятать первое за вторым."""
     return {"id": bid, "label": label, "rows": rows, "count": len(rows),
-            "how": how, "gap": gap, "note": note}
+            "how": how, "view_how": view_how or how,
+            "gap": gap, "note": note}
 
 
 def dash_running(direction, loaded, bet):
@@ -1020,7 +1021,10 @@ def dash_running(direction, loaded, bet):
              "живой карточке live/" + direction + "/cards/; ставка взята из NOW.md")
     note = None if bet else ("активной ставки нет: NOW.md направления прочитан и не "
                              "называет bet, поэтому ноль строк — честный ноль данных")
-    return dash_block("running", "ЧТО ИДЁТ", rows, how, note=note)
+    view_how = ("активная цель, открытые задачи ставки и готовые или идущие наряды — "
+                "по живым карточкам и указателю")
+    return dash_block("running", "ЧТО ИДЁТ", rows, how, note=note,
+                      view_how=view_how)
 
 
 def dash_stalled(direction, loaded):
@@ -1042,7 +1046,10 @@ def dash_stalled(direction, loaded):
     note = ("ПОЧЕМУ стоит — не показывается: рез 2 нарезки ставки g-one-screen. "
             "Одно поле status отвечает на три вопроса разом, развязка ждёт "
             "i-state-accepts-values-it-does-not-declare-001")
-    return dash_block("stalled", "ЧТО СТОИТ", rows, how, note=note)
+    view_how = ("живые остановленные карточки — по тем же признакам, что использует "
+                "раздел «Ждёт тебя»")
+    return dash_block("stalled", "ЧТО СТОИТ", rows, how, note=note,
+                      view_how=view_how)
 
 
 def dash_done(direction, today=None):
@@ -1075,8 +1082,15 @@ def dash_done(direction, today=None):
              "добавившего файл (git log --diff-filter=A)")
     gap = None if os.path.isdir(folder) else ("папки live/" + direction
                                               + "/history/ нет — отчётов ног взяться неоткуда")
-    return dash_block("done_in_window", "ЧТО СДЕЛАНО ЗА " + str(DASH_WINDOW_DAYS) + " ДНЕЙ",
-                      rows, how, gap=gap)
+    view_how = ("отчёты ног за скользящие 30 дней; дата берётся из имени отчёта")
+    block = dash_block("done_in_window",
+                       "ЧТО СДЕЛАНО ЗА " + str(DASH_WINDOW_DAYS) + " ДНЕЙ",
+                       rows, how, gap=gap, view_how=view_how)
+    # Вид рисует ровно одну полосу активности. Границы окна приходят от того же
+    # расчёта, что отобрал строки: браузер не заводит второе определение «30 дней».
+    block["window"] = {"days": DASH_WINDOW_DAYS,
+                       "start": first.isoformat(), "end": today.isoformat()}
+    return block
 
 
 def dash_problems(direction, loaded):
@@ -1087,7 +1101,8 @@ def dash_problems(direction, loaded):
             continue
         text = block_text(b, "issue") or ""
         first = next((ln.strip() for ln in text.split("\n") if ln.strip()), None)
-        rows.append({"id": cid, "text": first, "level": h.get("level"),
+        rows.append({"id": cid, "text": first, "body": text,
+                     "level": h.get("level"),
                      "route": h.get("route"), "review_when": value_of(h, b, "review_when"),
                      "blocks": h.get("blocks")})
     rows.sort(key=lambda r: str(r["id"]))
@@ -1095,7 +1110,9 @@ def dash_problems(direction, loaded):
            "строка — ПЕРВАЯ ФРАЗА блока `## issue` дословно из карточки, не пересказ и не число")
     note = ("полный текст записи на входе не разворачивается — рез 3 нарезки; "
             "чем группировать и в каком порядке — строка W17 набора, отдана PLAN")
-    return dash_block("problems", "ПРОБЛЕМЫ", rows, how, note=note)
+    view_how = ("живые записи проблем; строка — первая фраза их собственного текста")
+    return dash_block("problems", "ПРОБЛЕМЫ", rows, how, note=note,
+                      view_how=view_how)
 
 
 def section_dashboard(direction):

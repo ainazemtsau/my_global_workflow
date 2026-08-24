@@ -245,6 +245,101 @@ html, body {
 .details .desc { margin-bottom: 10px; }
 .details .desc:last-child { margin-bottom: 0; }
 
+/* Сводка: четыре стороны одного направления. Сетка и кегль задают иерархию;
+   цвет появляется только у факта «идёт», остановки, проблемы и активного дня. */
+.dash-intro { padding: 24px 20px 20px; border-bottom: 1px solid var(--line); }
+.dash-name { font-size: 24px; line-height: 1.2; color: var(--fg); }
+.dash-promise { margin-top: 6px; font-size: 13px; color: var(--fg-dim); }
+.dash-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.dash-block {
+  min-width: 0;
+  padding: 20px;
+  border: solid var(--line);
+  border-width: 0 1px 1px 0;
+}
+.dash-block.signal-running { border-left: 2px solid var(--accent); }
+.dash-block.signal-stalled { border-left: 2px solid var(--wait); }
+.dash-block.signal-problems { border-left: 2px solid var(--bad); }
+.dash-metric {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 5px 14px;
+  align-items: baseline;
+  margin-bottom: 15px;
+}
+.dash-label {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.13em;
+  color: var(--fg-dim);
+}
+.dash-count { font-size: 27px; line-height: 1; color: var(--fg); }
+.dash-how { grid-column: 1 / -1; font-size: 11px; line-height: 1.45; color: var(--fg-faint); }
+.dash-preview, .dash-more { border-top: 1px solid var(--line); }
+.dash-row {
+  display: block;
+  width: 100%;
+  padding: 10px 0;
+  border: 0;
+  border-bottom: 1px solid var(--line);
+  background: transparent;
+  color: var(--fg);
+  text-align: left;
+  text-decoration: none;
+  font: inherit;
+}
+a.dash-row, button.dash-row-main { cursor: pointer; }
+a.dash-row:hover, button.dash-row-main:hover { color: var(--plan); }
+.dash-row-main {
+  width: 100%;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: inherit;
+  text-align: left;
+  font: inherit;
+}
+.dash-record-body { padding: 9px 0 2px 14px; color: var(--fg-dim); font-size: 13px; }
+.dash-preview > a.dash-row,
+.dash-preview > div.dash-row:not(.dash-record),
+.dash-preview .dash-row-main {
+  display: -webkit-box;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+.dash-zero { padding: 12px 0; color: var(--fg-off); font-size: 13px; }
+.dash-note { padding: 11px 0; color: var(--fg-faint); font-size: 12px; }
+.dash-note.gap { color: var(--bad); }
+.dash-toggle {
+  margin-top: 12px;
+  padding: 4px 0;
+  border: 0;
+  border-bottom: 1px solid var(--line-strong);
+  background: transparent;
+  color: var(--fg-dim);
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  cursor: pointer;
+}
+.dash-toggle:hover { color: var(--fg); border-bottom-color: var(--fg); }
+.dash-chart-label {
+  margin: 2px 0 7px;
+  font-family: var(--mono);
+  font-size: 9px;
+  letter-spacing: 0.1em;
+  color: var(--fg-faint);
+}
+.dash-activity { display: grid; grid-template-columns: repeat(30, minmax(2px, 1fr)); gap: 2px; margin-bottom: 15px; }
+.dash-day { height: 18px; border-bottom: 2px solid var(--line-strong); }
+.dash-day.active { border-bottom-color: var(--accent); }
+
+@media (max-width: 820px) {
+  .dash-grid { grid-template-columns: 1fr; }
+  .dash-block { border-right-width: 0; }
+}
+
 /* карта целей: группа — состояние, строка — одна цель, проза только по клику */
 .aim { padding: 22px 20px; border-bottom: 1px solid var(--line);
        border-left: 3px solid var(--plan); }
