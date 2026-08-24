@@ -14,5 +14,6 @@ _pos: 10
 ---
 
 ## журнал
+2026-08-24 · наряд вернулся binding G5: строки 1–4 устояли, строка 5 провалена на 1/4 blocks_without_source против заявленных 0/4; задача остаётся open · history/2026-08-24-s-work-one-screen-skeleton-g5-001.md
 2026-08-14 · биндинговая проверка выпущена в СВЕЖУЮ сессию: пять строк задачи против коммита 4b026c0c попыткой опровержения, и пять слабых мест названы поимённо — верность способа счёта, пустой блок «что стоит», окно solmax, отсутствие новых источников, отказ заменять старое содержимое ручки · history/2026-08-14-s-work-one-screen-skeleton-002.md
-END_OF_FILE: live/direction-os/cards/c-work-one-screen-skeleton-g5-001.md
+END_OF_FILE: live/direction-os/cards/closed/c-work-one-screen-skeleton-g5-001.md
