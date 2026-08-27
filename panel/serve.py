@@ -998,6 +998,44 @@ def dash_block(bid, label, rows, how, gap=None, note=None, view_how=None):
             "gap": gap, "note": note}
 
 
+def dash_age(direction, loaded):
+    """Возраст работы — ЧИСЛО, а не порог.
+
+    Аппетит был гейтом: он останавливал. Устав направления его не просил —
+    «срока тут нет, тормоз не про время, а про вход». Взамен экран показывает
+    два числа и молчит: сколько дней идёт ставка и сколько дней назад была
+    последняя нога. Ничто не умирает и не блокируется — судит владелец."""
+    today = datetime.date.today()
+    opened = None
+    for _cid, (h, _b) in loaded.items():
+        if h.get("_kind") == "bet" and not h.get("_closed"):
+            opened = h.get("opened")
+            break
+    if isinstance(opened, datetime.datetime):
+        opened = opened.date()
+    bet_days = (today - opened).days if isinstance(opened, datetime.date) else None
+
+    folder = os.path.join(LIVE_DIR, direction, "history")
+    names = sorted(f for f in os.listdir(folder) if f.endswith(".md"))         if os.path.isdir(folder) else []
+    last = None
+    for fname in names:
+        parsed = leg_from_name(fname)
+        if parsed is None:
+            continue
+        try:
+            day = datetime.date.fromisoformat(parsed["date"])
+        except ValueError:
+            continue
+        if last is None or day > last:
+            last = day
+    return {"bet_days": bet_days, "bet_opened": opened.isoformat() if opened else None,
+            "last_leg": last.isoformat() if last else None,
+            "quiet_days": (today - last).days if last else None,
+            "how": ("ставка идёт с даты `opened` её карточки; тишина — от даты последнего "
+                    "отчёта ноги в live/" + direction + "/history/. Это ЧИСЛА, а не пороги: "
+                    "устав направления срока не назначает")}
+
+
 def dash_running(direction, loaded, bet):
     """ЧТО ИДЁТ: активный узел, живые задачи его ставки, наряды под запуск."""
     rows = []
@@ -1173,6 +1211,7 @@ def section_dashboard(direction):
                 "other": other, "unread": unread,
                 "numbers": section_numbers(direction, loaded),
                 "build": build_info(), "blocks": blocks,
+                "age": dash_age(direction, loaded),
                 "blocks_without_source": [b["id"] for b in blocks if b["gap"]]}
 
 

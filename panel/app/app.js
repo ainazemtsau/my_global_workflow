@@ -340,6 +340,15 @@ function dashboardBlock(direction, block) {
   return card;
 }
 
+function dayWord(n) {
+  const abs = Math.abs(n) % 100;
+  const last = abs % 10;
+  if (abs > 10 && abs < 20) return n + " дней";
+  if (last === 1) return n + " день";
+  if (last >= 2 && last <= 4) return n + " дня";
+  return n + " дней";
+}
+
 function renderDashboard(direction, content) {
   const token = ++RENDER_TOKEN;
   return fetch("/api/section/" + encodeURIComponent(direction.id) + "/dashboard")
@@ -353,7 +362,22 @@ function renderDashboard(direction, content) {
       const intro = el("div", "dash-intro");
       intro.appendChild(el("div", "dash-name", "без имени"));
       intro.appendChild(el("div", "dash-promise",
-        "Что идёт, что стоит, что сделано и какие есть проблемы."));
+        "Что идёт, что стоит, что сделано, какие есть проблемы и что дальше."));
+      const age = data.age || {};
+      const parts = [];
+      if (age.bet_days !== null && age.bet_days !== undefined) {
+        parts.push("работа идёт " + dayWord(age.bet_days));
+      }
+      if (age.quiet_days !== null && age.quiet_days !== undefined) {
+        parts.push(age.quiet_days === 0
+          ? "последняя нога сегодня"
+          : "последняя нога " + dayWord(age.quiet_days) + " назад");
+      }
+      if (parts.length) {
+        const line = el("div", "dash-age", parts.join(" · "));
+        line.title = age.how || "";
+        intro.appendChild(line);
+      }
       content.appendChild(intro);
       const grid = el("div", "dash-grid");
       for (const block of data.blocks || []) grid.appendChild(dashboardBlock(direction, block));
