@@ -2,7 +2,7 @@
 id: t-assetlib-1
 _kind: task
 _bet: bet-g-5a7c-wave-5
-status: active
+status: done
 kind: executor
 order: 21
 goal: 'Дом стоит на своей библиотеке ассетов: купленные модели вместо коробок, замена

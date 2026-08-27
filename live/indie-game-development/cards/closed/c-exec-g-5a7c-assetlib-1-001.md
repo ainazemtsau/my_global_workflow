@@ -4,7 +4,7 @@ _kind: call
 to: executor
 for: t-assetlib-1
 play: work
-status: ready
+status: done
 issued: 2026-08-16
 slot: WIN-U3
 call: work/2026-08-16-call-assetlib-1.md

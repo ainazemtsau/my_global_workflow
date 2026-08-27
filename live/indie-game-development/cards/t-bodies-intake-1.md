@@ -2,7 +2,7 @@
 id: t-bodies-intake-1
 _kind: task
 _bet: bet-g-5a7c-wave-5
-status: active
+status: done
 goal: Модели хозяина и игрока заводятся в тот же день, когда приезжают
 _pos: 84
 ---

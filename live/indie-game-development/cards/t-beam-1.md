@@ -2,7 +2,7 @@
 id: t-beam-1
 _kind: task
 _bet: bet-g-5a7c-wave-5
-status: active
+status: done
 goal: 'Луч телекинеза: видно, что предмет держат, и насколько крепко у каждого'
 _pos: 83
 ---

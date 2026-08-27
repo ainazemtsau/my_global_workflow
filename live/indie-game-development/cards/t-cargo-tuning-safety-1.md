@@ -2,7 +2,7 @@
 id: t-cargo-tuning-safety-1
 _kind: task
 _bet: bet-g-5a7c-wave-5
-status: blocked
+status: parked
 goal: Cargo physics tuning безопасно доезжает до Unity, а число substeps структурно
   ограничено
 unblock_when: Repair A принят после native Unity + binding review и интегрирован в

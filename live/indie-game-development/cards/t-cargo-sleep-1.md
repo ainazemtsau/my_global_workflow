@@ -2,7 +2,7 @@
 id: t-cargo-sleep-1
 _kind: task
 _bet: bet-g-5a7c-wave-5
-status: ready
+status: done
 goal: 'Мир живёт всегда, а предметы честно спят: каскад становится возможным'
 _pos: 90
 ---

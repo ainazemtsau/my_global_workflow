@@ -2,7 +2,7 @@
 id: t-photoset-1
 _kind: task
 _bet: bet-g-5a7c-wave-5
-status: active
+status: done
 _pos: 89
 goal: Съёмочная площадка построена по спеке и пересъёмка стоит одно нажатие
 ---

@@ -2,7 +2,7 @@
 id: c-exec-g-5a7c-cargo-state-lifecycle-1-001
 _kind: call
 _bet: bet-g-5a7c-wave-5
-status: blocked
+status: parked
 to: executor
 for: t-cargo-state-lifecycle-1
 play: work

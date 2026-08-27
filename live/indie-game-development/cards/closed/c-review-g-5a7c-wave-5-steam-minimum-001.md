@@ -2,7 +2,7 @@
 id: c-review-g-5a7c-wave-5-steam-minimum-001
 _kind: call
 _bet: bet-g-5a7c-wave-5
-status: ready
+status: done
 to: session
 for: bet-g-5a7c-wave-5
 play: review

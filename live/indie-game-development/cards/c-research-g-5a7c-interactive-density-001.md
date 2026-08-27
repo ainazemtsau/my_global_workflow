@@ -1,7 +1,7 @@
 ---
 id: c-research-g-5a7c-interactive-density-001
 _kind: call
-status: ready
+status: parked
 to: research
 for: g-5a7c
 play: research

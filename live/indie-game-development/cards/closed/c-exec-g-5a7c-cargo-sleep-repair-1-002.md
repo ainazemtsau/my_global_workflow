@@ -2,7 +2,7 @@
 id: c-exec-g-5a7c-cargo-sleep-repair-1-002
 _kind: call
 _bet: bet-g-5a7c-wave-5
-status: running
+status: done
 to: executor
 for: t-cargo-sleep-1
 play: work

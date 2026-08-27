@@ -2,7 +2,7 @@
 id: c-exec-g-5a7c-photoset-1-001
 _kind: call
 _bet: bet-g-5a7c-wave-5
-status: ready
+status: done
 to: executor
 for: t-photoset-1
 play: work

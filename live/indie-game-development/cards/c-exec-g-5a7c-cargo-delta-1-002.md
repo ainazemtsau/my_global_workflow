@@ -2,7 +2,7 @@
 id: c-exec-g-5a7c-cargo-delta-1-002
 _kind: call
 _bet: bet-g-5a7c-wave-5
-status: blocked
+status: parked
 to: executor
 for: t-cargo-delta-1
 play: work

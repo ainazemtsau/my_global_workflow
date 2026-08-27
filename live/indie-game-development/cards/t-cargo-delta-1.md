@@ -2,7 +2,7 @@
 id: t-cargo-delta-1
 _kind: task
 _bet: bet-g-5a7c-wave-5
-status: ready
+status: parked
 goal: 'Sparse pose/hold: неизменившийся груз не едет каждый tick, а gameplay-state
   живёт отдельно'
 _pos: 91

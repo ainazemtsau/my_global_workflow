@@ -2,7 +2,7 @@
 id: t-cargo-state-lifecycle-1
 _kind: task
 _bet: bet-g-5a7c-wave-5
-status: blocked
+status: parked
 goal: Каждый клиент наблюдает gameplay-state предмета через отдельный от pose/hold
   lifecycle
 unblock_when: B0 runtime принят; repair A и beam интегрированы на одной fresh product

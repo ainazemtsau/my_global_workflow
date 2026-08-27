@@ -2,7 +2,7 @@
 id: t-loot-models-1
 _kind: task
 _bet: bet-g-5a7c-wave-5
-status: ready
+status: parked
 goal: Лут в кадре — настоящие модели, а не прямоугольники
 _pos: 86
 ---

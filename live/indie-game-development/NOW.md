@@ -1,6 +1,6 @@
 # NOW: indie-game-development
 
-bet: g-5a7c
+bet:
 track_wip_limit: 4
 
 END_OF_FILE: live/indie-game-development/NOW.md

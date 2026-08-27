@@ -2,7 +2,7 @@
 id: t-frames-1
 _kind: task
 _bet: bet-g-5a7c-wave-5
-status: waiting
+status: done
 goal: Пять кадров сняты и он сказал, что не стыдно
 _pos: 88
 waiting_on: t-photoset-1, t-beam-1, t-bodies-intake-1
