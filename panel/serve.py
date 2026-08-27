@@ -123,11 +123,11 @@ SECTIONS = [("dashboard", "СВОДКА"), ("slots", "СЛОТЫ"), ("waiting", 
             ("goals", "ЦЕЛИ"), ("ideas", "ИДЕИ"), ("history", "ИСТОРИЯ"), ("knowledge", "ЗНАНИЯ"),
             ("direction", "НАПРАВЛЕНИЕ")]
 
-# «СВОДКА» закрыта до отдельной работы: она станет приборной панелью с числами,
-# а не списком нарядов. Сегодняшний её вид врал — писал «можно запускать» про
-# наряд, который владелец уже запустил.
-READY_SECTIONS = ("slots", "waiting", "wave", "goals", "ideas", "history", "knowledge",
-                  "direction")
+# «СВОДКА» включена 2026-08-27 его словом «давай В». Она стоит ПЕРВОЙ в SECTIONS,
+# поэтому включение само делает её входным экраном направления: умолчание — первый
+# готовый раздел, отдельного имени в коде не заводится.
+READY_SECTIONS = ("dashboard", "slots", "waiting", "wave", "goals", "ideas", "history",
+                  "knowledge", "direction")
 
 CONTENT_TYPES = {".html": "text/html; charset=utf-8",
                  ".js": "application/javascript; charset=utf-8",
@@ -1115,6 +1115,34 @@ def dash_problems(direction, loaded):
                       view_how=view_how)
 
 
+def dash_queue(direction, loaded):
+    """ЧТО ДАЛЬШЕ: цели, которые ждут своего хода, и его отложенные мысли.
+
+    Владелец 2026-08-27 назвал дыру своими словами: чтобы узнать, что лежит в
+    направлении, ему пришлось прийти и спросить. Сводка показывала текущую работу
+    и проблемы, а очередь — нет, и запаркованная цель была не видна нигде, кроме
+    отдельной страницы ЦЕЛЕЙ. Проблемы сюда НЕ дублируются: у них свой блок."""
+    rows = []
+    for cid, (h, b) in loaded.items():
+        if h.get("_closed"):
+            continue
+        kind = h.get("_kind")
+        if kind == "node" and h.get("status") in ("parked", "shaped"):
+            rows.append({"id": cid, "kind": kind, "what": "цель",
+                         "title": h.get("label") or value_of(h, b, "goal"),
+                         "status": h.get("status")})
+        elif kind == "idea":
+            rows.append({"id": cid, "kind": kind, "what": "идея",
+                         "title": value_of(h, b, "idea"), "status": None})
+    rows.sort(key=lambda r: (r["what"], str(r["id"])))
+    how = ("цели со статусом parked|shaped и живые карточки вида idea из live/"
+           + direction + "/cards/; корень дерева и активная цель сюда не попадают — "
+             "они в блоке ЧТО ИДЁТ, а записи о проблемах в своём блоке и не дублируются")
+    note = ("порядок и срок здесь не назначаются: очередь показывает, ЧТО ждёт, "
+            "а не когда за это возьмутся")
+    return dash_block("queue", "ЧТО ДАЛЬШЕ", rows, how, note=note)
+
+
 def section_dashboard(direction):
     with lock_for(direction):
         loaded, unread = load_cards(direction)
@@ -1138,7 +1166,8 @@ def section_dashboard(direction):
         blocks = [dash_running(direction, loaded, bet),
                   dash_stalled(direction, loaded),
                   dash_done(direction),
-                  dash_problems(direction, loaded)]
+                  dash_problems(direction, loaded),
+                  dash_queue(direction, loaded)]
         return {"direction": direction, "cards_total": live_total,
                 "cards_closed": len(loaded) - live_total, "ready": ready,
                 "other": other, "unread": unread,
