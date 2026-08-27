@@ -2,7 +2,7 @@
 id: t-health-repo
 _kind: task
 _bet: g-zara-health-vertical
-status: open
+status: active
 _pos: 1
 goal: Продуктовый репозиторий способен принимать код и проверять его одной командой
 ---
