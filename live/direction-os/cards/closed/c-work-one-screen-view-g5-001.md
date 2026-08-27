@@ -14,5 +14,6 @@ _pos: 14
 ---
 
 ## журнал
+2026-08-27 · перебит: наряд указывал на ae72e7dc, а код с тех пор перебит дважды (7b029974 включение и пятый блок, 511337f2 возраст). Заменён на c-work-one-screen-view-and-switch-g5-002, который проверяет обе задачи на текущем коде
 2026-08-24 · ещё выключенный вид сводки собран на ae72e7dc — четыре блока, максимум пять строк, одна 30-дневная полоса и переходы прошли HTTP/UI negative checks и девять приёмок; задача остаётся open до fresh binding G5 · history/2026-08-24-s-work-one-screen-view-001.md
-END_OF_FILE: live/direction-os/cards/c-work-one-screen-view-g5-001.md
+END_OF_FILE: live/direction-os/cards/closed/c-work-one-screen-view-g5-001.md
