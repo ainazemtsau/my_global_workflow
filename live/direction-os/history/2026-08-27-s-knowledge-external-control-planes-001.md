@@ -75,3 +75,5 @@ next: |
   Второе его поручение — дописать очередь в сводку — ЖДЁТ его решения о порядке: вид сводки
   сейчас стоит под непройденной проверкой `c-work-one-screen-view-g5-001` на `ae72e7dc`, и
   правка кода обесценит её мишень.
+
+END_OF_FILE: live/direction-os/history/2026-08-27-s-knowledge-external-control-planes-001.md

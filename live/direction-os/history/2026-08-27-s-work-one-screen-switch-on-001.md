@@ -94,3 +94,5 @@ log: сводка ВКЛЮЧЕНА и стала входным экраном, 
 next: |
   `c-work-one-screen-view-and-switch-g5-002` — свежая сессия, проверка вида и включения.
   Строка 7 задачи 6 закрывается только его словом после того, как он откроет сводку.
+
+END_OF_FILE: live/direction-os/history/2026-08-27-s-work-one-screen-switch-on-001.md
