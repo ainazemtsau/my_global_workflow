@@ -92,9 +92,9 @@ opened: <date>
 ## goal
 <recitation from the node card>
 ## appetite
-2w (started <date>)
+<the size of the shaped work — never legs, days or dates>
 ## kill_by
-<threshold + date/event>
+<threshold + event; a date only in his own words>
 ## forecast
 <earliest signal + expected observation>
 ## against
