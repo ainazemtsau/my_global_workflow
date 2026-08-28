@@ -83,6 +83,16 @@ def build(tmp):
                             "asks": "нога"}, [("q", "это нога решает сама")])
     card(cards, "owner_approved", {"id": "owner_approved", "_kind": "extra"},
          [("подписи", "очень длинный реестр " * 200)])
+    # Улики: ссылок на цель у них нет, поэтому в набор они не попадают никогда —
+    # и до 2026-08-28 нога не узнавала о них вовсе. Указатель по объявленному
+    # полю `route` — единственное, что их показывает.
+    card(cards, "i-shaped", {"id": "i-shaped", "_kind": "issue", "level": "objective",
+                             "route": "shape"},
+         [("issue", "ядро просит переработки, и это замер, а не мнение")])
+    card(cards, "i-worked", {"id": "i-worked", "_kind": "issue", "level": "execution",
+                             "route": "work"}, [("issue", "наряд писался без правила")])
+    card(cards, "i-nomap", {"id": "i-nomap", "_kind": "issue", "level": "direction"},
+         [("issue", "у этой улики поля route нет вовсе")])
     (tmp / "NOW.md").write_text(
         f"# NOW: {D}\n\nbet: g-our\n\nEND_OF_FILE: {tmp / 'NOW.md'}\n", encoding="utf-8")
     return cards
@@ -132,10 +142,32 @@ def main():
     check(all(x.get("text") for x in ctx["waiting"]),
           "у каждого — сам текст вопроса, а не только id")
 
+    # --- Закон 3: улика доезжает до ноги, чей плей её маршрут
+    # Заведено 2026-08-28. До этого 81 живая улика направления не попадала ни в
+    # набор, ни в остаток по имени: ссылок на цель у улик нет, поэтому нарезка
+    # волны резала, не зная того, что система про себя уже записала. Отбор —
+    # РАВЕНСТВО ОБЪЯВЛЕННОГО ПОЛЯ, без поиска по прозе и без угадывания.
+    routes = ctx["issues_by_route"]
+    check(routes.get("shape") and routes["shape"][0]["id"] == "i-shaped",
+          f"улика с route: shape стоит под маршрутом shape — {sorted(routes)}")
+    check(routes.get("work") and routes["work"][0]["id"] == "i-worked",
+          "улика с route: work — под своим")
+    check(any(x["id"] == "i-nomap" for g in routes.values() for x in g),
+          "улика БЕЗ поля route не пропадает молча, а стоит в названной группе")
+    check("i-nomap" not in {x["id"] for k, g in routes.items()
+                            if k in ("shape", "work") for x in g},
+          "и не приписана к чужому маршруту догадкой")
+    check(all(x.get("text") for g in routes.values() for x in g),
+          "у каждой — своя строка текста, а не только id")
+    check({"i-shaped", "i-worked", "i-nomap"} <= excl,
+          "указатель НЕ раздувает набор: улики по-прежнему в остатке")
+
     # --- Человеческий вывод: он и есть то, что нога кладёт в чат
     r2 = run("context", "--for", "t-1", *C)
     check("бить грузом" in r2.stdout, "без --json печатает текст вопроса словами")
     check("не включено" in r2.stdout.lower(), "и вслух называет, что осталось за бортом")
+    check("ядро просит переработки" in r2.stdout,
+          "и печатает улики маршрутами словами, а не только в json")
 
     # --- Отказы
     r3 = run("context", "--for", "нет-такой", *C)

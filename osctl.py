@@ -1044,6 +1044,24 @@ def cmd_context(a) -> int:
                         "text": " ".join(text.split())[:300]})
         take(cid, "ждёт слова владельца")
 
+    # Улики ссылок на цель не носят, поэтому в набор не попадают никогда — и до
+    # 2026-08-28 нога не узнавала о них вовсе, включая те, чей `route` называет её
+    # собственный плей. Замер того дня на indie-game-development: 81 живая улика за
+    # бортом, среди них та, что уже описала проблему, которую нарезка волны резала
+    # вслепую. Указатель строится РАВЕНСТВОМ ОБЪЯВЛЕННОГО ПОЛЯ: ни поиска по прозе,
+    # ни регулярного выражения, ни угадывания смысла. Улика без поля `route` встаёт
+    # в названную группу — приписать её маршруту догадкой команда не вправе.
+    NO_ROUTE = "без маршрута"
+    issues: dict[str, list] = {}
+    for cid, (_, h, b) in sorted(cards.items()):
+        if h.get(KIND_KEY) != "issue":
+            continue
+        route = str(h.get("route") or "").strip() or NO_ROUTE
+        text = next((chr(10).join(v).strip() for v in b.values()
+                     if any(x.strip() for x in v)), "")
+        issues.setdefault(route, []).append({"id": cid, "text": " ".join(text.split())[:140]})
+    issues = {k: issues[k] for k in sorted(issues, key=lambda k: (k == NO_ROUTE, k))}
+
     rest = [cid for cid in cards if cid not in chosen]
     by_kind: dict[str, int] = {}
     for cid in rest:
@@ -1057,7 +1075,8 @@ def cmd_context(a) -> int:
     chosen_set += [{"id": cid, "path": rel_path(cards[cid][0]), "words": words_in(cards[cid][0]),
                     "why": why} for cid, why in sorted(chosen.items())]
     out = {"direction": direction, "bet": now.get("bet"), "target": target,
-           "set": chosen_set, "waiting": waiting, "excluded": excluded}
+           "set": chosen_set, "waiting": waiting, "issues_by_route": issues,
+           "excluded": excluded}
     if a.json:
         print(json.dumps(out, ensure_ascii=False, indent=2, default=str))
         return 0
@@ -1070,6 +1089,13 @@ def cmd_context(a) -> int:
             print(f"      {w['text']}")
     else:
         print(f"{chr(10)}ждёт слова владельца: ничего")
+    if issues:
+        n = sum(len(v) for v in issues.values())
+        print(f"{chr(10)}УЛИКИ ПО МАРШРУТАМ ({n}) — берёт та, чей плей назван маршрутом")
+        for route, rows in issues.items():
+            print(f"  {route} ({len(rows)})")
+            for x in rows:
+                print(f"    {x['id']} · {x['text']}")
     total = sum(x["words"] for x in chosen_set)
     print(f"{chr(10)}РАБОЧИЙ НАБОР ({len(chosen_set)} файлов, {total} слов)")
     for x in chosen_set:
