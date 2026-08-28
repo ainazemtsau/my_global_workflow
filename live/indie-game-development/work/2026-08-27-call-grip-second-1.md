@@ -10,7 +10,7 @@ bet: bet-g-5a7c-wave-6
 track: анимация
 for: t-grip-second-1
 repo: C:\projects\Unity\GasCoopGame_win-u3
-basis: origin/main @ 96fbe102 — перемерить при старте
+basis: origin/main @ 42f499d3 — перемерено писателем 2026-08-28; перемерить при старте, ветка могла уехать
 
 ## goal
 
