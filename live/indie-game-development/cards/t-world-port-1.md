@@ -3,7 +3,7 @@ id: t-world-port-1
 _kind: task
 _bet: bet-g-5a7c-wave-6
 track: провод
-status: waiting
+status: ready
 goal: Шов хозяина к миру перестаёт быть односторонним — его правила могут что-то сделать
 unblock_when: t-reactions-data-1 закрыта — новое слово словаря обязано родиться в
   новом доме, а не в старом
