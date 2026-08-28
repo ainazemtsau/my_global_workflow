@@ -6,7 +6,7 @@ track: словарь
 for: t-irritation-1
 play: work
 to: executor
-status: ready
+status: parked
 issued: 2026-08-28
 repo: C:\projects\Unity\GasCoopGame_win-u1
 call: work/2026-08-28-call-irritation-1.md
