@@ -52,4 +52,21 @@ expected: |
   только «31 ждёт», но не «вот эта дождалась». Решить, достаточно ли этого для первой версии,
   или метке нужен минимальный ключ — часть этой заявки.
 
+## КАК ЧИТАТЬ УЛИКИ, ЕСЛИ СЕССИЯ ИДЁТ НА `main`
+
+`os/FRICTION.md:133` несёт запись-кандидат «os/**-коммиты только на main; maintenance-сессия
+не коммитит os/engineering на direction-ветку». Если следовать ей, сессия работает в
+`C:/my_global_workflow` (там `main`) — а часть улик туда ещё НЕ ЗАПУШЕНА и живёт только на
+ветке `wt/direction-os`. Проверено 2026-08-27: `CHARTER.md` на `main` ЕСТЬ,
+`cards/bet-g-one-screen.md` — НЕТ.
+
+Читать их с ветки, не переключаясь:
+
+    git show wt/direction-os:live/direction-os/cards/bet-g-one-screen.md
+    git show wt/direction-os:live/direction-os/CHARTER.md
+    git show wt/direction-os:live/direction-os/work/MAINTENANCE-1-appetite-vs-charter.md
+    git show wt/direction-os:live/direction-os/work/MAINTENANCE-2-friction-watching-has-no-reader.md
+
+Если такой ветки не видно — она лежит в рабочей копии `C:/wf-direction-os` и не запушена.
+
 END_OF_FILE: live/direction-os/work/MAINTENANCE-2-friction-watching-has-no-reader.md
