@@ -3,7 +3,7 @@ id: t-health-run
 _kind: task
 _bet: g-zara-health-vertical
 status: open
-_pos: 3
+_pos: 4
 goal: Прогон со следом, отказом вместо догадки, четырьмя честными исходами и правдой
   о сохранении
 ---

@@ -4,7 +4,7 @@ _kind: task
 _bet: g-zara-health-vertical
 status: open
 goal: Health с двумя способностями и целиком проходящим сценарием «Свод дня»
-_pos: 4
+_pos: 5
 ---
 
 ## done_when
