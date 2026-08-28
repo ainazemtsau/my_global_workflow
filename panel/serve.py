@@ -964,8 +964,17 @@ def section_numbers(direction, loaded):
     busy = {h.get("track") for h in heads
             if h.get("_kind") == "call" and h.get("track")
             and not is_done(h) and h.get("status") != "paused"}
-    waiting = sum(1 for h in heads if h.get("_kind") == "decision" and not is_done(h))
-    waiting += sum(1 for h in heads if h.get("_kind") == "question" and h.get("who") == "владелец")
+    # Ждёт ТЕБЯ — только ЖИВОЕ и только твоё. Закрытое решение уже не ждёт
+    # никого, а поле называется `asks`, не `who`: `who` не существует ни в
+    # схеме, ни в одной карточке, поэтому вопросы к владельцу считались нулём
+    # и молча — тот самый читатель, переживший свой источник. Пусто у `asks`
+    # значит владелец: у решения отвечающий по определению он.
+    def owed_to_owner(h):
+        return str(h.get("asks") or "владелец").lower() in ("владелец", "owner")
+    waiting = sum(1 for h in heads
+                  if h.get("_kind") in ("decision", "question")
+                  and not h.get("_closed") and not is_done(h)
+                  and owed_to_owner(h))
     bet = next((h for h in heads if h.get("_kind") == "bet"), None)
     opened = bet.get("opened") if bet is not None else None
     if isinstance(opened, datetime.datetime):

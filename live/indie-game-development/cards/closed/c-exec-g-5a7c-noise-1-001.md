@@ -1,0 +1,21 @@
+---
+id: c-exec-g-5a7c-noise-1-001
+_kind: call
+to: executor
+for: t-noise-1
+play: work
+status: done
+issued: 2026-08-14
+basis: 53afdc2d
+slot: WIN-U1
+call: work/2026-08-14-call-noise-1.md
+description: 'Шум: у груза появляется настоящая громкость'
+_pos: 81
+---
+
+## журнал
+2026-08-14 · наряд выпущен от опубликованной головы 53afdc2d при базовом прогоне 293 из 293; границы по файлам не объявлены, а ИЗМЕРЕНЫ: замер четырёх поверхностей по коду плюс арбитраж пересечений, 84 пути проверены поштучно, три заявки отклонены как «папка вместо файла», три условия расхождения вписаны в наряды · history/2026-08-14-s-review-g-5a7c-wave-3-close-001.md
+.md
+2026-08-14 · РОЗДАН И ЗАПУЩЕН. Расписка владельца дословно: «раздал». Слот WIN-U1, базис origin/main = 53afdc2d, базовый прогон 293 из 293. Возврат ожидается публикацией в main с отчётом в docs/results/ · history/2026-08-14-s-review-g-5a7c-wave-3-close-001.md
+2026-08-14 · наряд ЗАКРЫТ его словом; работа опубликована коммитом de9ea893, голова main a9b49fd9, отчёт docs/results/c-exec-g-5a7c-noise-1-001.md · history/2026-08-14-s-review-g-5a7c-wave-3-close-001.md
+END_OF_FILE: live/indie-game-development/cards/closed/c-exec-g-5a7c-noise-1-001.md

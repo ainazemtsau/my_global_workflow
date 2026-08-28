@@ -387,6 +387,7 @@ KNOWN_HEAD = frozenset({
     "level", "route", "evidence", "review_when", "blocks",
     "repo", "engineering_contract", "play", "slot", "basis", "closed",
     "cadence", "lens", "last_done", "about", "asks", "from", "source",
+    "done_when", "tasks",   # длинные обычно в теле, но короткие живут и в шапке
     "parent", "waiting_on", "receipts", "started", "unblock_when", "date",
     "paused_by", "note", "superseded_by", "at", "updated",
 })
