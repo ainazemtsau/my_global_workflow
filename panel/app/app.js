@@ -207,12 +207,151 @@ function renderOrderRow(container, order, isReady) {
   container.appendChild(row);
 }
 
-// Раздел «Сводка». ЗАКРЫТ до отдельной работы: он станет приборной панелью
-// с числами, а сегодняшний вид врал — писал «можно запускать» про наряд,
-// который владелец уже запустил. Код оставлен как основа, из меню не виден.
+// Раздел «Сводка». Вид собран, но из меню всё ещё выключен: включение и замена
+// старого контракта ручки принадлежат отдельной задаче. Здесь только read-only
+// экран поверх четырёх уже существующих блоков.
+const DASH_PREVIEW_LIMIT = 5;
+
+const DASH_NOTE = {
+  running: "Если ставки нет, указатель всё равно прочитан: ноль строк остаётся честным нулём.",
+  stalled: "Причина остановки пока не показана: это объявленный рез и отдельная работа.",
+  done_in_window: "Окно скользящее, а не календарный месяц.",
+  problems: "Полный текст открывается по строке; группировка и порядок пока не назначены.",
+};
+
+// Текст источника может сам упоминать внутреннюю карточку, путь или коммит.
+// Содержание сохраняем, служебные токены вынимаем; пустое всегда имеет одно имя.
+function dashboardText(value, fallback) {
+  let text = String(value == null ? "" : value);
+  text = text.replace(/\b(?:live|panel|os)\/[\w./-]+/gi, " ");
+  text = text.replace(/\b[0-9a-f]{7,40}\b/gi, " ");
+  // Одиночный латинский status или id направления — тоже машинное имя.
+  // В этом экране латиница не является содержанием, поэтому убирается целиком.
+  text = text.replace(/\b[a-z][a-z0-9_.-]*\b/gi, " ");
+  text = text.replace(/[`*_#]+/g, " ").replace(/\s+/g, " ").trim();
+  return text || fallback || "без имени";
+}
+
+function dashboardSummary(value, fallback) {
+  const text = dashboardText(value, fallback);
+  return text.length > 180 ? text.slice(0, 177).trimEnd() + "…" : text;
+}
+
+function dashboardRowText(block, row) {
+  if (block.id === "done_in_window") {
+    const source = row.text || "";
+    const colon = source.indexOf(":");
+    return dashboardSummary(colon >= 0 ? source.slice(colon + 1) : source, "отчёт ноги");
+  }
+  if (block.id === "problems") return dashboardSummary(row.text, "проблема без текста");
+  return dashboardSummary(row.title, "без имени");
+}
+
+function dashboardHref(direction, block, row) {
+  const root = "#/" + encodeURIComponent(direction.id) + "/";
+  if (row.kind === "node") return root + "goals/" + encodeURIComponent(row.id);
+  if (block.id === "done_in_window") return root + "history";
+  if (row.kind === "task" || row.kind === "call") return root + "wave";
+  return null;
+}
+
+function dashboardRow(direction, block, row) {
+  const title = dashboardRowText(block, row);
+  if (block.id === "problems") {
+    const item = el("div", "dash-row dash-record");
+    const open = el("button", "dash-row-main", title);
+    const body = el("div", "dash-record-body",
+      dashboardText(row.body, "полный текст не записан"));
+    body.hidden = true;
+    open.addEventListener("click", () => { body.hidden = !body.hidden; });
+    item.appendChild(open);
+    item.appendChild(body);
+    return item;
+  }
+  const href = dashboardHref(direction, block, row);
+  const item = el(href ? "a" : "div", "dash-row", title);
+  if (href) item.href = href;
+  return item;
+}
+
+function dashboardActivity(block) {
+  const windowInfo = block.window || {};
+  const days = Number(windowInfo.days) || 30;
+  const counts = {};
+  for (const row of block.rows || []) {
+    if (row.date) counts[row.date] = (counts[row.date] || 0) + 1;
+  }
+  const chart = el("div", "dash-activity");
+  chart.setAttribute("role", "img");
+  chart.setAttribute("aria-label", "Активность ног за скользящие 30 дней");
+  const start = new Date(String(windowInfo.start || "") + "T00:00:00Z");
+  for (let i = 0; i < days; i += 1) {
+    const date = new Date(start.getTime() + i * 86400000).toISOString().slice(0, 10);
+    const count = counts[date] || 0;
+    const cell = el("span", count ? "dash-day active" : "dash-day");
+    cell.setAttribute("title", date + " · ног " + count);
+    chart.appendChild(cell);
+  }
+  return chart;
+}
+
+function dashboardBlock(direction, block) {
+  const signal = block.id === "running" ? " signal-running"
+    : block.id === "stalled" ? " signal-stalled"
+      : block.id === "problems" ? " signal-problems" : "";
+  const card = el("section", "dash-block" + signal);
+  const metric = el("div", "dash-metric");
+  metric.appendChild(el("div", "dash-label", dashboardText(block.label, "без имени")));
+  metric.appendChild(el("div", "dash-count", String(block.count || 0)));
+  // Полный `how` остаётся рядом в HTTP для машинной проверки; `view_how`
+  // формируется там же, где считается блок, поэтому экран не заводит вторую методику.
+  metric.appendChild(el("div", "dash-how",
+    dashboardText(block.view_how, "способ счёта не записан")));
+  card.appendChild(metric);
+
+  if (block.id === "done_in_window") {
+    card.appendChild(el("div", "dash-chart-label", "АКТИВНОСТЬ · 30 ДНЕЙ"));
+    card.appendChild(dashboardActivity(block));
+  }
+
+  const rows = block.rows || [];
+  const preview = el("div", "dash-preview");
+  for (const row of rows.slice(0, DASH_PREVIEW_LIMIT)) {
+    preview.appendChild(dashboardRow(direction, block, row));
+  }
+  if (!rows.length) preview.appendChild(el("div", "dash-zero", "ничего"));
+  card.appendChild(preview);
+
+  const more = el("div", "dash-more");
+  more.hidden = true;
+  for (const row of rows.slice(DASH_PREVIEW_LIMIT)) {
+    more.appendChild(dashboardRow(direction, block, row));
+  }
+  more.appendChild(el("div", block.gap ? "dash-note gap" : "dash-note",
+    block.gap ? "Источник этого блока не найден." : DASH_NOTE[block.id]));
+  card.appendChild(more);
+
+  const toggle = el("button", "dash-toggle", "подробнее");
+  toggle.addEventListener("click", () => {
+    more.hidden = !more.hidden;
+    toggle.textContent = more.hidden ? "подробнее" : "свернуть";
+  });
+  card.appendChild(toggle);
+  return card;
+}
+
+function dayWord(n) {
+  const abs = Math.abs(n) % 100;
+  const last = abs % 10;
+  if (abs > 10 && abs < 20) return n + " дней";
+  if (last === 1) return n + " день";
+  if (last >= 2 && last <= 4) return n + " дня";
+  return n + " дней";
+}
+
 function renderDashboard(direction, content) {
   const token = ++RENDER_TOKEN;
-  fetch("/api/section/" + encodeURIComponent(direction.id) + "/dashboard")
+  return fetch("/api/section/" + encodeURIComponent(direction.id) + "/dashboard")
     .then((response) => {
       if (!response.ok) throw new Error("HTTP " + response.status);
       return response.json();
@@ -220,18 +359,31 @@ function renderDashboard(direction, content) {
     .then((data) => {
       if (token !== RENDER_TOKEN) return;
       content.textContent = "";
-      renderNumbers(content, data.numbers);
-      if (data.ready.length > 0) {
-        for (const order of data.ready) renderOrderRow(content, order, true);
-      } else {
-        content.appendChild(el("div", "empty", "ЗАПУСКАТЬ НЕЧЕГО"));
+      const intro = el("div", "dash-intro");
+      intro.appendChild(el("div", "dash-name", "без имени"));
+      intro.appendChild(el("div", "dash-promise",
+        "Что идёт, что стоит, что сделано, какие есть проблемы и что дальше."));
+      const age = data.age || {};
+      const parts = [];
+      if (age.bet_days !== null && age.bet_days !== undefined) {
+        parts.push("работа идёт " + dayWord(age.bet_days));
       }
-      for (const order of data.other) renderOrderRow(content, order, false);
+      if (age.quiet_days !== null && age.quiet_days !== undefined) {
+        parts.push(age.quiet_days === 0
+          ? "последняя нога сегодня"
+          : "последняя нога " + dayWord(age.quiet_days) + " назад");
+      }
+      if (parts.length) {
+        const line = el("div", "dash-age", parts.join(" · "));
+        line.title = age.how || "";
+        intro.appendChild(line);
+      }
+      content.appendChild(intro);
+      const grid = el("div", "dash-grid");
+      for (const block of data.blocks || []) grid.appendChild(dashboardBlock(direction, block));
+      content.appendChild(grid);
       if (data.unread.length > 0) {
-        const names = data.unread.map((u) => u.file).join(", ");
-        content.appendChild(
-          el("div", "problem", "НЕ ПРОЧИТАЛОСЬ " + data.unread.length + " — " + names)
-        );
+        content.appendChild(el("div", "problem", "НЕ ПРОЧИТАЛОСЬ " + data.unread.length));
       }
     })
     .catch(() => {
