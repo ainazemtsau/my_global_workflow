@@ -12,4 +12,15 @@ route: maintenance
 MAINTENANCE отдельной сессией, когда владелец её запустит; `live/**` она не трогает. До неё каждая нога перед коммитом сверяет, что в индексе только её собственные пути.
 ## evidence
 Коммит `5aac4232` (`s-map-g-1d84-tunnel-out-of-the-wave-001`) содержит поля `ready_because` и `preserve_done`, написанные `s-work-g-1d84-householder-profile-owner-verdict-001`; его же сообщение — «Правки параллельной сессии в work/ не тронуты и не закоммичены». Разбор — history/2026-08-06-s-work-g-1d84-householder-profile-owner-verdict-001.md.
+## журнал
+2026-08-29 · **ВТОРОЙ СЛУЧАЙ, И КЛАСС НАБРАЛ ПОРОГ §7 KERNEL.** Коммит `2ee78932`
+(«шов закрыт светлым закрытием») забрал ТРИ незакоммиченных файла чужой ноги:
+`knowledge/how-the-householders-plan-is-built.md` (новая страница, 108 строк),
+правку `knowledge/householder-architecture-is-a-sparse-rule-table.md` (20 строк) и правку
+журнала `cards/d-householder-plan-shape-001.md` (8 строк). Всё это писала параллельная сессия
+ресёрча архитектуры, и уехало оно под сообщением про шов. **Данные целы, потерь нет** —
+перепроверено побайтово. Цена в другом: запись слова владельца «давай Б» теперь ищется по
+коммиту про совсем другое, а история ноги разорвана между двумя чужими коммитами.
+Это второе совпадение класса — порог §7 KERNEL для самостоятельного изменения OS взят.
+Нога ресёрча НЕ открывала MAINTENANCE REQUEST сама: это отдельная работа и чужой плей
 END_OF_FILE: live/indie-game-development/cards/i-parallel-session-commit-swallows-another-legs-edit-001.md
