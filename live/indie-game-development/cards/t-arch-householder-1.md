@@ -3,7 +3,7 @@ id: t-arch-householder-1
 _kind: task
 _bet: bet-g-5a7c-wave-8
 track: архитектура
-status: ready
+status: done
 goal: Выбран способ строить план хозяина так, чтобы решения, память и профиль легли
   расширением
 _pos: 142
@@ -28,4 +28,6 @@ _pos: 142
 **ЧТО ЧИТАТЬ ПЕРВЫМ:** оба контракта 29 августа, `knowledge/householder-architecture-is-a-sparse-rule-table.md`
 (её запрет снят, но её довод жив), `knowledge/core-is-extended-never-rewritten.md`,
 `knowledge/what-the-householders-memory-actually-does.md`.
+## журнал
+2026-08-29 · ресёрч вернулся: четыре способа с ценой в числах, один рекомендован, развилка вынесена владельцу · work/2026-08-29-research-householder-plan-architecture.md
 END_OF_FILE: live/indie-game-development/cards/t-arch-householder-1.md
