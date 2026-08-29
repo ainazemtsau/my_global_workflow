@@ -3,7 +3,7 @@ id: t-look-sound-1
 _kind: task
 _bet: bet-g-5a7c-wave-8
 track: вид-звук
-status: ready
+status: parked
 unblock_when: t-merge-1 закрыта
 goal: У хозяина есть кожа, в игре есть звук, нить видна в стоп-кадре
 _pos: 145

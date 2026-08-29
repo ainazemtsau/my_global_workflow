@@ -3,7 +3,7 @@ id: t-day-end-1
 _kind: task
 _bet: bet-g-5a7c-wave-8
 track: утро
-status: ready
+status: parked
 unblock_when: t-merge-1 закрыта
 goal: У утра есть начало, видимый срок и конец словом «успел» или «опоздал»
 _pos: 143
