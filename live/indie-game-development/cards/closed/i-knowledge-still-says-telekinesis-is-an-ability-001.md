@@ -40,4 +40,6 @@ _pos: 150
 редакции. Улика доедет до `review` сама — маршрут стоит.
 
 Закрывается, когда `review` вынесет решение по всем трём страницам знания.
-END_OF_FILE: live/indie-game-development/cards/i-knowledge-still-says-telekinesis-is-an-ability-001.md
+## журнал
+2026-08-29 · закрыта: страница переписана review-ногой 2026-08-29. Описание игры из неё снято целиком — его теперь несёт CHARTER §«Что это за игра», и двух описаний больше нет. Телекинез внесён в список отменённого его словом «выключить, не убирать», с указанием механизма the-old-game-becomes-a-knob-not-a-branch
+END_OF_FILE: live/indie-game-development/cards/closed/i-knowledge-still-says-telekinesis-is-an-ability-001.md
