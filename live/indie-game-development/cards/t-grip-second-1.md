@@ -3,7 +3,7 @@ id: t-grip-second-1
 _kind: task
 _bet: bet-g-5a7c-wave-6
 track: анимация
-status: ready
+status: done
 goal: Второй предмет заходит по рецепту, и цена этого замерена, а не оценена
 _pos: 133
 ---
@@ -45,6 +45,7 @@ _pos: 133
 зовёт.
 
 ## журнал
+2026-08-29 · ДОСТАВЛЕНА И СЛИТА: docs/results/c-exec-g-5a7c-grip-second-1-001.md несёт «Status: DELIVERED on dev», работа в main коммитом a12c9d29. Статус в состоянии направления отставал — тот же класс, что уже записан уликой i-fourteen-delivered-legs-had-no-card-001: слот закрывает в продукте, направление об этом не узнаёт
 2026-08-27 · заведена его словами про процесс анимации; замер показал, что в Art/Loot ровно один префаб и второй хват не пробовали · history/2026-08-27-s-shape-g-5a7c-wave-6-001.md
 
 END_OF_FILE: live/indie-game-development/cards/t-grip-second-1.md

@@ -3,7 +3,7 @@ id: t-reach-wire-1
 _kind: task
 _bet: bet-g-5a7c-wave-6
 track: провод
-status: ready
+status: done
 unblock_when: 'снято 2026-08-28: обе ожидаемые задачи закрыты'
 goal: Снимок хозяина несёт, ЗА КАКОЙ ВЕЩЬЮ он тянется, и в игре он её берёт
 _pos: 132
