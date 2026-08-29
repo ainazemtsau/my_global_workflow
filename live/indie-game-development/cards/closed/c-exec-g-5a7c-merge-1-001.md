@@ -12,4 +12,6 @@ description: Три слота сводятся в одно дерево, оно
 _pos: 151
 ---
 
-END_OF_FILE: live/indie-game-development/cards/c-exec-g-5a7c-merge-1-001.md
+## журнал
+2026-08-29 · закрыт: слито, компилируется, 640/640 и 220/220 зелёные, сборка 487.7 МБ у владельца, имён Telekinesis в коде ноль
+END_OF_FILE: live/indie-game-development/cards/closed/c-exec-g-5a7c-merge-1-001.md
