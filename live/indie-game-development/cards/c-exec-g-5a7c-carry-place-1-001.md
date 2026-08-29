@@ -2,7 +2,7 @@
 id: c-exec-g-5a7c-carry-place-1-001
 _kind: call
 _bet: bet-g-5a7c-wave-7
-track: перенос
+track: хозяин-носит
 for: t-carry-place-1
 play: work
 to: executor
