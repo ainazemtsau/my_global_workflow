@@ -1,8 +1,8 @@
 ---
 id: t-carry-place-1
 _kind: task
-_bet: bet-g-5a7c-wave-6
-track: анимация
+_bet: bet-g-5a7c-wave-7
+track: перенос
 status: ready
 goal: Хозяин несёт вещь на ходу и кладёт её, а не держит вечно
 unblock_when: t-grip-second-1 закрыта — рецепт хвата доказан на втором предмете
