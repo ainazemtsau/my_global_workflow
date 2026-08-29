@@ -3,7 +3,7 @@ id: t-thread-pull-1
 _kind: task
 _bet: bet-g-5a7c-wave-8
 track: нить
-status: ready
+status: parked
 unblock_when: t-merge-1 закрыта
 goal: Нить тянет непрерывно, движутся оба конца, и по полу больше не тащит
 _pos: 144
