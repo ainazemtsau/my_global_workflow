@@ -3,7 +3,7 @@ id: t-thread-body-1
 _kind: task
 _bet: bet-g-5a7c-wave-7
 track: нить
-status: ready
+status: delivered
 goal: Мышь получает скорость, нить цепляется за дом и тянет её, а после отпускания
   она летит
 _pos: 139

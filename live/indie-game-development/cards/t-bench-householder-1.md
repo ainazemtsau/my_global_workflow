@@ -3,7 +3,7 @@ id: t-bench-householder-1
 _kind: task
 _bet: bet-g-5a7c-wave-7
 track: стенд
-status: ready
+status: delivered
 goal: 'Стенд хозяина оживает: запускается, время крутится ручкой, и он замечает, что
   вещи нет на месте'
 _pos: 140
