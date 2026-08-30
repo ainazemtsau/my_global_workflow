@@ -3,7 +3,7 @@ id: i-live-cards-point-at-closed-and-empty-bets-001
 _kind: issue
 level: objective
 route: review
-status: open
+status: done
 _pos: 161
 evidence: history/2026-08-30-s-repair-g-5a7c-records-catch-up-001.md
 ---
@@ -36,5 +36,6 @@ evidence: history/2026-08-30-s-repair-g-5a7c-records-catch-up-001.md
 Каждая из двенадцати получает одно из трёх: перенос в новую ставку, закрытие, или явную парковку
 его словом. Пять `parked`-нарядов снимаются тем же его словом либо закрываются.
 ## журнал
+2026-08-30 · ЗАКРЫТА ОБЗОРОМ ВОСЬМОЙ ВОЛНЫ, И ЕЁ ДИАГНОЗ ПРИ ЭТОМ ИСПРАВЛЕН. Она называла причиной членство в ставке и оценивала беду в двенадцать задач; замер первой рукой показал, что причина механическая — поле _bet несло id ВОЛНЫ вместо id ЦЕЛИ, а из рабочего набора выпадали ВСЕ 28 живых задач, включая девять задач идущей волны. Сделано: всем живым задачам проставлено _bet: g-5a7c; четырнадцать задач со статусом done и обе застоявшиеся карточки ставок перенесены в closed/; пять нарядов со статусом parked, которого в схеме нет, закрыты; одиннадцать оставшихся задач приведены к схемным статусам, протухшие блокеры сняты. Слепота инструмента вынесена отдельной уликой i-bet-placement-names-the-wave-not-the-node-001 · history/2026-08-30-s-review-g-5a7c-wave-8-close-001.md
 2026-08-30 · карта нарезки перестала врать: путь ядра переехал в пробу, слоты разъехались с реальностью, девять карточек волн 6-7 закрыты по факту, три правила про опору спасены в знание · history/2026-08-30-s-repair-g-5a7c-records-catch-up-001.md
-END_OF_FILE: live/indie-game-development/cards/i-live-cards-point-at-closed-and-empty-bets-001.md
+END_OF_FILE: live/indie-game-development/cards/closed/i-live-cards-point-at-closed-and-empty-bets-001.md

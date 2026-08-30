@@ -6,7 +6,7 @@ track: словарь
 for: t-irritation-1
 play: work
 to: executor
-status: parked
+status: dropped
 issued: 2026-08-28
 repo: C:\projects\Unity\GasCoopGame_win-u1
 call: work/2026-08-28-call-irritation-1.md
@@ -31,4 +31,6 @@ _pos: 146
 
 Входные замеры наряда сняты писателем на `42f499d3` в день выдачи: секции `gauges` в боевом
 профиле нет; `activeResponseRules` две строки; `decisionHandlers` три; тестов 564.
-END_OF_FILE: live/indie-game-development/cards/c-exec-g-5a7c-irritation-1-001.md
+## журнал
+2026-08-30 · ЗАКРЫТ ЗАКРЫТИЕМ ВОСЬМОЙ ВОЛНЫ: parked вне схемы, ставка (шестая волна) закрыта. ЗАДАЧА t-irritation-1 ОСТАЁТСЯ ЖИВОЙ и теперь видна нарезке — состав девятой волны решает shape с владельцем. Текст наряда цел в work/2026-08-28-call-irritation-1.md и переиспользуется целиком; переписать в нём придётся только слот, потому что живая тройка слотов уже переставлялась однажды · history/2026-08-30-s-review-g-5a7c-wave-8-close-001.md
+END_OF_FILE: live/indie-game-development/cards/closed/c-exec-g-5a7c-irritation-1-001.md

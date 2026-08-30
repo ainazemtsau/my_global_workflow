@@ -1,8 +1,8 @@
 ---
 id: t-cargo-delta-1
 _kind: task
-_bet: bet-g-5a7c-wave-5
-status: parked
+_bet: g-5a7c
+status: open
 goal: 'Sparse pose/hold: неизменившийся груз не едет каждый tick, а gameplay-state
   живёт отдельно'
 _pos: 91
@@ -48,6 +48,7 @@ sequence/revision, late-join current-state catch-up, клиентским consum
 
 **ПОРЯДОК:** B0 runtime + repair A + beam → item-state lifecycle → B1 → C → D.
 ## журнал
+2026-08-30 · восьмая волна закрыта partial: машина построена и перемерена, а его рук на ней не было ни минуты; и найдено, почему нарезка не видела НИ ОДНОЙ живой задачи — поле _bet несло id волны вместо id цели, выпадали все 28 · history/2026-08-30-s-review-g-5a7c-wave-8-close-001.md
 2026-08-20 · B1 отделена от глобального gameplay-state — pose/hold остаётся sparse, lifecycle вынесен в отдельную blocked-задачу перед B1, мёртвые wire-поля не резервируются · history/2026-08-20-s-repair-g-5a7c-cargo-state-lane-001.md
 2026-08-20 · B0 опубликована как code/control checkpoint без изменения доставки; live counter/bytes и 60 секунд покоя остаются, continuation ждёт Unity-слот · history/2026-08-20-s-work-g-5a7c-cargo-delta-b0-checkpoint-001.md
 2026-08-20 · B0 запущена в отдельном worktree — registry, headless tests и теневые счётчики без изменения доставки и без Unity-слота · history/2026-08-20-s-work-g-5a7c-cargo-delta-b0-launch-001.md

@@ -1,7 +1,7 @@
 ---
 id: t-arch-householder-1
 _kind: task
-_bet: bet-g-5a7c-wave-8
+_bet: g-5a7c
 track: архитектура
 status: done
 goal: Выбран способ строить план хозяина так, чтобы решения, память и профиль легли
@@ -29,5 +29,6 @@ _pos: 142
 (её запрет снят, но её довод жив), `knowledge/core-is-extended-never-rewritten.md`,
 `knowledge/what-the-householders-memory-actually-does.md`.
 ## журнал
+2026-08-30 · закрыта закрытием восьмой волны: ресёрч вернулся 2026-08-29 четырьмя способами с ценой в числах и окупился ДО первой строки кода — переписал задачу про вещь не на месте с шестого ФАКТА на МЕТКУ, потому что факт стоил бы члена перечисления в одиннадцати файлах, а метка ни одного нового слова · history/2026-08-30-s-review-g-5a7c-wave-8-close-001.md
 2026-08-29 · ресёрч вернулся: четыре способа с ценой в числах, один рекомендован, развилка вынесена владельцу · work/2026-08-29-research-householder-plan-architecture.md
-END_OF_FILE: live/indie-game-development/cards/t-arch-householder-1.md
+END_OF_FILE: live/indie-game-development/cards/closed/t-arch-householder-1.md

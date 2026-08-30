@@ -1,9 +1,9 @@
 ---
 id: t-look-sound-1
 _kind: task
-_bet: bet-g-5a7c-wave-8
+_bet: g-5a7c
 track: вид-звук
-status: parked
+status: dropped
 unblock_when: t-merge-1 закрыта
 goal: У хозяина есть кожа, в игре есть звук, нить видна в стоп-кадре
 _pos: 145
@@ -22,4 +22,6 @@ _pos: 145
    СТОП и вопрос домой.
 5. **МУЛЬТЯШНЫЙ ВИД НЕ ПЕРЕДЕЛЫВАЕТСЯ.** Владелец назвал это направлением, а не задачей;
    в волну входит только то, что сегодня СЛОМАНО.
-END_OF_FILE: live/indie-game-development/cards/t-look-sound-1.md
+## журнал
+2026-08-30 · РАСПУЩЕНА ЗАКРЫТИЕМ ВОСЬМОЙ ВОЛНЫ вместе с полосой вид-звук, и содержание не потеряно: кожа — i-householder-prefab-lost-its-skin-materials-001 и i-householder-has-no-body-under-his-clothes-001, разрывы таза — i-victor-tears-at-the-pelvis, звук — i-there-is-no-sound-at-all; все четыре улики живые. Третий пункт «нить видна в стоп-кадре» стоял на нити, форма которой сейчас не решена. Текст наряда цел в work/2026-08-29-call-look-sound-1.md · history/2026-08-30-s-review-g-5a7c-wave-8-close-001.md
+END_OF_FILE: live/indie-game-development/cards/closed/t-look-sound-1.md

@@ -2,7 +2,7 @@
 id: c-exec-g-5a7c-cargo-delta-1-002
 _kind: call
 _bet: bet-g-5a7c-wave-5
-status: parked
+status: dropped
 to: executor
 for: t-cargo-delta-1
 play: work
@@ -37,7 +37,8 @@ B1 остаётся только pose/hold и ждёт B0 runtime, интегр�
 Global gameplay-state принадлежит
 `c-exec-g-5a7c-cargo-state-lifecycle-1-001` и не входит в room-interest scope.
 ## журнал
+2026-08-30 · ЗАКРЫТ ЗАКРЫТИЕМ ВОСЬМОЙ ВОЛНЫ. Стоял статусом parked, которого у наряда в схеме нет (ready|running|waiting|blocked|paused), а законный paused требует paused_by со словом владельца — слова нет. Его ставка, пятая волна, закрыта 2026-08-27, то есть открытый наряд на закрытой ставке это дрейф по G2. Содержание держит живая улика i-all-cargo-travels-every-tick-001; текст наряда цел в work/ · history/2026-08-30-s-review-g-5a7c-wave-8-close-001.md
 2026-08-20 · B0 continuation исправлен — direct-child measurement harness разрешён, cargo serialization отделена от aggregate per-peer datagrams, cargo-only UDP признана недоступной · history/2026-08-20-s-repair-g-5a7c-cargo-delta-b0-contract-001.md
 2026-08-20 · B1 отделена от глобального gameplay-state — pose/hold остаётся sparse, lifecycle вынесен в отдельную blocked-задачу перед B1, мёртвые wire-поля не резервируются · history/2026-08-20-s-repair-g-5a7c-cargo-state-lane-001.md
 2026-08-20 · B0 опубликована как code/control checkpoint без изменения доставки; live counter/bytes и 60 секунд покоя остаются, continuation ждёт Unity-слот · history/2026-08-20-s-work-g-5a7c-cargo-delta-b0-checkpoint-001.md
-END_OF_FILE: live/indie-game-development/cards/c-exec-g-5a7c-cargo-delta-1-002.md
+END_OF_FILE: live/indie-game-development/cards/closed/c-exec-g-5a7c-cargo-delta-1-002.md

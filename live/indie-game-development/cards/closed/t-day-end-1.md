@@ -1,9 +1,9 @@
 ---
 id: t-day-end-1
 _kind: task
-_bet: bet-g-5a7c-wave-8
+_bet: g-5a7c
 track: утро
-status: parked
+status: dropped
 unblock_when: t-merge-1 закрыта
 goal: У утра есть начало, видимый срок и конец словом «успел» или «опоздал»
 _pos: 143
@@ -24,4 +24,6 @@ _pos: 143
 
 **ЧЕГО НЕ ДЕЛАТЬ:** ни счёта, ни пяти утр, ни спешки, ни реакции хозяина на убывающее время —
 всё это следующие волны. Здесь только начало, срок и конец.
-END_OF_FILE: live/indie-game-development/cards/t-day-end-1.md
+## журнал
+2026-08-30 · РАСПУЩЕНА ЗАКРЫТИЕМ ВОСЬМОЙ ВОЛНЫ: её done_when требует «видимый СРОК», а владелец 2026-08-30 часы с ближайшей волны снял сам — «я пока не вижу прям жёсткой необходимости». Его настоящий конец захода другой и записан дословно в idea-owner-round-ends-when-he-leaves-001: все дела выполнены — он просто уходит, и часов это не требует. Текст наряда цел в work/2026-08-29-call-day-end-1.md · history/2026-08-30-s-review-g-5a7c-wave-8-close-001.md
+END_OF_FILE: live/indie-game-development/cards/closed/t-day-end-1.md
