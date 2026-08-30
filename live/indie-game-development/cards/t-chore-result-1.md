@@ -3,8 +3,7 @@ id: t-chore-result-1
 _kind: task
 _bet: bet-g-5a7c-wave-8
 track: ядро
-status: waiting
-unblock_when: t-thing-missing-1 закрыта
+status: ready
 goal: У дела есть результат-метка, и заменить-бросить-дожать получаются из формы даром
 _pos: 150
 ---
