@@ -10,7 +10,8 @@ play: work
 issued: 2026-08-27
 call: work/2026-08-27-call-reach-wire-1.md
 repo: C:\projects\Unity\GasCoopGame_win-u2
-description: Снимок хозяина несёт вещь, и в IntegratedHouse он её берёт на глазах у двух клиентов
+description: Снимок хозяина несёт вещь, и в IntegratedHouse он её берёт на глазах
+  у двух клиентов
 _pos: 141
 ---
 
@@ -26,7 +27,8 @@ _pos: 141
 Угадывать ближайший предмет по координате запрещено. `BodyReach.cs` принадлежит полосе `анимация`;
 эта нога его только зовёт.
 ## журнал
+2026-08-30 · закрыт ремонтом по факту: работа влита 8f679196 (2026-08-27), карточка сама писала «доставлено, слот WIN-U2 освобождён», а статус стоял delivered — шестая стухшая, которую сводка не назвала · history/2026-08-30-s-repair-g-5a7c-records-catch-up-001.md
 2026-08-27 · доставлен и слит; мина сериализатора снята ПОСЕВОМ — ручной сериализатор молча привёз null, сгенерированный FishNet довёз поле целым; границы полос выдержаны, ни один чужой файл не тронут · history/2026-08-27-s-work-g-5a7c-reach-wire-return-001.md
 2026-08-27 · выпущен при нарезке шестой волны, полосы стартуют одновременно · history/2026-08-27-s-shape-g-5a7c-wave-6-001.md
 
-END_OF_FILE: live/indie-game-development/cards/c-exec-g-5a7c-reach-wire-1-001.md
+END_OF_FILE: live/indie-game-development/cards/closed/c-exec-g-5a7c-reach-wire-1-001.md

@@ -14,4 +14,6 @@ description: Хозяин несёт вещь на ходу и кладёт её
 _pos: 149
 ---
 
-END_OF_FILE: live/indie-game-development/cards/c-exec-g-5a7c-carry-place-1-001.md
+## журнал
+2026-08-30 · закрыт ремонтом по факту: работа влита в main слиянием 378a3fc5, наряд числился ready · history/2026-08-30-s-repair-g-5a7c-records-catch-up-001.md
+END_OF_FILE: live/indie-game-development/cards/closed/c-exec-g-5a7c-carry-place-1-001.md

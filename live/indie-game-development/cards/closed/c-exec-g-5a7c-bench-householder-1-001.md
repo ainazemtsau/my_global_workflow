@@ -14,4 +14,6 @@ description: Стенд запускается, время крутится ру
 _pos: 150
 ---
 
-END_OF_FILE: live/indie-game-development/cards/c-exec-g-5a7c-bench-householder-1-001.md
+## журнал
+2026-08-30 · закрыт ремонтом по факту: работа влита в main слиянием bf7a2552, наряд числился ready · history/2026-08-30-s-repair-g-5a7c-records-catch-up-001.md
+END_OF_FILE: live/indie-game-development/cards/closed/c-exec-g-5a7c-bench-householder-1-001.md

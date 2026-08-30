@@ -20,6 +20,7 @@ _pos: 142
 Перед работой проверить ссылку тяжёлого арта (`tools/assets-link.ps1`): без неё Unity показывает
 розовое и НЕ выдаёт ошибки.
 ## журнал
+2026-08-30 · закрыт ремонтом по факту: работа шестой волны давно в main, наряд числился ready · history/2026-08-30-s-repair-g-5a7c-records-catch-up-001.md
 2026-08-27 · выпущен при нарезке шестой волны, полосы стартуют одновременно · history/2026-08-27-s-shape-g-5a7c-wave-6-001.md
 
-END_OF_FILE: live/indie-game-development/cards/c-exec-g-5a7c-grip-second-1-001.md
+END_OF_FILE: live/indie-game-development/cards/closed/c-exec-g-5a7c-grip-second-1-001.md

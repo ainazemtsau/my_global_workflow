@@ -3,7 +3,7 @@ id: bet-g-5a7c-wave-7
 _kind: bet
 node: g-5a7c
 opened: 2026-08-28
-status: active
+status: closed
 _pos: 131
 ---
 

@@ -3,7 +3,7 @@ id: t-thread-body-1
 _kind: task
 _bet: bet-g-5a7c-wave-7
 track: нить
-status: delivered
+status: done
 goal: Мышь получает скорость, нить цепляется за дом и тянет её, а после отпускания
   она летит
 _pos: 139
@@ -28,4 +28,6 @@ _pos: 139
    Это чинится ДО того, как владелец сядет крутить, иначе первый же его вывод ложный.
 6. **ЧИТ-КЛАВИША НА МЕСТЕ.** Свободный подъём не трогается — его прямое слово. Нить строится рядом.
 7. **ТЕСТЫ ЗЕЛЁНЫЕ.** `dotnet test tests/TunnelCrew.Core.Tests -c Release` целиком зелёный.
-END_OF_FILE: live/indie-game-development/cards/t-thread-body-1.md
+## журнал
+2026-08-30 · закрыта ремонтом по факту: статус delivered не входит в список законных статусов задачи (open|active|blocked|done), работа седьмой волны давно в main, слияние выполнено закрытой t-merge-1 · history/2026-08-30-s-repair-g-5a7c-records-catch-up-001.md
+END_OF_FILE: live/indie-game-development/cards/closed/t-thread-body-1.md
