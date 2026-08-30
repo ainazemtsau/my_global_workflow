@@ -6,7 +6,7 @@ track: полигон
 for: t-bench-place-1
 play: work
 to: executor
-status: running
+status: done
 issued: 2026-08-29
 repo: C:\projects\Unity\GasCoopGame_win-u1
 call: work/2026-08-29-call-bench-place-1.md
@@ -15,4 +15,6 @@ description: Прятать и двигать вещи без входа за м
 _pos: 154
 ---
 
-END_OF_FILE: live/indie-game-development/cards/c-exec-g-5a7c-bench-place-1-001.md
+## журнал
+2026-08-30 · Наряд исполнен и опубликован (01eff008); закрытие перевыведено направлением, см. журнал t-bench-place-1.
+END_OF_FILE: live/indie-game-development/cards/closed/c-exec-g-5a7c-bench-place-1-001.md
