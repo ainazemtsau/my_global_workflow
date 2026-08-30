@@ -3,8 +3,7 @@ id: t-thing-missing-1
 _kind: task
 _bet: bet-g-5a7c-wave-8
 track: ядро
-status: waiting
-unblock_when: t-priority-1 закрыта
+status: ready
 goal: Мир подаёт хозяину метки о вещах на входе тика, и граница ядра не ломается
 _pos: 147
 ---
