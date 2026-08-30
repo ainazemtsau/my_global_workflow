@@ -9,7 +9,7 @@ node: g-5a7c
 bet: bet-g-5a7c-wave-8
 track: дом
 for: t-furniture-plan-1
-repo: C:\projects\Unity\GasCoopGame_win-u4
+repo: C:\projects\Unity\GasCoopGame_win-u3
 basis: origin/main @ 782349bd — перемерить при старте
 
 ## ПРОЧИТАТЬ ДО ПЕРВОЙ СТРОКИ

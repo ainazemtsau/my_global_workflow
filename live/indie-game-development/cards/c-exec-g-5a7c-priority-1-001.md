@@ -8,7 +8,7 @@ play: work
 to: executor
 status: ready
 issued: 2026-08-29
-repo: C:\projects\Unity\GasCoopGame_win-u3
+repo: C:\projects\Unity\GasCoopGame_win-u2
 call: work/2026-08-29-call-priority-1.md
 description: Выбор реакции по важности; строка профиля может выиграть у встроенной; кандидаты выходят наружу
 _pos: 152

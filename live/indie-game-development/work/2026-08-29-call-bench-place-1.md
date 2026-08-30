@@ -9,7 +9,7 @@ node: g-5a7c
 bet: bet-g-5a7c-wave-8
 track: полигон
 for: t-bench-place-1
-repo: C:\projects\Unity\GasCoopGame_win-u2
+repo: C:\projects\Unity\GasCoopGame_win-u1
 basis: origin/main @ 782349bd — перемерить при старте
 
 ## ПРОЧИТАТЬ ДО ПЕРВОЙ СТРОКИ

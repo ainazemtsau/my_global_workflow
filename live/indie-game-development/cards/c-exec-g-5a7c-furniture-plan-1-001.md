@@ -8,7 +8,7 @@ play: work
 to: executor
 status: ready
 issued: 2026-08-29
-repo: C:\projects\Unity\GasCoopGame_win-u4
+repo: C:\projects\Unity\GasCoopGame_win-u3
 call: work/2026-08-29-call-furniture-plan-1.md
 description: Хозяин видит мебель и обходит её; вторая кружка и второй ключ заведены данными; обе правки одним коммитом
 _pos: 153
