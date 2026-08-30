@@ -3,7 +3,7 @@ id: t-thing-missing-1
 _kind: task
 _bet: bet-g-5a7c-wave-8
 track: ядро
-status: ready
+status: done
 goal: Мир подаёт хозяину метки о вещах на входе тика, и граница ядра не ломается
 _pos: 147
 ---
@@ -23,4 +23,7 @@ _pos: 147
 5. **ТЕСТ «ДОБАВИТЬ ИЛИ ПРАВИТЬ» НАЗВАН ЧИСЛОМ.** Сколько мест правки. Больше пяти — СТОП и вопрос
    домой.
 6. **ТЕСТЫ ЗЕЛЁНЫЕ.** Их 640 на `782349bd`.
-END_OF_FILE: live/indie-game-development/cards/t-thing-missing-1.md
+## журнал
+2026-08-30 · закрыта по факту: пять строк done_when перевыверены первой рукой на f6fc0918 (метки, а не член перечисления — 4aab1415 не тронул HouseholderConditionKind; надеваются на входе тика и снимаются перед памятью — Householder.cs:49 и :109; grep -ri cargo Core/Householder = 0 строк 0 файлов; число мест правки названо — 11; тесты 694/694 прогоном направления). Шестая строка «видно в окне наблюдения» разрезана самим нарядом по полосам: половина ядра отдана (HouseholderStepResult.WorldMarks), половина полосы полигон не начата — улика i-world-marks-have-nobody-to-draw-them-001 · history/2026-08-30-s-repair-g-5a7c-three-legs-behind-001.md
+2026-08-30 · записи догнали продукт: три ноги закрыты по факту с перевыводом done_when из байтов f6fc0918, две карточки заведены задним числом, замер ядра хозяина перемерен, два долга вынесены уликами · history/2026-08-30-s-repair-g-5a7c-three-legs-behind-001.md
+END_OF_FILE: live/indie-game-development/cards/closed/t-thing-missing-1.md
