@@ -5,7 +5,7 @@ _bet: bet-g-5a7c-wave-8
 for: t-chore-result-1
 play: work
 to: executor
-status: running
+status: done
 issued: 2026-08-30
 repo: C:\projects\Unity\GasCoopGame_win-u2
 call: work/2026-08-30-call-chore-result-1.md
@@ -15,4 +15,6 @@ description: Дело кончается меткой, а не таймером;
 _pos: 159
 ---
 
-END_OF_FILE: live/indie-game-development/cards/c-exec-g-5a7c-chore-result-1-001.md
+## журнал
+2026-08-30 · Наряд исполнен и опубликован (c7e926cf); закрытие перевыведено направлением, см. журнал t-chore-result-1.
+END_OF_FILE: live/indie-game-development/cards/closed/c-exec-g-5a7c-chore-result-1-001.md
