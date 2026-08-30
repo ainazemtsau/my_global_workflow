@@ -26,4 +26,40 @@ _pos: 157
 
 Исполнитель поступил ровно правильно, остановившись: наряд предписывал СТОП, и молчаливый переезд
 `HouseArrangement` — именно тот класс, ради которого стоп и написан.
+## уточнение
+**УТОЧНЕНИЕ 2026-08-30 ПОСЛЕ ВОЗРАЖЕНИЯ ИСПОЛНИТЕЛЯ: РЕШЕНИЕ ОТНОСИТСЯ К ДЕРЕВУ `slot/win-u3`,
+А НЕ К `main`.** Формулировка «в `Probe/`» без указания дерева была двусмысленной, и это дефект
+решения, а не исполнителя.
+
+**НА `main` (`f6fc0918`)** папки границы нет: `Assets/TunnelCrew/Probe/` там — стенды `ReachLab` и
+`ScaleTableau`, сборка `TunnelCrew.ReachLab` с `noEngineReferences: false` и ссылками на
+`Presentation`/`Settings`. Класть туда engine-free ядро действительно нельзя, и исполнитель прав.
+
+**НА `slot/win-u3` (`6579d5c0`)** — то есть в дереве, куда решение и адресовано, — перемерено
+направлением:
+
+- `TunnelCrew.Probe`: `noEngineReferences: **true**`, `references: ['TunnelCrew.Core']`. **Сборка
+  engine-free.** Возражение «`Probe/` не место для engine-free логики» на этой ветке ложно.
+- `Assets/TunnelCrew/Probe/Householder/AuthoritativeHouseholder.cs` существует: **хозяин УЖЕ живёт
+  в `Probe/`**, все 76 файлов ядра там. Возражение «пять файлов остаются в `Core/`» ложно: в `Core/`
+  ровно три файла.
+- `core/TunnelCrew.Core.csproj` И `core/TunnelCrew.Probe.csproj` — **проекта два**, оба в headless.
+  Возражение «вынос выбрасывает шесть файлов из headless» ложно.
+- `Bench/ReachLab` — 13 файлов: стенды он перенёс сам, `Probe/` больше не стенды.
+
+**ЗАМЕР «одна правка, 24 дня» ОТНОСИЛСЯ К ТРЁМ ПЕРЕНЕСЁННЫМ ФАЙЛАМ**, а не к папкам `Core/House`,
+`Core/Situations`, `Core/Householder`. Про папки такого не утверждалось.
+
+**«ГЕЙТА В `tools/` НЕТ» — ВЕРНО И ТАК ЗАДУМАНО.** Гейт — компилятор, а не скрипт: самописные
+сканеры как улика у нас запрещены. Его же отрицательный контроль (`CS0246` на тип из того же
+пространства имён) это и доказал.
+
+**АЛЬТЕРНАТИВА `Core/Probe/` ОТКЛОНЕНА.** Подпапка внутри закреплённой сборки не запрещает ничего:
+компилятор её не видит, остаётся соглашение об именах. Это ровно та замена механизма документом,
+против которой нога и затевалась, — и он сам уже построил настоящую вещь.
+
+**ЧТО ДЕЛАТЬ ТОЧНО:** шесть файлов с метами кладутся в `Assets/TunnelCrew/Probe/` по тем же
+подпапкам, где они лежали под `Core/`: `Probe/House/HouseArrangement.cs`,
+`Probe/Householder/HouseholderThingBelief*.cs`, `Probe/Householder/HouseholderThingReport.cs`,
+`Probe/Householder/HouseholderWhereabouts.cs`, `Probe/Situations/IHouseholderThingSightSource.cs`.
 END_OF_FILE: live/indie-game-development/cards/d-where-thing-belief-files-land-001.md
