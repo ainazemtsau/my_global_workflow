@@ -9,7 +9,8 @@ issued: 2026-08-30
 repo: C:\projects\Unity\GasCoopGame_win-u3
 call: work/2026-08-30-call-bedrock-boundary-1.md
 track: закрепление
-description: Пустая сборка под закреплённое, три файла-описания в неё, обратная ссылка
+description: Переименование Core->Probe отдельным коммитом с гейтом, затем пустой
+  Core под закреплённое, три файла в него, обратная ссылка не компилируется
   не компилируется — доказано в Unity и headless
 _pos: 158
 ---
