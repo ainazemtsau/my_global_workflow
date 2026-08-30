@@ -6,11 +6,12 @@ track: полигон
 for: t-bench-place-1
 play: work
 to: executor
-status: ready
+status: running
 issued: 2026-08-29
 repo: C:\projects\Unity\GasCoopGame_win-u1
 call: work/2026-08-29-call-bench-place-1.md
-description: Прятать и двигать вещи без входа за мышь; видно кандидатов и победителя; пауза, шаг, лог одной кнопкой
+description: Прятать и двигать вещи без входа за мышь; видно кандидатов и победителя;
+  пауза, шаг, лог одной кнопкой
 _pos: 154
 ---
 
