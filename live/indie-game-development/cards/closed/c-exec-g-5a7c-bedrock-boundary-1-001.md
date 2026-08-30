@@ -4,7 +4,7 @@ _kind: call
 for: t-bedrock-boundary-1
 play: work
 to: executor
-status: running
+status: done
 issued: 2026-08-30
 repo: C:\projects\Unity\GasCoopGame_win-u3
 call: work/2026-08-30-call-bedrock-boundary-1.md
@@ -17,5 +17,6 @@ started: 2026-08-30 · WIN-U3 CLAIMED, лиза c-exec-g-5a7c-bedrock-boundary-1
 ---
 
 ## журнал
+2026-08-30 · Наряд исполнен и опубликован (9426ca8c); закрытие перевыведено направлением, см. журнал t-bedrock-boundary-1.
 2026-08-30 · записи догнали продукт: три ноги закрыты по факту с перевыводом done_when из байтов f6fc0918, две карточки заведены задним числом, замер ядра хозяина перемерен, два долга вынесены уликами · history/2026-08-30-s-repair-g-5a7c-three-legs-behind-001.md
-END_OF_FILE: live/indie-game-development/cards/c-exec-g-5a7c-bedrock-boundary-1-001.md
+END_OF_FILE: live/indie-game-development/cards/closed/c-exec-g-5a7c-bedrock-boundary-1-001.md
