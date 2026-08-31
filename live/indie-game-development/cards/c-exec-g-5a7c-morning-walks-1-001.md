@@ -1,0 +1,22 @@
+---
+id: c-exec-g-5a7c-morning-walks-1-001
+_kind: call
+_bet: g-5a7c
+track: утро
+for: t-morning-content-1
+play: work
+to: executor
+status: ready
+issued: 2026-08-31
+slot: WIN-U4
+repo: C:\projects\Unity\GasCoopGame_win-u4
+call: work/2026-08-31-call-morning-walks-1.md
+basis: slot/win-u4
+description: Хозяин обходит четыре места по порядку на глазах у владельца; содержание
+  профиля расходное, код не трогать
+_pos: 175
+---
+
+## журнал
+2026-08-31 · владелец объявил сцену и содержимое профиля расходным полигоном — «всё можно менять», — и назвал свой порядок: сначала увидеть, что хозяин обходит четыре места, потом вмешиваться; наряд переписан на скорость, держащие дела разрешено резать, граница осталась только на коде · history/2026-08-31-s-work-g-5a7c-morning-walks-dispatch-001.md
+END_OF_FILE: live/indie-game-development/cards/c-exec-g-5a7c-morning-walks-1-001.md
