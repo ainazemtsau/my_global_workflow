@@ -3,7 +3,7 @@ id: t-close-safely-1
 _kind: task
 _bet: g-5a7c
 track: починка
-status: active
+status: done
 _pos: 163
 goal: dev двигается только на зелёном, замок берёт площадка, а сводка называет коммит
 ---

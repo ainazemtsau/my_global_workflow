@@ -3,7 +3,7 @@ id: t-gate-headless-1
 _kind: task
 _bet: g-5a7c
 track: починка
-status: active
+status: done
 _pos: 156
 goal: Гейт слияния гоняет 716 headless-тестов, и глухота сторожится классом, а не
   парой строк
