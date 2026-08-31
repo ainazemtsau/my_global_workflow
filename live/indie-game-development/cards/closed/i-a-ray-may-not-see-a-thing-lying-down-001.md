@@ -3,7 +3,7 @@ id: i-a-ray-may-not-see-a-thing-lying-down-001
 _kind: issue
 level: execution
 route: work
-status: open
+status: done
 _pos: 160
 evidence: docs/results/c-exec-g-5a7c-thing-belief-1-001.md
 ---
@@ -38,5 +38,7 @@ Unity, которого его слот не давал, а наряд запр�
 `work` — при первом же прогоне владельца на полигоне восьмой волны. Один взгляд на цвет шариков
 закрывает улику или превращает её в задачу.
 ## журнал
+2026-08-31 · УМЕРЛА. Её предмет снят ногой зрения: луч больше не упирается ни в саму вещь (исключение по личности), ни в пол под ней (высота берётся у цели). Mug и Tin can дают SEES IT 3 of 3.
+2026-08-31 · зрение и причины отказа закрыты по байтам опубликованного main: хозяин видит 2 из 14 вместо нуля, мышь за вещью остаётся невидимой по тесту, семь обработчиков перестали молчать одним словом, набор расширен строго аддитивно 9..12; headless 739 прогнан направлением; разблокирован полигон, ради которого волна открывалась · history/2026-08-31-s-work-g-5a7c-sight-and-refusal-close-001.md
 2026-08-30 · записи догнали продукт: три ноги закрыты по факту с перевыводом done_when из байтов f6fc0918, две карточки заведены задним числом, замер ядра хозяина перемерен, два долга вынесены уликами · history/2026-08-30-s-repair-g-5a7c-three-legs-behind-001.md
-END_OF_FILE: live/indie-game-development/cards/i-a-ray-may-not-see-a-thing-lying-down-001.md
+END_OF_FILE: live/indie-game-development/cards/closed/i-a-ray-may-not-see-a-thing-lying-down-001.md
