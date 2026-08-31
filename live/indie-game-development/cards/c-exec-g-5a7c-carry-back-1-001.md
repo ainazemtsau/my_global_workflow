@@ -1,0 +1,22 @@
+---
+id: c-exec-g-5a7c-carry-back-1-001
+_kind: call
+_bet: g-5a7c
+track: руки
+for: t-carry-back-1
+play: work
+to: executor
+status: ready
+issued: 2026-08-31
+slot: WIN-U2
+repo: C:\projects\Unity\GasCoopGame_win-u2
+call: work/2026-08-31-call-carry-back-1.md
+basis: 064ab568
+description: Хозяин доносит вещь до места теми же правилами, что водят его по дому;
+  круг вокруг незакрываемого дела размыкается
+_pos: 174
+---
+
+## журнал
+2026-08-31 · живой замер на верной базе нашёл настоящую причину: зрение чинено и он видит семь вещей, но распорядок не идёт, потому что дело закрывается только переноской, а запасной выход закрылся ровно тем, что хозяин прозрел; лекарство лежало в этой же волне невыданным и выдано в WIN-U2 · history/2026-08-31-s-work-g-5a7c-carry-dispatch-001.md
+END_OF_FILE: live/indie-game-development/cards/c-exec-g-5a7c-carry-back-1-001.md
