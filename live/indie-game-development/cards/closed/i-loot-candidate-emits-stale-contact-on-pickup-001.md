@@ -3,7 +3,7 @@ id: i-loot-candidate-emits-stale-contact-on-pickup-001
 _kind: issue
 level: execution
 route: work
-status: open
+status: done
 _pos: 85
 ---
 

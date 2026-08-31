@@ -3,7 +3,7 @@ id: i-a-seeded-mine-still-lives-in-dev-001
 _kind: issue
 level: execution
 route: work
-status: open
+status: done
 _pos: 164
 evidence: history/2026-08-31-s-repair-g-5a7c-publication-block-001.md
 ---
@@ -35,5 +35,7 @@ evidence: history/2026-08-31-s-repair-g-5a7c-publication-block-001.md
 `work` — снимается влитием `03cd6c87` в `dev`. Проверка: `git show dev:tests/TunnelCrew.Core.Tests/HouseholderDecisionPipelineTests.cs`
 строка 206 обязана нести `Is.EqualTo(2L)`. **Пока она несёт `3L`, публикация запрещена.**
 ## журнал
+2026-08-31 · УМЕРЛА. Перемерено на b22c00a2: HouseholderDecisionPipelineTests.cs:206 несёт правильное Is.EqualTo(2L). Возврат мины доехал в main.
+2026-08-31 · склад улик перемерен целиком: из 38 продуктовых улик 9 мертвы и 13 несут неверный замер, то есть протухло больше половины; самый ценный замер перевернул вывод направления — проёмы сузились сильнее, чем похудела капсула, и запас упал с 0.25 до 0.15 м; заодно найдены четыре карточки, лежащие в closed со статусом open · history/2026-08-31-s-work-g-5a7c-issue-revision-close-001.md
 2026-08-31 · СТОП прибора разобран: красное действительно предсуществует волне, но диагноз исполнителя неверен в трёх местах, а настоящий блокер другой — в dev лежит намеренно сломанный сторож глухоты, чей возврат остался на ветке слота · history/2026-08-31-s-repair-g-5a7c-publication-block-001.md
-END_OF_FILE: live/indie-game-development/cards/i-a-seeded-mine-still-lives-in-dev-001.md
+END_OF_FILE: live/indie-game-development/cards/closed/i-a-seeded-mine-still-lives-in-dev-001.md

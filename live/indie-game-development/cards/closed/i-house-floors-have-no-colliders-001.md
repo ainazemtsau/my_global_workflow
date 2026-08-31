@@ -3,7 +3,7 @@ id: i-house-floors-have-no-colliders-001
 _kind: issue
 level: execution
 route: review
-status: open
+status: done
 evidence: docs/results/c-exec-g-5a7c-cargophys-1-001.md
 _pos: 105
 ---
@@ -47,5 +47,7 @@ _pos: 105
 
 
 ## журнал
+2026-08-31 · УМЕРЛА. Перемерено на b22c00a2: HouseBuilder.cs:390 строит полы через Box(floors,...), :731 — CreatePrimitive(PrimitiveType.Cube), то есть с коллайдером.
+2026-08-31 · склад улик перемерен целиком: из 38 продуктовых улик 9 мертвы и 13 несут неверный замер, то есть протухло больше половины; самый ценный замер перевернул вывод направления — проёмы сузились сильнее, чем похудела капсула, и запас упал с 0.25 до 0.15 м; заодно найдены четыре карточки, лежащие в closed со статусом open · history/2026-08-31-s-work-g-5a7c-issue-revision-close-001.md
 2026-08-14 · заведена возвратом физики груза, передавшей факт вместо того, чтобы нарушить свои границы · history/2026-08-14-s-review-g-5a7c-wave-3-close-001.md
-END_OF_FILE: live/indie-game-development/cards/i-house-floors-have-no-colliders-001.md
+END_OF_FILE: live/indie-game-development/cards/closed/i-house-floors-have-no-colliders-001.md

@@ -3,7 +3,7 @@ id: i-house-plan-in-the-game-has-no-furniture-001
 _kind: issue
 level: execution
 route: work
-status: open
+status: done
 evidence: work/2026-08-29-research-householder-plan-architecture.md
 _pos: 153
 ---
@@ -39,4 +39,7 @@ _pos: 153
 **Первым шагом восьмой волны, до любой работы по §6 и по плану хозяина.** Две строки: пятый аргумент
 в `SceneHousePlan.cs:63` и объявленное тело в боевом тюнинге. Обе правки обязаны приехать вместе —
 поодиночке первая роняет хозяина, а вторая ничего не чинит.
-END_OF_FILE: live/indie-game-development/cards/i-house-plan-in-the-game-has-no-furniture-001.md
+## журнал
+2026-08-31 · УМЕРЛА. Перемерено на b22c00a2: SceneHousePlan.cs:86 передаёт furnishings и высоту потолка; HouseholderRouteController.cs:289 зовёт WithBody(body) боевым кодом. Обе половины дефекта закрыты.
+2026-08-31 · склад улик перемерен целиком: из 38 продуктовых улик 9 мертвы и 13 несут неверный замер, то есть протухло больше половины; самый ценный замер перевернул вывод направления — проёмы сузились сильнее, чем похудела капсула, и запас упал с 0.25 до 0.15 м; заодно найдены четыре карточки, лежащие в closed со статусом open · history/2026-08-31-s-work-g-5a7c-issue-revision-close-001.md
+END_OF_FILE: live/indie-game-development/cards/closed/i-house-plan-in-the-game-has-no-furniture-001.md

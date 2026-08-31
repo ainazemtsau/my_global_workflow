@@ -3,7 +3,7 @@ id: i-quiet-noise-is-unreachable-in-the-built-game-001
 _kind: issue
 level: product
 route: review
-status: open
+status: done
 evidence: history/2026-08-13-s-work-g-5a7c-handlers-1-close-001.md
 _pos: 90
 ---
@@ -57,5 +57,7 @@ _pos: 90
 волочение не заводить — запрет из закрытой `i-dragged-cargo-rustles-every-tick-001` держится.
 
 ## журнал
+2026-08-31 · УМЕРЛА. Перемерено на b22c00a2: CargoBodyContact.cs:180 пишет began:false, :302 считает mass*closingSpeed, пороги 3/15/35 на месте в GameRulesSettings.
+2026-08-31 · склад улик перемерен целиком: из 38 продуктовых улик 9 мертвы и 13 несут неверный замер, то есть протухло больше половины; самый ценный замер перевернул вывод направления — проёмы сузились сильнее, чем похудела капсула, и запас упал с 0.25 до 0.15 м; заодно найдены четыре карточки, лежащие в closed со статусом open · history/2026-08-31-s-work-g-5a7c-issue-revision-close-001.md
 2026-08-13 · заведена закрывающей ногой наряда на обработчики. Она же закрыла `i-dragged-cargo-rustles-every-tick-001`: её расчётная гипотеза «волочение даёт ШОРОХ, 83,4 Н, полоса 60…150» опровергнута замером в 22 раза, а решение «где чинить» переехало сюда · history/2026-08-13-s-work-g-5a7c-handlers-1-close-001.md
-END_OF_FILE: live/indie-game-development/cards/i-quiet-noise-is-unreachable-in-the-built-game-001.md
+END_OF_FILE: live/indie-game-development/cards/closed/i-quiet-noise-is-unreachable-in-the-built-game-001.md

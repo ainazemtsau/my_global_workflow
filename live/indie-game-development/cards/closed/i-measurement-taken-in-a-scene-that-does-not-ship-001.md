@@ -3,7 +3,7 @@ id: i-measurement-taken-in-a-scene-that-does-not-ship-001
 _kind: issue
 level: execution
 route: review
-status: open
+status: done
 evidence: docs/results/c-exec-g-5a7c-carrystrength-1-001.md
 _pos: 106
 ---
@@ -39,6 +39,8 @@ _pos: 106
 Unity-тестов — все три про то, что доказательство берётся не оттуда, откуда кажется.
 
 ## журнал
+2026-08-31 · УМЕРЛА. Перемерено на b22c00a2: IntegratedHouse.unity стоит в EditorBuildSettings, ближняя плоскость 0.01 читается из LocalPlayerSettings боевой камерой.
+2026-08-31 · склад улик перемерен целиком: из 38 продуктовых улик 9 мертвы и 13 несут неверный замер, то есть протухло больше половины; самый ценный замер перевернул вывод направления — проёмы сузились сильнее, чем похудела капсула, и запас упал с 0.25 до 0.15 м; заодно найдены четыре карточки, лежащие в closed со статусом open · history/2026-08-31-s-work-g-5a7c-issue-revision-close-001.md
 2026-08-28 · ЧЕТВЁРТЫЙ СЛУЧАЙ КЛАССА ЗАКРЫТ МАТЕРИАЛЬНО: играемая сцена вернулась в список сборки коммитом fd322155, и замер про число игроков впервые взят из НЕЁ, а не из похожего объекта. Класс от этого не закрывается, но случай усилил его формулировку: здесь проверка не просто опиралась на неигровой объект — неигровой объект ЗАМЕНИЛ игровой в списке сборки, и поэтому правильного места для замера не существовало вовсе · history/2026-08-28-s-work-g-5a7c-scene-restore-close-001.md
 2026-08-14 · заведена возвратом ноги силы переноски, признавшей ошибку своими словами; третье повторение класса за двое суток · history/2026-08-14-s-review-g-5a7c-wave-3-close-001.md
-END_OF_FILE: live/indie-game-development/cards/i-measurement-taken-in-a-scene-that-does-not-ship-001.md
+END_OF_FILE: live/indie-game-development/cards/closed/i-measurement-taken-in-a-scene-that-does-not-ship-001.md

@@ -3,7 +3,7 @@ id: i-alarm-binds-to-weight-class-not-to-the-thing-001
 _kind: issue
 level: execution
 route: work
-status: open
+status: done
 _pos: 86
 ---
 

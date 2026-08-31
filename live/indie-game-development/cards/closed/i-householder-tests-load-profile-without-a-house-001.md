@@ -3,7 +3,7 @@ id: i-householder-tests-load-profile-without-a-house-001
 _kind: issue
 level: execution
 route: work
-status: open
+status: done
 evidence: docs/results/c-exec-g-5a7c-handlers-2-001.md
 _pos: 103
 ---
@@ -26,5 +26,7 @@ _pos: 103
 Не воспроизводится — закрыть как неподтверждённое.
 
 ## журнал
+2026-08-31 · УМЕРЛА. Перемерено на b22c00a2: HouseholderLocalIncidentTests.cs:240 и :271 грузят профиль через TwoRoomPlan().
+2026-08-31 · склад улик перемерен целиком: из 38 продуктовых улик 9 мертвы и 13 несут неверный замер, то есть протухло больше половины; самый ценный замер перевернул вывод направления — проёмы сузились сильнее, чем похудела капсула, и запас упал с 0.25 до 0.15 м; заодно найдены четыре карточки, лежащие в closed со статусом open · history/2026-08-31-s-work-g-5a7c-issue-revision-close-001.md
 2026-08-14 · заведена возвратом обработчиков; связана с третьим дефектом ядра, потому что это один и тот же молчаливый провал · history/2026-08-14-s-review-g-5a7c-wave-3-close-001.md
-END_OF_FILE: live/indie-game-development/cards/i-householder-tests-load-profile-without-a-house-001.md
+END_OF_FILE: live/indie-game-development/cards/closed/i-householder-tests-load-profile-without-a-house-001.md

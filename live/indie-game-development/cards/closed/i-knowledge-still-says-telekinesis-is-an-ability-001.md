@@ -3,7 +3,7 @@ id: i-knowledge-still-says-telekinesis-is-an-ability-001
 _kind: issue
 level: direction
 route: review
-status: open
+status: done
 evidence: knowledge/the-game-changed-to-only-vermin-know.md
 _pos: 150
 ---

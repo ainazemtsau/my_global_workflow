@@ -38,5 +38,6 @@ evidence: work/2026-08-30-call-thing-missing-1.md
 Снимается кодом в `Assets/TunnelCrew/Editor/HouseholderObservation*`, читающим
 `HouseholderStepResult.WorldMarks`.
 ## журнал
+2026-08-31 · склад улик перемерен целиком: из 38 продуктовых улик 9 мертвы и 13 несут неверный замер, то есть протухло больше половины; самый ценный замер перевернул вывод направления — проёмы сузились сильнее, чем похудела капсула, и запас упал с 0.25 до 0.15 м; заодно найдены четыре карточки, лежащие в closed со статусом open · history/2026-08-31-s-work-g-5a7c-issue-revision-close-001.md
 2026-08-30 · записи догнали продукт: три ноги закрыты по факту с перевыводом done_when из байтов f6fc0918, две карточки заведены задним числом, замер ядра хозяина перемерен, два долга вынесены уликами · history/2026-08-30-s-repair-g-5a7c-three-legs-behind-001.md
 END_OF_FILE: live/indie-game-development/cards/i-world-marks-have-nobody-to-draw-them-001.md

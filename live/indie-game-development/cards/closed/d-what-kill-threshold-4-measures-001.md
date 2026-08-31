@@ -3,7 +3,7 @@ id: d-what-kill-threshold-4-measures-001
 _kind: decision
 about: bet-g-5a7c-wave-6
 track: ресёрч
-status: open
+status: dropped
 asks: владелец
 _pos: 5
 ---
