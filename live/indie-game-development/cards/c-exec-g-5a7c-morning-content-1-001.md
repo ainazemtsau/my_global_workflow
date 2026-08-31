@@ -1,0 +1,22 @@
+---
+id: c-exec-g-5a7c-morning-content-1-001
+_kind: call
+_bet: g-5a7c
+track: утро
+for: t-morning-content-1
+play: work
+to: executor
+status: ready
+issued: 2026-08-31
+slot: WIN-U4
+repo: C:\projects\Unity\GasCoopGame_win-u4
+call: work/2026-08-31-call-morning-content-1.md
+basis: b22c00a2
+description: 'Утро хозяина появляется строками профиля по его шести тактам: занятия
+  с фазами и первая работающая шкала'
+_pos: 172
+---
+
+## журнал
+2026-08-31 · утро разблокировано его словом «давай утро» и выдано в WIN-U4: содержание взято из его дословных шести тактов, а не сочинено, и разрыв, державший задачу — «сделал» на старте вместо прибытия — закрыт сегодняшней же ногой; блокировка защищала суждение, а остановила создание · history/2026-08-31-s-work-g-5a7c-morning-dispatch-001.md
+END_OF_FILE: live/indie-game-development/cards/c-exec-g-5a7c-morning-content-1-001.md
