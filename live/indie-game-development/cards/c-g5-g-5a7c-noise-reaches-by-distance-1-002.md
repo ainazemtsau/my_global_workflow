@@ -1,0 +1,21 @@
+---
+id: c-g5-g-5a7c-noise-reaches-by-distance-1-002
+_kind: call
+_bet: g-5a7c
+track: слух
+for: t-noise-reaches-by-distance-1
+play: review
+to: reviewer
+status: ready
+issued: 2026-09-01
+slot: WIN-U2
+repo: C:\projects\Unity\GasCoopGame_win-u2
+call: work/2026-09-01-g5-noise-reaches-by-distance-2.md
+basis: b4b010c1
+description: 'Второй заход: аренда передана ревью, живые замеры обязательны'
+_pos: 184
+---
+
+## журнал
+2026-09-01 · опровержение G5 разобрано первой рукой и не принято как опровержение: обходной путь настоящий, но зовётся ровно из двух мест, обоих редакторских, и старше самой ноги — он не отвечает на «слышит ли он», а пропускает вопрос; зато находка ценнее своего критерия, потому что кнопка лжёт о фиче, которой её проверяют, — и отдельно измерено, что стенд владельца честен; сам G5 не сделал ни одного живого замера, и виноват наряд: аренда слота осталась за сдавшейся сборкой · history/2026-09-01-s-work-g-5a7c-g5-verdict-001.md
+END_OF_FILE: live/indie-game-development/cards/c-g5-g-5a7c-noise-reaches-by-distance-1-002.md
