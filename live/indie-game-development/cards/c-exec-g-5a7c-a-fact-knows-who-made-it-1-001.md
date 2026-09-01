@@ -1,0 +1,21 @@
+---
+id: c-exec-g-5a7c-a-fact-knows-who-made-it-1-001
+_kind: call
+_bet: g-5a7c
+track: слух
+for: t-a-fact-knows-who-made-it-1
+play: work
+to: executor
+status: ready
+issued: 2026-09-01
+slot: WIN-U4
+repo: C:\projects\Unity\GasCoopGame_win-u4
+call: work/2026-09-01-answer-commit-blocked-tree-and-fix-the-freeze.md
+basis: slot/win-u4 после локального коммита слитого заблокированного дерева
+description: 'Хозяин не зависает: ни от собственного шума, ни от недостижимой точки'
+_pos: 181
+---
+
+## журнал
+2026-09-01 · сборка дерева нашла зависание, которого не было ни у одного из слитых кусков: петля самошума, честно объявленная мёртвой утром, воскресла к вечеру без конца — хозяин замер на 60 секунд с пустыми руками; под симптомом оказались две разные дыры, и вторая названа впервые: у ответа «признать по прибытии» нет иного выхода, кроме прибытия, поэтому недостижимая точка морозит навсегда; задача, стоявшая первой на вылет, стала держателем всего видимого и выдана в U4 · history/2026-09-01-s-work-g-5a7c-the-freeze-is-the-task-001.md
+END_OF_FILE: live/indie-game-development/cards/c-exec-g-5a7c-a-fact-knows-who-made-it-1-001.md
