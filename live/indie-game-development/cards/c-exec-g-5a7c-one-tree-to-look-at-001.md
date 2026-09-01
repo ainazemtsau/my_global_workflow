@@ -1,0 +1,21 @@
+---
+id: c-exec-g-5a7c-one-tree-to-look-at-001
+_kind: call
+_bet: g-5a7c
+track: утро
+for: t-morning-content-1
+play: work
+to: executor
+status: ready
+issued: 2026-09-01
+slot: WIN-U4
+repo: C:\projects\Unity\GasCoopGame_win-u4
+call: work/2026-09-01-call-one-tree-to-look-at.md
+basis: slot/win-u4 687b6b55 + main 0e72d610
+description: Одно дерево, где видно всё сразу, оставленное открытым для его глаза
+_pos: 180
+---
+
+## журнал
+2026-09-01 · свободный слот отдан не второй задаче волны, а глазу владельца — и по дороге вскрылось, что две задачи девятой волны неделю ждали взгляда на дерево, которого не существовало ни на одной ветке; запуск «своего шума» параллельно отклонён замером: обе задачи проходят через одну функцию и одну структуру, и SourceId оказался третьим подряд ингредиентом, который лежит и не читается; в ногу вложены баннер отменённой игры и карта, молчащая про стенд — обе улики сами просили попутную ногу · history/2026-09-01-s-work-g-5a7c-one-tree-dispatch-001.md
+END_OF_FILE: live/indie-game-development/cards/c-exec-g-5a7c-one-tree-to-look-at-001.md
