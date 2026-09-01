@@ -4,7 +4,6 @@ _kind: task
 _bet: g-5a7c
 track: утро давит
 status: active
-unblock_when: t-the-morning-has-a-reserve-1 даёт непрерывное давление P
 goal: Цена времени меняет выбор хозяина, и владелец видит это, спрятав одну вещь рано
   и поздно
 _pos: 194
@@ -46,5 +45,6 @@ _pos: 194
 `knowledge/what-the-time-pressure-spec-still-owes.md`.
 
 ## журнал
+2026-09-01 · РАЗБЛОКИРОВАНА. Оговорка, чтобы следующая нога не искала несуществующее: непрерывного P первая задача НЕ публикует — HouseholderTimeReserve несёт EtaSeconds, SlackSeconds, Mode, DeadlineSeconds, ComfortableBufferSeconds. P = clamp((B - S) / B, 0, 1) выводится из двух последних без остатка, поэтому задача разблокирована; но считать его придётся ей самой либо добавить рядом
 2026-09-01 · нарезана одиннадцатой волной; идёт второй и ждёт непрерывного P от первой задачи · history/2026-09-01-s-shape-g-5a7c-wave-11-001.md
 END_OF_FILE: live/indie-game-development/cards/t-the-same-prank-costs-differently-1.md
