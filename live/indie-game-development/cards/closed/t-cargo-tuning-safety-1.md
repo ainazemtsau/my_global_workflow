@@ -2,7 +2,7 @@
 id: t-cargo-tuning-safety-1
 _kind: task
 _bet: g-5a7c
-status: open
+status: dropped
 goal: Cargo physics tuning безопасно доезжает до Unity, а число substeps структурно
   ограничено
 _pos: 93
@@ -19,6 +19,7 @@ _pos: 93
 
 **BOUNDARY:** serialized tuning остаётся live; normalization владеет одна `GameRulesSettings → typed immutable carrier` граница, а доказательный actual-loop/throw seam используется production path, не test-only обходом. Dimensions/mass, network/lifecycle, scenes/art/screenshots и running Repair A не входят.
 ## журнал
+2026-09-02 · Задача не допущена в волну 11 и не входит в текущий concept basis; технические улики остаются в закрытой карточке, history и существующих issue, а будущая shape обязана вывести потребность заново. · history/2026-09-02-s-repair-g-5a7c-hot-state-cleanup-001.md
 2026-08-30 · восьмая волна закрыта partial: машина построена и перемерена, а его рук на ней не было ни минуты; и найдено, почему нарезка не видела НИ ОДНОЙ живой задачи — поле _bet несло id волны вместо id цели, выпадали все 28 · history/2026-08-30-s-review-g-5a7c-wave-8-close-001.md
 2026-08-20 · cargo physics tuning оформлен отдельной blocked-задачей после Repair A — одна граница, bounded substeps и production-used rollback seam · history/2026-08-20-s-work-g-5a7c-cargo-tuning-safety-001.md
-END_OF_FILE: live/indie-game-development/cards/t-cargo-tuning-safety-1.md
+END_OF_FILE: live/indie-game-development/cards/closed/t-cargo-tuning-safety-1.md

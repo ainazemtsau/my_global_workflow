@@ -2,7 +2,7 @@
 id: t-cargo-state-lifecycle-1
 _kind: task
 _bet: g-5a7c
-status: open
+status: dropped
 goal: Каждый клиент наблюдает gameplay-state предмета через отдельный от pose/hold
   lifecycle
 _pos: 92
@@ -36,6 +36,7 @@ _pos: 92
 глобальный interest и отсутствие мёртвых wire-полей. Новое игровое содержание не изобретается:
 мигрируются только состояния, реально существующие на fresh basis.
 ## журнал
+2026-09-02 · Задача не допущена в волну 11 и не входит в текущий concept basis; технические улики остаются в закрытой карточке, history и существующих issue, а будущая shape обязана вывести потребность заново. · history/2026-09-02-s-repair-g-5a7c-hot-state-cleanup-001.md
 2026-08-30 · восьмая волна закрыта partial: машина построена и перемерена, а его рук на ней не было ни минуты; и найдено, почему нарезка не видела НИ ОДНОЙ живой задачи — поле _bet несло id волны вместо id цели, выпадали все 28 · history/2026-08-30-s-review-g-5a7c-wave-8-close-001.md
 2026-08-20 · B1 отделена от глобального gameplay-state — pose/hold остаётся sparse, lifecycle вынесен в отдельную blocked-задачу перед B1, мёртвые wire-поля не резервируются · history/2026-08-20-s-repair-g-5a7c-cargo-state-lane-001.md
-END_OF_FILE: live/indie-game-development/cards/t-cargo-state-lifecycle-1.md
+END_OF_FILE: live/indie-game-development/cards/closed/t-cargo-state-lifecycle-1.md
