@@ -19,6 +19,7 @@ import argparse
 import json
 import os
 import re
+import shlex
 import subprocess
 import sys
 import time
@@ -346,6 +347,10 @@ POS_KEY = SERVICE + "pos"
 ORDERED = frozenset(k for _, k in _fmt.SECTIONS) | {"node"}
 JOURNAL = "журнал"
 JOURNAL_CEILING = 20
+# Обычной ноге нужна текущая карточка, а не весь след долгоживущего узла.
+# Канонический блок остаётся полным и append-only; это только предел несохранённой
+# reader-view, которую `context` заново строит из тех же байтов при каждом вызове.
+CONTEXT_JOURNAL_LIMIT = 5
 # Потолок журнала осмыслен только там, где у карточки есть выход из горячего
 # состояния своей же командой: `card close` уносит её в closed/, и журнал
 # перестаёт расти. У `node` и `bet` такого выхода нет — их закрывает `review`,
@@ -491,6 +496,14 @@ def cmd_card_show(a) -> int:
     direction = resolve_direction(a.direction)
     path, is_closed = locate(direction, a.id, a.cards)
     head, blocks, order = read_card(path)
+    if a.full_journal:
+        if JOURNAL not in blocks:
+            raise Stop(f"{a.id}: блока {JOURNAL!r} нет")
+        text = chr(10).join(blocks[JOURNAL])
+        sys.stdout.write(text)
+        if text and not text.endswith(chr(10)):
+            sys.stdout.write(chr(10))
+        return 0
     if is_closed and not a.json:
         print(f"[закрытая, лежит в {CLOSED}/]")
     if a.json:
@@ -969,6 +982,40 @@ def words_in(p: Path) -> int:
     return len(p.read_text(encoding="utf-8").split())
 
 
+def context_card_payload(path: Path, blocks: dict) -> tuple[str, dict]:
+    """Текущая карточка с bounded-журналом; источник не переписывается.
+
+    Карточка уже разобрана штатным reader. Для payload берём её исходный текст
+    дословно и, только если журнал длиннее лимита, исключаем более ранние строки
+    между структурными метками `## журнал` и следующим блоком/trailer. Сам счёт
+    идёт по контракту журнала: одна непустая строка = одна запись, новое сверху.
+    """
+    source = path.read_text(encoding="utf-8")
+    entries = [line for line in blocks.get(JOURNAL, []) if line.strip()]
+    total = len(entries)
+    shown = min(total, CONTEXT_JOURNAL_LIMIT)
+    hidden = total - shown
+    journal = {"total": total, "shown": shown, "hidden": hidden}
+    if not hidden:
+        return source, journal
+
+    lines = source.splitlines(keepends=True)
+    marker = next((i for i, line in enumerate(lines)
+                   if line.rstrip("\r\n") == f"## {JOURNAL}"), None)
+    if marker is None:
+        raise Stop(f"{path.name}: reader нашёл блок {JOURNAL!r}, а его метки в файле нет")
+    end = next((i for i in range(marker + 1, len(lines))
+                if lines[i].startswith("## ") or lines[i].startswith("END_OF_FILE:")),
+               len(lines))
+    latest = []
+    for line in lines[marker + 1:end]:
+        if line.strip():
+            latest.append(line)
+            if len(latest) == CONTEXT_JOURNAL_LIMIT:
+                break
+    return "".join(lines[:marker + 1] + latest + lines[end:]), journal
+
+
 def cmd_context(a) -> int:
     """Рабочий набор ноги: что читать и что ждёт слова владельца.
 
@@ -1067,16 +1114,36 @@ def cmd_context(a) -> int:
     for cid in rest:
         k = str(cards[cid][1].get(KIND_KEY))
         by_kind[k] = by_kind.get(k, 0) + 1
-    excluded = {"ids": sorted(rest), "words": sum(words_in(cards[c][0]) for c in rest),
-                "by_kind": dict(sorted(by_kind.items()))}
+    excluded_words = sum(words_in(cards[c][0]) for c in rest)
+    excluded = {"ids": sorted(rest), "words": excluded_words,
+                "source_words": excluded_words, "by_kind": dict(sorted(by_kind.items()))}
 
-    chosen_set = [{"id": "NOW", "path": rel_path(now_file), "words": words_in(now_file),
-                   "why": "указатель направления"}]
-    chosen_set += [{"id": cid, "path": rel_path(cards[cid][0]), "words": words_in(cards[cid][0]),
-                    "why": why} for cid, why in sorted(chosen.items())]
+    now_content = now_file.read_text(encoding="utf-8")
+    chosen_set = [{"id": "NOW", "path": rel_path(now_file),
+                   "words": len(now_content.split()), "source_words": words_in(now_file),
+                   "why": "указатель направления", "content": now_content,
+                   "journal": {"total": 0, "shown": 0, "hidden": 0}}]
+    for cid, why in sorted(chosen.items()):
+        path, _, blocks = cards[cid]
+        content, journal = context_card_payload(path, blocks)
+        row = {"id": cid, "path": rel_path(path), "words": len(content.split()),
+               "source_words": words_in(path), "why": why, "content": content,
+               "journal": journal}
+        if journal["hidden"]:
+            argv = ["uv", "run", "--locked", "python", "osctl.py", "card", "show",
+                    "--id", cid, "--full-journal", "--direction", direction]
+            if a.cards:
+                argv += ["--cards", a.cards]
+            display = subprocess.list2cmdline(argv) if os.name == "nt" else shlex.join(argv)
+            row["full_journal"] = {"argv": argv, "display": display}
+        chosen_set.append(row)
+    word_counts = {
+        "default_payload": sum(x["words"] for x in chosen_set),
+        "full_sources": sum(x["source_words"] for x in chosen_set),
+    }
     out = {"direction": direction, "bet": now.get("bet"), "target": target,
            "set": chosen_set, "waiting": waiting, "issues_by_route": issues,
-           "excluded": excluded}
+           "word_counts": word_counts, "excluded": excluded}
     if a.json:
         print(json.dumps(out, ensure_ascii=False, indent=2, default=str))
         return 0
@@ -1096,14 +1163,24 @@ def cmd_context(a) -> int:
             print(f"  {route} ({len(rows)})")
             for x in rows:
                 print(f"    {x['id']} · {x['text']}")
-    total = sum(x["words"] for x in chosen_set)
-    print(f"{chr(10)}РАБОЧИЙ НАБОР ({len(chosen_set)} файлов, {total} слов)")
+    print(f"{chr(10)}РАБОЧИЙ НАБОР ({len(chosen_set)} файлов, "
+          f"default payload {word_counts['default_payload']} слов; "
+          f"полные источники {word_counts['full_sources']} слов)")
     for x in chosen_set:
-        print(f"  {x['path']:<58} {x['words']:>6}  {x['why']}")
+        print(f"  {x['path']:<58} {x['words']:>6}/{x['source_words']:<6}  {x['why']}")
+        if x["journal"]["hidden"]:
+            print(f"    журнал: показано {x['journal']['shown']} из {x['journal']['total']}; "
+                  f"скрыто более ранних записей: {x['journal']['hidden']}")
+            print(f"    полный canonical журнал (opt-in): {x['full_journal']['display']}")
     kinds = " · ".join(f"{k} {n}" for k, n in excluded["by_kind"].items())
-    print(f"{chr(10)}НЕ ВКЛЮЧЕНО: {len(rest)} карточек, {excluded['words']} слов — {kinds}")
+    print(f"{chr(10)}НЕ ВКЛЮЧЕНО: {len(rest)} карточек, "
+          f"{excluded['source_words']} слов полных источников — {kinds}")
     print(f"  дочитать: uv run --locked python osctl.py card show --id <id> · "
           f"uv run --locked python osctl.py find --text <текст>")
+    print(f"{chr(10)}PAYLOAD РАБОЧЕГО НАБОРА")
+    for x in chosen_set:
+        print(f"{chr(10)}===== {x['path']} =====")
+        print(x["content"].rstrip())
     return 0
 
 
@@ -1264,7 +1341,11 @@ def build_parser() -> argparse.ArgumentParser:
         return q
 
     q = common(card.add_parser("show", help="показать карточку; смотрит и в закрытых"))
-    q.add_argument("--json", action="store_true"); q.set_defaults(fn=cmd_card_show)
+    view = q.add_mutually_exclusive_group()
+    view.add_argument("--json", action="store_true")
+    view.add_argument("--full-journal", dest="full_journal", action="store_true",
+                      help="сознательно прочитать весь canonical append-only журнал")
+    q.set_defaults(fn=cmd_card_show)
 
     q = common(card.add_parser("new", help="завести карточку; человеческие поля обязательны"))
     q.add_argument("--kind", required=True, help=f"один из {list(CARD_KINDS)}")

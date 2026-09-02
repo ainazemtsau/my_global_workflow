@@ -10,11 +10,13 @@
 карточками (`_bet`, `node`, `_parent`, `for`, `about`) уже есть — ими просто
 никто не пользовался при чтении.
 
-Два закона этой команды, и оба проверяются ниже:
+Законы этой команды проверяются ниже:
   1. Набор строит КОМАНДА ПО ССЫЛКАМ, а не модель по вкусу.
   2. Ничто не пропадает молча: включённое плюс исключённое = все карточки,
      и остаток назван вслух. Именно молчаливая недостача — тот класс, который
      эта переделка ловит третий раз (`panel/test_readers.py`).
+  3. Обычный payload несёт не больше пяти новых строк журнала; полный
+     append-only журнал остаётся в той же карточке и читается только opt-in.
 
     python panel/test_context.py
 """
@@ -61,8 +63,13 @@ def build(tmp):
     cards.mkdir()
     (cards / "closed").mkdir()
     card(cards, "g-root", {"id": "g-root", "_kind": "node", "label": "корень"})
+    long_journal = "\n".join(
+        f"2026-08-{i:02d} · journal-entry-{i:02d} · history/s-{i:02d}.md"
+        for i in range(12, 0, -1)
+    )
     card(cards, "g-our", {"id": "g-our", "_kind": "node", "_parent": "g-root",
-                          "label": "наша цель"}, [("goal", "то, ради чего работаем")])
+                          "label": "наша цель"},
+         [("goal", "то, ради чего работаем"), ("журнал", long_journal)])
     card(cards, "g-other", {"id": "g-other", "_kind": "node", "_parent": "g-root",
                             "label": "чужая цель"}, [("goal", "к делу не относится")])
     card(cards, "bet-g-our", {"id": "bet-g-our", "_kind": "bet", "node": "g-our"},
@@ -102,6 +109,8 @@ def main():
     tmp = Path(tempfile.mkdtemp(prefix="osctl-context-"))
     cards = build(tmp)
     C = ["--direction", D, "--cards", str(cards), "--live-root", str(tmp)]
+    canonical = cards / "g-our.md"
+    canonical_before = canonical.read_bytes()
     before = {p: p.read_bytes() for p in ROOT.joinpath("live").rglob("*.md")}
 
     r = run("context", "--for", "t-1", *C, "--json")
@@ -132,6 +141,41 @@ def main():
     check(not (excl & card_ids), "и ни одна не попала в оба списка разом")
     check(ctx["excluded"]["words"] > 0 and ctx["excluded"]["by_kind"],
           f"остаток назван числом и по видам: {ctx['excluded']['by_kind']}")
+
+    # --- Закон 3: context вручает компактный payload, canonical журнал — opt-in
+    our = next(x for x in ctx["set"] if x["id"] == "g-our")
+    payload = our.get("content", "")
+    journal = our.get("journal", {})
+    shown = [line for line in payload.splitlines() if "journal-entry-" in line]
+    check(len(shown) == 5, f"по умолчанию показано ровно пять новых записей ({len(shown)})")
+    check("journal-entry-12" in payload and "journal-entry-08" in payload,
+          "в payload именно пять НОВЫХ записей")
+    check("journal-entry-07" not in payload and "journal-entry-01" not in payload,
+          "более ранние записи в обычный payload не попали")
+    check(journal.get("total") == 12 and journal.get("shown") == 5
+          and journal.get("hidden") == 7,
+          f"точный счёт журнала: {journal}")
+    opt_in = our.get("full_journal", {})
+    opt_argv = opt_in.get("argv", [])
+    check("--full-journal" in opt_argv and "g-our" in opt_argv
+          and opt_argv[-2:] == ["--cards", str(cards)],
+          "opt-in несёт id и тот же canonical cards root")
+    counts = ctx.get("word_counts", {})
+    check(counts.get("default_payload", 0) < counts.get("full_sources", 0),
+          f"счётчик разделяет предъявленный payload и полные источники: {counts}")
+    check(our.get("words") == len(payload.split())
+          and our.get("source_words", 0) > our.get("words", 0),
+          "слова строки набора считают предъявленный payload, а source назван отдельно")
+
+    osctl_at = opt_argv.index("osctl.py") if "osctl.py" in opt_argv else -1
+    full = run(*opt_argv[osctl_at + 1:]) if osctl_at >= 0 else run("нет-такой-команды")
+    check(full.returncode == 0, f"opt-in полного журнала отработал: {full.stderr[:120]}")
+    check(full.stdout.count("journal-entry-") == 12,
+          "opt-in возвращает все двенадцать канонических записей")
+    check(full.stdout.find("journal-entry-12") < full.stdout.find("journal-entry-01"),
+          "полный журнал сохраняет канонический порядок — новое сверху")
+    check(canonical.read_bytes() == canonical_before,
+          "default и full reader не изменили каноническую карточку ни на байт")
 
     # --- Ждёт слова владельца: по привязке, а не по всем подряд
     waiting = {x["id"] for x in ctx["waiting"]}
@@ -168,6 +212,10 @@ def main():
     check("не включено" in r2.stdout.lower(), "и вслух называет, что осталось за бортом")
     check("ядро просит переработки" in r2.stdout,
           "и печатает улики маршрутами словами, а не только в json")
+    check("journal-entry-12" in r2.stdout and "journal-entry-07" not in r2.stdout,
+          "человеческий context печатает тот же компактный payload")
+    check("скрыто более ранних записей: 7" in r2.stdout.lower(),
+          "человеческий context вслух называет точное число скрытых записей")
 
     # --- Отказы
     r3 = run("context", "--for", "нет-такой", *C)

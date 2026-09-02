@@ -111,8 +111,11 @@ def scan_commands(body):
             else:
                 known = verbs[verb]
             tail = line[m.end():]
-            nxt = tail.find("osctl")
-            for f in FLAG.finditer(tail if nxt < 0 else tail[:nxt]):
+            # Flags belong to this command's code span, never to later prose or
+            # a second shorthand command on the same Markdown line.
+            stops = [x for x in (tail.find("osctl"), tail.find("`")) if x >= 0]
+            end = min(stops) if stops else len(tail)
+            for f in FLAG.finditer(tail[:end]):
                 if f.group(0) not in known:
                     bad.append((n, f"osctl {noun} {verb or ''}: ключа {f.group(0)} нет"))
     return bad
@@ -144,6 +147,8 @@ def case_commands():
            "osctl question add --text x")
     check(scan_commands("osctl card set --evidence x"),
           "команды: контроль — несуществующий ключ у существующей команды ловится")
+    check(not scan_commands("`osctl context --for x`; then `osctl card show --id x --full-journal`"),
+          "команды: соседний card show проверяется отдельно от context")
 
 
 def case_paths():

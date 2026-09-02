@@ -13,7 +13,7 @@ The OS runs the owner's long-term directions through short AI legs over durable 
 
 ## 2. Session contract
 
-1. **OPEN** — input is a CALL or a plain owner message. Assemble the working set with `uv run --locked python osctl.py context --for <target>`: it reads by card links, not by folder, indexes live issues under the play their `route` names, and names what it left out — reading `cards/` whole is 6× the set. Add the play and named evidence. Whatever it lists as waiting for the owner goes to him in plain words BEFORE the first play step; he may defer, and a deferred item stays. Resolve plain input from state:
+1. **OPEN** — input is a CALL or a plain owner message. Assemble the working set with `uv run --locked python osctl.py context --for <target>`: it hands over card payloads by links, limits each journal to its five newest entries with the exact hidden count, indexes live issues under the play their `route` names, and names what it left out. Read that payload, not the listed canonical card again; a specific historical question opts in with `card show --id <id> --full-journal`. Add the play and named evidence. Whatever context lists as waiting for the owner goes to him in plain words BEFORE the first play step; he may defer, and a deferred item stays. Resolve plain input from state:
    - `начинаем день`, a daily status request, or continued discussion in today's day chat → `day`;
    - mission/success change → `frame`; roadmap/future-goal change → `map`; active-objective close, replacement or kill → `review`; a parked `outcome_kind: specification` → owner-authority `work` → fresh `converge-verify` → narrow `review`; ordinary activation → readiness router: passing `converge-verify` RESULT → `shape`; recorded `triage: <type> — converge OFF — because <reason>` copied into shape `play_check` → `shape`; a second-FAIL ceiling decision in his words → its chosen branch, `shape` on what is answered included; otherwise → `converge`;
    - task, lane, launch/loss receipt or recurring work → its `work` CALL; contradiction → `repair`;
@@ -27,6 +27,8 @@ The OS runs the owner's long-term directions through short AI legs over durable 
    - `decision` — owner question with 2–3 options and a recommendation;
    - `knowledge` — record one settled durable fact where every load-bearing line cites his exact words or a resolvable artifact and `read_by` names a real consumer. What the leg reasoned out stays a capture. The converge family only proposes; review merges and retires, day marks stale.
 3. **CLOSE** — emit RESULT (§4) as the leg's final message only: readable summary, then one fenced RESULT. It ends the leg; the writer applies/commits `state_changes`. A checkpoint issues a continuation CALL. A day chat may accept a later owner turn only after the saved transaction completes; `закрываем день` ends it. Read-only day turns emit no RESULT.
+
+**Full-journal opt-in.** In OPEN, `card show --id <id> --full-journal` means the runnable `uv run --locked python osctl.py card show --id <id> --full-journal`.
 
 **Orientation header.** Ordinary reply:
 `📍 <direction>[/<lane>]/<node>/<task> — <play>: <step> | нужно от тебя: <ничего | вопрос>`.
