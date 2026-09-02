@@ -6,7 +6,7 @@ track: стенд
 for: t-one-lab-he-can-set-up-himself-1
 play: work
 to: executor
-status: ready
+status: done
 issued: 2026-09-01
 slot: WIN-U2
 repo: C:\projects\Unity\GasCoopGame_win-u2
@@ -18,5 +18,6 @@ _pos: 209
 ---
 
 ## журнал
+2026-09-02 · статус выправлен направлением: карточка стояла ready при закрытой и доставленной задаче (09cb3c9e). Наряд исчерпан; продолжение стенда вторым набором идёт отдельным нарядом и, его словом, НЕ в этом слоте · work/2026-09-02-order-the-homeowner-balance-bench.md
 2026-09-01 · слот назначен после закрытия ноги про куклу: WIN-U2 стал AVAILABLE, аренда none — проверено в общем реестре. Свободен также WIN-U4. Наряд несёт названную зависимость: мультиплеер стенда опирается на правку MPPM из ноги про удар, и если её нет в main — СТОП · history/2026-09-01-s-work-g-5a7c-two-lanes-need-one-bench-001.md
 END_OF_FILE: live/indie-game-development/cards/c-exec-g-5a7c-one-lab-he-can-set-up-himself-1-001.md
