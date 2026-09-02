@@ -6,6 +6,9 @@ asks: владелец
 opened: 2026-09-02
 source: history/2026-09-02-s-research-g-5a7c-fable-audit-001.md
 _pos: 126
+status: superseded
+superseded_by: idea-production-batch-after-wave-11-review-001
+at: 2026-09-02
 ---
 
 ## q
@@ -22,6 +25,7 @@ _pos: 126
 ## why_it_matters
 Этот production batch не блокирует текущую волну 11 и не открывает новую работу сейчас. Он возвращается владельцу после review волны, когда станет видно, какие решения действительно нужны для готового демо 5 октября и публичного демо 26 октября; до этого Direction продолжает уже утверждённые слоты без самостоятельного сочинения концепта.
 ## журнал
+2026-09-02 · Это не текущий вопрос владельцу: production batch отложен до review волны 11 и сохранён отдельной idea-карточкой без статуса блокера. · history/2026-09-02-s-repair-g-5a7c-current-contract-001.md
 2026-09-02 · Горячее состояние очищено: 11 бесхозных задач закрыты, Only Vermin Know вынесен, forecast/Fable-вопрос сжаты, basis волны закреплён · history/2026-09-02-s-repair-g-5a7c-hot-state-cleanup-001.md
 2026-09-02 · всеобъемлющий аудит и план до демо: ядро построено, оболочки петли для чужого игрока нет, октябрьский фестиваль вероятно потерян и это молчаливый перенос; 25 решений ждут его слова, план и сводка улик в work/ · history/2026-09-02-s-research-g-5a7c-fable-audit-001.md
-END_OF_FILE: live/indie-game-development/cards/q-fable-audit-decisions-2026-09-02.md
+END_OF_FILE: live/indie-game-development/cards/closed/q-fable-audit-decisions-2026-09-02.md

@@ -2,7 +2,9 @@
 id: q-what-concept-lab-must-answer-before-the-next-wave
 _kind: question
 _pos: 124
-status: sent
+status: superseded
+superseded_by: idea-next-wave-concept-lab-intake-001
+at: 2026-09-02
 ---
 
 ## question
@@ -19,6 +21,7 @@ status: sent
 Первые три и есть замкнутая система. Четвёртый и пятый меньше, но без них нет игры: сегодня заход
 не кончается, а хозяин не может сделать с мышью ничего.
 ## журнал
+2026-09-02 · Разовый список, отправленный 27 августа, заменён свежим точечным per-wave intake из Concept Lab после review волны 11; старое содержание не переносится как authority. · history/2026-09-02-s-repair-g-5a7c-current-contract-001.md
 2026-08-27 · отправлено владельцем, его словом «сообщение отправил»; шестая волна на ответы не заперта · history/2026-08-27-s-shape-g-5a7c-wave-6-001.md
 ## note
 **ОТПРАВЛЕНО ВЛАДЕЛЬЦЕМ 2026-08-27**, его словом «сообщение отправил». Ждём ответов; волна на них
@@ -35,4 +38,4 @@ Concept Lab на момент составления считался слома
 текстовый файл, называющий мебель, а не координаты, и маленькое в нём только содержимое, никогда
 машинерия.** Сохранена в preserve/codex-householder-animation-win-u2-local-20260826, файлы
 Assets/TunnelCrew/Scenarios/*.case.json.
-END_OF_FILE: live/indie-game-development/cards/q-what-concept-lab-must-answer-before-the-next-wave.md
+END_OF_FILE: live/indie-game-development/cards/closed/q-what-concept-lab-must-answer-before-the-next-wave.md

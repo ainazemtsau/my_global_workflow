@@ -4,6 +4,9 @@ _kind: decision
 about: g-5a7c
 asks: владелец
 _pos: 158
+status: superseded
+superseded_by: idea-next-wave-concept-lab-intake-001
+at: 2026-09-02
 ---
 
 ## q
@@ -51,6 +54,7 @@ _pos: 158
 `the-householder-is-not-a-target-for-the-impulse`: хозяин не цель импульса, значит переделка нити
 и работа над хозяином — две независимые ветки. Вопрос блокирует только сам себя.
 ## журнал
+2026-09-02 · Direction больше не выбирает между концептуальными экспортами: следующая shape запрашивает свежий owner-approved immutable export у Concept Lab; прежний вопрос перебит новым носителем процесса. · history/2026-09-02-s-repair-g-5a7c-current-contract-001.md
 2026-09-01 · владелец сам назвал имя устаревшим, независимо от этой карточки: «этой нитью нашей, да, может, даже плохое название». Переименование Thread* отнесено в ту же волну, что и механика импульса — чтобы имя не пережило её ещё на волну · history/2026-09-01-s-work-g-5a7c-mouse-on-mouse-capture-001.md
 2026-08-30 · восьмая волна закрыта partial: машина построена и перемерена, а его рук на ней не было ни минуты; и найдено, почему нарезка не видела НИ ОДНОЙ живой задачи — поле _bet несло id волны вместо id цели, выпадали все 28 · history/2026-08-30-s-review-g-5a7c-wave-8-close-001.md
-END_OF_FILE: live/indie-game-development/cards/d-which-thread-document-is-the-contract-001.md
+END_OF_FILE: live/indie-game-development/cards/closed/d-which-thread-document-is-the-contract-001.md
