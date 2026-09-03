@@ -76,8 +76,23 @@ evidence:
   lens verdicts, five kill thresholds, 2026-09-13, no-number forecast and the
   contrary case. Full record:
   history/2026-08-13-s-solmax-zaratustra-health-shape-033.md.'
+- '2026-09-03: owner CLOSED bet-g-zara-health-vertical with verdict obsolete and
+  parked its node. His words, verbatim and complete: "Вердикт obsolete. Узел оставь
+  parked. Что сохраняем как улики — согласен, структуру не переносим. Замечание про
+  провал формы запиши как есть. Закрывай ставку и выдавай наряд на frame." Read as:
+  (1) verdict obsolete on the bet — grounded in his 2026-09-03 decision that
+  Zaratustra is a clean successor product ("Нужен чистый проект… я хочу именно с
+  нуля начать… Workflow не остаётся как есть. Это железобетонно."), recorded in
+  work/zaratustra-v2-plan-2026-09-03.md §0; (2) node g-zara-health-vertical status
+  active -> parked, this being the owner approval required by G9 for a node-card
+  change; (3) the three salvage items are kept as evidence only, with no structure
+  carried forward; (4) the failure-of-form finding is recorded verbatim in the bet
+  card''s verdict block rather than softened. Nodes 2-6 and g-operating-substrate
+  were NOT touched — their disposition belongs to map. Full record:
+  history/2026-09-03-s-solmax-zaratustra-v2-review-053.md.'
 ```
 ## журнал
+2026-09-03 · Ставка «Первый полезный Health-срез» закрыта вердиктом obsolete словами владельца: met/killed/partial проверены опровержением и отпали — ни один из пяти порогов не сработал, дата 13.09 не наступила, порог 3 перепроверен первыми руками (поиск Health по src/ на 53a52cd дал ноль), а построенное не уцелевает по §9/§11/§12 плана и потому не partial; по его прямому указанию записана неожиданность — 21 день, 18 ног, 5 из 8 задач, ноль видимой пользы и ноль его запусков, провал сменил вид (194 зелёных теста вместо пустых docs/), но не результат, и правило §11 плана этой ставкой оплачено, а не изобретено; три открытые задачи закрыты dropped без переноса, узел g-zara-health-vertical оставлен parked его словом, NOW.bet пуст, salvage записан тремя уликами без структуры, добавлено знание об измеренной цене тяжёлого закрытия против светлого; узлы 2-6 и operating-substrate не тронуты — их судьба в map; выдан наряд 054 на frame. · history/2026-09-03-s-solmax-zaratustra-v2-review-053.md
 2026-08-13 · shape закрыт и ставка активирована: владелец ответил на единственную открытую строку «вариант А» (сценарий «Свод дня» на его трёх настоящих июльских днях), до подписи поправил «тренировки тоже должны быть включены как я писал» — это переопределило done_when 8 наряда и решение сессии C5 и превратило линзу расширяемости из бумажного вердикта в измеряемый коммит с нулевым диффом внутри ставки, поставил границу старого пакета на свой токен («идеи и функционал, но не структуру») и подписал исправленный экран словом «да»; семь задач с проверкой главного допущения первой и видимым результатом последним, десять вырезов, шесть вердиктов по линзам, пять порогов и 13.09.2026, все шесть открытых строк перенесены поимённо, а продуктовый репозиторий оказался не заведён под код — его настройка заняла место, освободившееся от сворачивания его прогона в последнюю задачу · history/2026-08-13-s-solmax-zaratustra-health-shape-033.md
 2026-08-13 · converge repair rev2 on Health WHAT: owner placed Area creation in node 4 and kept node 1 authoring Health directly, replaced the localhost/external request reading with a procedure-capability discriminator and chose a minimal localhost action surface; multi-step, effect/spend and agent-buildability gaps closed, files/scripts widening cut; 48 answered/6 open, fresh verification opened · history/2026-08-13-s-solmax-zaratustra-health-converge-repair-029.md
 2026-08-13 · converge Health WHAT signed: thin shared Area-creation/context/web-writer spine exercised by Nutrition+Training Health; 43 answered/5 open/0 deferred, A1-A20 complete; fresh converge-verify opened · history/2026-08-13-s-solmax-zaratustra-health-converge-027.md

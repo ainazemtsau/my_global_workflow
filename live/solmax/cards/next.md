@@ -5,9 +5,9 @@ _pos: 0
 ---
 
 ## next
-CALL: live/solmax/work/calls/c-solmax-next-bet-selection-024.md
-
+CALL: live/solmax/work/calls/c-solmax-zaratustra-v2-frame-054.md
 ## журнал
+2026-09-03 · Ставка «Первый полезный Health-срез» закрыта вердиктом obsolete словами владельца: met/killed/partial проверены опровержением и отпали — ни один из пяти порогов не сработал, дата 13.09 не наступила, порог 3 перепроверен первыми руками (поиск Health по src/ на 53a52cd дал ноль), а построенное не уцелевает по §9/§11/§12 плана и потому не partial; по его прямому указанию записана неожиданность — 21 день, 18 ног, 5 из 8 задач, ноль видимой пользы и ноль его запусков, провал сменил вид (194 зелёных теста вместо пустых docs/), но не результат, и правило §11 плана этой ставкой оплачено, а не изобретено; три открытые задачи закрыты dropped без переноса, узел g-zara-health-vertical оставлен parked его словом, NOW.bet пуст, salvage записан тремя уликами без структуры, добавлено знание об измеренной цене тяжёлого закрытия против светлого; узлы 2-6 и operating-substrate не тронуты — их судьба в map; выдан наряд 054 на frame. · history/2026-09-03-s-solmax-zaratustra-v2-review-053.md
 2026-07-16 · terminal v26 Re-sync checkpoint; CALL 017 next · history/2026-07-16-s-solmax-operating-substrate-first-process-creator-t4-terminal-v26-resync-checkpoint-017.md
 2026-07-12 · repo-bootstrap checkpoint applied · history/2026-07-12-s-solmax-operating-substrate-first-process-creator-t2-repo-bootstrap-setup-001.md
 2026-07-10 · Q4 instantiation research complete; next architecture-forge · history/2026-07-10-s-solmax-operating-substrate-process-pack-instantiation-best-practice-research-001.md
