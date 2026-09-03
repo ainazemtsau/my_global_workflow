@@ -90,8 +90,32 @@ evidence:
   card''s verdict block rather than softened. Nodes 2-6 and g-operating-substrate
   were NOT touched — their disposition belongs to map. Full record:
   history/2026-09-03-s-solmax-zaratustra-v2-review-053.md.'
+- '2026-09-03: owner APPROVED the revised CHARTER whole. His word, verbatim and
+  complete: "да". Asked as a single yes/no on one displayed screen carrying the
+  three §9.2 changes, the new individual-use principle, the three replacement
+  success criteria in full text, the six consistency repairs, and the reconciled
+  root-node text. Read as: (1) Solmax is no longer an umbrella — Zaratustra is the
+  SUCCESSOR of workflow, a clean project from scratch, and workflow is switched off
+  after the move; (2) two repositories — public engine `zaratustra` plus a private
+  owner workspace from a public template, with the old product repo
+  github.com/ainazemtsau/zaratusta (locally C:\projects\zaratusta-product,
+  head 53a52cd) left as history; (3) the operating-substrate ROUTE is closed, its
+  role taken by Zaratustra''s core text (CORE.md) — node verdicts were NOT issued
+  here and belong to map; (4) strictly individual use enters Constraints — one
+  owner, one workspace, no teams/roles, multi-user never designed; (5) success
+  criteria SC1-SC3 replaced by: daily running of the game plus at least one life
+  area through Zaratustra over 30 consecutive days with workflow not the working
+  place; a stranger installing and upgrading it without us, proven by his own
+  report; and second expert/tool/surface/view added with an empty core diff; (6)
+  root node g-solmax goal/done_when/why reconciled to the same three criteria —
+  status untouched, no children created. His screen also carried, as a statement
+  rather than a question, that the map CALL is issued directly without a separate
+  map_evidence research leg because the evidence is his own approved plan; he did
+  not object. Full record:
+  history/2026-09-03-s-solmax-zaratustra-v2-frame-054.md.'
 ```
 ## журнал
+2026-09-03 · Устав ревизован по §9.2 плана и подписан его словом «да»: Zaratustra стала преемником workflow вместо ветви под зонтиком, записаны два репозитория с исправленным настоящим путём старого продукта (`C:\projects\zaratusta-product` с головой 53a52cd, а не значившийся в уставе `C:\projects\Zaratusta` без .git), ветка operating-substrate закрыта как маршрут без единого вердикта по её узлам, и в ограничения вошёл принцип строго индивидуального использования; прежние SC1-SC3 заменены тремя измеримыми — тридцать дней ведения игры и области жизни при выключенном workflow, чужая установка с обновлением без нас по его собственному отчёту, и пустой дифф ядра на четырёх добавлениях; шесть строк устава, ссылавшихся на удалённое или споривших с изменениями, перевязаны, пре-мортем вырос до девяти причин двумя провалами, которые сами изменения и порождают, а три гипотезы заменены собственными замерами (21 день и ноль его запусков; семь ног тяжёлого закрытия против полутора светлого); корневой узел сверен слово в слово с новыми критериями, дети не заведены и девять старых узлов не тронуты, tree_validity честно объявлен устаревшим до map; наряд 055 на map выдан напрямую без ноги сбора доказательств, и это записано оговоркой, а не как его отказ от них. · history/2026-09-03-s-solmax-zaratustra-v2-frame-054.md
 2026-09-03 · Ставка «Первый полезный Health-срез» закрыта вердиктом obsolete словами владельца: met/killed/partial проверены опровержением и отпали — ни один из пяти порогов не сработал, дата 13.09 не наступила, порог 3 перепроверен первыми руками (поиск Health по src/ на 53a52cd дал ноль), а построенное не уцелевает по §9/§11/§12 плана и потому не partial; по его прямому указанию записана неожиданность — 21 день, 18 ног, 5 из 8 задач, ноль видимой пользы и ноль его запусков, провал сменил вид (194 зелёных теста вместо пустых docs/), но не результат, и правило §11 плана этой ставкой оплачено, а не изобретено; три открытые задачи закрыты dropped без переноса, узел g-zara-health-vertical оставлен parked его словом, NOW.bet пуст, salvage записан тремя уликами без структуры, добавлено знание об измеренной цене тяжёлого закрытия против светлого; узлы 2-6 и operating-substrate не тронуты — их судьба в map; выдан наряд 054 на frame. · history/2026-09-03-s-solmax-zaratustra-v2-review-053.md
 2026-08-13 · shape закрыт и ставка активирована: владелец ответил на единственную открытую строку «вариант А» (сценарий «Свод дня» на его трёх настоящих июльских днях), до подписи поправил «тренировки тоже должны быть включены как я писал» — это переопределило done_when 8 наряда и решение сессии C5 и превратило линзу расширяемости из бумажного вердикта в измеряемый коммит с нулевым диффом внутри ставки, поставил границу старого пакета на свой токен («идеи и функционал, но не структуру») и подписал исправленный экран словом «да»; семь задач с проверкой главного допущения первой и видимым результатом последним, десять вырезов, шесть вердиктов по линзам, пять порогов и 13.09.2026, все шесть открытых строк перенесены поимённо, а продуктовый репозиторий оказался не заведён под код — его настройка заняла место, освободившееся от сворачивания его прогона в последнюю задачу · history/2026-08-13-s-solmax-zaratustra-health-shape-033.md
 2026-08-13 · converge repair rev2 on Health WHAT: owner placed Area creation in node 4 and kept node 1 authoring Health directly, replaced the localhost/external request reading with a procedure-capability discriminator and chose a minimal localhost action surface; multi-step, effect/spend and agent-buildability gaps closed, files/scripts widening cut; 48 answered/6 open, fresh verification opened · history/2026-08-13-s-solmax-zaratustra-health-converge-repair-029.md
