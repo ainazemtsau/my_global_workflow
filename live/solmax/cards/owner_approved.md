@@ -186,8 +186,68 @@ evidence:
   changing the substance of criterion 2. Full record:
 
   history/2026-09-04-s-solmax-zaratustra-v2-map-055.md.'
+- '2026-09-04: owner INSTRUCTED the charter repair and the push, verbatim and
+
+  complete: "почини устав и потом запуш сам". This is an instruction authorizing a
+
+  repair whose exact scope had been named to him in the immediately preceding
+
+  message — three stale places carrying the workspace template and "два
+
+  репозитория" — and NOT a signature on the new charter text, which he has not
+
+  seen at the moment of writing. Recorded that way deliberately: the substance of
+
+  every replacement line comes from words he had already given on 2026-09-04 and
+
+  which are quoted inside the charter itself, so nothing new enters the charter by
+
+  inference. The exact diff is shown to him in the closing message; one word from
+
+  him reverses any of it.
+
+
+  What changed, four places, substance of every criterion preserved:
+
+  (1) success criterion 2 — "по публичной инструкции создаёт своё приватное
+
+  рабочее место ИЗ ШАБЛОНА" became "по публичной инструкции движка ставит
+
+  Zaratustra в пустую папку"; the proof rule (his own report, our hint = failed
+
+  run) and the second-instance clause are untouched;
+
+  (2) the constraint "Два репозитория" became "Один публичный продукт", stating
+
+  that the place where a person keeps their content is theirs and the direction
+
+  neither designs, ships nor controls it, and that no public workspace template
+
+  exists — with his three quotes carried into the text;
+
+  (3) Canonical repos — the bullet "Шаблон рабочего места (публичный) и приватное
+
+  рабочее место владельца" was replaced by the statement that the owner''s own
+
+  place is NOT a repository of the direction;
+
+  (4) pre-mortem 6 mitigation — "личные данные живут только в приватном рабочем
+
+  месте" became "живут только там, где человек работает, и в публичный репозиторий
+
+  не попадают".
+
+
+  Nothing else in CHARTER.md was touched: mission, the other two success criteria,
+
+  lenses, edges, risk posture, outside view and the other eight pre-mortem reasons
+
+  are byte-identical. Full record:
+
+  history/2026-09-04-s-solmax-zaratustra-v2-charter-repair-057.md.'
 ```
 ## журнал
+2026-09-04 · Устав починен его указанием «почини устав»: критерий успеха 2 больше не держится на шаблоне рабочего места, «Два репозитория» стало «Один публичный продукт», пункт шаблона в Canonical repos заменён строкой о том, что место владельца репозиторием направления не является, и смягчение в пре-мортеме 6 перевязано; суть критериев не менялась, расхождение в tree_validity закрыто. · history/2026-09-04-s-solmax-zaratustra-v2-charter-repair-057.md
 2026-09-04 · Дерево целей перевыпущено под устав и одобрено его словом «да по всем»: семь целей волн 0-6 заведены parked с его пятиминутной проверкой строкой done_when у каждой, девять старых узлов закрыты dropped с причиной, tree_validity перевыпущен, правило «CORE.md это спека, converge OFF» легло блоком triage в каждую цель и отдельным знанием; выдан наряд 056 на shape волны 0. · history/2026-09-04-s-solmax-zaratustra-v2-map-055.md
 2026-09-03 · Устав ревизован по §9.2 плана и подписан его словом «да»: Zaratustra стала преемником workflow вместо ветви под зонтиком, записаны два репозитория с исправленным настоящим путём старого продукта (`C:\projects\zaratusta-product` с головой 53a52cd, а не значившийся в уставе `C:\projects\Zaratusta` без .git), ветка operating-substrate закрыта как маршрут без единого вердикта по её узлам, и в ограничения вошёл принцип строго индивидуального использования; прежние SC1-SC3 заменены тремя измеримыми — тридцать дней ведения игры и области жизни при выключенном workflow, чужая установка с обновлением без нас по его собственному отчёту, и пустой дифф ядра на четырёх добавлениях; шесть строк устава, ссылавшихся на удалённое или споривших с изменениями, перевязаны, пре-мортем вырос до девяти причин двумя провалами, которые сами изменения и порождают, а три гипотезы заменены собственными замерами (21 день и ноль его запусков; семь ног тяжёлого закрытия против полутора светлого); корневой узел сверен слово в слово с новыми критериями, дети не заведены и девять старых узлов не тронуты, tree_validity честно объявлен устаревшим до map; наряд 055 на map выдан напрямую без ноги сбора доказательств, и это записано оговоркой, а не как его отказ от них. · history/2026-09-03-s-solmax-zaratustra-v2-frame-054.md
 2026-09-03 · Ставка «Первый полезный Health-срез» закрыта вердиктом obsolete словами владельца: met/killed/partial проверены опровержением и отпали — ни один из пяти порогов не сработал, дата 13.09 не наступила, порог 3 перепроверен первыми руками (поиск Health по src/ на 53a52cd дал ноль), а построенное не уцелевает по §9/§11/§12 плана и потому не partial; по его прямому указанию записана неожиданность — 21 день, 18 ног, 5 из 8 задач, ноль видимой пользы и ноль его запусков, провал сменил вид (194 зелёных теста вместо пустых docs/), но не результат, и правило §11 плана этой ставкой оплачено, а не изобретено; три открытые задачи закрыты dropped без переноса, узел g-zara-health-vertical оставлен parked его словом, NOW.bet пуст, salvage записан тремя уликами без структуры, добавлено знание об измеренной цене тяжёлого закрытия против светлого; узлы 2-6 и operating-substrate не тронуты — их судьба в map; выдан наряд 054 на frame. · history/2026-09-03-s-solmax-zaratustra-v2-review-053.md
