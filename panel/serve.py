@@ -123,11 +123,11 @@ SECTIONS = [("dashboard", "СВОДКА"), ("slots", "СЛОТЫ"), ("waiting", 
             ("goals", "ЦЕЛИ"), ("ideas", "ИДЕИ"), ("history", "ИСТОРИЯ"), ("knowledge", "ЗНАНИЯ"),
             ("direction", "НАПРАВЛЕНИЕ")]
 
-# «СВОДКА» закрыта до отдельной работы: она станет приборной панелью с числами,
-# а не списком нарядов. Сегодняшний её вид врал — писал «можно запускать» про
-# наряд, который владелец уже запустил.
-READY_SECTIONS = ("slots", "waiting", "wave", "goals", "ideas", "history", "knowledge",
-                  "direction")
+# «СВОДКА» включена 2026-08-27 его словом «давай В». Она стоит ПЕРВОЙ в SECTIONS,
+# поэтому включение само делает её входным экраном направления: умолчание — первый
+# готовый раздел, отдельного имени в коде не заводится.
+READY_SECTIONS = ("dashboard", "slots", "waiting", "wave", "goals", "ideas", "history",
+                  "knowledge", "direction")
 
 CONTENT_TYPES = {".html": "text/html; charset=utf-8",
                  ".js": "application/javascript; charset=utf-8",
@@ -964,8 +964,17 @@ def section_numbers(direction, loaded):
     busy = {h.get("track") for h in heads
             if h.get("_kind") == "call" and h.get("track")
             and not is_done(h) and h.get("status") != "paused"}
-    waiting = sum(1 for h in heads if h.get("_kind") == "decision" and not is_done(h))
-    waiting += sum(1 for h in heads if h.get("_kind") == "question" and h.get("who") == "владелец")
+    # Ждёт ТЕБЯ — только ЖИВОЕ и только твоё. Закрытое решение уже не ждёт
+    # никого, а поле называется `asks`, не `who`: `who` не существует ни в
+    # схеме, ни в одной карточке, поэтому вопросы к владельцу считались нулём
+    # и молча — тот самый читатель, переживший свой источник. Пусто у `asks`
+    # значит владелец: у решения отвечающий по определению он.
+    def owed_to_owner(h):
+        return str(h.get("asks") or "владелец").lower() in ("владелец", "owner")
+    waiting = sum(1 for h in heads
+                  if h.get("_kind") in ("decision", "question")
+                  and not h.get("_closed") and not is_done(h)
+                  and owed_to_owner(h))
     bet = next((h for h in heads if h.get("_kind") == "bet"), None)
     opened = bet.get("opened") if bet is not None else None
     if isinstance(opened, datetime.datetime):
@@ -975,6 +984,210 @@ def section_numbers(direction, loaded):
             "tasks_total": len(tasks), "tracks_busy": len(busy),
             "tracks_limit": now_field(now, "track_wip_limit"),
             "waiting_for_you": waiting, "bet_days": bet_days}
+
+
+# СВОДКА. Окно «что сделано» — скользящие 30 дней, и это ПОДПИСАНО, а не выбрано
+# здесь: live/direction-os/knowledge/five-words-that-judge-the-summary.md, его слова
+# 2026-08-14 «ноги за окно, окно 30 дней». Календарный месяц отклонён там же.
+DASH_WINDOW_DAYS = 30
+# Статусы, которыми карточка говорит «стою». Ровно те, по которым раздел ЖДЁТ ТЕБЯ
+# метит группу СТОИТ (waiting_group) — второго определения «стоит» не заводим.
+DASH_STALLED = ("blocked", "waiting", "paused")
+
+
+def dash_block(bid, label, rows, how, gap=None, note=None, view_how=None):
+    """Один блок сводки. Число тут не живёт отдельно от способа счёта: линза 3
+    хартии и урок устава — число без названного способа фактом не является.
+
+    `gap` — ИСТОЧНИКА НЕТ, и сказано какого. `note` — источник есть; здесь
+    объясняется честный ноль или намеренно не показанная часть (объявленный рез).
+    Это разные вещи, и сливать их в одно поле значило бы прятать первое за вторым."""
+    return {"id": bid, "label": label, "rows": rows, "count": len(rows),
+            "how": how, "view_how": view_how or how,
+            "gap": gap, "note": note}
+
+
+def dash_age(direction, loaded):
+    """Возраст работы — ЧИСЛО, а не порог.
+
+    Аппетит был гейтом: он останавливал. Устав направления его не просил —
+    «срока тут нет, тормоз не про время, а про вход». Взамен экран показывает
+    два числа и молчит: сколько дней идёт ставка и сколько дней назад была
+    последняя нога. Ничто не умирает и не блокируется — судит владелец."""
+    today = datetime.date.today()
+    opened = None
+    for _cid, (h, _b) in loaded.items():
+        if h.get("_kind") == "bet" and not h.get("_closed"):
+            opened = h.get("opened")
+            break
+    if isinstance(opened, datetime.datetime):
+        opened = opened.date()
+    bet_days = (today - opened).days if isinstance(opened, datetime.date) else None
+
+    folder = os.path.join(LIVE_DIR, direction, "history")
+    names = sorted(f for f in os.listdir(folder) if f.endswith(".md"))         if os.path.isdir(folder) else []
+    last = None
+    for fname in names:
+        parsed = leg_from_name(fname)
+        if parsed is None:
+            continue
+        try:
+            day = datetime.date.fromisoformat(parsed["date"])
+        except ValueError:
+            continue
+        if last is None or day > last:
+            last = day
+    return {"bet_days": bet_days, "bet_opened": opened.isoformat() if opened else None,
+            "last_leg": last.isoformat() if last else None,
+            "quiet_days": (today - last).days if last else None,
+            "how": ("ставка идёт с даты `opened` её карточки; тишина — от даты последнего "
+                    "отчёта ноги в live/" + direction + "/history/. Это ЧИСЛА, а не пороги: "
+                    "устав направления срока не назначает")}
+
+
+def dash_running(direction, loaded, bet):
+    """ЧТО ИДЁТ: активный узел, живые задачи его ставки, наряды под запуск."""
+    rows = []
+    for cid, (h, b) in loaded.items():
+        if h.get("_closed"):
+            continue
+        kind = h.get("_kind")
+        if kind == "node" and h.get("status") == "active":
+            rows.append({"id": cid, "kind": kind, "what": "цель",
+                         "title": h.get("label") or value_of(h, b, "goal"),
+                         "status": h.get("status")})
+        elif kind == "task" and h.get("_bet") == bet and h.get("status") == "open":
+            rows.append({"id": cid, "kind": kind, "what": "задача",
+                         "title": value_of(h, b, "goal"), "status": h.get("status")})
+        elif kind == "call" and h.get("status") in ("ready", "running"):
+            rows.append({"id": cid, "kind": kind, "what": "наряд",
+                         "title": value_of(h, b, "description"), "status": h.get("status")})
+    rows.sort(key=lambda r: (r["what"], str(r["id"])))
+    how = ("узел со статусом active, задачи ставки " + (str(bet) or "?")
+           + " со статусом open и наряды со статусом ready|running — считано по одной "
+             "живой карточке live/" + direction + "/cards/; ставка взята из NOW.md")
+    note = None if bet else ("активной ставки нет: NOW.md направления прочитан и не "
+                             "называет bet, поэтому ноль строк — честный ноль данных")
+    view_how = ("активная цель, открытые задачи ставки и готовые или идущие наряды — "
+                "по живым карточкам и указателю")
+    return dash_block("running", "ЧТО ИДЁТ", rows, how, note=note,
+                      view_how=view_how)
+
+
+def dash_stalled(direction, loaded):
+    """ЧТО СТОИТ: факт остановки. Причина — объявленный рез, а не пропуск."""
+    rows = []
+    for cid, (h, b) in loaded.items():
+        if h.get("_closed") or h.get("status") not in DASH_STALLED:
+            continue
+        rows.append({"id": cid, "kind": h.get("_kind"), "status": h.get("status"),
+                     "title": h.get("label") or value_of(h, b, "description")
+                     or value_of(h, b, "goal"),
+                     "unblock": value_of(h, b, "unblock_when"),
+                     "waiting_on": value_of(h, b, "waiting_on"),
+                     "paused_by": value_of(h, b, "paused_by")})
+    rows.sort(key=lambda r: (status_rank(r["status"]), str(r["id"])))
+    how = ("живые карточки со статусом " + "|".join(DASH_STALLED)
+           + " — тот же признак, которым waiting_group метит группу СТОИТ; "
+             "считано по карточкам live/" + direction + "/cards/")
+    note = ("ПОЧЕМУ стоит — не показывается: рез 2 нарезки ставки g-one-screen. "
+            "Одно поле status отвечает на три вопроса разом, развязка ждёт "
+            "i-state-accepts-values-it-does-not-declare-001")
+    view_how = ("живые остановленные карточки — по тем же признакам, что использует "
+                "раздел «Ждёт тебя»")
+    return dash_block("stalled", "ЧТО СТОИТ", rows, how, note=note,
+                      view_how=view_how)
+
+
+def dash_done(direction, today=None):
+    """ЧТО СДЕЛАНО ЗА ОКНО: отчёты ног. Единица — одна нога, один файл."""
+    today = today or datetime.date.today()
+    first = today - datetime.timedelta(days=DASH_WINDOW_DAYS - 1)
+    folder = os.path.join(LIVE_DIR, direction, "history")
+    names = sorted(f for f in os.listdir(folder) if f.endswith(".md")) \
+        if os.path.isdir(folder) else []
+    commits = _history_commits(direction)
+    rows = []
+    for fname in names:
+        parsed = leg_from_name(fname)
+        if parsed is None:
+            continue
+        try:
+            day = datetime.date.fromisoformat(parsed["date"])
+        except ValueError:
+            continue
+        if day < first or day > today:
+            continue
+        with open(os.path.join(folder, fname), "rb") as fh:
+            play = play_from_text(fh.read(700).decode("utf-8", errors="replace"))
+        rows.append(history_row(fname, play, commits.get(fname), direction))
+    rows.sort(key=lambda r: (r["date"] or "", r["leg"] or ""), reverse=True)
+    how = ("отчёты ног = файлы live/" + direction + "/history/<дата>-<нога>.md; "
+           "окно скользящее, " + str(DASH_WINDOW_DAYS) + " дней, с " + first.isoformat()
+           + " по " + today.isoformat() + " включительно; дата берётся ИЗ ИМЕНИ файла, "
+             "то есть объявлена ногой, а не наблюдена; текст строки — сообщение коммита, "
+             "добавившего файл (git log --diff-filter=A)")
+    gap = None if os.path.isdir(folder) else ("папки live/" + direction
+                                              + "/history/ нет — отчётов ног взяться неоткуда")
+    view_how = ("отчёты ног за скользящие 30 дней; дата берётся из имени отчёта")
+    block = dash_block("done_in_window",
+                       "ЧТО СДЕЛАНО ЗА " + str(DASH_WINDOW_DAYS) + " ДНЕЙ",
+                       rows, how, gap=gap, view_how=view_how)
+    # Вид рисует ровно одну полосу активности. Границы окна приходят от того же
+    # расчёта, что отобрал строки: браузер не заводит второе определение «30 дней».
+    block["window"] = {"days": DASH_WINDOW_DAYS,
+                       "start": first.isoformat(), "end": today.isoformat()}
+    return block
+
+
+def dash_problems(direction, loaded):
+    """ПРОБЛЕМЫ — содержанием, а не одним числом: первая фраза самой записи."""
+    rows = []
+    for cid, (h, b) in loaded.items():
+        if h.get("_closed") or h.get("_kind") != "issue":
+            continue
+        text = block_text(b, "issue") or ""
+        first = next((ln.strip() for ln in text.split("\n") if ln.strip()), None)
+        rows.append({"id": cid, "text": first, "body": text,
+                     "level": h.get("level"),
+                     "route": h.get("route"), "review_when": value_of(h, b, "review_when"),
+                     "blocks": h.get("blocks")})
+    rows.sort(key=lambda r: str(r["id"]))
+    how = ("живые карточки вида issue из live/" + direction + "/cards/ (закрытые не в счёт); "
+           "строка — ПЕРВАЯ ФРАЗА блока `## issue` дословно из карточки, не пересказ и не число")
+    note = ("полный текст записи на входе не разворачивается — рез 3 нарезки; "
+            "чем группировать и в каком порядке — строка W17 набора, отдана PLAN")
+    view_how = ("живые записи проблем; строка — первая фраза их собственного текста")
+    return dash_block("problems", "ПРОБЛЕМЫ", rows, how, note=note,
+                      view_how=view_how)
+
+
+def dash_queue(direction, loaded):
+    """ЧТО ДАЛЬШЕ: цели, которые ждут своего хода, и его отложенные мысли.
+
+    Владелец 2026-08-27 назвал дыру своими словами: чтобы узнать, что лежит в
+    направлении, ему пришлось прийти и спросить. Сводка показывала текущую работу
+    и проблемы, а очередь — нет, и запаркованная цель была не видна нигде, кроме
+    отдельной страницы ЦЕЛЕЙ. Проблемы сюда НЕ дублируются: у них свой блок."""
+    rows = []
+    for cid, (h, b) in loaded.items():
+        if h.get("_closed"):
+            continue
+        kind = h.get("_kind")
+        if kind == "node" and h.get("status") in ("parked", "shaped"):
+            rows.append({"id": cid, "kind": kind, "what": "цель",
+                         "title": h.get("label") or value_of(h, b, "goal"),
+                         "status": h.get("status")})
+        elif kind == "idea":
+            rows.append({"id": cid, "kind": kind, "what": "идея",
+                         "title": value_of(h, b, "idea"), "status": None})
+    rows.sort(key=lambda r: (r["what"], str(r["id"])))
+    how = ("цели со статусом parked|shaped и живые карточки вида idea из live/"
+           + direction + "/cards/; корень дерева и активная цель сюда не попадают — "
+             "они в блоке ЧТО ИДЁТ, а записи о проблемах в своём блоке и не дублируются")
+    note = ("порядок и срок здесь не назначаются: очередь показывает, ЧТО ждёт, "
+            "а не когда за это возьмутся")
+    return dash_block("queue", "ЧТО ДАЛЬШЕ", rows, how, note=note)
 
 
 def section_dashboard(direction):
@@ -992,10 +1205,23 @@ def section_dashboard(direction):
         ready.sort(key=lambda o: (o["track"] or "", str(o["id"])))
         other.sort(key=lambda o: (status_rank(o["status"]), str(o["id"])))
         live_total = sum(1 for h, _ in loaded.values() if not h.get("_closed"))
+        bet = now_field(read_now(direction), "bet")
+        # Четыре блока сводки. Старый список нарядов (`ready`/`other`) пока едет
+        # рядом НАМЕРЕННО: его замена — задача t-one-screen-6, которая правит пять
+        # поверхностей одним шагом, включая приёмки, зашившие сегодняшнюю форму
+        # ответа. Убрать его здесь значило бы покраснить зелёное чужой задачей.
+        blocks = [dash_running(direction, loaded, bet),
+                  dash_stalled(direction, loaded),
+                  dash_done(direction),
+                  dash_problems(direction, loaded),
+                  dash_queue(direction, loaded)]
         return {"direction": direction, "cards_total": live_total,
                 "cards_closed": len(loaded) - live_total, "ready": ready,
                 "other": other, "unread": unread,
-                "numbers": section_numbers(direction, loaded)}
+                "numbers": section_numbers(direction, loaded),
+                "build": build_info(), "blocks": blocks,
+                "age": dash_age(direction, loaded),
+                "blocks_without_source": [b["id"] for b in blocks if b["gap"]]}
 
 
 class Handler(BaseHTTPRequestHandler):

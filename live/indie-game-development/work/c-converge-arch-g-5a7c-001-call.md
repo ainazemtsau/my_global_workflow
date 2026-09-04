@@ -73,3 +73,5 @@ return: |
   словами владельца под каждым подписанным выбором и подтверждением, что карточка не тронута.
 
 budget: одна нога
+
+END_OF_FILE: live/indie-game-development/work/c-converge-arch-g-5a7c-001-call.md

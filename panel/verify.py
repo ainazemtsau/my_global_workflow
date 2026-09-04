@@ -121,8 +121,8 @@ def step00() -> None:
             secs = [s.get("id") for s in d.get("sections", [])]
             check(secs == SECTIONS, f"{d.get('id')}: разделы в порядке {SECTIONS}, найдено {secs}")
             ready = [s.get("id") for s in d.get("sections", []) if s.get("ready")]
-            check(ready == ["slots", "waiting", "wave", "goals", "ideas", "history", "knowledge", "direction"],
-                  f"{d.get('id')}: готовы slots, waiting, wave, goals, ideas, history, knowledge, direction — найдено {ready}")
+            check(ready == ["dashboard", "slots", "waiting", "wave", "goals", "ideas", "history", "knowledge", "direction"],
+                  f"{d.get('id')}: готовы dashboard, slots, waiting, wave, goals, ideas, history, knowledge, direction — найдено {ready}")
 
         # негативный контроль: пустой ответ не должен считаться успехом
         check(len(json.dumps(state)) > 200, "ответ не пустая заглушка")
@@ -388,9 +388,15 @@ def step01c() -> None:
             "tracks_limit": now.get("track_wip_limit"),
             "tracks_busy": len({v[0].get("track") for v in calls.values()
                                 if v[0].get("track") and v[0].get("status") not in ("done", "paused")}),
-            "waiting_for_you": sum(1 for v in src.values() if v[0].get("_kind") == "decision")
-                               + sum(1 for v in src.values()
-                                     if v[0].get("_kind") == "question" and v[0].get("who") == "владелец"),
+            # Живое и только твоё: закрытое решение никого не ждёт, а отвечающий
+            # лежит в `asks` (поля `who` не существует — обе стороны читали его
+            # и обе получали ноль). Пусто у `asks` значит владелец.
+            "waiting_for_you": sum(
+                1 for v in src.values()
+                if v[0].get("_kind") in ("decision", "question")
+                and not v[0].get("_closed")
+                and v[0].get("status") != "done"
+                and str(v[0].get("asks") or "владелец").lower() in ("владелец", "owner")),
         }
         n = data.get("numbers") or {}
         for k, v in want_num.items():

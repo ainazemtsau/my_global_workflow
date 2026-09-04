@@ -112,3 +112,5 @@ return: |
   ничего сверх названного не тронуто.
 
 budget: одна нога
+
+END_OF_FILE: live/indie-game-development/work/c-map-g-5a7c-ui-line-removal-001-call.md

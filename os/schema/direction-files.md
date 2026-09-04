@@ -40,9 +40,11 @@ A card is a short YAML header between `---` lines, then `## <name>` body blocks,
 
 Every card carries a `## журнал` block: its own history, newest first, one line/≤2 short sentences per leg — `<date> · <what changed> · <history pointer or commit>`. It is an index, not a second summary; `osctl check` states the line count of a journal past 20 — as a fact, with no advice attached. The count is NOT stated for `node` and `bet`: the ceiling only means something where the card leaves hot state by its own `card close`, and those two are closed by `review` after several waves. Journals are append-only in every kind; there is no trim command and none is wanted, because a rewritable journal is a rewritable record.
 
+The canonical block always keeps every entry. Ordinary `osctl context` derives an unsaved reader-view from that same file: the whole current card with at most the five newest journal entries and the exact count of hidden earlier entries. Its listed path is provenance, not an instruction for OPEN to reread the full card. `word_counts.default_payload` measures the material handed to the ordinary session and `word_counts.full_sources` names the complete source size separately. A concrete historical question deliberately reads the one full canonical journal it needs with `osctl card show --id <id> --full-journal`. Neither reader writes a projection or changes state.
+
 Known head fields, one list for every kind — `osctl check` names any head field outside it and `card unset` removes it. It is a visibility rule, not a ban: forbidding unknown keys outright would break running legs, and the promise that they were "impossible" was false for six weeks while eight live tasks carried `order` beside `_pos` with different values.
 
-`id` · `_kind` · `_pos` · `_parent` · `_bet` · `status` · `label` · `hook` · `detail` · `by` · `outcome_kind` · `goal` · `why` · `appetite` · `kill_by` · `track` · `for` · `to` · `issued` · `call` · `description` · `description_by` · `label_by` · `opened` · `node` · `level` · `route` · `evidence` · `review_when` · `blocks` · `repo` · `engineering_contract` · `play` · `slot` · `basis` · `closed` · `cadence` · `lens` · `last_done` · `about` · `asks` · `from` · `source` · `parent` · `waiting_on` · `receipts` · `started` · `unblock_when` · `paused_by` · `note` · `superseded_by` · `at` · `updated` · `date`
+`id` · `_kind` · `_pos` · `_parent` · `_bet` · `status` · `label` · `hook` · `detail` · `by` · `outcome_kind` · `goal` · `why` · `appetite` · `kill_by` · `track` · `for` · `to` · `issued` · `call` · `description` · `description_by` · `label_by` · `opened` · `node` · `level` · `route` · `evidence` · `review_when` · `blocks` · `repo` · `engineering_contract` · `play` · `slot` · `basis` · `closed` · `cadence` · `lens` · `last_done` · `about` · `asks` · `from` · `source` · `parent` · `waiting_on` · `receipts` · `started` · `unblock_when` · `paused_by` · `note` · `superseded_by` · `at` · `updated` · `date` · `done_when` · `tasks`
 
 Terminal status `superseded` — this card was overtaken by another, which is a different fact from abandoned. It is written only by `repair`, only through `card close --status superseded --superseded-by <id>`, and the command refuses it without the successor: without naming what overtook it, the status says no more than `dropped`. It stamps `superseded_by` and `at`.
 
@@ -92,9 +94,9 @@ opened: <date>
 ## goal
 <recitation from the node card>
 ## appetite
-2w (started <date>)
+<the size of the shaped work — never legs, days or dates>
 ## kill_by
-<threshold + date/event>
+<threshold + event; a date only in his own words>
 ## forecast
 <earliest signal + expected observation>
 ## against
