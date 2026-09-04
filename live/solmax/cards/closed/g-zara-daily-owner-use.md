@@ -2,7 +2,7 @@
 id: g-zara-daily-owner-use
 _kind: node
 _parent: g-zara
-status: parked
+status: dropped
 label: Ежедневное управление и доказанная ценность
 hook: Локальный UI становится реально используемой поверхностью в трёх Areas.
 _pos: 4
@@ -46,6 +46,7 @@ The UI and handoffs may add bureaucracy. If Zaratustra takes more steps than it
 saves, automate the one proven high-friction transition or simplify the
 projection instead of growing a universal portal.
 ## журнал
+2026-09-04 · dropped — несущая посылка опровергнута §11 плана перехода: локальное веб-приложение не место работы, страница это смотрелка. Ежедневное использование меряет критерий успеха 1, поверхности строит волна 4, переезд — волна 6. · history/2026-09-04-s-solmax-zaratustra-v2-map-055.md
 2026-08-13 · converge repair rev2 on Health WHAT: owner placed Area creation in node 4 and kept node 1 authoring Health directly, replaced the localhost/external request reading with a procedure-capability discriminator and chose a minimal localhost action surface; multi-step, effect/spend and agent-buildability gaps closed, files/scripts widening cut; 48 answered/6 open, fresh verification opened · history/2026-08-13-s-solmax-zaratustra-health-converge-repair-029.md
 2026-08-13 · map Zaratustra finalized: owner-approved six-node 1→6 roadmap recorded with four evidence-backed boundaries, old unfinished operating-manager branch dropped, and Health converge opened as the sole frontier · history/2026-08-13-s-solmax-zaratustra-map-finalize-026.md
-END_OF_FILE: live/solmax/cards/g-zara-daily-owner-use.md
+END_OF_FILE: live/solmax/cards/closed/g-zara-daily-owner-use.md

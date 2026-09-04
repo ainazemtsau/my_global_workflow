@@ -115,6 +115,7 @@ designed manually from scratch and substrate would remain an
 architecture collection rather than a working process foundation.
 
 ## журнал
+2026-09-04 · dropped — вердикт подтверждён с причиной: узел брошен ещё 2026-07-20, а маршрут operating-substrate закрыт уставом 2026-09-03. Статус не менялся, закрытие оформлено. · history/2026-09-04-s-solmax-zaratustra-v2-map-055.md
 2026-07-20 · close expired first-process bet · history/2026-07-20-s-solmax-operating-substrate-first-process-creator-t7-final-review-024.md
 2026-07-17 · remove artificial guide and isolate test mode · history/2026-07-17-s-solmax-operating-substrate-first-process-creator-t6-t7-test-mode-repair-023.md
 2026-07-17 · activate Health Reclamation M2 · history/2026-07-17-s-solmax-operating-substrate-first-process-creator-t5-health-reclamation-m2-bounded-activation-022.md
@@ -135,4 +136,4 @@ architecture collection rather than a working process foundation.
 2026-07-13 · record accepted structural admissibility · history/2026-07-13-s-solmax-operating-substrate-first-process-creator-t3-owner-disposition-004.md
 2026-07-13 · record fresh G5 pass pending owner · history/2026-07-13-s-solmax-operating-substrate-first-process-creator-t2-autonomous-close-003.md
 …и ещё 9 раньше · git log --grep=g-operating-substrate-first-process-creator
-END_OF_FILE: live/solmax/cards/g-operating-substrate-first-process-creator.md
+END_OF_FILE: live/solmax/cards/closed/g-operating-substrate-first-process-creator.md

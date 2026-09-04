@@ -3,7 +3,7 @@ id: g-operating-substrate
 _kind: node
 _parent: g-solmax
 _pos: 1
-status: parked
+status: dropped
 ---
 
 ## goal
@@ -25,6 +25,7 @@ architecture route beside Zaratusta, while Zaratusta remains the
 first consumer/failure-case and evidence source.
 
 ## журнал
+2026-09-04 · dropped — маршрут закрыт уставом 2026-09-03; отдельного переиспользуемого субстрата направление не ведёт, его роль занял текст ядра продукта. Репозиторий остаётся историей. · history/2026-09-04-s-solmax-zaratustra-v2-map-055.md
 2026-07-20 · close expired first-process bet · history/2026-07-20-s-solmax-operating-substrate-first-process-creator-t7-final-review-024.md
 2026-07-17 · remove artificial guide and isolate test mode · history/2026-07-17-s-solmax-operating-substrate-first-process-creator-t6-t7-test-mode-repair-023.md
 2026-07-17 · activate Health Reclamation M2 · history/2026-07-17-s-solmax-operating-substrate-first-process-creator-t5-health-reclamation-m2-bounded-activation-022.md
@@ -45,4 +46,4 @@ first consumer/failure-case and evidence source.
 2026-07-13 · record accepted structural admissibility · history/2026-07-13-s-solmax-operating-substrate-first-process-creator-t3-owner-disposition-004.md
 2026-07-13 · record fresh G5 pass pending owner · history/2026-07-13-s-solmax-operating-substrate-first-process-creator-t2-autonomous-close-003.md
 …и ещё 27 раньше · git log --grep=g-operating-substrate
-END_OF_FILE: live/solmax/cards/g-operating-substrate.md
+END_OF_FILE: live/solmax/cards/closed/g-operating-substrate.md

@@ -2,7 +2,7 @@
 id: g-zara-governed-improvement
 _kind: node
 _parent: g-zara
-status: parked
+status: dropped
 label: Управляемое улучшение
 hook: Из реальных failures рождаются изменения только с owner activation и rollback.
 _pos: 5
@@ -47,5 +47,6 @@ The system may generate more proposals than value. If the review queue grows
 or most candidates fail to improve real work, retain structured issue capture
 but make improvement launches manual.
 ## журнал
+2026-09-04 · dropped — содержание перешло в волну 5 (g-zara-w5-upgrade): ключи проблем и порог повтора, работы «починить», версии инструкций со словом владельца и возвратом. · history/2026-09-04-s-solmax-zaratustra-v2-map-055.md
 2026-08-13 · map Zaratustra finalized: owner-approved six-node 1→6 roadmap recorded with four evidence-backed boundaries, old unfinished operating-manager branch dropped, and Health converge opened as the sole frontier · history/2026-08-13-s-solmax-zaratustra-map-finalize-026.md
-END_OF_FILE: live/solmax/cards/g-zara-governed-improvement.md
+END_OF_FILE: live/solmax/cards/closed/g-zara-governed-improvement.md

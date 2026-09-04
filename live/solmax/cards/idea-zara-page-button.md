@@ -1,7 +1,7 @@
 ---
 id: idea-zara-page-button
 _kind: idea
-about: g-zara-health-vertical
+about: g-zara-w4-surfaces
 from: владелец
 source: history/2026-08-28-s-solmax-zaratustra-surface-repair-043.md
 opened: 2026-08-28

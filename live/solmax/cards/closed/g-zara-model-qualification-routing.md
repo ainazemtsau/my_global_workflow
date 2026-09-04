@@ -2,7 +2,7 @@
 id: g-zara-model-qualification-routing
 _kind: node
 _parent: g-zara
-status: parked
+status: dropped
 label: Проверенная экономичная маршрутизация
 hook: Каждая операция использует самый дешёвый доказанно подходящий access path.
 _pos: 2
@@ -51,5 +51,6 @@ Maintaining benchmarks may cost more than routing saves. If qualification does
 not change real choices after several workflows, reduce it to a manually
 maintained allowed/recommended list with regression gates.
 ## журнал
+2026-09-04 · dropped — содержание перешло в волну 4 (g-zara-w4-surfaces): таблица уровней и исполнителей в реестре, дешёвая модель на сводках. Три отложенные идеи владельца перевешены туда же. · history/2026-09-04-s-solmax-zaratustra-v2-map-055.md
 2026-08-13 · map Zaratustra finalized: owner-approved six-node 1→6 roadmap recorded with four evidence-backed boundaries, old unfinished operating-manager branch dropped, and Health converge opened as the sole frontier · history/2026-08-13-s-solmax-zaratustra-map-finalize-026.md
-END_OF_FILE: live/solmax/cards/g-zara-model-qualification-routing.md
+END_OF_FILE: live/solmax/cards/closed/g-zara-model-qualification-routing.md

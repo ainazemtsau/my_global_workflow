@@ -2,7 +2,7 @@
 id: g-zara-health-vertical
 _kind: node
 _parent: g-zara
-status: parked
+status: dropped
 label: Первый полезный Health-срез
 hook: Один полезный неклинический Health workflow через локальный web UI.
 _pos: 0
@@ -63,6 +63,7 @@ workflow remains useless. Revisit the cut if three real runs yield no useful
 result, if the UI/metadata work grows faster than the vertical workflow, or if
 the legacy process is being wrapped rather than explicitly re-authored.
 ## журнал
+2026-09-04 · dropped — заменена целиком волной 3 (g-zara-w3-health). Новое слово владельца 2026-09-04: «health точно можно бросать, да». Оно снимает parked от 2026-09-03 и закрывает узел; улики ставки остаются в history/, структура не переносится. · history/2026-09-04-s-solmax-zaratustra-v2-map-055.md
 2026-09-03 · Ставка «Первый полезный Health-срез» закрыта вердиктом obsolete словами владельца: met/killed/partial проверены опровержением и отпали — ни один из пяти порогов не сработал, дата 13.09 не наступила, порог 3 перепроверен первыми руками (поиск Health по src/ на 53a52cd дал ноль), а построенное не уцелевает по §9/§11/§12 плана и потому не partial; по его прямому указанию записана неожиданность — 21 день, 18 ног, 5 из 8 задач, ноль видимой пользы и ноль его запусков, провал сменил вид (194 зелёных теста вместо пустых docs/), но не результат, и правило §11 плана этой ставкой оплачено, а не изобретено; три открытые задачи закрыты dropped без переноса, узел g-zara-health-vertical оставлен parked его словом, NOW.bet пуст, salvage записан тремя уликами без структуры, добавлено знание об измеренной цене тяжёлого закрытия против светлого; узлы 2-6 и operating-substrate не тронуты — их судьба в map; выдан наряд 054 на frame. · history/2026-09-03-s-solmax-zaratustra-v2-review-053.md
 2026-09-03 · план перехода на Zaratustra v2 записан словами владельца; ставка идёт на review нарядом 053 · history/2026-09-03-s-solmax-zaratustra-v2-plan-052.md
 2026-08-14 · гигиена карточек после ноги 033 по прямому указанию владельца «почини обе строки в ближайшей ноге»: указатели appetite и kill_by на карточке узла вели на несуществующий bet-g-zara-health-1 и теперь ведут на реальный bet-g-zara-health-vertical, а закрытый наряд shape-031 получил status: closed вместо остатка ready от закрытия без --status; ни одного смыслового поля, ни одной живой карточки и ни одной квитанции не тронуто, причина остатка найдена в osctl.py:797/1143 и вынесена во FRICTION · history/2026-08-14-s-solmax-zaratustra-health-card-hygiene-repair-034.md
@@ -74,4 +75,4 @@ the legacy process is being wrapped rather than explicitly re-authored.
 2026-08-13 · converge-verify FAIL on Health WHAT rev1: "multi-step" reaches no row and the Area-creation-in-node-1 timing rests on an unpreserved assent, not owner words; six rows returned to converge with named minimal repairs, backward-clean confirmed · history/2026-08-13-s-solmax-zaratustra-health-converge-verify-028.md
 2026-08-13 · converge Health WHAT signed: thin shared Area-creation/context/web-writer spine exercised by Nutrition+Training Health; 43 answered/5 open/0 deferred, A1-A20 complete; fresh converge-verify opened · history/2026-08-13-s-solmax-zaratustra-health-converge-027.md
 2026-08-13 · map Zaratustra finalized: owner-approved six-node 1→6 roadmap recorded with four evidence-backed boundaries, old unfinished operating-manager branch dropped, and Health converge opened as the sole frontier · history/2026-08-13-s-solmax-zaratustra-map-finalize-026.md
-END_OF_FILE: live/solmax/cards/g-zara-health-vertical.md
+END_OF_FILE: live/solmax/cards/closed/g-zara-health-vertical.md
