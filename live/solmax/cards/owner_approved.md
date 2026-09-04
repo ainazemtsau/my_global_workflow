@@ -245,8 +245,34 @@ evidence:
   are byte-identical. Full record:
 
   history/2026-09-04-s-solmax-zaratustra-v2-charter-repair-057.md.'
+- '2026-09-04: owner approved opening the wave-0 bet (g-zara-w0-core-text) with the exact
+  word "иду" on the simplified bet screen. Screen carried: what wave 0 is, what he gets (public
+  repo link, one CORE.md at five minutes reading, his yes-or-a-named-line), three highlighted
+  facts (nothing runs at the end of wave 0; the plan promised 2-3 chats and the cut gives ~5
+  with a hard stop at 8; repo name), and the explicit list of what the session decides alone
+  (2500-word ceiling, eight cuts, four tasks and their order, five kill thresholds, one line of
+  work at a time). Repo name ainazemtsau/zaratustra was offered as "silence taken as agreement"
+  and he answered "иду" without objection — recorded as SILENCE, not as his choice.'
+- '2026-09-04: owner instruction on the FORM of every future plan, verbatim: "Ты мне когда план
+  написываешь, написывай очень просто, очень понятно, и в том именно что я получу, как бы.
+  Потому что я не хочу читать описание текст, я говорю, у меня нет времени сильно анализировать.
+  То есть мне как бы это твоя забота будет. То есть я план согласовал глобально, я хочу, чтобы
+  вот по нему шло. То есть ты мне можешь подсвечивать какие-то конкретно важные моменты, на
+  которые стоит обратить внимание." Plus his admission that made it necessary: "я не понимаю,
+  что я вот, если честно, не знаю, что там за волна ноль, например. Я думал, что я определил."
+  The full bet screen stays mandatory and lives in the bet card; what he SEES is a short
+  what-you-get retelling with the few things worth his attention highlighted.'
+- '2026-09-04: owner correction that caught a real defect, verbatim: "А что будет в этом core.md
+  и если это описание проекта то почему не read me, и что значит что это за штука и как через
+  неё проходит мой день. Откуда там будет информация как проходит мой день, и это же не мой
+  личный репо это публичный." The session had proposed a walk-through of HIS day as the head
+  layer, against done_when 1 of the node (public repo, not a single personal fact). Corrected
+  before signature: the example day in CORE.md is DEPERSONALISED — abstract user, invented area,
+  zero personal data. README.md exists as a ~15-line shopfront; CORE.md is the constitution
+  inside the core manifest. Both recorded in bet-g-zara-w0-core-text owner_word.'
 ```
 ## журнал
+2026-09-04 · Волна 0 «Ядро текстом» открыта ставкой по его слову «иду»: аппетит 2500 слов назван до задач и обоснован тремя замерами (его же KERNEL.md — 1740 слов, источник §1-§7 плана — 1470, старый zaratusta без потолка — умер вечным черновиком), выбран подход «один читаемый документ, машина под ним» против двух отвергнутых, восемь вырезов с двумя настоящими потерями (CI и валидируемые схемы), вердикт по всем шести линзам, четыре задачи разрезаны по способу доказательства с проверкой главного допущения первой, пять порогов без дат; расхождение с планом (обещал 2-3 чата, выходит ~5) объявлено ему ДО подписи, а не на четвёртой ноге. Нога дважды переписала форму показа по его требованию «написывай очень просто, очень понятно, и в том именно что я получу», и его третий вопрос поймал настоящий дефект плана ноги: сессия предлагала головным слоем сценарий ЕГО дня в репозитории, чья первая строка приёмки требует ноль личных фактов — пример обезличен до подписи. Найдено расхождение корневого узла с починенным уставом, вынесено issue; выдан наряд 058 на первую задачу. · history/2026-09-04-s-solmax-zaratustra-v2-shape-w0-056.md
 2026-09-04 · Устав починен его указанием «почини устав»: критерий успеха 2 больше не держится на шаблоне рабочего места, «Два репозитория» стало «Один публичный продукт», пункт шаблона в Canonical repos заменён строкой о том, что место владельца репозиторием направления не является, и смягчение в пре-мортеме 6 перевязано; суть критериев не менялась, расхождение в tree_validity закрыто. · history/2026-09-04-s-solmax-zaratustra-v2-charter-repair-057.md
 2026-09-04 · Дерево целей перевыпущено под устав и одобрено его словом «да по всем»: семь целей волн 0-6 заведены parked с его пятиминутной проверкой строкой done_when у каждой, девять старых узлов закрыты dropped с причиной, tree_validity перевыпущен, правило «CORE.md это спека, converge OFF» легло блоком triage в каждую цель и отдельным знанием; выдан наряд 056 на shape волны 0. · history/2026-09-04-s-solmax-zaratustra-v2-map-055.md
 2026-09-03 · Устав ревизован по §9.2 плана и подписан его словом «да»: Zaratustra стала преемником workflow вместо ветви под зонтиком, записаны два репозитория с исправленным настоящим путём старого продукта (`C:\projects\zaratusta-product` с головой 53a52cd, а не значившийся в уставе `C:\projects\Zaratusta` без .git), ветка operating-substrate закрыта как маршрут без единого вердикта по её узлам, и в ограничения вошёл принцип строго индивидуального использования; прежние SC1-SC3 заменены тремя измеримыми — тридцать дней ведения игры и области жизни при выключенном workflow, чужая установка с обновлением без нас по его собственному отчёту, и пустой дифф ядра на четырёх добавлениях; шесть строк устава, ссылавшихся на удалённое или споривших с изменениями, перевязаны, пре-мортем вырос до девяти причин двумя провалами, которые сами изменения и порождают, а три гипотезы заменены собственными замерами (21 день и ноль его запусков; семь ног тяжёлого закрытия против полутора светлого); корневой узел сверен слово в слово с новыми критериями, дети не заведены и девять старых узлов не тронуты, tree_validity честно объявлен устаревшим до map; наряд 055 на map выдан напрямую без ноги сбора доказательств, и это записано оговоркой, а не как его отказ от них. · history/2026-09-03-s-solmax-zaratustra-v2-frame-054.md
