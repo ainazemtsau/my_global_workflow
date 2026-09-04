@@ -10,7 +10,7 @@ issued: 2026-09-03
 slot: WIN-U4
 repo: C:\projects\Unity\GasCoopGame_win-u4
 call: work/2026-09-03-call-cut-the-delivery-objective.md
-basis: eabb88db
+basis: b9f52095
 parent: c-exec-g-5a7c-three-fixes-in-an-hour-001
 description: Вырезать цель «вынести груз» — остаток отменённого концепта, живущий
   в игровой сцене

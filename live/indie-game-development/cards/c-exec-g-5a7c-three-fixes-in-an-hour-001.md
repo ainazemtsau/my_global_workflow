@@ -5,7 +5,7 @@ _bet: g-5a7c
 track: стабилизация
 play: work
 to: executor
-status: ready
+status: done
 issued: 2026-09-03
 slot: WIN-U4
 repo: C:\projects\Unity\GasCoopGame_win-u4

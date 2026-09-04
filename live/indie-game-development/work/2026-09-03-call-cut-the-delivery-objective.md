@@ -1,7 +1,7 @@
 # CALL: вырезать цель «вынести груз» — остаток отменённого концепта
 
 Слот: **WIN-U4** · репозиторий: `C:\projects\Unity\GasCoopGame_win-u4`
-Основание: `origin/main` = `eabb88db`. Берётся сразу после
+Основание: `origin/main` = `b9f52095`. Берётся сразу после
 `work/2026-09-03-call-three-fixes-in-an-hour.md`, в том же слоте.
 Решение владельца: `idea-owner-the-delivery-objective-is-cut-001`.
 
@@ -34,8 +34,12 @@
 | `Assets/StreamingAssets/TunnelCrew/Text/en.json` и `ru.json` | `delivery.objective`, `delivery.complete` |
 | сцены `IntegratedHouse.unity`, `MouseLab.unity`, `HouseholdLab.unity` | объекты точки доставки |
 
-**Перемерь сам перед резом.** Числа сняты направлением на `332488de`, а слияние стенда их могло
-сдвинуть.
+**ПЕРЕМЕРЬ САМ ПЕРЕД РЕЗОМ — ЭТО НЕ ВЕЖЛИВОСТЬ, ЭТО ПРАВИЛО.** Числа сняты направлением на
+`332488de`; с тех пор в `main` село больше десяти коммитов, и база этого наряда — `b9f52095`.
+Первый наряд стабилизации уже наступил на это: аудит заказал удалить `NetworkWalkerCourier.cs:839`,
+а строки там не оказалось — «fix cost zero lines, the audit had read a stale commit». Правило
+знания: `an-audit-finding-is-a-dated-guess-not-a-fact`. Протухла находка — скажи это числом в
+возврате, а не делай молча ноль строк.
 
 ## ЧТО ОСТАЁТСЯ И НЕ ТРОГАЕТСЯ — ЕГО СЛОВА
 
