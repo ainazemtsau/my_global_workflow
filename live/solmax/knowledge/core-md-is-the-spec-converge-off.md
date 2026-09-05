@@ -2,8 +2,10 @@
 id: core-md-is-the-spec-converge-off
 accepted: 2026-09-04
 read_by: solmax shape — при открытии ЛЮБОЙ цели волн 0-6, до выбора маршрута готовности; solmax map — при заведении новой цели
-status: current
+status: superseded
 ---
+
+> Superseded 2026-09-05: новый план владельца и `zaratustra-plan-2026-09-05-authority.md` заменили текстовую Wave 0. Правило ниже сохранено как provenance; его blanket triage не применяется к новому M0.
 
 # Спека любой цели solmax — это текст ядра; тяжёлый разбор не запускается
 
